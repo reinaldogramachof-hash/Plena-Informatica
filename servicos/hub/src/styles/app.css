@@ -22,6 +22,91 @@ a {
   color: inherit;
 }
 
+.institutional-page {
+  min-height: 100vh;
+  background: #061a35;
+}
+
+.institutional-header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: flex;
+  height: 80px;
+  padding: 0 max(1.5rem, calc((100vw - 1180px) / 2));
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid #edf1f5;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 8px 28px rgb(6 26 53 / 8%);
+  backdrop-filter: blur(18px);
+}
+
+.institutional-brand {
+  display: flex;
+  align-items: center;
+}
+
+.institutional-brand img {
+  display: block;
+  width: auto;
+  height: 190px;
+}
+
+.institutional-header nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.institutional-header nav a {
+  color: #475569;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.institutional-header nav a:hover {
+  color: #f26a1b;
+}
+
+.institutional-contact {
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.institutional-footer {
+  display: grid;
+  padding: 2.75rem max(1.5rem, calc((100vw - 1180px) / 2)) 1.75rem;
+  gap: 1.5rem;
+  border-top: 4px solid #f26a1b;
+  background: #030e1d;
+  color: #fff;
+  text-align: center;
+}
+
+.institutional-footer strong {
+  font-size: 1.7rem;
+  letter-spacing: 0.08em;
+}
+
+.institutional-footer strong span {
+  color: #f26a1b;
+}
+
+.institutional-footer p,
+.institutional-footer small {
+  margin-bottom: 0;
+  color: #94a3b8;
+}
+
 .hub-hero {
   padding: 5rem max(1.5rem, calc((100vw - 1180px) / 2));
   background:
@@ -214,7 +299,237 @@ a {
   line-height: 1.6;
 }
 
+.tool-page--qr {
+  min-height: auto;
+  padding-top: 2.75rem;
+  padding-bottom: 4rem;
+}
+
+.tool-page__header {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+}
+
+.tool-page__header .back-link {
+  margin-bottom: 2.75rem;
+}
+
+.tool-page__header h1 {
+  font-size: clamp(2.8rem, 6vw, 4.9rem);
+}
+
+.tool-page__header > p {
+  max-width: 650px;
+  margin: 1rem 0 0;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.qr-tool {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 28px;
+  background: #f4f7fb;
+  color: #132238;
+}
+
+.qr-tool__intro {
+  max-width: 670px;
+  margin-bottom: 1.5rem;
+}
+
+.qr-tool__intro h2 {
+  margin: 0;
+  color: #061a35;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.qr-tool__intro p {
+  margin: 0.75rem 0 0;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.qr-tool__workspace {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 1.25rem;
+}
+
+.qr-form,
+.qr-preview {
+  min-width: 0;
+  padding: clamp(1.15rem, 2.5vw, 1.65rem);
+  border: 1px solid #dde5ee;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.qr-mode-list {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.qr-mode-list button {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #dbe3ec;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #475569;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.qr-mode-list button.is-active {
+  border-color: #f26a1b;
+  background: #f26a1b;
+  color: #fff;
+}
+
+.qr-fields {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.qr-fields label {
+  display: grid;
+  min-width: 0;
+  gap: 0.5rem;
+  color: #334155;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.qr-fields input,
+.qr-fields select,
+.qr-fields textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #fff;
+  color: #132238;
+  font: inherit;
+}
+
+.qr-fields textarea {
+  resize: vertical;
+}
+
+.qr-fields input:focus,
+.qr-fields select:focus,
+.qr-fields textarea:focus {
+  border-color: #f26a1b;
+  outline: 3px solid rgb(242 106 27 / 15%);
+}
+
+.qr-fields .qr-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.qr-checkbox input {
+  width: 1rem;
+  height: 1rem;
+}
+
+.qr-form [role="alert"] {
+  margin: 1rem 0 0;
+  color: #b91c1c;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.qr-submit {
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 0;
+  border-radius: 12px;
+  background: #061a35;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.qr-submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.qr-local-note {
+  margin: 1rem 0 0;
+  color: #64748b;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.qr-local-note strong {
+  display: block;
+  color: #0f766e;
+}
+
+.qr-preview {
+  display: grid;
+  min-height: 330px;
+  align-content: center;
+  justify-items: center;
+  gap: 1.25rem;
+}
+
+.qr-preview img {
+  display: block;
+  width: min(100%, 320px);
+  height: auto;
+  border-radius: 12px;
+}
+
+.qr-preview > a {
+  color: #ea580c;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.qr-preview__empty {
+  text-align: center;
+}
+
+.qr-preview__empty span {
+  display: grid;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto;
+  place-items: center;
+  border: 2px dashed #cbd5e1;
+  border-radius: 20px;
+  color: #cbd5e1;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.qr-preview__empty p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
 @media (max-width: 850px) {
+  .institutional-header nav {
+    display: none;
+  }
+
   .section-heading {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -223,9 +538,27 @@ a {
   .tool-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .qr-tool__workspace {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
+  .institutional-header {
+    height: 68px;
+    padding-inline: 1rem;
+  }
+
+  .institutional-brand img {
+    height: 150px;
+  }
+
+  .institutional-contact {
+    padding: 0.65rem 0.8rem;
+    font-size: 0.62rem;
+  }
+
   .hub-hero {
     padding-top: 2rem;
   }
@@ -236,5 +569,22 @@ a {
 
   .tool-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tool-page--qr {
+    padding-inline: 1rem;
+  }
+
+  .tool-page__header .back-link {
+    margin-bottom: 4rem;
+  }
+
+  .qr-tool {
+    padding-inline: 1rem;
+  }
+
+  .qr-form,
+  .qr-preview {
+    padding-inline: 1rem;
   }
 }

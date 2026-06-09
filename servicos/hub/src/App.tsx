@@ -1,12 +1,14 @@
 import { HashRouter, Link, Navigate, Route, Routes, useParams } from 'react-router-dom'
 
+import { InstitutionalShell } from './app/InstitutionalShell'
 import { getToolBySlug, toolRegistry } from './app/tool-registry'
+import { QrCodeTool } from './features/tools/qr-code/ui/QrCodeTool'
 import './styles/app.css'
 
 const statusLabel = {
   planned: 'Em breve',
-  building: 'Em construcao',
-  available: 'Disponivel',
+  building: 'Em construção',
+  available: 'Disponível',
 } as const
 
 function ToolCatalog() {
@@ -14,12 +16,12 @@ function ToolCatalog() {
     <main>
       <section className="hub-hero">
         <a className="brand" href="../servicos.html">
-          Plena Informatica
+          Plena Informática
         </a>
-        <span className="eyebrow">Hub de Solucoes Digitais</span>
+        <span className="eyebrow">Hub de Soluções Digitais</span>
         <h1>Ferramentas simples, seguras e sob seu controle.</h1>
         <p>
-          A base modular do novo Hub esta pronta. Cada ferramenta sera liberada
+          A base modular do novo Hub está pronta. Cada ferramenta será liberada
           individualmente conforme o roadmap.
         </p>
       </section>
@@ -31,8 +33,8 @@ function ToolCatalog() {
             <h2 id="catalog-title">Ferramentas planejadas</h2>
           </div>
           <p>
-            Processamento local sempre que possivel e conta opcional apenas
-            quando houver beneficio para o usuario.
+            Processamento local sempre que possível e conta opcional apenas
+            quando houver benefício para o usuário.
           </p>
         </div>
 
@@ -48,13 +50,13 @@ function ToolCatalog() {
               <dl>
                 <div>
                   <dt>Processamento</dt>
-                  <dd>{tool.processing === 'local' ? 'Local' : 'Hibrido'}</dd>
+                  <dd>{tool.processing === 'local' ? 'Local' : 'Híbrido'}</dd>
                 </div>
                 <div>
                   <dt>Conta</dt>
                   <dd>
                     {tool.accountRequirement === 'none'
-                      ? 'Nao exige'
+                      ? 'Não exige'
                       : 'Opcional'}
                   </dd>
                 </div>
@@ -68,12 +70,40 @@ function ToolCatalog() {
   )
 }
 
+function QrCodePage() {
+  const tool = getToolBySlug('qr-code')
+
+  if (!tool) {
+    return null
+  }
+
+  return (
+    <InstitutionalShell>
+      <main className="tool-page tool-page--qr">
+        <div className="tool-page__header">
+          <a className="back-link" href="../../servicos.html#ferramentas">
+            Voltar para ferramentas
+          </a>
+          <span className="eyebrow">{statusLabel[tool.status]}</span>
+          <h1>{tool.name}</h1>
+          <p>{tool.shortDescription}</p>
+        </div>
+        <QrCodeTool />
+      </main>
+    </InstitutionalShell>
+  )
+}
+
 function ToolPlaceholder() {
   const { slug = '' } = useParams()
   const tool = getToolBySlug(slug)
 
   if (!tool) {
     return <Navigate to="/" replace />
+  }
+
+  if (tool.slug === 'qr-code') {
+    return <QrCodePage />
   }
 
   return (
@@ -85,10 +115,10 @@ function ToolPlaceholder() {
       <h1>{tool.name}</h1>
       <p>{tool.shortDescription}</p>
       <div className="privacy-note">
-        <strong>Politica prevista</strong>
+        <strong>Política prevista</strong>
         <span>
           Processamento: {tool.processing}. Conta: {tool.accountRequirement}.
-          Persistencia: {tool.persistence}.
+          Persistência: {tool.persistence}.
         </span>
       </div>
     </main>
@@ -99,7 +129,8 @@ export default function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<ToolCatalog />} />
+        <Route path="/" element={<QrCodePage />} />
+        <Route path="/catalogo" element={<ToolCatalog />} />
         <Route path="/ferramentas/:slug" element={<ToolPlaceholder />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

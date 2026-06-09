@@ -9,6 +9,6 @@ export const qrCodeManifest: ToolManifest = {
   processing: 'local',
   accountRequirement: 'none',
   persistence: 'none',
-  status: 'building',
+  status: 'available',
   roadmapOrder: 1,
 }

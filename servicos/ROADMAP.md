@@ -26,9 +26,20 @@ Saida: base compilavel, sem autenticacao e sem conexao obrigatoria ao Supabase.
 
 Ordem:
 
-1. Gerador de QR Code.
+1. Gerador de QR Code. Entregue em 9 de junho de 2026.
 2. Imagens para PDF.
 3. Unificador de PDFs.
+
+### Gerador de QR Code
+
+Status: disponivel.
+
+- Modos: link, texto, WhatsApp, telefone, Wi-Fi e Pix Copia e Cola.
+- Validacao de entradas e limites no navegador.
+- Geracao e download PNG inteiramente locais.
+- Pagina dedicada integrada ao card da pagina principal.
+- Nenhum envio para a Plena ou para o Supabase.
+- Testes automatizados, lint, build, auditoria e validacao visual aprovados.
 
 Requisitos comuns:
 
