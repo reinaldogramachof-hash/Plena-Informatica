@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download: Guia Definitivo | Material Rico</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+    
+    /* Split Layout Styles */
+    .split-layout { display: flex; min-height: 100vh; width: 100%; flex-direction: column; }
+    @media (min-width: 1024px) { .split-layout { flex-direction: row; } }
+
+    /* Left Side: Dark & Editorial */
+    .left-panel {
+      background-color: #0f172a;
+      color: #f8fafc;
+      flex: 1.2;
+      padding: 4rem 2rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    @media (min-width: 1024px) { .left-panel { padding: 5rem 6rem; } }
+
+    .left-panel::after {
+      content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%;
+      background: radial-gradient(circle at 100% 50%, rgba(16, 185, 129, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Right Side: Bright & Conversion Focused */
+    .right-panel {
+      background-color: #ffffff;
+      flex: 1;
+      padding: 4rem 2rem;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+    }
+    @media (min-width: 1024px) { .right-panel { padding: 4rem; } }
+
+    .form-container {
+      width: 100%; max-width: 420px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 0.85rem 1rem;
+      color: #0f172a;
+      transition: all 0.2s;
+    }
+    .form-input:focus {
+      outline: none; border-color: #10b981; background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+    }
+
+    .btn-conversion {
+      width: 100%;
+      background-color: #10b981; /* Verde de conversão */
+      color: white;
+      font-weight: 800; font-size: 1rem;
+      padding: 1.1rem; border-radius: 0.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: all 0.2s; border: none; cursor: pointer;
+      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+    }
+    .btn-conversion:hover {
+      background-color: #059669; transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.5);
+    }
+    
+    .check-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
+    .check-icon { color: #10b981; font-size: 1.25rem; margin-top: 0.1rem; }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-emerald-200 selection:text-emerald-900">
+  
+  <main class="split-layout">
+    
+    <!-- LADO ESQUERDO: COPY -->
+    <section class="left-panel">
+      
+      <div class="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 w-max text-xs font-bold uppercase tracking-widest text-slate-300">
+        <i class="ph-fill ph-book-open text-emerald-400 text-lg"></i> Guia Gratuito
+      </div>
+
+      <h1 class="text-4xl lg:text-5xl xl:text-[3.5rem] font-black leading-tight tracking-tight mb-6">
+        A Arquitetura Ágil: <span class="text-emerald-400">Escalando Microsserviços</span>.
+      </h1>
+
+      <p class="text-lg text-slate-400 font-normal leading-relaxed mb-10 max-w-xl">
+        Descubra como os times mais eficientes do mundo organizam repositórios, bancos de dados e CI/CD para entregar novas features 5x mais rápido sem quebrar a produção.
+      </p>
+
+      <ul class="check-list text-slate-300">
+        <li>
+          <i class="ph-bold ph-check-circle check-icon"></i>
+          <div>
+            <strong class="block text-white mb-1">Padrões de Comunicação</strong>
+            <span class="text-sm text-slate-400 font-light">Quando usar mensageria assíncrona x requisições REST síncronas.</span>
+          </div>
+        </li>
+        <li>
+          <i class="ph-bold ph-check-circle check-icon"></i>
+          <div>
+            <strong class="block text-white mb-1">Segurança em Scale</strong>
+            <span class="text-sm text-slate-400 font-light">Autenticação centralizada e gestão de segredos em clusters Kubernetes.</span>
+          </div>
+        </li>
+        <li>
+          <i class="ph-bold ph-check-circle check-icon"></i>
+          <div>
+            <strong class="block text-white mb-1">Observabilidade Completa</strong>
+            <span class="text-sm text-slate-400 font-light">Templates de logs e métricas essenciais para identificar gargalos invisíveis.</span>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Prova social rodapé -->
+      <div class="mt-auto pt-10 border-t border-slate-800 flex items-center gap-4 text-sm font-bold">
+        <div class="flex -space-x-3">
+          <img src="https://i.pravatar.cc/100?img=1" class="w-10 h-10 rounded-full border-2 border-slate-900" alt="user">
+          <img src="https://i.pravatar.cc/100?img=2" class="w-10 h-10 rounded-full border-2 border-slate-900" alt="user">
+          <div class="w-10 h-10 rounded-full border-2 border-slate-900 bg-emerald-500 text-white flex items-center justify-center text-xs">+5k</div>
+        </div>
+        <p class="text-slate-400">Baixado por mais de 5.000 Engenheiros e CTOs.</p>
+      </div>
+    </section>
+
+
+    <!-- LADO DIREITO: FORMULÁRIO -->
+    <section class="right-panel">
+      <div class="form-container">
+        
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Receba o material.</h2>
+          <p class="text-slate-500 text-sm">Preencha os dados e enviaremos o PDF de 45 páginas direto para o seu e-mail corporativo.</p>
+        </div>
+
+        <form action="#" method="POST" class="flex flex-col gap-5">
+          <div>
+            <label for="name" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Primeiro Nome</label>
+            <input type="text" id="name" class="form-input" placeholder="João" required>
+          </div>
+          
+          <div>
+            <label for="email" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">E-mail Corporativo</label>
+            <input type="email" id="email" class="form-input" placeholder="nome@suaempresa.com.br" required>
+          </div>
+
+          <div>
+            <label for="role" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Qual seu cargo?</label>
+            <select id="role" class="form-input" required>
+              <option value="" disabled selected>Selecione seu nível...</option>
+              <option value="c_level">C-Level / Diretor</option>
+              <option value="manager">Gerente / Lead</option>
+              <option value="dev">Desenvolvedor Sênior</option>
+              <option value="other">Outro</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-conversion mt-2">
+            Baixar E-book Agora <i class="ph-bold ph-download-simple"></i>
+          </button>
+          
+          <div class="text-center mt-4 flex flex-col items-center gap-2">
+            <span class="flex items-center justify-center gap-1 text-xs text-slate-400"><i class="ph-fill ph-lock-key text-emerald-500"></i> Seus dados estão seguros conosco.</span>
+            <p class="text-[10px] text-slate-400 font-light max-w-xs">Ao solicitar este material você aceita receber conteúdos e ofertas educacionais. Você pode cancelar a qualquer momento.</p>
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

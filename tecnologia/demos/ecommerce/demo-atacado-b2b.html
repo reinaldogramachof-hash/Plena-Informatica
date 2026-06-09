@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce: Atacado B2B | Plena Informática</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #0f172a; }
+    
+    .table-row-hover { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .table-row-hover:hover { background-color: #f8fafc; transform: scale(1.002); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: relative; z-index: 10; border-radius: 0.5rem; }
+    
+    .custom-checkbox { accent-color: #2563eb; width: 1.125rem; height: 1.125rem; cursor: pointer; }
+    
+    .glass-header { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen selection:bg-blue-500 selection:text-white">
+
+  <!-- Header Corporativo -->
+  <header class="glass-header text-white border-b border-slate-800 sticky top-0 z-50 shadow-lg shadow-slate-900/10">
+    <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-10">
+        <span class="font-black text-2xl tracking-wide flex items-center gap-2">
+          <i class="ph-fill ph-buildings text-blue-500"></i>
+          <span class="text-white">DISTRIBUIDORA</span><span class="text-blue-500">PRO</span>
+        </span>
+        <div class="hidden lg:flex relative w-[400px] group">
+          <input type="text" placeholder="Digite o código SKU ou nome do produto..." title="Busca" aria-label="Busca" class="w-full bg-slate-800/50 border border-slate-700/50 rounded-lg py-2 pl-4 pr-10 text-sm focus:outline-none focus:bg-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-slate-400">
+          <i class="ph-bold ph-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-400 transition-colors"></i>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-6">
+        <div class="text-right hidden sm:block">
+          <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">CNPJ: 12.345.678/0001-90</p>
+          <p class="text-sm font-bold text-slate-200">Comercial Silva LTDA</p>
+        </div>
+        <div class="flex items-center gap-5 border-l border-slate-700 pl-6">
+          <div class="text-right hidden md:block">
+            <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Pedido Mínimo</p>
+            <p class="text-sm font-black text-slate-200">R$ 1.500,00</p>
+          </div>
+          <button title="Ver Pedido" aria-label="Ver Pedido" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center gap-3 transition-all shadow-lg shadow-blue-600/20 hover:shadow-blue-500/30 hover:-translate-y-0.5 border border-blue-500">
+            <i class="ph-bold ph-shopping-cart text-lg"></i>
+            <span>R$ 0,00</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-[1600px] mx-auto px-6 py-8 flex-1 w-full flex gap-8">
+    
+    <!-- Filtros Laterais -->
+    <aside class="w-64 hidden xl:block shrink-0" data-aos="fade-right">
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sticky top-24">
+        <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-100">
+          <h2 class="font-black text-slate-800 text-sm uppercase tracking-wider">Filtros</h2>
+          <button class="text-[10px] font-bold text-blue-600 hover:text-blue-700 uppercase">Limpar</button>
+        </div>
+        
+        <h3 class="font-bold text-sm text-slate-700 mb-3 flex items-center justify-between cursor-pointer group">
+          Categorias <i class="ph-bold ph-caret-down text-slate-400 group-hover:text-slate-600 transition-colors"></i>
+        </h3>
+        <ul class="space-y-2.5 mb-6 text-sm text-slate-600">
+          <li><label class="flex items-center gap-3 cursor-pointer group hover:text-slate-900 transition-colors"><input type="checkbox" class="custom-checkbox" checked> <span class="font-medium text-slate-900">Ferramentas Manuais</span></label></li>
+          <li><label class="flex items-center gap-3 cursor-pointer group hover:text-slate-900 transition-colors"><input type="checkbox" class="custom-checkbox"> <span>Elétrica</span></label></li>
+          <li><label class="flex items-center gap-3 cursor-pointer group hover:text-slate-900 transition-colors"><input type="checkbox" class="custom-checkbox"> <span>Hidráulica</span></label></li>
+          <li><label class="flex items-center gap-3 cursor-pointer group hover:text-slate-900 transition-colors"><input type="checkbox" class="custom-checkbox"> <span>Fixação</span></label></li>
+        </ul>
+
+        <h3 class="font-bold text-sm text-slate-700 mb-3 flex items-center justify-between cursor-pointer group pt-4 border-t border-slate-100">
+          Marcas <i class="ph-bold ph-caret-down text-slate-400 group-hover:text-slate-600 transition-colors"></i>
+        </h3>
+        <ul class="space-y-2.5 text-sm text-slate-600">
+          <li><label class="flex items-center gap-3 cursor-pointer group hover:text-slate-900 transition-colors"><input type="checkbox" class="custom-checkbox" checked> <span class="font-medium text-slate-900">Bosch</span></label></li>
+          <li><label class="flex items-center gap-3 cursor-pointer group hover:text-slate-900 transition-colors"><input type="checkbox" class="custom-checkbox"> <span>Makita</span></label></li>
+          <li><label class="flex items-center gap-3 cursor-pointer group hover:text-slate-900 transition-colors"><input type="checkbox" class="custom-checkbox"> <span>Tramontina</span></label></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Lista de Produtos B2B (Tabela) -->
+    <div class="flex-1 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+      
+      <!-- Top Actions -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900">Ferramentas Manuais</h1>
+          <p class="text-sm text-slate-500 font-medium">Exibindo 142 itens encontrados</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="flex items-center gap-2 bg-white border border-slate-200 hover:border-slate-300 text-slate-600 px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-sm"><i class="ph-bold ph-download-simple"></i> Baixar Tabela</button>
+          <div class="flex items-center bg-white border border-slate-200 rounded-lg p-1 shadow-sm">
+            <button class="p-1.5 bg-slate-100 text-blue-600 rounded" aria-label="Lista"><i class="ph-bold ph-list-dashes text-lg"></i></button>
+            <button class="p-1.5 text-slate-400 hover:text-slate-600 rounded transition-colors" aria-label="Grade"><i class="ph-bold ph-squares-four text-lg"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela -->
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-x-auto">
+        <table class="w-full text-left border-collapse min-w-[800px]">
+          <thead>
+            <tr class="bg-slate-50 text-xs font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200">
+              <th class="p-4 pl-6 w-10"><input type="checkbox" class="custom-checkbox" aria-label="Selecionar todos"></th>
+              <th class="p-4">Produto / SKU</th>
+              <th class="p-4 text-center">Emb. Master</th>
+              <th class="p-4 text-center hidden lg:table-cell">Estoque</th>
+              <th class="p-4 text-right">Preço Unit.</th>
+              <th class="p-4 text-center w-48">Quantidade</th>
+              <th class="p-4 w-20"></th>
+            </tr>
+          </thead>
+          <tbody class="text-sm divide-y divide-slate-100">
+            
+            <!-- Item 1 -->
+            <tr class="table-row-hover">
+              <td class="p-4 pl-6"><input type="checkbox" class="custom-checkbox"></td>
+              <td class="p-4">
+                <div class="flex gap-4 items-center">
+                  <div class="w-14 h-14 bg-slate-50 rounded-lg border border-slate-100 flex items-center justify-center shrink-0 shadow-inner">
+                    <img src="https://images.unsplash.com/photo-1540104539506-613d9c8cbac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Martelo" class="w-10 h-10 object-contain mix-blend-multiply">
+                  </div>
+                  <div>
+                    <p class="font-bold text-slate-900 line-clamp-2 leading-snug">Martelo Unha 25mm com Cabo de Madeira Envernizado</p>
+                    <p class="text-[11px] text-slate-500 font-mono mt-1 bg-slate-100 px-1.5 py-0.5 rounded w-fit">SKU: 40320/025</p>
+                  </div>
+                </div>
+              </td>
+              <td class="p-4 text-center">
+                <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md text-xs font-bold border border-slate-200">Cx c/ 12</span>
+              </td>
+              <td class="p-4 text-center hidden lg:table-cell">
+                <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full text-xs font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Alto
+                </span>
+              </td>
+              <td class="p-4 text-right">
+                <div class="text-xs text-slate-400 line-through font-medium">R$ 24,90</div>
+                <div class="font-black text-slate-900 text-base">R$ 18,50</div>
+              </td>
+              <td class="p-4">
+                <div class="flex flex-col items-center">
+                  <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm w-full">
+                    <button title="Diminuir" aria-label="Remover" class="w-10 h-9 bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-700 border-r border-slate-200 transition-colors"><i class="ph-bold ph-minus text-xs"></i></button>
+                    <input type="text" value="0" title="Quantidade" aria-label="Quantidade" class="w-full h-9 text-center text-sm font-black text-slate-900 focus:outline-none focus:bg-blue-50 focus:text-blue-700 transition-colors">
+                    <button title="Aumentar" aria-label="Adicionar" class="w-10 h-9 bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-700 border-l border-slate-200 transition-colors"><i class="ph-bold ph-plus text-xs"></i></button>
+                  </div>
+                  <div class="text-[10px] text-center text-slate-400 font-bold uppercase tracking-wider mt-1.5">Múltiplo de 12</div>
+                </div>
+              </td>
+              <td class="p-4 text-center pr-6">
+                <button title="Adicionar ao pedido" aria-label="Adicionar ao carrinho" class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all hover:shadow-md hover:-translate-y-0.5"><i class="ph-bold ph-plus text-lg"></i></button>
+              </td>
+            </tr>
+
+            <!-- Item 2 -->
+            <tr class="table-row-hover bg-blue-50/30">
+              <td class="p-4 pl-6"><input type="checkbox" class="custom-checkbox" checked></td>
+              <td class="p-4">
+                <div class="flex gap-4 items-center">
+                  <div class="w-14 h-14 bg-white rounded-lg border border-slate-100 flex items-center justify-center shrink-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Alicate" class="w-10 h-10 object-contain mix-blend-multiply">
+                  </div>
+                  <div>
+                    <p class="font-bold text-slate-900 line-clamp-2 leading-snug">Alicate Universal 8 Polegadas Isolado 1000V PRO</p>
+                    <p class="text-[11px] text-slate-500 font-mono mt-1 bg-white border border-slate-100 px-1.5 py-0.5 rounded w-fit">SKU: 41001/108</p>
+                  </div>
+                </div>
+              </td>
+              <td class="p-4 text-center">
+                <span class="bg-white text-slate-700 px-2.5 py-1 rounded-md text-xs font-bold border border-slate-200 shadow-sm">Cx c/ 6</span>
+              </td>
+              <td class="p-4 text-center hidden lg:table-cell">
+                <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full text-xs font-bold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Alto
+                </span>
+              </td>
+              <td class="p-4 text-right">
+                <div class="font-black text-slate-900 text-base">R$ 32,90</div>
+                <div class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded inline-block mt-1">-5% acima de 5 cx</div>
+              </td>
+              <td class="p-4">
+                <div class="flex flex-col items-center">
+                  <div class="flex items-center border-2 border-blue-500 rounded-lg overflow-hidden bg-white shadow-sm shadow-blue-500/20 w-full relative">
+                    <button title="Diminuir" aria-label="Remover" class="w-10 h-9 bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-700 border-r border-slate-200 transition-colors z-10"><i class="ph-bold ph-minus text-xs"></i></button>
+                    <input type="text" value="12" title="Quantidade" aria-label="Quantidade" class="w-full h-9 text-center text-sm font-black text-blue-700 bg-blue-50/50 focus:outline-none focus:bg-blue-100 transition-colors z-0">
+                    <button title="Aumentar" aria-label="Adicionar" class="w-10 h-9 bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-700 border-l border-slate-200 transition-colors z-10"><i class="ph-bold ph-plus text-xs"></i></button>
+                  </div>
+                  <div class="text-[10px] text-center text-slate-400 font-bold uppercase tracking-wider mt-1.5">Múltiplo de 6</div>
+                </div>
+              </td>
+              <td class="p-4 text-center pr-6">
+                <button title="Adicionado" aria-label="Adicionado ao carrinho" class="w-10 h-10 rounded-lg bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/30 hover:bg-emerald-600 transition-colors cursor-default"><i class="ph-bold ph-check text-lg"></i></button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+        
+        <!-- Batch Action Footer -->
+        <div class="p-4 border-t border-slate-200 bg-slate-50 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div class="text-sm font-bold text-slate-600">
+            <span class="text-blue-600">1 item</span> selecionado
+          </div>
+          <button class="w-full sm:w-auto bg-slate-900 hover:bg-black text-white px-8 py-3 rounded-lg font-bold text-sm transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            Adicionar Selecionados <i class="ph-bold ph-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 20 });
+  </script>
+</body>
+</html>

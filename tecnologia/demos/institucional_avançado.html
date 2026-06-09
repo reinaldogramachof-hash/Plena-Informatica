@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporation Solutions - Inovação e Resultados</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #0369a1;
+            --accent: #dc2626;
+            --success: #059669;
+            --light: #ffffff;
+            --dark: #0f172a;
+            --gray: #475569;
+            --gray-light: #f1f5f9;
+        }
+
+        [data-theme="dark"] {
+            --light: #0f172a;
+            --dark: #f8fafc;
+            --gray-light: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Mega Header */
+        .mega-header {
+            background: var(--light);
+            border-bottom: 1px solid #e2e8f0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            background: var(--gray-light);
+        }
+
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .header-main {
+            padding: 1rem 0;
+        }
+
+        .nav-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mega-menu {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.5rem 0;
+            text-decoration: none;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+
+        .dropdown-link:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Corporate */
+        .hero-corporate {
+            padding: 200px 0 100px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: white;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Clients */
+        .clients {
+            padding: 80px 0;
+            background: var(--gray-light);
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .client-logo {
+            height: 60px;
+            background: var(--gray);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .client-logo:hover {
+            opacity: 1;
+        }
+
+        /* Solutions */
+        .solutions {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .solution-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .solution-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .solution-features li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .solution-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            padding: 100px 0;
+            background: var(--gray-light);
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .case-image {
+            height: 250px;
+            background: var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-content {
+            padding: 2rem;
+        }
+
+        .case-category {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* CTA Corporate */
+        .cta-corporate {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Footer Corporate */
+        .footer-corporate {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 1024px) {
+            .mega-menu {
+                display: none;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mega Header -->
+    <header class="mega-header">
+        <div class="header-top">
+            <div class="container header-top-content">
+                <div class="contact-info">
+                    <span>📞 (11) 99999-9999</span>
+                    <span>✉️ contato@corporation.com</span>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">🌓</button>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container nav-main">
+                <div class="logo">
+                    <span>🏢</span>
+                    Corporation
+                </div>
+                <nav class="mega-menu">
+                    <div class="nav-item">
+                        <a href="#solutions" class="nav-link">Soluções</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-link">Consultoria Estratégica</a>
+                            <a href="#" class="dropdown-link">Transformação Digital</a>
+                            <a href="#" class="dropdown-link">Inovação Tecnológica</a>
+                            <a href="#" class="dropdown-link">Otimização de Processos</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#cases" class="nav-link">Cases</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#about" class="nav-link">Sobre Nós</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#contact" class="nav-link">Contato</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-corporate" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Empresa líder em consultoria corporativa</div>
+                <h1 class="hero-title">Inovação que Transforma Negócios</h1>
+                <p class="hero-subtitle">Soluções estratégicas e tecnológicas para empresas que buscam excelência operacional e crescimento sustentável</p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary">📞 Falar com Diretor</a>
+                    <a href="#cases" class="btn btn-secondary">📊 Ver Cases de Sucesso</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="clients">
+        <div class="container">
+            <div class="clients-grid">
+                <div class="client-logo">Empresa A</div>
+                <div class="client-logo">Empresa B</div>
+                <div class="client-logo">Empresa C</div>
+                <div class="client-logo">Empresa D</div>
+                <div class="client-logo">Empresa E</div>
+                <div class="client-logo">Empresa F</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Soluções Corporativas</h2>
+                <p class="section-subtitle">Estratégias personalizadas para desafios complexos</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">💼</div>
+                    <h3 class="solution-title">Consultoria Estratégica</h3>
+                    <p>Análise profunda do negócio e desenvolvimento de estratégias para crescimento e competitividade</p>
+                    <ul class="solution-features">
+                        <li>Análise de mercado e concorrência</li>
+                        <li>Planejamento estratégico</li>
+                        <li>Otimização de operações</li>
+                        <li>Gestão de mudança</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Saiba Mais</a>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🚀</div>
+                    <h3 class="solution-title">Transformação Digital</h3>
+                    <p>Modernização de processos e implementação de tecnologias para eficiência operacional</p>
+                    <ul class="solution-features">
+                        <li>Automação de processos</li>
+                        <li>Migração para nuvem</li>
+                        <li>Análise de dados avançada</li>
+                        <li>Implementação de IA</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="case-studies" id="cases">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cases de Sucesso</h2>
+                <p class="section-subtitle">Resultados reais para empresas reais</p>
+            </div>
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-image">[Case Image]</div>
+                    <div class="case-content">
+                        <div class="case-category">Indústria 4.0</div>
+                        <h3 class="case-title">Otimização de Produção em Multinacional</h3>
+                        <p>Implementação de sistema de gestão integrada resultando em aumento de 40% na produtividade</p>
+                        <div class="case-stats">
+                            <div class="stat">
+                                <div class="stat-value">40%</div>
+                                <div class="stat-label">Aumento Produtividade</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">R$ 2.5M</div>
+                                <div class="stat-label">Economia Anual</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">[Case Image]</div>
+                    <div class="case-content">
+                        <div class="case-category">Varejo Digital</div>
+                        <h3 class="case-title">Transformação Digital em Rede Varejista</h3>
+                        <p>Plataforma omnichannel integrada aumentando conversão em 65% e redução de custos</p>
+                        <div class="case-stats">
+                            <div class="stat">
+                                <div class="stat-value">65%</div>
+                                <div class="stat-label">Aumento Conversão</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">30%</div>
+                                <div class="stat-label">Redução Custos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-corporate" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para a Próxima Fase?</h2>
+                <p class="cta-subtitle">Agende uma reunião estratégica com nossos diretores e descubra como podemos transformar seu negócio</p>
+                <a href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma reunião com diretor" 
+                   class="btn btn-primary" target="_blank">
+                   👔 Reunião com Diretor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-corporate">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-col">
+                    <h3>Corporation Solutions</h3>
+                    <p style="color: #94a3b8; margin-bottom: 1rem;">Líder em consultoria estratégica e transformação digital para grandes empresas.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: white;">📘</a>
+                        <a href="#" style="color: white;">💼</a>
+                        <a href="#" style="color: white;">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Soluções</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Consultoria Estratégica</a></li>
+                        <li><a href="#">Transformação Digital</a></li>
+                        <li><a href="#">Inovação Tecnológica</a></li>
+                        <li><a href="#">Otimização de Processos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Empresa</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Equipe</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+                        <li><a href="mailto:contato@corporation.com">contato@corporation.com</a></li>
+                        <li><a href="#">Av. Faria Lima, 3500 - SP</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Corporation Solutions. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.body.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

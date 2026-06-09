@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novidades e Atualizações | SaaSPro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1f2937; }
+    .timeline-item { position: relative; padding-left: 3rem; border-left: 2px solid #f3f4f6; margin-bottom: 4rem; }
+    .timeline-dot { position: absolute; left: -0.5rem; top: 0.25rem; width: 1rem; height: 1rem; border-radius: 50%; background: #3b82f6; border: 4px solid white; box-shadow: 0 0 0 4px #eff6ff; }
+    .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .tag-new { background: #dbeafe; color: #1d4ed8; }
+    .tag-fix { background: #fef3c7; color: #b45309; }
+  </style>
+</head>
+<body class="antialiased">
+  
+  <header class="w-full p-6 border-b border-gray-100 bg-white sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <div class="font-bold text-xl tracking-tight">SaaS<span class="text-blue-500">Pro</span></div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm font-semibold text-gray-500 hover:text-gray-900">Roadmap</a>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-blue-700">Acessar App</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-5 py-20">
+    <div class="mb-16">
+      <h1 class="text-4xl md:text-5xl font-black mb-4">Changelog</h1>
+      <p class="text-gray-500 text-lg">Acompanhe as últimas novidades, integrações e melhorias da plataforma.</p>
+    </div>
+
+    <!-- Release 1 -->
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="text-sm font-semibold text-gray-400 mb-2">Outubro 2026</div>
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Automação com Inteligência Artificial (Copilot)</h2>
+      <div class="mb-6"><span class="tag tag-new">Novo Recurso</span></div>
+      
+      <img src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IA" class="w-full h-64 object-cover rounded-xl mb-6 shadow-sm border border-gray-100">
+      
+      <p class="text-gray-600 leading-relaxed mb-4">Agora você pode pedir para o nosso assistente criar fluxos de trabalho usando linguagem natural. Ao invés de arrastar e soltar dezenas de blocos, basta digitar: <em class="text-gray-900">"Sempre que um lead não responder o email por 3 dias, mude o status para Inativo"</em>.</p>
+      
+      <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-6">
+        <li>Acesso liberado para todos os usuários do plano Pro Business.</li>
+        <li>Suporte a comandos em português, inglês e espanhol.</li>
+        <li>Sugestões automáticas baseadas no comportamento da sua conta.</li>
+      </ul>
+    </div>
+
+    <!-- Release 2 -->
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background: #fbbf24; box-shadow: 0 0 0 4px #fef3c7;"></div>
+      <div class="text-sm font-semibold text-gray-400 mb-2">Setembro 2026</div>
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Otimização de Performance e Bugfixes no Dashboard</h2>
+      <div class="mb-6"><span class="tag tag-fix">Melhorias</span></div>
+      
+      <p class="text-gray-600 leading-relaxed mb-4">Reescrevemos nosso motor de renderização do dashboard principal. O tempo de carregamento de gráficos com mais de 100k linhas foi reduzido em 85%.</p>
+      <ul class="list-disc pl-5 text-gray-600 space-y-2">
+        <li>Corrigido erro que desconectava a sessão após 12h.</li>
+        <li>Gráficos de pizza agora suportam paleta de cores customizada.</li>
+        <li>Exportação em PDF gerada em background (não trava mais o navegador).</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

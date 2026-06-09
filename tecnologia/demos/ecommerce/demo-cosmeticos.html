@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce: Cosméticos & Beleza | Plena Informática</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Jost', sans-serif; background-color: #fffafb; color: #1a1a1a; overflow-x: hidden; }
+    h1, .serif-font { font-family: 'Playfair Display', serif; }
+    
+    .bg-rose-tint { background-color: #fdf2f8; }
+    
+    .btn-buy { background-color: #1a1a1a; color: white; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .btn-buy:hover { background-color: #f472b6; transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(244, 114, 182, 0.4); }
+    
+    .image-container { overflow: hidden; border-radius: 1.5rem; position: relative; }
+    .image-container img { transition: transform 0.8s ease; }
+    .image-container:hover img { transform: scale(1.05); }
+    
+    .glass-nav { background: rgba(255, 250, 251, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(244, 114, 182, 0.1); }
+    
+    .ingredient-card { transition: all 0.3s ease; border: 1px solid transparent; }
+    .ingredient-card:hover { border-color: #fbcfe8; background-color: white; transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #fbcfe8; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f472b6; }
+  </style>
+</head>
+<body class="antialiased selection:bg-pink-200 selection:text-pink-900">
+
+  <!-- Promo Bar -->
+  <div class="bg-rose-tint text-pink-900 text-[10px] tracking-[0.2em] uppercase text-center py-2.5 font-semibold relative z-50">
+    Fórmulas 100% Veganas | Cruelty Free
+  </div>
+
+  <!-- Header -->
+  <header class="py-5 px-6 glass-nav sticky top-0 z-40 transition-all duration-300">
+    <div class="max-w-[1400px] mx-auto flex items-center justify-between" data-aos="fade-down" data-aos-duration="800">
+      <div class="flex gap-4 items-center w-1/3">
+        <button title="Menu" aria-label="Menu" class="md:hidden text-gray-500 hover:text-black transition-colors"><i class="ph-light ph-list text-2xl"></i></button>
+        <nav class="hidden md:flex gap-8 text-[11px] font-semibold tracking-[0.15em] uppercase text-gray-500">
+          <a href="#" class="hover:text-pink-500 transition-colors">Skincare</a>
+          <a href="#" class="hover:text-pink-500 transition-colors">Maquiagem</a>
+          <a href="#" class="hover:text-pink-500 transition-colors">Corpo & Banho</a>
+        </nav>
+      </div>
+      
+      <div class="w-1/3 flex justify-center">
+        <div class="text-3xl font-light tracking-[0.25em] text-center serif-font text-gray-900">
+          GLOW.
+        </div>
+      </div>
+      
+      <div class="flex gap-6 justify-end items-center w-1/3 text-gray-500">
+        <button title="Buscar" aria-label="Buscar" class="hover:text-pink-500 transition-colors hover:scale-110 transform"><i class="ph-light ph-magnifying-glass text-xl"></i></button>
+        <button title="Entrar" aria-label="Conta" class="hidden sm:block hover:text-pink-500 transition-colors hover:scale-110 transform"><i class="ph-light ph-user text-xl"></i></button>
+        <button title="Sacola" aria-label="Carrinho" class="relative hover:text-pink-500 transition-colors hover:scale-110 transform group">
+          <i class="ph-light ph-handbag text-xl"></i>
+          <span class="absolute -top-1.5 -right-2 bg-pink-500 text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold group-hover:scale-110 transition-transform">1</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-[1400px] mx-auto px-6 py-12 md:py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+    
+    <!-- Image Gallery -->
+    <div class="flex flex-col gap-4 sticky top-32 h-fit">
+      <div class="image-container bg-rose-tint" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Badge -->
+        <span class="absolute top-5 left-5 bg-white/90 backdrop-blur text-pink-900 text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-sm z-10">Best Seller</span>
+        <button class="absolute top-5 right-5 text-gray-400 hover:text-pink-500 transition-colors z-10 bg-white/50 backdrop-blur w-10 h-10 rounded-full flex items-center justify-center"><i class="ph-fill ph-heart text-xl"></i></button>
+        
+        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sérum Facial" class="w-full h-[500px] lg:h-[650px] object-cover mix-blend-multiply">
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="flex flex-col justify-center py-6 lg:py-10" data-aos="fade-left" data-aos-duration="1000">
+      
+      <div class="flex items-center gap-2 mb-4 text-xs text-pink-400">
+        <div class="flex gap-0.5">
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i>
+        </div>
+        <span class="text-gray-400 font-medium ml-1 hover:text-gray-600 cursor-pointer underline decoration-dotted underline-offset-4">(428 avaliações)</span>
+      </div>
+
+      <h1 class="text-4xl lg:text-5xl mb-6 leading-[1.1] text-gray-900">Sérum Facial Vitamina C 20% + Ácido Hialurônico</h1>
+      
+      <p class="text-3xl font-medium mb-8 text-gray-900 flex items-center gap-4">
+        R$ 189,00
+        <span class="text-xs text-gray-400 font-normal uppercase tracking-widest bg-gray-100 px-3 py-1 rounded-full">Ou 3x de R$ 63,00</span>
+      </p>
+      
+      <p class="text-gray-500 text-lg leading-relaxed mb-10 font-light">
+        Um potente antioxidante que ilumina a pele, uniformiza o tom e reduz o aparecimento de linhas finas. Sua textura ultra leve de rápida absorção é perfeita para todos os tipos de pele, deixando um viço natural radiante sem aspecto oleoso.
+      </p>
+
+      <!-- Ingredientes Key (Cosméticos exigem isso) -->
+      <div class="mb-10">
+        <h3 class="font-bold text-xs uppercase tracking-[0.2em] text-gray-400 mb-4 flex items-center gap-2">
+          Ativos Principais
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="ingredient-card bg-rose-tint/50 p-4 rounded-2xl flex flex-col items-center text-center gap-2">
+            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-pink-500 shadow-sm"><i class="ph-fill ph-drop text-xl"></i></div>
+            <span class="font-semibold text-sm text-gray-900">Vitamina C 20%</span>
+            <span class="text-xs text-gray-500">Iluminação intensa</span>
+          </div>
+          <div class="ingredient-card bg-rose-tint/50 p-4 rounded-2xl flex flex-col items-center text-center gap-2">
+            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-400 shadow-sm"><i class="ph-fill ph-waves text-xl"></i></div>
+            <span class="font-semibold text-sm text-gray-900">Ácido Hialurônico</span>
+            <span class="text-xs text-gray-500">Hidratação profunda</span>
+          </div>
+          <div class="ingredient-card bg-rose-tint/50 p-4 rounded-2xl flex flex-col items-center text-center gap-2">
+            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-amber-500 shadow-sm"><i class="ph-fill ph-leaf text-xl"></i></div>
+            <span class="font-semibold text-sm text-gray-900">Vitamina E</span>
+            <span class="text-xs text-gray-500">Ação antioxidante</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compra -->
+      <div class="flex flex-col sm:flex-row gap-4 items-stretch mb-10">
+        <div class="flex items-center justify-between border border-gray-200 rounded-full h-14 px-2 w-full sm:w-32 bg-white shrink-0">
+          <button title="Diminuir" aria-label="Remover" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-black hover:bg-gray-50 transition-colors"><i class="ph-bold ph-minus text-xs"></i></button>
+          <span class="w-6 text-center font-semibold text-gray-900">1</span>
+          <button title="Aumentar" aria-label="Adicionar" class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:text-black hover:bg-gray-50 transition-colors"><i class="ph-bold ph-plus text-xs"></i></button>
+        </div>
+        <button title="Comprar" aria-label="Adicionar à sacola" class="flex-1 btn-buy h-14 rounded-full font-bold tracking-[0.2em] uppercase text-xs flex items-center justify-center gap-3">
+          Adicionar à Sacola <i class="ph-bold ph-arrow-right"></i>
+        </button>
+      </div>
+      
+      <!-- Accordions -->
+      <div class="border-t border-gray-100">
+        <div class="py-5 border-b border-gray-100 flex justify-between items-center cursor-pointer group">
+          <span class="text-sm font-semibold uppercase tracking-widest text-gray-900">Como Usar</span>
+          <i class="ph-bold ph-plus text-gray-400 group-hover:text-pink-500 transition-colors"></i>
+        </div>
+        <div class="py-5 border-b border-gray-100 flex justify-between items-center cursor-pointer group">
+          <span class="text-sm font-semibold uppercase tracking-widest text-gray-900">Lista de Ingredientes Completa</span>
+          <i class="ph-bold ph-plus text-gray-400 group-hover:text-pink-500 transition-colors"></i>
+        </div>
+        <div class="py-5 border-b border-gray-100 flex justify-between items-center cursor-pointer group">
+          <span class="text-sm font-semibold uppercase tracking-widest text-gray-900">Envio e Devoluções</span>
+          <i class="ph-bold ph-plus text-gray-400 group-hover:text-pink-500 transition-colors"></i>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 50 });
+  </script>
+</body>
+</html>

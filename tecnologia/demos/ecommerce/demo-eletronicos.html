@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce: Eletrônicos & Tech | Plena Informática</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
+    .nav-bg { background-color: #0f172a; color: white; }
+    
+    .tech-card { background: white; border: 1px solid #e2e8f0; border-radius: 1rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .tech-card:hover { border-color: #cbd5e1; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01); transform: translateY(-4px); z-index: 10; }
+    
+    .thumb-img { transition: all 0.2s; border: 2px solid transparent; }
+    .thumb-img:hover { border-color: #cbd5e1; }
+    .thumb-img.active { border-color: #3b82f6; }
+    
+    .btn-buy { background: linear-gradient(135deg, #2563eb, #1d4ed8); transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(37,99,235,0.3); }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f8fafc; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="nav-bg sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <span class="font-black text-2xl tracking-tight flex items-center gap-2"><i class="ph-fill ph-lightning text-blue-500"></i> TECH<span class="text-blue-500">ZONE</span></span>
+        <div class="hidden md:flex relative group">
+          <input type="text" placeholder="Buscar smartphones, notebooks..." class="w-96 pl-10 pr-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all">
+          <i class="ph-bold ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-hover:text-blue-400 transition-colors"></i>
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hidden md:flex items-center gap-2 text-sm font-semibold hover:text-blue-400 transition-colors"><i class="ph-bold ph-user text-lg"></i> Entrar</a>
+        <a href="#" class="relative flex items-center gap-2 text-sm font-semibold hover:text-blue-400 transition-colors group">
+          <i class="ph-bold ph-shopping-cart text-2xl group-hover:scale-110 transition-transform"></i>
+          <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow-lg shadow-blue-500/50">1</span>
+        </a>
+      </div>
+    </div>
+    <!-- Subnav -->
+    <div class="border-t border-slate-800 hidden md:block bg-slate-900/50 backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto px-6 flex items-center gap-8 text-sm font-medium text-slate-300 h-10">
+        <a href="#" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="ph-fill ph-list"></i> Departamentos</a>
+        <a href="#" class="hover:text-white transition-colors">Smartphones</a>
+        <a href="#" class="hover:text-white transition-colors">Notebooks</a>
+        <a href="#" class="hover:text-white transition-colors">Hardware</a>
+        <a href="#" class="hover:text-white transition-colors">Periféricos</a>
+        <a href="#" class="text-red-400 hover:text-red-300 font-bold ml-auto transition-colors">Ofertas do Dia</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Breadcrumb -->
+      <div class="text-sm text-slate-500 mb-6 flex items-center gap-2 font-medium" data-aos="fade-right">
+        <a href="#" class="hover:text-blue-600 transition-colors">Home</a> <i class="ph-bold ph-caret-right text-[10px]"></i> <a href="#" class="hover:text-blue-600 transition-colors">Smartphones</a> <i class="ph-bold ph-caret-right text-[10px]"></i> <span class="text-slate-800">Phone X Pro Max 256GB</span>
+      </div>
+
+      <!-- Main Product Area -->
+      <div class="tech-card p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-10 mb-8" data-aos="fade-up">
+        
+        <!-- Galeria -->
+        <div class="flex flex-col gap-4">
+          <div class="bg-white border border-slate-100 rounded-xl p-8 flex items-center justify-center relative overflow-hidden group">
+            <span class="absolute top-4 left-4 bg-emerald-100 text-emerald-700 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-md border border-emerald-200 z-10"><i class="ph-bold ph-tag"></i> Em Estoque</span>
+            <button class="absolute top-4 right-4 text-slate-300 hover:text-red-500 transition-colors z-10 hover:scale-110"><i class="ph-fill ph-heart text-2xl"></i></button>
+            <img src="https://images.unsplash.com/photo-1592899677974-c466c4f1e9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Phone X Pro Max" class="w-64 h-auto object-contain group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <div class="grid grid-cols-4 gap-3">
+            <div class="bg-white border border-slate-200 rounded-lg p-2 cursor-pointer thumb-img active"><img src="https://images.unsplash.com/photo-1592899677974-c466c4f1e9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Thumb 1" class="w-full h-16 object-contain"></div>
+            <div class="bg-white border border-slate-200 rounded-lg p-2 cursor-pointer thumb-img"><img src="https://images.unsplash.com/photo-1603184017968-953f589db432?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Thumb 2" class="w-full h-16 object-contain"></div>
+            <div class="bg-white border border-slate-200 rounded-lg p-2 cursor-pointer thumb-img"><img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Thumb 3" class="w-full h-16 object-contain"></div>
+          </div>
+        </div>
+
+        <!-- Info Principal -->
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2 text-sm text-blue-600 font-bold mb-2 uppercase tracking-wide"><i class="ph-fill ph-star"></i> 4.9 (1.245 avaliações)</div>
+          <h1 class="text-3xl font-black mb-2 text-slate-900 leading-tight">Smartphone Phone X Pro Max 256GB - 5G Câmera Tripla 48MP</h1>
+          <p class="text-sm text-slate-500 font-medium mb-6">Vendido e entregue por <strong class="text-blue-600">TechZone Oficial</strong></p>
+
+          <div class="bg-slate-50 rounded-xl p-5 mb-6 border border-slate-200 shadow-inner">
+            <div class="text-sm text-slate-500 font-medium line-through mb-1">De: R$ 8.999,00</div>
+            <div class="text-4xl font-black text-slate-900 mb-1 tracking-tight">R$ 7.499,00 <span class="text-sm font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded ml-2 align-middle">-15% Pix</span></div>
+            <div class="text-sm text-slate-600 font-medium">Ou em até <strong class="text-slate-800">12x de R$ 699,90</strong> sem juros no cartão.</div>
+          </div>
+
+          <!-- Variantes -->
+          <div class="mb-5">
+            <h3 class="text-sm font-bold mb-3 uppercase tracking-wide text-slate-700">Cor selecionada: <span class="font-black text-slate-900">Grafite</span></h3>
+            <div class="flex gap-3">
+              <button class="w-10 h-10 rounded-full bg-slate-800 ring-2 ring-blue-500 ring-offset-2 border border-slate-700 shadow-md" title="Grafite"></button>
+              <button class="w-10 h-10 rounded-full bg-slate-200 border border-slate-300 hover:ring-2 hover:ring-slate-300 hover:ring-offset-2 transition-all shadow-sm" title="Prata"></button>
+              <button class="w-10 h-10 rounded-full bg-[#e3d0c1] border border-slate-300 hover:ring-2 hover:ring-[#e3d0c1] hover:ring-offset-2 transition-all shadow-sm" title="Dourado"></button>
+            </div>
+          </div>
+          
+          <div class="mb-8">
+            <h3 class="text-sm font-bold mb-3 uppercase tracking-wide text-slate-700">Armazenamento</h3>
+            <div class="flex gap-3">
+              <button class="flex-1 py-3 border-2 border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:border-slate-400 hover:bg-slate-50 transition-colors">128GB</button>
+              <button class="flex-1 py-3 border-2 border-blue-500 bg-blue-50 rounded-lg text-sm font-black text-blue-700 relative overflow-hidden">
+                256GB <i class="ph-fill ph-check-circle absolute top-1.5 right-1.5 text-blue-500"></i>
+              </button>
+              <button class="flex-1 py-3 border-2 border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:border-slate-400 hover:bg-slate-50 transition-colors">512GB</button>
+            </div>
+          </div>
+
+          <!-- Ação -->
+          <button class="w-full text-white py-4 text-base font-black uppercase tracking-wider rounded-xl btn-buy mb-4 flex items-center justify-center gap-3">
+            <i class="ph-bold ph-shopping-cart text-xl"></i> Comprar Agora
+          </button>
+          
+          <!-- Frete -->
+          <div class="border border-slate-200 rounded-xl p-4 flex gap-4 bg-white">
+            <i class="ph-light ph-truck text-3xl text-slate-400"></i>
+            <div class="flex-1">
+              <h4 class="font-bold text-sm text-slate-800">Calcular frete e prazo</h4>
+              <div class="flex gap-2 mt-2">
+                <input type="text" placeholder="CEP" class="flex-1 border border-slate-300 rounded px-3 py-1.5 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 font-mono">
+                <button class="bg-slate-100 border border-slate-300 px-4 rounded text-sm font-bold text-slate-700 hover:bg-slate-200 transition-colors">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ficha Técnica e Reviews -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div class="lg:col-span-2 tech-card p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="text-xl font-black mb-6 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="ph-bold ph-list-dashes text-blue-500"></i> Ficha Técnica</h2>
+          <table class="w-full text-sm text-left">
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50 transition-colors"><th class="py-3 px-4 font-bold text-slate-500 w-1/3 bg-slate-50/50">Tela</th><td class="py-3 px-4 font-medium">OLED de 6.7" Super Retina XDR</td></tr>
+              <tr class="hover:bg-slate-50 transition-colors"><th class="py-3 px-4 font-bold text-slate-500 w-1/3 bg-slate-50/50">Processador</th><td class="py-3 px-4 font-medium">Chip Bionic A16 Hexa-core</td></tr>
+              <tr class="hover:bg-slate-50 transition-colors"><th class="py-3 px-4 font-bold text-slate-500 w-1/3 bg-slate-50/50">Câmera Traseira</th><td class="py-3 px-4 font-medium">Tripla: 48MP + 12MP Ultra-wide + 12MP Teleobjetiva</td></tr>
+              <tr class="hover:bg-slate-50 transition-colors"><th class="py-3 px-4 font-bold text-slate-500 w-1/3 bg-slate-50/50">Bateria</th><td class="py-3 px-4 font-medium">4.323 mAh com carregamento rápido de 20W</td></tr>
+              <tr class="hover:bg-slate-50 transition-colors"><th class="py-3 px-4 font-bold text-slate-500 w-1/3 bg-slate-50/50">Conectividade</th><td class="py-3 px-4 font-medium">5G, Wi-Fi 6, Bluetooth 5.3, NFC</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tech-card p-6 md:p-8" data-aos="fade-up" data-aos-delay="200">
+          <h2 class="text-xl font-black mb-6 flex items-center gap-2 border-b border-slate-100 pb-4"><i class="ph-bold ph-star text-amber-400"></i> Avaliações</h2>
+          <div class="flex items-center gap-4 mb-8 bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <div class="text-5xl font-black text-slate-900 tracking-tighter">4.9</div>
+            <div>
+              <div class="flex text-amber-400 text-lg"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+              <div class="text-xs text-slate-500 font-medium mt-1">Baseado em 1.245 avaliações</div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="border-b border-slate-100 pb-4">
+              <div class="flex text-amber-400 text-sm mb-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+              <p class="text-sm text-slate-700 font-medium italic mb-2">"Aparelho sensacional. A câmera é absurda de boa e a bateria dura o dia todo tranquilo."</p>
+              <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Carlos M. - Há 2 semanas</div>
+            </div>
+            <div>
+              <div class="flex text-amber-400 text-sm mb-1"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i></div>
+              <p class="text-sm text-slate-700 font-medium italic mb-2">"Entrega super rápida da loja. O celular atende todas as expectativas."</p>
+              <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Ana P. - Há 1 mês</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cross-sell (Aproveite e compre junto) -->
+      <div data-aos="fade-up">
+        <h2 class="text-2xl font-black mb-6">Aproveite e compre junto</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="tech-card p-4 flex flex-col group cursor-pointer relative overflow-hidden">
+            <div class="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none"></div>
+            <div class="w-full h-40 bg-white border border-slate-100 rounded-lg mb-4 flex items-center justify-center p-4 relative z-10">
+              <img src="https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Fone Bluetooth" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <h3 class="font-bold text-sm text-slate-800 line-clamp-2 mb-2 relative z-10 group-hover:text-blue-600 transition-colors">Fone de Ouvido Bluetooth Pro Noise Cancelling</h3>
+            <div class="mt-auto relative z-10">
+              <div class="text-xl font-black text-slate-900 tracking-tight">R$ 1.299,00</div>
+              <button class="w-full mt-3 py-2 border-2 border-slate-200 rounded-lg text-sm font-bold text-slate-600 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all">Adicionar</button>
+            </div>
+          </div>
+          
+          <div class="tech-card p-4 flex flex-col group cursor-pointer relative overflow-hidden">
+            <div class="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none"></div>
+            <div class="w-full h-40 bg-white border border-slate-100 rounded-lg mb-4 flex items-center justify-center p-4 relative z-10">
+              <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Smartwatch" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <h3 class="font-bold text-sm text-slate-800 line-clamp-2 mb-2 relative z-10 group-hover:text-blue-600 transition-colors">Smartwatch Series 8 GPS 45mm Alumínio</h3>
+            <div class="mt-auto relative z-10">
+              <div class="text-xl font-black text-slate-900 tracking-tight">R$ 3.899,00</div>
+              <button class="w-full mt-3 py-2 border-2 border-slate-200 rounded-lg text-sm font-bold text-slate-600 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all">Adicionar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 50 });
+  </script>
+</body>
+</html>

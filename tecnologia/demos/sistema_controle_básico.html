@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque - Gestão Simplificada</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #475569;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: var(--dark);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        /* Alertas */
+        .alerts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .alert-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .alert-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .alert-icon.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .alert-icon.critical {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .alert-info h3 {
+            margin-bottom: 0.25rem;
+        }
+
+        .alert-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Stats */
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Tables */
+        .data-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        th {
+            background: var(--gray-light);
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status.good {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status.critical {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">ControleEstoque</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">📊 Dashboard</a></li>
+                <li><a href="#">📦 Produtos</a></li>
+                <li><a href="#">📥 Entradas</a></li>
+                <li><a href="#">📤 Saídas</a></li>
+                <li><a href="#">📈 Relatórios</a></li>
+                <li><a href="#">⚙️ Configurações</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Controle de Estoque</h1>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn" onclick="openModal('productModal')">+ Produto</button>
+                    <button class="btn" onclick="openModal('movementModal')">+ Movimentação</button>
+                </div>
+            </div>
+
+            <!-- Alertas -->
+            <div class="alerts">
+                <div class="alert-card">
+                    <div class="alert-icon warning">⚠️</div>
+                    <div class="alert-info">
+                        <h3>Estoque Baixo</h3>
+                        <p>8 produtos com quantidade crítica</p>
+                    </div>
+                </div>
+                <div class="alert-card">
+                    <div class="alert-icon critical">🔴</div>
+                    <div class="alert-info">
+                        <h3>Produtos em Falta</h3>
+                        <p>3 produtos sem estoque</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-number">247</div>
+                    <div class="stat-label">Total de Produtos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">R$ 89.456</div>
+                    <div class="stat-label">Valor em Estoque</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">42</div>
+                    <div class="stat-label">Movimentações Hoje</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Precisão do Estoque</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button class="action-btn" onclick="openModal('productModal')">
+                    <span style="font-size: 1.5rem;">📦</span>
+                    Novo Produto
+                </button>
+                <button class="action-btn" onclick="openModal('movementModal')">
+                    <span style="font-size: 1.5rem;">📥</span>
+                    Entrada
+                </button>
+                <button class="action-btn" onclick="openModal('movementModal')">
+                    <span style="font-size: 1.5rem;">📤</span>
+                    Saída
+                </button>
+                <button class="action-btn">
+                    <span style="font-size: 1.5rem;">📋</span>
+                    Inventário
+                </button>
+            </div>
+
+            <!-- Produtos com Estoque Baixo -->
+            <div class="data-section">
+                <div class="section-header">
+                    <h2>Produtos com Estoque Crítico</h2>
+                    <button class="btn">Ver Todos</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Estoque Atual</th>
+                            <th>Mínimo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#P001</td>
+                            <td>Notebook Dell i7</td>
+                            <td>Informática</td>
+                            <td>2</td>
+                            <td>5</td>
+                            <td><span class="status critical">Crítico</span></td>
+                            <td>
+                                <button class="btn" style="background: var(--gray);">Repor</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#P042</td>
+                            <td>Mouse Sem Fio</td>
+                            <td>Periféricos</td>
+                            <td>3</td>
+                            <td>10</td>
+                            <td><span class="status warning">Baixo</span></td>
+                            <td>
+                                <button class="btn" style="background: var(--gray);">Repor</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Últimas Movimentações -->
+            <div class="data-section">
+                <div class="section-header">
+                    <h2>Últimas Movimentações</h2>
+                    <button class="btn">Ver Todas</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Tipo</th>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Usuário</th>
+                            <th>Motivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>05/11/2025 14:30</td>
+                            <td>📤 Saída</td>
+                            <td>Notebook Dell i7</td>
+                            <td>1</td>
+                            <td>João Silva</td>
+                            <td>Venda #2025-001</td>
+                        </tr>
+                        <tr>
+                            <td>05/11/2025 10:15</td>
+                            <td>📥 Entrada</td>
+                            <td>Mouse Sem Fio</td>
+                            <td>50</td>
+                            <td>Maria Santos</td>
+                            <td>Compra #CMP-042</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Novo Produto</h3>
+                <button onclick="closeModal('productModal')" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Código do Produto</label>
+                    <input type="text" class="form-control" placeholder="Código único">
+                </div>
+                <div class="form-group">
+                    <label>Nome do Produto</label>
+                    <input type="text" class="form-control" placeholder="Nome completo do produto">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Categoria</label>
+                        <select class="form-control">
+                            <option>Selecione</option>
+                            <option>Informática</option>
+                            <option>Periféricos</option>
+                            <option>Móveis</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Preço de Custo</label>
+                        <input type="number" class="form-control" placeholder="R$ 0,00">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Quantidade Inicial</label>
+                        <input type="number" class="form-control" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Estoque Mínimo</label>
+                        <input type="number" class="form-control" placeholder="0">
+                    </div>
+                </div>
+                <button class="btn" style="width: 100%; margin-top: 1rem;">Cadastrar Produto</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movement Modal -->
+    <div class="modal" id="movementModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nova Movimentação</h3>
+                <button onclick="closeModal('movementModal')" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Tipo de Movimentação</label>
+                    <select class="form-control">
+                        <option>📥 Entrada</option>
+                        <option>📤 Saída</option>
+                        <option>🔄 Ajuste</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Produto</label>
+                    <select class="form-control">
+                        <option>Selecione o produto</option>
+                        <option>Notebook Dell i7</option>
+                        <option>Mouse Sem Fio</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Quantidade</label>
+                        <input type="number" class="form-control" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Data</label>
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Motivo</label>
+                    <textarea class="form-control" rows="3" placeholder="Descrição da movimentação"></textarea>
+                </div>
+                <button class="btn" style="width: 100%; margin-top: 1rem;">Registrar Movimentação</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Sample Data
+        const inventoryData = {
+            totalProducts: 247,
+            inventoryValue: 89456,
+            todayMovements: 42,
+            accuracy: 95,
+            criticalItems: 8,
+            outOfStock: 3
+        };
+
+        // Initialize system
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Sistema de controle de estoque inicializado:', inventoryData);
+            
+            // Simulate real-time updates
+            setInterval(() => {
+                // In real system, this would fetch from backend
+                console.log('Atualizando dados do estoque...');
+            }, 30000);
+        });
+    </script>
+</body>
+</html>

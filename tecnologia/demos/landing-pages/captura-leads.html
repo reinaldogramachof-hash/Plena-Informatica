@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Definitivo PMEs — Captura de Leads | Plena</title>
+    <meta name="description" content="Baixe grátis o Guia Definitivo de Marketing Digital para PMEs. Integração nativa com ActiveCampaign, RD Station e Mailchimp.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            dark: '#080809',
+                            card: '#0c0c0f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #080809; }
+        ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(212,175,55,0.4); }
+
+        .gold-text {
+            background: linear-gradient(135deg, #fff, var(--tw-colors-brand-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .book-3d {
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .book-3d:hover {
+            transform: rotateY(-15deg) rotateX(5deg) scale(1.05);
+        }
+
+        /* Particles */
+        .particle {
+            position: absolute;
+            background: rgba(212, 175, 55, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-up linear infinite;
+        }
+        @keyframes float-up {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100px) scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-[#080809] text-gray-100 antialiased selection:bg-brand-gold selection:text-black">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#080809]/95 backdrop-blur-md border-b border-white/10 px-8 py-4 flex justify-center">
+        <div class="font-extrabold text-lg tracking-tight gold-text">
+            Guia PME 2026
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="min-h-screen flex flex-col lg:flex-row pt-[73px]">
+        
+        <!-- Left Content -->
+        <section class="flex-1 p-8 lg:p-16 flex flex-col justify-center relative lg:border-r border-white/10" data-aos="fade-right" data-aos-duration="1000">
+            <div class="max-w-xl mx-auto lg:ml-auto lg:mr-0">
+                <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5 text-xs font-bold text-emerald-500 tracking-widest uppercase mb-8">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10B981] animate-pulse"></span>
+                    Download Gratuito
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6">
+                    Acelere o Crescimento<br>da sua Empresa em <span class="gold-text">até 300%</span>
+                </h1>
+                
+                <p class="text-gray-400 font-light text-lg mb-10 max-w-md leading-relaxed">
+                    Acesse as mesmas estratégias que as maiores agências utilizam para escalar clientes B2B e B2C no Brasil.
+                </p>
+
+                <!-- Benefits -->
+                <div class="space-y-4 mb-10">
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="ph-fill ph-check text-brand-gold text-xs"></i>
+                        </div>
+                        <p class="text-sm text-gray-200">Passo a passo para estruturar campanhas que convertem</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="ph-fill ph-check text-brand-gold text-xs"></i>
+                        </div>
+                        <p class="text-sm text-gray-200">Como automatizar seu funil de vendas sem saber programar</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="ph-fill ph-check text-brand-gold text-xs"></i>
+                        </div>
+                        <p class="text-sm text-gray-200">Templates prontos de copy para anúncios e e-mails</p>
+                    </div>
+                </div>
+
+                <!-- Authors -->
+                <div class="flex items-center gap-4">
+                    <div class="flex -space-x-3">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Autor 1" class="w-10 h-10 rounded-full border-2 border-[#080809]">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Autor 2" class="w-10 h-10 rounded-full border-2 border-[#080809]">
+                    </div>
+                    <div class="text-xs text-gray-400">
+                        Escrito por <strong class="text-gray-200 font-semibold">João Silva</strong> &amp; <strong class="text-gray-200 font-semibold">Maria Santos</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Form / Visual -->
+        <section class="flex-1 bg-gradient-to-br from-[#0c0c0f] to-[#141418] p-8 lg:p-16 flex items-center justify-center relative overflow-hidden" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <!-- Glow background -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="w-full max-w-md relative z-10">
+                <!-- Book Mockup -->
+                <div class="book-3d mb-10 w-48 h-64 mx-auto shadow-2xl relative">
+                    <!-- Book Cover -->
+                    <div class="absolute inset-0 bg-[#080809] border border-brand-gold/30 rounded-r-xl shadow-[inset_0_0_40px_rgba(212,175,55,0.1)] p-4 flex flex-col justify-between overflow-hidden">
+                        <div class="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.05)_10%,transparent_100%)] pointer-events-none"></div>
+                        <div class="text-[0.6rem] text-brand-gold uppercase tracking-widest font-bold">Edição 2026</div>
+                        <div>
+                            <h3 class="gold-text font-black text-xl leading-tight mb-2">Guia<br>Definitivo<br>PME</h3>
+                            <div class="w-8 h-1 bg-brand-gold"></div>
+                        </div>
+                        <div class="text-[0.55rem] text-gray-500 uppercase flex justify-between">
+                            <span>Marketing Digital</span>
+                            <span>Vol. 1</span>
+                        </div>
+                    </div>
+                    <!-- Book Spine -->
+                    <div class="absolute left-0 top-0 bottom-0 w-3 bg-[#0a0a0c] border-y border-l border-brand-gold/30 -translate-x-full rounded-l-[3px] flex items-center py-4"></div>
+                </div>
+
+                <!-- Optin Form -->
+                <div class="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8 relative">
+                    <div class="text-center mb-6">
+                        <h2 class="text-lg font-bold text-white mb-2">Onde enviamos o material?</h2>
+                        <p class="text-xs text-gray-400">Preencha os dados abaixo e receba imediatamente no seu WhatsApp e E-mail.</p>
+                    </div>
+
+                    <form id="leadForm" class="space-y-4">
+                        <div>
+                            <input type="text" id="nome" placeholder="Seu nome" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold/50 transition-colors">
+                        </div>
+                        <div>
+                            <input type="email" id="email" placeholder="Seu melhor e-mail corporativo" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold/50 transition-colors">
+                        </div>
+                        <div>
+                            <input type="tel" id="whatsapp" placeholder="Seu WhatsApp" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold/50 transition-colors">
+                        </div>
+
+                        <button type="submit" id="btnSubmit" class="w-full bg-gradient-to-r from-brand-gold to-[#f0d060] text-black font-bold text-sm py-4 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                            <i class="ph-bold ph-download-simple text-lg"></i>
+                            Baixar Guia Gratuito
+                        </button>
+                    </form>
+
+                    <!-- Success State -->
+                    <div id="successMsg" class="hidden flex-col items-center justify-center text-center py-4">
+                        <div class="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center text-2xl mb-4">
+                            <i class="ph-bold ph-check"></i>
+                        </div>
+                        <h3 class="text-white font-bold mb-2">Pronto! Material liberado.</h3>
+                        <p class="text-xs text-gray-400">Enviamos o PDF para o seu e-mail e chamamos você no WhatsApp.</p>
+                    </div>
+
+                    <div class="mt-6 flex items-center justify-center gap-2 text-[10px] text-gray-500 uppercase tracking-wider">
+                        <i class="ph-fill ph-lock-key text-brand-gold"></i>
+                        Seus dados estão seguros conosco
+                    </div>
+                </div>
+
+                <!-- Particle Container -->
+                <div id="particles" class="absolute inset-0 pointer-events-none -z-10 overflow-hidden"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script>
+        // Init AOS
+        AOS.init({ once: true });
+
+        // Phone Mask
+        IMask(document.getElementById('whatsapp'), { mask: '(00) 00000-0000' });
+
+        // Particles
+        const container = document.getElementById('particles');
+        for (let i=0; i<15; i++) {
+            let p = document.createElement('div');
+            p.className = 'particle';
+            p.style.width = Math.random()*4 + 2 + 'px';
+            p.style.height = p.style.width;
+            p.style.left = Math.random()*100 + '%';
+            p.style.top = Math.random()*100 + '%';
+            p.style.animationDuration = Math.random()*3 + 3 + 's';
+            p.style.animationDelay = Math.random()*2 + 's';
+            container.appendChild(p);
+        }
+
+        // Form Submit Simulation
+        const form = document.getElementById('leadForm');
+        const btnSubmit = document.getElementById('btnSubmit');
+        const successMsg = document.getElementById('successMsg');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            btnSubmit.innerHTML = '<i class="ph-bold ph-spinner animate-spin text-lg"></i> Processando...';
+            btnSubmit.disabled = true;
+            btnSubmit.classList.add('opacity-80', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                form.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+                successMsg.classList.add('flex');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oferta Relâmpago | Black Friday</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #ef4444; color: white; }
+    h1, h2, .font-oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+    .stripe { background: repeating-linear-gradient(45deg, #000, #000 20px, #27272a 20px, #27272a 40px); height: 1rem; width: 100%; }
+    .timer-block { background: black; color: white; border-radius: 0.5rem; padding: 1rem; text-align: center; width: 5rem; }
+    .timer-val { font-size: 2.5rem; font-weight: 700; line-height: 1; }
+    .timer-lbl { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; color: #ef4444; }
+    .btn-buy { background: #fde047; color: black; font-weight: 900; font-size: 1.5rem; text-transform: uppercase; padding: 1.5rem 3rem; border-radius: 0.5rem; width: 100%; display: block; text-align: center; box-shadow: 0 10px 0 #ca8a04; transition: transform 0.1s, box-shadow 0.1s; cursor: pointer; }
+    .btn-buy:active { transform: translateY(10px); box-shadow: 0 0 0 #ca8a04; }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center justify-center relative">
+  <div class="stripe absolute top-0 left-0"></div>
+  <div class="stripe absolute bottom-0 left-0"></div>
+
+  <main class="max-w-3xl w-full px-5 py-20 text-center">
+    
+    <div class="inline-block bg-black text-yellow-300 font-oswald text-xl px-4 py-2 rotate-[-3deg] mb-8 shadow-lg">
+      Apenas as próximas 24 horas!
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-black mb-4 leading-none" style="text-shadow: 4px 4px 0px black;">
+      BLACK FRIDAY <br/><span class="text-yellow-300">TECH</span>
+    </h1>
+
+    <p class="text-xl md:text-2xl font-bold mb-10 max-w-xl mx-auto">
+      Garanta acesso vitalício ao plano Pro Business com <span class="bg-black px-2 py-1">80% de Desconto</span>.
+    </p>
+
+    <!-- Timer -->
+    <div class="flex justify-center gap-4 mb-12 font-oswald">
+      <div class="timer-block"><div class="timer-val">11</div><div class="timer-lbl">HORAS</div></div>
+      <div class="text-4xl font-black mt-2">:</div>
+      <div class="timer-block"><div class="timer-val">59</div><div class="timer-lbl">MINS</div></div>
+      <div class="text-4xl font-black mt-2">:</div>
+      <div class="timer-block"><div class="timer-val text-yellow-300">38</div><div class="timer-lbl">SEGS</div></div>
+    </div>
+
+    <!-- Preço -->
+    <div class="bg-white text-black p-8 rounded-xl max-w-lg mx-auto shadow-2xl rotate-1">
+      <div class="text-gray-500 line-through text-2xl font-bold mb-2">De R$ 1.997,00</div>
+      <div class="text-6xl font-black text-red-500 mb-6 font-oswald">R$ 397<span class="text-2xl">,00</span></div>
+      
+      <a href="#" class="btn-buy font-oswald">Comprar Agora</a>
+      
+      <p class="text-sm font-bold text-gray-400 mt-6 uppercase">Garantia Incondicional de 7 Dias</p>
+    </div>
+
+  </main>
+</body>
+</html>

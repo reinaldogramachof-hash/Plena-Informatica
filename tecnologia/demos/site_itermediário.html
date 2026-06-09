@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Pro - Soluções Digitais Avançadas</title>
+    <style>
+        /* Reset Expandido */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #06d6a0;
+            --accent-dark: #05c391;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --light: #0f172a;
+            --dark: #f8fafc;
+            --gray: #94a3b8;
+            --gray-light: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        /* Header Avançado */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--dark);
+            transition: transform 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg);
+        }
+
+        /* Hero Section Avançada */
+        .hero {
+            padding: 160px 2rem 100px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta-button.primary {
+            background: var(--accent);
+            box-shadow: 0 10px 30px rgba(6, 214, 160, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 2rem;
+            background: var(--light);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--gray-light);
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: var(--darker);
+            border-color: var(--gray);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Features Grid Avançada */
+        .features {
+            padding: 100px 2rem;
+            background: var(--gray-light);
+        }
+
+        [data-theme="dark"] .features {
+            background: var(--darker);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        [data-theme="dark"] .section-title {
+            color: var(--light);
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .feature-card {
+            background: var(--dark);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            width: 8px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        [data-theme="dark"] .feature-card h3 {
+            color: var(--light);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .feature-link:hover {
+            gap: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 2rem;
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--gray-light);
+            position: relative;
+        }
+
+        [data-theme="dark"] .testimonial-card {
+            background: var(--darker);
+            border-color: var(--gray);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        [data-theme="dark"] .author-info h4 {
+            color: var(--light);
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Float Melhorado */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 80px;
+            background: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Animações Avançadas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+            }
+            100% { 
+                transform: scale(1);
+                box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Scroll Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade Melhorada */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 140px 1rem 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Avançada -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span>🚀</span>
+                GrowthPro
+            </div>
+            <div class="nav-links">
+                <a href="#home">Início</a>
+                <a href="#features">Recursos</a>
+                <a href="#stats">Resultados</a>
+                <a href="#testimonials">Depoimentos</a>
+                <button class="theme-toggle" id="themeToggle">
+                    🌓
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Avançada -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transforme Seu Negócio com Tecnologia</h1>
+            <p>Soluções digitais completas para empresas que buscam crescimento acelerado e resultados mensuráveis</p>
+            <div class="cta-group">
+                <a href="https://wa.me/5511999999999?text=Olá! Gostaria de uma consultoria personalizada" 
+                   class="cta-button primary">
+                    📅 Consultoria Grátis
+                </a>
+                <a href="#features" class="cta-button secondary">
+                    🔍 Ver Soluções
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="stats-grid">
+            <div class="stat-card fade-in">
+                <div class="stat-number" data-count="154">0</div>
+                <div class="stat-label">Projetos Entregues</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number" data-count="89">0</div>
+                <div class="stat-label">Clientes Satisfeitos</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number" data-count="247">0</div>
+                <div class="stat-label">Soluções Implementadas</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number" data-count="3">0</div>
+                <div class="stat-label">Anos de Experiência</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section Avançada -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2 class="section-title">Soluções Completas</h2>
+            <p class="section-subtitle">Tecnologia de ponta para impulsionar seus resultados</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📊</div>
+                <h3>Analytics Avançado</h3>
+                <p>Dashboard interativo com métricas em tempo real e relatórios automatizados para decisões estratégicas</p>
+                <a href="#" class="feature-link">
+                    Saiba mais 
+                    <span>→</span>
+                </a>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🛒</div>
+                <h3>E-commerce Completo</h3>
+                <p>Plataforma de vendas robusta com gateway de pagamento, gestão de estoque e analytics integrado</p>
+                <a href="#" class="feature-link">
+                    Saiba mais 
+                    <span>→</span>
+                </a>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🤖</div>
+                <h3>Automação Inteligente</h3>
+                <p>Sistemas automatizados para marketing, atendimento e gestão operacional com IA integrada</p>
+                <a href="#" class="feature-link">
+                    Saiba mais 
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2 class="section-title">O que Nossos Clientes Dizem</h2>
+            <p class="section-subtitle">Resultados reais de empresas que confiaram em nosso trabalho</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-content">
+                    "A plataforma desenvolvida pela GrowthPro transformou nossa operação. O atendimento ao cliente melhorou 300% e as vendas online cresceram consistentemente."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MC</div>
+                    <div class="author-info">
+                        <h4>Maria Costa</h4>
+                        <p>CEO - FashionStore</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-content">
+                    "O sistema de gestão customizado resolveu nossos gargalos operacionais. Agora temos controle total do processo com relatórios automáticos."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PS</div>
+                    <div class="author-info">
+                        <h4>Paulo Silva</h4>
+                        <p>Diretor - LogiTech</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-content">
+                    "A migração para a nuvem e o desenvolvimento do app mobile foram fundamentais para nosso crescimento. Suporte excepcional!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AF</div>
+                    <div class="author-info">
+                        <h4>Ana Ferreira</h4>
+                        <p>CTO - HealthTech</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Melhorado -->
+    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de conversar sobre um projeto" 
+       class="whatsapp-float" 
+       target="_blank">
+       📱
+       <div class="whatsapp-tooltip">Fale conosco!</div>
+    </a>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme or prefered scheme
+        const currentTheme = localStorage.getItem('theme') || 
+                           (prefersDarkScheme.matches ? 'dark' : 'light');
+        document.body.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update toggle icon
+            themeToggle.textContent = newTheme === 'dark' ? '🌞' : '🌓';
+        });
+
+        // Update toggle icon based on current theme
+        if (currentTheme === 'dark') {
+            themeToggle.textContent = '🌞';
+        }
+
+        // Scroll Animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Animated Counter
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+
+        const animateCounter = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounter(), 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        };
+
+        // Start counter when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                if (document.body.getAttribute('data-theme') === 'dark') {
+                    navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+                }
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                if (document.body.getAttribute('data-theme') === 'dark') {
+                    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

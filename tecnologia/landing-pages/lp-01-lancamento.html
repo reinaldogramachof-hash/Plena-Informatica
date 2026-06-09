@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lançamento de SaaS | Light Mode</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --bg-alt: #f8fafc;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --accent-primary: #6366f1; /* Indigo */
+      --accent-hover: #4f46e5;
+      --border-soft: #e2e8f0;
+      --shadow-soft: 0 20px 40px -15px rgba(0,0,0,0.05);
+      --shadow-hover: 0 30px 60px -15px rgba(99, 102, 241, 0.15);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-alt);
+      color: var(--text-dark);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .clean-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-soft);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-soft);
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .clean-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+
+    .card-icon {
+      color: var(--accent-primary);
+      background: #eef2ff;
+      border-radius: 0.75rem;
+      width: 3.5rem; height: 3.5rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .clean-card:hover .card-icon {
+      background: var(--accent-primary);
+      color: white;
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-indigo {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-size: 0.875rem; font-weight: 600; color: white;
+      background: var(--accent-primary); border-radius: 0.5rem;
+      padding: 0.85rem 1.5rem; transition: all 0.2s ease;
+      box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+      cursor: pointer; text-decoration: none;
+    }
+
+    .btn-indigo:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-size: 0.875rem; font-weight: 600; color: var(--text-dark);
+      background: transparent; border: 1px solid var(--border-soft); border-radius: 0.5rem;
+      padding: 0.85rem 1.5rem; transition: all 0.2s ease;
+      cursor: pointer; text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-alt);
+      border-color: #cbd5e1;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-indigo-100 selection:text-indigo-900">
+  
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <nav class="w-full max-w-7xl mx-auto px-5 lg:px-10 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center group shrink-0">
+        <span class="text-xl font-bold text-gray-900 tracking-tight">SaaS<span class="text-indigo-600">Pro</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#funcionalidades" class="text-gray-600 hover:text-indigo-600 transition-colors">Funcionalidades</a>
+        <a href="#precos" class="text-gray-600 hover:text-indigo-600 transition-colors">Preços</a>
+        <a href="#precos" class="btn-indigo !py-2 !px-5 !shadow-none">Começar Grátis</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="w-full min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-10 px-5 text-center relative overflow-hidden bg-white">
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+      <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-indigo-100 bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-widest relative z-10">
+        🚀 Lançamento 2.0 Disponível
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tighter max-w-4xl mx-auto relative z-10">
+        Automatize a operação. <br/><span class="text-gradient">Escale sem limites.</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-500 font-normal leading-relaxed max-w-2xl mx-auto mb-10 relative z-10">
+        A plataforma unificada que conecta seu financeiro, vendas e suporte em uma interface elegante. Feita para empresas de alto crescimento.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+        <a href="#precos" class="btn-indigo">Começar Teste Grátis</a>
+        <a href="#funcionalidades" class="btn-outline">Ver documentação</a>
+      </div>
+
+      <!-- Dashboard Image Mockup -->
+      <div class="mt-20 w-full max-w-5xl mx-auto relative z-10 perspective-1000">
+        <div class="w-full h-64 md:h-[500px] bg-white border border-gray-200 rounded-2xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.1)] flex items-center justify-center overflow-hidden">
+           <!-- UI Fake -->
+           <div class="w-full h-full flex bg-gray-50">
+             <div class="w-64 h-full bg-white border-r border-gray-200 p-4 hidden md:block">
+               <div class="w-full h-8 bg-gray-100 rounded-md mb-6"></div>
+               <div class="w-3/4 h-4 bg-gray-100 rounded mb-3"></div>
+               <div class="w-1/2 h-4 bg-gray-100 rounded mb-3"></div>
+             </div>
+             <div class="flex-1 p-8">
+               <div class="w-48 h-6 bg-gray-200 rounded mb-8"></div>
+               <div class="grid grid-cols-3 gap-4 mb-8">
+                 <div class="h-32 bg-white border border-gray-200 rounded-xl"></div>
+                 <div class="h-32 bg-white border border-gray-200 rounded-xl"></div>
+                 <div class="h-32 bg-white border border-gray-200 rounded-xl"></div>
+               </div>
+               <div class="h-64 bg-white border border-gray-200 rounded-xl"></div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCIONALIDADES -->
+    <section id="funcionalidades" class="w-full py-24 px-5 relative z-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Menos ferramentas.<br/> Mais foco no resultado.</h2>
+          <p class="text-lg text-gray-500">Tudo que você precisa em uma única plataforma integrada e extremamente veloz.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article class="clean-card">
+            <div class="card-icon mb-6"><i class="ph-bold ph-chart-line-up text-3xl"></i></div>
+            <h3 class="font-bold text-gray-900 text-xl mb-3">Métricas Real-time</h3>
+            <p class="text-gray-500 font-normal leading-relaxed">Dashboards que atualizam instantaneamente, sem precisar de recarregamento. Acompanhe o MRR ao vivo.</p>
+          </article>
+
+          <article class="clean-card">
+            <div class="card-icon mb-6"><i class="ph-bold ph-lightning text-3xl"></i></div>
+            <h3 class="font-bold text-gray-900 text-xl mb-3">Fluxos Automáticos</h3>
+            <p class="text-gray-500 font-normal leading-relaxed">Crie regras se-então de forma visual para mover leads no funil ou cobrar faturas pendentes.</p>
+          </article>
+
+          <article class="clean-card">
+            <div class="card-icon mb-6"><i class="ph-bold ph-plugs text-3xl"></i></div>
+            <h3 class="font-bold text-gray-900 text-xl mb-3">API First</h3>
+            <p class="text-gray-500 font-normal leading-relaxed">Documentação clara e webhooks para você conectar o SaaSPro a qualquer sistema proprietário.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROVA SOCIAL -->
+    <section class="w-full py-24 px-5 bg-white border-y border-gray-200">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-black text-gray-900 mb-12">Adotado pelos melhores times</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+          <div class="p-8 bg-gray-50 rounded-2xl border border-gray-100">
+            <p class="text-gray-700 italic mb-6 text-lg">"Uma interface tão clean e rápida que nossos vendedores dobraram a produtividade no primeiro mês."</p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center font-bold text-indigo-700">AM</div>
+              <div><p class="text-gray-900 font-bold">Alice M.</p><p class="text-gray-500 text-sm">TechCorp</p></div>
+            </div>
+          </div>
+          <div class="p-8 bg-gray-50 rounded-2xl border border-gray-100">
+            <p class="text-gray-700 italic mb-6 text-lg">"O suporte a API é fantástico. Integramos nosso backoffice antigo em apenas 3 dias de trabalho."</p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center font-bold text-indigo-700">RB</div>
+              <div><p class="text-gray-900 font-bold">Roberto B.</p><p class="text-gray-500 text-sm">CTO, DevStartup</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="precos" class="w-full py-24 px-5">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Preços justos e transparentes</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Starter -->
+          <div class="clean-card flex flex-col">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Starter</h3>
+            <p class="text-gray-500 text-sm mb-6">Perfeito para pequenos times.</p>
+            <div class="mb-8">
+              <span class="text-5xl font-black text-gray-900">R$ 49</span><span class="text-gray-500">/mês</span>
+            </div>
+            <ul class="flex flex-col gap-4 mb-8 flex-1">
+              <li class="flex items-center gap-3 text-gray-700"><i class="ph-bold ph-check text-indigo-600"></i> Até 3 usuários</li>
+              <li class="flex items-center gap-3 text-gray-700"><i class="ph-bold ph-check text-indigo-600"></i> Dashboards padrões</li>
+              <li class="flex items-center gap-3 text-gray-400"><i class="ph-light ph-x"></i> API / Webhooks</li>
+            </ul>
+            <a href="#" class="btn-outline w-full justify-center">Assinar Starter</a>
+          </div>
+
+          <!-- Pro -->
+          <div class="clean-card flex flex-col border-indigo-200 relative overflow-hidden" style="box-shadow: var(--shadow-hover);">
+            <div class="absolute top-0 inset-x-0 h-1 bg-indigo-600"></div>
+            <div class="absolute top-4 right-4 bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Recomendado</div>
+            
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Pro Business</h3>
+            <p class="text-gray-500 text-sm mb-6">Para operações que querem escalar.</p>
+            <div class="mb-8">
+              <span class="text-5xl font-black text-gray-900">R$ 147</span><span class="text-gray-500">/mês</span>
+            </div>
+            <ul class="flex flex-col gap-4 mb-8 flex-1">
+              <li class="flex items-center gap-3 text-gray-700"><i class="ph-bold ph-check text-indigo-600"></i> Usuários Ilimitados</li>
+              <li class="flex items-center gap-3 text-gray-700"><i class="ph-bold ph-check text-indigo-600"></i> Dashboards Personalizados</li>
+              <li class="flex items-center gap-3 text-gray-700"><i class="ph-bold ph-check text-indigo-600"></i> Acesso total a API</li>
+            </ul>
+            <a href="#" class="btn-indigo w-full justify-center">Começar 7 dias grátis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

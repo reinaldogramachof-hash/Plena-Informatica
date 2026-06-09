@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce: Assinaturas & Clubes | Plena Informática</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Outfit', sans-serif; background-color: #fdf8f3; color: #431407; overflow-x: hidden; }
+    
+    .coffee-gradient { background: linear-gradient(135deg, #78350f 0%, #431407 100%); }
+    .btn-gradient { background: linear-gradient(135deg, #d97706 0%, #b45309 100%); transition: all 0.3s ease; }
+    .btn-gradient:hover { box-shadow: 0 10px 20px -10px rgba(217, 119, 6, 0.5); transform: translateY(-2px); }
+    
+    .plan-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 2px solid transparent; }
+    .plan-card:hover { transform: translateY(-10px); box-shadow: 0 30px 40px -15px rgba(120, 53, 15, 0.15); border-color: rgba(120, 53, 15, 0.1); }
+    
+    .plan-popular { border: 2px solid #d97706; transform: scale(1.05); z-index: 10; }
+    .plan-popular:hover { transform: scale(1.05) translateY(-10px); box-shadow: 0 35px 50px -15px rgba(120, 53, 15, 0.25); border-color: #f59e0b; }
+    
+    .toggle-bg { background-color: rgba(120, 53, 15, 0.08); padding: 4px; border-radius: 9999px; display: inline-flex; position: relative; }
+    .toggle-btn { padding: 8px 24px; border-radius: 9999px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.3s; z-index: 2; }
+    .toggle-btn.active { color: #431407; }
+    .toggle-btn:not(.active) { color: rgba(67, 20, 7, 0.5); }
+    .toggle-slider { position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px); background: white; border-radius: 9999px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1; }
+    
+    .blob { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.5; }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-700 selection:text-amber-50 relative">
+
+  <!-- BG Elements -->
+  <div class="blob bg-amber-200/50 w-[500px] h-[500px] top-[-200px] left-[-200px]"></div>
+  <div class="blob bg-orange-200/40 w-[600px] h-[600px] bottom-[-100px] right-[-200px]"></div>
+
+  <!-- Header -->
+  <header class="py-5 border-b border-amber-900/5 bg-white/60 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center" data-aos="fade-down" data-aos-duration="800">
+      <div class="font-extrabold text-2xl flex items-center gap-2 tracking-tight">
+        <i class="ph-fill ph-coffee text-amber-700 text-3xl"></i> Grão&Clube
+      </div>
+      <div class="hidden md:flex gap-8 text-sm font-bold tracking-wide text-amber-900/60">
+        <a href="#" class="hover:text-amber-700 transition-colors">O Clube</a>
+        <a href="#" class="hover:text-amber-700 transition-colors">Cafés</a>
+        <a href="#" class="hover:text-amber-700 transition-colors">Presenteie</a>
+        <a href="#" class="hover:text-amber-700 transition-colors">Login</a>
+      </div>
+      <button title="Assinar Agora" aria-label="Assinar" class="btn-gradient text-white px-6 py-2.5 rounded-full font-bold">
+        Assinar Agora
+      </button>
+    </div>
+  </header>
+
+  <main class="pt-24 pb-32 px-6 relative z-10">
+    <div class="text-center max-w-4xl mx-auto mb-20">
+      <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-800 text-xs font-black px-4 py-1.5 rounded-full mb-6 uppercase tracking-[0.2em]" data-aos="fade-up">
+        <i class="ph-fill ph-star"></i> Eleito melhor clube de 2025
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-amber-950 tracking-tight leading-[1.1]" data-aos="fade-up" data-aos-delay="100">
+        Receba cafés especiais todo mês, no <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-800">conforto da sua casa</span>.
+      </h1>
+      <p class="text-lg md:text-xl text-amber-800/70 mb-12 max-w-2xl mx-auto font-medium" data-aos="fade-up" data-aos-delay="200">
+        Grãos selecionados das melhores fazendas do Brasil, torrados dias antes do envio para garantir frescor máximo na sua xícara.
+      </p>
+      
+      <!-- Toggle Mensal / Semestral -->
+      <div class="toggle-bg shadow-inner" data-aos="zoom-in" data-aos-delay="300">
+        <div class="toggle-slider"></div>
+        <button class="toggle-btn active">Mensal</button>
+        <button class="toggle-btn">Semestral <span class="text-[10px] bg-amber-500 text-white px-1.5 py-0.5 rounded ml-1 font-black uppercase">-10%</span></button>
+      </div>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-center">
+      
+      <!-- Plano Basico -->
+      <div class="plan-card bg-white rounded-[2rem] p-8 lg:p-10 shadow-xl" data-aos="fade-right" data-aos-delay="200">
+        <div class="text-amber-700 font-black text-sm uppercase tracking-widest mb-3">Iniciante</div>
+        <div class="flex items-baseline gap-1 mb-4">
+          <span class="text-4xl lg:text-5xl font-black text-amber-950 tracking-tighter">R$ 59<span class="text-2xl">,90</span></span><span class="text-amber-900/50 font-bold">/mês</span>
+        </div>
+        <p class="text-sm text-amber-900/60 mb-8 font-medium h-10 leading-relaxed">Perfeito para quem toma 1 a 2 xícaras por dia.</p>
+        
+        <div class="w-full h-px bg-amber-900/10 mb-8"></div>
+        
+        <ul class="space-y-4 mb-10 text-sm font-semibold text-amber-950/80">
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check text-amber-500 text-lg"></i> <span>250g de café especial</span></li>
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check text-amber-500 text-lg"></i> <span>1 perfil sensorial</span></li>
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check text-amber-500 text-lg"></i> <span>Moagem à escolha</span></li>
+          <li class="flex gap-3 items-center opacity-40"><i class="ph-bold ph-minus text-amber-900/30 text-lg"></i> <span class="line-through">Frete Grátis</span></li>
+        </ul>
+        
+        <button title="Assinar Iniciante" aria-label="Assinar Plano Iniciante" class="w-full py-4 rounded-xl bg-amber-50 text-amber-900 font-bold hover:bg-amber-100 transition-colors text-sm uppercase tracking-wider">
+          Escolher Iniciante
+        </button>
+      </div>
+
+      <!-- Plano Popular -->
+      <div class="plan-card plan-popular coffee-gradient text-white rounded-[2rem] p-8 lg:p-10 shadow-2xl relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-amber-500 text-amber-950 text-xs font-black px-6 py-1.5 rounded-full uppercase tracking-widest shadow-lg whitespace-nowrap">
+          Mais Assinado
+        </div>
+        <div class="text-amber-300 font-black text-sm uppercase tracking-widest mb-3">Apaixonado</div>
+        <div class="flex items-baseline gap-1 mb-4">
+          <span class="text-5xl lg:text-6xl font-black tracking-tighter">R$ 99<span class="text-3xl">,90</span></span><span class="text-amber-200/50 font-bold">/mês</span>
+        </div>
+        <p class="text-sm text-amber-100/70 mb-8 font-medium h-10 leading-relaxed">Ideal para casais ou quem bebe café várias vezes ao dia.</p>
+        
+        <div class="w-full h-px bg-white/10 mb-8"></div>
+        
+        <ul class="space-y-4 mb-10 text-sm font-semibold text-amber-50">
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check-circle text-amber-400 text-lg"></i> <span>500g de café especial <span class="text-amber-200/50">(2 pcts)</span></span></li>
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check-circle text-amber-400 text-lg"></i> <span>2 perfis sensoriais</span></li>
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check-circle text-amber-400 text-lg"></i> <span>Moagem à escolha</span></li>
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check-circle text-amber-400 text-lg"></i> <span>Frete Grátis Sul e Sudeste</span></li>
+        </ul>
+        
+        <button title="Assinar Apaixonado" aria-label="Assinar Plano Apaixonado" class="w-full py-4 rounded-xl bg-white text-amber-900 font-black hover:bg-amber-50 transition-colors text-sm uppercase tracking-wider shadow-lg shadow-white/10 hover:shadow-white/20">
+          Assinar Apaixonado
+        </button>
+      </div>
+
+      <!-- Plano Familiar -->
+      <div class="plan-card bg-white rounded-[2rem] p-8 lg:p-10 shadow-xl" data-aos="fade-left" data-aos-delay="300">
+        <div class="text-amber-700 font-black text-sm uppercase tracking-widest mb-3">Família / Office</div>
+        <div class="flex items-baseline gap-1 mb-4">
+          <span class="text-4xl lg:text-5xl font-black text-amber-950 tracking-tighter">R$ 179<span class="text-2xl">,90</span></span><span class="text-amber-900/50 font-bold">/mês</span>
+        </div>
+        <p class="text-sm text-amber-900/60 mb-8 font-medium h-10 leading-relaxed">Nunca falte café bom em casa ou no seu escritório.</p>
+        
+        <div class="w-full h-px bg-amber-900/10 mb-8"></div>
+        
+        <ul class="space-y-4 mb-10 text-sm font-semibold text-amber-950/80">
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check text-amber-500 text-lg"></i> <span>1kg de café especial <span class="text-amber-900/40">(4 pcts)</span></span></li>
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check text-amber-500 text-lg"></i> <span>Curadoria completa</span></li>
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check text-amber-500 text-lg"></i> <span>Moagem à escolha</span></li>
+          <li class="flex gap-3 items-center"><i class="ph-bold ph-check text-amber-500 text-lg"></i> <span>Frete Grátis Brasil</span></li>
+        </ul>
+        
+        <button title="Assinar Familiar" aria-label="Assinar Plano Familiar" class="w-full py-4 rounded-xl bg-amber-50 text-amber-900 font-bold hover:bg-amber-100 transition-colors text-sm uppercase tracking-wider">
+          Escolher Família
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Garantias -->
+    <div class="max-w-4xl mx-auto mt-20 flex flex-col sm:flex-row gap-8 sm:gap-4 justify-between items-center text-center text-sm font-bold text-amber-900/70" data-aos="fade-up" data-aos-delay="400">
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-amber-600"><i class="ph-bold ph-pause-circle text-2xl"></i></div>
+        Pause quando quiser
+      </div>
+      <div class="hidden sm:block w-px h-10 bg-amber-900/10"></div>
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-amber-600"><i class="ph-bold ph-x-circle text-2xl"></i></div>
+        Cancele sem multas
+      </div>
+      <div class="hidden sm:block w-px h-10 bg-amber-900/10"></div>
+      <div class="flex flex-col items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-amber-600"><i class="ph-bold ph-calendar-check text-2xl"></i></div>
+        Escolha o dia da entrega
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 50 });
+
+    // Toggle Script
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const slider = document.querySelector('.toggle-slider');
+    
+    toggleBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        slider.style.transform = index === 0 ? 'translateX(0)' : 'translateX(100%)';
+      });
+    });
+  </script>
+</body>
+</html>

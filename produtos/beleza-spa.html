@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza & Spa | Sistema para Estética e Salões</title>
+  <meta name="description" content="Sistema para beleza, estética e spa com agenda por profissional, pacotes, clientes, estoque, checkout e financeiro. Teste a demo da Plena.">
+  <link rel="canonical" href="https://plenainformatica.com.br/produtos/beleza-spa">
+  <meta property="og:title" content="Beleza & Spa | Plena Informática">
+  <meta property="og:description" content="Agenda, pacotes, profissionais e checkout para negócios de beleza e estética.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://plenainformatica.com.br/plena.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/produtos.css">
+</head>
+<body class="real-system-page beauty-product-page">
+  <header class="header">
+    <nav class="nav">
+      <a href="../tecnologia.html">
+        <img class="logo brand-logo" src="../logo-plena.png" alt="Plena Informática">
+      </a>
+      <div class="nav-links">
+        <a href="../tecnologia.html">Tecnologia</a>
+        <a href="#interface">Interface</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#plano">Plano</a>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Tenho interesse no Beleza & Spa e vim pelo site. Gostaria de entender planos e implantação.', 'Beleza & Spa')">
+          <i data-lucide="message-circle"></i>
+          WhatsApp
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero real-hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Gestão Beleza Pro</span>
+          <h1>Agenda, pacotes e clientes com visual de clínica premium.</h1>
+          <p class="lead">Prévia visual baseada no modo demo real: controle agendamentos, profissionais, serviços, clientes, financeiro, relatórios e estoque em uma interface com o visual dark rose do sistema.</p>
+          <div class="actions">
+            <a class="btn primary" href="../tecnologia/demos/gestao-beleza/index.html" target="_blank" rel="noopener">
+              <i data-lucide="monitor-up"></i>
+              Abrir demo real
+            </a>
+            <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pelo site da Plena e quero saber mais sobre o Beleza & Spa.', 'Beleza & Spa')">
+              <i data-lucide="send"></i>
+              Quero esse sistema
+            </button>
+          </div>
+          <div class="promo-phrase">
+            ⭐ <strong>solicite um perído de teste gratuito</strong>
+          </div>
+        </div>
+
+        <div id="interface" class="real-demo-frame dark-theme beauty-frame" aria-label="Prévia visual baseada no modo demo real do Beleza e Spa">
+          <div class="demo-strip">
+            <span>MODO DEMONSTRAÇÃO • BELEZA & SPA • DADOS FICTÍCIOS</span>
+            <div class="demo-strip-buttons">
+              <span class="demo-strip-btn primary"><i data-lucide="message-circle" style="width:12px;height:12px"></i> Gostei, chamar no WhatsApp</span>
+              <span class="demo-strip-btn"><i data-lucide="rotate-ccw" style="width:12px;height:12px"></i> Resetar demo</span>
+            </div>
+          </div>
+          
+          <div class="demo-app-layout">
+            <aside class="demo-sidebar-rail">
+              <div class="demo-sidebar-logo">
+                <i data-lucide="sparkles" style="width:20px;height:20px;color:#fff;"></i>
+              </div>
+              <div class="demo-nav-icon active"><i data-lucide="layout-dashboard"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="calendar"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="contact"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="users"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="sparkles"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="wallet"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="package"></i></div>
+              <div style="flex:1"></div>
+              <div class="demo-nav-icon" style="color:#fbbf24"><i data-lucide="gem"></i></div>
+            </aside>
+            
+            <main class="demo-app-main">
+              <header class="demo-app-header">
+                <div>
+                  <div class="demo-header-title">Visão Geral</div>
+                  <div class="demo-header-subtitle">Domingo, 07 de junho de 2026 • 21:14:18</div>
+                </div>
+                <div class="demo-header-actions">
+                  <div class="demo-btn demo-btn-primary" style="background:#E11D48"><i data-lucide="plus"></i> Novo Agendamento</div>
+                </div>
+              </header>
+              
+              <div class="demo-app-content">
+                <div class="demo-stat-grid">
+                  <div class="demo-stat-card">
+                    <div>
+                      <div class="demo-stat-label">Agendamentos</div>
+                      <div class="demo-stat-value" style="color:#E11D48">0</div>
+                    </div>
+                    <div class="demo-stat-icon" style="background:rgba(225, 29, 72, 0.1);color:#E11D48"><i data-lucide="calendar"></i></div>
+                  </div>
+                  <div class="demo-stat-card">
+                    <div>
+                      <div class="demo-stat-label">Faturamento</div>
+                      <div class="demo-stat-value" style="color:#10B981">R$ 0,00</div>
+                    </div>
+                    <div class="demo-stat-icon" style="background:rgba(16, 185, 129, 0.1);color:#10B981"><i data-lucide="trending-up"></i></div>
+                  </div>
+                  <div class="demo-stat-card">
+                    <div>
+                      <div class="demo-stat-label">Comissões</div>
+                      <div class="demo-stat-value" style="color:#F59E0B">R$ 0,00</div>
+                    </div>
+                    <div class="demo-stat-icon" style="background:rgba(245, 158, 11, 0.1);color:#F59E0B"><i data-lucide="dollar-sign"></i></div>
+                  </div>
+                  <div class="demo-stat-card">
+                    <div>
+                      <div class="demo-stat-label">Clientes Ativos</div>
+                      <div class="demo-stat-value" style="color:#8B5CF6">0</div>
+                    </div>
+                    <div class="demo-stat-icon" style="background:rgba(139, 92, 246, 0.1);color:#8B5CF6"><i data-lucide="users"></i></div>
+                  </div>
+                </div>
+                
+                <div class="demo-dashboard-grid beauty-dashboard">
+                  <div class="demo-panel">
+                    <div class="demo-panel-header">
+                      <div class="demo-panel-title">Ações Rápidas</div>
+                    </div>
+                    <div class="demo-quick-action" style="background:rgba(225, 29, 72, 0.1);color:#FB7185">
+                      Novo Agendamento <i data-lucide="calendar-plus"></i>
+                    </div>
+                    <div class="demo-quick-action" style="background:rgba(255,255,255,0.05);color:#fff">
+                      Fechar Caixa <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <div class="demo-quick-action" style="background:rgba(255,255,255,0.05);color:#fff">
+                      Gerar Relatório <i data-lucide="file-bar-chart"></i>
+                    </div>
+                  </div>
+                  <div class="demo-panel demo-panel-large demo-panel-empty">
+                    <div class="demo-panel-header">
+                      <div class="demo-panel-title">Próximos Agendamentos</div>
+                    </div>
+                    <div class="demo-empty-state">
+                      <i data-lucide="calendar-check"></i>
+                      <strong>Tudo tranquilo por hoje</strong>
+                      <span>A recepção acompanha horários, profissionais e clientes nesta área.</span>
+                    </div>
+                  </div>
+                  <div class="demo-panel demo-panel-wide demo-panel-empty">
+                    <div class="demo-panel-header">
+                      <div class="demo-panel-title">Tendência Semanal</div>
+                    </div>
+                    <div class="demo-empty-state demo-empty-state-inline">
+                      <i data-lucide="bar-chart-3"></i>
+                      <strong>Sem dados suficientes</strong>
+                      <span>Os indicadores aparecem conforme atendimentos, pacotes e checkout são registrados.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+          
+          <div class="demo-script-card">
+            <div class="demo-script-title"><i data-lucide="mouse-pointer-click"></i> Roteiro rápido</div>
+            <div class="demo-script-text">1. Veja agenda por profissional<br>2. Abra checkout/caixa e pacotes<br>3. Confira clientes, estoque e relatórios</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" class="section real-section">
+      <div class="container">
+        <span class="eyebrow">O que está no sistema</span>
+        <h2>Mais previsibilidade para uma operação cheia de detalhes.</h2>
+        <div class="grid cols-3">
+          <article class="card"><h3><i data-lucide="calendar"></i>Agenda por especialista</h3><p>Organize horários, serviços e profissionais em uma visão simples para recepção e equipe.</p></article>
+          <article class="card"><h3><i data-lucide="sparkles"></i>Pacotes e recorrência</h3><p>Acompanhe sessões, tratamentos vendidos e clientes que retornam.</p></article>
+          <article class="card"><h3><i data-lucide="contact"></i>Clientes</h3><p>Centralize dados, histórico de atendimentos, preferências e recorrência.</p></article>
+          <article class="card"><h3><i data-lucide="wallet"></i>Checkout</h3><p>Registre pagamentos, serviços, produtos e fechamento financeiro da rotina.</p></article>
+          <article class="card"><h3><i data-lucide="package"></i>Estoque</h3><p>Acompanhe produtos usados no atendimento e vendidos na recepção.</p></article>
+          <article class="card"><h3><i data-lucide="bar-chart-3"></i>Relatórios</h3><p>Visualize faturamento, agenda, serviços mais vendidos e desempenho da equipe.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section real-section">
+      <div class="container">
+        <span class="eyebrow">Como funciona na rotina</span>
+        <h2>Do agendamento ao retorno recorrente.</h2>
+        <div class="routine-flow">
+          <div class="routine-step">
+            <div class="step-number">1</div>
+            <h3>Agendamento Fácil</h3>
+            <p>A recepcionista marca o horário com a especialista ideal, reduzindo sobreposições e salas vazias.</p>
+          </div>
+          <div class="routine-step">
+            <div class="step-number">2</div>
+            <h3>O Atendimento</h3>
+            <p>O cliente aproveita a experiência. A clínica acompanha se foi um serviço avulso ou a baixa de um pacote.</p>
+          </div>
+          <div class="routine-step">
+            <div class="step-number">3</div>
+            <h3>Checkout e Compras</h3>
+            <p>Na saída, o cliente paga o serviço e pode comprar aquele produto sugerido (baixa no estoque imediata).</p>
+          </div>
+          <div class="routine-step">
+            <div class="step-number">4</div>
+            <h3>Retorno Garantido</h3>
+            <p>O sistema processa as comissões e já programa o retorno do cliente para não perder a recorrência.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="por-que-usar" class="section real-section">
+      <div class="container grid cols-2">
+        <div>
+          <span class="eyebrow">Por que usar</span>
+          <h2>A beleza está nos detalhes da gestão.</h2>
+          <p>O Beleza & Spa entende que você vende bem-estar. Tire o papel da recepção, evite falhas na agenda e cuide para que cada cliente se sinta único, enquanto o financeiro se organiza sozinho.</p>
+        </div>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>Controle de Pacotes</h3>
+            <p>Chega de cartão de papel. Saiba quantas sessões o cliente ainda tem disponíveis no pacote.</p>
+          </article>
+          <article class="card">
+            <h3>Agenda Harmoniosa</h3>
+            <p>Colunas visuais por especialista. Encaixes são feitos sem gerar estresse e filas de espera.</p>
+          </article>
+          <article class="card">
+            <h3>Estoque e Revenda</h3>
+            <p>Sabe aqueles produtos de manutenção do tratamento? O sistema controla o estoque e registra o lucro.</p>
+          </article>
+          <article class="card">
+            <h3>Comissões Automatizadas</h3>
+            <p>Cada profissional sabe exatamente quanto gerou, e a clínica não precisa refazer contas no fim do mês.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="plano" class="section real-plan">
+      <div class="container grid cols-2">
+        <div>
+          <span class="eyebrow">Entrada comercial</span>
+          <h2>A partir de R$ 97/mês.</h2>
+          <p>Para salões, clínicas de estética e spas que precisam profissionalizar agenda, pacotes e atendimento sem perder o cuidado da experiência.</p>
+          <div class="promo-phrase">
+            ⭐ <strong>solicite um perído de teste gratuito</strong>
+          </div>
+        </div>
+        <div class="card plan-card">
+          <p class="price">Teste antes de conversar</p>
+          <ul class="clean">
+            <li>Interface alinhada ao sistema de beleza.</li>
+            <li>Fluxo de agenda, pacotes, checkout, equipe e estoque.</li>
+            <li>Dados fictícios para avaliar a rotina.</li>
+            <li>Mensagem de WhatsApp identifica o site.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Plena Informática - Beleza & Spa</footer>
+  <script src="../tecnologia/demos/gestao-barbearia/assets/libs/lucide.js"></script>
+  <script src="assets/produtos.js"></script>
+  <script>if (window.lucide) window.lucide.createIcons();</script>
+</body>
+</html>

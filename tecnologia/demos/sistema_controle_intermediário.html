@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Acesso - Sistema Seguro</title>
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --secondary: #0ea5e9;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --light: #0f172a;
+            --dark: #f8fafc;
+            --darker: #f8fafc;
+            --gray-light: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            transform: translateX(5px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background: var(--light);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Security Status */
+        .security-status {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .status-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 4px solid var(--primary);
+        }
+
+        [data-theme="dark"] .status-card {
+            background: var(--dark);
+        }
+
+        .status-card.success { border-left-color: var(--success); }
+        .status-card.warning { border-left-color: var(--warning); }
+        .status-card.error { border-left-color: var(--error); }
+
+        .status-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Access Log */
+        .access-log {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .access-log {
+            background: var(--dark);
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .log-filters {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-select {
+            padding: 0.5rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 5px;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        th {
+            background: var(--gray-light);
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .access-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .access-status.granted {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .access-status.denied {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .access-status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Users Grid */
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .user-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        [data-theme="dark"] .user-card {
+            background: var(--dark);
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .user-role {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-permissions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .permission-tag {
+            background: var(--gray-light);
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            color: var(--dark);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .users-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span>🔐</span>
+                ControleAcesso
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Controle Principal</div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">📊 Dashboard</a></li>
+                    <li><a href="#">👥 Usuários</a></li>
+                    <li><a href="#">🚪 Portas/Acessos</a></li>
+                    <li><a href="#">📋 Permissões</a></li>
+                    <li><a href="#">🕒 Horários</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Monitoramento</div>
+                <ul class="nav-links">
+                    <li><a href="#">📈 Logs de Acesso</a></li>
+                    <li><a href="#">⚠️ Alertas</a></li>
+                    <li><a href="#">📊 Relatórios</a></li>
+                    <li><a href="#">🎥 Câmeras</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Administração</div>
+                <ul class="nav-links">
+                    <li><a href="#">⚙️ Configurações</a></li>
+                    <li><a href="#">🔒 Segurança</a></li>
+                    <li><a href="#">📞 Suporte</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Controle de Acesso</h1>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">🌓</button>
+                    <button class="btn">+ Novo Usuário</button>
+                </div>
+            </div>
+
+            <!-- Security Status -->
+            <div class="security-status">
+                <div class="status-card">
+                    <div class="status-number">154</div>
+                    <div class="status-label">Usuários Ativos</div>
+                </div>
+                <div class="status-card success">
+                    <div class="status-number">1.247</div>
+                    <div class="status-label">Acessos Hoje</div>
+                </div>
+                <div class="status-card warning">
+                    <div class="status-number">8</div>
+                    <div class="status-label">Tentativas Bloqueadas</div>
+                </div>
+                <div class="status-card error">
+                    <div class="status-number">2</div>
+                    <div class="status-label">Alertas Críticos</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button class="action-btn">
+                    <span style="font-size: 1.5rem;">👤</span>
+                    Novo Usuário
+                </button>
+                <button class="action-btn">
+                    <span style="font-size: 1.5rem;">🚪</span>
+                    Nova Porta
+                </button>
+                <button class="action-btn">
+                    <span style="font-size: 1.5rem;">📋</span>
+                    Permissões
+                </button>
+                <button class="action-btn">
+                    <span style="font-size: 1.5rem;">🕒</span>
+                    Horários
+                </button>
+                <button class="action-btn">
+                    <span style="font-size: 1.5rem;">📊</span>
+                    Relatório
+                </button>
+                <button class="action-btn">
+                    <span style="font-size: 1.5rem;">⚙️</span>
+                    Configurações
+                </button>
+            </div>
+
+            <!-- Access Log -->
+            <div class="access-log">
+                <div class="section-header">
+                    <h2>Registro de Acessos</h2>
+                    <div class="log-filters">
+                        <select class="filter-select">
+                            <option>Hoje</option>
+                            <option>Últimos 7 dias</option>
+                            <option>Últimos 30 dias</option>
+                        </select>
+                        <button class="btn">Exportar</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Usuário</th>
+                            <th>Local</th>
+                            <th>Método</th>
+                            <th>Status</th>
+                            <th>Detalhes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>05/11/2025 14:25</td>
+                            <td>João Silva</td>
+                            <td>Porta Principal</td>
+                            <td>Cartão RFID</td>
+                            <td><span class="access-status granted">Permitido</span></td>
+                            <td>Acesso normal</td>
+                        </tr>
+                        <tr>
+                            <td>05/11/2025 14:18</td>
+                            <td>Maria Santos</td>
+                            <td>Sala de Servidores</td>
+                            <td>Biometria</td>
+                            <td><span class="access-status granted">Permitido</span></td>
+                            <td>Acesso administrativo</td>
+                        </tr>
+                        <tr>
+                            <td>05/11/2025 13:45</td>
+                            <td>Tentativa Suspeita</td>
+                            <td>Porta dos Fundos</td>
+                            <td>Cartão Inválido</td>
+                            <td><span class="access-status denied">Negado</span></td>
+                            <td>Cartão não cadastrado</td>
+                        </tr>
+                        <tr>
+                            <td>05/11/2025 13:30</td>
+                            <td>Pedro Costa</td>
+                            <td>Almoxarifado</td>
+                            <td>Senha</td>
+                            <td><span class="access-status denied">Negado</span></td>
+                            <td>Fora do horário permitido</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Active Users -->
+            <div class="section-header">
+                <h2>Usuários Ativos Recentemente</h2>
+                <button class="btn">Ver Todos</button>
+            </div>
+            <div class="users-grid">
+                <div class="user-card">
+                    <div class="user-avatar">JS</div>
+                    <div class="user-info">
+                        <div class="user-name">João Silva</div>
+                        <div class="user-role">Gerente de TI</div>
+                        <div class="user-permissions">
+                            <span class="permission-tag">Admin</span>
+                            <span class="permission-tag">Servidores</span>
+                            <span class="permission-tag">Relatórios</span>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 0.8rem; color: var(--gray);">Último acesso</div>
+                        <div style="font-weight: 600;">14:25</div>
+                    </div>
+                </div>
+                <div class="user-card">
+                    <div class="user-avatar">MS</div>
+                    <div class="user-info">
+                        <div class="user-name">Maria Santos</div>
+                        <div class="user-role">Coordenadora</div>
+                        <div class="user-permissions">
+                            <span class="permission-tag">Gestão</span>
+                            <span class="permission-tag">Relatórios</span>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 0.8rem; color: var(--gray);">Último acesso</div>
+                        <div style="font-weight: 600;">14:18</div>
+                    </div>
+                </div>
+                <div class="user-card">
+                    <div class="user-avatar">AC</div>
+                    <div class="user-info">
+                        <div class="user-name">Ana Costa</div>
+                        <div class="user-role">Analista</div>
+                        <div class="user-permissions">
+                            <span class="permission-tag">Operacional</span>
+                            <span class="permission-tag">Almoxarifado</span>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 0.8rem; color: var(--gray);">Último acesso</div>
+                        <div style="font-weight: 600;">13:15</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.body.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Simulate Real-time Access Updates
+        function simulateAccessUpdate() {
+            const accessLog = document.querySelector('.access-log tbody');
+            const newAccess = document.createElement('tr');
+            
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+            const dateString = now.toLocaleDateString('pt-BR');
+            
+            newAccess.innerHTML = `
+                <td>${dateString} ${timeString}</td>
+                <td>Usuário Teste</td>
+                <td>Porta ${Math.floor(Math.random() * 10) + 1}</td>
+                <td>${Math.random() > 0.5 ? 'Cartão RFID' : 'Biometria'}</td>
+                <td><span class="access-status granted">Permitido</span></td>
+                <td>Acesso simulado</td>
+            `;
+            
+            accessLog.insertBefore(newAccess, accessLog.firstChild);
+            
+            // Remove old entries if too many
+            if (accessLog.children.length > 10) {
+                accessLog.removeChild(accessLog.lastChild);
+            }
+        }
+
+        // Update access log every 30 seconds
+        setInterval(simulateAccessUpdate, 30000);
+
+        // Initialize system
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Sistema de controle de acesso inicializado');
+            
+            const accessData = {
+                activeUsers: 154,
+                todayAccess: 1247,
+                blockedAttempts: 8,
+                criticalAlerts: 2
+            };
+            
+            console.log('Dados de acesso carregados:', accessData);
+        });
+    </script>
+</body>
+</html>

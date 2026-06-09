@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Empresarial - Gestão Integrada</title>
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --secondary: #0ea5e9;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --light: #0f172a;
+            --dark: #f8fafc;
+            --darker: #f8fafc;
+            --gray-light: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            transform: translateX(5px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background: var(--light);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Stats Cards */
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 4px solid var(--primary);
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: var(--dark);
+        }
+
+        .stat-card.success { border-left-color: var(--success); }
+        .stat-card.warning { border-left-color: var(--warning); }
+        .stat-card.error { border-left-color: var(--error); }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Charts */
+        .charts-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        [data-theme="dark"] .charts-container {
+            background: var(--dark);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .chart-title {
+            font-weight: 600;
+        }
+
+        /* Modules Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .module-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        [data-theme="dark"] .module-card {
+            background: var(--dark);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .module-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+            color: white;
+        }
+
+        .module-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] .quick-actions {
+            background: var(--dark);
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: var(--gray-light);
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Tables */
+        .data-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .data-section {
+            background: var(--dark);
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        th {
+            background: var(--gray-light);
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+        }
+
+        .status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span>🏢</span>
+                ERP Empresarial
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Principal</div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">📊 Dashboard</a></li>
+                    <li><a href="#">👥 Clientes</a></li>
+                    <li><a href="#">📦 Estoque</a></li>
+                    <li><a href="#">💰 Financeiro</a></li>
+                    <li><a href="#">🛒 Vendas</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Recursos</div>
+                <ul class="nav-links">
+                    <li><a href="#">📋 Pedidos</a></li>
+                    <li><a href="#">🚚 Fornecedores</a></li>
+                    <li><a href="#">👨‍💼 RH</a></li>
+                    <li><a href="#">📈 Relatórios</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Configurações</div>
+                <ul class="nav-links">
+                    <li><a href="#">⚙️ Sistema</a></li>
+                    <li><a href="#">👤 Usuários</a></li>
+                    <li><a href="#">🔒 Permissões</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Dashboard Executivo</h1>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">🌓</button>
+                    <button class="btn">+ Novo Pedido</button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-number">R$ 128.547</div>
+                    <div class="stat-label">Faturamento Mensal</div>
+                </div>
+                <div class="stat-card success">
+                    <div class="stat-number">89</div>
+                    <div class="stat-label">Pedidos Este Mês</div>
+                </div>
+                <div class="stat-card warning">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Produtos em Falta</div>
+                </div>
+                <div class="stat-card error">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Atrasos</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Main Content -->
+                <div>
+                    <!-- Charts -->
+                    <div class="charts-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Performance de Vendas</div>
+                            <select style="padding: 0.5rem; border-radius: 5px; border: 1px solid var(--gray-light);">
+                                <option>Últimos 6 meses</option>
+                                <option>Últimos 12 meses</option>
+                            </select>
+                        </div>
+                        <div style="height: 300px; background: var(--gray-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gray);">
+                            [Gráfico de Performance]
+                        </div>
+                    </div>
+
+                    <!-- Modules Grid -->
+                    <div class="modules-grid">
+                        <div class="module-card">
+                            <div class="module-icon">👥</div>
+                            <div class="module-title">Gestão de Clientes</div>
+                            <div class="module-desc">Controle completo de clientes</div>
+                        </div>
+                        <div class="module-card">
+                            <div class="module-icon">📦</div>
+                            <div class="module-title">Controle de Estoque</div>
+                            <div class="module-desc">Gestão de produtos e inventário</div>
+                        </div>
+                        <div class="module-card">
+                            <div class="module-icon">💰</div>
+                            <div class="module-title">Financeiro</div>
+                            <div class="module-desc">Fluxo de caixa e relatórios</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="quick-actions">
+                    <h3 style="margin-bottom: 1rem;">Ações Rápidas</h3>
+                    <div class="actions-grid">
+                        <button class="action-btn">
+                            <span style="font-size: 1.2rem;">➕</span>
+                            Novo Pedido
+                        </button>
+                        <button class="action-btn">
+                            <span style="font-size: 1.2rem;">👥</span>
+                            Novo Cliente
+                        </button>
+                        <button class="action-btn">
+                            <span style="font-size: 1.2rem;">📦</span>
+                            Entrada Estoque
+                        </button>
+                        <button class="action-btn">
+                            <span style="font-size: 1.2rem;">🧾</span>
+                            Nova Nota
+                        </button>
+                        <button class="action-btn">
+                            <span style="font-size: 1.2rem;">📊</span>
+                            Relatório
+                        </button>
+                        <button class="action-btn">
+                            <span style="font-size: 1.2rem;">⚙️</span>
+                            Configurações
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="data-section">
+                <div class="section-header">
+                    <h2>Pedidos Recentes</h2>
+                    <button class="btn">Ver Todos</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pedido #</th>
+                            <th>Cliente</th>
+                            <th>Data</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#2025-001</td>
+                            <td>Empresa ABC</td>
+                            <td>05/11/2025</td>
+                            <td>R$ 12.500,00</td>
+                            <td><span class="status success">Entregue</span></td>
+                            <td>
+                                <button class="btn" style="background: var(--gray); padding: 0.5rem 1rem;">Detalhes</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2025-002</td>
+                            <td>Companhia XYZ</td>
+                            <td>04/11/2025</td>
+                            <td>R$ 8.750,00</td>
+                            <td><span class="status warning">Processando</span></td>
+                            <td>
+                                <button class="btn" style="background: var(--gray); padding: 0.5rem 1rem;">Detalhes</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2025-003</td>
+                            <td>Indústria 123</td>
+                            <td>03/11/2025</td>
+                            <td>R$ 15.200,00</td>
+                            <td><span class="status error">Atrasado</span></td>
+                            <td>
+                                <button class="btn" style="background: var(--gray); padding: 0.5rem 1rem;">Detalhes</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.body.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Module Cards Interaction
+        document.querySelectorAll('.module-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const moduleName = this.querySelector('.module-title').textContent;
+                alert(`Abrindo módulo: ${moduleName}`);
+            });
+        });
+
+        // Quick Actions
+        document.querySelectorAll('.action-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const actionName = this.textContent.trim();
+                alert(`Executando: ${actionName}`);
+            });
+        });
+
+        // Sample Data Simulation
+        const systemData = {
+            monthlyRevenue: 128547,
+            monthlyOrders: 89,
+            lowStockItems: 12,
+            delayedOrders: 5
+        };
+
+        console.log('ERP Empresarial carregado com dados:', systemData);
+    </script>
+</body>
+</html>

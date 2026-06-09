@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Solution - Sistema de Gestão Completo</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-dark: #0f2547;
+            --secondary: #2d3748;
+            --accent: #3182ce;
+            --accent-light: #4299e1;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --error: #e53e3e;
+            --dark: #1a202c;
+            --light: #f7fafc;
+            --gray: #718096;
+            --gray-light: #e2e8f0;
+            --sidebar-width: 280px;
+        }
+
+        [data-theme="dark"] {
+            --light: #0f1419;
+            --dark: #f7fafc;
+            --gray: #a0aec0;
+            --gray-light: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        /* Layout Principal */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Avançada */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--primary);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-section {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-title {
+            padding: 0 1.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-left-color: var(--accent-light);
+        }
+
+        .nav-links .icon {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-left: auto;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            transition: all 0.3s ease;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: white;
+            border-bottom: 1px solid var(--gray-light);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        [data-theme="dark"] .top-bar {
+            background: var(--dark);
+            border-bottom-color: var(--gray-light);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--light);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            width: 400px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            margin-left: 0.5rem;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Dashboard Grid */
+        .dashboard {
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--accent);
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: var(--dark);
+        }
+
+        .stat-card.warning { border-left-color: var(--warning); }
+        .stat-card.success { border-left-color: var(--success); }
+        .stat-card.error { border-left-color: var(--error); }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        [data-theme="dark"] .chart-container {
+            background: var(--dark);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .chart-title {
+            font-weight: 600;
+        }
+
+        /* Data Table */
+        .data-table {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .data-table {
+            background: var(--dark);
+        }
+
+        .table-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        th {
+            font-weight: 600;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status.active {
+            background: #e6fffa;
+            color: var(--success);
+        }
+
+        .status.pending {
+            background: #fef5e7;
+            color: var(--warning);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        [data-theme="dark"] .modal-content {
+            background: var(--dark);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 5px;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-bar {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span>⚡</span>
+                    EnterpriseSys
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Principal</div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active"><span class="icon">📊</span> Dashboard</a></li>
+                    <li><a href="#"><span class="icon">👥</span> Clientes</a></li>
+                    <li><a href="#"><span class="icon">📦</span> Produtos</a></li>
+                    <li><a href="#"><span class="icon">💰</span> Financeiro</a></li>
+                    <li><a href="#"><span class="icon">📈</span> Relatórios</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Ferramentas</div>
+                <ul class="nav-links">
+                    <li><a href="#"><span class="icon">🤖</span> Automação <span class="badge">Nova</span></a></li>
+                    <li><a href="#"><span class="icon">📋</span> Projetos</a></li>
+                    <li><a href="#"><span class="icon">💬</span> Chat Interno</a></li>
+                    <li><a href="#"><span class="icon">⚙️</span> Configurações</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Pesquisar...">
+                </div>
+                <div class="user-menu">
+                    <button class="theme-toggle">🌓</button>
+                    <div class="user-avatar">JS</div>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <section class="dashboard">
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">R$ 124.850</div>
+                        <div class="stat-label">Faturamento Mensal</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-value">1.248</div>
+                        <div class="stat-label">Novos Clientes</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-value">84%</div>
+                        <div class="stat-label">Satisfação</div>
+                    </div>
+                    <div class="stat-card error">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Tickets Abertos</div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Performance de Vendas</div>
+                            <select class="form-control" style="width: auto;">
+                                <option>Últimos 30 dias</option>
+                                <option>Últimos 90 dias</option>
+                            </select>
+                        </div>
+                        <div id="sales-chart" style="height: 300px; background: #f8f9fa; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: var(--gray);">
+                            [Gráfico de Vendas Interativo]
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Distribuição</div>
+                        </div>
+                        <div id="pie-chart" style="height: 300px; background: #f8f9fa; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: var(--gray);">
+                            [Gráfico de Pizza]
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="data-table">
+                    <div class="table-header">
+                        <div class="chart-title">Últimas Transações</div>
+                        <button class="btn btn-primary" id="add-transaction">+ Nova Transação</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Data</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#001</td>
+                                <td>Empresa ABC</td>
+                                <td>05/11/2025</td>
+                                <td>R$ 12.500,00</td>
+                                <td><span class="status active">Pago</span></td>
+                                <td>
+                                    <button style="background: none; border: none; cursor: pointer;">✏️</button>
+                                    <button style="background: none; border: none; cursor: pointer;">👁️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#002</td>
+                                <td>Companhia XYZ</td>
+                                <td>04/11/2025</td>
+                                <td>R$ 8.750,00</td>
+                                <td><span class="status pending">Pendente</span></td>
+                                <td>
+                                    <button style="background: none; border: none; cursor: pointer;">✏️</button>
+                                    <button style="background: none; border: none; cursor: pointer;">👁️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="transactionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nova Transação</h3>
+                <button onclick="closeModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Cliente</label>
+                    <input type="text" class="form-control" placeholder="Nome do cliente">
+                </div>
+                <div class="form-group">
+                    <label>Valor</label>
+                    <input type="number" class="form-control" placeholder="R$ 0,00">
+                </div>
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control">
+                        <option>Pendente</option>
+                        <option>Pago</option>
+                        <option>Cancelado</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Salvar Transação</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.setAttribute('data-theme', 
+                document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+            );
+        });
+
+        // Modal Control
+        const modal = document.getElementById('transactionModal');
+        const addBtn = document.getElementById('add-transaction');
+
+        addBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Simulated Chart Data
+        console.log('Sistema carregado - Integração com APIs de gráficos pronta');
+
+        // Mobile Menu
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

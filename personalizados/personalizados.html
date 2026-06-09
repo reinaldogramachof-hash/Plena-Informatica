@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalizados e Papelaria - Plena Informática</title>
+
+  <!-- SEO / Open Graph / Schema.org -->
+  <meta name="description" content="Personalize camisetas, canecas, brindes corporativos e papelaria criativa com a Plena Informática. Qualidade premium, entrega rápida e descontos para atacado em SJC.">
+  <meta name="keywords" content="personalizados, brindes corporativos, camisetas personalizadas, canecas, são josé dos campos, brindes sjc, papelaria personalizada, caixinhas, adesivos">
+  <meta name="author" content="Plena Informática">
+  <meta name="theme-color" content="#061A35">
+  <meta property="og:title" content="Personalizados e Papelaria - Plena Informática">
+  <meta property="og:description" content="Do varejo ao atacado: brindes e papelaria com qualidade inigualável em São José dos Campos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://plenainformatica.com.br/personalizados">
+  <meta property="og:image" content="https://plenainformatica.com.br/plena.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Plena Informática">
+  <link rel="canonical" href="https://plenainformatica.com.br/personalizados">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23ea580c'/><text x='16' y='23' text-anchor='middle' font-size='20' font-weight='bold' font-family='Arial,sans-serif' fill='white'>P</text></svg>">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS customizado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="antialiased bg-slate-50">
+
+  <!-- ═════════ HEADER ═════════ -->
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <div class="bg-white/80 backdrop-blur-xl border-b border-gray-100/60 shadow-sm transition-all duration-300">
+      <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="../index/index.html" class="flex items-center gap-2.5 group flex-shrink-0">
+          <img src="../logo-plena.png" alt="Plena Informática" class="h-60 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+        </a>
+
+        <!-- Nav Desktop -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="../index/index.html" class="text-sm font-montserrat font-semibold text-gray-600 hover:text-[var(--color-orange)] transition-colors">Início</a>
+          <a href="#brindes" class="text-sm font-montserrat font-semibold text-gray-600 hover:text-[var(--color-orange)] transition-colors">Brindes Corporativos</a>
+          <a href="#papelaria" class="text-sm font-montserrat font-semibold text-gray-600 hover:text-[var(--color-orange)] transition-colors">Papelaria Personalizada</a>
+          <a href="#como-funciona" class="text-sm font-montserrat font-semibold text-gray-600 hover:text-[var(--color-orange)] transition-colors">Como Funciona</a>
+        </div>
+
+        <!-- CTA Desktop -->
+        <button type="button" class="whatsapp-btn hidden md:inline-flex btn-whatsapp text-sm py-2 px-5" data-message="Olá! Vim pelo site e gostaria de conversar com vocês.">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.88 6.223l-1.078 3.948 4.035-1.052z"/></svg>
+          Fale Conosco
+        </button>
+
+        <!-- Burger Mobile -->
+        <button id="menu-btn" class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-xl">
+      <div class="container mx-auto px-6 py-4 flex flex-col gap-1">
+        <a href="../index/index.html" class="mobile-link block py-3 px-4 text-gray-700 font-montserrat font-semibold">Início</a>
+        <a href="#brindes" class="mobile-link block py-3 px-4 text-gray-700 font-montserrat font-semibold">Brindes Corporativos</a>
+        <a href="#papelaria" class="mobile-link block py-3 px-4 text-gray-700 font-montserrat font-semibold">Papelaria Personalizada</a>
+        <a href="#como-funciona" class="mobile-link block py-3 px-4 text-gray-700 font-montserrat font-semibold">Como Funciona</a>
+        <button type="button" class="whatsapp-btn mobile-link mt-2 w-full py-3 px-4 bg-[var(--color-green-whatsapp)] text-white font-bold rounded-xl flex items-center justify-center gap-2" data-message="Olá! Vim pelo site e gostaria de conversar com vocês.">
+          Fale Conosco via WhatsApp
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═════════ HERO 1: BRINDES E CORPORATIVO ═════════ -->
+    <section id="brindes" class="hero-bg py-24 md:py-32 overflow-hidden flex items-center" style="min-height: 85vh; padding-top: 8rem;">
+      <div class="curve-top-left"></div>
+      <div class="dots-pattern dots-top-right"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          
+          <!-- Texto -->
+          <div class="animate-in" style="animation-delay:.1s">
+            <h1 class="font-anton text-white text-5xl md:text-7xl mb-1 leading-[1.1] uppercase drop-shadow-lg">
+              BRINDES <span class="gradient-text">&</span><br>CORPORATIVO
+            </h1>
+            <p class="font-pacifico text-[var(--color-orange-light)] text-3xl md:text-4xl mb-8 transform -rotate-2 drop-shadow-md">
+              A marca da sua empresa
+            </p>
+            
+            <ul class="text-white font-montserrat font-medium space-y-4 mb-10 text-lg">
+              <li class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-[var(--color-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Alta Durabilidade e Qualidade
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-[var(--color-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                A partir de 1 unidade
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-[var(--color-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Diversos itens premium
+              </li>
+            </ul>
+
+            <button type="button" class="btn-whatsapp whatsapp-btn text-lg py-4 px-8" data-message="Olá! Quero um orçamento de Brindes Corporativos.">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.88 6.223l-1.078 3.948 4.035-1.052z"/></svg>
+              PEÇA SEU ORÇAMENTO
+            </button>
+          </div>
+
+          <!-- Imagem -->
+          <div class="relative animate-in flex justify-center" style="animation-delay:.3s">
+             <div class="absolute inset-0 bg-white/5 rounded-full blur-3xl w-80 h-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+             <!-- ADDED FLOAT ANIMATION HERE -->
+             <img src="imagens/caneca.png" alt="Canecas Personalizadas" class="relative z-10 w-full max-w-md object-contain float-anim" style="filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));">
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="absolute bottom-6 left-0 right-0 text-center">
+        <span class="font-montserrat text-white/50 text-xs font-bold uppercase tracking-widest">Plena Personalizados</span>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO BRINDES -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-anton text-4xl text-[var(--color-navy)] uppercase tracking-wide">Catálogo de Produtos</h2>
+          <p class="font-montserrat text-gray-500 mt-2 font-medium">As melhores opções para você e sua empresa. <span class="md:hidden block text-[var(--color-orange)] text-xs mt-1">(Deslize para o lado)</span></p>
+        </div>
+
+        <!-- CAROUSEL MOBILE / GRID DESKTOP -->
+        <div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar md:grid md:grid-cols-4 gap-6 pb-4 reveal">
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-gray-50 border border-gray-100 p-4 text-center" data-product="Camisetas">
+            <img src="imagens/camiseta.png" alt="Camisetas" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Camisetas</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-gray-50 border border-gray-100 p-4 text-center" data-product="Caneca de Chopp">
+            <img src="imagens/chopp.png" alt="Caneca de Chopp" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Caneca de Chopp</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-gray-50 border border-gray-100 p-4 text-center" data-product="Chaveiros">
+            <img src="imagens/chaveiro.png" alt="Chaveiros" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Chaveiros</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-gray-50 border border-gray-100 p-4 text-center" data-product="Moletons">
+            <img src="imagens/moletom.png" alt="Moletons" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Moletons</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-gray-50 border border-gray-100 p-4 text-center" data-product="Ecobags">
+            <img src="imagens/ecobag.png" alt="Ecobag" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Ecobags</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-gray-50 border border-gray-100 p-4 text-center" data-product="Copos Térmicos">
+            <img src="imagens/stanley.png" alt="Copo Estilo Stanley" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Copos Térmicos</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-gray-50 border border-gray-100 p-4 text-center" data-product="Bonés">
+            <img src="imagens/bone.png" alt="Bonés" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Bonés</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-gray-50 border border-gray-100 p-4 text-center" data-product="Uniformes">
+            <img src="imagens/uniformes.png" alt="Uniformes" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Uniformes</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ HERO 2: PAPELARIA ═════════ -->
+    <section id="papelaria" class="hero-bg py-24 md:py-32 overflow-hidden flex items-center border-t border-white/10" style="min-height: 85vh;">
+      <div class="curve-bottom-right"></div>
+      <div class="dots-pattern dots-bottom-left"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          
+          <!-- Imagem -->
+          <div class="relative reveal flex justify-center order-2 md:order-1">
+             <div class="absolute inset-0 bg-white/5 rounded-full blur-3xl w-80 h-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+             <!-- ADDED FLOAT ANIMATION HERE -->
+             <img src="imagens/caixinhas.png" alt="Papelaria Personalizada" class="relative z-10 w-full max-w-md object-contain float-anim" style="filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));">
+          </div>
+
+          <!-- Texto -->
+          <div class="reveal order-1 md:order-2">
+            <h1 class="font-anton text-white text-6xl md:text-8xl mb-1 leading-[1.0] uppercase drop-shadow-lg">
+              PAPELARIA
+            </h1>
+            <p class="font-pacifico text-[var(--color-orange-light)] text-4xl md:text-5xl mb-8 transform -rotate-3 drop-shadow-md">
+              Personalizada
+            </p>
+            
+            <ul class="text-white font-montserrat font-medium space-y-4 mb-10 text-lg">
+              <li class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-[var(--color-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                Temas Exclusivos
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-[var(--color-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                Feito sob encomenda
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-[var(--color-orange)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Ideal para festas
+              </li>
+            </ul>
+
+            <button type="button" class="btn-whatsapp whatsapp-btn text-lg py-4 px-8" data-message="Olá! Quero um orçamento de Papelaria Personalizada.">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.88 6.223l-1.078 3.948 4.035-1.052z"/></svg>
+              PEÇA SEU ORÇAMENTO
+            </button>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="absolute bottom-6 left-0 right-0 text-center">
+        <span class="font-montserrat text-white/50 text-xs font-bold uppercase tracking-widest">Plena Personalizados</span>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO PAPELARIA -->
+    <section class="py-20 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12 reveal">
+          <h2 class="font-anton text-4xl text-[var(--color-navy)] uppercase tracking-wide">Itens de Papelaria</h2>
+          <p class="font-montserrat text-gray-500 mt-2 font-medium">Toque especial para seus eventos e encomendas. <span class="md:hidden block text-[var(--color-orange)] text-xs mt-1">(Deslize para o lado)</span></p>
+        </div>
+
+        <!-- CAROUSEL MOBILE / GRID DESKTOP -->
+        <div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar md:grid md:grid-cols-4 gap-6 pb-4 reveal">
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-white border border-gray-100 p-4 text-center" data-product="Topper de Bolo">
+            <img src="imagens/topper.png" alt="Topper de Bolo" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Topper de Bolo</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-white border border-gray-100 p-4 text-center" data-product="Adesivos">
+            <img src="imagens/adesivos.png" alt="Adesivos" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Adesivos</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-white border border-gray-100 p-4 text-center" data-product="Tags">
+            <img src="imagens/tags.png" alt="Tags" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Tags</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-white border border-gray-100 p-4 text-center" data-product="Rótulos">
+            <img src="imagens/rotulos.png" alt="Rótulos" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Rótulos</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-white border border-gray-100 p-4 text-center" data-product="Convites">
+            <img src="imagens/convites.png" alt="Convites" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Convites</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-white border border-gray-100 p-4 text-center" data-product="Cartões de Agradecimento">
+            <img src="imagens/cartoes.png" alt="Cartões de Agradecimento" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Cartões</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-white border border-gray-100 p-4 text-center" data-product="Polaroides">
+            <img src="imagens/polaroide.png" alt="Polaroide" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Polaroides</h3>
+          </div>
+          <div class="gallery-item snap-center shrink-0 w-[75%] md:w-auto bg-white border border-gray-100 p-4 text-center" data-product="Caixinhas Personalizadas">
+            <img src="imagens/caixinhas.png" alt="Caixinhas Personalizadas" class="w-full aspect-square object-contain mb-4">
+            <h3 class="font-montserrat font-bold text-[var(--color-navy)]">Caixinhas</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ COMO FUNCIONA ═════════ -->
+    <section id="como-funciona" class="py-20 bg-white border-y border-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-14 reveal">
+          <span class="inline-block text-[var(--color-orange)] font-bold tracking-widest uppercase text-xs px-4 py-2 bg-orange-50 rounded-full mb-4">Simples e Rápido</span>
+          <h2 class="font-anton text-4xl text-[var(--color-navy)] uppercase">Como fazer seu pedido</h2>
+          <p class="font-montserrat text-gray-500 mt-3 max-w-md mx-auto">Do orçamento à entrega, cuidamos de cada etapa.</p>
+        </div>
+        <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 relative">
+          
+          <div class="text-center reveal">
+            <div class="w-20 h-20 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-4 relative z-10 border border-gray-200">
+              <span class="text-2xl font-black text-[var(--color-navy)] font-anton">1</span>
+            </div>
+            <h3 class="font-montserrat font-bold text-gray-800 mb-2">Escolha o Produto</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Navegue pelo catálogo e veja as opções.</p>
+          </div>
+
+          <div class="text-center reveal" style="transition-delay:.1s">
+            <div class="w-20 h-20 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-4 relative z-10 border border-gray-200">
+              <span class="text-2xl font-black text-[var(--color-navy)] font-anton">2</span>
+            </div>
+            <h3 class="font-montserrat font-bold text-gray-800 mb-2">Chame no WhatsApp</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Fale com nossa equipe e passe os detalhes.</p>
+          </div>
+
+          <div class="text-center reveal" style="transition-delay:.2s">
+            <div class="w-20 h-20 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-4 relative z-10 border border-gray-200">
+              <span class="text-2xl font-black text-[var(--color-navy)] font-anton">3</span>
+            </div>
+            <h3 class="font-montserrat font-bold text-gray-800 mb-2">Aprovação da Arte</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Receba uma prévia digital para aprovar.</p>
+          </div>
+
+          <div class="text-center reveal" style="transition-delay:.3s">
+            <div class="w-20 h-20 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-4 relative z-10 border border-green-100">
+              <svg class="w-9 h-9 text-[var(--color-green-whatsapp)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <h3 class="font-montserrat font-bold text-gray-800 mb-2">Entrega Rápida</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Produzimos com carinho e entregamos rápido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ ENTREGAS / SOCIAL PROOF ═════════ -->
+    <section class="py-20 bg-slate-100">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="font-anton text-4xl text-[var(--color-navy)] uppercase mb-2 reveal">Nossas Entregas</h2>
+        <p class="font-montserrat text-gray-500 mb-12 max-w-lg mx-auto font-medium reveal">Alguns dos pedidos recentes embalados com carinho para nossos clientes.</p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto reveal">
+          <div class="bg-white p-3 shadow-md transform -rotate-2 hover:rotate-0 transition-transform duration-300 rounded-sm">
+            <img src="imagens/caneca.png" class="w-full aspect-square object-cover bg-gray-50 mb-3" alt="Entrega">
+            <p class="font-pacifico text-gray-600 text-lg">Para o Enzo</p>
+          </div>
+          <div class="bg-white p-3 shadow-md transform rotate-3 hover:rotate-0 transition-transform duration-300 rounded-sm mt-4 md:mt-0">
+            <img src="imagens/caixinhas.png" class="w-full aspect-square object-cover bg-gray-50 mb-3" alt="Entrega">
+            <p class="font-pacifico text-gray-600 text-lg">Festa da Júlia</p>
+          </div>
+          <div class="bg-white p-3 shadow-md transform -rotate-1 hover:rotate-0 transition-transform duration-300 rounded-sm">
+            <img src="imagens/ecobag.png" class="w-full aspect-square object-cover bg-gray-50 mb-3" alt="Entrega">
+            <p class="font-pacifico text-gray-600 text-lg">Brindes de Fim de Ano</p>
+          </div>
+          <div class="bg-white p-3 shadow-md transform rotate-2 hover:rotate-0 transition-transform duration-300 rounded-sm mt-4 md:mt-0">
+            <img src="imagens/topper.png" class="w-full aspect-square object-cover bg-gray-50 mb-3" alt="Entrega">
+            <p class="font-pacifico text-gray-600 text-lg">Bolo do Lucas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═════════ FOOTER ═════════ -->
+  <footer class="bg-[var(--color-navy)] text-white pt-16 pb-8">
+    <div class="container mx-auto px-6 text-center">
+      <div class="flex justify-center items-center gap-2 mb-6">
+        <span class="font-anton text-2xl tracking-wide">PLENA</span>
+        <span class="font-montserrat font-bold text-[var(--color-orange)] text-xl">PERSONALIZADOS</span>
+      </div>
+      <p class="text-gray-400 text-sm max-w-sm mx-auto mb-8 font-montserrat">
+        Qualidade premium em brindes corporativos e papelaria para São José dos Campos e região.
+      </p>
+      <p class="text-gray-500 text-xs">
+        &copy; 2026 Plena Informática. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═════════ MODAL LIGHTBOX ═════════ -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content p-6 text-center flex flex-col items-center">
+      <button class="modal-close" aria-label="Fechar">
+        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      
+      <div class="bg-gray-50 rounded-2xl w-full flex items-center justify-center p-6 mb-6 mt-4">
+        <img id="modal-img" src="" alt="Produto" class="max-w-xs w-full object-contain filter drop-shadow-xl" style="max-height: 250px;">
+      </div>
+      
+      <h3 id="modal-title" class="font-anton text-3xl text-[var(--color-navy)] uppercase tracking-wide mb-2">Produto</h3>
+      <p class="font-montserrat text-gray-500 text-sm mb-6">Personalizamos com sua arte, foto ou logotipo.</p>
+      
+      <button type="button" id="modal-whatsapp-btn" class="btn-whatsapp w-full justify-center py-4 text-base">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.88 6.223l-1.078 3.948 4.035-1.052z"/></svg>
+        QUERO ESSE ORÇAMENTO
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Business Pro - Plena Informática</title>
+    <style>
+        :root {
+            --preto: #000000;
+            --laranja: #FF6B35;
+            --laranja-escuro: #E55A2B;
+            --laranja-claro: #FF8C65;
+            --branco: #FFFFFF;
+            --cinza: #F8F9FA;
+            --cinza-escuro: #2D3748;
+            --verde: #059669;
+            --azul: #2563EB;
+            --roxo: #7C3AED;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: var(--cinza);
+            color: var(--preto);
+            line-height: 1.7;
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Profissional */
+        .sidebar-pro {
+            width: 280px;
+            background: var(--preto);
+            color: var(--branco);
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .logo-painel {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: var(--laranja);
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .nav-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--laranja);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .nav-links-pro {
+            list-style: none;
+        }
+
+        .nav-links-pro li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links-pro a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-links-pro a:hover,
+        .nav-links-pro a.active {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--branco);
+            border-left-color: var(--laranja);
+        }
+
+        /* Main Content */
+        .main-content-pro {
+            flex: 1;
+            margin-left: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Bar Avançada */
+        .top-bar-pro {
+            background: var(--branco);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--cinza-escuro);
+            font-weight: 500;
+        }
+
+        .user-menu-pro {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .quick-stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .stat-mini {
+            text-align: center;
+            padding: 0.5rem 1rem;
+            background: var(--cinza);
+            border-radius: 8px;
+            border-left: 3px solid var(--laranja);
+        }
+
+        .stat-mini-value {
+            font-weight: 700;
+            color: var(--preto);
+        }
+
+        .stat-mini-label {
+            font-size: 0.8rem;
+            color: var(--cinza-escuro);
+        }
+
+        .user-avatar-pro {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--laranja), var(--laranja-escuro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--branco);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Dashboard Principal */
+        .dashboard-pro {
+            padding: 2rem;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--preto);
+        }
+
+        .header-actions-pro {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Botões Pro */
+        .btn-pro {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--laranja);
+            color: var(--branco);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-pro:hover {
+            background: var(--laranja-escuro);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-success {
+            background: var(--verde);
+        }
+
+        .btn-outline-pro {
+            background: transparent;
+            border: 2px solid var(--laranja);
+            color: var(--laranja);
+        }
+
+        .btn-outline-pro:hover {
+            background: var(--laranja);
+            color: var(--branco);
+        }
+
+        /* Grid de Métricas */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: var(--branco);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--laranja);
+            transition: transform 0.3s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-card.success { border-top-color: var(--verde); }
+        .metric-card.warning { border-top-color: var(--laranja); }
+        .metric-card.info { border-top-color: var(--azul); }
+        .metric-card.premium { border-top-color: var(--roxo); }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .metric-title {
+            font-weight: 600;
+            color: var(--cinza-escuro);
+            font-size: 0.9rem;
+        }
+
+        .metric-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .metric-icon.success { background: rgba(5, 150, 105, 0.1); color: var(--verde); }
+        .metric-icon.warning { background: rgba(255, 107, 53, 0.1); color: var(--laranja); }
+        .metric-icon.info { background: rgba(37, 99, 235, 0.1); color: var(--azul); }
+        .metric-icon.premium { background: rgba(124, 58, 237, 0.1); color: var(--roxo); }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-trend {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .trend-positive { color: var(--verde); }
+        .trend-negative { color: var(--laranja); }
+
+        /* Grid Principal */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Catálogo Rápido */
+        .quick-catalog {
+            background: var(--branco);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font-weight: 700;
+            color: var(--preto);
+        }
+
+        .catalog-filters-pro {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--cinza);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .filter-tag {
+            padding: 0.5rem 1rem;
+            background: var(--branco);
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-tag.active,
+        .filter-tag:hover {
+            background: var(--laranja);
+            color: var(--branco);
+            border-color: var(--laranja);
+        }
+
+        .catalog-items {
+            padding: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .catalog-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.3s;
+        }
+
+        .catalog-item:hover {
+            background: var(--cinza);
+        }
+
+        .catalog-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info h4 {
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .item-desc {
+            font-size: 0.8rem;
+            color: var(--cinza-escuro);
+            margin-bottom: 0.5rem;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: var(--laranja);
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cinza);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-icon:hover {
+            background: var(--laranja);
+            color: var(--branco);
+        }
+
+        /* Calculadora Pro */
+        .calculator-sidebar {
+            background: var(--branco);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .calc-title {
+            font-weight: 700;
+            color: var(--preto);
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-subtitle {
+            color: var(--cinza-escuro);
+            font-size: 0.9rem;
+        }
+
+        .form-group-pro {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--cinza-escuro);
+            font-size: 0.9rem;
+        }
+
+        .form-control-pro {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: var(--branco);
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-control-pro:focus {
+            outline: none;
+            border-color: var(--laranja);
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, var(--laranja), var(--laranja-escuro));
+            color: var(--branco);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .result-price {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-details {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        /* Projetos Ativos */
+        .projects-section {
+            background: var(--branco);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--cinza);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--laranja);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-client {
+            color: var(--cinza-escuro);
+            font-size: 0.9rem;
+        }
+
+        .project-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .status-active { background: rgba(5, 150, 105, 0.1); color: var(--verde); }
+        .status-pending { background: rgba(255, 107, 53, 0.1); color: var(--laranja); }
+        .status-completed { background: rgba(37, 99, 235, 0.1); color: var(--azul); }
+
+        .project-progress {
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--laranja);
+            transition: width 0.3s;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--cinza-escuro);
+            font-size: 0.8rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar-pro {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar-pro.active {
+                transform: translateX(0);
+            }
+            
+            .main-content-pro {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-stats {
+                display: none;
+            }
+            
+            .header-actions-pro {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Profissional -->
+        <aside class="sidebar-pro">
+            <div class="logo-painel">
+                <div class="logo-icon">⚡</div>
+                <div class="logo-text">PAINEL BUSINESS</div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Principal</div>
+                <ul class="nav-links-pro">
+                    <li><a href="#" class="active">📊 Dashboard</a></li>
+                    <li><a href="#">📋 Catálogo Completo</a></li>
+                    <li><a href="#">💰 Propostas</a></li>
+                    <li><a href="#">📈 Projetos</a></li>
+                    <li><a href="#">👥 Clientes</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Ferramentas</div>
+                <ul class="nav-links-pro">
+                    <li><a href="#">🧮 Calculadora</a></li>
+                    <li><a href="#">📞 WhatsApp Pro</a></li>
+                    <li><a href="#">📑 Gerador de Propostas</a></li>
+                    <li><a href="#">🎯 Métricas</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Categorias</div>
+                <ul class="nav-links-pro">
+                    <li><a href="#">🌐 Sites Institucionais</a></li>
+                    <li><a href="#">💼 Sistemas de Gestão</a></li>
+                    <li><a href="#">⚙️ Sistemas de Controle</a></li>
+                    <li><a href="#">🚀 Landing Pages</a></li>
+                    <li><a href="#">🛒 E-commerce</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Administrativo</div>
+                <ul class="nav-links-pro">
+                    <li><a href="#">⚙️ Configurações</a></li>
+                    <li><a href="#">👤 Minha Conta</a></li>
+                    <li><a href="#">📊 Relatórios</a></li>
+                    <li><a href="#">🔒 Sair</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content-pro">
+            <!-- Top Bar -->
+            <div class="top-bar-pro">
+                <div class="breadcrumb">
+                    <span>🏠</span>
+                    <span>Dashboard</span>
+                    <span>▶</span>
+                    <span>Visão Geral</span>
+                </div>
+                <div class="user-menu-pro">
+                    <div class="quick-stats">
+                        <div class="stat-mini">
+                            <div class="stat-mini-value">12</div>
+                            <div class="stat-mini-label">Projetos</div>
+                        </div>
+                        <div class="stat-mini">
+                            <div class="stat-mini-value">R$ 47.5K</div>
+                            <div class="stat-mini-label">Faturamento</div>
+                        </div>
+                    </div>
+                    <div class="user-avatar-pro">AD</div>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="dashboard-pro">
+                <div class="dashboard-header">
+                    <h1 class="page-title">Painel de Controle Business</h1>
+                    <div class="header-actions-pro">
+                        <button class="btn-pro" onclick="openModal('newProject')">
+                            ➕ Novo Projeto
+                        </button>
+                        <button class="btn-pro btn-success">
+                            📊 Relatório do Mês
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Métricas em Destaque -->
+                <div class="metrics-grid">
+                    <div class="metric-card success">
+                        <div class="metric-header">
+                            <div class="metric-title">Faturamento Mensal</div>
+                            <div class="metric-icon success">💰</div>
+                        </div>
+                        <div class="metric-value">R$ 28.450</div>
+                        <div class="metric-trend trend-positive">
+                            <span>↑ 12.5%</span>
+                            <span>vs último mês</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card warning">
+                        <div class="metric-header">
+                            <div class="metric-title">Projetos Ativos</div>
+                            <div class="metric-icon warning">📋</div>
+                        </div>
+                        <div class="metric-value">8</div>
+                        <div class="metric-trend trend-positive">
+                            <span>↑ 2</span>
+                            <span>novos este mês</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card info">
+                        <div class="metric-header">
+                            <div class="metric-title">Taxa de Conversão</div>
+                            <div class="metric-icon info">🎯</div>
+                        </div>
+                        <div class="metric-value">34.2%</div>
+                        <div class="metric-trend trend-positive">
+                            <span>↑ 5.1%</span>
+                            <span>melhoria</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card premium">
+                        <div class="metric-header">
+                            <div class="metric-title">Clientes Satisfeitos</div>
+                            <div class="metric-icon premium">⭐</div>
+                        </div>
+                        <div class="metric-value">94.7%</div>
+                        <div class="metric-trend trend-positive">
+                            <span>↑ 2.3%</span>
+                            <span>avaliações</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid Principal -->
+                <div class="main-grid">
+                    <!-- Catálogo Rápido -->
+                    <div class="quick-catalog">
+                        <div class="section-header">
+                            <div class="section-title">Catálogo Rápido</div>
+                            <button class="btn-pro btn-outline-pro">Ver Todos</button>
+                        </div>
+                        
+                        <div class="catalog-filters-pro">
+                            <div class="filter-tag active">Todos</div>
+                            <div class="filter-tag">Sites</div>
+                            <div class="filter-tag">Sistemas</div>
+                            <div class="filter-tag">Landing Pages</div>
+                        </div>
+                        
+                        <div class="catalog-items">
+                            <div class="catalog-item">
+                                <div class="item-info">
+                                    <h4>Site Corporativo</h4>
+                                    <div class="item-desc">Presença digital profissional</div>
+                                    <div class="item-price">R$ 12.000 - R$ 25.000</div>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn-icon" onclick="copiarInfo('Site Corporativo', 'R$ 12.000 - R$ 25.000')">📋</button>
+                                    <button class="btn-icon" onclick="compartilharWhatsApp('Site Corporativo', 'R$ 12.000 - R$ 25.000')">📞</button>
+                                </div>
+                            </div>
+                            
+                            <div class="catalog-item">
+                                <div class="item-info">
+                                    <h4>ERP Empresarial</h4>
+                                    <div class="item-desc">Gestão completa</div>
+                                    <div class="item-price">R$ 35.000 - R$ 80.000</div>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn-icon">📋</button>
+                                    <button class="btn-icon">📞</button>
+                                </div>
+                            </div>
+                            
+                            <div class="catalog-item">
+                                <div class="item-info">
+                                    <h4>Landing Page Avançada</h4>
+                                    <div class="item-desc">Conversão máxima</div>
+                                    <div class="item-price">R$ 7.500 - R$ 18.000</div>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn-icon">📋</button>
+                                    <button class="btn-icon">📞</button>
+                                </div>
+                            </div>
+                            
+                            <div class="catalog-item">
+                                <div class="item-info">
+                                    <h4>Sistema de Estoque</h4>
+                                    <div class="item-desc">Controle completo</div>
+                                    <div class="item-price">R$ 3.800 - R$ 7.500</div>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="btn-icon">📋</button>
+                                    <button class="btn-icon">📞</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora Lateral -->
+                    <div class="calculator-sidebar">
+                        <div class="calc-header">
+                            <div class="calc-title">Calculadora Rápida</div>
+                            <div class="calc-subtitle">Proposta instantânea</div>
+                        </div>
+                        
+                        <div class="form-group-pro">
+                            <label class="form-label">Serviço</label>
+                            <select class="form-control-pro" id="serviceSelect">
+                                <option value="">Selecione um serviço</option>
+                                <option value="12000">Site Corporativo</option>
+                                <option value="35000">ERP Empresarial</option>
+                                <option value="7500">Landing Page Avançada</option>
+                                <option value="45000">Controle de Produção</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group-pro">
+                            <label class="form-label">Personalizações</label>
+                            <select class="form-control-pro" id="customSelect">
+                                <option value="0">Sem personalizações</option>
+                                <option value="2000">Design Premium</option>
+                                <option value="3000">Integrações API</option>
+                                <option value="5000">Sistema Completo</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn-pro" style="width: 100%;" onclick="calcularRapido()">
+                            🧮 Calcular Proposta
+                        </button>
+                        
+                        <div class="calc-result" id="calcResult" style="display: none;">
+                            <div class="result-price" id="resultPrice">R$ 0,00</div>
+                            <div class="result-details" id="resultDetails">Proposta calculada</div>
+                            <button class="btn-pro" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); width: 100%;">
+                                📞 Compartilhar no WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projetos Ativos -->
+                <div class="projects-section">
+                    <div class="section-header">
+                        <div class="section-title">Projetos em Andamento</div>
+                        <button class="btn-pro btn-outline-pro">Ver Todos</button>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div>
+                                    <div class="project-title">Site Corporativo ABC</div>
+                                    <div class="project-client">Empresa ABC Ltda</div>
+                                </div>
+                                <div class="project-status status-active">Em Desenvolvimento</div>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span>Prazo: 15/12</span>
+                                <span>R$ 18.500</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div>
+                                    <div class="project-title">Sistema de Estoque</div>
+                                    <div class="project-client">Comércio XYZ</div>
+                                </div>
+                                <div class="project-status status-pending">Aguardando Aprovação</div>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span>Prazo: 10/12</span>
+                                <span>R$ 6.800</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div>
+                                    <div class="project-title">Landing Page SaaS</div>
+                                    <div class="project-client">Startup Tech</div>
+                                </div>
+                                <div class="project-status status-completed">Entregue</div>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="project-meta">
+                                <span>Entregue: 05/12</span>
+                                <span>R$ 12.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Calculadora Rápida
+        function calcularRapido() {
+            const service = document.getElementById('serviceSelect');
+            const custom = document.getElementById('customSelect');
+            
+            if (!service.value) {
+                alert('Selecione um serviço para calcular');
+                return;
+            }
+
+            const basePrice = parseInt(service.value);
+            const customPrice = parseInt(custom.value);
+            const total = basePrice + customPrice;
+
+            document.getElementById('resultPrice').textContent = `R$ ${total.toLocaleString('pt-BR')}`;
+            document.getElementById('resultDetails').textContent = 
+                `${service.options[service.selectedIndex].text} ${customPrice > 0 ? '+ personalizações' : ''}`;
+            
+            document.getElementById('calcResult').style.display = 'block';
+        }
+
+        // Compartilhar no WhatsApp
+        function compartilharWhatsApp(nome, preco) {
+            const mensagem = `*PLENA INFORMÁTICA* 🚀\n\n` +
+                           `Tenho uma solução perfeita para você:\n\n` +
+                           `📦 *Produto:* ${nome}\n` +
+                           `💵 *Investimento:* ${preco}\n` +
+                           `🎯 *Benefícios:* Solução profissional e personalizada\n\n` +
+                           `Quer saber mais detalhes?`;
+            
+            window.open(`https://wa.me/?text=${encodeURIComponent(mensagem)}`, '_blank');
+        }
+
+        // Copiar informações
+        function copiarInfo(nome, preco) {
+            const texto = `*${nome}*\n💵 Preço: ${preco}\n\n_Plena Informática - Soluções em TI_`;
+            navigator.clipboard.writeText(texto).then(() => {
+                alert('✅ Informações copiadas!');
+            });
+        }
+
+        // Modal de Novo Projeto
+        function openModal(modalId) {
+            alert('📋 MODAL DE NOVO PROJETO\n\nEm uma implementação completa, aqui seria aberto um formulário para:\n- Cadastro do cliente\n- Seleção do serviço\n- Definição de escopo\n- Cálculo automático de prazo e valor');
+        }
+
+        // Inicialização do Painel
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Painel Business Pro - Plena Informática 🚀');
+            
+            // Carregar dados iniciais
+            const dadosIniciais = {
+                faturamento: 28450,
+                projetosAtivos: 8,
+                taxaConversao: 34.2,
+                satisfacao: 94.7
+            };
+            
+            console.log('Dados carregados:', dadosIniciais);
+        });
+
+        // Filtros do Catálogo
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Em implementação completa, aqui filtraria os itens
+                console.log('Filtrando por:', this.textContent);
+            });
+        });
+    </script>
+</body>
+</html>

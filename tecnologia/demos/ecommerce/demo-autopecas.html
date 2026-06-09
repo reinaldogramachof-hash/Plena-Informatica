@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce: Peças Automotivas | Plena Informática</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #0f172a; overflow-x: hidden; }
+    
+    .nav-bg { background: linear-gradient(90deg, #dc2626 0%, #991b1b 100%); }
+    
+    .search-panel { 
+      background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
+      background-size: cover; 
+      background-position: center; 
+      background-attachment: fixed;
+    }
+    
+    .product-card { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); border-bottom: 4px solid transparent; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05); border-bottom-color: #dc2626; }
+    .product-card img { transition: transform 0.5s; }
+    .product-card:hover img { transform: scale(1.08); }
+    
+    .btn-buy { transition: all 0.3s; }
+    .btn-buy:hover { box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.4); transform: translateY(-2px); }
+    
+    .custom-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.2em; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f8fafc; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  </style>
+</head>
+<body class="antialiased selection:bg-red-600 selection:text-white">
+
+  <!-- Header Funcional -->
+  <header class="bg-white border-b border-slate-200 relative z-50">
+    <div class="max-w-[1600px] mx-auto px-4 lg:px-8 py-2.5 flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-widest">
+      <div class="flex items-center gap-6">
+        <a href="#" class="flex items-center gap-2 hover:text-red-600 transition-colors"><i class="ph-bold ph-phone text-base"></i> (11) 9999-9999</a>
+        <a href="#" class="hidden sm:flex items-center gap-2 hover:text-green-600 transition-colors"><i class="ph-bold ph-whatsapp text-green-500 text-base"></i> Atendimento Rápido</a>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-red-600 transition-colors flex items-center gap-1.5"><i class="ph-bold ph-user"></i> Minha Conta</a>
+        <a href="#" class="hidden md:flex hover:text-red-600 transition-colors flex items-center gap-1.5"><i class="ph-bold ph-package"></i> Meus Pedidos</a>
+        <a href="#" class="hidden lg:flex hover:text-red-600 transition-colors flex items-center gap-1.5"><i class="ph-bold ph-wrench"></i> Oficinas Parceiras</a>
+      </div>
+    </div>
+    
+    <div class="nav-bg text-white shadow-md sticky top-0">
+      <div class="max-w-[1600px] mx-auto px-4 lg:px-8 py-4 flex items-center gap-6 md:gap-10">
+        <div class="font-black text-3xl tracking-tighter italic whitespace-nowrap drop-shadow-md">
+          AUTO<span class="text-yellow-400">PARTS</span>
+        </div>
+        
+        <!-- Busca Global -->
+        <div class="flex-1 flex relative shadow-lg group">
+          <select title="Categoria" aria-label="Categoria" class="custom-select bg-slate-50 text-slate-800 text-sm font-bold border-r border-slate-300 px-4 py-3.5 rounded-l focus:outline-none hidden md:block w-48 cursor-pointer">
+            <option>Todas categorias</option>
+            <option>Motor</option>
+            <option>Suspensão</option>
+            <option>Freios</option>
+          </select>
+          <input type="text" placeholder="Digite o nome da peça, marca ou código original (OEM)..." title="Busca" aria-label="Buscar peça" class="w-full bg-white text-slate-900 px-5 py-3.5 text-sm font-medium focus:outline-none rounded-r md:rounded-l-none placeholder-slate-400 focus:ring-2 focus:ring-inset focus:ring-red-500 transition-shadow">
+          <button title="Buscar" aria-label="Buscar" class="absolute right-0 top-0 bottom-0 px-6 bg-slate-900 text-white rounded-r hover:bg-black transition-colors flex items-center justify-center group-focus-within:bg-red-700"><i class="ph-bold ph-magnifying-glass text-lg"></i></button>
+        </div>
+
+        <button title="Carrinho" aria-label="Carrinho" class="relative hover:text-yellow-400 transition-colors flex items-center gap-2 group">
+          <div class="relative">
+            <i class="ph-light ph-shopping-cart text-3xl group-hover:scale-110 transition-transform"></i>
+            <span class="absolute -top-1.5 -right-2 bg-yellow-400 text-black text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-black shadow-md border-2 border-red-700">0</span>
+          </div>
+          <div class="hidden xl:block text-left">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-red-200">Seu Carrinho</p>
+            <p class="text-sm font-black tracking-tight">R$ 0,00</p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Buscador de Veículo (Widget Principal para Auto Peças) -->
+  <div class="search-panel py-20 relative z-10 border-b-4 border-red-600">
+    <div class="max-w-[1000px] mx-auto px-4 relative z-10" data-aos="zoom-in" data-aos-duration="800">
+      <div class="inline-block bg-red-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-sm mb-4">Busca de Compatibilidade</div>
+      <h1 class="text-3xl md:text-5xl font-black text-white text-center md:text-left mb-3 uppercase tracking-tight leading-tight">Encontre a peça exata para o seu carro</h1>
+      <p class="text-center md:text-left text-slate-300 mb-10 text-lg font-light">Mais de <strong class="text-white font-bold">100.000 peças originais e paralelas</strong> no catálogo.</p>
+      
+      <div class="bg-white p-6 md:p-8 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row gap-4 lg:gap-5 items-end border-t-4 border-red-600 relative overflow-hidden">
+        <i class="ph-fill ph-car absolute -right-10 -bottom-10 text-[150px] text-slate-50 opacity-50 z-0 pointer-events-none"></i>
+        
+        <div class="flex-1 w-full relative z-10">
+          <label class="block text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Ano</label>
+          <select title="Ano" aria-label="Ano do carro" class="custom-select w-full border-2 border-slate-200 rounded-lg px-4 py-3.5 text-sm font-bold text-slate-700 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none hover:border-slate-300 transition-colors cursor-pointer bg-slate-50 focus:bg-white">
+            <option>Selecione...</option>
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
+          </select>
+        </div>
+        <div class="flex-1 w-full relative z-10">
+          <label class="block text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Montadora</label>
+          <select title="Montadora" aria-label="Montadora" class="custom-select w-full border-2 border-slate-200 rounded-lg px-4 py-3.5 text-sm font-bold text-slate-400 outline-none bg-slate-100 cursor-not-allowed" disabled>
+            <option>Selecione...</option>
+          </select>
+        </div>
+        <div class="flex-1 w-full relative z-10">
+          <label class="block text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Modelo</label>
+          <select title="Modelo" aria-label="Modelo do carro" class="custom-select w-full border-2 border-slate-200 rounded-lg px-4 py-3.5 text-sm font-bold text-slate-400 outline-none bg-slate-100 cursor-not-allowed" disabled>
+            <option>Selecione...</option>
+          </select>
+        </div>
+        <div class="flex-1 w-full relative z-10">
+          <label class="block text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2 ml-1">Versão / Motor</label>
+          <select title="Versão" aria-label="Versão" class="custom-select w-full border-2 border-slate-200 rounded-lg px-4 py-3.5 text-sm font-bold text-slate-400 outline-none bg-slate-100 cursor-not-allowed" disabled>
+            <option>Selecione...</option>
+          </select>
+        </div>
+        <button title="Buscar" aria-label="Buscar peças para este veículo" class="w-full md:w-auto bg-red-600 hover:bg-red-700 text-white font-black uppercase tracking-wider px-8 py-4 rounded-lg transition-colors whitespace-nowrap shadow-lg shadow-red-600/30 hover:shadow-red-600/40 hover:-translate-y-0.5 relative z-10 flex items-center justify-center gap-2">
+          Buscar <i class="ph-bold ph-arrow-right"></i>
+        </button>
+      </div>
+      
+      <div class="text-center md:text-left mt-6 ml-2">
+        <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-yellow-400 hover:text-yellow-300 hover:underline transition-colors px-4 py-2 bg-black/30 rounded-full backdrop-blur-sm border border-white/10"><i class="ph-bold ph-identification-card text-lg"></i> Busca rápida pela Placa do Veículo</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-[1600px] mx-auto px-4 lg:px-8 py-12 grid grid-cols-1 xl:grid-cols-5 gap-8">
+    
+    <!-- Filtros Secundários -->
+    <aside class="hidden xl:block xl:col-span-1" data-aos="fade-right">
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm sticky top-28">
+        <h3 class="font-black text-sm uppercase tracking-widest mb-4 pb-3 border-b border-slate-100 text-slate-900 flex items-center justify-between">Navegue por Sistema <i class="ph-bold ph-list"></i></h3>
+        <ul class="space-y-1.5 text-sm font-medium text-slate-600 mb-8">
+          <li><a href="#" class="hover:bg-slate-50 hover:text-red-600 p-2 rounded-lg flex justify-between items-center transition-colors">Motor <span class="bg-slate-100 text-[10px] font-bold text-slate-500 px-2 py-0.5 rounded-full">1.204</span></a></li>
+          <li><a href="#" class="bg-red-50 text-red-700 font-bold p-2 rounded-lg flex justify-between items-center transition-colors border border-red-100">Suspensão e Direção <span class="bg-red-100 text-[10px] font-black text-red-700 px-2 py-0.5 rounded-full">843</span></a></li>
+          <li><a href="#" class="hover:bg-slate-50 hover:text-red-600 p-2 rounded-lg flex justify-between items-center transition-colors">Freios <span class="bg-slate-100 text-[10px] font-bold text-slate-500 px-2 py-0.5 rounded-full">652</span></a></li>
+          <li><a href="#" class="hover:bg-slate-50 hover:text-red-600 p-2 rounded-lg flex justify-between items-center transition-colors">Transmissão <span class="bg-slate-100 text-[10px] font-bold text-slate-500 px-2 py-0.5 rounded-full">310</span></a></li>
+          <li><a href="#" class="hover:bg-slate-50 hover:text-red-600 p-2 rounded-lg flex justify-between items-center transition-colors">Elétrica e Iluminação <span class="bg-slate-100 text-[10px] font-bold text-slate-500 px-2 py-0.5 rounded-full">945</span></a></li>
+        </ul>
+        
+        <h3 class="font-black text-sm uppercase tracking-widest mb-4 pb-3 border-b border-slate-100 text-slate-900 flex items-center justify-between">Marcas <i class="ph-bold ph-tag"></i></h3>
+        <ul class="space-y-3 text-sm font-bold text-slate-700">
+          <li><label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" title="Filtro" aria-label="Filtro" class="w-4 h-4 rounded border-slate-300 text-red-600 focus:ring-red-600 cursor-pointer"> <span class="group-hover:text-red-600 transition-colors">Cofap</span></label></li>
+          <li><label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" title="Filtro" aria-label="Filtro" class="w-4 h-4 rounded border-slate-300 text-red-600 focus:ring-red-600 cursor-pointer"> <span class="group-hover:text-red-600 transition-colors">Monroe</span></label></li>
+          <li><label class="flex items-center gap-3 cursor-pointer group"><input type="checkbox" title="Filtro" aria-label="Filtro" class="w-4 h-4 rounded border-slate-300 text-red-600 focus:ring-red-600 cursor-pointer"> <span class="group-hover:text-red-600 transition-colors">Nakata</span></label></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Lista de Produtos -->
+    <div class="xl:col-span-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+        <h2 class="text-xl font-black text-slate-900 uppercase tracking-tight">Amortecedores <span class="text-slate-400 font-medium text-sm normal-case tracking-normal ml-2">(843 itens)</span></h2>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <label class="text-xs font-bold text-slate-500 uppercase tracking-widest hidden sm:block">Ordenar por</label>
+          <select title="Ordenar" aria-label="Ordenar por" class="custom-select w-full sm:w-auto border-2 border-slate-200 rounded-lg px-4 py-2 text-sm font-bold text-slate-700 bg-slate-50 outline-none focus:border-red-500 cursor-pointer hover:bg-slate-100 transition-colors">
+            <option>Mais vendidos</option>
+            <option>Menor Preço</option>
+            <option>Maior Preço</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        <!-- Item 1 -->
+        <div class="product-card bg-white border border-slate-200 rounded-xl p-5 flex flex-col relative bg-gradient-to-b from-white to-slate-50/50">
+          <div class="flex justify-between items-start mb-4 relative z-10">
+            <span class="bg-slate-900 text-white text-[10px] font-black px-2 py-1 rounded shadow-sm uppercase tracking-widest">Original de Fábrica</span>
+            <button class="text-slate-300 hover:text-red-500 transition-colors"><i class="ph-fill ph-heart text-xl"></i></button>
+          </div>
+          
+          <div class="h-40 flex items-center justify-center mb-4 relative">
+            <img src="https://images.unsplash.com/photo-1621376881734-754890d796e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Amortecedor Dianteiro" class="max-w-full max-h-full object-contain mix-blend-multiply drop-shadow-md">
+          </div>
+          
+          <div class="text-[10px] font-mono text-slate-400 font-bold bg-slate-100 px-2 py-1 rounded w-fit mb-2 border border-slate-200">Cód: GB48293 | Marca: Cofap</div>
+          <h3 class="font-bold text-sm text-slate-900 leading-tight mb-4 flex-1 hover:text-red-600 transition-colors cursor-pointer">Amortecedor Dianteiro Turbogás Gol/Voyage G5 G6 (Par)</h3>
+          
+          <div class="text-[11px] font-medium bg-red-50 border border-red-100 text-red-700 p-2.5 rounded-lg mb-5 flex items-start gap-2 shadow-sm">
+            <i class="ph-fill ph-warning-circle text-red-500 text-sm shrink-0 mt-0.5"></i> Verifique a aplicação completa para o seu veículo.
+          </div>
+
+          <div class="mt-auto border-t border-slate-100 pt-4">
+            <div class="flex items-end justify-between mb-4">
+              <div>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Preço à vista</p>
+                <p class="text-2xl font-black text-slate-900 tracking-tighter">R$ 549,90</p>
+                <p class="text-[11px] text-slate-500 font-medium">ou 10x de R$ 54,99 s/ juros</p>
+              </div>
+            </div>
+            <button title="Comprar" aria-label="Comprar" class="btn-buy w-full bg-red-600 text-white font-black py-3 rounded-lg text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-2">
+              <i class="ph-bold ph-shopping-cart text-lg"></i> COMPRAR
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="product-card bg-white border border-slate-200 rounded-xl p-5 flex flex-col relative bg-gradient-to-b from-white to-slate-50/50">
+          <div class="flex justify-between items-start mb-4 relative z-10">
+            <span class="bg-transparent text-transparent text-[10px] font-black px-2 py-1"> &nbsp; </span>
+            <button class="text-slate-300 hover:text-red-500 transition-colors"><i class="ph-fill ph-heart text-xl"></i></button>
+          </div>
+          
+          <div class="h-40 flex items-center justify-center mb-4 relative">
+            <img src="https://images.unsplash.com/photo-1621376881734-754890d796e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Amortecedor Traseiro" class="max-w-full max-h-full object-contain mix-blend-multiply drop-shadow-md">
+          </div>
+          
+          <div class="text-[10px] font-mono text-slate-400 font-bold bg-slate-100 px-2 py-1 rounded w-fit mb-2 border border-slate-200">Cód: SP329 | Marca: Monroe</div>
+          <h3 class="font-bold text-sm text-slate-900 leading-tight mb-4 flex-1 hover:text-red-600 transition-colors cursor-pointer">Amortecedor Traseiro OESpectrum Onix/Prisma (Unitário)</h3>
+          
+          <div class="text-[11px] font-medium bg-red-50 border border-red-100 text-red-700 p-2.5 rounded-lg mb-5 flex items-start gap-2 shadow-sm">
+            <i class="ph-fill ph-warning-circle text-red-500 text-sm shrink-0 mt-0.5"></i> Verifique a aplicação completa para o seu veículo.
+          </div>
+
+          <div class="mt-auto border-t border-slate-100 pt-4">
+            <div class="flex items-end justify-between mb-4">
+              <div>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Preço à vista</p>
+                <p class="text-2xl font-black text-slate-900 tracking-tighter">R$ 219,50</p>
+                <p class="text-[11px] text-slate-500 font-medium">ou 4x de R$ 54,87 s/ juros</p>
+              </div>
+            </div>
+            <button title="Comprar" aria-label="Comprar" class="btn-buy w-full bg-red-600 text-white font-black py-3 rounded-lg text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-2">
+              <i class="ph-bold ph-shopping-cart text-lg"></i> COMPRAR
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 50 });
+  </script>
+</body>
+</html>

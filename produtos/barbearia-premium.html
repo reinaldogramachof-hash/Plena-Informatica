@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbearia Premium | Sistema para Barbearias</title>
+  <meta name="description" content="Sistema para barbearias com agenda, clientes, comissões, PDV, financeiro, estoque e histórico. Teste a demonstração real da Plena.">
+  <link rel="canonical" href="https://plenainformatica.com.br/produtos/barbearia-premium">
+  <meta property="og:title" content="Barbearia Premium | Plena Informática">
+  <meta property="og:description" content="Agenda, comissões, PDV e atendimento organizados para barbearias.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://plenainformatica.com.br/plena.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/produtos.css">
+</head>
+<body class="real-system-page barber-product-page">
+  <header class="header">
+    <nav class="nav">
+      <a href="../tecnologia.html">
+        <img class="logo brand-logo" src="../logo-plena.png" alt="Plena Informática">
+      </a>
+      <div class="nav-links">
+        <a href="../tecnologia.html">Tecnologia</a>
+        <a href="#interface">Interface</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#plano">Plano</a>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Tenho interesse no Barbearia Premium e vim pelo site. Gostaria de entender planos e implantação.', 'Barbearia Premium')">
+          <i data-lucide="message-circle"></i>
+          WhatsApp
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero real-hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Gestão Barbearia Pro</span>
+          <h1>Agenda, comissão e caixa com rotina de barbearia real.</h1>
+          <p class="lead">Prévia visual baseada no modo demo real: controle agenda por barbeiro, clientes, PDV de balcão, financeiro, relatórios, serviços e estoque em um painel escuro e elegante.</p>
+          <div class="actions">
+            <a class="btn primary" href="../tecnologia/demos/gestao-barbearia/index.html" target="_blank" rel="noopener">
+              <i data-lucide="monitor-up"></i>
+              Abrir demo real
+            </a>
+            <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pelo site da Plena e quero saber mais sobre o Barbearia Premium.', 'Barbearia Premium')">
+              <i data-lucide="send"></i>
+              Quero esse sistema
+            </button>
+          </div>
+          <div class="promo-phrase">
+            ⭐ <strong>solicite um perído de teste gratuito</strong>
+          </div>
+        </div>
+
+        <div id="interface" class="real-demo-frame dark-theme barber-frame" aria-label="Prévia visual baseada no modo demo real do Barbearia Premium">
+          <div class="demo-strip">
+            <span>MODO DEMONSTRAÇÃO • BARBEARIA PREMIUM • DADOS FICTÍCIOS</span>
+            <div class="demo-strip-buttons">
+              <span class="demo-strip-btn primary"><i data-lucide="message-circle" style="width:12px;height:12px"></i> Gostei, chamar no WhatsApp</span>
+              <span class="demo-strip-btn"><i data-lucide="rotate-ccw" style="width:12px;height:12px"></i> Resetar demo</span>
+            </div>
+          </div>
+          
+          <div class="demo-app-layout">
+            <aside class="demo-sidebar-rail">
+              <div class="demo-sidebar-logo">
+                <i data-lucide="crown" style="width:20px;height:20px;color:#0f172a;"></i>
+              </div>
+              <div class="demo-nav-icon active"><i data-lucide="layout-dashboard"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="calendar"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="user"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="shopping-cart"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="wallet"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="scissors"></i></div>
+              <div class="demo-nav-icon"><i data-lucide="package"></i></div>
+              <div style="flex:1"></div>
+              <div class="demo-nav-icon" style="color:#fbbf24"><i data-lucide="gem"></i></div>
+            </aside>
+            
+            <main class="demo-app-main">
+              <header class="demo-app-header">
+                <div>
+                  <div class="demo-header-title">Visão Geral</div>
+                  <div class="demo-header-subtitle">Domingo, 07 de junho de 2026 • 21:14:18</div>
+                </div>
+                <div class="demo-header-actions">
+                  <div class="demo-notification"><i data-lucide="bell"></i></div>
+                  <div class="demo-btn demo-btn-secondary"><i data-lucide="check-circle-2"></i> Fechar Caixa</div>
+                  <div class="demo-btn demo-btn-primary" style="background:#2563EB"><i data-lucide="plus"></i> Novo Agendamento</div>
+                </div>
+              </header>
+              
+              <div class="demo-app-content">
+                <div class="demo-stat-grid">
+                  <div class="demo-stat-card">
+                    <div>
+                      <div class="demo-stat-label">Agendados (Hoje)</div>
+                      <div class="demo-stat-value">0</div>
+                    </div>
+                    <div class="demo-stat-icon" style="background:rgba(37, 99, 235, 0.1);color:#3B82F6"><i data-lucide="calendar"></i></div>
+                  </div>
+                  <div class="demo-stat-card">
+                    <div>
+                      <div class="demo-stat-label">Faturamento (Hoje)</div>
+                      <div class="demo-stat-value" style="color:#22C55E">R$ 0,00</div>
+                    </div>
+                    <div class="demo-stat-icon" style="background:rgba(34, 197, 94, 0.1);color:#22C55E"><i data-lucide="trending-up"></i></div>
+                  </div>
+                  <div class="demo-stat-card">
+                    <div>
+                      <div class="demo-stat-label">Comissões a Pagar</div>
+                      <div class="demo-stat-value" style="color:#60A5FA">R$ 0,00</div>
+                    </div>
+                    <div class="demo-stat-icon" style="background:rgba(59, 130, 246, 0.1);color:#60A5FA"><i data-lucide="dollar-sign"></i></div>
+                  </div>
+                </div>
+                
+                <div class="demo-dashboard-grid barber-dashboard">
+                  <div class="demo-panel demo-panel-large demo-panel-empty">
+                    <div class="demo-panel-header">
+                      <div class="demo-panel-title">Próximos Agendamentos</div>
+                    </div>
+                    <div class="demo-empty-state">
+                      <i data-lucide="calendar-check"></i>
+                      <strong>Tudo tranquilo por enquanto</strong>
+                      <span>Os próximos horários aparecem aqui quando a agenda é movimentada.</span>
+                    </div>
+                  </div>
+                  
+                  <div class="demo-panel demo-panel-empty">
+                    <div class="demo-panel-header">
+                      <div class="demo-panel-title">Tendência Semanal</div>
+                    </div>
+                    <div class="demo-empty-state">
+                      <i data-lucide="bar-chart-3"></i>
+                      <strong>Sem dados suficientes</strong>
+                      <span>O gráfico ganha forma conforme o caixa e os atendimentos são registrados.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+          
+          <div class="demo-script-card">
+            <div class="demo-script-title"><i data-lucide="mouse-pointer-click"></i> Roteiro rápido</div>
+            <div class="demo-script-text">1. Veja agenda e atendimentos<br>2. Abra PDV/caixa e vendas<br>3. Confira clientes, comissões e relatórios</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" class="section real-section">
+      <div class="container">
+        <span class="eyebrow">O que está no sistema</span>
+        <h2>Menos confusão no salão, mais visão do negócio.</h2>
+        <div class="grid cols-3">
+          <article class="card"><h3><i data-lucide="calendar"></i>Agenda por barbeiro</h3><p>Organize horários, clientes e serviços para reduzir esquecimento, encaixe perdido e espera no balcão.</p></article>
+          <article class="card"><h3><i data-lucide="badge-dollar-sign"></i>Comissões</h3><p>Acompanhe repasses, produtividade e faturamento por profissional sem planilha paralela.</p></article>
+          <article class="card"><h3><i data-lucide="shopping-cart"></i>PDV e produtos</h3><p>Registre serviços, vendas de produtos, caixa do dia e histórico de consumo do cliente.</p></article>
+          <article class="card"><h3><i data-lucide="users"></i>Clientes</h3><p>Tenha cadastro, preferências, frequência de atendimento e visão de retorno.</p></article>
+          <article class="card"><h3><i data-lucide="package"></i>Estoque</h3><p>Acompanhe produtos vendidos no balcão e itens usados na operação.</p></article>
+          <article class="card"><h3><i data-lucide="bar-chart-3"></i>Relatórios</h3><p>Veja faturamento, agenda, serviços mais vendidos e desempenho da equipe.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="section real-section">
+      <div class="container">
+        <span class="eyebrow">Como funciona na rotina</span>
+        <h2>Do agendamento ao repasse financeiro sem atrito.</h2>
+        <div class="routine-flow">
+          <div class="routine-step">
+            <div class="step-number">1</div>
+            <h3>O Cliente Agenda</h3>
+            <p>O horário é reservado na agenda de um profissional específico, reduzindo falhas, sobreposições e demoras.</p>
+          </div>
+          <div class="routine-step">
+            <div class="step-number">2</div>
+            <h3>O Serviço é Feito</h3>
+            <p>O barbeiro atende o cliente de acordo com a agenda, enquanto a recepção visualiza tudo fluindo sem confusão.</p>
+          </div>
+          <div class="routine-step">
+            <div class="step-number">3</div>
+            <h3>Pagamento (PDV)</h3>
+            <p>No balcão, a conta fecha serviço + pomadas/bebidas consumidas em uma única transação transparente.</p>
+          </div>
+          <div class="routine-step">
+            <div class="step-number">4</div>
+            <h3>Comissão e Caixa</h3>
+            <p>O sistema processa o caixa da barbearia e já separa o valor da comissão exata devida ao barbeiro.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="por-que-usar" class="section real-section">
+      <div class="container grid cols-2">
+        <div>
+          <span class="eyebrow">Por que usar</span>
+          <h2>Aposente planilhas e foque na experiência.</h2>
+          <p>O Barbearia Premium organiza tudo de forma invisível. Você mantém o som ambiente, o estilo e o bom papo sem o estresse de não saber quanto cada profissional deve receber hoje.</p>
+        </div>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3>Comissões claras</h3>
+            <p>Evite discussões. O repasse é automático a cada venda ou serviço registrado no caixa.</p>
+          </article>
+          <article class="card">
+            <h3>Agenda sem bagunça</h3>
+            <p>Visualização lado a lado por cadeiras. Todo barbeiro sabe sua fila e seus encaixes.</p>
+          </article>
+          <article class="card">
+            <h3>Mais Vendas no PDV</h3>
+            <p>Controle do estoque de bebidas e cosméticos para saber se o balcão dá lucro real.</p>
+          </article>
+          <article class="card">
+            <h3>Histórico de clientes</h3>
+            <p>Anotações sobre corte preferido, bebidas favoritas e quando devem retornar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="plano" class="section real-plan">
+      <div class="container grid cols-2">
+        <div>
+          <span class="eyebrow">Entrada comercial</span>
+          <h2>A partir de R$ 79/mês.</h2>
+          <p>Para barbearias que querem organizar atendimento e financeiro sem perder a velocidade da rotina de balcão.</p>
+          <div class="promo-phrase">
+            ⭐ <strong>solicite um perído de teste gratuito</strong>
+          </div>
+        </div>
+        <div class="card plan-card">
+          <p class="price">Demo real liberada</p>
+          <ul class="clean">
+            <li>Interface alinhada ao sistema de barbearia.</li>
+            <li>Fluxo de agenda, PDV, comissão, financeiro e estoque.</li>
+            <li>Dados fictícios para avaliar com segurança.</li>
+            <li>CTA comercial direto para WhatsApp.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Plena Informática - Barbearia Premium</footer>
+  <script src="../tecnologia/demos/gestao-barbearia/assets/libs/lucide.js"></script>
+  <script src="assets/produtos.js"></script>
+  <script>if (window.lucide) window.lucide.createIcons();</script>
+</body>
+</html>

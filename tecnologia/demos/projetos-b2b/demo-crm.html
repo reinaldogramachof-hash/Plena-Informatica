@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM B2B | Demo Plena</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; background-image: radial-gradient(at 0% 0%, hsla(253,16%,90%,1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(225,39%,90%,1) 0, transparent 50%); background-attachment: fixed; color: #1f2937; }
+    
+    .kanban-col { background: rgba(255, 255, 255, 0.4); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.8); min-width: 320px; border-radius: 1.25rem; display: flex; flex-direction: column; box-shadow: 0 4px 30px rgba(0,0,0,0.02); }
+    
+    .kanban-card { background: white; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.25rem; margin-bottom: 1rem; cursor: grab; box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s; position: relative; overflow: hidden; }
+    
+    .kanban-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 12px 20px -8px rgba(0,0,0,0.1); border-color: #c7d2fe; z-index: 10; }
+    .kanban-card:active { cursor: grabbing; transform: scale(0.98); }
+    
+    .tag { padding: 0.25rem 0.6rem; border-radius: 0.3rem; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+    
+    /* Scrollbar invisible for columns */
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="h-20 bg-white/70 backdrop-blur-xl border-b border-white flex items-center justify-between px-8 z-20 shrink-0 shadow-sm">
+    <div class="flex items-center gap-8">
+      <div class="font-black text-2xl flex items-center gap-2"><div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-600/30"><i class="ph-bold ph-funnel"></i></div> Sales<span class="text-slate-400 font-medium">Flow</span></div>
+      <nav class="hidden md:flex gap-6 text-sm font-bold text-slate-500">
+        <a href="#" class="text-indigo-600 bg-indigo-50 px-4 py-2 rounded-lg">Pipeline</a>
+        <a href="#" class="hover:text-slate-900 hover:bg-slate-50 px-4 py-2 rounded-lg transition-all">Contatos</a>
+        <a href="#" class="hover:text-slate-900 hover:bg-slate-50 px-4 py-2 rounded-lg transition-all">Relatórios</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="relative group">
+        <i class="ph-bold ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-hover:text-indigo-500 transition-colors"></i>
+        <input type="text" placeholder="Buscar empresa..." class="pl-10 pr-4 py-2 bg-white/80 border border-slate-200 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 w-64 transition-all shadow-sm">
+      </div>
+      <button class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-black text-sm border-2 border-white shadow-sm hover:scale-105 transition-transform">JS</button>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="flex-1 flex flex-col p-8 overflow-hidden relative">
+    
+    <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-indigo-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="flex items-center justify-between mb-8 shrink-0 relative z-10" data-aos="fade-down">
+      <div>
+        <h1 class="text-3xl font-black text-slate-800">Pipeline de Vendas (B2B)</h1>
+        <p class="text-slate-500 font-medium mt-1">Visão geral das oportunidades ativas do trimestre.</p>
+      </div>
+      <button class="bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all shadow-lg shadow-indigo-600/30">
+        <i class="ph-bold ph-plus"></i> Novo Lead
+      </button>
+    </div>
+
+    <!-- Kanban Board -->
+    <div class="flex-1 flex gap-6 overflow-x-auto pb-6 scrollbar-hide relative z-10">
+      
+      <!-- Coluna 1 -->
+      <div class="kanban-col shrink-0" data-aos="fade-right" data-aos-delay="100">
+        <div class="p-5 border-b border-white/50 flex justify-between items-center shrink-0">
+          <h2 class="font-bold text-slate-800 flex items-center gap-3">Leads <span class="bg-white border border-slate-200 text-slate-600 w-6 h-6 flex items-center justify-center rounded-full text-xs font-black shadow-sm">4</span></h2>
+          <span class="text-sm font-black text-slate-400">R$ 140k</span>
+        </div>
+        <div class="p-4 flex-1 overflow-y-auto scrollbar-hide">
+          <div class="kanban-card">
+            <div class="absolute top-0 left-0 w-1 h-full bg-blue-500 rounded-l-1rem"></div>
+            <div class="flex justify-between items-start mb-3 pl-2">
+              <span class="tag bg-blue-100 text-blue-700 border border-blue-200">Inbound</span>
+              <button title="Opções" aria-label="Mais opções" class="w-8 h-8 rounded-md flex items-center justify-center hover:bg-slate-100 text-slate-400 hover:text-slate-800 transition-colors -mr-2 -mt-1"><i class="ph-bold ph-dots-three text-lg"></i></button>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-1 pl-2">Rede de Clínicas Sorriso</h3>
+            <p class="text-sm text-slate-500 font-medium mb-4 pl-2 leading-relaxed">Interesse em automação de WhatsApp</p>
+            <div class="flex justify-between items-center border-t border-slate-100 pt-4 pl-2">
+              <span class="font-black text-slate-800">R$ 45.000</span>
+              <div class="flex items-center gap-1.5 text-xs font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded-md border border-slate-100"><i class="ph-bold ph-clock text-sm"></i> 2d</div>
+            </div>
+          </div>
+          
+          <div class="kanban-card">
+            <div class="absolute top-0 left-0 w-1 h-full bg-purple-500 rounded-l-1rem"></div>
+            <div class="flex justify-between items-start mb-3 pl-2">
+              <span class="tag bg-purple-100 text-purple-700 border border-purple-200">Outbound</span>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-1 pl-2">Construtora Apex</h3>
+            <p class="text-sm text-slate-500 font-medium mb-4 pl-2 leading-relaxed">Reestruturação de ERP</p>
+            <div class="flex justify-between items-center border-t border-slate-100 pt-4 pl-2">
+              <span class="font-black text-slate-800">R$ 120.000</span>
+              <div class="flex items-center gap-1.5 text-xs font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded-md border border-slate-100"><i class="ph-bold ph-clock text-sm"></i> 4h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna 2 -->
+      <div class="kanban-col shrink-0" data-aos="fade-right" data-aos-delay="200">
+        <div class="p-5 border-b border-white/50 flex justify-between items-center shrink-0">
+          <h2 class="font-bold text-slate-800 flex items-center gap-3">Reunião Agendada <span class="bg-indigo-100 border border-indigo-200 text-indigo-700 w-6 h-6 flex items-center justify-center rounded-full text-xs font-black shadow-sm">2</span></h2>
+          <span class="text-sm font-black text-slate-400">R$ 85k</span>
+        </div>
+        <div class="p-4 flex-1 overflow-y-auto scrollbar-hide">
+          <div class="kanban-card ring-2 ring-indigo-500 ring-offset-2">
+            <div class="absolute top-0 left-0 w-1 h-full bg-orange-500 rounded-l-1rem"></div>
+            <div class="flex justify-between items-start mb-3 pl-2">
+              <span class="tag bg-orange-100 text-orange-700 border border-orange-200"><i class="ph-fill ph-fire mr-1"></i> Hot</span>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-1 pl-2">TechStart Inc</h3>
+            <p class="text-sm text-slate-500 font-medium mb-4 pl-2 leading-relaxed">Demo do Dashboard Financeiro</p>
+            <div class="flex justify-between items-center border-t border-slate-100 pt-4 pl-2">
+              <span class="font-black text-slate-800">R$ 35.000</span>
+              <div class="flex items-center gap-1.5 text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded-md border border-indigo-100"><i class="ph-bold ph-calendar text-sm"></i> Hoje, 14:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna 3 -->
+      <div class="kanban-col shrink-0" data-aos="fade-right" data-aos-delay="300">
+        <div class="p-5 border-b border-white/50 flex justify-between items-center shrink-0">
+          <h2 class="font-bold text-slate-800 flex items-center gap-3">Proposta Enviada <span class="bg-amber-100 border border-amber-200 text-amber-700 w-6 h-6 flex items-center justify-center rounded-full text-xs font-black shadow-sm">1</span></h2>
+          <span class="text-sm font-black text-slate-400">R$ 210k</span>
+        </div>
+        <div class="p-4 flex-1 overflow-y-auto scrollbar-hide">
+          <div class="kanban-card opacity-90 hover:opacity-100">
+            <div class="absolute top-0 left-0 w-1 h-full bg-amber-500 rounded-l-1rem"></div>
+            <div class="flex justify-between items-start mb-3 pl-2">
+              <span class="tag bg-amber-100 text-amber-700 border border-amber-200">Negociação</span>
+            </div>
+            <h3 class="font-bold text-slate-800 text-lg mb-1 pl-2">Logística BR</h3>
+            <p class="text-sm text-slate-500 font-medium mb-4 pl-2 leading-relaxed">Aguardando aprovação da diretoria</p>
+            <div class="flex justify-between items-center border-t border-slate-100 pt-4 pl-2">
+              <span class="font-black text-slate-800">R$ 210.000</span>
+              <div class="flex items-center gap-1.5 text-xs font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded-md border border-slate-100"><i class="ph-bold ph-clock text-sm"></i> 5d</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna 4 (Adicionar Etapa) -->
+      <div class="kanban-col shrink-0 bg-transparent border-dashed border-2 border-slate-300 hover:border-indigo-400 hover:bg-white/20 transition-all cursor-pointer group" data-aos="fade-right" data-aos-delay="400">
+        <div class="p-4 flex justify-center items-center h-full">
+          <button class="text-slate-400 group-hover:text-indigo-600 font-bold flex flex-col items-center gap-3 transition-colors">
+            <div class="w-12 h-12 rounded-full border-2 border-current flex items-center justify-center"><i class="ph-bold ph-plus text-2xl"></i></div>
+            <span>Adicionar Etapa</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
+</body>
+</html>

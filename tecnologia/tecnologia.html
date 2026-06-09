@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas, Sites e Automacoes | Plena Informática</title>
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Sistemas de gestão, landing pages, sites e automacoes com IA para negócios reais. A Plena Informática cria soluções digitais com demos, atendimento humano e diagnóstico gratuito.">
+  <meta name="keywords"
+    content="sistemas de gestão, landing pages, automacao com IA, sites para empresas, Plena Informática, São Jose dos Campos, MicroSaaS, sistema para assistencia tecnica, sistema para barbearia">
+  <meta name="author" content="Plena Informática">
+  <meta name="theme-color" content="#080809">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="BR-SP">
+  <meta name="geo.placename" content="São Jose dos Campos">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sistemas, Sites e Automacoes | Plena Informática">
+  <meta property="og:description"
+    content="Tecnologia prática para organizar operação, vender melhor e profissionalizar atendimento. Veja demos de sistemas, landing pages e automacoes da Plena.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://plenainformatica.com.br/tecnologia">
+  <meta property="og:image" content="https://plenainformatica.com.br/plena.jpg">
+  <meta property="og:image:alt" content="Plena Informática - Soluções digitais para negócios reais">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Plena Informática">
+  <link rel="canonical" href="https://plenainformatica.com.br/tecnologia">
+
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23D4AF37'/><text x='16' y='23' text-anchor='middle' font-size='20' font-weight='bold' font-family='Arial,sans-serif' fill='%23080809'>P</text></svg>">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Plena Informática",
+    "description": "Sistemas de gestão, landing pages, sites corporativos e automacoes com IA para negócios reais.",
+    "url": "https://plenainformatica.com.br/tecnologia",
+    "logo": "https://plenainformatica.com.br/logo-plena.png",
+    "image": "https://plenainformatica.com.br/plena.jpg",
+    "telephone": "+5512992191018",
+    "email": "contato@plenainformatica.com.br",
+    "areaServed": ["São Jose dos Campos", "Brasil"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Jose dos Campos",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "openingHours": "Mo-Fr 13:00-18:00",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Soluções Digitais Plena",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas de Gestão por Nicho" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Pages de Conversao" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sites Corporativos e E-commerce sob Consulta" } }
+      ]
+    },
+    "sameAs": ["https://wa.me/5512992191018"]
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet customizado -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Script customizado -->
+  <script src="script.js" defer></script>
+</head>
+
+<body class="antialiased selection:bg-[#D4AF37] selection:text-[#080809]">
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <nav class="w-full max-w-7xl mx-auto px-5 lg:px-10 h-20 flex items-center justify-between gap-4">
+      <a href="../index/index.html" class="flex items-center gap-2.5 group flex-shrink-0">
+        <img src="logo-plena.png" alt="Plena Informática"
+          class="h-60 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
+        <a href="../index/index.html" class="text-[var(--text-muted)] hover:text-white transition-colors">Início</a>
+        <a href="#soluções" class="text-white">Soluções</a>
+        <a href="#processo" class="text-[var(--text-muted)] hover:text-white transition-colors">Como funciona</a>
+        <button type="button"
+          class="px-6 py-2.5 rounded-full bg-white text-black hover:bg-gray-200 transition-colors font-bold"
+          data-offer="diagnóstico" data-category="nav" data-action="whatsapp"
+          onclick="openWhatsAppByKey('diagnóstico')">Diagnóstico gratuito</button>
+      </div>
+      <button type="button"
+        class="mobile-whatsapp px-4 py-2 rounded-full bg-[#D4AF37] text-[#080809] text-sm font-black"
+        data-offer="diagnóstico" data-category="mobile-nav" data-action="whatsapp"
+        onclick="openWhatsAppByKey('diagnóstico')">Zap</button>
+
+      <!-- Mobile Menu Button -->
+      <button type="button" class="md:hidden p-2 text-white hover:text-[#D4AF37] transition-colors ml-2"
+        onclick="toggleMobileMenu()" aria-label="Abrir menu" title="Abrir menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section
+      class="w-full min-h-[78vh] md:min-h-[82vh] flex flex-col items-center justify-center pt-32 md:pt-40 pb-16 md:pb-20 px-5 text-center relative overflow-hidden">
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[min(46rem,92vw)] h-[28rem] bg-[#D4AF37] opacity-[0.055] blur-[105px] rounded-full pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-0 right-[-10rem] w-[24rem] h-[24rem] bg-emerald-500/5 blur-[95px] rounded-full pointer-events-none">
+      </div>
+
+      <div
+        class="hero-kicker inline-flex items-center gap-3 mb-7 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm max-w-full">
+        <span class="w-2 h-2 rounded-full bg-[#22c55e] shadow-[0_0_8px_#22c55e]"></span>
+        <span class="text-[#D4AF37] text-[0.7rem] md:text-xs font-black uppercase tracking-[0.18em]">Tecnologia prática
+          para vender e organizar melhor</span>
+      </div>
+
+      <h1
+        class="hero-title text-5xl md:text-7xl lg:text-[5.4rem] font-black text-white mb-7 leading-[1.02] tracking-tight max-w-6xl mx-auto">
+        Sistemas e sites para <span class="text-gradient-gold">negócios reais.</span>
+      </h1>
+
+      <p class="text-base md:text-xl text-[var(--text-muted)] font-light leading-relaxed max-w-3xl mx-auto mb-9">
+        Organizamos agenda, estoque, pedidos, atendimento e vendas com soluções digitais que você consegue testar,
+        entender e contratar sem burocracia.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+        <a href="#soluções" class="premium-link primary !mt-0" data-offer="catalogo" data-category="hero"
+          data-action="anchor">
+          Ver demos e soluções <i class="ph-light ph-arrow-down text-xl"></i>
+        </a>
+        <button type="button" class="premium-btn light !mt-0" data-offer="diagnóstico" data-category="hero"
+          data-action="whatsapp" onclick="openWhatsAppByKey('diagnóstico')">
+          Solicitar diagnóstico <i class="ph-fill ph-whatsapp text-xl"></i>
+        </button>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 mt-8 max-w-3xl">
+        <span class="proof-pill">20 anos em São Jose dos Campos</span>
+        <span class="proof-pill">Demos disponiveis</span>
+        <span class="proof-pill">Atendimento humano</span>
+        <span class="proof-pill">Planos mensais e projetos sob consulta</span>
+      </div>
+    </section>
+
+    <section id="soluções" class="tech-showcase w-full py-20 md:py-24 px-5 relative z-10">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 md:mb-16">
+          <span class="text-[#D4AF37] text-xs font-black uppercase tracking-[0.22em]">Catalogo comercial</span>
+          <h2 class="text-3xl md:text-5xl font-black text-white mt-3 mb-4 tracking-tight">Escolha pelo problema que
+            precisa resolver</h2>
+          <p class="text-[var(--text-muted)] font-light max-w-3xl mx-auto leading-relaxed">Sistemas para operação
+            diaria, páginas para captar clientes e soluções para estruturar o seu negocio.</p>
+        </div>
+
+        <div
+          class="tab-track flex gap-3 mb-10 overflow-x-auto pb-4 scrollbar-none justify-start md:justify-center w-full border-b border-white/5">
+          <button type="button" class="tab-btn active" data-target="tab-gestão" data-offer="sistemas-gestão"
+            data-category="tabs" data-action="tab">Sistemas de Gestão</button>
+          <button type="button" class="tab-btn" data-target="tab-landing" data-offer="landing-pages"
+            data-category="tabs" data-action="tab">Landing Pages</button>
+          <button type="button" class="tab-btn" data-target="tab-sites" data-offer="projetos-consulta"
+            data-category="tabs" data-action="tab">Projetos sob Consulta</button>
+          <button type="button" class="tab-btn" data-target="tab-ecom" data-offer="ecommerce" data-category="tabs"
+            data-action="tab">E-commerce</button>
+        </div>
+
+        <div class="showcase-meter hidden md:block" aria-hidden="true"><span></span></div>
+
+        <div class="showcase-nav hidden md:flex" aria-label="Controles do catálogo comercial">
+          <button type="button" class="showcase-arrow" data-rail-control="prev" aria-label="Ver itens anteriores">
+            <i class="ph-light ph-arrow-left text-xl"></i>
+          </button>
+          <div class="showcase-hint" aria-live="polite">
+            <i class="ph-light ph-hand-swipe-right text-base opacity-60" aria-hidden="true"></i>
+            <span class="showcase-hint-text">Arraste ou use as setas para navegar</span>
+          </div>
+          <span class="showcase-counter" aria-label="Posição no catálogo" aria-live="polite"></span>
+          <button type="button" class="showcase-arrow" data-rail-control="next" aria-label="Ver próximos itens">
+            <i class="ph-light ph-arrow-right text-xl"></i>
+          </button>
+        </div>
+
+        <div class="showcase-viewport w-full relative min-h-[500px]">
+          <div id="tab-gestão"
+            class="tab-pane showcase-rail active grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(280px,_auto)]">
+            <article class="bento-card md:col-span-2" data-offer="assistencia-pro" data-category="sistemas">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[80px] rounded-full pointer-events-none">
+              </div>
+              <div>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="card-icon"><i class="ph-light ph-wrench text-3xl"></i></div>
+                  <div>
+                    <h3 class="font-bold text-white text-xl">Assistência Pro</h3>
+                    <span class="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase">Plano mensal ·
+                      Demo disponivel</span>
+                  </div>
+                </div>
+                <h4 class="text-2xl font-semibold text-white mb-3 max-w-md">Gestão completa para assistências técnicas.
+                </h4>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed max-w-md">Ordens de serviço, PDV, estoque
+                  de peças, clientes, recibos e comunicação via WhatsApp em uma rotina mais organizada.</p>
+                <div
+                  class="mt-4 inline-block px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-semibold text-[#D4AF37]">
+                  Planos a partir de R$ 97/mes</div>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+                <a href="../produtos/assistencia-pro.html" class="premium-link" data-offer="assistencia-pro"
+                  data-category="sistemas" data-action="landing"><span>Conhecer página</span> <i
+                    class="ph-light ph-arrow-right"></i></a>
+                <button type="button"
+                  onclick="openDemoModal('demos/gestao-assistencia/index.html', 'assistencia-pro')"
+                  class="premium-btn" data-offer="assistencia-pro" data-category="sistemas" data-action="demo"><span>Ver
+                    demo rápido</span></button>
+              </div>
+            </article>
+
+            <article class="bento-card" data-offer="barbearia-premium" data-category="sistemas">
+              <div>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="card-icon"><i class="ph-light ph-scissors text-3xl"></i></div>
+                  <div>
+                    <h3 class="font-bold text-white text-xl">Barbearia Premium</h3>
+                    <span class="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase">Plano
+                      mensal</span>
+                  </div>
+                </div>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed">Agenda, comissoes por barbeiro, historico
+                  de clientes, vendas e controle do atendimento sem depender de planilha.</p>
+                <div
+                  class="mt-4 inline-block px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-semibold text-[#D4AF37]">
+                  Planos a partir de R$ 79/mes</div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <a href="../produtos/barbearia-premium.html" class="premium-link" data-offer="barbearia-premium"
+                  data-category="sistemas" data-action="landing"><span>Conhecer página</span></a>
+                <button type="button"
+                  onclick="openDemoModal('demos/gestao-barbearia/index.html', 'barbearia-premium')"
+                  class="premium-btn !mt-0" data-offer="barbearia-premium" data-category="sistemas"
+                  data-action="demo"><span>Ver demo rápido</span></button>
+              </div>
+            </article>
+
+            <article class="bento-card md:col-span-2" data-offer="gestão-gastro" data-category="sistemas">
+              <div
+                class="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/5 blur-[80px] rounded-full pointer-events-none">
+              </div>
+              <div>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="card-icon"><i class="ph-light ph-hamburger text-3xl"></i></div>
+                  <div>
+                    <h3 class="font-bold text-white text-xl">Gestão Gastro</h3>
+                    <span class="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase">Em implantação ·
+                      Agendamento</span>
+                  </div>
+                </div>
+                <h4 class="text-2xl font-semibold text-white mb-3 max-w-md">Para restaurantes, pizzarias e
+                  hamburguerias.</h4>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed max-w-md">Mesas, comandas, PDV touch e
+                  painel de cozinha para reduzir confusão entre salao, caixa e producao.</p>
+                <div
+                  class="mt-4 inline-block px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-semibold text-[#D4AF37]">
+                  Planos a partir de R$ 147/mes</div>
+              </div>
+              <a href="../produtos/gestão-gastro.html" class="premium-link" data-offer="gestão-gastro"
+                data-category="sistemas" data-action="landing"><span>Conhecer página</span> <i
+                  class="ph-light ph-arrow-right"></i></a>
+            </article>
+
+            <article class="bento-card" data-offer="beleza-spa" data-category="sistemas">
+              <div>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="card-icon"><i class="ph-light ph-flower-lotus text-3xl"></i></div>
+                  <div>
+                    <h3 class="font-bold text-white text-xl">Beleza & Spa</h3>
+                    <span class="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase">Plano
+                      mensal</span>
+                  </div>
+                </div>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed">Pacotes, agenda por profissional,
+                  checkout e acompanhamento de clientes para operacoes de estética e beleza.</p>
+                <div
+                  class="mt-4 inline-block px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-semibold text-[#D4AF37]">
+                  Planos a partir de R$ 97/mes</div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <a href="../produtos/beleza-spa.html" class="premium-link" data-offer="beleza-spa" data-category="sistemas"
+                  data-action="landing"><span>Conhecer página</span></a>
+                <button type="button" onclick="openDemoModal('demos/gestao-beleza/index.html', 'beleza-spa')"
+                  class="premium-btn !mt-0" data-offer="beleza-spa" data-category="sistemas"
+                  data-action="demo"><span>Ver demo rápido</span></button>
+              </div>
+            </article>
+          </div>
+
+          <div id="tab-landing" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-2 gap-6">
+            <article class="bento-card lg:col-span-2 flex flex-col md:flex-row items-center gap-10"
+              data-offer="landing-infoproduto" data-category="landing-pages">
+              <div class="flex-1 min-w-0">
+                <div
+                  class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white">
+                  Captacao e venda</div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Landing pages para campanhas, lancamentos e
+                  orcamentos.</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Paginas objetivas para transformar
+                  trafego em lead, venda ou conversa no WhatsApp. Ideais para anuncios, eventos, infoprodutos e serviços
+                  locais.</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <button type="button"
+                    onclick="openDemoModal('landing-pages/lp-01-lancamento.html', 'landing-infoproduto')"
+                    class="premium-btn !mt-0" data-offer="landing-infoproduto" data-category="landing-pages"
+                    data-action="demo">Ver demo de SaaS <i class="ph-light ph-arrow-right"></i></button>
+                  <button type="button" onclick="openWhatsAppByKey('landing')" class="premium-btn !mt-0"
+                    data-offer="landing-pages" data-category="landing-pages" data-action="whatsapp">Solicitar
+                    página</button>
+                </div>
+              </div>
+              <div
+                class="flex-1 w-full bg-black/40 rounded-xl border border-white/5 h-64 flex items-center justify-center p-6">
+                <div
+                  class="w-full h-full border border-white/10 rounded-lg bg-gradient-to-br from-white/5 to-transparent relative overflow-hidden">
+                  <div class="absolute top-4 left-4 w-1/2 h-4 bg-white/10 rounded"></div>
+                  <div class="absolute top-12 left-4 w-3/4 h-8 bg-white/20 rounded"></div>
+                  <div class="absolute bottom-4 right-4 w-32 h-10 bg-[#D4AF37] rounded-full"></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="bento-card" data-offer="captura-leads" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-target text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Captura de Leads</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Formularios, opt-in, promessa clara e
+                integracao com atendimento para gerar conversas qualificadas.</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-02-material-rico.html', 'captura-leads')"
+                class="premium-btn" data-offer="captura-leads" data-category="landing-pages"
+                data-action="demo"><span>Ver demo opt-in</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+
+            <article class="bento-card" data-offer="eventos-ingressos" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-ticket text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Eventos & Ingressos</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Apresentacao do evento, lotes, escassez
+                visual e caminho de compra ou inscricao sem distracoes.</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-03-webinar.html', 'eventos-ingressos')"
+                class="premium-btn" data-offer="eventos-ingressos" data-category="landing-pages"
+                data-action="demo"><span>Ver demo evento</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+
+            <!-- Novos Modelos -->
+            <article class="bento-card" data-offer="case-sucesso" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-medal text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Case de Sucesso</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Mostre seus resultados com provas sociais
+                fortes em um design editorial para clientes enterprise.</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-04-case.html', 'case-sucesso')"
+                class="premium-btn" data-offer="case-sucesso" data-category="landing-pages" data-action="demo"><span>Ver
+                  demo de Case</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+
+            <article class="bento-card" data-offer="comparativo" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-scales text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Comparativo de Mercado</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Posicione-se contra os concorrentes com
+                tabelas diretas que facilitam a decisão do usuario.</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-05-comparativo.html', 'comparativo')"
+                class="premium-btn" data-offer="comparativo" data-category="landing-pages" data-action="demo"><span>Ver
+                  demo Comparativo</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+
+            <article class="bento-card" data-offer="agendamento" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-calendar-check text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Agendamento de Demo</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Converta trafego em reunioes com uma
+                interface integrada a calendarios (Calendly style).</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-06-agendamento.html', 'agendamento')"
+                class="premium-btn" data-offer="agendamento" data-category="landing-pages" data-action="demo"><span>Ver
+                  demo Agendamento</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+
+            <article class="bento-card" data-offer="feature" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-rocket-launch text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Release Notes</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Engaje usuarios atuais e atraia novos
+                anunciando funcionalidades no estilo Changelog.</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-07-feature.html', 'feature')"
+                class="premium-btn" data-offer="feature" data-category="landing-pages" data-action="demo"><span>Ver demo
+                  Release</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+
+            <article class="bento-card" data-offer="waitlist" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-hourglass text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Lista de Espera (VIP)</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Crie expectativa para pre-lancamentos. Dark
+                mode imersivo focado em escassez de vagas.</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-08-waitlist.html', 'waitlist')"
+                class="premium-btn" data-offer="waitlist" data-category="landing-pages" data-action="demo"><span>Ver
+                  demo Waitlist</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+
+            <article class="bento-card" data-offer="oferta" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-lightning text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Oferta Relampago</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Black Friday ou Flash Sales. Contadores
+                regressivos e cores agressivas para conversão por impulso.</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-09-oferta.html', 'oferta')"
+                class="premium-btn" data-offer="oferta" data-category="landing-pages" data-action="demo"><span>Ver demo
+                  Oferta</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+
+            <article class="bento-card" data-offer="link-bio" data-category="landing-pages">
+              <div class="card-icon mb-6"><i class="ph-light ph-link text-3xl"></i></div>
+              <h3 class="font-bold text-white text-xl mb-3">Hub de Links (Bio)</h3>
+              <p class="text-[var(--text-muted)] font-light leading-relaxed">Otimizado para Instagram/TikTok. Concentre
+                todos os seus CTAs estrategicos em um so lugar.</p>
+              <button type="button" onclick="openDemoModal('landing-pages/lp-10-bio.html', 'link-bio')"
+                class="premium-btn" data-offer="link-bio" data-category="landing-pages" data-action="demo"><span>Ver
+                  demo Link-Bio</span> <i class="ph-light ph-arrow-right"></i></button>
+            </article>
+          </div>
+
+          <div id="tab-sites" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Dashboards / BI -->
+            <article
+              class="lg:col-span-2 relative overflow-hidden rounded-2xl p-8 bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex flex-col justify-between group"
+              data-offer="dashboards-bi" data-category="projetos-consulta">
+              <div
+                class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-all duration-500">
+              </div>
+              <div class="relative z-10">
+                <div
+                  class="card-icon mb-6 w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
+                  <i class="ph-light ph-chart-polar text-3xl text-blue-400"></i></div>
+                <h3 class="font-black text-white text-3xl mb-4 tracking-tight">Dashboards & B.I.</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-8 max-w-lg text-lg">Centralize
+                  planilhas caoticas em paineis de controle em tempo real. Visualize metas, KPIs e gargalos operacionais
+                  da sua empresa a partir de qualquer dispositivo com design de alto nivel.</p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 relative z-10 mt-auto">
+                <button type="button"
+                  onclick="openDemoModal('demos/projetos-b2b/demo-dashboard.html', 'dashboards-bi')"
+                  class="premium-btn !mt-0 !w-fit" data-offer="dashboards-bi" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver como fica na prática</span></button>
+                <button type="button" onclick="openWhatsAppByKey('diagnóstico')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 w-fit"
+                  data-offer="dashboards-bi" data-category="projetos-consulta" data-action="whatsapp">Falar com
+                  consultor</button>
+              </div>
+            </article>
+
+            <!-- ERPs e Sistemas custom -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="erps-custom" data-category="projetos-consulta">
+              <div>
+                <div class="card-icon mb-6 text-[#D4AF37]"><i class="ph-light ph-kanban text-4xl"></i></div>
+                <h3 class="font-bold text-white text-2xl mb-3">ERPs Sob Medida</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Desenvolvemos o sistema que se
+                  adapta ao seu processo, e não o contrario. Fim das assinaturas caras de softwares engessados.</p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-erp.html', 'erps-custom')"
+                  class="premium-btn !mt-0" data-offer="erps-custom" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver como fica na prática</span></button>
+                <button type="button" onclick="openWhatsAppByKey('diagnóstico')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
+                  data-offer="erps-custom" data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- CRMs -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="crms" data-category="projetos-consulta">
+              <div>
+                <div class="card-icon mb-6 text-emerald-400"><i class="ph-light ph-funnel text-4xl"></i></div>
+                <h3 class="font-bold text-white text-2xl mb-3">CRMs B2B</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Acompanhamento de leads, funil de
+                  vendas e automacao de propostas. Construido para o seu modelo comercial.</p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-crm.html', 'crms')"
+                  class="premium-btn !mt-0" data-offer="crms" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver como fica na prática</span></button>
+                <button type="button" onclick="openWhatsAppByKey('diagnóstico')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
+                  data-offer="crms" data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- Sites Corporativos -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="site-corporativo" data-category="projetos-consulta">
+              <div>
+                <div class="card-icon mb-6 text-purple-400"><i class="ph-light ph-buildings text-4xl"></i></div>
+                <h3 class="font-bold text-white text-2xl mb-3">Sites Premium</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Mais que presenca: autoridade
+                  digital. Sites ultrarrápidos pensados para posicionamento de mercado e SEO.</p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                <button type="button"
+                  onclick="openDemoModal('demos/projetos-b2b/demo-site-premium.html', 'site-corporativo')"
+                  class="premium-btn !mt-0" data-offer="site-corporativo" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver como fica na prática</span></button>
+                <button type="button" onclick="openWhatsAppByKey('siteCorporativo')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
+                  data-offer="site-corporativo" data-category="projetos-consulta"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- Portais / Intranet -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="portais" data-category="projetos-consulta">
+              <div>
+                <div class="card-icon mb-6 text-rose-400"><i class="ph-light ph-users-three text-4xl"></i></div>
+                <h3 class="font-bold text-white text-2xl mb-3">Portais & Intranet</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Áreas restritas para clientes
+                  (Portal do Cliente), franquias ou colaboradores. Seguro, escalavel e integrado.</p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-portal.html', 'portais')"
+                  class="premium-btn !mt-0" data-offer="portais" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver como fica na prática</span></button>
+                <button type="button" onclick="openWhatsAppByKey('diagnóstico')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
+                  data-offer="portais" data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+          </div>
+
+          <div id="tab-ecom" class="tab-pane showcase-rail grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="bento-card md:col-span-2 lg:col-span-3" data-offer="ecommerce"
+              data-category="projetos-consulta">
+              <h3 class="text-3xl font-black text-white mb-4">E-commerce sob consulta, sem promessa vazia.</h3>
+              <p class="text-[var(--text-muted)] max-w-3xl font-light leading-relaxed mb-6">Antes de falar em loja
+                virtual, entendemos catálogo, estoque, entrega, forma de pagamento e rotina comercial. Assim o projeto
+                nasce do processo real da empresa.</p>
+              <button type="button" onclick="openWhatsAppByKey('ecommerce')" class="premium-btn" data-offer="ecommerce"
+                data-category="projetos-consulta" data-action="whatsapp">Solicitar diagnóstico de loja</button>
+            </article>
+
+            <!-- 1. Moda & Vestuário -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-moda" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-pink-400"><i class="ph-light ph-t-shirt text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Moda & Vestuário</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Foco em grandes imagens,
+                  galeria lookbook e seleção fácil de variações (cores, tamanhos).</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-moda.html', 'ecom-moda')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-moda" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-moda" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 2. Eletrônicos -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-eletronicos" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-blue-400"><i class="ph-light ph-desktop-tower text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Eletrônicos & Tech</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Fichas técnicas densas,
+                  comparativos, reviews reais e cross-sell avançado.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button"
+                  onclick="openDemoModal('demos/ecommerce/demo-eletronicos.html', 'ecom-eletronicos')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-eletronicos" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-eletronicos" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 3. Supermercado -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-supermercado" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-green-400"><i class="ph-light ph-shopping-cart text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Supermercado/Delivery</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Navegação hiper-rápida,
+                  busca robusta e botão rápido (+ e -) de itens sem ir à página do produto.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button"
+                  onclick="openDemoModal('demos/ecommerce/demo-supermercado.html', 'ecom-supermercado')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-supermercado" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-supermercado" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 4. Atacado B2B -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-b2b" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-slate-400"><i class="ph-light ph-buildings text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">B2B / Atacado</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Restrição de preços
+                  pré-login, tabelas de preço por volume e aprovação de crédito corporativa.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-atacado-b2b.html', 'ecom-b2b')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-b2b" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-b2b" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 5. Infoprodutos -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-infoproduto" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-purple-400"><i class="ph-light ph-monitor-play text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Infoprodutos & Cursos</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Página de alta conversão,
+                  ementas de aulas, prova social e checkout fluido em um único passo.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button"
+                  onclick="openDemoModal('demos/ecommerce/demo-infoproduto.html', 'ecom-infoproduto')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-infoproduto" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-infoproduto" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 6. Assinaturas -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-assinaturas" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-amber-400"><i class="ph-light ph-arrows-clockwise text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Assinaturas & Clubes</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Pagamento recorrente
+                  inteligente, seleção de planos flexíveis e área de gestão da assinatura.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button"
+                  onclick="openDemoModal('demos/ecommerce/demo-assinaturas.html', 'ecom-assinaturas')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-assinaturas" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-assinaturas" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 7. Peças Automotivas -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-autopecas" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-red-500"><i class="ph-light ph-car text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Peças Automotivas</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Foco total na precisão:
+                  busca avançada por Marca > Ano > Modelo e tabela estrita de compatibilidade.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-autopecas.html', 'ecom-autopecas')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-autopecas" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-autopecas" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 8. Farmácia -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-farmacia" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-emerald-400"><i class="ph-light ph-first-aid text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Saúde & Farmácia</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Upload ágil de receitas,
+                  compra rápida (refil de remédios) e navegação intuitiva por sintoma.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-farmacia.html', 'ecom-farmacia')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-farmacia" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-farmacia" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 9. Móveis & Decoração -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-moveis" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-orange-400"><i class="ph-light ph-armchair text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Móveis & Decoração</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Ambientação (fotos de
+                  cômodos completos) e cálculos de frete dinâmicos e precisos para itens volumosos.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-moveis.html', 'ecom-moveis')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-moveis" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-moveis" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <!-- 10. Cosméticos -->
+            <article
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
+              data-offer="ecom-cosmeticos" data-category="ecommerce">
+              <div>
+                <div class="card-icon mb-6 text-rose-300"><i class="ph-light ph-sparkle text-4xl"></i></div>
+                <h3 class="font-bold text-white text-xl mb-3">Cosméticos & Beleza</h3>
+                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Listagem detalhada de
+                  ingredientes, prova social (UGC) e pacotes do tipo 'Compre Junto'.</p>
+              </div>
+              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
+                <button type="button"
+                  onclick="openDemoModal('demos/ecommerce/demo-cosmeticos.html', 'ecom-cosmeticos')"
+                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-cosmeticos" data-category="ecommerce"
+                  data-action="demo"><span>Ver Demo</span></button>
+                <button type="button" onclick="openWhatsAppByKey('ecommerce')"
+                  class="text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
+                  data-offer="ecom-cosmeticos" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo" class="w-full py-20 md:py-24 px-5 border-t border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-[#D4AF37] text-xs font-black uppercase tracking-[0.22em]">Como funciona</span>
+          <h2 class="text-3xl md:text-5xl font-black text-white mt-3 mb-4">Da conversa ao sistema em uso.</h2>
+          <p class="text-[var(--text-muted)] font-light leading-relaxed">A primeira etapa e entender se você precisa de
+            produto pronto, ajuste sob medida, landing page ou automacao.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <article class="bento-card"><span class="text-[#D4AF37] font-black text-sm">01</span>
+            <h3 class="text-white font-bold mt-3 mb-2">Diagnóstico</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Entendemos rotina, dor e objetivo comercial.</p>
+          </article>
+          <article class="bento-card"><span class="text-[#D4AF37] font-black text-sm">02</span>
+            <h3 class="text-white font-bold mt-3 mb-2">Demonstracao</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Mostramos demo ou referencia aplicavel.</p>
+          </article>
+          <article class="bento-card"><span class="text-[#D4AF37] font-black text-sm">03</span>
+            <h3 class="text-white font-bold mt-3 mb-2">Proposta</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Definimos escopo, prazo e formato de
+              contratacao.</p>
+          </article>
+          <article class="bento-card"><span class="text-[#D4AF37] font-black text-sm">04</span>
+            <h3 class="text-white font-bold mt-3 mb-2">Implantacao</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Configuramos, ajustamos e orientamos uso.</p>
+          </article>
+          <article class="bento-card"><span class="text-[#D4AF37] font-black text-sm">05</span>
+            <h3 class="text-white font-bold mt-3 mb-2">Suporte</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Acompanhamento humano para evoluir com
+              seguranca.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="w-full py-20 md:py-24 px-5 border-t border-white/5 bg-[#0A0A0C]">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-[#D4AF37] text-xs font-black uppercase tracking-[0.22em]">Duvidas rapidas</span>
+          <h2 class="text-3xl md:text-5xl font-black text-white mt-3">Antes de chamar no WhatsApp</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <article class="bento-card">
+            <h3 class="font-bold text-white mb-2">Tem mensalidade?</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Sistemas de gestão podem ter plano mensal.
+              Projetos sob medida, landing pages e e-commerce são avaliados por escopo.</p>
+          </article>
+          <article class="bento-card">
+            <h3 class="font-bold text-white mb-2">Posso testar antes?</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Sim. As soluções com demo disponivel abrem nesta
+              página para você sentir a experiência antes de conversar.</p>
+          </article>
+          <article class="bento-card">
+            <h3 class="font-bold text-white mb-2">Funciona no celular?</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">As soluções são pensadas para uso responsivo,
+              principalmente quando a operação depende de atendimento rápido.</p>
+          </article>
+          <article class="bento-card">
+            <h3 class="font-bold text-white mb-2">Voces personalizam?</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Sim, quando a rotina exige. Primeiro
+              identificamos se uma base pronta resolve ou se vale criar algo sob medida.</p>
+          </article>
+          <article class="bento-card md:col-span-2">
+            <h3 class="font-bold text-white mb-2">Como comeco?</h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">Chame no WhatsApp com sua necessidade. A
+              mensagem ja informa de qual oferta você veio para acelerar o diagnóstico.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="w-full py-24 md:py-32 px-5 border-t border-white/5">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="text-[#D4AF37] text-xs font-black uppercase tracking-[0.22em]">Diagnóstico gratuito</span>
+        <h2 class="text-4xl md:text-5xl font-black text-white mt-3 mb-6 tracking-tight">Vamos descobrir qual tecnologia
+          resolve seu proximo gargalo.</h2>
+        <p class="text-lg text-[var(--text-muted)] font-light mb-10 leading-relaxed">Conte se você precisa organizar uma
+          operação, vender mais com uma página, criar um site confiavel ou automatizar atendimento.</p>
+        <button type="button" onclick="openWhatsAppByKey('diagnóstico')" data-offer="diagnóstico"
+          data-category="final-cta" data-action="whatsapp"
+          class="inline-flex items-center justify-center gap-3 px-8 md:px-10 py-5 rounded-full bg-white text-black font-black text-base md:text-lg hover:bg-gray-200 transition-colors w-full sm:w-auto">
+          <i class="ph-fill ph-whatsapp text-2xl"></i> Receber diagnóstico pelo WhatsApp
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full py-8 text-center border-t border-white/5 bg-[#050505] px-5">
+    <p class="text-sm text-[var(--text-muted)]">&copy; 2026 Plena Informática. Sistemas, sites e automacoes para
+      negócios reais.</p>
+  </footer>
+
+  <div id="demo-modal"
+    class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex flex-col transition-all duration-300 opacity-0">
+    <div class="h-14 bg-[#050508] border-b border-white/10 flex items-center justify-between px-4 md:px-6 shrink-0">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-3 h-3 rounded-full bg-red-500 shrink-0"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500 shrink-0"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500 shrink-0"></div>
+        <span
+          class="text-[10px] md:text-xs text-white/50 ml-1 md:ml-4 uppercase tracking-widest font-mono truncate">Modo
+          demonstração</span>
+      </div>
+      <button type="button" onclick="closeDemoModal()"
+        class="text-white/60 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold uppercase tracking-wider">Fechar</button>
+    </div>
+    <div class="flex-1 w-full relative bg-white">
+      <iframe id="demo-iframe" title="Demonstracao da solução Plena"
+        class="absolute inset-0 w-full h-full border-0 bg-white"></iframe>
+    </div>
+  </div>
+
+  <!-- Mobile Sidebar Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+    <!-- Drawer -->
+    <div
+      class="absolute top-0 right-0 w-72 h-full bg-[#080809] border-l border-white/10 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300"
+      id="mobile-drawer">
+      <div class="p-6 flex items-center justify-between border-b border-white/5">
+        <img src="logo-plena.png" alt="Plena" class="h-10 w-auto object-contain">
+        <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-[#D4AF37] p-2" aria-label="Fechar menu"
+          title="Fechar menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col p-6 gap-6 text-sm font-semibold tracking-wide overflow-y-auto">
+        <a href="../index/index.html" class="text-gray-400 hover:text-white transition-colors"
+          onclick="toggleMobileMenu()">Início</a>
+        <a href="tecnologia.html" class="text-white hover:text-[#D4AF37] transition-colors"
+          onclick="toggleMobileMenu()">Projetos B2B (Tecnologia)</a>
+        <a href="../servicos/servicos.html" class="text-gray-400 hover:text-white transition-colors"
+          onclick="toggleMobileMenu()">Serviços</a>
+        <a href="../personalizados/personalizados.html" class="text-gray-400 hover:text-white transition-colors"
+          onclick="toggleMobileMenu()">Personalizados</a>
+        <button type="button"
+          class="w-full mt-4 px-6 py-3 rounded-full bg-[#D4AF37] text-[#080809] text-sm font-black hover:bg-white transition-colors"
+          onclick="window.open('https://wa.me/5512992191018', '_blank')">Consultar Projeto</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

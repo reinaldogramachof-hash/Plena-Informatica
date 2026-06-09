@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula de Vendas - Curso Online Completo</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="O método comprovado que já ajudou mais de 2.000 profissionais a multiplicarem seus resultados usando estratégias de vendas baseadas em psicologia comportamental.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                        },
+                        secondary: {
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        },
+                        accent: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* Custom scrollbar and glass effect */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom-color: rgba(30, 41, 59, 0.8);
+        }
+
+        .clip-path-slant {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300 antialiased selection:bg-primary-500 selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black text-primary-600 dark:text-primary-500 tracking-tight flex items-center gap-2">
+                <i class="ph-fill ph-rocket-launch text-accent-500"></i>
+                VendasPro
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="themeToggle" class="p-2 text-slate-500 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                    <i class="ph-fill ph-moon text-xl dark:hidden"></i>
+                    <i class="ph-fill ph-sun text-xl hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 md:pt-48 md:pb-40 clip-path-slant overflow-hidden bg-slate-900 dark:bg-slate-950">
+        <!-- Background Gradients -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-slate-900 to-secondary-900/80 z-0"></div>
+        <div class="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-primary-600/30 blur-[120px] rounded-full pointer-events-none z-0"></div>
+        <div class="absolute bottom-0 -right-1/4 w-[600px] h-[600px] bg-secondary-600/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold tracking-wider uppercase mb-6">
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                        Oferta por tempo limitado
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
+                        Domine a Arte das Vendas e <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-yellow-200">Fature 5x Mais</span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto lg:mx-0 font-light">
+                        O método comprovado que já ajudou mais de 2.000 profissionais a multiplicarem seus resultados usando estratégias de psicologia comportamental.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm font-medium text-slate-300">
+                        <div class="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
+                            <i class="ph-fill ph-shield-check text-green-400 text-lg"></i>
+                            Garantia de 7 dias
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
+                            <i class="ph-fill ph-certificate text-accent-400 text-lg"></i>
+                            Certificado incluído
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
+                            <i class="ph-fill ph-infinity text-primary-400 text-lg"></i>
+                            Acesso vitalício
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3D -->
+                <div class="relative w-full max-w-md mx-auto lg:ml-auto group perspective-[1000px]" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -inset-1.5 bg-gradient-to-r from-accent-500 via-primary-500 to-secondary-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition duration-500 group-hover:duration-200"></div>
+                    
+                    <div class="relative bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-200/50 dark:border-slate-800 transition-transform duration-500 preserve-3d group-hover:[transform:rotateX(2deg)_rotateY(-2deg)]">
+                        
+                        <div class="absolute -top-5 -right-5 bg-gradient-to-br from-accent-400 to-red-500 text-white px-6 py-2 rounded-full font-black text-lg shadow-xl shadow-accent-500/30 transform rotate-12">
+                            50% OFF
+                        </div>
+
+                        <div class="text-center mb-8">
+                            <div class="flex items-center justify-center gap-3 text-slate-400 dark:text-slate-500 mb-2 font-medium line-through decoration-red-500/50 decoration-2">
+                                De R$ 997,00 por apenas
+                            </div>
+                            <div class="flex items-start justify-center gap-1 text-primary-600 dark:text-primary-400">
+                                <span class="text-2xl font-bold mt-2">R$</span>
+                                <span class="text-6xl font-black tracking-tight">497</span>
+                                <span class="text-xl font-bold mt-6">,00</span>
+                            </div>
+                            <div class="text-sm font-bold text-accent-500 mt-2 bg-accent-50 dark:bg-accent-500/10 inline-block px-3 py-1 rounded-full">
+                                ou 12x de R$ 49,90
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 mb-8">
+                            <h3 class="font-bold text-slate-800 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">O que você recebe hoje:</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
+                                    <i class="ph-fill ph-check-circle text-green-500 text-lg shrink-0"></i>
+                                    12 Módulos completos em vídeo aulas (4K)
+                                </li>
+                                <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
+                                    <i class="ph-fill ph-check-circle text-green-500 text-lg shrink-0"></i>
+                                    50+ Técnicas de persuasão na prática
+                                </li>
+                                <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300">
+                                    <i class="ph-fill ph-check-circle text-green-500 text-lg shrink-0"></i>
+                                    Modelos prontos de Scripts de Vendas
+                                </li>
+                                <li class="flex items-start gap-3 text-sm font-bold text-primary-600 dark:text-primary-400">
+                                    <i class="ph-fill ph-gift text-lg shrink-0"></i>
+                                    BÔNUS: 4 Encontros de Mentoria em Grupo
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <button onclick="openCheckout()" class="w-full relative flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-black rounded-xl shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:-translate-y-1 transition-all group overflow-hidden">
+                            <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
+                            <span class="relative z-10 flex items-center gap-2 text-lg tracking-wide">
+                                <i class="ph-bold ph-shopping-cart-simple text-xl group-hover:scale-110 transition-transform"></i>
+                                COMPRAR AGORA
+                            </span>
+                        </button>
+
+                        <div class="mt-4 flex items-center justify-center gap-2 text-xs font-medium text-slate-400 dark:text-slate-500">
+                            <i class="ph-fill ph-lock-key text-lg"></i> Pagamento 100% seguro via Hotmart
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Integrations -->
+    <section class="py-12 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">Profissionais destas empresas já aplicam o método</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Logos fictícias para demo -->
+                <div class="text-2xl font-black font-serif text-slate-800 dark:text-white flex items-center gap-1"><i class="ph-fill ph-buildings"></i> CorpBank</div>
+                <div class="text-2xl font-black font-sans text-slate-800 dark:text-white flex items-center gap-1"><i class="ph-fill ph-house-line"></i> ImobPrime</div>
+                <div class="text-2xl font-black font-mono text-slate-800 dark:text-white flex items-center gap-1"><i class="ph-fill ph-car"></i> AutoSales</div>
+                <div class="text-2xl font-black font-sans text-slate-800 dark:text-white flex items-center gap-1"><i class="ph-fill ph-storefront"></i> RetailTech</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">O que Você Vai Aprender</h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400">Um método direto ao ponto, sem enrolação. Feito para você aplicar hoje e vender amanhã.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Module 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl shadow-slate-200/20 dark:shadow-none hover:-translate-y-2 transition-transform duration-300 border border-slate-100 dark:border-slate-700" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-2xl font-black text-white mb-6 shadow-lg shadow-primary-500/30">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Psicologia do Consumidor</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Entenda como a mente do seu cliente funciona. Descubra os motivos ocultos que fazem as pessoas abrirem a carteira.</p>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl shadow-slate-200/20 dark:shadow-none hover:-translate-y-2 transition-transform duration-300 border border-slate-100 dark:border-slate-700" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-2xl font-black text-white mb-6 shadow-lg shadow-primary-500/30">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Gatilhos Mentais Avançados</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Domine os 12 gatilhos psicológicos mais letais (e éticos) para criar urgência, autoridade e desejo incontrolável.</p>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl shadow-slate-200/20 dark:shadow-none hover:-translate-y-2 transition-transform duration-300 border border-slate-100 dark:border-slate-700" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-2xl font-black text-white mb-6 shadow-lg shadow-primary-500/30">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Quebra de Objeções</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">O roteiro exato para contornar o "tá caro", "vou falar com minha esposa" e fechar vendas que pareciam perdidas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-white dark:bg-slate-950 overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">O que Nossos Alunos Dizem</h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400">Resultados reais de profissionais que aplicaram o método na trincheira.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 relative" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="ph-fill ph-quotes text-6xl text-primary-500/10 dark:text-primary-500/20 absolute top-4 right-4"></i>
+                    <div class="flex gap-1 text-accent-500 mb-4 text-sm">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6 relative z-10 font-medium">
+                        "Em 30 dias aplicando o script do módulo 3, minhas vendas aumentaram 300%. O investimento do curso se pagou em uma única manhã de trabalho!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" class="w-12 h-12 rounded-full ring-2 ring-primary-500/30">
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-sm">João Silva</h4>
+                            <p class="text-xs text-slate-500">Corretor de Imóveis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 relative" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="ph-fill ph-quotes text-6xl text-primary-500/10 dark:text-primary-500/20 absolute top-4 right-4"></i>
+                    <div class="flex gap-1 text-accent-500 mb-4 text-sm">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6 relative z-10 font-medium">
+                        "As técnicas de gatilhos mentais transformaram completamente minha abordagem. Eu tinha medo de vender, hoje eu domino a negociação."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Avatar" class="w-12 h-12 rounded-full ring-2 ring-primary-500/30">
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-sm">Maria Santos</h4>
+                            <p class="text-xs text-slate-500">Mentora & Coach</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-2xl border border-slate-100 dark:border-slate-800 relative" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="ph-fill ph-quotes text-6xl text-primary-500/10 dark:text-primary-500/20 absolute top-4 right-4"></i>
+                    <div class="flex gap-1 text-accent-500 mb-4 text-sm">
+                        <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6 relative z-10 font-medium">
+                        "O módulo sobre quebra de objeções vale ouro. Parei de dar desconto e passei a fechar contratos muito mais altos."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/150?img=8" alt="Avatar" class="w-12 h-12 rounded-full ring-2 ring-primary-500/30">
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-sm">Pedro Costa</h4>
+                            <p class="text-xs text-slate-500">Dono de Agência B2B</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">Perguntas Frequentes</h2>
+                <p class="text-slate-500 dark:text-slate-400">Tire suas últimas dúvidas antes de entrar para o time.</p>
+            </div>
+            
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left font-bold text-slate-800 dark:text-white focus:outline-none">
+                        <span>Por quanto tempo terei acesso ao curso?</span>
+                        <i class="ph-bold ph-plus text-primary-500 transition-transform duration-300 icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
+                        <p class="pb-5 text-slate-600 dark:text-slate-400 text-sm">Você terá acesso vitalício a todo o conteúdo do curso na plataforma, incluindo todas as atualizações e módulos bônus futuros sem custo adicional.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left font-bold text-slate-800 dark:text-white focus:outline-none">
+                        <span>Como funciona a garantia de 7 dias?</span>
+                        <i class="ph-bold ph-plus text-primary-500 transition-transform duration-300 icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
+                        <p class="pb-5 text-slate-600 dark:text-slate-400 text-sm">O risco é todo nosso. Se em até 7 dias após a compra você assistir às aulas e achar que não é para você, basta enviar um e-mail para nosso suporte e devolvemos 100% do seu dinheiro, sem perguntas.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden transition-all duration-300">
+                    <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left font-bold text-slate-800 dark:text-white focus:outline-none">
+                        <span>O curso serve para quem vende serviços?</span>
+                        <i class="ph-bold ph-plus text-primary-500 transition-transform duration-300 icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
+                        <p class="pb-5 text-slate-600 dark:text-slate-400 text-sm">Com certeza. O método é baseado em psicologia comportamental humana. Seja para vender um produto físico, infoproduto ou serviço B2B/B2C, as técnicas de negociação se aplicam perfeitamente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 bg-gradient-to-br from-primary-700 to-secondary-800 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20"></div>
+        <div class="max-w-3xl mx-auto px-6 relative z-10" data-aos="zoom-in">
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Comece a Transformar Suas Vendas Hoje</h2>
+            <p class="text-xl text-primary-100 mb-10">
+                O desconto de 50% e os bônus exclusivos se encerram em breve.
+            </p>
+            <button onclick="openCheckout()" class="inline-flex items-center gap-2 px-10 py-5 bg-accent-500 hover:bg-accent-400 text-white font-black text-lg rounded-xl shadow-2xl shadow-accent-500/40 hover:-translate-y-1 transition-all group">
+                <i class="ph-bold ph-shopping-cart-simple text-2xl group-hover:scale-110 transition-transform"></i>
+                Quero Me Inscrever Agora - R$ 497
+            </button>
+            <div class="mt-6 flex justify-center items-center gap-2 text-primary-200 text-sm font-medium">
+                <i class="ph-fill ph-shield-check"></i> Compra Segura · Acesso Imediato
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 dark:bg-slate-950 border-t border-slate-800 text-slate-400 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-center items-center gap-6 text-sm mb-6">
+                <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+                <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+                <a href="#" class="hover:text-white transition-colors">Contato</a>
+            </div>
+            <p class="text-sm">&copy; 2026 VendasPro. Desenvolvido no modelo Intermediário Plena Informática.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animações
+        AOS.init({ once: true, offset: 50 });
+
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Verifica preferência salva ou do sistema
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.icon');
+                
+                // Toggle current
+                if(content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.style.transform = 'rotate(45deg)';
+                }
+            });
+        });
+
+        // Checkout Simulação
+        function openCheckout() {
+            // Pode integrar SweetAlert ou Redirecionar
+            alert('🛍️ Redirecionando para o Checkout (Hotmart / Stripe / Kiwify)...\n\nEste modelo suporta links dinâmicos e rastreamento de Pixel/CAPI.');
+        }
+    </script>
+</body>
+</html>

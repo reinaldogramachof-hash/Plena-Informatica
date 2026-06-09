@@ -1,0 +1,568 @@
+/* ==========================================
+   GESTÃO BELEZA | Premium Dark Rose Theme
+   Padrão Ouro v1.0 — FULL PREMIUM CSS
+   ========================================== */
+
+/* ===[ ROOT VARIABLES ]=== */
+:root {
+    --brand-blue: #e11d48;
+    --brand-dark: #881337;
+    --brand-black: #0B0F19;
+    --body-bg: #0B0F19;
+    --text-main: #F8FAFC;
+    --card-bg: #131825;
+    --card-elevated: #1A2035;
+    --brand: #e11d48;
+}
+
+.dark {
+    --body-bg: #0B0F19;
+    --text-main: #F8FAFC;
+    --card-bg: #131825;
+    --glass-bg: rgba(19, 24, 37, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+/* ===[ BODY ]=== */
+body {
+    background-color: #0B0F19;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(225, 29, 72, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 50%, rgba(225, 29, 72, 0.04) 0px, transparent 50%);
+    background-attachment: fixed;
+    font-family: 'Inter', 'Outfit', sans-serif;
+}
+
+/* ===[ SCROLLBAR ]=== */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Dark Mode Scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #0B0F19;
+}
+
+/* ===[ GLASSMORPHISM ]=== */
+.glass {
+    background: rgba(19, 24, 37, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-dark {
+    background: rgba(11, 15, 25, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===[ ANIMATIONS ]=== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.98) translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlide {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.toast-enter {
+    animation: toastSlide 0.3s ease-out forwards;
+}
+
+/* ===[ NAV & INTERACTIONS ]=== */
+.nav-item {
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    transform: translateX(4px);
+}
+
+.active-nav {
+    background: rgba(225, 29, 72, 0.08) !important;
+    border-left: 3px solid #D4AF37;
+    color: white !important;
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(225, 29, 72, 0.12);
+    border-color: rgba(225, 29, 72, 0.2);
+}
+
+/* ===[ SIDEBAR AUTO-HOVER — Padrão Ouro ML ]=== */
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 50;
+        height: 100vh;
+        width: 280px;
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: 1025px) {
+    #sidebar {
+        width: 68px;
+        position: fixed;
+        height: 100vh;
+        overflow: hidden;
+        transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 0.28s ease;
+    }
+
+    #sidebar:hover {
+        width: 280px;
+        box-shadow: 4px 0 32px rgba(0, 0, 0, 0.35);
+        overflow-y: auto;
+    }
+
+    .main-content {
+        margin-left: 68px;
+        width: calc(100vw - 68px);
+        min-width: 0;
+    }
+
+    /* Centraliza header quando retraído */
+    #sidebar:not(:hover) .sidebar-header {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #sidebar:not(:hover) .sidebar-header>div:first-child {
+        margin-right: 0 !important;
+    }
+
+    /* Remove padding horizontal do nav quando retraído */
+    #sidebar:not(:hover) nav {
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+
+    /* Centraliza nav items quando retraído */
+    #sidebar:not(:hover) .nav-item {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        gap: 0 !important;
+    }
+
+    /* Lucide substitui <i> por <svg> — targetar svg */
+    #sidebar:not(:hover) .nav-item svg {
+        margin-right: 0 !important;
+        flex-shrink: 0;
+    }
+
+    #sidebar:not(:hover) .nav-item:hover {
+        transform: none !important;
+    }
+
+    #sidebar:not(:hover) .active-nav {
+        border-left: none !important;
+        border-radius: 0.75rem;
+    }
+
+    /* Oculta textos quando retraído — com transição */
+    #sidebar:not(:hover) .sidebar-header-text,
+    #sidebar:not(:hover) .sidebar-label,
+    #sidebar:not(:hover) .sidebar-section-divider,
+    #sidebar:not(:hover) .sidebar-footer-content {
+        opacity: 0;
+        max-width: 0;
+        overflow: hidden;
+        pointer-events: none;
+        white-space: nowrap;
+        transition: opacity 0.15s ease, max-width 0.28s ease;
+    }
+
+    /* Revela textos ao expandir */
+    #sidebar:hover .sidebar-header-text,
+    #sidebar:hover .sidebar-label,
+    #sidebar:hover .sidebar-section-divider,
+    #sidebar:hover .sidebar-footer-content {
+        opacity: 1;
+        max-width: 300px;
+        pointer-events: auto;
+        transition: opacity 0.2s ease 0.1s, max-width 0.28s ease;
+    }
+}
+
+/* ===[ HIDE UTILITY ]=== */
+.hide {
+    display: none !important;
+}
+
+/* ===[ SELECTS DARK THEME — Corrige fundo branco nativo do OS ]=== */
+select {
+    background-color: #1A2035 !important;
+    color: #F8FAFC !important;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px !important;
+}
+
+select option {
+    background-color: #1A2035;
+    color: #F8FAFC;
+}
+
+select option:hover,
+select option:focus,
+select option:checked {
+    background-color: #e11d48;
+    color: #ffffff;
+}
+
+select:focus {
+    outline: none;
+    border-color: #e11d48;
+    box-shadow: 0 0 0 1px rgba(225, 29, 72, 0.4);
+}
+
+
+/* ===[ MODAL ]=== */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+/* ===[ PROGRESS BAR ]=== */
+.progress-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e11d48, #fb7185);
+    border-radius: 99px;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===[ BADGES ]=== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.badge-success {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+}
+
+.badge-danger {
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+}
+
+.badge-info {
+    background: rgba(59, 130, 246, 0.12);
+    color: #60a5fa;
+}
+
+.badge-warn {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+}
+
+/* ===[ MANUAL ACCORDION ]=== */
+.manual-section .manual-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.manual-section.open .manual-content {
+    max-height: 2000px;
+}
+
+.manual-section .manual-chevron {
+    transition: transform 0.3s ease;
+}
+
+.manual-section.open .manual-chevron {
+    transform: rotate(180deg);
+}
+
+/* ===[ MOBILE-FIRST RESPONSIVE FIXES — UX Optimization ]=== */
+
+/* ── Touch Targets ── Botões mínimo 44px (Apple HIG / Material) */
+@media (max-width: 640px) {
+    .nav-item {
+        min-height: 44px;
+    }
+
+    /* Padding global mais compacto no mobile */
+    #main-content {
+        padding: 0.75rem !important;
+        padding-bottom: 8rem !important;
+    }
+
+    /* Botão Instalar App — oculto no mobile pequeno para economizar espaço */
+    #pwa-install-btn {
+        display: none !important;
+    }
+
+    /* Header — mais compacto no mobile */
+    header {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+}
+
+/* ── View Headers com botões — empilhar no mobile ── */
+@media (max-width: 640px) {
+
+    /* Estoque, Financeiro, Relatórios: título + botões empilham */
+    .view-section>div:first-child {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+
+    /* Botões do estoque/financeiro — largura total no mobile */
+    .view-section>div:first-child>.flex.gap-2,
+    .view-section>div:first-child>div:last-child {
+        width: 100%;
+    }
+
+    .view-section>div:first-child>.flex.gap-2>button,
+    .view-section>div:first-child>div:last-child>button {
+        flex: 1;
+        min-height: 44px;
+        justify-content: center;
+    }
+}
+
+/* ── Filtros Financeiro — layout vertical no mobile ── */
+@media (max-width: 640px) {
+    #view-finance .flex.flex-wrap {
+        flex-direction: column !important;
+    }
+
+    #view-finance .flex.flex-wrap>* {
+        width: 100% !important;
+        min-width: 0 !important;
+        flex: none !important;
+    }
+
+    #view-finance .flex.flex-wrap>input[type="date"] {
+        width: 100% !important;
+    }
+
+    #view-finance .flex.flex-wrap>button {
+        min-height: 44px;
+    }
+}
+
+/* ── Relatórios — filtros de data responsivos ── */
+@media (max-width: 640px) {
+    #view-reports .flex.flex-wrap {
+        flex-direction: column !important;
+        width: 100%;
+    }
+
+    #view-reports .flex.gap-2.bg-surface-card {
+        flex-direction: column !important;
+        width: 100%;
+    }
+
+    #view-reports .flex.gap-2.bg-surface-card>* {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ── Tabelas — garantir scroll horizontal ── */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+    thead,
+    tbody,
+    tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    /* Container de tabela sempre scrollável */
+    .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* ── Agenda — otimização mobile ── */
+@media (max-width: 640px) {
+
+    #agenda-header,
+    #agenda-body>div {
+        min-width: 500px !important;
+    }
+
+    /* Controles de navegação da agenda */
+    #view-agenda>div:first-child {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.75rem !important;
+    }
+
+    #view-agenda .flex.gap-3.bg-surface-card {
+        justify-content: center;
+    }
+}
+
+/* ── Dashboard — Cards KPI alinhados ── */
+@media (max-width: 640px) {
+    #view-dashboard .grid-cols-2>div {
+        min-height: 130px;
+    }
+
+    /* Botões de Ação Rápida — maior touch target */
+    #view-dashboard .grid.grid-cols-2.gap-2 button {
+        min-height: 64px;
+        padding: 0.75rem !important;
+    }
+}
+
+/* ── Cards de Summary (Financeiro, Estoque, Relatórios) ── */
+@media (max-width: 640px) {
+    .grid.grid-cols-1.md\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+    }
+
+    .grid.grid-cols-1.md\:grid-cols-3>div {
+        padding: 1rem !important;
+    }
+
+    .grid.grid-cols-1.md\:grid-cols-3>div h3 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* ── Modais — safe area no mobile ── */
+@media (max-width: 640px) {
+    .modal-backdrop>div {
+        max-height: 90vh;
+        overflow-y: auto;
+        margin: 0.5rem;
+    }
+}
+
+/* ── Títulos duplicados — esconder h3 interno no mobile ── */
+@media (max-width: 768px) {
+
+    #view-finance>div:first-child>h3,
+    #view-inventory>div:first-child>h3 {
+        font-size: 0.875rem;
+    }
+}
+
+/* ===[ PRINT STYLES ]=== */
+@media print {
+
+    .sidebar,
+    header,
+    nav,
+    button,
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .glass,
+    .glass-dark {
+        background: white !important;
+        border: 1px solid #e5e7eb !important;
+    }
+}

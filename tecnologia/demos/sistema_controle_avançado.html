@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Produção - Sistema Industrial</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #0369a1;
+            --accent: #dc2626;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+            --info: #0ea5e9;
+            --light: #ffffff;
+            --dark: #0f172a;
+            --gray: #475569;
+            --gray-light: #f1f5f9;
+        }
+
+        [data-theme="dark"] {
+            --light: #0f172a;
+            --dark: #f8fafc;
+            --gray-light: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Mega Sidebar */
+        .sidebar {
+            width: 320px;
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,255,255,0.1);
+            border-left-color: var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--light);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        [data-theme="dark"] .top-bar {
+            background: var(--dark);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            padding: 2rem;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Production KPIs */
+        .production-kpis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        [data-theme="dark"] .kpi-card {
+            background: var(--dark);
+        }
+
+        .kpi-card.success { border-top-color: var(--success); }
+        .kpi-card.warning { border-top-color: var(--warning); }
+        .kpi-card.error { border-top-color: var(--error); }
+        .kpi-card.info { border-top-color: var(--info); }
+
+        .kpi-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-trend {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .trend-positive { color: var(--success); }
+        .trend-negative { color: var(--error); }
+
+        /* Production Lines */
+        .production-lines {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .line-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-light);
+        }
+
+        [data-theme="dark"] .line-card {
+            background: var(--dark);
+        }
+
+        .line-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .line-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .line-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-running { background: #d1fae5; color: #065f46; }
+        .status-stopped { background: #fee2e2; color: #991b1b; }
+        .status-maintenance { background: #fef3c7; color: #92400e; }
+
+        .line-progress {
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--success);
+            transition: width 0.3s ease;
+        }
+
+        .line-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Quality Control */
+        .quality-control {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .quality-control {
+            background: var(--dark);
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        th {
+            background: var(--gray-light);
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .quality-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .quality-excellent { background: #d1fae5; color: #065f46; }
+        .quality-good { background: #bae6fd; color: #075985; }
+        .quality-average { background: #fef3c7; color: #92400e; }
+        .quality-poor { background: #fee2e2; color: #991b1b; }
+
+        /* Maintenance Alerts */
+        .maintenance-alerts {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] .maintenance-alerts {
+            background: var(--dark);
+        }
+
+        .alert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .alert-item:last-child {
+            border-bottom: none;
+        }
+
+        .alert-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .alert-icon.warning { background: var(--warning); }
+        .alert-icon.error { background: var(--error); }
+        .alert-icon.info { background: var(--info); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .production-lines {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span>🏭</span>
+                ControleProdução
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Controle de Produção</div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">📊 Dashboard</a></li>
+                    <li><a href="#">🔄 Linhas de Produção</a></li>
+                    <li><a href="#">📦 Controle de Estoque</a></li>
+                    <li><a href="#">✅ Controle de Qualidade</a></li>
+                    <li><a href="#">🛠️ Manutenção</a></li>
+                    <li><a href="#">👥 Recursos Humanos</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Monitoramento</div>
+                <ul class="nav-links">
+                    <li><a href="#">📈 KPIs e Métricas</a></li>
+                    <li><a href="#">⏱️ Tempo Real</a></li>
+                    <li><a href="#">📋 Ordens de Produção</a></li>
+                    <li><a href="#">📊 Analytics</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Administração</div>
+                <ul class="nav-links">
+                    <li><a href="#">⚙️ Configurações</a></li>
+                    <li><a href="#">👤 Usuários</a></li>
+                    <li><a href="#">🔒 Permissões</a></li>
+                    <li><a href="#">📞 Suporte</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="breadcrumb">
+                    <span>🏠</span>
+                    <span>Dashboard de Produção</span>
+                    <span>▶</span>
+                    <span>Visão Geral</span>
+                </div>
+                <div class="user-menu">
+                    <button class="theme-toggle" id="themeToggle">🌓</button>
+                    <div class="user-avatar">SP</div>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="dashboard">
+                <div class="dashboard-header">
+                    <h1 class="page-title">Controle de Produção</h1>
+                    <div class="header-actions">
+                        <button class="btn">📊 Relatório Diário</button>
+                        <button class="btn">🔄 Atualizar Dados</button>
+                    </div>
+                </div>
+
+                <!-- Production KPIs -->
+                <div class="production-kpis">
+                    <div class="kpi-card">
+                        <div class="kpi-value">94.7%</div>
+                        <div class="kpi-label">Eficiência Geral</div>
+                        <div class="kpi-trend trend-positive">↑ 2.3%</div>
+                    </div>
+                    <div class="kpi-card success">
+                        <div class="kpi-value">12.8K</div>
+                        <div class="kpi-label">Unidades Produzidas</div>
+                        <div class="kpi-trend trend-positive">↑ 5.1%</div>
+                    </div>
+                    <div class="kpi-card warning">
+                        <div class="kpi-value">3.2%</div>
+                        <div class="kpi-label">Taxa de Refugo</div>
+                        <div class="kpi-trend trend-negative">↑ 0.4%</div>
+                    </div>
+                    <div class="kpi-card info">
+                        <div class="kpi-value">98.5%</div>
+                        <div class="kpi-label">Disponibilidade</div>
+                        <div class="kpi-trend trend-positive">↑ 1.2%</div>
+                    </div>
+                </div>
+
+                <!-- Production Lines -->
+                <div class="production-lines">
+                    <div class="line-card">
+                        <div class="line-header">
+                            <div class="line-title">Linha A - Montagem</div>
+                            <span class="line-status status-running">Operando</span>
+                        </div>
+                        <div class="line-progress">
+                            <div>Progresso: 75%</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="line-stats">
+                            <div class="stat">
+                                <div class="stat-value">342</div>
+                                <div class="stat-label">Unid./Hora</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">2.1%</div>
+                                <div class="stat-label">Refugo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line-card">
+                        <div class="line-header">
+                            <div class="line-title">Linha B - Pintura</div>
+                            <span class="line-status status-maintenance">Manutenção</span>
+                        </div>
+                        <div class="line-progress">
+                            <div>Progresso: 0%</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="line-stats">
+                            <div class="stat">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Unid./Hora</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">-</div>
+                                <div class="stat-label">Refugo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line-card">
+                        <div class="line-header">
+                            <div class="line-title">Linha C - Acabamento</div>
+                            <span class="line-status status-running">Operando</span>
+                        </div>
+                        <div class="line-progress">
+                            <div>Progresso: 62%</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 62%"></div>
+                            </div>
+                        </div>
+                        <div class="line-stats">
+                            <div class="stat">
+                                <div class="stat-value">298</div>
+                                <div class="stat-label">Unid./Hora</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">1.8%</div>
+                                <div class="stat-label">Refugo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Control -->
+                <div class="quality-control">
+                    <div class="section-header">
+                        <h2>Controle de Qualidade</h2>
+                        <button class="btn">Novo Teste</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Lote</th>
+                                <th>Produto</th>
+                                <th>Data Teste</th>
+                                <th>Inspetor</th>
+                                <th>Resultado</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#L2025-001</td>
+                                <td>Produto Alpha</td>
+                                <td>05/11/2025</td>
+                                <td>Carlos Silva</td>
+                                <td><span class="quality-badge quality-excellent">Excelente</span></td>
+                                <td>
+                                    <button class="btn" style="background: var(--gray); padding: 0.5rem 1rem;">Detalhes</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#L2025-002</td>
+                                <td>Produto Beta</td>
+                                <td>05/11/2025</td>
+                                <td>Ana Costa</td>
+                                <td><span class="quality-badge quality-good">Bom</span></td>
+                                <td>
+                                    <button class="btn" style="background: var(--gray); padding: 0.5rem 1rem;">Detalhes</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#L2025-003</td>
+                                <td>Produto Gamma</td>
+                                <td>04/11/2025</td>
+                                <td>Pedro Santos</td>
+                                <td><span class="quality-badge quality-average">Médio</span></td>
+                                <td>
+                                    <button class="btn" style="background: var(--gray); padding: 0.5rem 1rem;">Detalhes</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Maintenance Alerts -->
+                <div class="maintenance-alerts">
+                    <h3 style="margin-bottom: 1rem;">Alertas de Manutenção</h3>
+                    <div class="alert-item">
+                        <div class="alert-icon warning">⚠️</div>
+                        <div>
+                            <div style="font-weight: 600;">Manutenção Preventiva</div>
+                            <div style="font-size: 0.9rem; color: var(--gray);">Linha B - Agendada para 06/11</div>
+                        </div>
+                    </div>
+                    <div class="alert-item">
+                        <div class="alert-icon error">🔴</div>
+                        <div>
+                            <div style="font-weight: 600;">Falha Detectada</div>
+                            <div style="font-size: 0.9rem; color: var(--gray);">Esteira Linha C - Requer atenção</div>
+                        </div>
+                    </div>
+                    <div class="alert-item">
+                        <div class="alert-icon info">ℹ️</div>
+                        <div>
+                            <div style="font-weight: 600;">Calibração</div>
+                            <div style="font-size: 0.9rem; color: var(--gray);">Sensores Linha A - Vence em 7 dias</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.body.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Simulate Real-time Production Data
+        function updateProductionData() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const statValues = document.querySelectorAll('.stat-value');
+            
+            // Simulate small changes in production data
+            progressBars.forEach(bar => {
+                const currentWidth = parseInt(bar.style.width) || 0;
+                const change = (Math.random() - 0.5) * 10; // ±5%
+                let newWidth = Math.max(0, Math.min(100, currentWidth + change));
+                bar.style.width = newWidth + '%';
+                
+                // Update progress text
+                const progressText = bar.closest('.line-progress').querySelector('div');
+                if (progressText) {
+                    progressText.textContent = `Progresso: ${Math.round(newWidth)}%`;
+                }
+            });
+            
+            // Update production rates
+            statValues.forEach(stat => {
+                if (stat.textContent.includes('Unid./Hora')) {
+                    const currentValue = parseInt(stat.textContent) || 0;
+                    const change = Math.floor((Math.random() - 0.5) * 20); // ±10 units
+                    stat.textContent = Math.max(0, currentValue + change);
+                }
+            });
+        }
+
+        // Update data every 10 seconds
+        setInterval(updateProductionData, 10000);
+
+        // Initialize system
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Sistema de controle de produção inicializado');
+            
+            const productionData = {
+                efficiency: 94.7,
+                unitsProduced: 12800,
+                scrapRate: 3.2,
+                availability: 98.5
+            };
+            
+            console.log('Dados de produção carregados:', productionData);
+        });
+    </script>
+</body>
+</html>

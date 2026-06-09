@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Corporativo - Gestão Empresarial Completa</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --secondary: #0369a1;
+            --accent: #dc2626;
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+            --info: #0ea5e9;
+            --light: #ffffff;
+            --dark: #0f172a;
+            --gray: #475569;
+            --gray-light: #f1f5f9;
+        }
+
+        [data-theme="dark"] {
+            --light: #0f172a;
+            --dark: #f8fafc;
+            --gray-light: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Mega Sidebar */
+        .sidebar {
+            width: 300px;
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255,255,255,0.1);
+            border-left-color: var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--light);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        [data-theme="dark"] .top-bar {
+            background: var(--dark);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            padding: 2rem;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Executive Dashboard */
+        .executive-dashboard {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        [data-theme="dark"] .kpi-card {
+            background: var(--dark);
+        }
+
+        .kpi-card.success { border-top-color: var(--success); }
+        .kpi-card.warning { border-top-color: var(--warning); }
+        .kpi-card.error { border-top-color: var(--error); }
+        .kpi-card.info { border-top-color: var(--info); }
+
+        .kpi-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-trend {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .trend-positive { color: var(--success); }
+        .trend-negative { color: var(--error); }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] .chart-container {
+            background: var(--dark);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .chart-title {
+            font-weight: 600;
+        }
+
+        /* Modules Dashboard */
+        .modules-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .module-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--gray-light);
+        }
+
+        [data-theme="dark"] .module-card {
+            background: var(--dark);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+
+        .module-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1rem;
+            color: white;
+        }
+
+        .module-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .module-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-stats {
+            display: flex;
+            justify-content: space-around;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
+        /* Alert Panel */
+        .alert-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] .alert-panel {
+            background: var(--dark);
+        }
+
+        .alert-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .alert-item:last-child {
+            border-bottom: none;
+        }
+
+        .alert-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .alert-icon.warning { background: var(--warning); }
+        .alert-icon.error { background: var(--error); }
+        .alert-icon.info { background: var(--info); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .executive-dashboard {
+                grid-template-columns: 1fr;
+            }
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span>🏢</span>
+                ERP Corporativo
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Módulos Principais</div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">📊 Dashboard</a></li>
+                    <li><a href="#">📦 Gestão de Estoque</a></li>
+                    <li><a href="#">💰 Controle Financeiro</a></li>
+                    <li><a href="#">🛒 Vendas & CRM</a></li>
+                    <li><a href="#">🏭 Produção</a></li>
+                    <li><a href="#">🚚 Logística</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Recursos Avançados</div>
+                <ul class="nav-links">
+                    <li><a href="#">📈 Business Intelligence</a></li>
+                    <li><a href="#">🤖 Automação</a></li>
+                    <li><a href="#">📋 Gestão de Projetos</a></li>
+                    <li><a href="#">👨‍💼 Recursos Humanos</a></li>
+                    <li><a href="#">⚡ Performance</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">Administração</div>
+                <ul class="nav-links">
+                    <li><a href="#">⚙️ Configurações</a></li>
+                    <li><a href="#">👥 Gestão de Usuários</a></li>
+                    <li><a href="#">🔒 Permissões</a></li>
+                    <li><a href="#">📊 Analytics</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="breadcrumb">
+                    <span>🏠</span>
+                    <span>Dashboard Executivo</span>
+                    <span>▶</span>
+                    <span>Visão Geral</span>
+                </div>
+                <div class="user-menu">
+                    <button class="theme-toggle" id="themeToggle">🌓</button>
+                    <div class="user-avatar">AD</div>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="dashboard">
+                <div class="dashboard-header">
+                    <h1 class="page-title">Dashboard Corporativo</h1>
+                    <div class="header-actions">
+                        <button class="btn">📊 Gerar Relatório</button>
+                        <button class="btn">🔄 Atualizar Dados</button>
+                    </div>
+                </div>
+
+                <!-- KPI Grid -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-value">R$ 2.8M</div>
+                        <div class="kpi-label">Faturamento Anual</div>
+                        <div class="kpi-trend trend-positive">↑ 15.2% vs anterior</div>
+                    </div>
+                    <div class="kpi-card success">
+                        <div class="kpi-value">94%</div>
+                        <div class="kpi-label">Eficiência Operacional</div>
+                        <div class="kpi-trend trend-positive">↑ 3.1%</div>
+                    </div>
+                    <div class="kpi-card warning">
+                        <div class="kpi-value">12</div>
+                        <div class="kpi-label">Alertas Críticos</div>
+                        <div class="kpi-trend trend-negative">↑ 2</div>
+                    </div>
+                    <div class="kpi-card info">
+                        <div class="kpi-value">247</div>
+                        <div class="kpi-label">Projetos Ativos</div>
+                        <div class="kpi-trend trend-positive">↑ 18</div>
+                    </div>
+                </div>
+
+                <div class="executive-dashboard">
+                    <!-- Main Content -->
+                    <div>
+                        <!-- Charts -->
+                        <div class="charts-grid">
+                            <div class="chart-container">
+                                <div class="chart-header">
+                                    <div class="chart-title">Performance Financeira</div>
+                                    <select style="padding: 0.5rem; border-radius: 5px; border: 1px solid var(--gray-light);">
+                                        <option>2025</option>
+                                        <option>2024</option>
+                                    </select>
+                                </div>
+                                <div style="height: 300px; background: var(--gray-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gray);">
+                                    [Gráfico Financeiro Avançado]
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <div class="chart-header">
+                                    <div class="chart-title">Indicadores de Produção</div>
+                                </div>
+                                <div style="height: 300px; background: var(--gray-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gray);">
+                                    [Gráfico de Produção]
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modules Dashboard -->
+                        <div class="modules-dashboard">
+                            <div class="module-card">
+                                <div class="module-icon">📦</div>
+                                <div class="module-title">Gestão de Estoque</div>
+                                <div class="module-desc">Controle completo de inventário e supply chain</div>
+                                <div class="module-stats">
+                                    <span>🔴 12 Itens Críticos</span>
+                                    <span>📊 95% Precisão</span>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-icon">💰</div>
+                                <div class="module-title">Controle Financeiro</div>
+                                <div class="module-desc">Fluxo de caixa, DRE e análise financeira</div>
+                                <div class="module-stats">
+                                    <span>💵 R$ 2.8M</span>
+                                    <span>📈 +15.2%</span>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-icon">🛒</div>
+                                <div class="module-title">Vendas & CRM</div>
+                                <div class="module-desc">Gestão de clientes e pipeline de vendas</div>
+                                <div class="module-stats">
+                                    <span>👥 1.2K Clientes</span>
+                                    <span>🎯 78% Conversão</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alert Panel -->
+                    <div class="alert-panel">
+                        <h3 style="margin-bottom: 1rem;">Alertas do Sistema</h3>
+                        <div class="alert-item">
+                            <div class="alert-icon warning">⚠️</div>
+                            <div>
+                                <div style="font-weight: 600;">Estoque Baixo</div>
+                                <div style="font-size: 0.9rem; color: var(--gray);">12 produtos com estoque crítico</div>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon error">🔴</div>
+                            <div>
+                                <div style="font-weight: 600;">Atraso Produção</div>
+                                <div style="font-size: 0.9rem; color: var(--gray);">Linha B com atraso de 3 dias</div>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon info">ℹ️</div>
+                            <div>
+                                <div style="font-weight: 600;">Backup Programado</div>
+                                <div style="font-size: 0.9rem; color: var(--gray);">Backup noturno às 02:00</div>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon warning">⚠️</div>
+                            <div>
+                                <div style="font-weight: 600;">Licenças Expirando</div>
+                                <div style="font-size: 0.9rem; color: var(--gray);">5 licenças expiram em 15 dias</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        document.body.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Module Cards Interaction
+        document.querySelectorAll('.module-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const moduleName = this.querySelector('.module-title').textContent;
+                alert(`Acessando módulo: ${moduleName}`);
+            });
+        });
+
+        // Simulate Real-time Data Updates
+        function updateKPIs() {
+            const kpis = document.querySelectorAll('.kpi-value');
+            kpis.forEach(kpi => {
+                // Simulate small fluctuations in data
+                const currentValue = kpi.textContent;
+                if (currentValue.includes('R$')) {
+                    // Financial data - small random change
+                    const randomChange = (Math.random() - 0.5) * 0.02; // ±1%
+                    // In real system, this would come from backend
+                }
+            });
+        }
+
+        // Update data every 30 seconds
+        setInterval(updateKPIs, 30000);
+
+        // Initialize system
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('ERP Corporativo inicializado');
+            
+            // Simulate loading business data
+            const businessData = {
+                annualRevenue: 2800000,
+                operationalEfficiency: 94,
+                criticalAlerts: 12,
+                activeProjects: 247
+            };
+            
+            console.log('Dados corporativos carregados:', businessData);
+        });
+    </script>
+</body>
+</html>

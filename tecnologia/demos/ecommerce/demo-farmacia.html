@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce: Saúde & Farmácia | Plena Informática</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #334155; }
+    
+    .nav-bg { background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); }
+    .promo-bg { background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%); }
+    
+    .product-card { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(15, 118, 110, 0.1); border-color: #5eead4; z-index: 10; }
+    
+    .search-input:focus-within { box-shadow: 0 0 0 4px rgba(204, 251, 241, 0.5); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+  </style>
+</head>
+<body class="antialiased selection:bg-teal-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="nav-bg text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-[1400px] mx-auto px-4 lg:px-8 h-20 flex items-center gap-8">
+      <div class="flex items-center gap-2 font-black text-3xl tracking-tight shrink-0 drop-shadow-sm">
+        <div class="bg-white p-1.5 rounded-lg shadow-sm"><i class="ph-fill ph-first-aid text-3xl text-teal-600 block"></i></div>
+        FARMA<span class="font-medium text-teal-100">ON</span>
+      </div>
+
+      <div class="flex-1 max-w-4xl hidden lg:flex relative search-input transition-shadow rounded-full">
+        <input type="text" placeholder="Busque por medicamento, marca ou sintoma..." title="Busca" aria-label="Busca" class="w-full bg-white rounded-full py-3.5 pl-6 pr-12 text-slate-800 text-sm font-medium focus:outline-none shadow-inner border border-teal-800/20 placeholder-slate-400">
+        <button title="Buscar" aria-label="Buscar" class="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-teal-600 hover:bg-teal-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm"><i class="ph-bold ph-magnifying-glass text-lg"></i></button>
+      </div>
+
+      <div class="flex items-center gap-6 ml-auto">
+        <div class="hidden xl:flex items-center gap-3 bg-teal-800/50 hover:bg-teal-800 border border-teal-600/50 px-4 py-2 rounded-xl transition-colors cursor-pointer">
+          <i class="ph-fill ph-map-pin text-2xl text-teal-300"></i>
+          <div class="flex flex-col text-xs text-teal-100">
+            <span class="uppercase tracking-widest font-bold text-[9px] opacity-80">Enviar para</span>
+            <span class="font-bold text-white text-sm">01234-567 <i class="ph-bold ph-caret-down text-[10px] ml-1"></i></span>
+          </div>
+        </div>
+        
+        <button title="Receita" aria-label="Enviar Receita" class="hidden md:flex items-center gap-2 bg-teal-50 text-teal-800 hover:bg-white px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5">
+          <i class="ph-bold ph-file-prescription text-teal-600 text-xl"></i> Enviar Receita
+        </button>
+        
+        <button title="Entrar" aria-label="Entrar na conta" class="flex flex-col items-center justify-center text-teal-100 hover:text-white transition-colors gap-1 group">
+          <i class="ph-light ph-user text-2xl group-hover:scale-110 transition-transform"></i>
+          <span class="text-[10px] font-bold uppercase tracking-wider hidden sm:block">Entrar</span>
+        </button>
+        
+        <button title="Carrinho" aria-label="Carrinho" class="flex flex-col items-center justify-center text-teal-100 hover:text-white transition-colors gap-1 group relative">
+          <div class="relative">
+            <i class="ph-light ph-shopping-cart text-2xl group-hover:scale-110 transition-transform"></i>
+            <span class="absolute -top-1.5 -right-2.5 bg-rose-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-black border-2 border-teal-700 shadow-sm">1</span>
+          </div>
+          <span class="text-[10px] font-bold uppercase tracking-wider hidden sm:block">R$ 9,35</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Subnav (Categorias) -->
+    <div class="bg-teal-900 border-t border-teal-800/50">
+      <div class="max-w-[1400px] mx-auto px-4 lg:px-8 flex items-center gap-8 py-2.5 overflow-x-auto whitespace-nowrap scrollbar-hide text-sm font-semibold text-teal-100/80">
+        <a href="#" class="hover:text-white flex items-center gap-1.5 font-bold text-white bg-teal-800/50 px-3 py-1 rounded-md border border-teal-700/50"><i class="ph-bold ph-list"></i> Todas as Categorias</a>
+        <a href="#" class="hover:text-white transition-colors">Medicamentos</a>
+        <a href="#" class="hover:text-white transition-colors">Dermocosméticos</a>
+        <a href="#" class="hover:text-white transition-colors">Mamãe e Bebê</a>
+        <a href="#" class="hover:text-white transition-colors">Higiene Pessoal</a>
+        <a href="#" class="hover:text-white transition-colors">Vitaminas</a>
+        <a href="#" class="hover:text-rose-200 text-rose-300 font-bold transition-colors flex items-center gap-1"><i class="ph-fill ph-tag"></i> Ofertas Especiais</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-[1400px] mx-auto px-4 lg:px-8 py-10 overflow-hidden">
+    
+    <!-- Banner Principal -->
+    <div class="promo-bg rounded-3xl p-8 md:p-12 mb-14 flex flex-col md:flex-row items-center justify-between border border-teal-200 shadow-sm relative overflow-hidden group" data-aos="fade-up">
+      <div class="absolute -right-20 -top-20 w-96 h-96 bg-white/40 blur-3xl rounded-full pointer-events-none"></div>
+      
+      <div class="relative z-10 max-w-xl">
+        <span class="bg-teal-700 text-white text-[10px] font-black px-3 py-1.5 rounded-md uppercase tracking-widest mb-6 inline-flex items-center gap-1.5 shadow-sm">
+          <i class="ph-bold ph-arrows-clockwise"></i> Assinatura FarmaON
+        </span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-teal-950 mb-4 leading-[1.1] tracking-tight">Nunca mais esqueça de comprar seus medicamentos.</h2>
+        <p class="text-teal-800 mb-8 text-lg font-medium leading-relaxed">Programe a compra recorrente dos seus medicamentos de uso contínuo e garanta <strong class="text-teal-900 bg-teal-200/50 px-2 py-0.5 rounded">15% de desconto vitalício</strong> em todas as entregas.</p>
+        <button title="Programar refil" aria-label="Saiba mais sobre compra recorrente" class="bg-teal-800 hover:bg-teal-900 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 w-full md:w-auto justify-center">
+          Programar Compra Recorrente <i class="ph-bold ph-arrow-right"></i>
+        </button>
+      </div>
+      <div class="mt-8 md:mt-0 relative z-10 text-teal-600/20 group-hover:text-teal-600/30 transition-colors duration-500 transform group-hover:scale-105">
+        <i class="ph-fill ph-calendar-check text-[180px]"></i>
+      </div>
+    </div>
+
+    <!-- Seção Compre Junto -->
+    <div class="flex items-end justify-between mb-8" data-aos="fade-up" data-aos-delay="100">
+      <div>
+        <h2 class="text-2xl font-black text-slate-900 flex items-center gap-2"><i class="ph-fill ph-pills text-teal-600 text-3xl"></i> Uso Contínuo</h2>
+        <p class="text-slate-500 font-medium mt-1">Aproveite os descontos progressivos comprando o tratamento completo.</p>
+      </div>
+      <span class="hidden sm:inline-flex bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-rose-200">Kits Promocionais</span>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm relative" data-aos="fade-up" data-aos-delay="200">
+      <div class="absolute top-0 right-10 -translate-y-1/2 bg-teal-500 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">
+        Economize 10%
+      </div>
+      
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10">
+        
+        <!-- Produto 1 -->
+        <div class="product-card w-full lg:w-72 text-center bg-slate-50 p-6 rounded-2xl border border-slate-100 relative group cursor-pointer">
+          <div class="absolute top-3 right-3 text-slate-300 hover:text-rose-500 transition-colors"><i class="ph-fill ph-heart text-xl"></i></div>
+          <div class="bg-white w-full h-40 rounded-xl mb-5 flex items-center justify-center p-4 border border-slate-100 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Remédio 1" class="max-h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500">
+          </div>
+          <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">Genérico • 30 comp</p>
+          <h3 class="font-bold text-sm text-slate-800 h-10 line-clamp-2 leading-snug group-hover:text-teal-700 transition-colors">Losartana Potássica 50mg</h3>
+          <p class="text-2xl font-black text-slate-900 mt-4">R$ 5,90</p>
+        </div>
+
+        <div class="text-slate-200 bg-white rounded-full p-2 border-2 border-slate-100 shadow-sm z-10"><i class="ph-bold ph-plus text-2xl text-slate-400"></i></div>
+
+        <!-- Produto 2 -->
+        <div class="product-card w-full lg:w-72 text-center bg-slate-50 p-6 rounded-2xl border border-slate-100 relative group cursor-pointer">
+          <div class="absolute top-3 right-3 text-slate-300 hover:text-rose-500 transition-colors"><i class="ph-fill ph-heart text-xl"></i></div>
+          <div class="bg-white w-full h-40 rounded-xl mb-5 flex items-center justify-center p-4 border border-slate-100 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Remédio 2" class="max-h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 grayscale hue-rotate-[180deg]">
+          </div>
+          <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2">Genérico • 30 comp</p>
+          <h3 class="font-bold text-sm text-slate-800 h-10 line-clamp-2 leading-snug group-hover:text-teal-700 transition-colors">Hidroclorotiazida 25mg</h3>
+          <p class="text-2xl font-black text-slate-900 mt-4">R$ 3,45</p>
+        </div>
+
+        <div class="text-slate-200 bg-white rounded-full p-2 border-2 border-slate-100 shadow-sm z-10"><i class="ph-bold ph-equals text-2xl text-slate-400"></i></div>
+
+        <!-- Result -->
+        <div class="w-full lg:w-80 bg-gradient-to-b from-teal-50 to-white p-8 rounded-2xl border-2 border-teal-100 text-center shadow-md relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-1 bg-teal-500"></div>
+          
+          <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-2">Valor do Kit</p>
+          <div class="flex items-center justify-center gap-2 mb-2 text-slate-400 font-medium line-through decoration-rose-500">R$ 10,39</div>
+          <div class="text-5xl font-black text-teal-800 mb-2 tracking-tighter">R$ 9,35</div>
+          
+          <div class="bg-rose-50 border border-rose-100 rounded-lg p-3 my-6 flex items-start gap-2 text-left">
+            <i class="ph-fill ph-info text-rose-500 text-lg shrink-0 mt-0.5"></i>
+            <p class="text-[11px] text-rose-700 font-semibold leading-tight">Preço especial exclusivo para programa Farmácia Popular. <span class="underline">Requer envio de receita médica.</span></p>
+          </div>
+          
+          <button title="Comprar kit" aria-label="Comprar kit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-black py-4 rounded-xl transition-all shadow-lg shadow-teal-600/20 hover:shadow-teal-600/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 uppercase tracking-wider text-sm">
+            <i class="ph-bold ph-shopping-cart text-lg"></i> Adicionar Kit
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 50 });
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Local agent and editor state
+.claude/
+.codex/
+.vscode/
+*.code-workspace
+
+# Dependencies and generated output
+**/node_modules/
+**/dist/
+**/coverage/
+*.tsbuildinfo
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Deploy artifacts and local packages
+deploy.zip
+deploy_staging/
+*.zip
+*.bak
+*.bak.*
+**/backup/
+
+# Local data and logs
+*.sqlite
+*.sqlite3
+*.db
+*.log
+
+# Operating system
+Thumbs.db
+.DS_Store

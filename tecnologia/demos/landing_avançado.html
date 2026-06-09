@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalesForce Pro - CRM Inteligente SaaS</title>
+    
+    <meta name="description" content="Automação inteligente, analytics preditivo e gestão completa do funil de vendas em uma única plataforma.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        secondary: {
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        },
+                        accent: {
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* Custom scrollbar and glass effect */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom-color: rgba(30, 41, 59, 0.8);
+        }
+
+        .dashboard-mockup {
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 30px 60px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .dark .dashboard-mockup {
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 30px 60px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300 antialiased selection:bg-primary-500 selection:text-white">
+
+    <!-- Mega Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-12">
+                <a href="#" class="text-2xl font-black text-primary-600 dark:text-primary-500 tracking-tight flex items-center gap-2">
+                    <i class="ph-fill ph-chart-polar text-accent-500"></i>
+                    SalesForce Pro
+                </a>
+                
+                <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-slate-600 dark:text-slate-300">
+                    <a href="#features" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Recursos</a>
+                    <a href="#pricing" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Preços</a>
+                    <a href="#integrations" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Integrações</a>
+                    <a href="#customers" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Clientes</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="themeToggle" class="p-2 text-slate-500 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                    <i class="ph-fill ph-moon text-xl dark:hidden"></i>
+                    <i class="ph-fill ph-sun text-xl hidden dark:block"></i>
+                </button>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#" class="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Login</a>
+                    <a href="#pricing" class="px-5 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-500 text-white text-sm font-bold shadow-lg shadow-primary-600/30 hover:shadow-primary-500/50 hover:-translate-y-0.5 transition-all">
+                        Começar Agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero SaaS -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white dark:bg-slate-950">
+        <!-- Animated Blobs Background -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary-400/20 dark:bg-primary-600/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-70 animate-blob"></div>
+            <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-secondary-400/20 dark:bg-secondary-600/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-accent-400/20 dark:bg-accent-600/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm font-bold text-slate-600 dark:text-slate-300 mb-8" data-aos="fade-down">
+                <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+                Novo: IA Integrada ao Pipeline
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-8 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                O CRM que Aumenta suas Vendas em <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-500 dark:from-primary-400 dark:to-secondary-400">247%</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                A plataforma completa para times de alta performance. Automação inteligente, analytics preditivo e gestão de funil em um único lugar.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="300">
+                <a href="#pricing" class="w-full sm:w-auto px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white font-black rounded-xl shadow-xl shadow-primary-600/30 hover:shadow-primary-500/50 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg">
+                    <i class="ph-bold ph-rocket-launch"></i> Começar Teste Grátis
+                </a>
+                <a href="#demo" class="w-full sm:w-auto px-8 py-4 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-700 dark:text-white font-bold rounded-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg group">
+                    <i class="ph-fill ph-play-circle text-primary-500 group-hover:scale-110 transition-transform"></i> Ver Demonstração
+                </a>
+            </div>
+
+            <!-- Dashboard Mockup -->
+            <div class="relative mx-auto max-w-5xl animate-float" data-aos="zoom-in" data-aos-delay="500">
+                <div class="dashboard-mockup rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-slate-700">
+                    <!-- Browser Chrome -->
+                    <div class="bg-slate-100 dark:bg-slate-800 px-4 py-3 flex items-center gap-2 border-b border-slate-200/50 dark:border-slate-700">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <div class="inline-block bg-white dark:bg-slate-900 px-3 py-1 rounded-md text-[10px] text-slate-400 font-medium font-mono border border-slate-200 dark:border-slate-700">
+                                <i class="ph-bold ph-lock-key text-green-500 inline-block mr-1"></i> app.salesforcepro.com
+                            </div>
+                        </div>
+                    </div>
+                    <!-- App UI -->
+                    <div class="p-6 grid grid-cols-12 gap-6 bg-slate-50 dark:bg-slate-900/50">
+                        <!-- Sidebar -->
+                        <div class="col-span-2 hidden md:flex flex-col gap-4">
+                            <div class="w-full h-8 bg-slate-200 dark:bg-slate-800 rounded-md"></div>
+                            <div class="w-3/4 h-4 bg-slate-200 dark:bg-slate-800 rounded-md"></div>
+                            <div class="w-5/6 h-4 bg-slate-200 dark:bg-slate-800 rounded-md"></div>
+                            <div class="w-4/5 h-4 bg-slate-200 dark:bg-slate-800 rounded-md"></div>
+                        </div>
+                        <!-- Main Content -->
+                        <div class="col-span-12 md:col-span-10 flex flex-col gap-6">
+                            <!-- Top Stats -->
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                                    <div class="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900/50 mb-3 flex items-center justify-center"><i class="ph-fill ph-trend-up text-primary-500"></i></div>
+                                    <div class="h-3 w-1/2 bg-slate-200 dark:bg-slate-700 rounded-full mb-2"></div>
+                                    <div class="h-6 w-3/4 bg-slate-300 dark:bg-slate-600 rounded-md"></div>
+                                </div>
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                                    <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/50 mb-3 flex items-center justify-center"><i class="ph-fill ph-currency-dollar text-green-500"></i></div>
+                                    <div class="h-3 w-1/2 bg-slate-200 dark:bg-slate-700 rounded-full mb-2"></div>
+                                    <div class="h-6 w-3/4 bg-slate-300 dark:bg-slate-600 rounded-md"></div>
+                                </div>
+                                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                                    <div class="w-8 h-8 rounded-full bg-accent-100 dark:bg-accent-900/50 mb-3 flex items-center justify-center"><i class="ph-fill ph-users text-accent-500"></i></div>
+                                    <div class="h-3 w-1/2 bg-slate-200 dark:bg-slate-700 rounded-full mb-2"></div>
+                                    <div class="h-6 w-3/4 bg-slate-300 dark:bg-slate-600 rounded-md"></div>
+                                </div>
+                            </div>
+                            <!-- Main Chart Area -->
+                            <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 h-64 flex items-end gap-2 justify-between">
+                                <div class="w-full bg-primary-100 dark:bg-primary-900/30 rounded-t-sm h-[30%] relative group"><div class="absolute inset-x-0 top-0 h-1 bg-primary-400"></div></div>
+                                <div class="w-full bg-primary-100 dark:bg-primary-900/30 rounded-t-sm h-[45%] relative group"><div class="absolute inset-x-0 top-0 h-1 bg-primary-400"></div></div>
+                                <div class="w-full bg-primary-100 dark:bg-primary-900/30 rounded-t-sm h-[25%] relative group"><div class="absolute inset-x-0 top-0 h-1 bg-primary-400"></div></div>
+                                <div class="w-full bg-primary-100 dark:bg-primary-900/30 rounded-t-sm h-[60%] relative group"><div class="absolute inset-x-0 top-0 h-1 bg-primary-400"></div></div>
+                                <div class="w-full bg-primary-100 dark:bg-primary-900/30 rounded-t-sm h-[80%] relative group"><div class="absolute inset-x-0 top-0 h-1 bg-primary-400"></div></div>
+                                <div class="w-full bg-primary-500 rounded-t-sm h-[95%] relative shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                                    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] font-bold py-1 px-2 rounded">Maior Pico</div>
+                                </div>
+                                <div class="w-full bg-primary-100 dark:bg-primary-900/30 rounded-t-sm h-[70%] relative group"><div class="absolute inset-x-0 top-0 h-1 bg-primary-400"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Cloud / Integrations -->
+    <section class="py-12 border-y border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">Integração nativa com suas ferramentas favoritas</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2"><i class="ph-fill ph-slack-logo"></i> Slack</div>
+                <div class="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2"><i class="ph-fill ph-google-logo"></i> Google</div>
+                <div class="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2"><i class="ph-fill ph-whatsapp-logo"></i> WhatsApp</div>
+                <div class="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2"><i class="ph-fill ph-stripe-logo"></i> Stripe</div>
+                <div class="text-xl font-black text-slate-800 dark:text-white flex items-center gap-2"><i class="ph-fill ph-envelope-simple"></i> Mailchimp</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-24 bg-white dark:bg-slate-950" id="features">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Recursos que Impulsionam Vendas</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-400">Criamos ferramentas projetadas especificamente para remover fricção e acelerar o fechamento de contratos.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Automação Inteligente</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Crie fluxos de trabalho que enviam e-mails, movem cards e alertam sua equipe automaticamente quando um lead interage.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-chart-line-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Analytics Preditivo</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Nossa IA analisa padrões de compra e atribui um "Score de Conversão" para focar nos leads com maior potencial.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-slate-50 dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 hover:-translate-y-2 hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-funnel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Gestão de Funil Visual</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Kanban super responsivo. Arraste e solte negócios, crie funis múltiplos e tenha visão completa do pipeline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-900/50" id="pricing">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Planos que Crescem com Você</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-400">Comece de graça e escale conforme sua equipe de vendas bate as metas.</p>
+                
+                <!-- Toggle Mensal/Anual (Visual) -->
+                <div class="flex items-center justify-center gap-4 mt-8">
+                    <span class="text-sm font-bold text-slate-500">Mensal</span>
+                    <div class="w-14 h-7 bg-primary-500 rounded-full p-1 cursor-pointer flex justify-end">
+                        <div class="w-5 h-5 bg-white rounded-full shadow-sm"></div>
+                    </div>
+                    <span class="text-sm font-bold text-slate-900 dark:text-white">Anual <span class="text-xs text-green-500 ml-1 bg-green-100 dark:bg-green-900/30 px-2 py-0.5 rounded-full">-20%</span></span>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                
+                <!-- Startup Plan -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Startup</h3>
+                    <p class="text-sm text-slate-500 mb-6">Para times pequenos iniciando operações.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black text-slate-900 dark:text-white">R$ 97</span>
+                        <span class="text-slate-500">/mês</span>
+                    </div>
+                    <a href="#" class="block w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-900 dark:text-white font-bold text-center rounded-xl transition-colors mb-8">
+                        Começar Grátis
+                    </a>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                            <i class="ph-bold ph-check text-green-500"></i> Até 3 usuários
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                            <i class="ph-bold ph-check text-green-500"></i> 1.000 contatos
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                            <i class="ph-bold ph-check text-green-500"></i> Funil de vendas básico
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-400 dark:text-slate-600">
+                            <i class="ph-bold ph-minus"></i> Sem Automações
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Business Plan (Featured) -->
+                <div class="bg-gradient-to-b from-primary-600 to-primary-800 rounded-3xl p-8 border-2 border-primary-500 shadow-2xl shadow-primary-600/20 transform lg:-translate-y-4 relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-accent-500 to-accent-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                        Mais Popular
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Business</h3>
+                    <p class="text-sm text-primary-200 mb-6">Para empresas que precisam escalar vendas.</p>
+                    <div class="mb-6 text-white">
+                        <span class="text-5xl font-black">R$ 297</span>
+                        <span class="text-primary-200">/mês</span>
+                    </div>
+                    <a href="#" class="block w-full py-4 px-4 bg-white text-primary-700 hover:bg-slate-50 font-black text-center rounded-xl transition-colors shadow-lg mb-8">
+                        Testar por 30 dias grátis
+                    </a>
+                    <ul class="space-y-4 text-white">
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="ph-bold ph-check text-accent-400"></i> Até 10 usuários
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="ph-bold ph-check text-accent-400"></i> 10.000 contatos
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="ph-bold ph-check text-accent-400"></i> Funil e Pipelines Ilimitados
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="ph-bold ph-check text-accent-400"></i> Automação de E-mail
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="ph-bold ph-check text-accent-400"></i> Analytics Avançado
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Enterprise</h3>
+                    <p class="text-sm text-slate-500 mb-6">Para corporações com necessidades complexas.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black text-slate-900 dark:text-white">R$ 997</span>
+                        <span class="text-slate-500">/mês</span>
+                    </div>
+                    <a href="#" class="block w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-900 dark:text-white font-bold text-center rounded-xl transition-colors mb-8">
+                        Falar com Vendas
+                    </a>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                            <i class="ph-bold ph-check text-green-500"></i> Usuários Ilimitados
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                            <i class="ph-bold ph-check text-green-500"></i> Contatos Ilimitados
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                            <i class="ph-bold ph-check text-green-500"></i> API Completa e Webhooks
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                            <i class="ph-bold ph-check text-green-500"></i> Suporte 24/7 Prioritário
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                            <i class="ph-bold ph-check text-green-500"></i> IP Dedicado
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA SaaS -->
+    <section class="py-24 bg-gradient-to-br from-slate-900 to-slate-950 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10" data-aos="zoom-in">
+            <h2 class="text-3xl md:text-5xl font-black text-white mb-6">Pronto para Revolucionar suas Vendas?</h2>
+            <p class="text-xl text-slate-400 mb-10">Junte-se a mais de 5.000 empresas que já transformaram seus resultados operacionais conosco.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#" class="w-full sm:w-auto px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white font-black rounded-xl shadow-xl shadow-primary-600/30 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 text-lg">
+                    <i class="ph-bold ph-rocket-launch"></i> Criar Conta Grátis
+                </a>
+                <a href="#" class="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-lg">
+                    <i class="ph-fill ph-headset"></i> Agendar Reunião
+                </a>
+            </div>
+            
+            <div class="mt-8 flex justify-center items-center gap-4 text-slate-500 text-sm font-medium">
+                <span class="flex items-center gap-1"><i class="ph-fill ph-credit-card"></i> Sem Cartão</span>
+                <span>•</span>
+                <span class="flex items-center gap-1"><i class="ph-fill ph-clock"></i> Setup em 5min</span>
+                <span>•</span>
+                <span class="flex items-center gap-1"><i class="ph-fill ph-x-circle"></i> Cancele quando quiser</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-16">
+                <div class="col-span-2 lg:col-span-2 pr-8">
+                    <a href="#" class="text-2xl font-black text-primary-600 dark:text-primary-500 tracking-tight flex items-center gap-2 mb-4">
+                        <i class="ph-fill ph-chart-polar"></i>
+                        SalesForce Pro
+                    </a>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">
+                        Nossa missão é democratizar as melhores práticas de vendas B2B e fornecer o ecossistema mais inteligente de conversão.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-500 hover:text-white transition-all"><i class="ph-fill ph-instagram-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-500 hover:text-white transition-all"><i class="ph-fill ph-twitter-logo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary-500 hover:text-white transition-all"><i class="ph-fill ph-linkedin-logo"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Produto</h4>
+                    <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Recursos</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Preços</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Integrações</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Recursos</h4>
+                    <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Central de Ajuda</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">API & Webhooks</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Comunidade</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Empresa</h4>
+                    <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Sobre Nós</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Carreiras</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-primary-500 transition-colors">Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+                <p>&copy; 2026 SalesForce Pro. Todos os direitos reservados.</p>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span> Sistemas operacionais online
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({ once: true, offset: 50 });
+
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
