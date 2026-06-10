@@ -96,218 +96,18 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    <!-- Stylesheet customizado -->
+    <link rel="stylesheet" href="style.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1e293b;
-            overflow-x: hidden;
-        }
-
-        .font-accent {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        section[id] {
-            scroll-margin-top: 5rem;
-        }
-
-        /* ── HERO ── */
-        .hero-bg {
-            background-image: url('plena.jpg');
-            background-size: cover;
-            background-position: center 40%;
-        }
-
-        @media (min-width: 768px) {
-            .hero-bg {
-                background-attachment: fixed;
-            }
-        }
-
-        .hero-overlay {
-            background: linear-gradient(160deg,
-                    rgba(3, 1, 19, 0.92) 0%,
-                    rgba(0, 1, 6, 0.55) 60%,
-                    rgba(16, 6, 0, 0.35) 100%);
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #f17a02, #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* ── SCROLL INDICATOR ── */
-        @keyframes bounce-down {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(8px);
-            }
-        }
-
-        .bounce-down {
-            animation: bounce-down 1.6s ease-in-out infinite;
-        }
-
-        /* ── SERVICE CARDS ── */
-        .service-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, .07);
-        }
-
-        .service-card:hover {
-            transform: translateY(8px);
-        }
-
-        .service-card-orange:hover {
-            box-shadow: 0 24px 48px -8px rgba(234, 88, 12, .18);
-        }
-
-        .service-card-blue:hover {
-            box-shadow: 0 24px 48px -8px rgba(59, 130, 246, .18);
-        }
-
-        .service-card-green:hover {
-            box-shadow: 0 24px 48px -8px rgba(16, 185, 129, .18);
-        }
-
-        /* ── GRADIENT BG (timeline) ── */
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #1e293b 100%);
-        }
-
-        /* ── TIMELINE ── */
-        .timeline-item {
-            position: relative;
-            padding-left: 1.75rem;
-            border-left: 2px solid rgba(255, 255, 255, .12);
-            margin-left: 10px;
-            padding-bottom: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 4px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #d55b1a;
-            box-shadow: 0 0 0 4px rgba(234, 88, 12, .2);
-        }
-
-        .timeline-item:last-child {
-            border-left: 2px solid transparent;
-            padding-bottom: 0;
-        }
-
-        /* ── INFINITE MARQUEE CAROUSEL ── */
-        .marquee-wrapper {
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 54%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 54%, transparent);
-        }
-
-        .marquee-track {
-            display: flex;
-            gap: 1.25rem;
-            width: max-content;
-            animation: marquee 80s linear infinite;
-        }
-
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        .marquee-card {
-            flex-shrink: 0;
-            width: 340px;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* ── MODAL ── */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, .6);
-            -webkit-backdrop-filter: blur(6px);
-            backdrop-filter: blur(6px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            max-width: 540px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(28px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-in {
-            animation: fadeInUp .9s cubic-bezier(.4, 0, .2, 1) both;
-        }
-
-
-
-        /* ── SCROLL REVEAL ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: opacity .7s ease, transform .7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <!-- Script customizado -->
+    <script src="script.js" defer></script>
 </head>
 
 <body class="antialiased">
 
     <!-- ══════════════════════════════════════════
        HEADER
-  ══════════════════════════════════════════ -->
+   ══════════════════════════════════════════ -->
     <header class="fixed top-0 left-0 right-0 z-50">
         <div class="bg-white/80 backdrop-blur-xl border-b border-gray-100/60 shadow-sm transition-all duration-300">
             <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
@@ -504,7 +304,7 @@
                 <div class="grid md:grid-cols-3 gap-8">
 
                     <!-- Serviços Digitais -->
-                    <a href="servicos.html" class="group block reveal">
+                    <a href="servicos/servicos.html" class="group block reveal">
                         <div
                             class="service-card service-card-orange h-full bg-white rounded-3xl p-8 border border-gray-100">
                             <div
@@ -550,7 +350,7 @@
                     </a>
 
                     <!-- Personalizados -->
-                    <a href="personalizados.html" class="group block reveal" style="transition-delay:.1s">
+                    <a href="personalizados/personalizados.html" class="group block reveal" style="transition-delay:.1s">
                         <div
                             class="service-card service-card-blue h-full bg-white rounded-3xl p-8 border border-gray-100">
                             <div
@@ -595,7 +395,7 @@
                     </a>
 
                     <!-- Tecnologia -->
-                    <a href="tecnologia.html" class="group block reveal" style="transition-delay:.2s">
+                    <a href="tecnologia/tecnologia.html" class="group block reveal" style="transition-delay:.2s">
                         <div
                             class="service-card service-card-green h-full bg-white rounded-3xl p-8 border border-gray-100">
                             <div
@@ -906,7 +706,7 @@
                     <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Nossas Áreas</h3>
                     <ul class="space-y-3 text-sm">
                         <li>
-                            <a href="servicos.html"
+                            <a href="servicos/servicos.html"
                                 class="text-gray-500 hover:text-orange-400 transition-colors flex items-center gap-2 group">
                                 <span
                                     class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-orange-400 transition-colors"></span>Serviços
@@ -914,14 +714,14 @@
                             </a>
                         </li>
                         <li>
-                            <a href="personalizados.html"
+                            <a href="personalizados/personalizados.html"
                                 class="text-gray-500 hover:text-blue-400 transition-colors flex items-center gap-2 group">
                                 <span
                                     class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-blue-400 transition-colors"></span>Personalizados
                             </a>
                         </li>
                         <li>
-                            <a href="tecnologia.html"
+                            <a href="tecnologia/tecnologia.html"
                                 class="text-gray-500 hover:text-emerald-400 transition-colors flex items-center gap-2 group">
                                 <span
                                     class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-emerald-400 transition-colors"></span>Tecnologia
@@ -1063,6 +863,7 @@
                     o
                     serviço contratado; (b) comunicação sobre andamento e conclusão dos serviços; (c) melhoria da
                     experiência de
+                    experiência de
                     navegação.</p>
                 <p><strong>4. Documentos Sigilosos.</strong> Dados sensíveis fornecidos para serviços específicos (CPF,
                     renda,
@@ -1090,126 +891,6 @@
 
 
     <!-- ══════════════════════════════════════════
-       SCRIPTS
-  ══════════════════════════════════════════ -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            const PHONE = '5512981488505';
-            const MSG = 'Olá! Gostaria de mais informações sobre os serviços da Plena Informática.';
-
-            // ── WhatsApp ──
-            function openWA(msg) {
-                window.open(`https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(msg || MSG)}`, '_blank', 'noopener,noreferrer');
-            }
-            document.querySelectorAll('.whatsapp-btn').forEach(b => b.addEventListener('click', () => openWA()));
-
-            // ── Mobile Menu ──
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const iconOpen = document.getElementById('icon-open');
-            const iconClose = document.getElementById('icon-close');
-
-            function closeMobileMenu() {
-                mobileMenu.classList.add('hidden');
-                menuBtn.setAttribute('aria-expanded', 'false');
-                iconOpen.classList.remove('hidden');
-                iconClose.classList.add('hidden');
-            }
-
-            menuBtn?.addEventListener('click', () => {
-                const hidden = mobileMenu.classList.toggle('hidden');
-                menuBtn.setAttribute('aria-expanded', String(!hidden));
-                iconOpen.classList.toggle('hidden', !hidden);
-                iconClose.classList.toggle('hidden', hidden);
-            });
-
-            document.querySelectorAll('.mobile-link').forEach(el => el.addEventListener('click', closeMobileMenu));
-
-            // ── Scroll Reveal ──
-            const revealObs = new IntersectionObserver(entries => {
-                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-            // ── Counter Animation ──
-            function animateCounter(el) {
-                const target = parseInt(el.dataset.target, 10);
-                const suffix = el.dataset.suffix ?? '';
-                const duration = 1800;
-                const t0 = performance.now();
-                (function tick(now) {
-                    const p = Math.min((now - t0) / duration, 1);
-                    const v = Math.round((1 - Math.pow(1 - p, 3)) * target);
-                    el.textContent = v.toLocaleString('pt-BR') + suffix;
-                    if (p < 1) requestAnimationFrame(tick);
-                })(t0);
-            }
-
-            const cntObs = new IntersectionObserver(entries => {
-                entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); cntObs.unobserve(e.target); } });
-            }, { threshold: 0.5 });
-            document.querySelectorAll('.counter').forEach(el => cntObs.observe(el));
-
-            // ── Testimonials Marquee ──
-            const marqueeTrack = document.getElementById('marquee-track');
-            if (marqueeTrack) {
-                const testimonials = [
-                    { q: 'Eu buscava apenas a regularização do meu IR e saí com um catálogo digital e produtos personalizados. A Plena enxergou um potencial que nem eu via!', n: 'Joana Silva', r: 'Empreendedora · desde 2021', i: 'J', g: 'from-orange-400 to-orange-600' },
-                    { q: 'Precisávamos de uniformes e o resultado foi impecável. Qualidade da estampa e do tecido, além de um atendimento super atencioso e pontual.', n: 'Marcos Andrade', r: 'Gestor · desde 2022', i: 'M', g: 'from-blue-400 to-blue-600' },
-                    { q: 'O site que a Plena desenvolveu para minha empresa aumentou nossas vendas em 40%. Profissionais incríveis, entrega no prazo e suporte excelente!', n: 'Ricardo Oliveira', r: 'Empresário · desde 2023', i: 'R', g: 'from-emerald-400 to-emerald-600' },
-                    { q: 'A assessoria para MEI foi fundamental para regularizar minha situação. Atendimento humanizado, preço justo e total segurança no processo.', n: 'Carlos Mendes', r: 'MEI · desde 2020', i: 'C', g: 'from-purple-400 to-purple-600' },
-                    { q: 'Fiz meu currículo com a Plena e em duas semanas já tinha entrevistas agendadas. Eles sabem destacar o que importa!', n: 'Amanda Costa', r: 'Analista · desde 2024', i: 'A', g: 'from-pink-400 to-pink-600' },
-                    { q: 'As canecas personalizadas que encomendei para minha equipe foram um sucesso. Todo mundo elogiou a qualidade e o design.', n: 'Fernando Souza', r: 'Diretor · desde 2022', i: 'F', g: 'from-amber-400 to-amber-600' },
-                    { q: 'Declaração de IR feita com rapidez e total transparência. É a terceira vez que faço com eles e nunca tive problema.', n: 'Patrícia Lima', r: 'Professora · desde 2019', i: 'P', g: 'from-cyan-400 to-cyan-600' },
-                    { q: 'A Plena criou toda a identidade visual da minha loja: camisetas, ecobag e cartões. Ficou tudo incrível e com ótimo custo.', n: 'Lucas Ferreira', r: 'Lojista · desde 2023', i: 'L', g: 'from-indigo-400 to-indigo-600' },
-                    { q: 'Precisei de uma 2ª via de conta urgente e eles resolveram em minutos. Atendimento no WhatsApp rápido e sem burocracia.', n: 'Beatriz Rocha', r: 'Autônoma · desde 2024', i: 'B', g: 'from-rose-400 to-rose-600' },
-                    { q: 'Contratei o site e os brindes corporativos juntos. Ter tudo em um fornecedor só facilitou muito a minha vida como gestor.', n: 'Diego Martins', r: 'CEO · desde 2021', i: 'D', g: 'from-teal-400 to-teal-600' },
-                ];
-                const star = '<svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
-                const stars5 = star.repeat(5);
-                function makeCard(t) {
-                    return `<div class="marquee-card"><div class="bg-gray-50 rounded-2xl p-7 h-full border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300"><div class="flex gap-0.5 mb-4">${stars5}</div><p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"${t.q}"</p><div class="flex items-center gap-3 pt-4 border-t border-gray-100"><div class="w-10 h-10 rounded-full bg-gradient-to-br ${t.g} flex items-center justify-center text-white font-bold text-sm flex-shrink-0">${t.i}</div><div><p class="font-bold text-gray-900 text-sm">${t.n}</p><p class="text-gray-400 text-xs">${t.r}</p></div></div></div></div>`;
-                }
-                const html = testimonials.map(makeCard).join('');
-                marqueeTrack.innerHTML = html + html;
-            }
-
-            // ── Modals ──
-            const modals = {
-                terms: document.getElementById('terms-modal'),
-                privacy: document.getElementById('privacy-modal'),
-            };
-
-            function closeAll() {
-                Object.values(modals).forEach(m => {
-                    if (!m) return;
-                    m.style.display = 'none';
-                    m.setAttribute('aria-hidden', 'true');
-                });
-                document.body.style.overflow = '';
-            }
-
-            document.querySelectorAll('.open-modal').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const m = modals[btn.dataset.modal];
-                    if (!m) return;
-                    closeAll();
-                    m.style.display = 'flex';
-                    m.setAttribute('aria-hidden', 'false');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-
-            document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeAll(); }));
-            document.querySelectorAll('.modal-close').forEach(b => b.addEventListener('click', closeAll));
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
-
-        });
-    </script>
-
-
-    <!-- ══════════════════════════════════════════
        COOKIE CONSENT BANNER
   ══════════════════════════════════════════ -->
     <div id="cookie-banner" style="display:none"
@@ -1232,39 +913,6 @@
             </button>
         </div>
     </div>
-
-    <style>
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .animate-slide-up {
-            animation: slideUp .5s ease-out forwards;
-        }
-    </style>
-
-    <script>
-        (function () {
-            if (!localStorage.getItem('plena_cookies_ok')) {
-                const banner = document.getElementById('cookie-banner');
-                if (banner) {
-                    setTimeout(() => { banner.style.display = 'block'; }, 1500);
-                    document.getElementById('cookie-accept')?.addEventListener('click', () => {
-                        localStorage.setItem('plena_cookies_ok', '1');
-                        banner.style.display = 'none';
-                    });
-                }
-            }
-        })();
-    </script>
 
 </body>
 
