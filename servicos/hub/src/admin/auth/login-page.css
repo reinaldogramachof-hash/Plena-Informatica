@@ -1,0 +1,66 @@
+/* LoginPage estilos adicionais (complementa admin.css) */
+.adm-login-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.adm-login-brand {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--adm-text, #0f172a);
+  letter-spacing: 0.1em;
+}
+
+.adm-login-brand-sub {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--adm-text-muted, #64748b);
+  margin-top: 0.15rem;
+}
+
+.adm-password-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.adm-input--password {
+  flex: 1;
+}
+
+.adm-password-toggle {
+  background: transparent;
+  border: 1px solid var(--adm-border, #e2e8f0);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.45rem 0.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+  color: var(--adm-text-muted, #64748b);
+  transition: border-color 0.15s;
+}
+
+.adm-password-toggle:hover {
+  border-color: var(--adm-accent, #ea580c);
+}
+
+.adm-btn--full {
+  width: 100%;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  margin-top: 0.25rem;
+}
+
+.adm-login-notice {
+  margin-top: 1.25rem;
+  font-size: 0.8125rem;
+  color: var(--adm-text-muted, #64748b);
+  text-align: center;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adm-password-toggle { transition: none; }
+}

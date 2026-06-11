@@ -1,0 +1,381 @@
+/* ============================================================
+   Guia DAS MEI — prefixo mdg-
+   ============================================================ */
+
+.mdg-tool {
+  --mdg-accent: #2d6a4f;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: inherit;
+}
+
+/* --- Cabeçalho -------------------------------------------- */
+.mdg-intro {
+  margin-bottom: 1.25rem;
+}
+
+.mdg-intro h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--color-text, #1e293b);
+}
+
+.mdg-subtitle {
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* --- Aviso editorial -------------------------------------- */
+.mdg-editorial-notice {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-left: 4px solid #f59e0b;
+  border-radius: 6px;
+  color: #78350f;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0 0 1.25rem;
+  padding: 0.875rem 1rem;
+}
+
+.mdg-editorial-notice p {
+  margin: 0;
+}
+
+.mdg-url {
+  font-family: monospace;
+  font-size: 0.85em;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+}
+
+/* --- Fieldsets -------------------------------------------- */
+.mdg-fieldset {
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.mdg-legend {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text, #1e293b);
+  padding: 0 0.4rem;
+}
+
+/* --- Grid de atividade ------------------------------------ */
+.mdg-activity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
+  margin-top: 0.875rem;
+}
+
+@media (max-width: 480px) {
+  .mdg-activity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mdg-activity-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  border: 2px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text, #374151);
+  transition: border-color 0.15s, background 0.15s;
+  background: #fff;
+}
+
+.mdg-activity-btn:hover {
+  border-color: var(--mdg-accent);
+  background: color-mix(in srgb, var(--mdg-accent) 6%, #fff);
+}
+
+.mdg-activity-btn--selected {
+  border-color: var(--mdg-accent);
+  background: color-mix(in srgb, var(--mdg-accent) 8%, #fff);
+  color: var(--mdg-accent);
+  font-weight: 600;
+}
+
+.mdg-activity-btn input[type='radio'] {
+  accent-color: var(--mdg-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mdg-employee-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.875rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  color: var(--color-text, #374151);
+}
+
+.mdg-employee-checkbox input[type='checkbox'] {
+  accent-color: var(--mdg-accent);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Seções ----------------------------------------------- */
+.mdg-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text, #1e293b);
+  margin: 0 0 0.75rem;
+}
+
+.mdg-das-section {
+  margin-bottom: 1.25rem;
+}
+
+/* --- Tabela DAS ------------------------------------------- */
+.mdg-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.875rem;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mdg-table th {
+  background: var(--color-surface-alt, #f8fafc);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  color: var(--color-text, #374151);
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.mdg-table td {
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  padding: 0.5rem 0.75rem;
+  vertical-align: middle;
+}
+
+.mdg-table tr:last-child td {
+  border-bottom: none;
+}
+
+.mdg-td-component {
+  font-weight: 500;
+  color: var(--color-text, #1e293b);
+  white-space: nowrap;
+}
+
+.mdg-td-value {
+  font-family: monospace;
+  color: var(--mdg-accent);
+  font-weight: 600;
+}
+
+.mdg-td-note {
+  color: var(--color-text-muted, #6b7280);
+  font-size: 0.8125rem;
+}
+
+.mdg-table-total {
+  background: var(--color-surface-alt, #f8fafc);
+}
+
+/* --- Info card -------------------------------------------- */
+.mdg-info-section {
+  margin-bottom: 1.25rem;
+}
+
+.mdg-info-card {
+  background: var(--color-surface-alt, #f8fafc);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text, #374151);
+}
+
+.mdg-info-card p {
+  margin: 0 0 0.75rem;
+}
+
+.mdg-info-list {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* --- Meses ------------------------------------------------ */
+.mdg-months-section {
+  margin-bottom: 1.25rem;
+}
+
+.mdg-months-hint {
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0 0 0.75rem;
+}
+
+.mdg-months-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 400px) {
+  .mdg-months-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.mdg-month-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  transition: border-color 0.15s, background 0.15s;
+  background: #fff;
+}
+
+.mdg-month-item:hover {
+  border-color: var(--mdg-accent);
+}
+
+.mdg-month-item--paid {
+  background: color-mix(in srgb, var(--mdg-accent) 10%, #fff);
+  border-color: var(--mdg-accent);
+}
+
+.mdg-month-item input[type='checkbox'] {
+  accent-color: var(--mdg-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.mdg-month-name {
+  color: var(--color-text, #374151);
+  font-weight: 500;
+}
+
+.mdg-month-item--paid .mdg-month-name {
+  color: var(--mdg-accent);
+  font-weight: 600;
+}
+
+.mdg-months-counter {
+  font-size: 0.875rem;
+  color: var(--color-text, #374151);
+  font-weight: 500;
+  margin: 0 0 0.875rem;
+}
+
+.mdg-months-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* --- Botões ----------------------------------------------- */
+.mdg-btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0.6rem 1.25rem;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.mdg-btn:focus-visible {
+  outline: 2px solid var(--mdg-accent);
+  outline-offset: 2px;
+}
+
+.mdg-btn--secondary {
+  background: var(--color-surface-alt, #f1f5f9);
+  border: 1px solid var(--color-border, #e2e8f0);
+  color: var(--color-text, #374151);
+}
+
+.mdg-btn--secondary:hover {
+  background: var(--color-border, #e2e8f0);
+}
+
+/* --- Aviso de sessão -------------------------------------- */
+.mdg-session-notice {
+  background: var(--color-surface-alt, #f0f4ff);
+  border-left: 3px solid var(--mdg-accent);
+  border-radius: 4px;
+  color: var(--color-text, #1e293b);
+  font-size: 0.8125rem;
+  margin: 0;
+  padding: 0.5rem 0.875rem;
+}
+
+/* --- Responsividade --------------------------------------- */
+@media (max-width: 480px) {
+  .mdg-tool {
+    padding: 1rem 0.75rem;
+  }
+
+  .mdg-months-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- Impressão -------------------------------------------- */
+@media print {
+  .mdg-controls,
+  .mdg-months-actions,
+  .mdg-activity-grid,
+  .mdg-fieldset {
+    display: none;
+  }
+
+  .mdg-months-section,
+  .mdg-das-section,
+  .mdg-info-section {
+    display: block;
+  }
+
+  .mdg-tool {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .mdg-months-grid {
+    display: grid;
+  }
+}
+
+/* --- Preferência por movimento reduzido ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mdg-tool * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

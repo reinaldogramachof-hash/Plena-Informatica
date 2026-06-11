@@ -4,11 +4,11 @@ export const meiIrpfChecklistManifest: ToolManifest = {
   slug: 'mei-irpf-checklist',
   name: 'Checklist MEI e IRPF',
   shortDescription:
-    'Organize documentos e acione atendimento humano somente quando precisar.',
+    'Lista personalizada de documentos e providências para MEI ou IRPF',
   category: 'business',
   processing: 'hybrid',
   accountRequirement: 'optional',
   persistence: 'optional',
-  status: 'planned',
+  status: 'available',
   roadmapOrder: 6,
 }

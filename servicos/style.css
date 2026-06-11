@@ -541,6 +541,7 @@ section[id] {
   border-radius: 999px;
   background: #fff;
   color: #64748b;
+  cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size: .76rem;
   font-weight: 700;
@@ -574,7 +575,7 @@ section[id] {
 .tool-card {
   position: relative;
   display: flex;
-  min-height: 390px;
+  min-height: 0;
   padding: 1.5rem;
   flex-direction: column;
   overflow: hidden;
@@ -649,6 +650,11 @@ section[id] {
 .status-assisted {
   background: #e0e7ff;
   color: #4338ca;
+}
+
+.status-building {
+  background: #fef9c3;
+  color: #854d0e;
 }
 
 .tool-number {
@@ -731,8 +737,46 @@ section[id] {
   line-height: 1.65;
 }
 
+.tool-benefits {
+  display: grid;
+  gap: .48rem;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  color: #334155;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .72rem;
+  font-weight: 650;
+  list-style: none;
+}
+
+.tool-benefits li::before {
+  content: '✓';
+  margin-right: .5rem;
+  color: #16a34a;
+  font-weight: 900;
+}
+
+.tool-trust {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.25rem;
+}
+
+.tool-trust span {
+  padding: .45rem .6rem;
+  border-radius: 9px;
+  background: #f0fdfa;
+  color: #0f766e;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .6rem;
+  font-weight: 750;
+}
+
 .tool-footer {
-  margin-top: 1.5rem;
+  margin-top: .9rem;
   padding-top: 1.15rem;
   border-top: 1px solid #edf1f5;
 }
@@ -746,6 +790,7 @@ section[id] {
 }
 
 .tool-footer button {
+  min-height: 44px;
   padding: .7rem .9rem;
   border-radius: 10px;
   background: #edf1f5;
@@ -757,7 +802,10 @@ section[id] {
 }
 
 .tool-footer a {
+  display: grid;
+  min-height: 44px;
   padding: .7rem .9rem;
+  place-items: center;
   border-radius: 10px;
   background: var(--color-primary);
   color: #fff;
@@ -777,6 +825,76 @@ section[id] {
 .tool-footer a:focus-visible {
   outline: 3px solid rgba(242, 106, 27, .3);
   outline-offset: 3px;
+}
+
+.tool-professional {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 44px;
+  margin-top: .65rem;
+  padding: .72rem .8rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  border-radius: 11px;
+  background: #f8fafc;
+  color: #475569;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .62rem;
+  text-decoration: none;
+}
+
+.tool-professional span {
+  font-weight: 750;
+}
+
+.tool-professional strong {
+  flex: 0 0 auto;
+  color: var(--color-dark);
+}
+
+.tool-professional:focus-visible,
+.hub-category:focus-visible,
+.tool-empty-state button:focus-visible {
+  outline: 3px solid rgba(242, 106, 27, .3);
+  outline-offset: 3px;
+}
+
+.tool-card[hidden] {
+  display: none;
+}
+
+.tool-empty-state {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
+  background: #fff;
+  color: #64748b;
+  text-align: center;
+}
+
+.tool-empty-state strong,
+.tool-empty-state span {
+  display: block;
+}
+
+.tool-empty-state strong {
+  color: var(--color-dark);
+}
+
+.tool-empty-state button {
+  min-height: 44px;
+  margin-top: 1rem;
+  padding: .7rem 1rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--color-dark);
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 }
 
 .hub-how {
@@ -939,11 +1057,26 @@ section[id] {
   }
 
   .hub-search-panel {
+    width: 100%;
+    min-width: 0;
     gap: 1.75rem;
-    padding: 1.5rem;
+    padding: 1.35rem;
+    overflow: hidden;
+  }
+
+  .hub-search-panel > div,
+  .hub-search {
+    min-width: 0;
+  }
+
+  .hub-search-panel h2 {
+    max-width: 100%;
+    font-size: clamp(1.85rem, 10vw, 2.6rem);
+    overflow-wrap: anywhere;
   }
 
   .hub-search {
+    width: 100%;
     align-items: flex-start;
     flex-wrap: wrap;
   }
@@ -974,7 +1107,37 @@ section[id] {
   }
 
   .tool-card {
-    min-height: 370px;
+    min-height: 0;
+    padding: 1.2rem;
+  }
+
+  .tool-icon {
+    width: 58px;
+    height: 58px;
+    margin: 1.25rem 0;
+  }
+
+  .tool-benefits li:nth-child(n + 3) {
+    display: none;
+  }
+
+  .tool-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .tool-footer>span {
+    align-self: flex-start;
+  }
+
+  .tool-footer a,
+  .tool-footer button {
+    width: 100%;
+  }
+
+  .tool-professional {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .support-copy {

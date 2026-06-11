@@ -1,0 +1,301 @@
+/* ============================================================
+   Gerador de Etiquetas — prefixo lg-
+   ============================================================ */
+
+.lg-tool {
+  --lg-accent: #0f4c81;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: inherit;
+}
+
+/* --- Cabeçalho -------------------------------------------- */
+.lg-intro {
+  margin-bottom: 1.25rem;
+}
+
+.lg-intro h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--color-text, #1e293b);
+}
+
+.lg-subtitle {
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* --- Aviso de privacidade --------------------------------- */
+.lg-privacy-notice {
+  background: var(--color-surface-alt, #f0f4ff);
+  border-left: 3px solid var(--lg-accent);
+  border-radius: 4px;
+  color: var(--color-text, #1e293b);
+  font-size: 0.875rem;
+  margin: 0 0 1.25rem;
+  padding: 0.6rem 1rem;
+}
+
+/* --- Fieldsets -------------------------------------------- */
+.lg-fieldset {
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.lg-legend {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text, #1e293b);
+  padding: 0 0.4rem;
+}
+
+/* --- Formato ---------------------------------------------- */
+.lg-format-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-top: 0.75rem;
+}
+
+.lg-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text, #374151);
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.lg-select {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  padding: 0.45rem 0.75rem;
+  transition: border-color 0.15s;
+  background: #fff;
+}
+
+.lg-select:focus {
+  border-color: var(--lg-accent);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--lg-accent) 20%, transparent);
+}
+
+.lg-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  color: var(--color-text, #374151);
+  padding-bottom: 0.15rem;
+}
+
+.lg-checkbox-label input[type='checkbox'] {
+  accent-color: var(--lg-accent);
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Área de conteúdo ------------------------------------- */
+.lg-content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.lg-textarea {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  padding: 0.625rem 0.75rem;
+  resize: vertical;
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.lg-textarea:focus {
+  border-color: var(--lg-accent);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--lg-accent) 20%, transparent);
+}
+
+.lg-counter-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.lg-counter {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #6b7280);
+  font-weight: 500;
+}
+
+.lg-overflow-warning {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 4px;
+  color: #92400e;
+  font-size: 0.8125rem;
+  padding: 0.35rem 0.625rem;
+  line-height: 1.4;
+}
+
+/* --- Prévia ----------------------------------------------- */
+.lg-preview-section {
+  margin-bottom: 1.25rem;
+}
+
+.lg-preview-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0 0 0.5rem;
+}
+
+.lg-preview {
+  display: grid;
+  grid-template-columns: repeat(var(--lg-cols, 2), 1fr);
+  gap: 2px;
+  background: var(--color-surface-alt, #f8fafc);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 6px;
+  padding: 4px;
+  max-height: 240px;
+  overflow: auto;
+}
+
+.lg-preview--border .lg-preview-cell {
+  border: 1px solid var(--color-border, #cbd5e1);
+}
+
+.lg-preview-cell {
+  background: #fff;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  overflow: hidden;
+  padding: 0.25rem 0.35rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Ações ------------------------------------------------ */
+.lg-actions {
+  margin-bottom: 0.875rem;
+}
+
+.lg-btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0.65rem 1.5rem;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.lg-btn:focus-visible {
+  outline: 2px solid var(--lg-accent);
+  outline-offset: 2px;
+}
+
+.lg-btn--primary {
+  background: var(--lg-accent);
+  color: #fff;
+}
+
+.lg-btn--primary:hover:not(:disabled) {
+  background: #0b3a62;
+}
+
+.lg-btn--primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* --- Nota Plena ------------------------------------------- */
+.lg-plena-note {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0 0 0.75rem;
+  font-style: italic;
+}
+
+/* --- Erro ------------------------------------------------- */
+.lg-error {
+  background: #fef2f2;
+  border-left: 3px solid #ef4444;
+  border-radius: 4px;
+  color: #b91c1c;
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 0.6rem 1rem;
+}
+
+/* --- Responsividade --------------------------------------- */
+@media (max-width: 480px) {
+  .lg-tool {
+    padding: 1rem 0.75rem;
+  }
+
+  .lg-format-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* --- Impressão -------------------------------------------- */
+@media print {
+  .lg-controls,
+  .lg-actions,
+  .lg-fieldset {
+    display: none;
+  }
+
+  .lg-result {
+    display: block;
+  }
+
+  .lg-tool {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .lg-preview {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* --- Preferência por movimento reduzido ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .lg-tool * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

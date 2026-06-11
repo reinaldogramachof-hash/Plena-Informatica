@@ -2,13 +2,13 @@ import type { ToolManifest } from '../types'
 
 export const declarationBuilderManifest: ToolManifest = {
   slug: 'declaration-builder',
-  name: 'Gerador de Declaracoes',
+  name: 'Gerador de Declarações',
   shortDescription:
-    'Preencha modelos orientados e salve rascunhos apenas quando desejar.',
+    'Crie declarações particulares com preenchimento orientado, prévia e geração local em PDF.',
   category: 'documents',
   processing: 'hybrid',
   accountRequirement: 'optional',
   persistence: 'optional',
-  status: 'planned',
+  status: 'available',
   roadmapOrder: 5,
 }

@@ -17,7 +17,7 @@ section[id] {
     scroll-margin-top: 5rem;
 }
 
-/* ── HERO ── */
+/* â”€â”€ HERO â”€â”€ */
 .hero-bg {
     background-image: url('../plena.jpg');
     background-size: cover;
@@ -44,7 +44,7 @@ section[id] {
     background-clip: text;
 }
 
-/* ── SCROLL INDICATOR ── */
+/* â”€â”€ SCROLL INDICATOR â”€â”€ */
 @keyframes bounce-down {
     0%,
     100% {
@@ -59,7 +59,7 @@ section[id] {
     animation: bounce-down 1.6s ease-in-out infinite;
 }
 
-/* ── SERVICE CARDS ── */
+/* â”€â”€ SERVICE CARDS â”€â”€ */
 .service-card {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, .07);
@@ -69,24 +69,18 @@ section[id] {
     transform: translateY(8px);
 }
 
-.service-card-orange:hover {
-    box-shadow: 0 24px 48px -8px rgba(234, 88, 12, .18);
-}
+.service-card-orange:hover { box-shadow: 0 24px 48px -8px rgba(242, 106, 27, .18); }
 
-.service-card-blue:hover {
-    box-shadow: 0 24px 48px -8px rgba(59, 130, 246, .18);
-}
+.service-card-navy:hover { box-shadow: 0 24px 48px -8px rgba(6, 26, 53, .18); }
 
-.service-card-green:hover {
-    box-shadow: 0 24px 48px -8px rgba(16, 185, 129, .18);
-}
+.service-card-gold:hover { box-shadow: 0 24px 48px -8px rgba(214, 162, 58, .18); }
 
-/* ── GRADIENT BG (timeline) ── */
+/* â”€â”€ GRADIENT BG (timeline) â”€â”€ */
 .gradient-bg {
     background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #1e293b 100%);
 }
 
-/* ── TIMELINE ── */
+/* â”€â”€ TIMELINE â”€â”€ */
 .timeline-item {
     position: relative;
     padding-left: 1.75rem;
@@ -112,7 +106,7 @@ section[id] {
     padding-bottom: 0;
 }
 
-/* ── INFINITE MARQUEE CAROUSEL ── */
+/* â”€â”€ INFINITE MARQUEE CAROUSEL â”€â”€ */
 .marquee-wrapper {
     overflow: hidden;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 54%, transparent);
@@ -144,7 +138,7 @@ section[id] {
     }
 }
 
-/* ── MODAL ── */
+/* â”€â”€ MODAL â”€â”€ */
 .modal {
     display: none;
     position: fixed;
@@ -168,7 +162,7 @@ section[id] {
     position: relative;
 }
 
-/* ── ANIMATIONS ── */
+/* â”€â”€ ANIMATIONS â”€â”€ */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -184,7 +178,7 @@ section[id] {
     animation: fadeInUp .9s cubic-bezier(.4, 0, .2, 1) both;
 }
 
-/* ── SCROLL REVEAL ── */
+/* â”€â”€ SCROLL REVEAL â”€â”€ */
 .reveal {
     opacity: 0;
     transform: translateY(22px);
@@ -196,7 +190,7 @@ section[id] {
     transform: translateY(0);
 }
 
-/* ── COOKIE CONSENT ANIMATIONS ── */
+/* â”€â”€ COOKIE CONSENT ANIMATIONS â”€â”€ */
 @keyframes slideUp {
     from {
         transform: translateY(100%);

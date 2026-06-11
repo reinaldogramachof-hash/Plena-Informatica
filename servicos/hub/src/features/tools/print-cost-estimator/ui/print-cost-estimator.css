@@ -1,0 +1,376 @@
+/* ============================================================
+   Calculadora de Impressão — prefixo pce-
+   ============================================================ */
+
+.pce-tool {
+  --pce-accent: #7b2d8b;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: inherit;
+}
+
+/* --- Cabeçalho -------------------------------------------- */
+.pce-intro {
+  margin-bottom: 1.25rem;
+}
+
+.pce-intro h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--color-text, #1e293b);
+}
+
+.pce-subtitle {
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* --- Aviso de privacidade --------------------------------- */
+.pce-privacy-notice {
+  background: var(--color-surface-alt, #f0f4ff);
+  border-left: 3px solid var(--pce-accent);
+  border-radius: 4px;
+  color: var(--color-text, #1e293b);
+  font-size: 0.875rem;
+  margin: 0 0 1.25rem;
+  padding: 0.6rem 1rem;
+}
+
+/* --- Fieldsets -------------------------------------------- */
+.pce-fieldset {
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.pce-legend {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text, #1e293b);
+  padding: 0 0.4rem;
+}
+
+/* --- Campos ----------------------------------------------- */
+.pce-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+.pce-fields--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.875rem;
+}
+
+@media (max-width: 480px) {
+  .pce-fields--grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pce-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text, #374151);
+  gap: 0.3rem;
+}
+
+.pce-input {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  padding: 0.45rem 0.75rem;
+  transition: border-color 0.15s;
+}
+
+.pce-input:focus {
+  border-color: var(--pce-accent);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--pce-accent) 20%, transparent);
+}
+
+/* --- Accordeon -------------------------------------------- */
+.pce-details-wrapper {
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.pce-details-toggle {
+  background: var(--color-surface-alt, #f8fafc);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--color-text, #1e293b);
+  padding: 0.875rem 1.25rem;
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.pce-details-toggle:hover {
+  background: var(--color-border, #e2e8f0);
+}
+
+.pce-details-toggle:focus-visible {
+  outline: 2px solid var(--pce-accent);
+  outline-offset: -2px;
+}
+
+.pce-details-chevron {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.pce-details-panel {
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.pce-detail-hint {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0.875rem 0 0;
+  font-style: italic;
+}
+
+/* --- Resultado -------------------------------------------- */
+.pce-result {
+  background: var(--color-surface-alt, #f8fafc);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+}
+
+.pce-result-cards {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.pce-result-card {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pce-result-card--own {
+  background: #fff;
+  border: 1px solid var(--color-border, #e2e8f0);
+}
+
+.pce-result-card--plena {
+  background: color-mix(in srgb, var(--pce-accent) 8%, #fff);
+  border: 1px solid color-mix(in srgb, var(--pce-accent) 30%, transparent);
+}
+
+.pce-result-card-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+}
+
+.pce-result-card--plena .pce-result-card-title {
+  color: var(--pce-accent);
+}
+
+.pce-result-card-per-page,
+.pce-result-card-monthly {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin: 0;
+}
+
+.pce-result-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.pce-result-value {
+  font-size: 0.875rem;
+  color: var(--color-text, #374151);
+}
+
+.pce-result-value--big {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text, #1e293b);
+}
+
+.pce-result-card--plena .pce-result-value--big {
+  color: var(--pce-accent);
+}
+
+.pce-result-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+}
+
+.pce-result-vs {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted, #9ca3af);
+  background: #fff;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pce-result-difference {
+  margin-top: 1rem;
+  padding-top: 0.875rem;
+  border-top: 1px dashed var(--color-border, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pce-result-diff-label {
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.pce-result-diff-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text, #1e293b);
+}
+
+.pce-result-disclaimer {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #9ca3af);
+  margin: 0.75rem 0 0;
+  font-style: italic;
+}
+
+/* --- Ações ------------------------------------------------ */
+.pce-actions {
+  margin-bottom: 0.875rem;
+}
+
+.pce-btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0.6rem 1.25rem;
+  transition: background 0.15s;
+}
+
+.pce-btn:focus-visible {
+  outline: 2px solid var(--pce-accent);
+  outline-offset: 2px;
+}
+
+.pce-btn--secondary {
+  background: var(--color-surface-alt, #f1f5f9);
+  border: 1px solid var(--color-border, #e2e8f0);
+  color: var(--color-text, #374151);
+}
+
+.pce-btn--secondary:hover {
+  background: var(--color-border, #e2e8f0);
+}
+
+/* --- Aviso editorial -------------------------------------- */
+.pce-editorial-notice {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0 0 0.5rem;
+  font-style: italic;
+}
+
+/* --- Erro ------------------------------------------------- */
+.pce-error {
+  background: #fef2f2;
+  border-left: 3px solid #ef4444;
+  border-radius: 4px;
+  color: #b91c1c;
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 0.6rem 1rem;
+}
+
+/* --- Responsividade --------------------------------------- */
+@media (max-width: 480px) {
+  .pce-tool {
+    padding: 1rem 0.75rem;
+  }
+
+  .pce-result-cards {
+    flex-direction: column;
+  }
+
+  .pce-result-divider {
+    padding: 0.5rem 0;
+    transform: rotate(90deg);
+  }
+}
+
+/* --- Impressão -------------------------------------------- */
+@media print {
+  .pce-controls,
+  .pce-actions,
+  .pce-details-toggle,
+  .pce-fieldset {
+    display: none;
+  }
+
+  .pce-result {
+    display: block;
+  }
+
+  .pce-tool {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .pce-details-panel {
+    display: block;
+    border-top: none;
+    padding: 0;
+  }
+}
+
+/* --- Preferência por movimento reduzido ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .pce-tool * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

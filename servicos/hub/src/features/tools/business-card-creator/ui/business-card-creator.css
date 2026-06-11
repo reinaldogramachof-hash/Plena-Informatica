@@ -1,0 +1,350 @@
+/* ============================================================
+   Gerador de Cartão de Visitas — prefixo bcc-
+   ============================================================ */
+
+.bcc-tool {
+  --bcc-accent: #1e3a5f;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: inherit;
+}
+
+/* --- Cabeçalho -------------------------------------------- */
+.bcc-intro {
+  margin-bottom: 1.25rem;
+}
+
+.bcc-intro h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--color-text, #1e293b);
+}
+
+.bcc-subtitle {
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* --- Aviso de privacidade --------------------------------- */
+.bcc-privacy-notice {
+  background: var(--color-surface-alt, #f0f4ff);
+  border-left: 3px solid var(--bcc-accent);
+  border-radius: 4px;
+  color: var(--color-text, #1e293b);
+  font-size: 0.875rem;
+  margin: 0 0 1.25rem;
+  padding: 0.6rem 1rem;
+}
+
+/* --- Layout lado a lado ----------------------------------- */
+.bcc-workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .bcc-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Editor ----------------------------------------------- */
+.bcc-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* --- Fieldsets -------------------------------------------- */
+.bcc-fieldset {
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  padding: 1rem 1.25rem 1.25rem;
+  margin: 0;
+}
+
+.bcc-legend {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text, #1e293b);
+  padding: 0 0.4rem;
+}
+
+/* --- Campos ----------------------------------------------- */
+.bcc-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.bcc-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text, #374151);
+  gap: 0.3rem;
+}
+
+.bcc-input {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  padding: 0.45rem 0.75rem;
+  transition: border-color 0.15s;
+}
+
+.bcc-input:focus {
+  border-color: var(--bcc-accent);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--bcc-accent) 20%, transparent);
+}
+
+/* --- Estilo (radio) --------------------------------------- */
+.bcc-style-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.bcc-style-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.bcc-style-option:hover {
+  border-color: var(--bcc-accent);
+  background: color-mix(in srgb, var(--bcc-accent) 5%, transparent);
+}
+
+.bcc-style-option input[type='radio'] {
+  accent-color: var(--bcc-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.bcc-style-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text, #374151);
+}
+
+.bcc-style-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #6b7280);
+  margin-left: auto;
+}
+
+.bcc-print-note {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0.75rem 0 0;
+  font-style: italic;
+}
+
+/* --- Ações ------------------------------------------------ */
+.bcc-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.bcc-btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0.6rem 1.25rem;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.bcc-btn:focus-visible {
+  outline: 2px solid var(--bcc-accent);
+  outline-offset: 2px;
+}
+
+.bcc-btn--primary {
+  background: var(--bcc-accent);
+  color: #fff;
+}
+
+.bcc-btn--primary:hover:not(:disabled) {
+  background: #162d4a;
+}
+
+.bcc-btn--primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.bcc-btn--secondary {
+  background: var(--color-surface-alt, #f1f5f9);
+  border: 1px solid var(--color-border, #e2e8f0);
+  color: var(--color-text, #374151);
+}
+
+.bcc-btn--secondary:hover {
+  background: var(--color-border, #e2e8f0);
+}
+
+/* --- Erro ------------------------------------------------- */
+.bcc-error {
+  background: #fef2f2;
+  border-left: 3px solid #ef4444;
+  border-radius: 4px;
+  color: #b91c1c;
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 0.6rem 1rem;
+}
+
+/* --- Área de prévia --------------------------------------- */
+.bcc-preview-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.bcc-preview-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+}
+
+/* --- Prévia do cartão ------------------------------------- */
+.bcc-card-preview {
+  aspect-ratio: 9 / 5;
+  max-width: 360px;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: stretch;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.bcc-card-preview--classic {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.bcc-card-preview--modern {
+  background: #1e3a5f;
+  color: #ffffff;
+}
+
+.bcc-card-preview--colorful {
+  background: #b45309;
+  color: #ffffff;
+}
+
+.bcc-card-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.bcc-card-company {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  opacity: 0.75;
+}
+
+.bcc-card-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.bcc-card-role {
+  font-size: 0.7rem;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.bcc-card-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  margin-top: 0.4rem;
+}
+
+.bcc-card-contact {
+  font-size: 0.65rem;
+  opacity: 0.85;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- Responsividade --------------------------------------- */
+@media (max-width: 480px) {
+  .bcc-tool {
+    padding: 1rem 0.75rem;
+  }
+
+  .bcc-actions {
+    flex-direction: column;
+  }
+
+  .bcc-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --- Impressão -------------------------------------------- */
+@media print {
+  .bcc-editor,
+  .bcc-actions {
+    display: none;
+  }
+
+  .bcc-result,
+  .bcc-card-preview {
+    display: flex;
+  }
+
+  .bcc-tool {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* --- Preferência por movimento reduzido ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .bcc-tool * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -24,7 +24,7 @@ export function InstitutionalShell({ children }: InstitutionalShellProps) {
         <a
           className="institutional-contact"
           href="https://api.whatsapp.com/send?phone=5512981488505"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
           Fale conosco

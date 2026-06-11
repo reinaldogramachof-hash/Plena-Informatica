@@ -1,0 +1,381 @@
+/* ============================================================
+   Gerador de Cardápio — prefixo mb-
+   ============================================================ */
+
+.mb-tool {
+  --mb-accent: #b45309;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: inherit;
+}
+
+/* --- Cabeçalho -------------------------------------------- */
+.mb-intro {
+  margin-bottom: 1.25rem;
+}
+
+.mb-intro h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--color-text, #1e293b);
+}
+
+.mb-subtitle {
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* --- Aviso de privacidade --------------------------------- */
+.mb-privacy-notice {
+  background: var(--color-surface-alt, #f0f4ff);
+  border-left: 3px solid var(--mb-accent);
+  border-radius: 4px;
+  color: var(--color-text, #1e293b);
+  font-size: 0.875rem;
+  margin: 0 0 1.25rem;
+  padding: 0.6rem 1rem;
+}
+
+/* --- Aviso Plena ------------------------------------------ */
+.mb-plena-notice {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  color: #92400e;
+  font-size: 0.875rem;
+  margin: 0 0 1.25rem;
+  padding: 0.6rem 0.875rem;
+}
+
+/* --- Fieldsets -------------------------------------------- */
+.mb-fieldset {
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.mb-legend {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text, #1e293b);
+  padding: 0 0.4rem;
+}
+
+/* --- Campos ----------------------------------------------- */
+.mb-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 0.75rem;
+}
+
+.mb-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text, #374151);
+  gap: 0.3rem;
+}
+
+.mb-label--inline {
+  flex: 1;
+}
+
+.mb-label--price {
+  max-width: 140px;
+}
+
+.mb-input {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  padding: 0.45rem 0.75rem;
+  transition: border-color 0.15s;
+}
+
+.mb-input:focus {
+  border-color: var(--mb-accent);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--mb-accent) 20%, transparent);
+}
+
+/* --- Estado vazio ----------------------------------------- */
+.mb-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 1rem;
+  color: var(--color-text-muted, #9ca3af);
+}
+
+.mb-empty-icon {
+  opacity: 0.4;
+  color: var(--mb-accent);
+}
+
+.mb-empty-text {
+  margin: 0;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* --- Categoria -------------------------------------------- */
+.mb-category {
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--color-surface, #fff);
+}
+
+.mb-category-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.875rem;
+}
+
+.mb-category-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mb-accent);
+  font-weight: 600;
+}
+
+/* --- Itens ------------------------------------------------ */
+.mb-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.mb-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: var(--color-surface-alt, #f8fafc);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 6px;
+  padding: 0.625rem 0.75rem;
+}
+
+.mb-item-fields {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mb-item-fields .mb-label {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* --- Botões ----------------------------------------------- */
+.mb-btn {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  transition: background 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.mb-btn:focus-visible {
+  outline: 2px solid var(--mb-accent);
+  outline-offset: 2px;
+}
+
+.mb-btn--primary {
+  background: var(--mb-accent);
+  color: #fff;
+  font-size: 0.9375rem;
+  padding: 0.65rem 1.5rem;
+}
+
+.mb-btn--primary:hover:not(:disabled) {
+  background: #92400e;
+}
+
+.mb-btn--primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.mb-btn--add-category {
+  background: transparent;
+  border: 2px dashed var(--mb-accent);
+  color: var(--mb-accent);
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.mb-btn--add-category:hover {
+  background: color-mix(in srgb, var(--mb-accent) 8%, transparent);
+}
+
+.mb-btn--add-item {
+  background: var(--color-surface-alt, #f1f5f9);
+  border: 1px solid var(--color-border, #e2e8f0);
+  color: var(--color-text, #374151);
+  font-size: 0.8125rem;
+}
+
+.mb-btn--add-item:hover {
+  background: var(--color-border, #e2e8f0);
+}
+
+.mb-btn--danger {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  font-size: 0.8125rem;
+}
+
+.mb-btn--danger:hover {
+  background: #fee2e2;
+}
+
+.mb-btn--remove-item {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.625rem;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.mb-btn--remove-item:hover {
+  background: #fee2e2;
+}
+
+/* --- Formato (radio) -------------------------------------- */
+.mb-format-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.mb-radio-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mb-radio-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text, #374151);
+}
+
+.mb-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.mb-radio input[type='radio'] {
+  accent-color: var(--mb-accent);
+  cursor: pointer;
+}
+
+/* --- Ações ------------------------------------------------ */
+.mb-actions {
+  margin-bottom: 0.75rem;
+}
+
+/* --- Erro ------------------------------------------------- */
+.mb-error {
+  background: #fef2f2;
+  border-left: 3px solid #ef4444;
+  border-radius: 4px;
+  color: #b91c1c;
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 0.6rem 1rem;
+}
+
+/* --- Acessibilidade --------------------------------------- */
+.mb-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Responsividade --------------------------------------- */
+@media (max-width: 480px) {
+  .mb-tool {
+    padding: 1rem 0.75rem;
+  }
+
+  .mb-category-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mb-format-options {
+    flex-direction: column;
+  }
+
+  .mb-item-fields {
+    flex-direction: column;
+  }
+
+  .mb-label--price {
+    max-width: 100%;
+  }
+}
+
+/* --- Impressão -------------------------------------------- */
+@media print {
+  .mb-controls,
+  .mb-actions,
+  .mb-btn--add-category,
+  .mb-btn--add-item,
+  .mb-btn--danger,
+  .mb-btn--remove-item,
+  .mb-format-options {
+    display: none;
+  }
+
+  .mb-result {
+    display: block;
+  }
+
+  .mb-tool {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* --- Preferência por movimento reduzido ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mb-tool * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,538 @@
+/* ============================================================
+   Checklist MEI e IRPF — prefixo mic-
+   ============================================================ */
+
+.mic-tool {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: inherit;
+}
+
+/* --- Cabeçalho -------------------------------------------- */
+.mic-header {
+  margin-bottom: 1.5rem;
+}
+
+.mic-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.mic-header p {
+  color: var(--color-text-muted, #6b7280);
+  margin: 0;
+}
+
+/* --- Avisos de segurança ---------------------------------- */
+.mic-warnings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mic-warning {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  padding: 0.6rem 0.875rem;
+  font-size: 0.875rem;
+  color: #92400e;
+  line-height: 1.4;
+}
+
+/* --- Indicador de etapas ---------------------------------- */
+.mic-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.mic-step {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #6b7280);
+}
+
+.mic-step__dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e5e7eb;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.mic-step--active .mic-step__dot {
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+}
+
+.mic-step--done .mic-step__dot {
+  background: #10b981;
+  color: #fff;
+}
+
+.mic-step__sep {
+  flex: 1;
+  height: 2px;
+  background: #e5e7eb;
+  min-width: 12px;
+  max-width: 32px;
+}
+
+/* --- Área de conteúdo da etapa ---------------------------- */
+.mic-stage {
+  animation: mic-fade-in 0.18s ease;
+}
+
+@keyframes mic-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mic-stage {
+    animation: none;
+  }
+}
+
+.mic-stage__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+/* --- Botões de escolha de público (MEI / IRPF) ------------ */
+.mic-audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mic-audience-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.mic-audience-btn:hover {
+  border-color: var(--color-primary, #2563eb);
+  background: #eff6ff;
+}
+
+.mic-audience-btn--selected {
+  border-color: var(--color-primary, #2563eb);
+  background: #eff6ff;
+}
+
+.mic-audience-btn__label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* --- Cartões de cenário ----------------------------------- */
+.mic-scenarios {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-bottom: 1.5rem;
+}
+
+.mic-scenario-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.mic-scenario-btn:hover {
+  border-color: var(--color-primary, #2563eb);
+  background: #eff6ff;
+}
+
+.mic-scenario-btn--selected {
+  border-color: var(--color-primary, #2563eb);
+  background: #eff6ff;
+}
+
+.mic-scenario-btn__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.mic-scenario-btn__desc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+}
+
+/* --- Perguntas -------------------------------------------- */
+.mic-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.mic-question {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0 0;
+}
+
+.mic-question legend {
+  padding: 0 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111827;
+  margin-left: 0.75rem;
+}
+
+.mic-question__desc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 1rem 0.5rem;
+}
+
+.mic-question__options {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem 0.875rem;
+  flex-wrap: wrap;
+}
+
+.mic-option-btn {
+  padding: 0.4rem 1.1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.mic-option-btn:hover {
+  border-color: var(--color-primary, #2563eb);
+}
+
+.mic-option-btn--selected {
+  border-color: var(--color-primary, #2563eb);
+  background: #eff6ff;
+  color: var(--color-primary, #2563eb);
+}
+
+/* --- Checklist resultado ---------------------------------- */
+.mic-result {
+  margin-bottom: 1.5rem;
+}
+
+.mic-result__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.mic-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.mic-progress__bar {
+  flex: 1;
+  height: 8px;
+  appearance: none;
+  border: none;
+  border-radius: 99px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.mic-progress__bar::-webkit-progress-bar {
+  background: #e5e7eb;
+  border-radius: 99px;
+}
+
+.mic-progress__bar::-webkit-progress-value {
+  background: #10b981;
+  border-radius: 99px;
+  transition: width 0.2s ease;
+}
+
+.mic-progress__bar::-moz-progress-bar {
+  background: #10b981;
+  border-radius: 99px;
+}
+
+.mic-progress__label {
+  font-size: 0.85rem;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.mic-group {
+  margin-bottom: 1.25rem;
+}
+
+.mic-group__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b7280;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mic-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mic-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  transition: background 0.1s;
+}
+
+.mic-item--checked {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.mic-item__checkbox {
+  margin-top: 0.1rem;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: #10b981;
+}
+
+.mic-item__checkbox:focus-visible {
+  outline: 2px solid var(--color-primary, #2563eb);
+  outline-offset: 2px;
+}
+
+.mic-item__body {
+  flex: 1;
+}
+
+.mic-item__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.3;
+}
+
+.mic-item--checked .mic-item__title {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.mic-item__desc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+.mic-item__attention {
+  font-size: 0.78rem;
+  color: #92400e;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+/* --- Navegação -------------------------------------------- */
+.mic-nav {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.mic-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.mic-btn:focus-visible {
+  outline: 2px solid var(--color-primary, #2563eb);
+  outline-offset: 2px;
+}
+
+.mic-btn--primary {
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+}
+
+.mic-btn--primary:hover {
+  background: #1d4ed8;
+}
+
+.mic-btn--secondary {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.mic-btn--secondary:hover {
+  background: #e5e7eb;
+}
+
+.mic-btn--ghost {
+  background: transparent;
+  color: var(--color-primary, #2563eb);
+  border: 1px solid var(--color-primary, #2563eb);
+}
+
+.mic-btn--ghost:hover {
+  background: #eff6ff;
+}
+
+.mic-btn--danger {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+}
+
+.mic-btn--danger:hover {
+  background: #fef2f2;
+}
+
+.mic-spacer {
+  flex: 1;
+}
+
+/* --- Responsividade --------------------------------------- */
+@media (max-width: 480px) {
+  .mic-audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mic-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mic-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --- Impressão -------------------------------------------- */
+@media print {
+  .mic-tool {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .mic-warnings,
+  .mic-steps,
+  .mic-nav,
+  .mic-audience-grid,
+  .mic-scenarios,
+  .mic-questions {
+    display: none !important;
+  }
+
+  .mic-warning {
+    display: block !important;
+  }
+
+  .mic-result {
+    display: block;
+  }
+
+  .mic-item {
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  .mic-group {
+    page-break-inside: avoid;
+  }
+
+  /* Mostrar avisos na impressão */
+  .mic-print-warnings {
+    display: flex !important;
+  }
+}
+
+.mic-print-warnings {
+  display: none;
+}
+
+@media print {
+  .mic-print-warnings {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    border-top: 1px solid #ccc;
+    padding-top: 0.75rem;
+  }
+
+  .mic-print-warning {
+    font-size: 0.75rem;
+    color: #555;
+  }
+}

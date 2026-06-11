@@ -3,11 +3,11 @@ import { describe, expect, it } from 'vitest'
 import { toolRegistry } from './tool-registry'
 
 describe('toolRegistry', () => {
-  it('registers the six approved MVP tools with unique slugs', () => {
+  it('registers the eleven approved tools with unique slugs', () => {
     const slugs = toolRegistry.map((tool) => tool.slug)
 
-    expect(toolRegistry).toHaveLength(6)
-    expect(new Set(slugs).size).toBe(6)
+    expect(toolRegistry).toHaveLength(11)
+    expect(new Set(slugs).size).toBe(11)
   })
 
   it('keeps file-processing tools local and account-free', () => {
