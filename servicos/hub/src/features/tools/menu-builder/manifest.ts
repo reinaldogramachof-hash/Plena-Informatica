@@ -8,6 +8,6 @@ export const menuBuilderManifest: ToolManifest = {
   processing: 'local',
   accountRequirement: 'none',
   persistence: 'none',
-  status: 'building',
+  status: 'available',
   roadmapOrder: 7,
 }
