@@ -61,7 +61,7 @@ describe('PrintCostEstimatorTool', () => {
     const inputBlack = screen.getByRole('spinbutton', { name: /Paginas em preto por mes/i })
     fireEvent.change(inputBlack, { target: { value: '10' } })
     // 10 paginas pretas × R$ 3,00 = R$ 30,00
-    expect(screen.getByText(/30,00/i)).toBeDefined()
+    expect(screen.getAllByText(/30,00/i).length).toBeGreaterThan(0)
   })
 
   it('custo Plena soma preto e colorido separadamente', () => {
@@ -71,7 +71,7 @@ describe('PrintCostEstimatorTool', () => {
     fireEvent.change(inputBlack, { target: { value: '10' } })
     fireEvent.change(inputColor, { target: { value: '5' } })
     // 10×3 + 5×4 = 30 + 20 = R$ 50,00
-    expect(screen.getByText(/50,00/i)).toBeDefined()
+    expect(screen.getAllByText(/50,00/i).length).toBeGreaterThan(0)
   })
 
   it('exibe tabela de precos Plena no card', () => {
