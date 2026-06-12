@@ -12,11 +12,11 @@ export function InstitutionalShell({ children }: InstitutionalShellProps) {
   return (
     <div className="institutional-page">
       <header aria-label="Navegação Plena" className="institutional-header">
-        <a className="institutional-brand" href="../../index/index.html">
+        <a className="institutional-brand" href="../../index.html">
           <img alt="Plena Informática" src={plenaLogo} />
         </a>
         <nav aria-label="Navegação principal">
-          <a href="../../index/index.html">Início</a>
+          <a href="../../index.html">Início</a>
           <a href={`${servicesPage}#ferramentas`}>Ferramentas</a>
           <a href={`${servicesPage}#como-funciona`}>Como funciona</a>
           <a href={`${servicesPage}#atendimento`}>Atendimento</a>
@@ -24,7 +24,7 @@ export function InstitutionalShell({ children }: InstitutionalShellProps) {
         <a
           className="institutional-contact"
           href="https://api.whatsapp.com/send?phone=5512981488505"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           target="_blank"
         >
           Fale conosco

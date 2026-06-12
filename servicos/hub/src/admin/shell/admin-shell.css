@@ -1,0 +1,99 @@
+.adm-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.adm-sidebar {
+  background: #0f172a;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.adm-sidebar__brand {
+  padding: 0 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 1rem;
+}
+
+.adm-sidebar__brand strong { color: #ffffff; font-size: 1.1rem; }
+.adm-sidebar__brand span { color: #ea580c; font-size: 0.75rem; display: block; }
+
+.adm-nav-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.15s, background 0.15s;
+}
+
+.adm-nav-link:hover { color: #f1f5f9; background: rgba(255,255,255,0.05); }
+.adm-nav-link--active { color: #ea580c; background: rgba(234,88,12,0.1); border-left: 3px solid #ea580c; }
+
+.adm-logout {
+  margin-top: auto;
+  margin: auto 1.25rem 1.25rem;
+  padding: 0.625rem 1rem;
+  background: rgba(220,38,38,0.1);
+  color: #fca5a5;
+  border: 1px solid rgba(220,38,38,0.2);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  width: calc(100% - 2.5rem);
+}
+
+.adm-logout:hover { background: rgba(220,38,38,0.2); }
+
+.adm-body { display: flex; flex-direction: column; background: #f8fafc; }
+
+.adm-topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.adm-topbar__title { font-size: 1.125rem; font-weight: 600; color: #0f172a; margin: 0; }
+.adm-topbar__user { font-size: 0.8rem; color: #64748b; }
+
+.adm-content { padding: 1.5rem; flex: 1; }
+
+/* Mobile: sidebar como drawer */
+@media (max-width: 768px) {
+  .adm-layout { grid-template-columns: 1fr; }
+  .adm-sidebar {
+    position: fixed;
+    left: -240px;
+    z-index: 100;
+    transition: left 0.25s ease;
+    height: 100dvh;
+  }
+  .adm-sidebar--open { left: 0; }
+  .adm-topbar { padding: 0.875rem 1rem; }
+}
+
+/* Impressão */
+@media print {
+  .adm-sidebar, .adm-topbar { display: none; }
+  .adm-layout { grid-template-columns: 1fr; }
+  .adm-content { padding: 0; }
+}
+
+/* Movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .adm-sidebar { transition: none; }
+}

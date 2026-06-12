@@ -12,7 +12,7 @@
     <meta name="keywords"
         content="Plena Informática SJC, desenvolvimento web São José dos Campos, sistemas de gestão, produtos personalizados SJC, currículo profissional, declaração imposto de renda, suporte MEI, landing page, e-commerce, cardápio digital, site institucional, camisetas personalizadas, canecas personalizadas, brindes empresariais, tecnologia São José dos Campos, informática SJC">
     <meta name="author" content="Plena Informática">
-    <meta name="theme-color" content="#ea580c">
+
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="BR-SP">
     <meta name="geo.placename" content="São José dos Campos">
@@ -88,6 +88,22 @@
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F26A1B',
+                            navy: '#061A35',
+                            gold: '#D6A23A',
+                            green: '#22A33A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,218 +112,18 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    <!-- Stylesheet customizado -->
+    <link rel="stylesheet" href="style.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1e293b;
-            overflow-x: hidden;
-        }
-
-        .font-accent {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        section[id] {
-            scroll-margin-top: 5rem;
-        }
-
-        /* ── HERO ── */
-        .hero-bg {
-            background-image: url('plena.jpg');
-            background-size: cover;
-            background-position: center 40%;
-        }
-
-        @media (min-width: 768px) {
-            .hero-bg {
-                background-attachment: fixed;
-            }
-        }
-
-        .hero-overlay {
-            background: linear-gradient(160deg,
-                    rgba(3, 1, 19, 0.92) 0%,
-                    rgba(0, 1, 6, 0.55) 60%,
-                    rgba(16, 6, 0, 0.35) 100%);
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #f17a02, #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* ── SCROLL INDICATOR ── */
-        @keyframes bounce-down {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(8px);
-            }
-        }
-
-        .bounce-down {
-            animation: bounce-down 1.6s ease-in-out infinite;
-        }
-
-        /* ── SERVICE CARDS ── */
-        .service-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, .07);
-        }
-
-        .service-card:hover {
-            transform: translateY(8px);
-        }
-
-        .service-card-orange:hover {
-            box-shadow: 0 24px 48px -8px rgba(234, 88, 12, .18);
-        }
-
-        .service-card-blue:hover {
-            box-shadow: 0 24px 48px -8px rgba(59, 130, 246, .18);
-        }
-
-        .service-card-green:hover {
-            box-shadow: 0 24px 48px -8px rgba(16, 185, 129, .18);
-        }
-
-        /* ── GRADIENT BG (timeline) ── */
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #1e293b 100%);
-        }
-
-        /* ── TIMELINE ── */
-        .timeline-item {
-            position: relative;
-            padding-left: 1.75rem;
-            border-left: 2px solid rgba(255, 255, 255, .12);
-            margin-left: 10px;
-            padding-bottom: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 4px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #d55b1a;
-            box-shadow: 0 0 0 4px rgba(234, 88, 12, .2);
-        }
-
-        .timeline-item:last-child {
-            border-left: 2px solid transparent;
-            padding-bottom: 0;
-        }
-
-        /* ── INFINITE MARQUEE CAROUSEL ── */
-        .marquee-wrapper {
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 54%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 54%, transparent);
-        }
-
-        .marquee-track {
-            display: flex;
-            gap: 1.25rem;
-            width: max-content;
-            animation: marquee 80s linear infinite;
-        }
-
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        .marquee-card {
-            flex-shrink: 0;
-            width: 340px;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* ── MODAL ── */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, .6);
-            -webkit-backdrop-filter: blur(6px);
-            backdrop-filter: blur(6px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            max-width: 540px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(28px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-in {
-            animation: fadeInUp .9s cubic-bezier(.4, 0, .2, 1) both;
-        }
-
-
-
-        /* ── SCROLL REVEAL ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(22px);
-            transition: opacity .7s ease, transform .7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <!-- Script customizado -->
+    <script src="script.js" defer></script>
 </head>
 
 <body class="antialiased">
 
     <!-- ══════════════════════════════════════════
        HEADER
-  ══════════════════════════════════════════ -->
+   ══════════════════════════════════════════ -->
     <header class="fixed top-0 left-0 right-0 z-50">
         <div class="bg-white/80 backdrop-blur-xl border-b border-gray-100/60 shadow-sm transition-all duration-300">
             <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
@@ -321,22 +137,20 @@
                 <!-- Nav Desktop -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#services"
-                        class="text-sm font-semibold text-gray-600 hover:text-orange-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 hover:after:w-full after:transition-all after:duration-300">Serviços</a>
+                        class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Serviços</a>
                     <a href="#journey"
-                        class="text-sm font-semibold text-gray-600 hover:text-orange-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 hover:after:w-full after:transition-all after:duration-300">Nossa
+                        class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Nossa
                         História</a>
                     <a href="#testimonials"
-                        class="text-sm font-semibold text-gray-600 hover:text-orange-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 hover:after:w-full after:transition-all after:duration-300">Depoimentos</a>
+                        class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Depoimentos</a>
                     <a href="#contact"
-                        class="text-sm font-semibold text-gray-600 hover:text-orange-500 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 hover:after:w-full after:transition-all after:duration-300">Contato</a>
-                    <a href="pesquisa.html"
-                        class="text-sm font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 hover:border-blue-300 px-4 py-1.5 rounded-full transition-all duration-300">Pesquisa
-                        TNB</a>
+                        class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Contato</a>
+
                 </div>
 
                 <!-- CTA Desktop -->
                 <button type="button"
-                    class="whatsapp-btn hidden md:inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-105 transition-all duration-300">
+                    class="whatsapp-btn hidden md:inline-flex items-center gap-2 bg-brand-orange hover:bg-[#d55b1a] text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-orange/25 hover:shadow-brand-orange/40 hover:scale-105 transition-all duration-300">
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path
                             d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.88 6.223l-1.078 3.948 4.035-1.052z" />
@@ -362,19 +176,17 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-xl">
             <div class="container mx-auto px-6 py-4 flex flex-col gap-1">
                 <a href="#services"
-                    class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-orange-50 hover:text-orange-600 transition-colors">Serviços</a>
+                    class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Serviços</a>
                 <a href="#journey"
-                    class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-orange-50 hover:text-orange-600 transition-colors">Nossa
+                    class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Nossa
                     História</a>
                 <a href="#testimonials"
-                    class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-orange-50 hover:text-orange-600 transition-colors">Depoimentos</a>
+                    class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Depoimentos</a>
                 <a href="#contact"
-                    class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-orange-50 hover:text-orange-600 transition-colors">Contato</a>
-                <a href="pesquisa.html"
-                    class="mobile-link block py-3 px-4 rounded-lg text-blue-700 font-bold bg-blue-50 hover:bg-blue-100 transition-colors border border-blue-200">Pesquisa
-                    TNB</a>
+                    class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Contato</a>
+
                 <button type="button"
-                    class="whatsapp-btn mobile-link mt-2 w-full py-3 px-4 bg-orange-500 text-white font-bold rounded-xl hover:bg-orange-600 transition-colors">Fale
+                    class="whatsapp-btn mobile-link mt-2 w-full py-3 px-4 bg-brand-orange text-white font-bold rounded-xl hover:bg-[#d55b1a] transition-colors">Fale
                     Conosco via WhatsApp</button>
             </div>
         </div>
@@ -396,7 +208,7 @@
                 <!-- Badge -->
                 <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2.5 mb-8 animate-in"
                     style="animation-delay:.1s">
-                    <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                    <span class="w-2 h-2 rounded-full bg-brand-orange/80 animate-pulse"></span>
                     <span class="text-white/90 text-sm font-semibold tracking-widest uppercase">20 Anos de
                         Excelência</span>
                 </div>
@@ -412,7 +224,7 @@
                 <!-- CTAs -->
                 <div class="flex flex-col sm:flex-row justify-center gap-4 animate-in" style="animation-delay:.55s;">
                     <a href="#services"
-                        class="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-9 py-4 rounded-2xl shadow-2xl shadow-orange-500/40 hover:shadow-orange-500/60 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                        class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-[#d55b1a] text-white font-bold px-9 py-4 rounded-2xl shadow-2xl shadow-brand-orange/40 hover:shadow-orange-500/60 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
                         Conhecer Soluções
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -450,28 +262,28 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 
                     <div class="reveal">
-                        <p class="font-accent font-black text-4xl md:text-5xl text-orange-400">
+                        <p class="font-accent font-black text-4xl md:text-5xl text-brand-orange/80">
                             <span class="counter" data-target="20" data-suffix="+">0</span>
                         </p>
                         <p class="text-slate-500 text-xs uppercase tracking-widest mt-2">Anos de Mercado</p>
                     </div>
 
                     <div class="reveal" style="transition-delay:.1s">
-                        <p class="font-accent font-black text-4xl md:text-5xl text-orange-400">
+                        <p class="font-accent font-black text-4xl md:text-5xl text-brand-orange/80">
                             <span class="counter" data-target="500" data-suffix="+">0</span>
                         </p>
                         <p class="text-slate-500 text-xs uppercase tracking-widest mt-2">Clientes Atendidos</p>
                     </div>
 
                     <div class="reveal" style="transition-delay:.2s">
-                        <p class="font-accent font-black text-4xl md:text-5xl text-orange-400">
+                        <p class="font-accent font-black text-4xl md:text-5xl text-brand-orange/80">
                             <span class="counter" data-target="1000" data-suffix="+">0</span>
                         </p>
                         <p class="text-slate-500 text-xs uppercase tracking-widest mt-2">Projetos Entregues</p>
                     </div>
 
                     <div class="reveal" style="transition-delay:.3s">
-                        <p class="font-accent font-black text-4xl md:text-5xl text-orange-400">
+                        <p class="font-accent font-black text-4xl md:text-5xl text-brand-orange/80">
                             <span class="counter" data-target="3" data-suffix="">0</span>
                         </p>
                         <p class="text-slate-500 text-xs uppercase tracking-widest mt-2">Áreas de Atuação</p>
@@ -494,7 +306,7 @@
                         Departamentos</span>
                     <h2 class="font-accent font-black text-4xl md:text-5xl text-gray-900 mt-4 leading-tight">
                         Um ecossistema completo<br>
-                        <span class="text-orange-500">para o seu negócio</span>
+                        <span class="text-brand-orange">para o seu negócio</span>
                     </h2>
                     <p class="text-gray-500 mt-5 text-lg leading-relaxed">Três frentes integradas, pensadas para atender
                         você e
@@ -504,18 +316,18 @@
                 <div class="grid md:grid-cols-3 gap-8">
 
                     <!-- Serviços Digitais -->
-                    <a href="servicos.html" class="group block reveal">
+                    <a href="servicos/servicos.html" class="group block reveal">
                         <div
                             class="service-card service-card-orange h-full bg-white rounded-3xl p-8 border border-gray-100">
                             <div
-                                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-6 shadow-lg shadow-orange-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-orange to-[#d55b1a] flex items-center justify-center mb-6 shadow-lg shadow-brand-orange/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-orange-500 uppercase tracking-wider">Serviços
+                            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Serviços
                                 Digitais</span>
                             <h3
                                 class="font-accent font-bold text-xl text-gray-900 mt-2 mb-3 group-hover:text-orange-600 transition-colors">
@@ -525,20 +337,20 @@
                                 cotidianas. Atendimento rápido, resultado garantido.</p>
                             <ul class="space-y-2 mb-8">
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange/80 flex-shrink-0"></span>
                                     Currículos Profissionais
                                 </li>
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange/80 flex-shrink-0"></span>
                                     Declaração de Imposto de Renda
                                 </li>
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-orange-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange/80 flex-shrink-0"></span>
                                     Suporte ao MEI e Empreendedor
                                 </li>
                             </ul>
                             <span
-                                class="flex items-center gap-1.5 text-sm font-bold text-orange-500 group-hover:gap-3 transition-all">
+                                class="flex items-center gap-1.5 text-sm font-bold text-brand-orange group-hover:gap-3 transition-all">
                                 Ver todos os serviços
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
@@ -550,40 +362,44 @@
                     </a>
 
                     <!-- Personalizados -->
-                    <a href="personalizados.html" class="group block reveal" style="transition-delay:.1s">
+                    <a href="personalizados/personalizados.html" class="group block reveal" style="transition-delay:.1s">
                         <div
-                            class="service-card service-card-blue h-full bg-white rounded-3xl p-8 border border-gray-100">
+                            class="service-card service-card-navy h-full bg-white rounded-3xl p-8 border border-gray-100">
                             <div
-                                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-navy to-[#0a264a] flex items-center justify-center mb-6 shadow-lg shadow-brand-navy/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Personalizados</span>
+                            <span class="text-xs font-bold text-brand-navy uppercase tracking-wider">Personalizados</span>
                             <h3
-                                class="font-accent font-bold text-xl text-gray-900 mt-2 mb-3 group-hover:text-blue-600 transition-colors">
+                                class="font-accent font-bold text-xl text-gray-900 mt-2 mb-3 group-hover:text-brand-navy transition-colors">
                                 Criatividade sem Limites</h3>
                             <p class="text-gray-500 text-sm leading-relaxed mb-6">Transforme ideias em produtos únicos.
                                 Qualidade
                                 premium para sua marca, sua equipe ou como presente especial.</p>
                             <ul class="space-y-2 mb-8">
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"></span>
                                     Camisetas, Moletons e Uniformes
                                 </li>
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"></span>
                                     Canecas, Brindes e Chaveiros
                                 </li>
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"></span>
+                                    Papelaria Personalizada
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0"></span>
                                     Decoração e Itens Exclusivos
                                 </li>
                             </ul>
                             <span
-                                class="flex items-center gap-1.5 text-sm font-bold text-blue-600 group-hover:gap-3 transition-all">
+                                class="flex items-center gap-1.5 text-sm font-bold text-brand-navy group-hover:gap-3 transition-all">
                                 Ver catálogo completo
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
@@ -595,40 +411,40 @@
                     </a>
 
                     <!-- Tecnologia -->
-                    <a href="tecnologia.html" class="group block reveal" style="transition-delay:.2s">
+                    <a href="tecnologia/tecnologia.html" class="group block reveal" style="transition-delay:.2s">
                         <div
-                            class="service-card service-card-green h-full bg-white rounded-3xl p-8 border border-gray-100">
+                            class="service-card service-card-gold h-full bg-white rounded-3xl p-8 border border-gray-100">
                             <div
-                                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-gold to-[#b4862b] flex items-center justify-center mb-6 shadow-lg shadow-brand-gold/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                                 </svg>
                             </div>
-                            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Tecnologia</span>
+                            <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">Tecnologia</span>
                             <h3
-                                class="font-accent font-bold text-xl text-gray-900 mt-2 mb-3 group-hover:text-emerald-600 transition-colors">
+                                class="font-accent font-bold text-xl text-gray-900 mt-2 mb-3 group-hover:text-brand-gold transition-colors">
                                 Sua Marca no Digital</h3>
                             <p class="text-gray-500 text-sm leading-relaxed mb-6">Desenvolvemos soluções web que geram
                                 resultados
                                 reais. Do site institucional ao sistema sob medida.</p>
                             <ul class="space-y-2 mb-8">
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0"></span>
                                     Sites Institucionais e Landing Pages
                                 </li>
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0"></span>
                                     Cardápios e Agendamento Digital
                                 </li>
                                 <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0"></span>
                                     Sistemas Web sob Medida
                                 </li>
                             </ul>
                             <span
-                                class="flex items-center gap-1.5 text-sm font-bold text-emerald-600 group-hover:gap-3 transition-all">
+                                class="flex items-center gap-1.5 text-sm font-bold text-brand-gold group-hover:gap-3 transition-all">
                                 Ver soluções web
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     aria-hidden="true">
@@ -655,7 +471,7 @@
                         class="inline-block text-orange-600 font-bold tracking-widest uppercase text-xs px-4 py-2 bg-orange-100 rounded-full">Por
                         que a Plena?</span>
                     <h2 class="font-accent font-black text-4xl md:text-5xl text-gray-900 mt-4">
-                        O que nos torna <span class="text-orange-500">diferentes</span>
+                        O que nos torna <span class="text-brand-orange">diferentes</span>
                     </h2>
                 </div>
 
@@ -664,7 +480,7 @@
                     <div
                         class="bg-white rounded-2xl p-8 border border-orange-100 reveal hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                         <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-5">
-                            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
@@ -679,7 +495,7 @@
                     <div class="bg-white rounded-2xl p-8 border border-orange-100 reveal hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                         style="transition-delay:.1s">
                         <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-5">
-                            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -694,7 +510,7 @@
                     <div class="bg-white rounded-2xl p-8 border border-orange-100 reveal hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                         style="transition-delay:.2s">
                         <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-5">
-                            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -709,7 +525,7 @@
                     <div class="bg-white rounded-2xl p-8 border border-orange-100 reveal hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                         style="transition-delay:.3s">
                         <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-5">
-                            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -754,21 +570,21 @@
 
                     <div>
                         <div class="timeline-item reveal">
-                            <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">2005</span>
+                            <span class="text-brand-orange/80 text-xs font-bold uppercase tracking-wider">2005</span>
                             <h3 class="text-base font-bold text-white mt-1 mb-1">O Início</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Começo com informática básica, currículos
                                 e impressões.
                                 A base de tudo que viria a seguir.</p>
                         </div>
                         <div class="timeline-item reveal">
-                            <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">2010</span>
+                            <span class="text-brand-orange/80 text-xs font-bold uppercase tracking-wider">2010</span>
                             <h3 class="text-base font-bold text-white mt-1 mb-1">Expansão Fiscal</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Início dos serviços de Imposto de Renda,
                                 ampliando nossa
                                 atuação e conquistando novos clientes.</p>
                         </div>
                         <div class="timeline-item reveal">
-                            <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">2016</span>
+                            <span class="text-brand-orange/80 text-xs font-bold uppercase tracking-wider">2016</span>
                             <h3 class="text-base font-bold text-white mt-1 mb-1">Foco no Empreendedor</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Especialização em suporte ao MEI, ajudando
                                 pequenos
@@ -778,14 +594,14 @@
 
                     <div>
                         <div class="timeline-item reveal">
-                            <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">2020</span>
+                            <span class="text-brand-orange/80 text-xs font-bold uppercase tracking-wider">2020</span>
                             <h3 class="text-base font-bold text-white mt-1 mb-1">Criatividade e Personalização</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Entrada no mercado de produtos
                                 personalizados e brindes
                                 exclusivos para empresas e pessoas.</p>
                         </div>
                         <div class="timeline-item reveal">
-                            <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">2023</span>
+                            <span class="text-brand-orange/80 text-xs font-bold uppercase tracking-wider">2023</span>
                             <h3 class="text-base font-bold text-white mt-1 mb-1">Ecossistema Completo</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Integração total das três frentes:
                                 Personalizados +
@@ -807,7 +623,7 @@
                     <p class="text-white text-xl md:text-2xl italic font-light leading-relaxed">"Comprometidos em fazer
                         a
                         diferença na sua vida e no seu negócio."</p>
-                    <p class="text-orange-400 text-sm font-semibold mt-4">— Plena Informática, desde 2005</p>
+                    <p class="text-brand-orange/80 text-sm font-semibold mt-4">— Plena Informática, desde 2005</p>
                 </div>
 
             </div>
@@ -824,7 +640,7 @@
                     <span
                         class="inline-block text-orange-600 font-bold tracking-widest uppercase text-xs px-4 py-2 bg-orange-100 rounded-full">Depoimentos</span>
                     <h2 class="font-accent font-black text-4xl md:text-5xl text-gray-900 mt-4">
-                        O que dizem <span class="text-orange-500">sobre nós</span>
+                        O que dizem <span class="text-brand-orange">sobre nós</span>
                     </h2>
                     <p class="text-gray-500 mt-4 max-w-md mx-auto">Histórias reais de clientes que confiaram na Plena e
                         viram
@@ -861,7 +677,7 @@
                     Sem enrolação, sem burocracia.
                 </p>
                 <button type="button"
-                    class="whatsapp-btn reveal inline-flex items-center gap-3 bg-white text-orange-600 font-black px-10 py-4 rounded-2xl text-lg hover:bg-orange-50 transition-all duration-300 shadow-2xl hover:scale-105 hover:-translate-y-1">
+                    class="whatsapp-btn reveal inline-flex items-center gap-3 bg-white text-orange-600 font-black px-10 py-4 rounded-2xl text-lg hover:bg-brand-orange/10 transition-all duration-300 shadow-2xl hover:scale-105 hover:-translate-y-1">
                     <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path
                             d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.88 6.223l-1.078 3.948 4.035-1.052z" />
@@ -884,11 +700,11 @@
 
                 <div>
                     <div class="flex items-center gap-2.5 mb-5">
-                        <div class="w-9 h-9 bg-orange-500 rounded-lg flex items-center justify-center">
+                        <div class="w-9 h-9 bg-brand-orange rounded-lg flex items-center justify-center">
                             <span class="text-white font-black text-lg font-accent leading-none">P</span>
                         </div>
                         <span class="font-accent font-bold text-xl">Plena <span
-                                class="text-orange-400">Informática</span></span>
+                                class="text-brand-orange/80">Informática</span></span>
                     </div>
                     <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
                         Há 20 anos transformando ideias em realidade. Tecnologia, personalizados e serviços digitais em
@@ -906,25 +722,25 @@
                     <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Nossas Áreas</h3>
                     <ul class="space-y-3 text-sm">
                         <li>
-                            <a href="servicos.html"
-                                class="text-gray-500 hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                            <a href="servicos/servicos.html"
+                                class="text-gray-500 hover:text-brand-orange/80 transition-colors flex items-center gap-2 group">
                                 <span
-                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-orange-400 transition-colors"></span>Serviços
+                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-brand-orange/80 transition-colors"></span>Serviços
                                 Digitais
                             </a>
                         </li>
                         <li>
-                            <a href="personalizados.html"
-                                class="text-gray-500 hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                            <a href="personalizados/personalizados.html"
+                                class="text-gray-500 hover:text-brand-navy transition-colors flex items-center gap-2 group">
                                 <span
-                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-blue-400 transition-colors"></span>Personalizados
+                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-brand-orange transition-colors"></span>Personalizados
                             </a>
                         </li>
                         <li>
-                            <a href="tecnologia.html"
-                                class="text-gray-500 hover:text-emerald-400 transition-colors flex items-center gap-2 group">
+                            <a href="tecnologia/tecnologia.html"
+                                class="text-gray-500 hover:text-brand-gold transition-colors flex items-center gap-2 group">
                                 <span
-                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-emerald-400 transition-colors"></span>Tecnologia
+                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-brand-gold transition-colors"></span>Tecnologia
                                 Web
                             </a>
                         </li>
@@ -935,7 +751,7 @@
                     <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Contato</h3>
                     <ul class="space-y-4 text-sm">
                         <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                            <svg class="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -945,7 +761,7 @@
                             <span class="text-gray-500">São José dos Campos, SP</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor"
+                            <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -954,7 +770,7 @@
                                 98148-8505</a>
                         </li>
                         <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor"
+                            <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -963,7 +779,7 @@
                                 class="text-gray-500 hover:text-white transition-colors">contato@plenainformatica.com.br</a>
                         </li>
                         <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                            <svg class="w-4 h-4 text-brand-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -1063,6 +879,7 @@
                     o
                     serviço contratado; (b) comunicação sobre andamento e conclusão dos serviços; (c) melhoria da
                     experiência de
+                    experiência de
                     navegação.</p>
                 <p><strong>4. Documentos Sigilosos.</strong> Dados sensíveis fornecidos para serviços específicos (CPF,
                     renda,
@@ -1090,126 +907,6 @@
 
 
     <!-- ══════════════════════════════════════════
-       SCRIPTS
-  ══════════════════════════════════════════ -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            const PHONE = '5512981488505';
-            const MSG = 'Olá! Gostaria de mais informações sobre os serviços da Plena Informática.';
-
-            // ── WhatsApp ──
-            function openWA(msg) {
-                window.open(`https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(msg || MSG)}`, '_blank', 'noopener,noreferrer');
-            }
-            document.querySelectorAll('.whatsapp-btn').forEach(b => b.addEventListener('click', () => openWA()));
-
-            // ── Mobile Menu ──
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const iconOpen = document.getElementById('icon-open');
-            const iconClose = document.getElementById('icon-close');
-
-            function closeMobileMenu() {
-                mobileMenu.classList.add('hidden');
-                menuBtn.setAttribute('aria-expanded', 'false');
-                iconOpen.classList.remove('hidden');
-                iconClose.classList.add('hidden');
-            }
-
-            menuBtn?.addEventListener('click', () => {
-                const hidden = mobileMenu.classList.toggle('hidden');
-                menuBtn.setAttribute('aria-expanded', String(!hidden));
-                iconOpen.classList.toggle('hidden', !hidden);
-                iconClose.classList.toggle('hidden', hidden);
-            });
-
-            document.querySelectorAll('.mobile-link').forEach(el => el.addEventListener('click', closeMobileMenu));
-
-            // ── Scroll Reveal ──
-            const revealObs = new IntersectionObserver(entries => {
-                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-            // ── Counter Animation ──
-            function animateCounter(el) {
-                const target = parseInt(el.dataset.target, 10);
-                const suffix = el.dataset.suffix ?? '';
-                const duration = 1800;
-                const t0 = performance.now();
-                (function tick(now) {
-                    const p = Math.min((now - t0) / duration, 1);
-                    const v = Math.round((1 - Math.pow(1 - p, 3)) * target);
-                    el.textContent = v.toLocaleString('pt-BR') + suffix;
-                    if (p < 1) requestAnimationFrame(tick);
-                })(t0);
-            }
-
-            const cntObs = new IntersectionObserver(entries => {
-                entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); cntObs.unobserve(e.target); } });
-            }, { threshold: 0.5 });
-            document.querySelectorAll('.counter').forEach(el => cntObs.observe(el));
-
-            // ── Testimonials Marquee ──
-            const marqueeTrack = document.getElementById('marquee-track');
-            if (marqueeTrack) {
-                const testimonials = [
-                    { q: 'Eu buscava apenas a regularização do meu IR e saí com um catálogo digital e produtos personalizados. A Plena enxergou um potencial que nem eu via!', n: 'Joana Silva', r: 'Empreendedora · desde 2021', i: 'J', g: 'from-orange-400 to-orange-600' },
-                    { q: 'Precisávamos de uniformes e o resultado foi impecável. Qualidade da estampa e do tecido, além de um atendimento super atencioso e pontual.', n: 'Marcos Andrade', r: 'Gestor · desde 2022', i: 'M', g: 'from-blue-400 to-blue-600' },
-                    { q: 'O site que a Plena desenvolveu para minha empresa aumentou nossas vendas em 40%. Profissionais incríveis, entrega no prazo e suporte excelente!', n: 'Ricardo Oliveira', r: 'Empresário · desde 2023', i: 'R', g: 'from-emerald-400 to-emerald-600' },
-                    { q: 'A assessoria para MEI foi fundamental para regularizar minha situação. Atendimento humanizado, preço justo e total segurança no processo.', n: 'Carlos Mendes', r: 'MEI · desde 2020', i: 'C', g: 'from-purple-400 to-purple-600' },
-                    { q: 'Fiz meu currículo com a Plena e em duas semanas já tinha entrevistas agendadas. Eles sabem destacar o que importa!', n: 'Amanda Costa', r: 'Analista · desde 2024', i: 'A', g: 'from-pink-400 to-pink-600' },
-                    { q: 'As canecas personalizadas que encomendei para minha equipe foram um sucesso. Todo mundo elogiou a qualidade e o design.', n: 'Fernando Souza', r: 'Diretor · desde 2022', i: 'F', g: 'from-amber-400 to-amber-600' },
-                    { q: 'Declaração de IR feita com rapidez e total transparência. É a terceira vez que faço com eles e nunca tive problema.', n: 'Patrícia Lima', r: 'Professora · desde 2019', i: 'P', g: 'from-cyan-400 to-cyan-600' },
-                    { q: 'A Plena criou toda a identidade visual da minha loja: camisetas, ecobag e cartões. Ficou tudo incrível e com ótimo custo.', n: 'Lucas Ferreira', r: 'Lojista · desde 2023', i: 'L', g: 'from-indigo-400 to-indigo-600' },
-                    { q: 'Precisei de uma 2ª via de conta urgente e eles resolveram em minutos. Atendimento no WhatsApp rápido e sem burocracia.', n: 'Beatriz Rocha', r: 'Autônoma · desde 2024', i: 'B', g: 'from-rose-400 to-rose-600' },
-                    { q: 'Contratei o site e os brindes corporativos juntos. Ter tudo em um fornecedor só facilitou muito a minha vida como gestor.', n: 'Diego Martins', r: 'CEO · desde 2021', i: 'D', g: 'from-teal-400 to-teal-600' },
-                ];
-                const star = '<svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
-                const stars5 = star.repeat(5);
-                function makeCard(t) {
-                    return `<div class="marquee-card"><div class="bg-gray-50 rounded-2xl p-7 h-full border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300"><div class="flex gap-0.5 mb-4">${stars5}</div><p class="text-gray-600 italic mb-6 text-sm leading-relaxed">"${t.q}"</p><div class="flex items-center gap-3 pt-4 border-t border-gray-100"><div class="w-10 h-10 rounded-full bg-gradient-to-br ${t.g} flex items-center justify-center text-white font-bold text-sm flex-shrink-0">${t.i}</div><div><p class="font-bold text-gray-900 text-sm">${t.n}</p><p class="text-gray-400 text-xs">${t.r}</p></div></div></div></div>`;
-                }
-                const html = testimonials.map(makeCard).join('');
-                marqueeTrack.innerHTML = html + html;
-            }
-
-            // ── Modals ──
-            const modals = {
-                terms: document.getElementById('terms-modal'),
-                privacy: document.getElementById('privacy-modal'),
-            };
-
-            function closeAll() {
-                Object.values(modals).forEach(m => {
-                    if (!m) return;
-                    m.style.display = 'none';
-                    m.setAttribute('aria-hidden', 'true');
-                });
-                document.body.style.overflow = '';
-            }
-
-            document.querySelectorAll('.open-modal').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const m = modals[btn.dataset.modal];
-                    if (!m) return;
-                    closeAll();
-                    m.style.display = 'flex';
-                    m.setAttribute('aria-hidden', 'false');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-
-            document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeAll(); }));
-            document.querySelectorAll('.modal-close').forEach(b => b.addEventListener('click', closeAll));
-            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
-
-        });
-    </script>
-
-
-    <!-- ══════════════════════════════════════════
        COOKIE CONSENT BANNER
   ══════════════════════════════════════════ -->
     <div id="cookie-banner" style="display:none"
@@ -1227,44 +924,11 @@
                 </p>
             </div>
             <button id="cookie-accept" type="button"
-                class="flex-shrink-0 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/25">
+                class="flex-shrink-0 bg-brand-orange hover:bg-[#d55b1a] text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-brand-orange/25">
                 Entendi
             </button>
         </div>
     </div>
-
-    <style>
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .animate-slide-up {
-            animation: slideUp .5s ease-out forwards;
-        }
-    </style>
-
-    <script>
-        (function () {
-            if (!localStorage.getItem('plena_cookies_ok')) {
-                const banner = document.getElementById('cookie-banner');
-                if (banner) {
-                    setTimeout(() => { banner.style.display = 'block'; }, 1500);
-                    document.getElementById('cookie-accept')?.addEventListener('click', () => {
-                        localStorage.setItem('plena_cookies_ok', '1');
-                        banner.style.display = 'none';
-                    });
-                }
-            }
-        })();
-    </script>
 
 </body>
 

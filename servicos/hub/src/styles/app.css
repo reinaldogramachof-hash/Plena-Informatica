@@ -588,3 +588,365 @@ a {
     padding-inline: 1rem;
   }
 }
+
+/* Shared digital-services presentation */
+.tool-card {
+  min-height: 430px;
+}
+
+.tool-card--featured {
+  border-color: rgb(242 106 27 / 35%);
+  background: linear-gradient(145deg, #fff 45%, #fff7ed 100%);
+}
+
+.tool-card__top,
+.tool-card__meta,
+.tool-card__professional {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.tool-status,
+.tool-card__category {
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.tool-status {
+  padding: 0.45rem 0.65rem;
+}
+
+.tool-status--available {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.tool-status--building {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.tool-status--planned {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.tool-card__category {
+  color: #94a3b8;
+}
+
+.tool-card__body {
+  flex: 1;
+}
+
+.tool-card .tool-card__body h3 {
+  margin: 2.25rem 0 0.75rem;
+}
+
+.tool-card__body > p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.65;
+}
+
+.tool-benefits,
+.tool-page__benefits {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tool-benefits {
+  margin: 1.25rem 0;
+  color: #334155;
+  font-size: 0.82rem;
+}
+
+.tool-benefits li::before,
+.tool-page__benefits li::before {
+  content: '✓';
+  margin-right: 0.55rem;
+  color: #16a34a;
+  font-weight: 900;
+}
+
+.tool-card__footer {
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.tool-card__meta {
+  margin: 0;
+}
+
+.tool-card__meta div {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 12px;
+  background: #f4f7fb;
+}
+
+.tool-card__meta dt {
+  color: #94a3b8;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tool-card__meta dd {
+  margin: 0.2rem 0 0;
+  color: #334155;
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.tool-card__privacy {
+  margin: 0.8rem 0;
+  color: #0f766e;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.tool-card__primary {
+  display: grid;
+  width: 100%;
+  min-height: 46px;
+  place-items: center;
+  border: 0;
+  border-radius: 12px;
+  background: #ea580c;
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tool-card__primary:disabled {
+  cursor: not-allowed;
+  background: #e2e8f0;
+  color: #64748b;
+}
+
+.tool-card__professional {
+  min-height: 44px;
+  margin-top: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.68rem;
+  text-decoration: none;
+}
+
+.tool-card__professional span {
+  font-weight: 800;
+}
+
+.tool-card__professional strong {
+  flex: 0 0 auto;
+  color: #061a35;
+}
+
+.tool-page {
+  padding-top: 2.75rem;
+  padding-bottom: 5rem;
+}
+
+.tool-page__header {
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+.tool-page__header .back-link {
+  margin-bottom: 2.5rem;
+}
+
+.tool-page__status-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.tool-page__status-row > span {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 999px;
+  color: #cbd5e1;
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tool-page__status-row .tool-page__status--available {
+  border-color: #86efac;
+  background: #dcfce7;
+  color: #166534;
+}
+
+.tool-page__status-row .tool-page__status--building {
+  border-color: #fde68a;
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.tool-page__status-row .tool-page__status--planned {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.tool-page__header h1 {
+  max-width: 900px;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+.tool-page__header > p {
+  max-width: 680px;
+  margin: 1rem 0 0;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.tool-page__benefits {
+  grid-template-columns: repeat(3, minmax(0, max-content));
+  margin: 1.25rem 0 0;
+  color: #e2e8f0;
+  font-size: 0.78rem;
+}
+
+.tool-page__privacy {
+  margin: 1rem 0 0;
+  color: #7dd3fc;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.tool-workspace {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  border-radius: 28px;
+}
+
+.professional-service {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+  width: min(1000px, 100%);
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 20px;
+  background: rgb(255 255 255 / 7%);
+}
+
+.professional-service span {
+  color: #fb923c;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.professional-service h2 {
+  margin: 0.35rem 0;
+  font-size: 1.25rem;
+}
+
+.professional-service p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+.professional-service__action {
+  display: grid;
+  justify-items: end;
+  gap: 0.55rem;
+}
+
+.professional-service__action strong {
+  font-size: 1.1rem;
+}
+
+.professional-service__action a {
+  display: grid;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  place-items: center;
+  border-radius: 12px;
+  background: #fff;
+  color: #061a35;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.tool-card__primary:focus-visible,
+.tool-card__professional:focus-visible,
+.professional-service__action a:focus-visible {
+  outline: 3px solid rgb(249 115 22 / 45%);
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .tool-page {
+    padding-inline: 1rem;
+  }
+
+  .tool-page__header .back-link {
+    margin-bottom: 2rem;
+  }
+
+  .tool-page__benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-page__benefits li:nth-child(n + 3) {
+    display: none;
+  }
+
+  .professional-service {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .professional-service__action {
+    justify-items: stretch;
+  }
+}
+
+@media (max-width: 420px) {
+  .tool-card {
+    min-height: 0;
+    padding: 1.1rem;
+  }
+
+  .tool-benefits li:nth-child(n + 3) {
+    display: none;
+  }
+
+  .tool-card__professional {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card__primary,
+  .tool-card__professional,
+  .professional-service__action a {
+    transition: none;
+  }
+}

@@ -9,6 +9,6 @@ export const resumeBuilderManifest: ToolManifest = {
   processing: 'hybrid',
   accountRequirement: 'optional',
   persistence: 'optional',
-  status: 'planned',
+  status: 'available',
   roadmapOrder: 4,
 }

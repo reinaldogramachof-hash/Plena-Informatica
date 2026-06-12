@@ -124,7 +124,7 @@ export function QrCodeTool({ generateImage = createQrPng }: QrCodeToolProps) {
           <div className="qr-mode-list" aria-label="Tipo de QR Code">
             {modes.map((item) => (
               <button
-                aria-pressed={mode === item.id}
+                aria-pressed={mode === item.id ? 'true' : 'false'}
                 className={mode === item.id ? 'is-active' : ''}
                 key={item.id}
                 onClick={() => selectMode(item.id)}

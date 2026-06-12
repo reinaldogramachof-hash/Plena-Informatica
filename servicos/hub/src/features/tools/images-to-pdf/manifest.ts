@@ -9,6 +9,6 @@ export const imagesToPdfManifest: ToolManifest = {
   processing: 'local',
   accountRequirement: 'none',
   persistence: 'none',
-  status: 'planned',
+  status: 'available',
   roadmapOrder: 2,
 }

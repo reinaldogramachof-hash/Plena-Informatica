@@ -1,15 +1,42 @@
-import { HashRouter, Link, Navigate, Route, Routes, useParams } from 'react-router-dom'
+import type { ComponentType, ReactNode } from 'react'
+import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom'
 
 import { InstitutionalShell } from './app/InstitutionalShell'
+import { ToolCard } from './app/ToolCard'
+import { ToolPageLayout } from './app/ToolPageLayout'
 import { getToolBySlug, toolRegistry } from './app/tool-registry'
+import { AuthGuard } from './admin/auth/AuthGuard'
+import { LoginPage } from './admin/auth/LoginPage'
+import { AdminShell } from './admin/shell/AdminShell'
+import { DashboardPage } from './admin/dashboard/DashboardPage'
+import { TransactionListPage } from './admin/transactions/TransactionListPage'
+import { ReportPage } from './admin/reports/ReportPage'
+import { BusinessCardCreatorTool } from './features/tools/business-card-creator/ui/BusinessCardCreatorTool'
+import { DeclarationBuilderTool } from './features/tools/declaration-builder/ui/DeclarationBuilderTool'
+import { ImagesToPdfTool } from './features/tools/images-to-pdf/ui/ImagesToPdfTool'
+import { LabelGeneratorTool } from './features/tools/label-generator/ui/LabelGeneratorTool'
+import { MeiDasGuideTool } from './features/tools/mei-das-guide/ui/MeiDasGuideTool'
+import { MeiIrpfChecklistTool } from './features/tools/mei-irpf-checklist/ui/MeiIrpfChecklistTool'
+import { MergePdfTool } from './features/tools/merge-pdf/ui/MergePdfTool'
+import { MenuBuilderTool } from './features/tools/menu-builder/ui/MenuBuilderTool'
+import { PrintCostEstimatorTool } from './features/tools/print-cost-estimator/ui/PrintCostEstimatorTool'
 import { QrCodeTool } from './features/tools/qr-code/ui/QrCodeTool'
+import { ResumeBuilderTool } from './features/tools/resume-builder/ui/ResumeBuilderTool'
 import './styles/app.css'
 
-const statusLabel = {
-  planned: 'Em breve',
-  building: 'Em construção',
-  available: 'Disponível',
-} as const
+const toolComponents: Record<string, ComponentType> = {
+  'qr-code': QrCodeTool,
+  'images-to-pdf': ImagesToPdfTool,
+  'merge-pdf': MergePdfTool,
+  'resume-builder': ResumeBuilderTool,
+  'declaration-builder': DeclarationBuilderTool,
+  'mei-irpf-checklist': MeiIrpfChecklistTool,
+  'menu-builder': MenuBuilderTool,
+  'business-card-creator': BusinessCardCreatorTool,
+  'label-generator': LabelGeneratorTool,
+  'mei-das-guide': MeiDasGuideTool,
+  'print-cost-estimator': PrintCostEstimatorTool,
+}
 
 function ToolCatalog() {
   return (
@@ -21,48 +48,26 @@ function ToolCatalog() {
         <span className="eyebrow">Hub de Soluções Digitais</span>
         <h1>Ferramentas simples, seguras e sob seu controle.</h1>
         <p>
-          A base modular do novo Hub está pronta. Cada ferramenta será liberada
-          individualmente conforme o roadmap.
+          Escolha uma solução, entenda o resultado antes de começar e conte com
+          atendimento profissional somente quando precisar.
         </p>
       </section>
 
       <section className="catalog" aria-labelledby="catalog-title">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">MVP Plena</span>
-            <h2 id="catalog-title">Ferramentas planejadas</h2>
+            <span className="eyebrow">Serviços digitais Plena</span>
+            <h2 id="catalog-title">Escolha o que precisa resolver</h2>
           </div>
           <p>
-            Processamento local sempre que possível e conta opcional apenas
-            quando houver benefício para o usuário.
+            Benefícios claros, processamento local sempre que possível e
+            ferramentas preparadas para celular.
           </p>
         </div>
 
         <div className="tool-grid">
           {toolRegistry.map((tool) => (
-            <article className="tool-card" key={tool.slug}>
-              <div className="tool-meta">
-                <span>{statusLabel[tool.status]}</span>
-                <strong>{String(tool.roadmapOrder).padStart(2, '0')}</strong>
-              </div>
-              <h3>{tool.name}</h3>
-              <p>{tool.shortDescription}</p>
-              <dl>
-                <div>
-                  <dt>Processamento</dt>
-                  <dd>{tool.processing === 'local' ? 'Local' : 'Híbrido'}</dd>
-                </div>
-                <div>
-                  <dt>Conta</dt>
-                  <dd>
-                    {tool.accountRequirement === 'none'
-                      ? 'Não exige'
-                      : 'Opcional'}
-                  </dd>
-                </div>
-              </dl>
-              <Link to={`/ferramentas/${tool.slug}`}>Ver estrutura</Link>
-            </article>
+            <ToolCard key={tool.slug} tool={tool} />
           ))}
         </div>
       </section>
@@ -70,58 +75,29 @@ function ToolCatalog() {
   )
 }
 
-function QrCodePage() {
-  const tool = getToolBySlug('qr-code')
+function ToolRoute() {
+  const { slug = '' } = useParams()
+  const tool = getToolBySlug(slug)
+  const ToolComponent = toolComponents[slug]
 
-  if (!tool) {
-    return null
+  if (!tool || !ToolComponent) {
+    return <Navigate to="/" replace />
   }
 
   return (
     <InstitutionalShell>
-      <main className="tool-page tool-page--qr">
-        <div className="tool-page__header">
-          <a className="back-link" href="../../servicos.html#ferramentas">
-            Voltar para ferramentas
-          </a>
-          <span className="eyebrow">{statusLabel[tool.status]}</span>
-          <h1>{tool.name}</h1>
-          <p>{tool.shortDescription}</p>
-        </div>
-        <QrCodeTool />
-      </main>
+      <ToolPageLayout tool={tool}>
+        <ToolComponent />
+      </ToolPageLayout>
     </InstitutionalShell>
   )
 }
 
-function ToolPlaceholder() {
-  const { slug = '' } = useParams()
-  const tool = getToolBySlug(slug)
-
-  if (!tool) {
-    return <Navigate to="/" replace />
-  }
-
-  if (tool.slug === 'qr-code') {
-    return <QrCodePage />
-  }
-
+function AdminPage({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <main className="tool-page">
-      <Link className="back-link" to="/">
-        Voltar ao Hub
-      </Link>
-      <span className="eyebrow">{statusLabel[tool.status]}</span>
-      <h1>{tool.name}</h1>
-      <p>{tool.shortDescription}</p>
-      <div className="privacy-note">
-        <strong>Política prevista</strong>
-        <span>
-          Processamento: {tool.processing}. Conta: {tool.accountRequirement}.
-          Persistência: {tool.persistence}.
-        </span>
-      </div>
-    </main>
+    <AuthGuard>
+      <AdminShell pageTitle={title}>{children}</AdminShell>
+    </AuthGuard>
   )
 }
 
@@ -129,9 +105,23 @@ export default function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<QrCodePage />} />
+        <Route path="/" element={<Navigate to="/ferramentas/qr-code" replace />} />
         <Route path="/catalogo" element={<ToolCatalog />} />
-        <Route path="/ferramentas/:slug" element={<ToolPlaceholder />} />
+        <Route path="/ferramentas/:slug" element={<ToolRoute />} />
+        <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
+        <Route path="/admin/login" element={<LoginPage />} />
+        <Route
+          path="/admin/dashboard"
+          element={<AdminPage title="Dashboard"><DashboardPage /></AdminPage>}
+        />
+        <Route
+          path="/admin/atendimentos"
+          element={<AdminPage title="Atendimentos"><TransactionListPage /></AdminPage>}
+        />
+        <Route
+          path="/admin/relatorios"
+          element={<AdminPage title="Relatórios"><ReportPage /></AdminPage>}
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

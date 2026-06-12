@@ -12,7 +12,7 @@
   <meta name="keywords"
     content="serviços digitais, currículo profissional, declaração IR, suporte MEI, documentos, impressão, São José dos Campos">
   <meta name="author" content="Plena Informática">
-  <meta name="theme-color" content="#ea580c">
+
 
   <!-- Open Graph -->
   <meta property="og:title" content="Serviços Digitais - Plena Informática">
@@ -50,14 +50,14 @@
     <div class="bg-white/80 backdrop-blur-xl border-b border-gray-100/60 shadow-sm transition-all duration-300">
       <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
         <!-- Logo -->
-        <a href="../index/index.html" class="flex items-center gap-2.5 group flex-shrink-0">
+        <a href="../index.html" class="flex items-center gap-2.5 group flex-shrink-0">
           <img src="../logo-plena.png" alt="Plena Informática"
             class="h-60 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
         </a>
 
         <!-- Nav Desktop -->
         <div class="hidden md:flex items-center gap-8">
-          <a href="../index/index.html"
+          <a href="../index.html"
             class="text-sm font-montserrat font-semibold text-gray-600 hover:text-[var(--color-primary)] transition-colors">Início</a>
           <a href="#ferramentas"
             class="text-sm font-montserrat font-semibold text-gray-600 hover:text-[var(--color-primary)] transition-colors">Ferramentas</a>
@@ -96,7 +96,7 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-xl">
       <div class="container mx-auto px-6 py-4 flex flex-col gap-1">
-        <a href="../index/index.html"
+        <a href="../index.html"
           class="mobile-link block py-3 px-4 text-gray-700 font-montserrat font-semibold">Início</a>
         <a href="#ferramentas"
           class="mobile-link block py-3 px-4 text-gray-700 font-montserrat font-semibold">Ferramentas</a>
@@ -280,19 +280,18 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m21 21-4.35-4.35m2.35-5.65A8 8 0 1 1 3 11a8 8 0 0 1 16 0Z" />
             </svg>
-            <input type="search" placeholder="Busque por currículo, PDF, MEI..." disabled>
-            <span>Em breve</span>
+            <input id="tool-search" type="search" placeholder="Busque por currículo, PDF, MEI...">
+            <span id="tool-result-count" aria-live="polite">11 ferramentas</span>
           </label>
         </div>
 
         <div id="categorias" class="hub-categories reveal" aria-label="Categorias de ferramentas">
-          <span class="hub-category is-active">Todas</span>
-          <span class="hub-category">Documentos</span>
-          <span class="hub-category">PDF</span>
-          <span class="hub-category">Profissional</span>
-          <span class="hub-category">MEI</span>
-          <span class="hub-category">IRPF</span>
-          <span class="hub-category">Utilidades</span>
+          <button type="button" class="hub-category is-active" data-filter="all" aria-pressed="true">Todas</button>
+          <button type="button" class="hub-category" data-filter="documents" aria-pressed="false">Documentos</button>
+          <button type="button" class="hub-category" data-filter="pdf" aria-pressed="false">PDF</button>
+          <button type="button" class="hub-category" data-filter="professional" aria-pressed="false">Profissional</button>
+          <button type="button" class="hub-category" data-filter="business" aria-pressed="false">MEI e IRPF</button>
+          <button type="button" class="hub-category" data-filter="utilities" aria-pressed="false">Utilidades</button>
         </div>
       </div>
     </section>
@@ -308,7 +307,7 @@
         </div>
 
         <div class="tool-grid">
-          <article class="tool-card tool-card-featured reveal">
+          <article class="tool-card tool-card-featured reveal" data-tool="resume-builder">
             <div class="tool-card-top"><span class="tool-status status-popular">Mais procurado</span><span
                 class="tool-number">01</span></div>
             <div class="tool-icon icon-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -319,10 +318,12 @@
               <h3>Criador de Currículo</h3>
               <p>Monte um currículo profissional com etapas guiadas, modelos prontos e visualização antes de baixar.</p>
             </div>
-            <div class="tool-footer"><span>PDF</span><button type="button" disabled>Usar ferramenta</button></div>
+            <div class="tool-footer"><span>PDF</span><a
+                href="ferramentas/qr-code/#/ferramentas/resume-builder"
+                aria-label="Usar Criador de Curriculo">Usar ferramenta</a></div>
           </article>
 
-          <article class="tool-card reveal">
+          <article class="tool-card reveal" data-tool="declaration-builder">
             <div class="tool-card-top"><span class="tool-status status-free">Grátis</span><span
                 class="tool-number">02</span></div>
             <div class="tool-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -333,10 +334,12 @@
               <h3>Gerador de Declarações</h3>
               <p>Crie declarações, autorizações, recibos e requerimentos a partir de modelos orientados.</p>
             </div>
-            <div class="tool-footer"><span>DOC + PDF</span><button type="button" disabled>Usar ferramenta</button></div>
+            <div class="tool-footer"><span>DOC + PDF</span><a
+                href="ferramentas/qr-code/#/ferramentas/declaration-builder"
+                aria-label="Usar Gerador de Declaracoes">Usar ferramenta</a></div>
           </article>
 
-          <article class="tool-card reveal">
+          <article class="tool-card reveal" data-tool="qr-code">
             <div class="tool-card-top"><span class="tool-status status-free">Grátis</span><span
                 class="tool-number">03</span></div>
             <div class="tool-icon icon-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -351,7 +354,7 @@
                 aria-label="Usar Gerador de QR Code">Usar ferramenta</a></div>
           </article>
 
-          <article class="tool-card reveal">
+          <article class="tool-card reveal" data-tool="images-to-pdf">
             <div class="tool-card-top"><span class="tool-status status-local">Processamento local</span><span
                 class="tool-number">04</span></div>
             <div class="tool-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -362,11 +365,11 @@
               <h3>Imagens para PDF</h3>
               <p>Organize fotos e documentos digitalizados em um único arquivo PDF, na ordem que preferir.</p>
             </div>
-            <div class="tool-footer"><span>JPG PARA PDF</span><button type="button" disabled>Usar ferramenta</button>
-            </div>
+            <div class="tool-footer"><span>JPG PARA PDF</span><a href="ferramentas/qr-code/#/ferramentas/images-to-pdf"
+                aria-label="Usar Imagens para PDF">Usar ferramenta</a></div>
           </article>
 
-          <article class="tool-card reveal">
+          <article class="tool-card reveal" data-tool="merge-pdf">
             <div class="tool-card-top"><span class="tool-status status-local">Processamento local</span><span
                 class="tool-number">05</span></div>
             <div class="tool-icon icon-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -377,10 +380,11 @@
               <h3>Unificador de PDFs</h3>
               <p>Reúna vários arquivos em um só documento e escolha a sequência final das páginas.</p>
             </div>
-            <div class="tool-footer"><span>PDF + PDF</span><button type="button" disabled>Usar ferramenta</button></div>
+            <div class="tool-footer"><span>PDF + PDF</span><a href="ferramentas/qr-code/#/ferramentas/merge-pdf"
+                aria-label="Usar Unificador de PDFs">Usar ferramenta</a></div>
           </article>
 
-          <article class="tool-card tool-card-assist reveal">
+          <article class="tool-card tool-card-assist reveal" data-tool="mei-irpf-checklist">
             <div class="tool-card-top"><span class="tool-status status-assisted">Atendimento assistido</span><span
                 class="tool-number">06</span></div>
             <div class="tool-icon icon-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -391,8 +395,85 @@
               <h3>Checklist Inteligente</h3>
               <p>Descubra quais documentos separar para MEI ou Imposto de Renda antes do atendimento.</p>
             </div>
-            <div class="tool-footer"><span>CHECKLIST</span><button type="button" disabled>Iniciar checklist</button>
+            <div class="tool-footer"><span>CHECKLIST</span><a
+                href="ferramentas/qr-code/#/ferramentas/mei-irpf-checklist"
+                aria-label="Iniciar Checklist MEI e IRPF">Iniciar checklist</a>
             </div>
+          </article>
+
+          <article class="tool-card reveal" data-tool="menu-builder">
+            <div class="tool-card-top"><span class="tool-status status-building">Em construção</span><span
+                class="tool-number">07</span></div>
+            <div class="tool-icon icon-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 4 0M9 5h6M8 12h8M8 16h5" />
+              </svg></div>
+            <div class="tool-copy"><span>Documentos</span>
+              <h3>Gerador de Cardápio</h3>
+              <p>Crie o layout do seu cardápio e baixe em PDF para impressão e plastificação na Plena.</p>
+            </div>
+            <div class="tool-footer"><span>PDF</span><button type="button" disabled
+                aria-label="Gerador de Cardápio em breve">Em breve</button></div>
+          </article>
+
+          <article class="tool-card reveal" data-tool="business-card-creator">
+            <div class="tool-card-top"><span class="tool-status status-building">Em construção</span><span
+                class="tool-number">08</span></div>
+            <div class="tool-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Zm0 0V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2M8 13h2m4 0h2" />
+              </svg></div>
+            <div class="tool-copy"><span>Documentos</span>
+              <h3>Gerador de Cartão de Visitas</h3>
+              <p>Crie o layout digital, aprove em casa e leve para impressão na Plena.</p>
+            </div>
+            <div class="tool-footer"><span>PDF + PNG</span><button type="button" disabled
+                aria-label="Gerador de Cartão de Visitas em breve">Em breve</button></div>
+          </article>
+
+          <article class="tool-card reveal" data-tool="label-generator">
+            <div class="tool-card-top"><span class="tool-status status-building">Em construção</span><span
+                class="tool-number">09</span></div>
+            <div class="tool-icon icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M7 7h10v4H7V7Zm0 6h10v4H7v-4ZM5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" />
+              </svg></div>
+            <div class="tool-copy"><span>Documentos</span>
+              <h3>Gerador de Etiquetas</h3>
+              <p>Crie folhas de etiquetas A4 prontas para impressão com os seus textos.</p>
+            </div>
+            <div class="tool-footer"><span>PDF</span><button type="button" disabled
+                aria-label="Gerador de Etiquetas em breve">Em breve</button></div>
+          </article>
+
+          <article class="tool-card reveal" data-tool="mei-das-guide">
+            <div class="tool-card-top"><span class="tool-status status-building">Em construção</span><span
+                class="tool-number">10</span></div>
+            <div class="tool-icon icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg></div>
+            <div class="tool-copy"><span>MEI</span>
+              <h3>Guia DAS MEI</h3>
+              <p>Entenda os componentes do DAS, organize os meses pagos e imprima um resumo.</p>
+            </div>
+            <div class="tool-footer"><span>ORIENTATIVO</span><button type="button" disabled
+                aria-label="Guia DAS MEI em breve">Em breve</button></div>
+          </article>
+
+          <article class="tool-card reveal" data-tool="print-cost-estimator">
+            <div class="tool-card-top"><span class="tool-status status-building">Em construção</span><span
+                class="tool-number">11</span></div>
+            <div class="tool-icon icon-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M9 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4M9 7V5a2 2 0 0 1 4 0v2M9 7h6m-3 4v4m-2-2h4" />
+              </svg></div>
+            <div class="tool-copy"><span>Utilidades</span>
+              <h3>Calculadora de Impressão</h3>
+              <p>Compare o custo de imprimir em casa com o custo de terceirizar na Plena.</p>
+            </div>
+            <div class="tool-footer"><span>COMPARATIVO</span><button type="button" disabled
+                aria-label="Calculadora de Impressão em breve">Em breve</button></div>
           </article>
         </div>
       </div>
@@ -481,7 +562,7 @@
       </p>
 
       <div class="flex justify-center gap-6 mb-12">
-        <a href="https://api.whatsapp.com/send?phone=5512981144676" target="_blank"
+        <a href="https://api.whatsapp.com/send?phone=5512981144676" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco via WhatsApp" title="Fale conosco via WhatsApp"
           class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-[var(--color-green-whatsapp)] hover:scale-110 transition-all duration-300">
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
             <path
@@ -497,6 +578,7 @@
         <div class="flex gap-4 text-sm text-gray-500 font-inter">
           <a href="#" class="hover:text-[var(--color-primary)] transition-colors">Termos</a>
           <a href="#" class="hover:text-[var(--color-primary)] transition-colors">Privacidade</a>
+          <a href="ferramentas/qr-code/#/admin" class="hover:text-[var(--color-primary)] transition-colors">Área administrativa</a>
         </div>
       </div>
     </div>
