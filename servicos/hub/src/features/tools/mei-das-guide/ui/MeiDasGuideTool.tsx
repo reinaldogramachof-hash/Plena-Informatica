@@ -106,6 +106,7 @@ export function MeiDasGuideTool() {
               { value: 'services',  label: 'Servicos' },
               { value: 'both',      label: 'Comercio e Servicos' },
               { value: 'transport', label: 'Transporte de passageiros' },
+              { value: 'freight',   label: 'Transporte autônomo de cargas' },
             ] as { value: ActivityType; label: string }[]
           ).map((opt) => (
             <label
@@ -129,6 +130,12 @@ export function MeiDasGuideTool() {
           ))}
         </div>
       </fieldset>
+
+      {activity === 'freight' && (
+        <div className="mdg-freight-notice" style={{ background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: '6px', padding: '0.875rem', marginBottom: '1.25rem', color: '#991b1b', fontSize: '0.875rem' }}>
+          <strong>Atenção (MEI Caminhoneiro):</strong> A alíquota previdenciária (INSS) aplicável ao transportador autônomo de cargas é de 12% do salário mínimo (R$ 194,52), diferente da taxa convencional de 5% aplicada às demais atividades.
+        </div>
+      )}
 
       {/* Tabela DAS */}
       {dasInfo && (

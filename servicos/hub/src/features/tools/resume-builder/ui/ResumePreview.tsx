@@ -279,13 +279,16 @@ export function ResumePreview({ data, templateId }: ResumePreviewProps) {
   const template = getTemplate(templateId)
   const Sheet = SHEETS[templateId]
   return (
-    <div className={`resume-preview resume-preview--${templateId}`} aria-label="Prévia do currículo">
-      <p className="resume-preview__label">
-        Prévia do PDF — <strong>{template.name}</strong>
-      </p>
-      <div className="resume-preview__sheet-wrapper">
-        <Sheet data={data} />
+    <aside className={`resume-preview resume-preview--${templateId}`} aria-label="Prévia do currículo">
+      <div className="resume-preview__toolbar">
+        <strong>Prévia A4</strong>
+        <span>{template.name}</span>
       </div>
-    </div>
+      <div className="resume-preview__sheet-wrapper">
+        <div className="resume-preview__paper">
+          <Sheet data={data} />
+        </div>
+      </div>
+    </aside>
   )
 }

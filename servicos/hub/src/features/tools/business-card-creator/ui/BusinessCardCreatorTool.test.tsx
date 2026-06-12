@@ -17,8 +17,8 @@ afterEach(() => {
 
 const FAKE_BYTES = new Uint8Array([1, 2, 3, 4])
 
-const mockGeneratePdf = vi.fn().mockResolvedValue(FAKE_BYTES) as any
-const mockGeneratePng = vi.fn().mockResolvedValue(FAKE_BYTES) as any
+const mockGeneratePdf = vi.fn().mockResolvedValue(FAKE_BYTES) as unknown as (data: CardData, style: CardStyle) => Promise<Uint8Array>
+const mockGeneratePng = vi.fn().mockResolvedValue(FAKE_BYTES) as unknown as (data: CardData, style: CardStyle) => Promise<Uint8Array>
 
 // ── Testes herdados (regressão) ───────────────────────────────────────────────
 
@@ -87,7 +87,7 @@ describe('BusinessCardCreatorTool — download PDF', () => {
   })
 
   it('chama generatePdf com os dados e estilo corretos', async () => {
-    const mockPdf = vi.fn().mockResolvedValue(FAKE_BYTES) as any
+    const mockPdf = vi.fn().mockResolvedValue(FAKE_BYTES) as unknown as (data: CardData, style: CardStyle) => Promise<Uint8Array>
     render(<BusinessCardCreatorTool generatePdf={mockPdf} />)
 
     fireEvent.change(
@@ -119,7 +119,7 @@ describe('BusinessCardCreatorTool — download PDF', () => {
   })
 
   it('exibe mensagem de erro acessível quando generatePdf lança exceção', async () => {
-    const mockPdfError = vi.fn().mockRejectedValue(new Error('Falha simulada')) as any
+    const mockPdfError = vi.fn().mockRejectedValue(new Error('Falha simulada')) as unknown as (data: CardData, style: CardStyle) => Promise<Uint8Array>
     render(<BusinessCardCreatorTool generatePdf={mockPdfError} />)
 
     fireEvent.change(
@@ -147,7 +147,7 @@ describe('BusinessCardCreatorTool — download PNG', () => {
   })
 
   it('chama generatePng com os dados e estilo corretos', async () => {
-    const mockPng = vi.fn().mockResolvedValue(FAKE_BYTES) as any
+    const mockPng = vi.fn().mockResolvedValue(FAKE_BYTES) as unknown as (data: CardData, style: CardStyle) => Promise<Uint8Array>
     render(<BusinessCardCreatorTool generatePng={mockPng} />)
 
     fireEvent.change(
@@ -181,7 +181,7 @@ describe('BusinessCardCreatorTool — download PNG', () => {
   })
 
   it('exibe mensagem de erro acessível quando generatePng lança exceção', async () => {
-    const mockPngError = vi.fn().mockRejectedValue(new Error('PNG falhou')) as any
+    const mockPngError = vi.fn().mockRejectedValue(new Error('PNG falhou')) as unknown as (data: CardData, style: CardStyle) => Promise<Uint8Array>
     render(<BusinessCardCreatorTool generatePng={mockPngError} />)
 
     fireEvent.change(

@@ -13,6 +13,7 @@ import {
 import { DEFAULT_TEMPLATE_ID, type TemplateId } from '../domain/resume-templates'
 import { ResumeTemplatePicker } from './ResumeTemplatePicker'
 import { ResumePreview } from './ResumePreview'
+import { useLocalStorage } from '../../../../lib/use-local-storage'
 import './resume-builder.css'
 
 type ResumeBuilderToolProps = {
@@ -57,13 +58,83 @@ function createEducation(): ResumeEducation {
 export function ResumeBuilderTool({
   generatePdf = createResumePdf,
 }: ResumeBuilderToolProps) {
-  const [personal, setPersonal] = useState<ResumePersonal>(initialPersonal)
-  const [experiences, setExperiences] = useState<ResumeExperience[]>([])
-  const [education, setEducation] = useState<ResumeEducation[]>([])
-  const [skillsText, setSkillsText] = useState('')
+  interface ResumeStateData {
+    personal: ResumePersonal
+    experiences: ResumeExperience[]
+    education: ResumeEducation[]
+    skillsText: string
+    templateId: TemplateId
+  }
+
+  const [resumeState, setResumeState] = useLocalStorage<ResumeStateData>(
+    'plena-hub-resume-v1',
+    {
+      personal: initialPersonal,
+      experiences: [],
+      education: [],
+      skillsText: '',
+      templateId: DEFAULT_TEMPLATE_ID,
+    }
+  )
+
+  const [showDraftBanner, setShowDraftBanner] = useState(() => {
+    const item = window.localStorage.getItem('plena-hub-resume-v1')
+    if (item) {
+      try {
+        const parsed = JSON.parse(item)
+        const hasContent = !!(
+          parsed.personal?.fullName?.trim() ||
+          parsed.experiences?.length > 0 ||
+          parsed.education?.length > 0 ||
+          parsed.skillsText?.trim()
+        )
+        return hasContent
+      } catch {
+        return false
+      }
+    }
+    return false
+  })
+
+  const personal = resumeState.personal
+  const experiences = resumeState.experiences
+  const education = resumeState.education
+  const skillsText = resumeState.skillsText
+  const templateId = resumeState.templateId
+
+  const setPersonal = (newVal: ResumePersonal | ((prev: ResumePersonal) => ResumePersonal)) => {
+    setResumeState((prev) => ({
+      ...prev,
+      personal: newVal instanceof Function ? newVal(prev.personal) : newVal,
+    }))
+  }
+  const setExperiences = (newVal: ResumeExperience[] | ((prev: ResumeExperience[]) => ResumeExperience[])) => {
+    setResumeState((prev) => ({
+      ...prev,
+      experiences: newVal instanceof Function ? newVal(prev.experiences) : newVal,
+    }))
+  }
+  const setEducation = (newVal: ResumeEducation[] | ((prev: ResumeEducation[]) => ResumeEducation[])) => {
+    setResumeState((prev) => ({
+      ...prev,
+      education: newVal instanceof Function ? newVal(prev.education) : newVal,
+    }))
+  }
+  const setSkillsText = (newVal: string | ((prev: string) => string)) => {
+    setResumeState((prev) => ({
+      ...prev,
+      skillsText: newVal instanceof Function ? newVal(prev.skillsText) : newVal,
+    }))
+  }
+  const setTemplateId = (newVal: TemplateId | ((prev: TemplateId) => TemplateId)) => {
+    setResumeState((prev) => ({
+      ...prev,
+      templateId: newVal instanceof Function ? newVal(prev.templateId) : newVal,
+    }))
+  }
+
   const [error, setError] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
-  const [templateId, setTemplateId] = useState<TemplateId>(DEFAULT_TEMPLATE_ID)
 
   const nameRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
@@ -169,6 +240,38 @@ export function ResumeBuilderTool({
 
   return (
     <section className="resume-builder" aria-labelledby="resume-builder-title">
+      {showDraftBanner && (
+        <div className="rb-draft-banner" style={{ background: '#f0f4ff', border: '1px solid #cbd5e1', borderRadius: '6px', padding: '1rem', marginBottom: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <p style={{ margin: 0, fontWeight: 600, fontSize: '0.875rem' }}>Rascunho detectado</p>
+            <p style={{ margin: 0, fontSize: '0.8125rem', color: '#4b5563' }}>Você quer continuar editando o rascunho salvo anteriormente?</p>
+          </div>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button
+              onClick={() => {
+                const emptyState: ResumeStateData = {
+                  personal: initialPersonal,
+                  experiences: [],
+                  education: [],
+                  skillsText: '',
+                  templateId: DEFAULT_TEMPLATE_ID,
+                }
+                setResumeState(emptyState)
+                setShowDraftBanner(false)
+              }}
+              style={{ background: '#ef4444', color: '#fff', border: 'none', borderRadius: '4px', padding: '0.4rem 0.8rem', fontSize: '0.8125rem', fontWeight: 600, cursor: 'pointer' }}
+            >
+              Começar do zero
+            </button>
+            <button
+              onClick={() => setShowDraftBanner(false)}
+              style={{ background: '#10b981', color: '#fff', border: 'none', borderRadius: '4px', padding: '0.4rem 0.8rem', fontSize: '0.8125rem', fontWeight: 600, cursor: 'pointer' }}
+            >
+              Continuar rascunho
+            </button>
+          </div>
+        </div>
+      )}
       <div className="resume-builder__intro">
         <span className="eyebrow">Ferramenta local</span>
         <h2 id="resume-builder-title">Criador de Currículo</h2>

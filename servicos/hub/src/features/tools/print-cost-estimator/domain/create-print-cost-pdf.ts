@@ -1,4 +1,5 @@
 import type { PrintInput, PrintResult } from './print-cost'
+import { PLENA_PRICES_UPDATED_AT } from './print-cost'
 
 export async function createPrintCostPdf(
   input: PrintInput,
@@ -85,10 +86,13 @@ export async function createPrintCostPdf(
 
   page.drawText(verdictText, { x, y, size: 12, font: bold, color: accentC })
 
+  const [year, month, day] = PLENA_PRICES_UPDATED_AT.split('-')
+  const formattedDate = `${day}/${month}/${year}`
+
   y -= 40
   page.drawText('Esta calculadora e apenas orientativa e nao representa proposta comercial.', { x, y, size: 9, font: oblique, color: mutedC })
-  page.drawText('Calculo baseado nos valores informados. Nao inclui energia eletrica,', { x, y: y - 12, size: 9, font: oblique, color: mutedC })
-  page.drawText('depreciacao do equipamento ou acabamentos.', { x, y: y - 24, size: 9, font: oblique, color: mutedC })
+  page.drawText(`Calculo baseado nos valores informados e nos preços da Plena conferidos em ${formattedDate}.`, { x, y: y - 12, size: 9, font: oblique, color: mutedC })
+  page.drawText('Nao inclui energia eletrica, depreciacao do equipamento ou acabamentos.', { x, y: y - 24, size: 9, font: oblique, color: mutedC })
 
   return pdf.save()
 }

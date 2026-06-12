@@ -23,6 +23,14 @@ function fillRequiredFields() {
 }
 
 describe('ResumeBuilderTool', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+  })
+
+  afterEach(() => {
+    window.localStorage.clear()
+  })
+
   it('renders the local-processing notice and live preview', () => {
     render(<ResumeBuilderTool />)
 
@@ -224,6 +232,6 @@ describe('ResumeBuilderTool', () => {
 
   it('text "Currículo" appears in rendered document', () => {
     render(<ResumeBuilderTool />)
-    expect(screen.getByText(/Currículo/)).toBeInTheDocument()
+    expect(screen.getAllByText(/Currículo/).length).toBeGreaterThan(0)
   })
 })

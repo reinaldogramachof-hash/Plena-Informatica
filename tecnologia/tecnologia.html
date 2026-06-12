@@ -181,19 +181,6 @@
 
         <div class="showcase-meter hidden md:block" aria-hidden="true"><span></span></div>
 
-        <div class="showcase-nav hidden md:flex" aria-label="Controles do catálogo comercial">
-          <button type="button" class="showcase-arrow" data-rail-control="prev" aria-label="Ver itens anteriores">
-            <i class="ph-light ph-arrow-left text-xl"></i>
-          </button>
-          <div class="showcase-hint" aria-live="polite">
-            <i class="ph-light ph-hand-swipe-right text-base opacity-60" aria-hidden="true"></i>
-            <span class="showcase-hint-text">Arraste ou use as setas para navegar</span>
-          </div>
-          <span class="showcase-counter" aria-label="Posição no catálogo" aria-live="polite"></span>
-          <button type="button" class="showcase-arrow" data-rail-control="next" aria-label="Ver próximos itens">
-            <i class="ph-light ph-arrow-right text-xl"></i>
-          </button>
-        </div>
 
         <div class="showcase-viewport w-full relative min-h-[500px]">
           <div id="tab-gestão"
@@ -908,6 +895,16 @@
           onclick="window.open('https://wa.me/5512992191018', '_blank')">Consultar Projeto</button>
       </div>
     </div>
+  </div>
+
+  <!-- Lateral carousel arrows — fixed to page edges, desktop only -->
+  <div class="lateral-nav" id="lateral-nav" aria-hidden="true">
+    <button type="button" class="lateral-arrow lateral-arrow--prev" data-rail-control="prev" aria-label="Ver itens anteriores" tabindex="-1">
+      <i class="ph-light ph-caret-left"></i>
+    </button>
+    <button type="button" class="lateral-arrow lateral-arrow--next" data-rail-control="next" aria-label="Ver próximos itens" tabindex="-1">
+      <i class="ph-light ph-caret-right"></i>
+    </button>
   </div>
 </body>
 

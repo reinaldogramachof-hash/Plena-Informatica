@@ -3,7 +3,18 @@ import { describe, expect, it, vi } from 'vitest'
 
 import { MeiIrpfChecklistTool } from './MeiIrpfChecklistTool'
 
+vi.mock('../domain/create-checklist-pdf', () => ({
+  createChecklistPdf: vi.fn().mockResolvedValue(new Uint8Array([1, 2, 3])),
+}))
+
 describe('MeiIrpfChecklistTool', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+  })
+
+  afterEach(() => {
+    window.localStorage.clear()
+  })
   it('exibe os 3 avisos obrigatórios na tela inicial', () => {
     render(<MeiIrpfChecklistTool />)
 
@@ -122,7 +133,8 @@ describe('MeiIrpfChecklistTool', () => {
     expect(screen.getByRole('status').textContent).toMatch(/1 de \d+ itens/i)
   })
 
-  it('reinicia o fluxo ao clicar em Reiniciar', () => {
+  it('reinicia o fluxo ao clicar em Reiniciar se o usuário confirmar', () => {
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
     render(<MeiIrpfChecklistTool />)
 
     fireEvent.click(screen.getByRole('button', { name: /MEI/i }))
@@ -132,12 +144,31 @@ describe('MeiIrpfChecklistTool', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /Reiniciar/i }))
 
+    expect(confirmSpy).toHaveBeenCalled()
     // Voltou para etapa 1
     expect(screen.getByRole('button', { name: /MEI/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /IRPF/i })).toBeInTheDocument()
+    confirmSpy.mockRestore()
   })
 
-  it('chama window.print() ao clicar em Imprimir', () => {
+  it('não reinicia o fluxo ao clicar em Reiniciar se o usuário cancelar', () => {
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(false)
+    render(<MeiIrpfChecklistTool />)
+
+    fireEvent.click(screen.getByRole('button', { name: /MEI/i }))
+    fireEvent.click(screen.getByText(/Abertura de MEI/i))
+    fireEvent.click(screen.getByRole('button', { name: /Continuar/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Continuar/i }))
+
+    fireEvent.click(screen.getByRole('button', { name: /Reiniciar/i }))
+
+    expect(confirmSpy).toHaveBeenCalled()
+    // Continua no resultado
+    expect(screen.getByText(/Seu checklist personalizado/i)).toBeInTheDocument()
+    confirmSpy.mockRestore()
+  })
+
+  it('chama window.print() ao clicar em Imprimir Checklist', () => {
     const printSpy = vi.spyOn(window, 'print').mockImplementation(() => undefined)
 
     render(<MeiIrpfChecklistTool />)
@@ -148,11 +179,34 @@ describe('MeiIrpfChecklistTool', () => {
     fireEvent.click(screen.getByRole('button', { name: /Continuar/i }))
 
     fireEvent.click(
-      screen.getByRole('button', { name: /Imprimir ou salvar em PDF/i }),
+      screen.getByRole('button', { name: /Imprimir Checklist/i }),
     )
     expect(printSpy).toHaveBeenCalledTimes(1)
 
     printSpy.mockRestore()
+  })
+
+  it('baixa PDF com sucesso ao clicar em Baixar PDF', async () => {
+    const createObjectURLSpy = vi.spyOn(URL, 'createObjectURL').mockReturnValue('blob:url')
+    const revokeObjectURLSpy = vi.spyOn(URL, 'revokeObjectURL').mockImplementation(() => undefined)
+
+    render(<MeiIrpfChecklistTool />)
+
+    fireEvent.click(screen.getByRole('button', { name: /MEI/i }))
+    fireEvent.click(screen.getByText(/Abertura de MEI/i))
+    fireEvent.click(screen.getByRole('button', { name: /Continuar/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Continuar/i }))
+
+    const downloadBtn = screen.getByRole('button', { name: /Baixar PDF/i })
+    fireEvent.click(downloadBtn)
+
+    await vi.waitFor(() => {
+      expect(createObjectURLSpy).toHaveBeenCalled()
+    })
+    expect(revokeObjectURLSpy).toHaveBeenCalled()
+
+    createObjectURLSpy.mockRestore()
+    revokeObjectURLSpy.mockRestore()
   })
 
   it('não solicita dados pessoais sensíveis (CPF, CNPJ, senha, token)', () => {

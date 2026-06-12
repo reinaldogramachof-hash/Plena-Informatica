@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest'
 
@@ -117,9 +119,9 @@ describe('MenuBuilderTool — habilitacao do botao', () => {
   })
 })
 
-// ── Download ──────────────────────────────────────────────────────────────────
+// ── Download e Prévia ──────────────────────────────────────────────────────────
 
-describe('MenuBuilderTool — download', () => {
+describe('MenuBuilderTool — download e prévia', () => {
   it('chama generatePdf com dados e opcoes corretos', async () => {
     const mockPdf = vi.fn().mockResolvedValue(FAKE_PDF) as any
     render(<MenuBuilderTool generatePdf={mockPdf} />)
@@ -135,7 +137,7 @@ describe('MenuBuilderTool — download', () => {
     })
   })
 
-  it('aciona createObjectURL e revokeObjectURL apos gerar PDF', async () => {
+  it('aciona createObjectURL ao abrir a prévia e revokeObjectURL ao fechar', async () => {
     render(<MenuBuilderTool generatePdf={mockGeneratePdf} />)
     fillEstablishment()
     addCategoryWithItem()
@@ -143,6 +145,15 @@ describe('MenuBuilderTool — download', () => {
 
     await waitFor(() => {
       expect(URL.createObjectURL).toHaveBeenCalled()
+    })
+
+    // Deve exibir tela de prévia
+    expect(screen.getByText(/Prévia do Cardápio/i)).toBeInTheDocument()
+
+    // Clicar em voltar ao editor deve revogar o blob
+    fireEvent.click(screen.getByRole('button', { name: /Voltar ao Editor/i }))
+
+    await waitFor(() => {
       expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:test-url')
     })
   })
@@ -190,5 +201,37 @@ describe('MenuBuilderTool — download', () => {
         expect.objectContaining({ columns: 2 }),
       )
     })
+  })
+
+  it('suporta e envia telefone opcional do estabelecimento', async () => {
+    const mockPdf = vi.fn().mockResolvedValue(FAKE_PDF) as any
+    render(<MenuBuilderTool generatePdf={mockPdf} />)
+    fillEstablishment()
+    addCategoryWithItem()
+    
+    // Digita telefone
+    fireEvent.change(
+      screen.getByRole('textbox', { name: /Telefone/i }),
+      { target: { value: '(11) 98888-8888' } },
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: /Gerar card/i }))
+
+    await waitFor(() => {
+      expect(mockPdf).toHaveBeenCalledWith(
+        expect.objectContaining({ phone: '(11) 98888-8888' }),
+        expect.anything(),
+      )
+    })
+  })
+
+  it('aplica mascara de moeda BRL no preco do item ao digitar', async () => {
+    render(<MenuBuilderTool />)
+    addCategoryWithItem()
+
+    const priceInput = screen.getByPlaceholderText('R$ 0,00') as HTMLInputElement
+    fireEvent.change(priceInput, { target: { value: '1234' } })
+
+    expect(priceInput.value.replace(/\u00a0/g, ' ').replace(/\u202f/g, ' ')).toMatch(/R\$\s*12,34/)
   })
 })

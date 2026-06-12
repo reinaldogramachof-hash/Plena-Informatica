@@ -635,3 +635,173 @@ footer {
     min-height: auto;
   }
 }
+
+/* ============================================================
+   NICHE FILTER CHIPS
+   ============================================================ */
+
+.niche-filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  min-height: 2rem;
+}
+
+.niche-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.niche-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.niche-chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.niche-chip.active {
+  background: var(--accent-gold);
+  color: #08090b;
+  border-color: var(--accent-gold);
+  box-shadow: 0 6px 18px -8px rgba(212, 175, 55, 0.6);
+}
+
+/* ============================================================
+   AUTOPLAY PROGRESS BAR
+   ============================================================ */
+
+.autoplay-bar {
+  width: min(9rem, 30vw);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.autoplay-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.5), var(--accent-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.autoplay-bar span.is-running {
+  animation: autoplay-fill linear forwards;
+  animation-duration: var(--autoplay-duration, 4.5s);
+}
+
+@keyframes autoplay-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ============================================================
+   FILTERED-OUT CARD (niche filter)
+   ============================================================ */
+
+/* Desktop: collapse to 0-width in the horizontal flex rail */
+.card-hidden {
+  flex: 0 0 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  width: 0 !important;
+  padding: 0 !important;
+  border-width: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: none !important;
+}
+
+/* Mobile: grid layout — just hide */
+@media (max-width: 767px) {
+  .card-hidden {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+   LATERAL NAVIGATION ARROWS
+   ============================================================ */
+
+.lateral-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.lateral-nav.is-visible {
+  opacity: 1;
+}
+
+.lateral-arrow {
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 5rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease, width 0.22s ease;
+}
+
+.lateral-arrow--prev {
+  border-radius: 0 6px 6px 0;
+}
+
+.lateral-arrow--next {
+  border-radius: 6px 0 0 6px;
+}
+
+.lateral-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  width: 2.5rem;
+}
+
+.lateral-arrow:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* Hide on mobile */
+@media (max-width: 767px) {
+  .lateral-nav {
+    display: none;
+  }
+}

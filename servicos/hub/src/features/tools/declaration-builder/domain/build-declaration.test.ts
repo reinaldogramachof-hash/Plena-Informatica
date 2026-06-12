@@ -80,7 +80,7 @@ describe('buildDeclaration', () => {
           issuerName: 'João Souza',
           clientName: 'Cliente Final',
           city: '',
-          date: '',
+          date: '2026-06-12',
         },
         [{ description: 'Serviço', quantity: '1', unitPrice: '150' }],
       ),

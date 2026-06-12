@@ -67,7 +67,7 @@ describe('parseDeclarationData', () => {
   it('parses quote items into numeric values', () => {
     const result = parseDeclarationData(
       'quote',
-      { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+      { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '2026-06-12' },
       [
         { description: 'Impressão PB', quantity: '100', unitPrice: '3,00' },
         { description: 'Impressão Color', quantity: '20', unitPrice: '4' },
@@ -83,7 +83,7 @@ describe('parseDeclarationData', () => {
     expect(() =>
       parseDeclarationData(
         'quote',
-        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '2026-06-12' },
         [],
       ),
     ).toThrow('Informe ao menos um item no orcamento')
@@ -93,7 +93,7 @@ describe('parseDeclarationData', () => {
     expect(() =>
       parseDeclarationData(
         'quote',
-        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '2026-06-12' },
         [{ description: '', quantity: '1', unitPrice: '10' }],
       ),
     ).toThrow('Item 1: descricao e obrigatoria')
@@ -103,7 +103,7 @@ describe('parseDeclarationData', () => {
     expect(() =>
       parseDeclarationData(
         'quote',
-        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '2026-06-12' },
         [{ description: 'Servico', quantity: '0', unitPrice: '10' }],
       ),
     ).toThrow('Item 1: quantidade deve ser maior que zero')
@@ -113,7 +113,7 @@ describe('parseDeclarationData', () => {
     expect(() =>
       parseDeclarationData(
         'quote',
-        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '2026-06-12' },
         [{ description: 'Servico', quantity: '1', unitPrice: '0' }],
       ),
     ).toThrow('Item 1: valor unitario deve ser maior que zero')

@@ -58,7 +58,7 @@ const desktopQuery = window.matchMedia('(min-width: 768px)');
 const showcaseMeter = document.querySelector('.showcase-meter span');
 const showcasePrevButton = document.querySelector('[data-rail-control="prev"]');
 const showcaseNextButton = document.querySelector('[data-rail-control="next"]');
-const showcaseCounter = document.querySelector('.showcase-counter');
+const showcaseCounter = null; // counter removed with showcase-nav
 
 function getActiveRail() {
   return document.querySelector('.showcase-rail.active');
@@ -66,7 +66,7 @@ function getActiveRail() {
 
 function countVisibleCards(rail) {
   if (!rail) return { current: 0, total: 0 };
-  const cards = Array.from(rail.children).filter(card => !card.classList.contains('is-loop-clone'));
+  const cards = Array.from(rail.children).filter(card => !card.classList.contains('is-loop-clone') && !card.classList.contains('card-hidden'));
   const total = cards.length;
   if (total === 0) return { current: 0, total: 0 };
   const railLeft = rail.getBoundingClientRect().left;
@@ -180,20 +180,26 @@ document.querySelectorAll('.showcase-rail').forEach(rail => {
   let velocity = 0;
   let momentumFrame = null;
 
-  // scrollend with fallback for browsers that don't support it
-  const onScrollEnd = () => updateShowcaseMeter(rail);
+  // On every scroll: normalize loop boundaries instantly (prevents visible gap)
+  // and update the progress meter
+  rail.addEventListener('scroll', () => {
+    if (!isDragging) normalizeInfiniteRail(rail);
+    updateShowcaseMeter(rail);
+  }, { passive: true });
+
+  // scrollend for final state cleanup
+  const onScrollEnd = () => {
+    normalizeInfiniteRail(rail);
+    updateShowcaseMeter(rail);
+  };
   if ('onscrollend' in window) {
     rail.addEventListener('scrollend', onScrollEnd, { passive: true });
   } else {
     let scrollTimer;
     rail.addEventListener('scroll', () => {
-      updateShowcaseMeter(rail);
       clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(onScrollEnd, 120);
+      scrollTimer = setTimeout(onScrollEnd, 150);
     }, { passive: true });
-  }
-  if ('onscrollend' in window) {
-    rail.addEventListener('scroll', () => updateShowcaseMeter(rail), { passive: true });
   }
 
   // Smooth wheel — accumulate delta with rAF to avoid janky jumps
@@ -316,6 +322,287 @@ function closeDemoModal() {
     document.documentElement.style.overflow = '';
   }, 300);
 }
+
+// ============================================================
+// NICHE FILTERS + AUTOPLAY
+// ============================================================
+
+const AUTOPLAY_INTERVAL   = 4500;  // ms between auto-advances
+const AUTOPLAY_RESUME_DELAY = 7000; // ms after user interaction to resume
+
+const NICHE_FILTERS = {
+  'tab-gestão': [
+    { label: 'Todos',         value: '' },
+    { label: 'Com Demo',      value: 'demo' },
+    { label: 'Em Implantação',value: 'breve' },
+  ],
+  'tab-landing': [
+    { label: 'Todos',         value: '' },
+    { label: 'Captação',      value: 'captacao' },
+    { label: 'Lançamento',    value: 'lancamento' },
+    { label: 'Eventos',       value: 'eventos' },
+    { label: 'Institucional', value: 'institucional' },
+  ],
+  'tab-sites': [
+    { label: 'Todos',         value: '' },
+    { label: 'Dados & B.I.',  value: 'dados' },
+    { label: 'Sistemas',      value: 'sistemas' },
+    { label: 'Presença Digital', value: 'presenca' },
+  ],
+  'tab-ecom': [
+    { label: 'Todos',             value: '' },
+    { label: 'Varejo',            value: 'varejo' },
+    { label: 'Alimentação',       value: 'alimentacao' },
+    { label: 'Serviços Digitais', value: 'servicos' },
+    { label: 'Especialidade',     value: 'especialidade' },
+  ],
+};
+
+// Maps data-offer value → niche key (null = always visible)
+const NICHE_MAP = {
+  'assistencia-pro':     'demo',
+  'barbearia-premium':   'demo',
+  'beleza-spa':          'demo',
+  'gestão-gastro':       'breve',
+  'landing-infoproduto': 'lancamento',
+  'captura-leads':       'captacao',
+  'eventos-ingressos':   'eventos',
+  'case-sucesso':        'institucional',
+  'comparativo':         'institucional',
+  'agendamento':         'institucional',
+  'feature':             'lancamento',
+  'waitlist':            'captacao',
+  'oferta':              'lancamento',
+  'link-bio':            'institucional',
+  'dashboards-bi':       'dados',
+  'erps-custom':         'sistemas',
+  'crms':                'sistemas',
+  'site-corporativo':    'presenca',
+  'portais':             'presenca',
+  'ecommerce':           null,        // header card — always visible
+  'ecom-moda':           'varejo',
+  'ecom-eletronicos':    'varejo',
+  'ecom-supermercado':   'alimentacao',
+  'ecom-b2b':            'servicos',
+  'ecom-infoproduto':    'servicos',
+  'ecom-assinaturas':    'servicos',
+  'ecom-autopecas':      'especialidade',
+  'ecom-farmacia':       'especialidade',
+  'ecom-moveis':         'varejo',
+  'ecom-cosmeticos':     'varejo',
+};
+
+// Active filter per tab
+const activeFilters = {};
+
+// Autoplay state
+let autoplayTimer       = null;
+let autoplayResumeTimer = null;
+let autoplayPaused      = false;
+
+// ── Inject filter container above .showcase-viewport ─────────
+
+function injectNicheFilters() {
+  const viewport = document.querySelector('.showcase-viewport');
+  if (!viewport) return;
+
+  const container = document.createElement('div');
+  container.id        = 'niche-filter-container';
+  container.className = 'niche-filter-container';
+
+  Object.entries(NICHE_FILTERS).forEach(([tabId, filters]) => {
+    const row = document.createElement('div');
+    row.className     = 'niche-filter-row';
+    row.id            = `niche-row-${tabId}`;
+    row.setAttribute('role', 'group');
+    row.setAttribute('aria-label', 'Filtrar por categoria');
+    row.hidden = true;
+
+    filters.forEach(({ label, value }) => {
+      const btn = document.createElement('button');
+      btn.type      = 'button';
+      btn.className = 'niche-chip' + (value === '' ? ' active' : '');
+      btn.dataset.niche = value;
+      btn.textContent   = label;
+      btn.addEventListener('click', () => onNicheChipClick(tabId, value));
+      row.appendChild(btn);
+    });
+
+    container.appendChild(row);
+    activeFilters[tabId] = '';
+  });
+
+  // Autoplay progress bar
+  const bar      = document.createElement('div');
+  bar.className  = 'autoplay-bar';
+  bar.id         = 'autoplay-bar';
+  const barInner = document.createElement('span');
+  barInner.id    = 'autoplay-bar-inner';
+  bar.appendChild(barInner);
+  container.appendChild(bar);
+
+  viewport.parentNode.insertBefore(container, viewport);
+
+  // Show row for the initially active tab
+  const activeBtn = document.querySelector('.tab-btn.active');
+  if (activeBtn) showNicheRow(activeBtn.dataset.target);
+}
+
+function showNicheRow(tabId) {
+  document.querySelectorAll('.niche-filter-row').forEach(row => {
+    row.hidden = row.id !== `niche-row-${tabId}`;
+  });
+}
+
+// ── Handle chip click ─────────────────────────────────────────
+
+function onNicheChipClick(tabId, value) {
+  activeFilters[tabId] = value;
+
+  const row = document.getElementById(`niche-row-${tabId}`);
+  if (row) {
+    row.querySelectorAll('.niche-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.niche === value);
+    });
+  }
+
+  applyNicheFilter(tabId, value);
+  resetAutoplay();
+}
+
+// ── Apply / clear filter ──────────────────────────────────────
+
+function applyNicheFilter(tabId, value) {
+  const rail = document.getElementById(tabId);
+  if (!rail) return;
+
+  // Select originals AND their infinite-loop clones (both carry data-offer)
+  rail.querySelectorAll('[data-offer]').forEach(card => {
+    const niche   = NICHE_MAP[card.dataset.offer];
+    const matches = niche === null || !value || niche === value; // null = always visible
+    card.classList.toggle('card-hidden', !matches);
+    if (!card.classList.contains('is-loop-clone')) {
+      card.toggleAttribute('aria-hidden', !matches);
+    }
+  });
+
+  // Reset rail scroll position
+  if (desktopQuery.matches && rail.dataset.loopReady === 'true') {
+    requestAnimationFrame(() => {
+      rail.scrollLeft = rail.scrollWidth / 3;
+      updateShowcaseMeter(rail);
+    });
+  } else {
+    rail.scrollLeft = 0;
+    requestAnimationFrame(() => updateShowcaseMeter(rail));
+  }
+}
+
+// ── Autoplay bar animation ────────────────────────────────────
+
+function startAutoplayBar() {
+  const inner = document.getElementById('autoplay-bar-inner');
+  if (!inner) return;
+  inner.style.setProperty('--autoplay-duration', `${AUTOPLAY_INTERVAL}ms`);
+  inner.classList.remove('is-running');
+  void inner.offsetWidth; // force reflow to restart animation
+  inner.classList.add('is-running');
+}
+
+function stopAutoplayBar() {
+  const inner = document.getElementById('autoplay-bar-inner');
+  if (inner) inner.classList.remove('is-running');
+}
+
+// ── Autoplay control ──────────────────────────────────────────
+
+function startAutoplay() {
+  if (!desktopQuery.matches) return;
+  clearInterval(autoplayTimer);
+  startAutoplayBar();
+  autoplayTimer = setInterval(() => {
+    if (!autoplayPaused) {
+      moveActiveRail(1);
+      startAutoplayBar();
+    }
+  }, AUTOPLAY_INTERVAL);
+}
+
+function stopAutoplay() {
+  clearInterval(autoplayTimer);
+  clearTimeout(autoplayResumeTimer);
+  autoplayTimer = null;
+  stopAutoplayBar();
+}
+
+function pauseAutoplay() {
+  autoplayPaused = true;
+  stopAutoplayBar();
+  clearTimeout(autoplayResumeTimer);
+}
+
+function resumeAutoplay() {
+  clearTimeout(autoplayResumeTimer);
+  autoplayResumeTimer = setTimeout(() => {
+    autoplayPaused = false;
+    resetAutoplay();
+  }, AUTOPLAY_RESUME_DELAY);
+}
+
+function resetAutoplay() {
+  stopAutoplay();
+  startAutoplay();
+}
+
+// ── Hook into tab buttons (extend existing listener) ──────────
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tabId = btn.dataset.target;
+    showNicheRow(tabId);
+    resetAutoplay();
+  });
+});
+
+// ── Pause autoplay on rail interaction ────────────────────────
+
+document.querySelectorAll('.showcase-rail').forEach(rail => {
+  rail.addEventListener('mouseenter',  pauseAutoplay,  { passive: true });
+  rail.addEventListener('mouseleave',  resumeAutoplay, { passive: true });
+  rail.addEventListener('pointerdown', pauseAutoplay,  { passive: true });
+  rail.addEventListener('pointerup',   resumeAutoplay, { passive: true });
+});
+
+// Pause/resume when using arrow controls
+showcasePrevButton?.addEventListener('click', () => { pauseAutoplay(); resumeAutoplay(); });
+showcaseNextButton?.addEventListener('click', () => { pauseAutoplay(); resumeAutoplay(); });
+
+// ── Init ──────────────────────────────────────────────────────
+
+// Wire lateral arrows (they re-use the same data-rail-control attributes the
+// existing JS already listens to, so no extra click listeners needed here)
+const lateralNav = document.getElementById('lateral-nav');
+if (lateralNav && desktopQuery.matches) {
+  // Show/hide based on carousel section visibility
+  const showcaseSection = document.getElementById('soluções');
+  if (showcaseSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        lateralNav.classList.toggle('is-visible', entry.isIntersecting);
+        lateralNav.setAttribute('aria-hidden', String(!entry.isIntersecting));
+        // Enable/disable tab index so arrows are keyboard-reachable only when visible
+        lateralNav.querySelectorAll('.lateral-arrow').forEach(btn => {
+          btn.tabIndex = entry.isIntersecting ? 0 : -1;
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(showcaseSection);
+  }
+}
+
+injectNicheFilters();
+startAutoplay();
 
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');

@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
+import { useLocalStorage } from '../../../../lib/use-local-storage'
 
 import {
   irpfQuestions,
@@ -7,7 +8,8 @@ import {
   type ChecklistAudience,
   type ChecklistQuestion,
 } from '../domain/checklist-catalog'
-import { buildChecklist, type ChecklistGroup } from '../domain/build-checklist'
+import { buildChecklist } from '../domain/build-checklist'
+import { createChecklistPdf } from '../domain/create-checklist-pdf'
 import {
   createSession,
   resetSession,
@@ -42,9 +44,45 @@ const WARNINGS = [
 ]
 
 export function MeiIrpfChecklistTool() {
-  const [step, setStep] = useState<Step>('audience')
-  const [session, setSession] = useState<ChecklistSession>(createSession())
-  const [groups, setGroups] = useState<ChecklistGroup[]>([])
+  interface ChecklistStateData {
+    step: Step
+    session: ChecklistSession
+  }
+
+  const [checklistState, setChecklistState] = useLocalStorage<ChecklistStateData>(
+    'plena-hub-checklist-v1',
+    {
+      step: 'audience',
+      session: createSession(),
+    }
+  )
+
+  const step = checklistState.step
+  const session = checklistState.session
+
+  const setStep = (newStep: Step | ((prev: Step) => Step)) => {
+    setChecklistState((prev) => ({
+      ...prev,
+      step: newStep instanceof Function ? newStep(prev.step) : newStep,
+    }))
+  }
+
+  const setSession = (newSession: ChecklistSession | ((prev: ChecklistSession) => ChecklistSession)) => {
+    setChecklistState((prev) => ({
+      ...prev,
+      session: newSession instanceof Function ? newSession(prev.session) : newSession,
+    }))
+  }
+
+  const [isDownloading, setIsDownloading] = useState(false)
+  const [downloadError, setDownloadError] = useState<string | null>(null)
+
+  const groups = useMemo(() => {
+    if (step === 'result') {
+      return buildChecklist(session)
+    }
+    return []
+  }, [step, session])
 
   function handleSelectAudience(audience: ChecklistAudience) {
     setSession((s) => setAudience(s, audience))
@@ -85,8 +123,6 @@ export function MeiIrpfChecklistTool() {
       return
     }
     if (step === 'questions') {
-      const built = buildChecklist(session)
-      setGroups(built)
       setStep('result')
       return
     }
@@ -112,13 +148,41 @@ export function MeiIrpfChecklistTool() {
   }
 
   function handleReset() {
+    const confirmed = window.confirm(
+      'Deseja realmente reiniciar o checklist? Todo o seu progresso será perdido.',
+    )
+    if (!confirmed) return
     setSession(resetSession())
-    setGroups([])
     setStep('audience')
   }
 
   function handlePrint() {
     window.print()
+  }
+
+  async function handleDownloadPdf() {
+    if (!session.audience) return
+    setDownloadError(null)
+    setIsDownloading(true)
+    try {
+      const pdfBytes = await createChecklistPdf(groups, session, session.audience)
+      const blob = new Blob([pdfBytes as unknown as BlobPart], { type: 'application/pdf' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      const filename =
+        session.audience === 'mei' ? 'plena-checklist-mei.pdf' : 'plena-checklist-irpf.pdf'
+      a.download = filename
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    } catch (err) {
+      console.error(err)
+      setDownloadError('Ocorreu um erro ao gerar o PDF. Por favor, tente novamente.')
+    } finally {
+      setIsDownloading(false)
+    }
   }
 
   const currentStepIdx = stepIndex(step)
@@ -431,6 +495,12 @@ export function MeiIrpfChecklistTool() {
             ))}
           </div>
 
+          {downloadError && (
+            <div className="mic-error-msg" role="alert" style={{ color: '#ef4444', marginTop: '1rem', fontSize: '0.875rem' }}>
+              {downloadError}
+            </div>
+          )}
+
           <nav className="mic-nav">
             <button
               className="mic-btn mic-btn--secondary"
@@ -444,7 +514,15 @@ export function MeiIrpfChecklistTool() {
               onClick={handlePrint}
               type="button"
             >
-              Imprimir ou salvar em PDF
+              Imprimir Checklist
+            </button>
+            <button
+              className="mic-btn mic-btn--primary"
+              onClick={handleDownloadPdf}
+              disabled={isDownloading}
+              type="button"
+            >
+              {isDownloading ? 'Gerando PDF...' : 'Baixar PDF'}
             </button>
             <span className="mic-spacer" />
             <button

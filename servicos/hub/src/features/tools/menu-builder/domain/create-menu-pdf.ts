@@ -216,6 +216,17 @@ export async function createMenuPdf(data: MenuData, options: MenuOptions): Promi
     y -= FS_SLOGAN + GAP_AFTER_SLOGAN
   }
 
+  const phone = data.phone?.trim()
+  if (phone) {
+    const phoneText = normalize(`Contato: ${phone}`)
+    curPage.drawText(truncate(phoneText, regular, FS_SLOGAN, contentW), {
+      x: PAD_H, y: y - FS_SLOGAN,
+      size: FS_SLOGAN, font: regular,
+      color: rgb(0.4, 0.42, 0.48),
+    })
+    y -= FS_SLOGAN + GAP_AFTER_SLOGAN
+  }
+
   curPage.drawLine({
     start: { x: PAD_H, y: y - 2 },
     end:   { x: pageW - PAD_H, y: y - 2 },

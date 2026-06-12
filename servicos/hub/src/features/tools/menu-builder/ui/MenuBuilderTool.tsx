@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { createMenuPdf } from '../domain/create-menu-pdf'
 import { filterValidCategories } from '../domain/menu-data'
@@ -35,16 +35,37 @@ function triggerDownload(bytes: Uint8Array, filename: string): void {
   URL.revokeObjectURL(url)
 }
 
+function formatPrice(val: string): string {
+  const digits = val.replace(/\D/g, '')
+  if (!digits) return ''
+  const num = parseInt(digits, 10) / 100
+  return num.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  })
+}
+
 export function MenuBuilderTool({
   generatePdf = createMenuPdf,
 }: MenuBuilderToolProps) {
   const [establishment, setEstablishment] = useState('')
   const [slogan, setSlogan]               = useState('')
+  const [phone, setPhone]                 = useState('')
   const [categories, setCategories]       = useState<MenuCategory[]>([])
   const [pageSize, setPageSize]           = useState<'a4' | 'half'>('a4')
   const [columns, setColumns]             = useState<1 | 2>(1)
   const [error, setError]                 = useState('')
   const [isProcessing, setIsProcessing]   = useState(false)
+  const [previewUrl, setPreviewUrl]       = useState<string | null>(null)
+  const [pdfBytes, setPdfBytes]           = useState<Uint8Array | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl)
+      }
+    }
+  }, [previewUrl])
 
   // Habilita o botão somente quando há estabelecimento + ao menos 1 item nomeado
   const validCats = filterValidCategories(categories)
@@ -107,10 +128,19 @@ export function MenuBuilderTool({
     setError('')
     setIsProcessing(true)
     try {
-      const data: MenuData    = { establishment, slogan, categories }
+      const data: MenuData    = { establishment, slogan, phone, categories }
       const options: MenuOptions = { pageSize, columns }
       const bytes = await generatePdf(data, options)
-      triggerDownload(bytes, 'plena-cardapio.pdf')
+      
+      const blob = new Blob([bytes as unknown as BlobPart], { type: 'application/pdf' })
+      const url = URL.createObjectURL(blob)
+      
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl)
+      }
+      
+      setPreviewUrl(url)
+      setPdfBytes(bytes)
     } catch (err) {
       setError(
         err instanceof Error
@@ -120,6 +150,43 @@ export function MenuBuilderTool({
     } finally {
       setIsProcessing(false)
     }
+  }
+
+  function downloadPdf() {
+    if (!pdfBytes) return
+    triggerDownload(pdfBytes, 'plena-cardapio.pdf')
+  }
+
+  function closePreview() {
+    if (previewUrl) {
+      URL.revokeObjectURL(previewUrl)
+    }
+    setPreviewUrl(null)
+    setPdfBytes(null)
+  }
+
+  if (previewUrl) {
+    return (
+      <section className="mb-tool mb-tool--preview" aria-labelledby="mb-preview-title">
+        <div className="mb-intro">
+          <h2 id="mb-preview-title">Prévia do Cardápio</h2>
+          <p className="mb-subtitle">
+            Veja como ficou o design do seu cardápio antes de salvar.
+          </p>
+        </div>
+        <div className="mb-preview-container">
+          <iframe src={previewUrl} title="Prévia do Cardápio" className="mb-preview-iframe" />
+        </div>
+        <div className="mb-preview-actions">
+          <button className="mb-btn mb-btn--danger" onClick={closePreview} type="button">
+            Voltar ao Editor
+          </button>
+          <button className="mb-btn mb-btn--primary" onClick={downloadPdf} type="button">
+            Baixar PDF
+          </button>
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -161,6 +228,18 @@ export function MenuBuilderTool({
               placeholder="Ex.: O sabor que aquece sua alma"
               type="text"
               value={slogan}
+            />
+          </label>
+          <label className="mb-label">
+            Telefone (opcional)
+            <input
+              aria-label="Telefone"
+              className="mb-input"
+              maxLength={20}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Ex.: (11) 99999-9999"
+              type="text"
+              value={phone}
             />
           </label>
         </div>
@@ -274,7 +353,7 @@ export function MenuBuilderTool({
                         className="mb-input"
                         maxLength={30}
                         onChange={(e) =>
-                          updateItem(category.id, item.id, 'price', e.target.value)
+                          updateItem(category.id, item.id, 'price', formatPrice(e.target.value))
                         }
                         placeholder="R$ 0,00"
                         type="text"

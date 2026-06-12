@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
 import { QrCodeTool } from './QrCodeTool'
@@ -12,7 +12,7 @@ describe('QrCodeTool', () => {
     expect(screen.getByRole('button', { name: 'WhatsApp' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Telefone' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Wi-Fi' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Pix Copia e Cola' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Pix' })).toBeInTheDocument()
     expect(
       screen.getByText('Nada é enviado para a Plena ou para o Supabase.'),
     ).toBeInTheDocument()
@@ -60,5 +60,36 @@ describe('QrCodeTool', () => {
       await screen.findByRole('alert'),
     ).toHaveTextContent('Informe um link iniciado por http:// ou https://')
     expect(generateImage).not.toHaveBeenCalled()
+  })
+
+  it('gera QR Code de Pix por chave preenchendo o formulario', async () => {
+    const generateImage = vi.fn().mockResolvedValue('data:image/png;base64,pix')
+    render(<QrCodeTool generateImage={generateImage} />)
+
+    // Clica na aba Pix
+    fireEvent.click(screen.getByRole('button', { name: 'Pix' }))
+
+    // Seleciona a aba secundária "Gerar por Chave"
+    fireEvent.click(screen.getByLabelText('Gerar por Chave'))
+
+    // Preenche Chave Pix, Recebedor, Cidade, Valor
+    fireEvent.change(screen.getByLabelText('Chave Pix *'), {
+      target: { value: '12345678909' },
+    })
+    fireEvent.change(screen.getByLabelText('Nome do Recebedor *'), {
+      target: { value: 'Plena Informatica' },
+    })
+    fireEvent.change(screen.getByLabelText('Cidade *'), {
+      target: { value: 'Salvador' },
+    })
+    fireEvent.change(screen.getByLabelText('Valor da Transação (opcional)'), {
+      target: { value: '10,50' },
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Gerar QR Code' }))
+
+    await waitFor(() => {
+      expect(generateImage).toHaveBeenCalled()
+    })
   })
 })

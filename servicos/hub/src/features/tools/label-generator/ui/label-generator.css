@@ -43,15 +43,24 @@
 .lg-fieldset {
   border: 1px solid var(--color-border, #e2e8f0);
   border-radius: 8px;
-  margin: 0 0 1.25rem;
+  margin: 1.25rem 0;
   padding: 1rem 1.25rem 1.25rem;
+  background: #fff;
 }
 
 .lg-legend {
+  box-sizing: border-box;
+  display: table;
+  max-width: calc(100% - 1.5rem);
+  white-space: normal;
+  word-break: break-word;
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--color-text, #1e293b);
-  padding: 0 0.4rem;
+  padding: 0.1rem 0.5rem;
+  background: #fff;
+  border-radius: 4px;
+  line-height: 1.4;
 }
 
 /* --- Formato ---------------------------------------------- */

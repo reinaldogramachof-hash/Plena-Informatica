@@ -8,14 +8,15 @@ import {
 } from './das-values'
 import type { ActivityType } from './das-values'
 
-const ALL: ActivityType[] = ['commerce', 'services', 'both', 'transport']
+const ALL: ActivityType[] = ['commerce', 'services', 'both', 'transport', 'freight']
 
 describe('getDasInfo', () => {
   it.each(ALL)('%s: sempre inclui INSS', (activity) => {
     const { components } = getDasInfo(activity)
     const inss = components.find((c) => c.component === 'INSS')
     expect(inss).toBeDefined()
-    expect(inss!.value).toBeCloseTo(INSS_MEI)
+    const expectedInss = activity === 'freight' ? 194.52 : INSS_MEI
+    expect(inss!.value).toBeCloseTo(expectedInss)
   })
 
   it('commerce: inclui ICMS, nao inclui ISS', () => {
@@ -78,5 +79,19 @@ describe('getDasInfo', () => {
 
   it.each(ALL)('%s: checkedAt tem formato YYYY-MM-DD', (activity) => {
     expect(getDasInfo(activity).checkedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+  })
+
+  it('freight: inclui ISS, nao inclui ICMS, e INSS e 194.52', () => {
+    const { components, total } = getDasInfo('freight')
+    const inss = components.find((c) => c.component === 'INSS')
+    const iss = components.find((c) => c.component === 'ISS')
+    const icms = components.find((c) => c.component === 'ICMS')
+
+    expect(inss).toBeDefined()
+    expect(inss!.value).toBeCloseTo(194.52)
+    expect(iss).toBeDefined()
+    expect(iss!.value).toBeCloseTo(5.00)
+    expect(icms).toBeUndefined()
+    expect(total).toBeCloseTo(199.52)
   })
 })

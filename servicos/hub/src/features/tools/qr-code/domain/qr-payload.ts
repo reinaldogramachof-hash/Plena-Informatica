@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { buildPixPayload } from './pix-payload'
 
 export const MAX_QR_CONTENT_LENGTH = 2048
 
@@ -61,10 +62,50 @@ const qrInputSchema = z.discriminatedUnion('mode', [
   }),
   z.object({
     mode: z.literal('pix'),
-    payload: limitedText('Cole o codigo Pix Copia e Cola').refine(
-      (value) => value.startsWith('000201'),
-      'O código Pix Copia e Cola informado não parece válido',
-    ),
+    pixType: z.enum(['copia-cola', 'chave']),
+    payload: z.string().optional(),
+    key: z.string().optional(),
+    merchantName: z.string().optional(),
+    merchantCity: z.string().optional(),
+    amount: z.number().optional(),
+  }).superRefine((data, context) => {
+    if (data.pixType === 'copia-cola') {
+      if (!data.payload?.trim()) {
+        context.addIssue({
+          code: 'custom',
+          path: ['payload'],
+          message: 'Cole o código Pix Copia e Cola',
+        })
+      } else if (!data.payload.startsWith('000201')) {
+        context.addIssue({
+          code: 'custom',
+          path: ['payload'],
+          message: 'O código Pix Copia e Cola informado não parece válido',
+        })
+      }
+    } else {
+      if (!data.key?.trim()) {
+        context.addIssue({
+          code: 'custom',
+          path: ['key'],
+          message: 'Informe a chave Pix',
+        })
+      }
+      if (!data.merchantName?.trim()) {
+        context.addIssue({
+          code: 'custom',
+          path: ['merchantName'],
+          message: 'Informe o nome do recebedor',
+        })
+      }
+      if (!data.merchantCity?.trim()) {
+        context.addIssue({
+          code: 'custom',
+          path: ['merchantCity'],
+          message: 'Informe a cidade do recebedor',
+        })
+      }
+    }
   }),
 ])
 
@@ -111,6 +152,15 @@ export function buildQrPayload(input: QrInput): string {
         '',
       ].join(';')
     case 'pix':
-      return parsed.payload
+      if (parsed.pixType === 'copia-cola') {
+        return parsed.payload!
+      } else {
+        return buildPixPayload({
+          key: parsed.key!,
+          merchantName: parsed.merchantName!,
+          merchantCity: parsed.merchantCity!,
+          amount: parsed.amount,
+        })
+      }
   }
 }

@@ -70,7 +70,7 @@ export async function createDasGuidePdf(
   ]
 
   let col = 0
-  let initialY = y
+  const initialY = y
   for (let i = 0; i < MONTHS.length; i++) {
     const isPaid = paidMonths.has(i)
     const monthName = MONTHS[i]

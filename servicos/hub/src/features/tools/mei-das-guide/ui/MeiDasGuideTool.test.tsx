@@ -20,14 +20,15 @@ describe('MeiDasGuideTool', () => {
     ).toBeDefined()
   })
 
-  it('radio de atividade com as 4 opcoes esta presente', () => {
+  it('radio de atividade com as 5 opcoes esta presente', () => {
     render(<MeiDasGuideTool />)
     expect(screen.getByText('Comercio')).toBeDefined()
     expect(screen.getByText('Servicos')).toBeDefined()
     expect(screen.getByText('Comercio e Servicos')).toBeDefined()
     expect(screen.getByText('Transporte de passageiros')).toBeDefined()
+    expect(screen.getByText('Transporte autônomo de cargas')).toBeDefined()
     const radios = screen.getAllByRole('radio')
-    expect(radios.length).toBeGreaterThanOrEqual(4)
+    expect(radios.length).toBeGreaterThanOrEqual(5)
   })
 
   it('12 checkboxes de meses estao presentes', () => {
@@ -45,7 +46,7 @@ describe('MeiDasGuideTool', () => {
   it('botao "Imprimir organizacao" esta presente', () => {
     render(<MeiDasGuideTool />)
     expect(
-      screen.getByRole('button', { name: /Imprimir organizacao/i }),
+      screen.getByRole('button', { name: /Imprimir organização/i }),
     ).toBeDefined()
   })
 
@@ -102,7 +103,7 @@ describe('MeiDasGuideTool', () => {
 
   it('nenhuma atividade exibe componente CPP', () => {
     const { rerender } = render(<MeiDasGuideTool />)
-    for (const name of [/Comercio$/i, /^Servicos$/i, /Comercio e Servicos/i, /Transporte/i]) {
+    for (const name of [/Comercio$/i, /^Servicos$/i, /Comercio e Servicos/i, /Transporte de passageiros/i, /Transporte autônomo de cargas/i]) {
       rerender(<MeiDasGuideTool />)
       const radio = screen.getByRole('radio', { name })
       fireEvent.click(radio)
@@ -112,7 +113,7 @@ describe('MeiDasGuideTool', () => {
 
   it('placeholder {valor} nao aparece em nenhuma atividade', () => {
     const { rerender } = render(<MeiDasGuideTool />)
-    for (const name of [/Comercio$/i, /^Servicos$/i, /Comercio e Servicos/i, /Transporte/i]) {
+    for (const name of [/Comercio$/i, /^Servicos$/i, /Comercio e Servicos/i, /Transporte de passageiros/i, /Transporte autônomo de cargas/i]) {
       rerender(<MeiDasGuideTool />)
       fireEvent.click(screen.getByRole('radio', { name }))
       expect(screen.queryByText(/\{valor\}/i)).toBeNull()
@@ -133,7 +134,8 @@ describe('MeiDasGuideTool', () => {
     const expectedTotal = (INSS_MEI + ISS_MEI).toLocaleString('pt-BR', {
       style: 'currency', currency: 'BRL', minimumFractionDigits: 2,
     })
-    expect(screen.getAllByText(expectedTotal).length).toBeGreaterThan(0)
+    const normalizedExpected = expectedTotal.replace(/\u00a0/g, ' ').replace(/\u202f/g, ' ')
+    expect(screen.getAllByText(normalizedExpected).length).toBeGreaterThan(0)
   })
 
   it('nao existe checkbox "Tenho empregado registrado"', () => {
@@ -147,6 +149,20 @@ describe('MeiDasGuideTool', () => {
     render(<MeiDasGuideTool />)
     fireEvent.click(screen.getByRole('radio', { name: /Comercio$/i }))
     expect(screen.getByRole('link', { name: /Ver fonte oficial/i })).toBeDefined()
+  })
+
+  it('selecionar "Transporte autônomo de cargas" exibe aviso e valores corretos', () => {
+    render(<MeiDasGuideTool />)
+    fireEvent.click(screen.getByRole('radio', { name: /Transporte autônomo de cargas/i }))
+    expect(screen.getByText(/Atenção \(MEI Caminhoneiro\):/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/INSS/i).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/194,52/).length).toBe(2)
+
+    const expectedTotal = (194.52 + 5.00).toLocaleString('pt-BR', {
+      style: 'currency', currency: 'BRL', minimumFractionDigits: 2,
+    })
+    const normalizedExpected = expectedTotal.replace(/\u00a0/g, ' ').replace(/\u202f/g, ' ')
+    expect(screen.getAllByText(normalizedExpected).length).toBeGreaterThan(0)
   })
 
 })

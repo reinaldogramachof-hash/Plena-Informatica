@@ -42,10 +42,10 @@ describe('PrintCostEstimatorTool', () => {
     ).toBeDefined()
   })
 
-  it('botao "Imprimir comparativo" esta presente', () => {
+  it('botao "Imprimir tela" esta presente', () => {
     render(<PrintCostEstimatorTool />)
     expect(
-      screen.getByRole('button', { name: /Imprimir comparativo/i }),
+      screen.getByRole('button', { name: /Imprimir tela/i }),
     ).toBeDefined()
   })
 
@@ -93,5 +93,17 @@ describe('PrintCostEstimatorTool', () => {
   it('disclaimer menciona acabamento e encadernacao', () => {
     render(<PrintCostEstimatorTool />)
     expect(screen.getByText(/acabamento/i)).toBeDefined()
+  })
+
+  it('exibe a data de ultima atualizacao de precos no card Plena', () => {
+    render(<PrintCostEstimatorTool />)
+    expect(screen.getByText(/Preços conferidos em 12\/06\/2026/i)).toBeInTheDocument()
+  })
+
+  it('exibe o disclaimer atualizado com a data de precos', () => {
+    render(<PrintCostEstimatorTool />)
+    expect(
+      screen.getByText(/Cálculo baseado nos valores informados e nos preços da Plena conferidos em 12\/06\/2026/i)
+    ).toBeInTheDocument()
   })
 })

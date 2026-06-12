@@ -4,6 +4,14 @@ import { describe, expect, it, vi } from 'vitest'
 import { DeclarationBuilderTool } from './DeclarationBuilderTool'
 
 describe('DeclarationBuilderTool', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+  })
+
+  afterEach(() => {
+    window.localStorage.clear()
+  })
+
   it('shows five safe-use templates and organizes the form into sections', () => {
     render(<DeclarationBuilderTool />)
 
@@ -185,6 +193,9 @@ describe('DeclarationBuilderTool', () => {
     })
     fireEvent.change(screen.getByLabelText('Valor unitário do item 1'), {
       target: { value: '3' },
+    })
+    fireEvent.change(screen.getByLabelText('Data da assinatura'), {
+      target: { value: '2026-06-10' },
     })
 
     const downloadButton = screen.getByRole('button', { name: 'Baixar PDF' })

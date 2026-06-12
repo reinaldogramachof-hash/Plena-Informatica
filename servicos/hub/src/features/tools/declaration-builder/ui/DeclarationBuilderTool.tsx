@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useLocalStorage } from '../../../../lib/use-local-storage'
 
 import {
   buildDeclaration,
@@ -87,14 +88,73 @@ function DeclarationControl({
 export function DeclarationBuilderTool({
   generatePdf = createDeclarationPdf,
 }: DeclarationBuilderToolProps) {
-  const [templateId, setTemplateId] =
-    useState<DeclarationTemplateId>('residence')
-  const [values, setValues] = useState<DeclarationValues>({})
+  interface DeclarationStateData {
+    templateId: DeclarationTemplateId
+    values: DeclarationValues
+    quoteItems: RawQuoteItem[]
+  }
+
+  const [declState, setDeclState] = useLocalStorage<DeclarationStateData>(
+    'plena-hub-declaration-v1',
+    {
+      templateId: 'residence',
+      values: {},
+      quoteItems: [{ description: '', quantity: '', unitPrice: '' }],
+    }
+  )
+
+  const [showDraftBanner, setShowDraftBanner] = useState(() => {
+    const item = window.localStorage.getItem('plena-hub-declaration-v1')
+    if (item) {
+      try {
+        const parsed = JSON.parse(item)
+        const hasValues = Object.values(parsed.values || {}).some(
+          (v) => typeof v === 'string' && v.trim().length > 0,
+        )
+        const hasQuoteItems =
+          parsed.templateId === 'quote' &&
+          parsed.quoteItems?.some((i: { description?: string }) => i.description?.trim())
+        return hasValues || hasQuoteItems
+      } catch {
+        return false
+      }
+    }
+    return false
+  })
+
+  const templateId = declState.templateId
+  const values = declState.values
+  const quoteItems = declState.quoteItems
+
+  const setTemplateId = (
+    newVal: DeclarationTemplateId | ((prev: DeclarationTemplateId) => DeclarationTemplateId),
+  ) => {
+    setDeclState((prev) => ({
+      ...prev,
+      templateId: newVal instanceof Function ? newVal(prev.templateId) : newVal,
+    }))
+  }
+
+  const setValues = (
+    newVal: DeclarationValues | ((prev: DeclarationValues) => DeclarationValues),
+  ) => {
+    setDeclState((prev) => ({
+      ...prev,
+      values: newVal instanceof Function ? newVal(prev.values) : newVal,
+    }))
+  }
+
+  const setQuoteItems = (
+    newVal: RawQuoteItem[] | ((prev: RawQuoteItem[]) => RawQuoteItem[]),
+  ) => {
+    setDeclState((prev) => ({
+      ...prev,
+      quoteItems: newVal instanceof Function ? newVal(prev.quoteItems) : newVal,
+    }))
+  }
+
   const [error, setError] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
-  const [quoteItems, setQuoteItems] = useState<RawQuoteItem[]>([
-    { description: '', quantity: '', unitPrice: '' },
-  ])
   const template = getDeclarationTemplate(templateId)
 
   const preview = useMemo(() => {
@@ -199,6 +259,36 @@ export function DeclarationBuilderTool({
       className="declaration-builder"
       aria-labelledby="declaration-builder-title"
     >
+      {showDraftBanner && (
+        <div className="db-draft-banner" style={{ background: '#f0f4ff', border: '1px solid #cbd5e1', borderRadius: '6px', padding: '1rem', marginBottom: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <p style={{ margin: 0, fontWeight: 600, fontSize: '0.875rem' }}>Rascunho detectado</p>
+            <p style={{ margin: 0, fontSize: '0.8125rem', color: '#4b5563' }}>Você quer continuar editando o rascunho salvo anteriormente?</p>
+          </div>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <button
+              onClick={() => {
+                const emptyState: DeclarationStateData = {
+                  templateId: 'residence',
+                  values: {},
+                  quoteItems: [{ description: '', quantity: '', unitPrice: '' }],
+                }
+                setDeclState(emptyState)
+                setShowDraftBanner(false)
+              }}
+              style={{ background: '#ef4444', color: '#fff', border: 'none', borderRadius: '4px', padding: '0.4rem 0.8rem', fontSize: '0.8125rem', fontWeight: 600, cursor: 'pointer' }}
+            >
+              Começar do zero
+            </button>
+            <button
+              onClick={() => setShowDraftBanner(false)}
+              style={{ background: '#10b981', color: '#fff', border: 'none', borderRadius: '4px', padding: '0.4rem 0.8rem', fontSize: '0.8125rem', fontWeight: 600, cursor: 'pointer' }}
+            >
+              Continuar rascunho
+            </button>
+          </div>
+        </div>
+      )}
       <div className="declaration-builder__intro">
         <span className="eyebrow">Ferramenta local</span>
         <h2 id="declaration-builder-title">Gerador de Declarações</h2>

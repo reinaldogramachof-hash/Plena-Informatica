@@ -55,7 +55,37 @@ describe('buildQrPayload', () => {
   it('accepts an existing Pix Copia e Cola payload without modifying it', () => {
     const payload = '00020126360014BR.GOV.BCB.PIX0114contato@plena52040000'
 
-    expect(buildQrPayload({ mode: 'pix', payload })).toBe(payload)
+    expect(buildQrPayload({ mode: 'pix', pixType: 'copia-cola', payload })).toBe(payload)
+  })
+
+  it('gera payload Pix a partir de chave, nome e cidade', () => {
+    const payload = buildQrPayload({
+      mode: 'pix',
+      pixType: 'chave',
+      key: '12345678909',
+      merchantName: 'Plena Ltda',
+      merchantCity: 'Salvador',
+      amount: 45.90,
+    })
+
+    expect(payload).toContain('br.gov.bcb.pix')
+    expect(payload).toContain('12345678909')
+    expect(payload).toContain('PLENA LTDA')
+    expect(payload).toContain('SALVADOR')
+    expect(payload).toContain('540545.90')
+    expect(payload).toMatch(/6304[A-F0-9]{4}$/)
+  })
+
+  it('valida dados obrigatorios do Pix por chave', () => {
+    expect(() =>
+      buildQrPayload({
+        mode: 'pix',
+        pixType: 'chave',
+        key: '',
+        merchantName: 'Plena Ltda',
+        merchantCity: 'Salvador',
+      })
+    ).toThrow('Informe a chave Pix')
   })
 
   it('rejects payloads larger than the safe QR limit', () => {

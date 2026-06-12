@@ -8,6 +8,6 @@ export const meiDasGuideManifest: ToolManifest = {
   processing: 'local',
   accountRequirement: 'none',
   persistence: 'none',
-  status: 'available',
+  status: 'building',
   roadmapOrder: 10,
 }

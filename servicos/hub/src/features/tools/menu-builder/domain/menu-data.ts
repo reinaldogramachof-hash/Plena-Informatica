@@ -16,6 +16,7 @@ export interface MenuCategory {
 export interface MenuData {
   establishment: string
   slogan: string
+  phone?: string
   categories: MenuCategory[]
 }
 

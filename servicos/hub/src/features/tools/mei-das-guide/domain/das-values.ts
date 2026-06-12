@@ -12,7 +12,7 @@
  * servicos, ambos e transporte de passageiros — INSS a 5%).
  */
 
-export type ActivityType = 'commerce' | 'services' | 'both' | 'transport'
+export type ActivityType = 'commerce' | 'services' | 'both' | 'transport' | 'freight'
 
 export interface DasComponent {
   component: string  // ex.: 'INSS', 'ICMS', 'ISS'
@@ -44,11 +44,17 @@ const CHECKED_AT   = '2026-01-02'
  * Os valores sao fixos oficiais; nao ha calculo proporcional nem sobre salario.
  */
 export function getDasInfo(activity: ActivityType): DasInfo {
+  const isFreight = activity === 'freight'
+  const inssValue = isFreight ? 194.52 : INSS_MEI
+  const inssNote = isFreight
+    ? 'Previdencia social — 12% do salario-minimo (R$ 1.621,00) para transporte de cargas'
+    : 'Previdencia social — 5% do salario-minimo (R$ 1.621,00)'
+
   const components: DasComponent[] = [
     {
       component: 'INSS',
-      value: INSS_MEI,
-      note: 'Previdencia social — 5% do salario-minimo (R$ 1.621,00)',
+      value: inssValue,
+      note: inssNote,
     },
   ]
 
@@ -60,7 +66,12 @@ export function getDasInfo(activity: ActivityType): DasInfo {
     })
   }
 
-  if (activity === 'services' || activity === 'both' || activity === 'transport') {
+  if (
+    activity === 'services' ||
+    activity === 'both' ||
+    activity === 'transport' ||
+    activity === 'freight'
+  ) {
     components.push({
       component: 'ISS',
       value: ISS_MEI,

@@ -39,7 +39,7 @@ function makeBlobCanvas(png: Uint8Array, ctx: CanvasRenderingContext2D): CanvasL
     width:  PNG_WIDTH,
     height: PNG_HEIGHT,
     getContext() { return ctx },
-    toBlob(callback) { callback(new Blob([png as any], { type: 'image/png' })) },
+    toBlob(callback) { callback(new Blob([png as unknown as BlobPart], { type: 'image/png' })) },
   }
   return canvas
 }

@@ -5,6 +5,7 @@ import {
   parseSafeNum,
   PLENA_PRICE_BLACK,
   PLENA_PRICE_COLOR,
+  PLENA_PRICES_UPDATED_AT,
 } from '../domain/print-cost'
 
 import { createPrintCostPdf } from '../domain/create-print-cost-pdf'
@@ -50,6 +51,9 @@ export function PrintCostEstimatorTool() {
   function handlePrint() {
     window.print()
   }
+
+  const [year, month, day] = PLENA_PRICES_UPDATED_AT.split('-')
+  const formattedDate = `${day}/${month}/${year}`
 
   const inputData = {
     pagesBlack:      parseSafeNum(pagesBlack),
@@ -258,6 +262,9 @@ export function PrintCostEstimatorTool() {
               {' · '}
               Colorido: {formatCurrency(PLENA_PRICE_COLOR)}/pag
             </p>
+            <p className="pce-result-plena-updated">
+              Preços conferidos em {formattedDate}
+            </p>
           </div>
         </div>
 
@@ -276,9 +283,9 @@ export function PrintCostEstimatorTool() {
         )}
 
         <p className="pce-result-disclaimer">
-          Calculo baseado nos valores informados. Nao inclui energia eletrica,
-          depreciacao do equipamento, acabamento, encadernacao, papel especial
-          nem entrega.
+          Cálculo baseado nos valores informados e nos preços da Plena conferidos em {formattedDate}.
+          Não inclui energia elétrica, depreciação, acabamento, encadernação, papel especial nem entrega.
+          Confirme os preços atuais diretamente na Plena antes de tomar decisões.
         </p>
       </div>
 

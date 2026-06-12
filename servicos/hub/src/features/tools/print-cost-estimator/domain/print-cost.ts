@@ -1,6 +1,7 @@
 // Precos oficiais Plena — documento-base Plena Informatica
 export const PLENA_PRICE_BLACK = 3.00  // R$ por pagina preta
 export const PLENA_PRICE_COLOR = 4.00  // R$ por pagina colorida
+export const PLENA_PRICES_UPDATED_AT = '2026-06-12'
 
 // Limiar de empate: diferenca inferior a R$ 0,01
 export const TIE_THRESHOLD = 0.01

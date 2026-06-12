@@ -186,8 +186,7 @@ describe('integracao institucional do QR Code', () => {
     )
 
     expect(servicesHtml).toContain('data-tool="menu-builder"')
-    expect(servicesHtml).toContain('aria-label="Gerador de Cardápio em breve"')
-    expect(servicesHtml).not.toContain(
+    expect(servicesHtml).toContain(
       'href="ferramentas/qr-code/#/ferramentas/menu-builder"',
     )
   })

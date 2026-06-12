@@ -8,6 +8,6 @@ export const businessCardCreatorManifest: ToolManifest = {
   processing: 'local',
   accountRequirement: 'none',
   persistence: 'none',
-  status: 'available',
+  status: 'building',
   roadmapOrder: 8,
 }

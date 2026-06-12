@@ -22,6 +22,11 @@ type FormState = {
   password: string
   hidden: boolean
   pixPayload: string
+  pixType: 'copia-cola' | 'chave'
+  pixKey: string
+  pixMerchantName: string
+  pixMerchantCity: string
+  pixAmount: string
 }
 
 const modes: Array<{ id: QrMode; label: string }> = [
@@ -30,7 +35,7 @@ const modes: Array<{ id: QrMode; label: string }> = [
   { id: 'whatsapp', label: 'WhatsApp' },
   { id: 'phone', label: 'Telefone' },
   { id: 'wifi', label: 'Wi-Fi' },
-  { id: 'pix', label: 'Pix Copia e Cola' },
+  { id: 'pix', label: 'Pix' },
 ]
 
 const initialForm: FormState = {
@@ -43,6 +48,11 @@ const initialForm: FormState = {
   password: '',
   hidden: false,
   pixPayload: '',
+  pixType: 'copia-cola',
+  pixKey: '',
+  pixMerchantName: '',
+  pixMerchantCity: '',
+  pixAmount: '',
 }
 
 function getQrInput(mode: QrMode, form: FormState): QrInput {
@@ -63,8 +73,18 @@ function getQrInput(mode: QrMode, form: FormState): QrInput {
         password: form.password,
         hidden: form.hidden,
       }
-    case 'pix':
-      return { mode, payload: form.pixPayload }
+    case 'pix': {
+      const amountNum = form.pixAmount ? parseFloat(form.pixAmount.replace(',', '.')) : undefined
+      return {
+        mode,
+        pixType: form.pixType,
+        payload: form.pixPayload,
+        key: form.pixKey,
+        merchantName: form.pixMerchantName,
+        merchantCity: form.pixMerchantCity,
+        amount: amountNum && !isNaN(amountNum) ? amountNum : undefined,
+      }
+    }
   }
 }
 
@@ -259,18 +279,110 @@ export function QrCodeTool({ generateImage = createQrPng }: QrCodeToolProps) {
             )}
 
             {mode === 'pix' && (
-              <label>
-                Código Pix Copia e Cola
-                <textarea
-                  maxLength={MAX_QR_CONTENT_LENGTH}
-                  onChange={(event) =>
-                    updateForm('pixPayload', event.target.value)
-                  }
-                  placeholder="Cole aqui o código gerado pelo seu banco"
-                  rows={6}
-                  value={form.pixPayload}
-                />
-              </label>
+              <>
+                <div className="qr-pix-type-selector" style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.875rem', fontWeight: 500, cursor: 'pointer' }}>
+                    <input
+                      type="radio"
+                      name="pixType"
+                      checked={form.pixType === 'copia-cola'}
+                      onChange={() => updateForm('pixType', 'copia-cola')}
+                      style={{ cursor: 'pointer' }}
+                    />
+                    Copia e Cola
+                  </label>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.875rem', fontWeight: 500, cursor: 'pointer' }}>
+                    <input
+                      type="radio"
+                      name="pixType"
+                      checked={form.pixType === 'chave'}
+                      onChange={() => updateForm('pixType', 'chave')}
+                      style={{ cursor: 'pointer' }}
+                    />
+                    Gerar por Chave
+                  </label>
+                </div>
+
+                {form.pixType === 'copia-cola' ? (
+                  <label>
+                    Código Pix Copia e Cola
+                    <textarea
+                      maxLength={MAX_QR_CONTENT_LENGTH}
+                      onChange={(event) =>
+                        updateForm('pixPayload', event.target.value)
+                      }
+                      placeholder="Cole aqui o código gerado pelo seu banco"
+                      rows={6}
+                      value={form.pixPayload}
+                    />
+                  </label>
+                ) : (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                    <label htmlFor="qr-pix-key">
+                      Chave Pix *
+                    </label>
+                    <input
+                      id="qr-pix-key"
+                      type="text"
+                      onChange={(event) => updateForm('pixKey', event.target.value)}
+                      placeholder="CPF, CNPJ, E-mail, Telefone ou EVP"
+                      value={form.pixKey}
+                    />
+                    <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted, #6b7280)', marginTop: '0.25rem', display: 'block', marginBottom: '0.5rem' }}>
+                      Formatos: CPF (somente números), CNPJ (somente números), Telefone (com ddi/ddd ex: +5511999999999), E-mail ou chave aleatória.
+                    </span>
+
+                    <div style={{ display: 'flex', gap: '0.75rem' }}>
+                      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                        <label htmlFor="qr-pix-name">
+                          Nome do Recebedor *
+                        </label>
+                        <input
+                          id="qr-pix-name"
+                          type="text"
+                          maxLength={25}
+                          onChange={(event) => updateForm('pixMerchantName', event.target.value)}
+                          placeholder="Ex: PLENA LTDA"
+                          value={form.pixMerchantName}
+                        />
+                        <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted, #6b7280)', marginTop: '0.25rem', display: 'block' }}>
+                          {form.pixMerchantName.length}/25 caracteres
+                        </span>
+                      </div>
+                      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                        <label htmlFor="qr-pix-city">
+                          Cidade *
+                        </label>
+                        <input
+                          id="qr-pix-city"
+                          type="text"
+                          maxLength={15}
+                          onChange={(event) => updateForm('pixMerchantCity', event.target.value)}
+                          placeholder="Ex: SALVADOR"
+                          value={form.pixMerchantCity}
+                        />
+                        <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted, #6b7280)', marginTop: '0.25rem', display: 'block' }}>
+                          {form.pixMerchantCity.length}/15 caracteres
+                        </span>
+                      </div>
+                    </div>
+
+                    <label htmlFor="qr-pix-amount" style={{ marginTop: '0.5rem' }}>
+                      Valor da Transação (opcional)
+                    </label>
+                    <input
+                      id="qr-pix-amount"
+                      type="text"
+                      onChange={(event) => updateForm('pixAmount', event.target.value)}
+                      placeholder="0,00"
+                      value={form.pixAmount}
+                    />
+                    <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted, #6b7280)', margin: '0.25rem 0 0' }}>
+                      <strong>Atenção:</strong> Os dados informados são usados estritamente para compor o código Pix localmente no seu navegador. Nenhuma informação é enviada à rede.
+                    </p>
+                  </div>
+                )}
+              </>
             )}
           </div>
 
