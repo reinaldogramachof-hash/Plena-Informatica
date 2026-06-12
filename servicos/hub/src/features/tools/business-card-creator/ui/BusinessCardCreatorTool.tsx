@@ -31,7 +31,7 @@ function triggerDownload(
   filename: string,
   mimeType: string,
 ): void {
-  const blob = new Blob([bytes.buffer as ArrayBuffer], { type: mimeType })
+  const blob = new Blob([bytes as unknown as BlobPart], { type: mimeType })
   const url  = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href     = url

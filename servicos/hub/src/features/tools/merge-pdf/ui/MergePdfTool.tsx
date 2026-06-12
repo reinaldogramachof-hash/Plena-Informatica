@@ -127,7 +127,7 @@ export function MergePdfTool() {
     try {
       const files = pdfFiles.map((f) => f.file)
       const pdfBytes = await mergePdfFiles(files)
-      const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' })
+      const blob = new Blob([pdfBytes as unknown as BlobPart], { type: 'application/pdf' })
       const url = URL.createObjectURL(blob)
 
       const anchor = document.createElement('a')

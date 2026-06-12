@@ -130,7 +130,7 @@ export function DeclarationBuilderTool({
     try {
       setIsGenerating(true)
       const bytes = await generatePdf(preview)
-      const blob = new Blob([bytes.buffer as ArrayBuffer], {
+      const blob = new Blob([bytes as unknown as BlobPart], {
         type: 'application/pdf',
       })
       const url = URL.createObjectURL(blob)

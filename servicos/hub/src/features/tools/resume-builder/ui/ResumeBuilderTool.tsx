@@ -130,7 +130,7 @@ export function ResumeBuilderTool({
       })
       setIsGenerating(true)
       const pdfBytes = await generatePdf(resume, templateId)
-      const blob = new Blob([pdfBytes.buffer as ArrayBuffer], {
+      const blob = new Blob([pdfBytes as unknown as BlobPart], {
         type: 'application/pdf',
       })
       const url = URL.createObjectURL(blob)

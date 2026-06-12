@@ -118,7 +118,7 @@ export function ImagesToPdfTool() {
       )
 
       const pdfBytes = await createImagesPdf(imageDataList, options)
-      const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' })
+      const blob = new Blob([pdfBytes as unknown as BlobPart], { type: 'application/pdf' })
       const url = URL.createObjectURL(blob)
 
       const anchor = document.createElement('a')

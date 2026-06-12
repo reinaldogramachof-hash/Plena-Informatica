@@ -7,6 +7,8 @@ import {
   PLENA_PRICE_COLOR,
 } from '../domain/print-cost'
 
+import { createPrintCostPdf } from '../domain/create-print-cost-pdf'
+
 import './print-cost-estimator.css'
 
 function formatCurrency(value: number): string {
@@ -16,6 +18,16 @@ function formatCurrency(value: number): string {
     minimumFractionDigits: 2,
     maximumFractionDigits: 4,
   })
+}
+
+function triggerDownload(bytes: Uint8Array, filename: string): void {
+  const blob = new Blob([bytes as unknown as BlobPart], { type: 'application/pdf' })
+  const url  = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href     = url
+  link.download = filename
+  link.click()
+  URL.revokeObjectURL(url)
 }
 
 export function PrintCostEstimatorTool() {
@@ -32,12 +44,14 @@ export function PrintCostEstimatorTool() {
 
   // Accordeon
   const [detailsOpen, setDetailsOpen] = useState(false)
+  const [isProcessing, setIsProcessing] = useState(false)
+  const [error, setError] = useState('')
 
   function handlePrint() {
     window.print()
   }
 
-  const result = calculatePrintCost({
+  const inputData = {
     pagesBlack:      parseSafeNum(pagesBlack),
     pagesColor:      parseSafeNum(pagesColor),
     cartridgeCost:   parseSafeNum(cartridgeCost),
@@ -45,7 +59,24 @@ export function PrintCostEstimatorTool() {
     paperResmaCost:  parseSafeNum(paperResmaCost),
     paperResmaSheets: parseSafeNum(paperResmaSheets),
     maintenanceCost: parseSafeNum(maintenanceCost),
-  })
+  }
+  const result = calculatePrintCost(inputData)
+
+  async function handleDownloadPdf() {
+    if (isProcessing) return
+    setError('')
+    setIsProcessing(true)
+    try {
+      const bytes = await createPrintCostPdf(inputData, result)
+      triggerDownload(bytes, 'plena-comparativo-impressao.pdf')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Falha ao gerar o PDF.')
+    } finally {
+      setIsProcessing(false)
+    }
+  }
+
+
 
   const verdictText = {
     economy: `Voce economizaria ${formatCurrency(result.difference)} por mes indo a Plena.`,
@@ -254,13 +285,27 @@ export function PrintCostEstimatorTool() {
       {/* Acoes */}
       <div className="pce-actions">
         <button
+          className="pce-btn pce-btn--primary"
+          disabled={isProcessing}
+          onClick={handleDownloadPdf}
+          type="button"
+        >
+          {isProcessing ? 'Gerando PDF...' : 'Baixar comparativo PDF'}
+        </button>
+        <button
           className="pce-btn pce-btn--secondary"
           onClick={handlePrint}
           type="button"
         >
-          Imprimir comparativo
+          Imprimir tela
         </button>
       </div>
+
+      {error && (
+        <p className="pce-error" role="alert">
+          {error}
+        </p>
+      )}
 
       {/* Aviso editorial */}
       <p className="pce-editorial-notice">

@@ -26,7 +26,7 @@ function createItem(): MenuItemData {
 }
 
 function triggerDownload(bytes: Uint8Array, filename: string): void {
-  const blob = new Blob([bytes.buffer as ArrayBuffer], { type: 'application/pdf' })
+  const blob = new Blob([bytes as unknown as BlobPart], { type: 'application/pdf' })
   const url  = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href     = url

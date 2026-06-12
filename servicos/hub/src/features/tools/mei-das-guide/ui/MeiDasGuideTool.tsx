@@ -2,8 +2,19 @@ import { useState } from 'react'
 
 import { getDasInfo } from '../domain/das-values'
 import type { ActivityType } from '../domain/das-values'
+import { createDasGuidePdf } from '../domain/create-das-guide-pdf'
 
 import './mei-das-guide.css'
+
+function triggerDownload(bytes: Uint8Array, filename: string): void {
+  const blob = new Blob([bytes as unknown as BlobPart], { type: 'application/pdf' })
+  const url  = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href     = url
+  link.download = filename
+  link.click()
+  URL.revokeObjectURL(url)
+}
 
 const MONTHS = [
   'Janeiro', 'Fevereiro', 'Marco', 'Abril',
@@ -26,6 +37,9 @@ export function MeiDasGuideTool() {
   const [activity, setActivity]       = useState<ActivityType | null>(null)
   const [paidMonths, setPaidMonths]   = useState<Set<number>>(new Set())
 
+  const [isProcessing, setIsProcessing] = useState(false)
+  const [error, setError] = useState('')
+
   function toggleMonth(index: number) {
     setPaidMonths((prev) => {
       const next = new Set(prev)
@@ -40,6 +54,20 @@ export function MeiDasGuideTool() {
 
   const dasInfo = activity ? getDasInfo(activity) : null
   const totalPaid = paidMonths.size
+
+  async function handleDownloadPdf() {
+    if (isProcessing) return
+    setError('')
+    setIsProcessing(true)
+    try {
+      const bytes = await createDasGuidePdf(dasInfo, paidMonths)
+      triggerDownload(bytes, 'plena-guia-das-mei.pdf')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Falha ao gerar o PDF.')
+    } finally {
+      setIsProcessing(false)
+    }
+  }
 
   return (
     <section className="mdg-tool" aria-labelledby="mdg-title">
@@ -210,13 +238,26 @@ export function MeiDasGuideTool() {
 
         <div className="mdg-months-actions">
           <button
+            className="mdg-btn mdg-btn--primary"
+            disabled={isProcessing}
+            onClick={handleDownloadPdf}
+            type="button"
+          >
+            {isProcessing ? 'Gerando PDF...' : 'Baixar PDF'}
+          </button>
+          <button
             className="mdg-btn mdg-btn--secondary"
             onClick={handlePrint}
             type="button"
           >
-            Imprimir organizacao
+            Imprimir organização
           </button>
         </div>
+        {error && (
+          <p className="mdg-error" role="alert" style={{ marginTop: '12px', color: '#d93025' }}>
+            {error}
+          </p>
+        )}
       </div>
 
       {/* Aviso de privacidade de sessao */}
