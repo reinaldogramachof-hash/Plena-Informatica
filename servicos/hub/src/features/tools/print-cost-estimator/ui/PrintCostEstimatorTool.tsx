@@ -1,11 +1,13 @@
 import { useState } from 'react'
 
-import './print-cost-estimator.css'
+import {
+  calculatePrintCost,
+  parseSafeNum,
+  PLENA_PRICE_BLACK,
+  PLENA_PRICE_COLOR,
+} from '../domain/print-cost'
 
-function parseNum(value: string): number {
-  const n = parseFloat(value.replace(',', '.'))
-  return isNaN(n) || n < 0 ? 0 : n
-}
+import './print-cost-estimator.css'
 
 function formatCurrency(value: number): string {
   return value.toLocaleString('pt-BR', {
@@ -18,49 +20,43 @@ function formatCurrency(value: number): string {
 
 export function PrintCostEstimatorTool() {
   // Volume mensal
-  const [pagesBlack, setPagesBlack] = useState('')
-  const [pagesColor, setPagesColor] = useState('')
+  const [pagesBlack, setPagesBlack]       = useState('')
+  const [pagesColor, setPagesColor]       = useState('')
 
   // Custo da impressora
-  const [cartridgeCost, setCartridgeCost] = useState('')
-  const [cartridgeYield, setCartridgeYield] = useState('')
-  const [paperResmaCost, setPaperResmaCost] = useState('')
-  const [paperResmaSheets, setPaperResmaSheets] = useState('')
-  const [maintenanceCost, setMaintenanceCost] = useState('')
+  const [cartridgeCost, setCartridgeCost]           = useState('')
+  const [cartridgeYield, setCartridgeYield]         = useState('')
+  const [paperResmaCost, setPaperResmaCost]         = useState('')
+  const [paperResmaSheets, setPaperResmaSheets]     = useState('')
+  const [maintenanceCost, setMaintenanceCost]       = useState('')
 
   // Accordeon
   const [detailsOpen, setDetailsOpen] = useState(false)
-
-  const [error] = useState('')
 
   function handlePrint() {
     window.print()
   }
 
-  // Cálculos stub — o Codex implementará a lógica real
-  const totalPages = parseNum(pagesBlack) + parseNum(pagesColor)
-  const costPerCartridgePage =
-    parseNum(cartridgeYield) > 0
-      ? parseNum(cartridgeCost) / parseNum(cartridgeYield)
-      : 0
-  const costPerPaperPage =
-    parseNum(paperResmaSheets) > 0
-      ? parseNum(paperResmaCost) / parseNum(paperResmaSheets)
-      : 0
-  const costPerPageOwn = costPerCartridgePage + costPerPaperPage
-  const monthlyMaintenance = parseNum(maintenanceCost)
-  const totalOwnMonth = totalPages * costPerPageOwn + monthlyMaintenance
+  const result = calculatePrintCost({
+    pagesBlack:      parseSafeNum(pagesBlack),
+    pagesColor:      parseSafeNum(pagesColor),
+    cartridgeCost:   parseSafeNum(cartridgeCost),
+    cartridgeYield:  parseSafeNum(cartridgeYield),
+    paperResmaCost:  parseSafeNum(paperResmaCost),
+    paperResmaSheets: parseSafeNum(paperResmaSheets),
+    maintenanceCost: parseSafeNum(maintenanceCost),
+  })
 
-  // Custo Plena — stub (o Codex preencherá com tabela real)
-  const PLENA_COST_PER_PAGE = 0
-  const totalPlenaMonth = totalPages * PLENA_COST_PER_PAGE
-
-  const difference = Math.abs(totalOwnMonth - totalPlenaMonth)
+  const verdictText = {
+    economy: `Voce economizaria ${formatCurrency(result.difference)} por mes indo a Plena.`,
+    extra:   `Sua impressora propria e ${formatCurrency(result.difference)} mais barata por mes.`,
+    tie:     'Os custos sao praticamente iguais.',
+  }[result.verdict]
 
   return (
     <section className="pce-tool" aria-labelledby="pce-title">
       <div className="pce-intro">
-        <h2 id="pce-title">Calculadora de Impressão</h2>
+        <h2 id="pce-title">Calculadora de Impressao</h2>
         <p className="pce-subtitle">
           Compare o custo de imprimir em casa com o custo de terceirizar na Plena.
         </p>
@@ -75,9 +71,9 @@ export function PrintCostEstimatorTool() {
         <legend className="pce-legend">Seu volume mensal</legend>
         <div className="pce-fields pce-fields--grid">
           <label className="pce-label">
-            Páginas em preto por mês
+            Paginas em preto por mes
             <input
-              aria-label="Páginas em preto por mês"
+              aria-label="Paginas em preto por mes"
               className="pce-input"
               min="0"
               onChange={(e) => setPagesBlack(e.target.value)}
@@ -87,9 +83,9 @@ export function PrintCostEstimatorTool() {
             />
           </label>
           <label className="pce-label">
-            Páginas coloridas por mês
+            Paginas coloridas por mes
             <input
-              aria-label="Páginas coloridas por mês"
+              aria-label="Paginas coloridas por mes"
               className="pce-input"
               min="0"
               onChange={(e) => setPagesColor(e.target.value)}
@@ -132,9 +128,9 @@ export function PrintCostEstimatorTool() {
                 />
               </label>
               <label className="pce-label">
-                Rendimento do cartucho (páginas)
+                Rendimento do cartucho (paginas)
                 <input
-                  aria-label="Rendimento do cartucho em páginas"
+                  aria-label="Rendimento do cartucho em paginas"
                   className="pce-input"
                   min="0"
                   onChange={(e) => setCartridgeYield(e.target.value)}
@@ -169,9 +165,9 @@ export function PrintCostEstimatorTool() {
                 />
               </label>
               <label className="pce-label">
-                Manutenção mensal estimada (R$)
+                Manutencao mensal estimada (R$)
                 <input
-                  aria-label="Custo de manutenção mensal estimado em reais"
+                  aria-label="Custo de manutencao mensal estimado em reais"
                   className="pce-input"
                   min="0"
                   onChange={(e) => setMaintenanceCost(e.target.value)}
@@ -183,27 +179,27 @@ export function PrintCostEstimatorTool() {
               </label>
             </div>
             <p className="pce-detail-hint">
-              Preencha com os valores reais do seu equipamento para uma comparação precisa.
+              Preencha com os valores reais do seu equipamento para uma comparacao precisa.
             </p>
           </div>
         )}
       </div>
 
       {/* Resultado */}
-      <div className="pce-result" aria-label="Resultado da comparação">
+      <div className="pce-result" aria-label="Resultado da comparacao">
         <div className="pce-result-cards">
           <div className="pce-result-card pce-result-card--own">
-            <p className="pce-result-card-title">Impressora própria</p>
+            <p className="pce-result-card-title">Impressora propria</p>
             <p className="pce-result-card-per-page">
-              <span className="pce-result-label">Por página:</span>
+              <span className="pce-result-label">Por pagina:</span>
               <span className="pce-result-value">
-                {formatCurrency(costPerPageOwn)}
+                {formatCurrency(result.ownCostPerPage)}
               </span>
             </p>
             <p className="pce-result-card-monthly">
               <span className="pce-result-label">Total mensal:</span>
               <strong className="pce-result-value pce-result-value--big">
-                {formatCurrency(totalOwnMonth)}
+                {formatCurrency(result.ownCostMonthly)}
               </strong>
             </p>
           </div>
@@ -215,32 +211,47 @@ export function PrintCostEstimatorTool() {
           <div className="pce-result-card pce-result-card--plena">
             <p className="pce-result-card-title">Na Plena</p>
             <p className="pce-result-card-per-page">
-              <span className="pce-result-label">Por página:</span>
+              <span className="pce-result-label">Por pagina (media):</span>
               <span className="pce-result-value">
-                {formatCurrency(PLENA_COST_PER_PAGE)}
+                {formatCurrency(result.plenaCostPerPage)}
               </span>
             </p>
             <p className="pce-result-card-monthly">
               <span className="pce-result-label">Total mensal:</span>
               <strong className="pce-result-value pce-result-value--big">
-                {formatCurrency(totalPlenaMonth)}
+                {formatCurrency(result.plenaCostMonthly)}
               </strong>
+            </p>
+            <p className="pce-result-plena-rates">
+              Preto: {formatCurrency(PLENA_PRICE_BLACK)}/pag
+              {' · '}
+              Colorido: {formatCurrency(PLENA_PRICE_COLOR)}/pag
             </p>
           </div>
         </div>
 
         <div className="pce-result-difference">
-          <span className="pce-result-diff-label">Diferença entre os cenários:</span>
-          <span className="pce-result-diff-value">{formatCurrency(difference)}</span>
+          <span className="pce-result-diff-label">Diferenca entre os cenarios:</span>
+          <span className="pce-result-diff-value">{formatCurrency(result.difference)}</span>
         </div>
 
+        {verdictText && (
+          <p
+            className={`pce-result-verdict pce-result-verdict--${result.verdict}`}
+            aria-label="Conclusao da comparacao"
+          >
+            {verdictText}
+          </p>
+        )}
+
         <p className="pce-result-disclaimer">
-          Cálculo baseado nos valores informados. Não inclui custo de energia
-          elétrica nem depreciação do equipamento.
+          Calculo baseado nos valores informados. Nao inclui energia eletrica,
+          depreciacao do equipamento, acabamento, encadernacao, papel especial
+          nem entrega.
         </p>
       </div>
 
-      {/* Ações */}
+      {/* Acoes */}
       <div className="pce-actions">
         <button
           className="pce-btn pce-btn--secondary"
@@ -253,14 +264,8 @@ export function PrintCostEstimatorTool() {
 
       {/* Aviso editorial */}
       <p className="pce-editorial-notice">
-        Esta calculadora é apenas orientativa e não representa proposta comercial.
+        Esta calculadora e apenas orientativa e nao representa proposta comercial.
       </p>
-
-      {error && (
-        <p className="pce-error" role="alert">
-          {error}
-        </p>
-      )}
     </section>
   )
 }

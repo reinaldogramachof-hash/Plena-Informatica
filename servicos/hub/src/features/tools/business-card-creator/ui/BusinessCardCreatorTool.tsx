@@ -1,22 +1,20 @@
 import { useState } from 'react'
 
+import { createBusinessCardPdf } from '../domain/create-business-card-pdf'
+import { createBusinessCardPng } from '../domain/create-business-card-png'
+import type { CardData, CardStyle } from '../domain/business-card-data'
+
 import './business-card-creator.css'
 
-export type CardStyle = 'classic' | 'modern' | 'colorful'
-
-export interface CardData {
-  fullName: string
-  role: string
-  phone: string
-  email: string
-  website: string
-  city: string
-  company: string
-}
+// Re-exporta para compatibilidade com importadores externos
+export type { CardData, CardStyle }
 
 export interface BusinessCardCreatorToolProps {
   generatePdf?: (data: CardData, style: CardStyle) => Promise<Uint8Array>
+  generatePng?: (data: CardData, style: CardStyle) => Promise<Uint8Array>
 }
+
+type Processing = 'idle' | 'pdf' | 'png'
 
 const initialData: CardData = {
   fullName: '',
@@ -28,26 +26,44 @@ const initialData: CardData = {
   company: '',
 }
 
-export function BusinessCardCreatorTool({
-  generatePdf = async () => new Uint8Array(),
-}: BusinessCardCreatorToolProps) {
-  const [data, setData] = useState<CardData>(initialData)
-  const [style, setStyle] = useState<CardStyle>('classic')
-  const [error, setError] = useState('')
-  const [isProcessing, setIsProcessing] = useState(false)
+function triggerDownload(
+  bytes: Uint8Array,
+  filename: string,
+  mimeType: string,
+): void {
+  const blob = new Blob([bytes.buffer as ArrayBuffer], { type: mimeType })
+  const url  = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href     = url
+  link.download = filename
+  link.click()
+  URL.revokeObjectURL(url)
+}
 
-  const hasName = data.fullName.trim().length > 0
+export function BusinessCardCreatorTool({
+  generatePdf = createBusinessCardPdf,
+  generatePng = createBusinessCardPng,
+}: BusinessCardCreatorToolProps) {
+  const [data, setData]           = useState<CardData>(initialData)
+  const [style, setStyle]         = useState<CardStyle>('classic')
+  const [error, setError]         = useState('')
+  const [processing, setProcessing] = useState<Processing>('idle')
+
+  const hasName   = data.fullName.trim().length > 0
+  const isIdle    = processing === 'idle'
+  const canAct    = hasName && isIdle
 
   function updateField(field: keyof CardData, value: string) {
     setData((prev) => ({ ...prev, [field]: value }))
   }
 
-  async function handleDownload() {
-    if (!hasName || isProcessing) return
+  async function handleDownloadPdf() {
+    if (!canAct) return
     setError('')
-    setIsProcessing(true)
+    setProcessing('pdf')
     try {
-      await generatePdf(data, style)
+      const bytes = await generatePdf(data, style)
+      triggerDownload(bytes, 'plena-cartao-visitas.pdf', 'application/pdf')
     } catch (err) {
       setError(
         err instanceof Error
@@ -55,7 +71,25 @@ export function BusinessCardCreatorTool({
           : 'Não foi possível gerar o PDF. Tente novamente.',
       )
     } finally {
-      setIsProcessing(false)
+      setProcessing('idle')
+    }
+  }
+
+  async function handleDownloadPng() {
+    if (!canAct) return
+    setError('')
+    setProcessing('png')
+    try {
+      const bytes = await generatePng(data, style)
+      triggerDownload(bytes, 'plena-cartao-visitas.png', 'image/png')
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Não foi possível gerar o PNG. Tente novamente.',
+      )
+    } finally {
+      setProcessing('idle')
     }
   }
 
@@ -65,8 +99,8 @@ export function BusinessCardCreatorTool({
 
   const previewClass = [
     'bcc-card-preview',
-    style === 'classic' ? 'bcc-card-preview--classic' : '',
-    style === 'modern' ? 'bcc-card-preview--modern' : '',
+    style === 'classic'  ? 'bcc-card-preview--classic'  : '',
+    style === 'modern'   ? 'bcc-card-preview--modern'   : '',
     style === 'colorful' ? 'bcc-card-preview--colorful' : '',
   ]
     .filter(Boolean)
@@ -229,11 +263,19 @@ export function BusinessCardCreatorTool({
           <div className="bcc-actions">
             <button
               className="bcc-btn bcc-btn--primary"
-              disabled={!hasName || isProcessing}
-              onClick={handleDownload}
+              disabled={!canAct}
+              onClick={handleDownloadPdf}
               type="button"
             >
-              {isProcessing ? 'Processando...' : 'Baixar como PDF'}
+              {processing === 'pdf' ? 'Gerando PDF...' : 'Baixar como PDF'}
+            </button>
+            <button
+              className="bcc-btn bcc-btn--primary"
+              disabled={!canAct}
+              onClick={handleDownloadPng}
+              type="button"
+            >
+              {processing === 'png' ? 'Gerando PNG...' : 'Baixar como PNG'}
             </button>
             <button
               className="bcc-btn bcc-btn--secondary"
@@ -254,7 +296,10 @@ export function BusinessCardCreatorTool({
         {/* Prévia */}
         <div className="bcc-preview-area">
           <p className="bcc-preview-label">Prévia</p>
-          <div className={previewClass} aria-label="Prévia do cartão de visitas">
+          <div
+            className={previewClass}
+            aria-label="Prévia do cartão de visitas"
+          >
             <div className="bcc-card-inner">
               {data.company && (
                 <p className="bcc-card-company">{data.company}</p>

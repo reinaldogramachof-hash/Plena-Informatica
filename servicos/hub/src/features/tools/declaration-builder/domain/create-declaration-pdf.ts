@@ -138,6 +138,67 @@ export const renderDeclarationPdf: DeclarationPdfRenderer = async (document) => 
     drawParagraph(paragraph)
   }
 
+
+  // ── table (quote only) ──────────────────────────────────────────────────
+  if (document.table) {
+    const { headers, rows, totalLabel, totalValue } = document.table
+    const colWidths = [width * 0.44, width * 0.1, width * 0.2, width * 0.2]
+    const rowH = 18
+    const headerH = 22
+    const tableRows = [...rows, [totalLabel, '', '', totalValue]]
+
+    ensureSpace(headerH + tableRows.length * rowH + 12)
+
+    // header row
+    let cx = margin
+    for (let i = 0; i < headers.length; i++) {
+      page.drawText(headers[i]!, {
+        x: cx + 4,
+        y: y - 5,
+        size: 8.5,
+        font: bold,
+        color: rgb(0.02, 0.1, 0.21),
+      })
+      cx += colWidths[i]!
+    }
+    page.drawLine({
+      start: { x: margin, y: y - headerH + 4 },
+      end: { x: pageSize[0] - margin, y: y - headerH + 4 },
+      thickness: 0.7,
+      color: rgb(0.35, 0.4, 0.48),
+    })
+    y -= headerH
+
+    // data rows + total row
+    for (let r = 0; r < tableRows.length; r++) {
+      const row = tableRows[r]!
+      const isTotal = r === tableRows.length - 1
+      if (isTotal) {
+        page.drawLine({
+          start: { x: margin, y: y + rowH - 4 },
+          end: { x: pageSize[0] - margin, y: y + rowH - 4 },
+          thickness: 0.5,
+          color: rgb(0.78, 0.81, 0.85),
+        })
+      }
+      cx = margin
+      for (let c = 0; c < colWidths.length; c++) {
+        const cell = row[c] ?? ''
+        const font = isTotal ? bold : regular
+        page.drawText(cell, {
+          x: cx + 4,
+          y: y - 5,
+          size: isTotal ? 9 : 8.5,
+          font,
+          color: rgb(0.02, 0.1, 0.21),
+        })
+        cx += colWidths[c]!
+      }
+      y -= rowH
+    }
+    y -= 12
+  }
+
   ensureSpace(150)
   y -= 12
   if (document.locationDate) {

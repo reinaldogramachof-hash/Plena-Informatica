@@ -6,12 +6,13 @@ import {
 } from './declaration-templates'
 
 describe('declaration templates', () => {
-  it('provides the five approved templates', () => {
+  it('provides the six approved templates', () => {
     expect(declarationTemplates.map((template) => template.id)).toEqual([
       'residence',
       'work-income',
       'minor-authorization',
       'receipt',
+      'quote',
       'custom',
     ])
   })
@@ -70,5 +71,17 @@ describe('declaration templates', () => {
         { value: 'partial', label: 'Quitação parcial' },
       ]),
     })
+  })
+
+  it('provides quote template with required issuerName and clientName fields', () => {
+    const quote = getDeclarationTemplate('quote')
+    expect(quote.name).toContain('Orçamento')
+    const fieldIds = quote.fields.map((field) => field.id)
+    expect(fieldIds).toContain('issuerName')
+    expect(fieldIds).toContain('clientName')
+    const issuer = quote.fields.find((field) => field.id === 'issuerName')
+    expect(issuer?.required).toBe(true)
+    const client = quote.fields.find((field) => field.id === 'clientName')
+    expect(client?.required).toBe(true)
   })
 })

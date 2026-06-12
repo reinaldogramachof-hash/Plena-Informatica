@@ -1,0 +1,149 @@
+<style>
+  .design-intro { max-width: 840px; margin-bottom: 28px; }
+  .design-intro strong { color: #f97316; }
+  .directions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .direction { cursor: pointer; border: 2px solid #dbe4ee; border-radius: 24px; overflow: hidden; background: #f8fafc; transition: .2s ease; }
+  .direction:hover { border-color: #f97316; transform: translateY(-3px); }
+  .direction.selected { border-color: #f97316; box-shadow: 0 0 0 4px rgba(249,115,22,.14); }
+  .direction-label { display: flex; gap: 12px; align-items: center; padding: 16px 18px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+  .letter-custom { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #071b37; color: #fff; font-weight: 900; }
+  .direction-label h3 { margin: 0; font-size: 16px; color: #071b37; }
+  .direction-label p { margin: 3px 0 0; font-size: 12px; color: #64748b; }
+  .preview { padding: 18px; background: #eef2f6; min-height: 540px; }
+  .sample-card { display: flex; flex-direction: column; min-height: 340px; padding: 19px; border-radius: 20px; background: #fff; box-shadow: 0 16px 42px rgba(7,27,55,.13); color: #071b37; }
+  .topline, .card-actions, .trust-row, .meta-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .badge { display: inline-flex; align-items: center; min-height: 25px; padding: 0 9px; border-radius: 999px; font-size: 9px; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+  .badge.free { color: #166534; background: #dcfce7; }
+  .badge.local { color: #075985; background: #e0f2fe; }
+  .badge.assist { color: #9a3412; background: #ffedd5; }
+  .tiny { color: #94a3b8; font-size: 10px; font-weight: 800; }
+  .icon-box { display: grid; place-items: center; width: 48px; height: 48px; margin: 24px 0 18px; border-radius: 15px; background: #fff1e8; color: #ea580c; font-size: 23px; font-weight: 900; }
+  .sample-card h4 { margin: 0 0 8px; font-size: 21px; line-height: 1.1; }
+  .sample-card .desc { margin: 0; color: #64748b; font-size: 13px; line-height: 1.55; }
+  .benefits { display: grid; gap: 7px; margin: 17px 0; padding: 0; list-style: none; color: #334155; font-size: 11px; }
+  .benefits li::before { content: "✓"; margin-right: 7px; color: #16a34a; font-weight: 900; }
+  .card-bottom { margin-top: auto; }
+  .meta-row { margin-bottom: 12px; padding-top: 13px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 10px; }
+  .cta { display: grid; place-items: center; min-height: 43px; border-radius: 12px; background: #ea580c; color: #fff; font-size: 12px; font-weight: 900; }
+  .cta.secondary { background: #071b37; }
+  .link { color: #ea580c; font-size: 11px; font-weight: 900; }
+  .price { font-size: 17px; font-weight: 950; }
+  .price small { color: #64748b; font-size: 9px; font-weight: 700; }
+  .trust-row { justify-content: flex-start; margin: 14px 0 0; color: #64748b; font-size: 10px; }
+  .mobile-label { margin: 22px 0 8px; color: #64748b; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .mobile { width: 72%; margin: auto; padding: 10px; border: 5px solid #071b37; border-radius: 22px; background: #eef2f6; }
+  .mobile .sample-card { min-height: 230px; padding: 13px; border-radius: 14px; }
+  .mobile .icon-box { width: 36px; height: 36px; margin: 15px 0 12px; border-radius: 11px; font-size: 17px; }
+  .mobile .sample-card h4 { font-size: 15px; }
+  .mobile .sample-card .desc { font-size: 9px; }
+  .mobile .benefits { margin: 10px 0; font-size: 8px; }
+  .mobile .cta { min-height: 36px; font-size: 9px; }
+  .mobile .meta-row, .mobile .trust-row { font-size: 7px; }
+  .mobile .price { font-size: 12px; }
+  .notes { display: grid; gap: 6px; padding: 16px 18px 20px; background: #fff; color: #475569; font-size: 12px; }
+  .notes span::before { content: "•"; margin-right: 7px; color: #f97316; }
+  @media (max-width: 980px) { .directions { grid-template-columns: 1fr; } .preview { min-height: auto; } .mobile { max-width: 230px; } }
+</style>
+
+<div class="design-intro">
+  <h2>Qual direção deve orientar os cards da Plena?</h2>
+  <p class="subtitle">As três opções funcionam no celular. Escolha pela experiência que melhor combina com a marca e com a chegada de <strong>novas ferramentas e serviços com preço</strong>.</p>
+</div>
+
+<div class="directions">
+  <div class="direction" data-choice="a-essencial" onclick="toggleSelect(this)">
+    <div class="direction-label">
+      <div class="letter-custom">A</div>
+      <div><h3>Essencial e direta</h3><p>Menos leitura, decisão rápida</p></div>
+    </div>
+    <div class="preview">
+      <div class="sample-card">
+        <div class="topline"><span class="badge free">Grátis</span><span class="tiny">DOCUMENTOS</span></div>
+        <div class="icon-box">D</div>
+        <h4>Gerador de Declarações</h4>
+        <p class="desc">Crie declarações e autorizações a partir de modelos orientados.</p>
+        <div class="card-bottom">
+          <div class="meta-row"><span>PDF pronto</span><span>5 a 10 min</span></div>
+          <div class="cta">Usar ferramenta</div>
+        </div>
+      </div>
+      <div class="mobile-label">No celular</div>
+      <div class="mobile">
+        <div class="sample-card">
+          <div class="topline"><span class="badge free">Grátis</span><span class="tiny">PDF</span></div>
+          <div class="icon-box">D</div>
+          <h4>Gerador de Declarações</h4>
+          <p class="desc">Modelos orientados e download em PDF.</p>
+          <div class="card-bottom"><div class="cta">Usar ferramenta</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><span>Escaneamento visual mais rápido</span><span>Boa para catálogo com muitos itens</span><span>Preço aparece apenas quando necessário</span></div>
+  </div>
+
+  <div class="direction" data-choice="b-orientada" onclick="toggleSelect(this)">
+    <div class="direction-label">
+      <div class="letter-custom">B</div>
+      <div><h3>Orientada por benefícios</h3><p>Explica valor antes do clique</p></div>
+    </div>
+    <div class="preview">
+      <div class="sample-card">
+        <div class="topline"><span class="badge local">Processamento local</span><span class="tiny">PDF</span></div>
+        <div class="icon-box">P</div>
+        <h4>Imagens para PDF</h4>
+        <p class="desc">Organize fotos e documentos digitalizados em um único arquivo.</p>
+        <ul class="benefits"><li>Reordene as páginas</li><li>Arquivos não saem do aparelho</li><li>Baixe imediatamente</li></ul>
+        <div class="card-bottom">
+          <div class="meta-row"><span>Sem cadastro</span><span>Grátis</span></div>
+          <div class="cta">Começar agora</div>
+        </div>
+      </div>
+      <div class="mobile-label">No celular</div>
+      <div class="mobile">
+        <div class="sample-card">
+          <div class="topline"><span class="badge local">Local</span><span class="tiny">PDF</span></div>
+          <div class="icon-box">P</div>
+          <h4>Imagens para PDF</h4>
+          <p class="desc">Organize fotos em um único PDF.</p>
+          <ul class="benefits"><li>Privado</li><li>Sem cadastro</li></ul>
+          <div class="card-bottom"><div class="cta">Começar agora</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><span>Aumenta confiança e entendimento</span><span>Melhor para ferramentas menos conhecidas</span><span>Cards ficam um pouco mais altos</span></div>
+  </div>
+
+  <div class="direction" data-choice="c-hibrida" onclick="toggleSelect(this)">
+    <div class="direction-label">
+      <div class="letter-custom">C</div>
+      <div><h3>Híbrida: digital + escritório</h3><p>Ferramenta gratuita e serviço pago</p></div>
+    </div>
+    <div class="preview">
+      <div class="sample-card">
+        <div class="topline"><span class="badge assist">Atendimento assistido</span><span class="tiny">MEI + IRPF</span></div>
+        <div class="icon-box">✓</div>
+        <h4>Checklist MEI e IRPF</h4>
+        <p class="desc">Descubra o que separar e, se precisar, avance para o atendimento Plena.</p>
+        <div class="trust-row"><span>✓ Checklist gratuito</span><span>✓ Sem dados sensíveis</span></div>
+        <div class="card-bottom">
+          <div class="meta-row"><span><strong class="price">Grátis</strong><br><small>para organizar</small></span><span class="link">Ver serviço profissional</span></div>
+          <div class="cta secondary">Montar meu checklist</div>
+        </div>
+      </div>
+      <div class="mobile-label">No celular</div>
+      <div class="mobile">
+        <div class="sample-card">
+          <div class="topline"><span class="badge assist">Assistido</span><span class="tiny">MEI</span></div>
+          <div class="icon-box">✓</div>
+          <h4>Checklist MEI e IRPF</h4>
+          <p class="desc">Organize agora. Contrate ajuda apenas se precisar.</p>
+          <div class="card-bottom">
+            <div class="meta-row"><span class="price">Grátis</span><span class="link">Ajuda Plena</span></div>
+            <div class="cta secondary">Montar checklist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><span>Conecta ferramentas à tabela de preços</span><span>Preserva utilidade gratuita sem pressão comercial</span><span>Exige regras claras para CTA primário e secundário</span></div>
+  </div>
+</div>

@@ -1,32 +1,38 @@
 import { useState } from 'react'
 
+import { createLabelsPdf } from '../domain/create-labels-pdf'
+import { LABEL_LAYOUTS } from '../domain/label-layouts'
+import type { LabelLayout } from '../domain/label-layouts'
+
 import './label-generator.css'
 
-export type LabelLayout = '2x6' | '3x9' | '4x13'
-
-const LAYOUT_CAPACITY: Record<LabelLayout, number> = {
-  '2x6': 12,
-  '3x9': 27,
-  '4x13': 52,
-}
-
-const LAYOUT_GRID: Record<LabelLayout, { cols: number; rows: number }> = {
-  '2x6': { cols: 2, rows: 6 },
-  '3x9': { cols: 3, rows: 9 },
-  '4x13': { cols: 4, rows: 13 },
-}
+export type { LabelLayout }
 
 export interface LabelGeneratorToolProps {
-  generatePdf?: (labels: string[], layout: LabelLayout) => Promise<Uint8Array>
+  generatePdf?: (
+    labels: string[],
+    layout: LabelLayout,
+    withBorder: boolean,
+  ) => Promise<Uint8Array>
+}
+
+function triggerDownload(bytes: Uint8Array, filename: string): void {
+  const blob = new Blob([bytes.buffer as ArrayBuffer], { type: 'application/pdf' })
+  const url  = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href     = url
+  link.download = filename
+  link.click()
+  URL.revokeObjectURL(url)
 }
 
 export function LabelGeneratorTool({
-  generatePdf = async () => new Uint8Array(),
+  generatePdf = createLabelsPdf,
 }: LabelGeneratorToolProps) {
-  const [content, setContent] = useState('')
-  const [layout, setLayout] = useState<LabelLayout>('2x6')
-  const [withBorder, setWithBorder] = useState(false)
-  const [error, setError] = useState('')
+  const [content, setContent]           = useState('')
+  const [layout, setLayout]             = useState<LabelLayout>('2x6')
+  const [withBorder, setWithBorder]     = useState(false)
+  const [error, setError]               = useState('')
   const [isProcessing, setIsProcessing] = useState(false)
 
   const labels = content
@@ -34,24 +40,24 @@ export function LabelGeneratorTool({
     .map((l) => l.trim())
     .filter(Boolean)
 
-  const labelCount = labels.length
-  const maxCapacity = LAYOUT_CAPACITY[layout]
-  const exceeds = labelCount > maxCapacity
-  const hasContent = labelCount > 0
-
-  const gridConfig = LAYOUT_GRID[layout]
+  const labelCount  = labels.length
+  const def         = LABEL_LAYOUTS[layout]
+  const maxCapacity = def.capacity
+  const exceeds     = labelCount > maxCapacity
+  const hasContent  = labelCount > 0
 
   async function handleGenerate() {
     if (!hasContent || isProcessing) return
     setError('')
     setIsProcessing(true)
     try {
-      await generatePdf(labels, layout)
+      const bytes = await generatePdf(labels, layout, withBorder)
+      triggerDownload(bytes, 'plena-etiquetas.pdf')
     } catch (err) {
       setError(
         err instanceof Error
           ? err.message
-          : 'Não foi possível gerar o PDF de etiquetas. Tente novamente.',
+          : 'Nao foi possivel gerar o PDF de etiquetas. Tente novamente.',
       )
     } finally {
       setIsProcessing(false)
@@ -63,7 +69,7 @@ export function LabelGeneratorTool({
       <div className="lg-intro">
         <h2 id="lg-title">Gerador de Etiquetas</h2>
         <p className="lg-subtitle">
-          Crie etiquetas para impressão em folha A4 padrão.
+          Crie etiquetas para impressao em folha A4 padrao.
         </p>
       </div>
 
@@ -84,13 +90,13 @@ export function LabelGeneratorTool({
               value={layout}
             >
               <option value="2x6">
-                2×6 — 12 etiquetas por página (Pimaco 6182)
+                2x6 — 12 etiquetas por pagina (Pimaco 6182)
               </option>
               <option value="3x9">
-                3×9 — 27 etiquetas por página (Pimaco 6080)
+                3x9 — 27 etiquetas por pagina (Pimaco 6080)
               </option>
               <option value="4x13">
-                4×13 — 52 etiquetas por página (Pimaco 6080 mini)
+                4x13 — 52 etiquetas por pagina (Pimaco 6080 mini)
               </option>
             </select>
           </label>
@@ -105,15 +111,15 @@ export function LabelGeneratorTool({
         </div>
       </fieldset>
 
-      {/* Conteúdo das etiquetas */}
+      {/* Conteudo das etiquetas */}
       <fieldset className="lg-fieldset">
-        <legend className="lg-legend">Conteúdo das etiquetas</legend>
+        <legend className="lg-legend">Conteudo das etiquetas</legend>
         <div className="lg-content-area">
           <textarea
-            aria-label="Conteúdo das etiquetas, uma por linha"
+            aria-label="Conteudo das etiquetas, uma por linha"
             className="lg-textarea"
             onChange={(e) => setContent(e.target.value)}
-            placeholder={'Digite uma etiqueta por linha:\nJoão da Silva\nMaria Souza\nEmpresa XPTO Ltda'}
+            placeholder={'Digite uma etiqueta por linha:\nJoao da Silva\nMaria Souza\nEmpresa XPTO Ltda'}
             rows={8}
             value={content}
           />
@@ -126,22 +132,22 @@ export function LabelGeneratorTool({
                 className="lg-overflow-warning"
                 role="alert"
               >
-                Atenção: {labelCount} etiquetas excedem o limite de {maxCapacity} do layout selecionado. As extras serão colocadas em páginas adicionais.
+                Atencao: {labelCount} etiquetas excedem o limite de {maxCapacity} do layout selecionado. As extras serao colocadas em paginas adicionais.
               </span>
             )}
           </div>
         </div>
       </fieldset>
 
-      {/* Prévia */}
+      {/* Previa */}
       <div className="lg-preview-section">
-        <p className="lg-preview-label">Prévia</p>
+        <p className="lg-preview-label">Previa</p>
         <div
           className={['lg-preview', withBorder ? 'lg-preview--border' : ''].filter(Boolean).join(' ')}
-          aria-label="Prévia das etiquetas"
-          style={{ ['--lg-cols' as string]: gridConfig.cols } as React.CSSProperties}
+          aria-label="Previa das etiquetas"
+          style={{ ['--lg-cols' as string]: def.cols } as React.CSSProperties}
         >
-          {Array.from({ length: Math.min(labelCount || gridConfig.cols, maxCapacity) }).map(
+          {Array.from({ length: Math.min(labelCount || def.cols, maxCapacity) }).map(
             (_, i) => (
               <div className="lg-preview-cell" key={i}>
                 {labels[i] ?? ''}
@@ -151,7 +157,7 @@ export function LabelGeneratorTool({
         </div>
       </div>
 
-      {/* Ações */}
+      {/* Acoes */}
       <div className="lg-actions">
         <button
           className="lg-btn lg-btn--primary"
@@ -164,7 +170,7 @@ export function LabelGeneratorTool({
       </div>
 
       <p className="lg-plena-note">
-        Para impressão em papel etiqueta, leve o arquivo à Plena (a partir de R$&nbsp;3,50).
+        Para impressao em papel etiqueta, leve o arquivo a Plena (a partir de R$&nbsp;3,50).
       </p>
 
       {error && (

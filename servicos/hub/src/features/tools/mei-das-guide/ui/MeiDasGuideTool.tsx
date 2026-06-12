@@ -1,88 +1,35 @@
 import { useState } from 'react'
 
+import { getDasInfo } from '../domain/das-values'
+import type { ActivityType } from '../domain/das-values'
+
 import './mei-das-guide.css'
 
-type ActivityType =
-  | 'commerce'
-  | 'services'
-  | 'both'
-  | 'transport'
-
 const MONTHS = [
-  'Janeiro',
-  'Fevereiro',
-  'Março',
-  'Abril',
-  'Maio',
-  'Junho',
-  'Julho',
-  'Agosto',
-  'Setembro',
-  'Outubro',
-  'Novembro',
-  'Dezembro',
+  'Janeiro', 'Fevereiro', 'Marco', 'Abril',
+  'Maio', 'Junho', 'Julho', 'Agosto',
+  'Setembro', 'Outubro', 'Novembro', 'Dezembro',
 ]
 
-interface DasTableRow {
-  component: string
-  value: string
-  note: string
+function formatCurrency(value: number): string {
+  return value.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  })
 }
 
-function getDasRows(
-  activity: ActivityType | null,
-  hasEmployee: boolean,
-): DasTableRow[] {
-  if (!activity) return []
-  // Valores ilustrativos — o Codex preencherá com os vigentes
-  const rows: DasTableRow[] = [
-    {
-      component: 'INSS',
-      value: '{valor}',
-      note: 'Previdência social — obrigatório para todos',
-    },
-  ]
-  if (activity === 'commerce' || activity === 'both') {
-    rows.push({
-      component: 'ICMS',
-      value: '{valor}',
-      note: 'Imposto estadual — comércio',
-    })
-  }
-  if (
-    activity === 'services' ||
-    activity === 'both' ||
-    activity === 'transport'
-  ) {
-    rows.push({
-      component: 'ISS',
-      value: '{valor}',
-      note: 'Imposto municipal — serviços',
-    })
-  }
-  if (hasEmployee) {
-    rows.push({
-      component: 'CPP (empregado)',
-      value: '{valor}',
-      note: '3% sobre salário do empregado',
-    })
-  }
-  return rows
-}
+const PORTAL_URL = 'https://www.gov.br/empresas-e-negocios/pt-br/empreendedor'
+const PGMEI_URL  = 'https://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app'
 
 export function MeiDasGuideTool() {
-  const [activity, setActivity] = useState<ActivityType | null>(null)
-  const [hasEmployee, setHasEmployee] = useState(false)
-  const [paidMonths, setPaidMonths] = useState<Set<number>>(new Set())
+  const [activity, setActivity]       = useState<ActivityType | null>(null)
+  const [paidMonths, setPaidMonths]   = useState<Set<number>>(new Set())
 
   function toggleMonth(index: number) {
     setPaidMonths((prev) => {
       const next = new Set(prev)
-      if (next.has(index)) {
-        next.delete(index)
-      } else {
-        next.add(index)
-      }
+      if (next.has(index)) { next.delete(index) } else { next.add(index) }
       return next
     })
   }
@@ -91,7 +38,7 @@ export function MeiDasGuideTool() {
     window.print()
   }
 
-  const dasRows = getDasRows(activity, hasEmployee)
+  const dasInfo = activity ? getDasInfo(activity) : null
   const totalPaid = paidMonths.size
 
   return (
@@ -103,15 +50,18 @@ export function MeiDasGuideTool() {
         </p>
       </div>
 
-      {/* Aviso editorial obrigatório */}
+      {/* Aviso editorial obrigatorio */}
       <div className="mdg-editorial-notice" role="note">
         <p>
-          <strong>Atenção:</strong> Este guia é apenas orientativo. Os valores do DAS são
-          reajustados anualmente pela Receita Federal. Confirme os valores vigentes no
-          Portal do Empreendedor{' '}
-          <span className="mdg-url">
-            (gov.br/empresas-e-negocios/mei)
-          </span>{' '}
+          <strong>Atencao:</strong> Este guia e apenas orientativo. Os valores do DAS sao
+          reajustados anualmente pela Receita Federal. Confirme os valores vigentes no{' '}
+          <a
+            href={PORTAL_URL}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Portal do Empreendedor (gov.br)
+          </a>{' '}
           antes de efetuar qualquer pagamento.
         </p>
       </div>
@@ -119,14 +69,14 @@ export function MeiDasGuideTool() {
       {/* Atividade principal */}
       <fieldset className="mdg-fieldset" id="mdg-activity-group">
         <legend className="mdg-legend">
-          Qual é a sua atividade principal?
+          Qual e a sua atividade principal?
         </legend>
         <div className="mdg-activity-grid">
           {(
             [
-              { value: 'commerce', label: 'Comércio' },
-              { value: 'services', label: 'Serviços' },
-              { value: 'both', label: 'Comércio e Serviços' },
+              { value: 'commerce',  label: 'Comercio' },
+              { value: 'services',  label: 'Servicos' },
+              { value: 'both',      label: 'Comercio e Servicos' },
               { value: 'transport', label: 'Transporte de passageiros' },
             ] as { value: ActivityType; label: string }[]
           ).map((opt) => (
@@ -150,19 +100,10 @@ export function MeiDasGuideTool() {
             </label>
           ))}
         </div>
-
-        <label className="mdg-employee-checkbox">
-          <input
-            checked={hasEmployee}
-            onChange={(e) => setHasEmployee(e.target.checked)}
-            type="checkbox"
-          />
-          Tenho empregado registrado
-        </label>
       </fieldset>
 
       {/* Tabela DAS */}
-      {activity && (
+      {dasInfo && (
         <div className="mdg-das-section">
           <h3 className="mdg-section-title">Componentes do DAS</h3>
           <table className="mdg-table">
@@ -170,66 +111,77 @@ export function MeiDasGuideTool() {
               <tr>
                 <th>Componente</th>
                 <th>Valor fixo</th>
-                <th>Observação</th>
+                <th>Observacao</th>
               </tr>
             </thead>
             <tbody>
-              {dasRows.map((row) => (
+              {dasInfo.components.map((row) => (
                 <tr key={row.component}>
                   <td className="mdg-td-component">{row.component}</td>
-                  <td className="mdg-td-value">{row.value}</td>
+                  <td className="mdg-td-value">{formatCurrency(row.value)}</td>
                   <td className="mdg-td-note">{row.note}</td>
                 </tr>
               ))}
             </tbody>
             <tfoot>
               <tr className="mdg-table-total">
-                <td>
-                  <strong>Total</strong>
-                </td>
-                <td>
-                  <strong>—</strong>
-                </td>
+                <td><strong>Total</strong></td>
+                <td><strong>{formatCurrency(dasInfo.total)}</strong></td>
                 <td className="mdg-td-note">
-                  Valores ilustrativos. Consulte gov.br para valores vigentes.
+                  Referencia: {dasInfo.year} — {dasInfo.sourceLabel}.{' '}
+                  <a
+                    href={dasInfo.sourceUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ver fonte oficial
+                  </a>
                 </td>
               </tr>
             </tfoot>
           </table>
+          <p className="mdg-das-warning">
+            Os valores acima sao os vigentes para {dasInfo.year}, conferidos em{' '}
+            {dasInfo.checkedAt}. Podem ser alterados em exercicios futuros.
+          </p>
         </div>
       )}
 
-      {/* Orientações sobre o DAS */}
+      {/* Orientacoes sobre o DAS */}
       <div className="mdg-info-section">
         <h3 className="mdg-section-title">Sobre o DAS</h3>
         <div className="mdg-info-card">
           <p>
-            O <strong>DAS</strong> (Documento de Arrecadação do Simples Nacional) é o
+            O <strong>DAS</strong> (Documento de Arrecadacao do Simples Nacional) e o
             boleto mensal do MEI. Ele unifica o INSS e os impostos municipais e/ou
-            estaduais em um único pagamento.
+            estaduais em um unico pagamento.
           </p>
           <ul className="mdg-info-list">
             <li>
-              <strong>Vencimento:</strong> Todo dia 20 de cada mês
+              <strong>Vencimento:</strong> Todo dia 20 de cada mes
             </li>
             <li>
               <strong>Como pagar:</strong> Acesse o PGMEI no Portal do Empreendedor
             </li>
             <li>
-              <strong>Emissão do boleto:</strong>{' '}
-              <span className="mdg-url">
-                gov.br/empresas-e-negocios/mei → PGMEI
-              </span>
+              <strong>Emissao do boleto:</strong>{' '}
+              <a
+                href={PGMEI_URL}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                PGMEI — Simples Nacional
+              </a>
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Situação das guias */}
+      {/* Situacao das guias */}
       <div className="mdg-months-section">
-        <h3 className="mdg-section-title">Situação das guias</h3>
+        <h3 className="mdg-section-title">Situacao das guias</h3>
         <p className="mdg-months-hint">
-          Marque os meses em que você pagou o DAS:
+          Marque os meses em que voce pagou o DAS:
         </p>
         <div className="mdg-months-grid" role="group" aria-label="Meses do ano">
           {MONTHS.map((month, i) => (
@@ -262,14 +214,14 @@ export function MeiDasGuideTool() {
             onClick={handlePrint}
             type="button"
           >
-            Imprimir organização
+            Imprimir organizacao
           </button>
         </div>
       </div>
 
-      {/* Aviso de privacidade de sessão */}
+      {/* Aviso de privacidade de sessao */}
       <p className="mdg-session-notice">
-        Suas marcações ficam somente neste navegador e são apagadas ao fechar a aba.
+        Suas marcacoes ficam somente neste navegador e sao apagadas ao fechar a aba.
       </p>
     </section>
   )

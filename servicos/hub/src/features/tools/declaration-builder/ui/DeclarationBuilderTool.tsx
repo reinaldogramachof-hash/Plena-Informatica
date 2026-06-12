@@ -8,6 +8,7 @@ import { createDeclarationPdf } from '../domain/create-declaration-pdf'
 import {
   parseDeclarationData,
   type DeclarationValues,
+  type RawQuoteItem,
 } from '../domain/declaration-data'
 import {
   declarationTemplates,
@@ -91,20 +92,30 @@ export function DeclarationBuilderTool({
   const [values, setValues] = useState<DeclarationValues>({})
   const [error, setError] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
+  const [quoteItems, setQuoteItems] = useState<RawQuoteItem[]>([
+    { description: '', quantity: '', unitPrice: '' },
+  ])
   const template = getDeclarationTemplate(templateId)
 
   const preview = useMemo(() => {
     try {
-      return buildDeclaration(parseDeclarationData(templateId, values))
+      return buildDeclaration(
+        parseDeclarationData(
+          templateId,
+          values,
+          templateId === 'quote' ? quoteItems : undefined,
+        ),
+      )
     } catch {
       return null
     }
-  }, [templateId, values])
+  }, [templateId, values, quoteItems])
 
   function selectTemplate(nextTemplate: DeclarationTemplateId) {
     setTemplateId(nextTemplate)
     setValues({})
     setError('')
+    setQuoteItems([{ description: '', quantity: '', unitPrice: '' }])
   }
 
   function updateValue(fieldId: string, value: string) {
@@ -125,7 +136,7 @@ export function DeclarationBuilderTool({
       const url = URL.createObjectURL(blob)
       const anchor = document.createElement('a')
       anchor.href = url
-      anchor.download = 'plena-declaracao.pdf'
+      anchor.download = templateId === 'quote' ? 'plena-orcamento.pdf' : 'plena-declaracao.pdf'
       anchor.click()
       URL.revokeObjectURL(url)
     } catch (caughtError) {
@@ -138,6 +149,34 @@ export function DeclarationBuilderTool({
       setIsGenerating(false)
     }
   }
+
+  function addQuoteItem() {
+    setQuoteItems((current) => [
+      ...current,
+      { description: '', quantity: '', unitPrice: '' },
+    ])
+  }
+
+  function removeQuoteItem(index: number) {
+    setQuoteItems((current) => current.filter((_, i) => i !== index))
+  }
+
+  function updateQuoteItem(
+    index: number,
+    field: keyof RawQuoteItem,
+    value: string,
+  ) {
+    setQuoteItems((current) =>
+      current.map((item, i) => (i === index ? { ...item, [field]: value } : item)),
+    )
+    setError('')
+  }
+
+  const quoteTotal = quoteItems.reduce((sum, item) => {
+    const qty = parseFloat(item.quantity.replace(',', '.')) || 0
+    const price = parseFloat(item.unitPrice.replace(',', '.')) || 0
+    return sum + qty * price
+  }, 0)
 
   const previewDocument: DeclarationDocument = preview ?? {
     title:
@@ -247,6 +286,84 @@ export function DeclarationBuilderTool({
             documento quando preenchidos.
           </p>
 
+          {templateId === 'quote' && (
+            <fieldset>
+              <legend>Itens do orçamento</legend>
+              <div className="declaration-builder__fields">
+                {quoteItems.map((item, index) => (
+                  <div className="declaration-builder__quote-item" key={index}>
+                    <label>
+                      Descrição *<strong aria-hidden="true"> *</strong>
+                      <input
+                        aria-label={`Descrição do item ${index + 1}`}
+                        maxLength={200}
+                        onChange={(event) =>
+                          updateQuoteItem(index, 'description', event.target.value)
+                        }
+                        placeholder="Ex.: Impressão A4 PB"
+                        type="text"
+                        value={item.description}
+                      />
+                    </label>
+                    <label>
+                      Quantidade *<strong aria-hidden="true"> *</strong>
+                      <input
+                        aria-label={`Quantidade do item ${index + 1}`}
+                        maxLength={10}
+                        onChange={(event) =>
+                          updateQuoteItem(index, 'quantity', event.target.value)
+                        }
+                        placeholder="Ex.: 100"
+                        type="text"
+                        value={item.quantity}
+                      />
+                    </label>
+                    <label>
+                      Valor unitário (R$) *<strong aria-hidden="true"> *</strong>
+                      <input
+                        aria-label={`Valor unitário do item ${index + 1}`}
+                        maxLength={15}
+                        onChange={(event) =>
+                          updateQuoteItem(index, 'unitPrice', event.target.value)
+                        }
+                        placeholder="Ex.: 3,00"
+                        type="text"
+                        value={item.unitPrice}
+                      />
+                    </label>
+                    {quoteItems.length > 1 && (
+                      <button
+                        aria-label={`Remover item ${index + 1}`}
+                        onClick={() => removeQuoteItem(index)}
+                        type="button"
+                      >
+                        Remover
+                      </button>
+                    )}
+                  </div>
+                ))}
+                <button
+                  aria-label="Adicionar item"
+                  onClick={addQuoteItem}
+                  type="button"
+                >
+                  + Adicionar item
+                </button>
+                <p className="declaration-builder__quote-total">
+                  Total estimado:{' '}
+                  <strong>
+                    {quoteTotal.toLocaleString('pt-BR', {
+                      style: 'currency',
+                      currency: 'BRL',
+                      minimumFractionDigits: 2,
+                    })}
+                  </strong>
+                </p>
+              </div>
+            </fieldset>
+          )}
+
+
           {error && <p role="alert">{error}</p>}
 
           {!preview && (
@@ -278,6 +395,34 @@ export function DeclarationBuilderTool({
                 <p key={`${paragraph}-${index}`}>{paragraph}</p>
               ))}
             </div>
+            {previewDocument.table && (
+              <div className="declaration-preview__table">
+                <table>
+                  <thead>
+                    <tr>
+                      {previewDocument.table.headers.map((header) => (
+                        <th key={header}>{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {previewDocument.table.rows.map((row, rowIndex) => (
+                      <tr key={rowIndex}>
+                        {row.map((cell, cellIndex) => (
+                          <td key={cellIndex}>{cell}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colSpan={3}>{previewDocument.table.totalLabel}</td>
+                      <td>{previewDocument.table.totalValue}</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            )}
             <div className="declaration-preview__signature">
               <p>{previewDocument.locationDate}</p>
               <div className="declaration-preview__signature-line" />

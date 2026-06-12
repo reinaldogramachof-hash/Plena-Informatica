@@ -1,30 +1,13 @@
 import { useState } from 'react'
 
+import { createMenuPdf } from '../domain/create-menu-pdf'
+import { filterValidCategories } from '../domain/menu-data'
+import type { MenuData, MenuOptions, MenuCategory, MenuItemData } from '../domain/menu-data'
+
 import './menu-builder.css'
 
-export interface MenuItemData {
-  id: string
-  name: string
-  description: string
-  price: string
-}
-
-export interface MenuCategory {
-  id: string
-  name: string
-  items: MenuItemData[]
-}
-
-export interface MenuData {
-  establishment: string
-  slogan: string
-  categories: MenuCategory[]
-}
-
-export interface MenuOptions {
-  pageSize: 'a4' | 'half'
-  columns: 1 | 2
-}
+// Re-exporta para compatibilidade com importadores externos
+export type { MenuData, MenuOptions, MenuCategory, MenuItemData }
 
 export interface MenuBuilderToolProps {
   generatePdf?: (data: MenuData, options: MenuOptions) => Promise<Uint8Array>
@@ -42,18 +25,30 @@ function createItem(): MenuItemData {
   return { id: createId('item'), name: '', description: '', price: '' }
 }
 
+function triggerDownload(bytes: Uint8Array, filename: string): void {
+  const blob = new Blob([bytes.buffer as ArrayBuffer], { type: 'application/pdf' })
+  const url  = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href     = url
+  link.download = filename
+  link.click()
+  URL.revokeObjectURL(url)
+}
+
 export function MenuBuilderTool({
-  generatePdf = async () => new Uint8Array(),
+  generatePdf = createMenuPdf,
 }: MenuBuilderToolProps) {
   const [establishment, setEstablishment] = useState('')
-  const [slogan, setSlogan] = useState('')
-  const [categories, setCategories] = useState<MenuCategory[]>([])
-  const [pageSize, setPageSize] = useState<'a4' | 'half'>('a4')
-  const [columns, setColumns] = useState<1 | 2>(1)
-  const [error, setError] = useState('')
-  const [isProcessing, setIsProcessing] = useState(false)
+  const [slogan, setSlogan]               = useState('')
+  const [categories, setCategories]       = useState<MenuCategory[]>([])
+  const [pageSize, setPageSize]           = useState<'a4' | 'half'>('a4')
+  const [columns, setColumns]             = useState<1 | 2>(1)
+  const [error, setError]                 = useState('')
+  const [isProcessing, setIsProcessing]   = useState(false)
 
-  const hasData = establishment.trim().length > 0 && categories.length > 0
+  // Habilita o botão somente quando há estabelecimento + ao menos 1 item nomeado
+  const validCats = filterValidCategories(categories)
+  const hasData   = establishment.trim().length > 0 && validCats.length > 0
 
   function addCategory() {
     setCategories((prev) => [...prev, createCategory()])
@@ -112,14 +107,15 @@ export function MenuBuilderTool({
     setError('')
     setIsProcessing(true)
     try {
-      const data: MenuData = { establishment, slogan, categories }
+      const data: MenuData    = { establishment, slogan, categories }
       const options: MenuOptions = { pageSize, columns }
-      await generatePdf(data, options)
+      const bytes = await generatePdf(data, options)
+      triggerDownload(bytes, 'plena-cardapio.pdf')
     } catch (err) {
       setError(
         err instanceof Error
           ? err.message
-          : 'Não foi possível gerar o cardápio. Tente novamente.',
+          : 'Nao foi possivel gerar o cardapio. Tente novamente.',
       )
     } finally {
       setIsProcessing(false)
@@ -129,9 +125,9 @@ export function MenuBuilderTool({
   return (
     <section className="mb-tool" aria-labelledby="mb-title">
       <div className="mb-intro">
-        <h2 id="mb-title">Gerador de Cardápio</h2>
+        <h2 id="mb-title">Gerador de Cardapio</h2>
         <p className="mb-subtitle">
-          Crie o layout do seu cardápio e baixe em PDF para impressão.
+          Crie o layout do seu cardapio e baixe em PDF para impressao.
         </p>
       </div>
 
@@ -199,7 +195,7 @@ export function MenuBuilderTool({
               />
             </svg>
             <p className="mb-empty-text">
-              Adicione pelo menos uma categoria para gerar o cardápio.
+              Adicione pelo menos uma categoria para gerar o cardapio.
             </p>
           </div>
         )}
@@ -246,12 +242,7 @@ export function MenuBuilderTool({
                         className="mb-input"
                         maxLength={100}
                         onChange={(e) =>
-                          updateItem(
-                            category.id,
-                            item.id,
-                            'name',
-                            e.target.value,
-                          )
+                          updateItem(category.id, item.id, 'name', e.target.value)
                         }
                         placeholder="Nome do item"
                         type="text"
@@ -260,40 +251,30 @@ export function MenuBuilderTool({
                     </label>
                     <label className="mb-label">
                       <span className="mb-sr-only">
-                        Descrição do item {itemIndex + 1}
+                        Descricao do item {itemIndex + 1}
                       </span>
                       <input
-                        aria-label={`Descrição do item ${itemIndex + 1}`}
+                        aria-label={`Descricao do item ${itemIndex + 1}`}
                         className="mb-input"
                         maxLength={200}
                         onChange={(e) =>
-                          updateItem(
-                            category.id,
-                            item.id,
-                            'description',
-                            e.target.value,
-                          )
+                          updateItem(category.id, item.id, 'description', e.target.value)
                         }
-                        placeholder="Descrição breve (opcional)"
+                        placeholder="Descricao breve (opcional)"
                         type="text"
                         value={item.description}
                       />
                     </label>
                     <label className="mb-label mb-label--price">
                       <span className="mb-sr-only">
-                        Preço do item {itemIndex + 1}
+                        Preco do item {itemIndex + 1}
                       </span>
                       <input
-                        aria-label={`Preço do item ${itemIndex + 1}`}
+                        aria-label={`Preco do item ${itemIndex + 1}`}
                         className="mb-input"
                         maxLength={30}
                         onChange={(e) =>
-                          updateItem(
-                            category.id,
-                            item.id,
-                            'price',
-                            e.target.value,
-                          )
+                          updateItem(category.id, item.id, 'price', e.target.value)
                         }
                         placeholder="R$ 0,00"
                         type="text"
@@ -387,10 +368,10 @@ export function MenuBuilderTool({
 
       {/* Aviso Plena */}
       <p className="mb-plena-notice">
-        Para impressão e plastificação profissional, leve o arquivo à Plena.
+        Para impressao e plastificacao profissional, leve o arquivo a Plena.
       </p>
 
-      {/* Ações */}
+      {/* Acoes */}
       <div className="mb-actions">
         <button
           className="mb-btn mb-btn--primary"
@@ -398,7 +379,7 @@ export function MenuBuilderTool({
           onClick={handleGenerate}
           type="button"
         >
-          {isProcessing ? 'Processando...' : 'Gerar cardápio em PDF'}
+          {isProcessing ? 'Processando...' : 'Gerar cardapio em PDF'}
         </button>
       </div>
 

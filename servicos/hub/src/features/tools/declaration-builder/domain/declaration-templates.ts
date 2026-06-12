@@ -3,6 +3,7 @@ export type DeclarationTemplateId =
   | 'work-income'
   | 'minor-authorization'
   | 'receipt'
+  | 'quote'
   | 'custom'
 
 export type DeclarationFieldSection =
@@ -487,6 +488,72 @@ export const declarationTemplates: DeclarationTemplate[] = [
         required: false,
         errorMessage: 'Informe a referência do pagamento',
         maxLength: 240,
+      }),
+      ...sharedLocationFields,
+    ],
+  },
+  {
+    id: 'quote',
+    name: 'Orçamento',
+    shortDescription: 'Gere um orçamento com itens, quantidades e valores unitários.',
+    recommendation:
+      'Indicado para apresentar estimativas de custo a clientes de forma organizada e profissional.',
+    notRecommendedFor:
+      'Não substitui nota fiscal, contrato, proposta com efeito jurídico nem compromisso de preço firmado.',
+    fields: [
+      field({
+        id: 'issuerName',
+        section: 'identification',
+        label: 'Nome do emitente',
+        type: 'text',
+        required: true,
+        errorMessage: 'Informe o nome do emitente',
+      }),
+      field({
+        id: 'issuerDocument',
+        section: 'identification',
+        label: 'CPF ou CNPJ do emitente',
+        placeholder: '000.000.000-00 ou 00.000.000/0001-00',
+        type: 'text',
+        required: false,
+        errorMessage: 'Informe o CPF ou CNPJ do emitente',
+        maxLength: 24,
+      }),
+      field({
+        id: 'clientName',
+        section: 'details',
+        label: 'Nome do cliente',
+        type: 'text',
+        required: true,
+        errorMessage: 'Informe o nome do cliente',
+      }),
+      field({
+        id: 'validityDate',
+        section: 'details',
+        label: 'Validade do orçamento',
+        type: 'date',
+        required: false,
+        errorMessage: 'Informe a validade',
+        maxLength: 10,
+      }),
+      field({
+        id: 'paymentConditions',
+        section: 'details',
+        label: 'Condições de pagamento',
+        placeholder: 'Ex.: 50% na aprovação e 50% na entrega',
+        type: 'text',
+        required: false,
+        errorMessage: 'Informe as condições de pagamento',
+        maxLength: 240,
+      }),
+      field({
+        id: 'notes',
+        section: 'details',
+        label: 'Observações',
+        type: 'textarea',
+        required: false,
+        errorMessage: 'Informe as observações',
+        maxLength: 600,
       }),
       ...sharedLocationFields,
     ],

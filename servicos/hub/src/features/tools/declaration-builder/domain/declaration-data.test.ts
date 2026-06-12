@@ -63,4 +63,59 @@ describe('parseDeclarationData', () => {
       }),
     ).toThrow('Informe o período de referência da renda')
   })
+
+  it('parses quote items into numeric values', () => {
+    const result = parseDeclarationData(
+      'quote',
+      { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+      [
+        { description: 'Impressão PB', quantity: '100', unitPrice: '3,00' },
+        { description: 'Impressão Color', quantity: '20', unitPrice: '4' },
+      ],
+    )
+
+    expect(result.items).toHaveLength(2)
+    expect(result.items![0]).toEqual({ description: 'Impressão PB', quantity: 100, unitPrice: 3 })
+    expect(result.items![1]).toEqual({ description: 'Impressão Color', quantity: 20, unitPrice: 4 })
+  })
+
+  it('throws when quote has no items', () => {
+    expect(() =>
+      parseDeclarationData(
+        'quote',
+        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+        [],
+      ),
+    ).toThrow('Informe ao menos um item no orcamento')
+  })
+
+  it('throws on quote item with empty description', () => {
+    expect(() =>
+      parseDeclarationData(
+        'quote',
+        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+        [{ description: '', quantity: '1', unitPrice: '10' }],
+      ),
+    ).toThrow('Item 1: descricao e obrigatoria')
+  })
+
+  it('throws on quote item with zero quantity', () => {
+    expect(() =>
+      parseDeclarationData(
+        'quote',
+        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+        [{ description: 'Servico', quantity: '0', unitPrice: '10' }],
+      ),
+    ).toThrow('Item 1: quantidade deve ser maior que zero')
+  })
+
+  it('throws on quote item with zero unit price', () => {
+    expect(() =>
+      parseDeclarationData(
+        'quote',
+        { issuerName: 'Ana Silva', clientName: 'Empresa Exemplo', city: '', date: '' },
+        [{ description: 'Servico', quantity: '1', unitPrice: '0' }],
+      ),
+    ).toThrow('Item 1: valor unitario deve ser maior que zero')
+  })
 })

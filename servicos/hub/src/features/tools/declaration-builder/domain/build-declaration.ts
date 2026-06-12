@@ -1,5 +1,12 @@
 import type { DeclarationData } from './declaration-data'
 
+export type QuoteTableSpec = {
+  headers: string[]
+  rows: string[][]
+  totalLabel: string
+  totalValue: string
+}
+
 export type DeclarationDocument = {
   title: string
   paragraphs: string[]
@@ -8,6 +15,7 @@ export type DeclarationDocument = {
   signatureLabel: string
   signatureDocument?: string
   footerNote: string
+  table?: QuoteTableSpec
 }
 
 const footerNote =
@@ -27,6 +35,14 @@ const monthNames = [
   'novembro',
   'dezembro',
 ]
+
+function formatCurrency(value: number): string {
+  return value.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  })
+}
 
 function formatDateLong(date: string): string {
   if (!date) return ''
@@ -149,6 +165,43 @@ export function buildDeclaration(data: DeclarationData): DeclarationDocument {
         signatureLabel: 'Recebedor(a)',
         signatureDocument: values.receiverDocument,
         footerNote,
+      }
+    }
+    case 'quote': {
+      const items = data.items ?? []
+      const total = items.reduce((sum, item) => sum + item.quantity * item.unitPrice, 0)
+      const validityLine = values.validityDate
+        ? `Validade: ${formatDateLong(values.validityDate)}.`
+        : ''
+      const conditionsLine = values.paymentConditions
+        ? `Condicoes de pagamento: ${values.paymentConditions}.`
+        : ''
+      const infoLine = [validityLine, conditionsLine].filter(Boolean).join(' ')
+      return {
+        title: 'Orcamento',
+        paragraphs: [
+          `Emitente: ${values.issuerName}${values.issuerDocument ? ` — CPF/CNPJ: ${values.issuerDocument}` : ''}.`,
+          `Cliente: ${values.clientName}.`,
+          ...(infoLine ? [infoLine] : []),
+          ...(values.notes ? [values.notes] : []),
+          'Este orcamento nao constitui nota fiscal, contrato ou garantia de preco. Os valores e condicoes sao estimados e podem ser ajustados mediante acordo entre as partes.',
+        ],
+        locationDate: locationDate(values),
+        signatureName: values.issuerName,
+        signatureLabel: 'Emitente',
+        signatureDocument: values.issuerDocument || undefined,
+        footerNote,
+        table: {
+          headers: ['Descricao', 'Qtd.', 'Vlr. unit.', 'Subtotal'],
+          rows: items.map((item) => [
+            item.description,
+            String(item.quantity),
+            formatCurrency(item.unitPrice),
+            formatCurrency(item.quantity * item.unitPrice),
+          ]),
+          totalLabel: 'Total',
+          totalValue: formatCurrency(total),
+        },
       }
     }
     case 'custom':

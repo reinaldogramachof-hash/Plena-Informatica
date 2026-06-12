@@ -8,6 +8,9 @@ import {
 } from './create-declaration-pdf'
 import { parseDeclarationData } from './declaration-data'
 
+const footerText =
+  'não possui assinatura digital, reconhecimento de firma ou validação automática pela Plena Informática'
+
 const document = buildDeclaration(
   parseDeclarationData('residence', {
     declarantName: 'Ana Silva',
@@ -50,5 +53,32 @@ describe('createDeclarationPdf', () => {
     const pdf = await PDFDocument.load(bytes)
 
     expect(pdf.getPageCount()).toBeGreaterThan(1)
+  })
+
+  it('renders a quote PDF without throwing', async () => {
+    const quoteDocument: DeclarationDocument = {
+      title: 'Orcamento',
+      paragraphs: [
+        'Emitente: Ana Silva.',
+        'Cliente: Empresa Exemplo.',
+        'Este orcamento nao constitui nota fiscal.',
+      ],
+      locationDate: 'São José dos Campos, 10 de junho de 2026',
+      signatureName: 'Ana Silva',
+      signatureLabel: 'Emitente',
+      footerNote: footerText,
+      table: {
+        headers: ['Descricao', 'Qtd.', 'Vlr. unit.', 'Subtotal'],
+        rows: [
+          ['Impressão PB', '100', 'R$ 3,00', 'R$ 300,00'],
+          ['Impressão Color', '20', 'R$ 4,00', 'R$ 80,00'],
+        ],
+        totalLabel: 'Total',
+        totalValue: 'R$ 380,00',
+      },
+    }
+
+    const bytes = await createDeclarationPdf(quoteDocument)
+    expect(bytes.byteLength).toBeGreaterThan(500)
   })
 })

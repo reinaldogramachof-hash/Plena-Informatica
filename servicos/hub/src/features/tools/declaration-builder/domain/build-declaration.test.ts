@@ -39,6 +39,60 @@ describe('buildDeclaration', () => {
     expect(document.footerNote).toContain(footerText)
   })
 
+  it('builds an Orcamento with table rows from parsed items', () => {
+    const document = buildDeclaration(
+      parseDeclarationData(
+        'quote',
+        {
+          issuerName: 'Ana Silva',
+          issuerDocument: '123.456.789-00',
+          clientName: 'Empresa Exemplo',
+          validityDate: '2026-07-01',
+          paymentConditions: '50% na assinatura',
+          city: 'São José dos Campos',
+          date: '2026-06-10',
+        },
+        [
+          { description: 'Impressão A4 PB', quantity: '100', unitPrice: '3' },
+          { description: 'Impressão A4 Color', quantity: '20', unitPrice: '4' },
+        ],
+      ),
+    )
+
+    expect(document.title).toBe('Orcamento')
+    expect(document.paragraphs.join(' ')).toContain('Ana Silva')
+    expect(document.paragraphs.join(' ')).toContain('Empresa Exemplo')
+    expect(document.paragraphs.join(' ')).toContain('50% na assinatura')
+    expect(document.paragraphs.join(' ')).toContain('1 de julho de 2026')
+    expect(document.paragraphs.join(' ')).toContain('nao constitui nota fiscal')
+    expect(document.signatureLabel).toBe('Emitente')
+    expect(document.table).toBeDefined()
+    expect(document.table!.rows).toHaveLength(2)
+    expect(document.table!.rows[0]).toEqual(['Impressão A4 PB', '100', 'R$\xa03,00', 'R$\xa0300,00'])
+    expect(document.table!.totalValue).toBe('R$\xa0380,00')
+  })
+
+  it('builds an Orcamento without optional fields', () => {
+    const document = buildDeclaration(
+      parseDeclarationData(
+        'quote',
+        {
+          issuerName: 'João Souza',
+          clientName: 'Cliente Final',
+          city: '',
+          date: '',
+        },
+        [{ description: 'Serviço', quantity: '1', unitPrice: '150' }],
+      ),
+    )
+
+    const text = document.paragraphs.join(' ')
+    expect(text).not.toContain('Validade:')
+    expect(text).not.toContain('Condicoes:')
+    expect(document.signatureDocument).toBeUndefined()
+    expect(document.table!.totalValue).toBe('R$\xa0150,00')
+  })
+
   it('states that work and income information is self-declared and period-bound', () => {
     const document = buildDeclaration(
       parseDeclarationData('work-income', {
