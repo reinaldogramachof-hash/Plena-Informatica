@@ -12,8 +12,24 @@
     .form-input { background: transparent; border: 0; border-bottom: 2px solid #3f3f46; color: white; padding: 1rem 0; font-size: 1.5rem; outline: none; transition: border-color 0.3s; width: 100%; border-radius: 0; }
     .form-input:focus { border-color: #8b5cf6; }
     .form-input::placeholder { color: #52525b; }
-    .btn-submit { background: white; color: black; font-weight: 900; border-radius: 999px; padding: 1rem 2rem; cursor: pointer; transition: transform 0.2s; white-space: nowrap; }
-    .btn-submit:hover { transform: scale(1.05); }
+    .btn-submit { background: white; color: black; font-weight: 900; border-radius: 999px; padding: 1rem 2rem; cursor: pointer; transition: transform 0.2s; white-space: nowrap; border: none; }
+    .btn-submit:hover:not(:disabled) { transform: scale(1.05); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-input.error { border-color: #ef4444; }
+
+    /* Success */
+    #form-area, #success-area { transition: opacity 0.3s ease; }
+    #success-area { display: none; }
+    #success-area.show { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-up { animation: fadeUp 0.45s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+    @keyframes countUp { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+    .count-pop { animation: countUp 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards; }
   </style>
 </head>
 <body class="antialiased items-center justify-center relative">
@@ -23,23 +39,7 @@
     <div class="mb-4 inline-block border border-white/20 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-widest text-zinc-400">
       Private Beta
     </div>
-    
-    <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter leading-none">
-      A próxima geração <br/> está quase aqui.
-    </h1>
-    
-    <p class="text-zinc-400 text-lg md:text-xl font-light mb-12">
-      Seja um dos primeiros a experimentar a inteligência artificial que vai reescrever as regras da gestão de negócios. Vagas limitadas.
-    </p>
 
-    <form class="flex flex-col sm:flex-row gap-6 items-end max-w-lg mx-auto">
-      <div class="flex-1 w-full relative">
-        <input type="email" class="form-input" placeholder="Seu melhor e-mail" required>
-      </div>
-      <button type="submit" class="btn-submit w-full sm:w-auto">Entrar na Fila</button>
-    </form>
-    
-    <p class="mt-8 text-sm text-zinc-500 font-bold">14,239 pessoas já estão na lista.</p>
-  </div>
-</body>
-</html>
+    <!-- ── Área do formulário ── -->
+    <div id="form-area">
+      <h1 class="text

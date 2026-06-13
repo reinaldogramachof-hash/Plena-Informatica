@@ -14,6 +14,19 @@
     .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
     .tag-new { background: #dbeafe; color: #1d4ed8; }
     .tag-fix { background: #fef3c7; color: #b45309; }
+
+    /* Filtros */
+    .filter-btn { border: 1.5px solid #e5e7eb; background: white; color: #6b7280; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.4rem 1rem; border-radius: 999px; cursor: pointer; transition: all 0.15s; }
+    .filter-btn:hover { border-color: #3b82f6; color: #3b82f6; }
+    .filter-btn.active { background: #3b82f6; border-color: #3b82f6; color: white; }
+
+    /* Entrada dos itens de timeline */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .timeline-item { animation: slideUp 0.4s ease forwards; }
+    .timeline-item.hidden-item { display: none; }
   </style>
 </head>
 <body class="antialiased">
@@ -29,13 +42,20 @@
   </header>
 
   <main class="max-w-3xl mx-auto px-5 py-20">
-    <div class="mb-16">
+    <div class="mb-10">
       <h1 class="text-4xl md:text-5xl font-black mb-4">Changelog</h1>
-      <p class="text-gray-500 text-lg">Acompanhe as últimas novidades, integrações e melhorias da plataforma.</p>
+      <p class="text-gray-500 text-lg mb-8">Acompanhe as últimas novidades, integrações e melhorias da plataforma.</p>
+
+      <!-- Filtros -->
+      <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por tipo">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="new">Novo Recurso</button>
+        <button class="filter-btn" data-filter="fix">Melhorias</button>
+      </div>
     </div>
 
     <!-- Release 1 -->
-    <div class="timeline-item">
+    <div class="timeline-item" data-tag="new">
       <div class="timeline-dot"></div>
       <div class="text-sm font-semibold text-gray-400 mb-2">Outubro 2026</div>
       <h2 class="text-2xl font-bold text-gray-900 mb-3">Automação com Inteligência Artificial (Copilot)</h2>
@@ -48,24 +68,4 @@
       <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-6">
         <li>Acesso liberado para todos os usuários do plano Pro Business.</li>
         <li>Suporte a comandos em português, inglês e espanhol.</li>
-        <li>Sugestões automáticas baseadas no comportamento da sua conta.</li>
-      </ul>
-    </div>
-
-    <!-- Release 2 -->
-    <div class="timeline-item">
-      <div class="timeline-dot" style="background: #fbbf24; box-shadow: 0 0 0 4px #fef3c7;"></div>
-      <div class="text-sm font-semibold text-gray-400 mb-2">Setembro 2026</div>
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Otimização de Performance e Bugfixes no Dashboard</h2>
-      <div class="mb-6"><span class="tag tag-fix">Melhorias</span></div>
-      
-      <p class="text-gray-600 leading-relaxed mb-4">Reescrevemos nosso motor de renderização do dashboard principal. O tempo de carregamento de gráficos com mais de 100k linhas foi reduzido em 85%.</p>
-      <ul class="list-disc pl-5 text-gray-600 space-y-2">
-        <li>Corrigido erro que desconectava a sessão após 12h.</li>
-        <li>Gráficos de pizza agora suportam paleta de cores customizada.</li>
-        <li>Exportação em PDF gerada em background (não trava mais o navegador).</li>
-      </ul>
-    </div>
-  </main>
-</body>
-</html>
+  

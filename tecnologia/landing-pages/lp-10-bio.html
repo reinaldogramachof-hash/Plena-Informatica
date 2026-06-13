@@ -13,6 +13,18 @@
     .link-card:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
     .link-card.highlight { background: #fff; color: #000; }
     .link-card.highlight:hover { background: #f3f4f6; }
+    .link-card:active { transform: scale(0.97); }
+
+    /* Ripple */
+    .ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.35); transform: scale(0); animation: ripple-out 0.55s ease forwards; pointer-events: none; }
+    @keyframes ripple-out { to { transform: scale(4); opacity: 0; } }
+
+    /* Toast */
+    #link-toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(4rem); background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); color: white; font-weight: 600; font-size: 0.875rem; padding: 0.75rem 1.5rem; border-radius: 999px; z-index: 100; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); white-space: nowrap; }
+    #link-toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Contador de visitas */
+    .visit-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.7rem; color: rgba(255,255,255,0.5); font-weight: 600; }
   </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col items-center py-12 px-5">
@@ -29,30 +41,4 @@
         <i class="ph-bold ph-calendar-plus text-xl"></i> Agendar Consultoria Grátis
       </a>
       
-      <a href="#" class="link-card flex justify-center items-center gap-3">
-        <i class="ph-bold ph-globe text-xl"></i> Site Oficial
-      </a>
-      
-      <a href="#" class="link-card flex justify-center items-center gap-3">
-        <i class="ph-bold ph-whatsapp-logo text-xl"></i> Atendimento via WhatsApp
-      </a>
-      
-      <a href="#" class="link-card flex justify-center items-center gap-3">
-        <i class="ph-bold ph-book-open text-xl"></i> Baixar E-book: Microsserviços
-      </a>
-      
-      <a href="#" class="link-card flex justify-center items-center gap-3">
-        <i class="ph-bold ph-youtube-logo text-xl"></i> Canal no YouTube
-      </a>
-    </div>
-
-    <!-- Redes Sociais Rodapé -->
-    <div class="flex gap-6 mt-8 text-white/50 text-2xl">
-      <a href="#" class="hover:text-white transition-colors"><i class="ph-fill ph-instagram-logo"></i></a>
-      <a href="#" class="hover:text-white transition-colors"><i class="ph-fill ph-tiktok-logo"></i></a>
-      <a href="#" class="hover:text-white transition-colors"><i class="ph-fill ph-linkedin-logo"></i></a>
-    </div>
-  </div>
-
-</body>
-</html>
+      <a href="#" class="link-card 

@@ -1,0 +1,1 @@
+import{u as n,a3 as o}from"./index-yRHEJpYV.js";function d(){const{currentUser:e,currentEmpresa:r}=n();return{log:(s,u,t)=>{!e||!r||o({type:s,userId:e.id,userName:e.name,empresaId:r.id,detail:u,extra:t},r.id)}}}export{d as u};

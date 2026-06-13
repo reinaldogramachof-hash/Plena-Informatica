@@ -14,6 +14,17 @@
     .highlight-col { background-color: rgba(99, 102, 241, 0.1); border-left: 1px solid #4f46e5; border-right: 1px solid #4f46e5; }
     .highlight-top { border-top: 1px solid #4f46e5; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; }
     .highlight-bot { border-bottom: 1px solid #4f46e5; border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
+
+    tbody tr { transition: background 0.15s; }
+    tbody tr:hover td { background-color: rgba(255,255,255,0.03); }
+    tbody tr:hover .highlight-col { background-color: rgba(99,102,241,0.18); }
+
+    @keyframes rowIn {
+      from { opacity: 0; transform: translateX(-12px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    tbody tr { opacity: 0; }
+    tbody tr.visible { animation: rowIn 0.35s ease forwards; }
   </style>
 </head>
 <body class="antialiased">
@@ -69,15 +80,4 @@
             <td class="table-cell text-slate-400 border-none">Requer Consultor Pago</td>
             <td class="table-cell highlight-col highlight-bot font-bold text-white border-none">Self-service (em minutos)</td>
           </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center mt-8">
-      <p class="text-slate-400 mb-6">Pare de pagar caro por sistemas legados lentos.</p>
-      <a href="#" class="bg-indigo-600 text-white px-10 py-4 rounded-md font-bold hover:bg-indigo-700 transition-colors inline-block text-lg shadow-[0_0_20px_rgba(79,70,229,0.4)]">Migrar para o SaaSPro Agora</a>
-    </div>
-  </main>
-</body>
-</html>
+        

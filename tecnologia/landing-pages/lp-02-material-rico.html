@@ -79,6 +79,25 @@
     
     .check-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
     .check-icon { color: #10b981; font-size: 1.25rem; margin-top: 0.1rem; }
+
+    .form-input.error { border-color: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.1); }
+    .btn-conversion:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* Success state */
+    #success-panel { display: none; }
+    #success-panel.show { display: flex; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-up { animation: fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+    @keyframes progressFill {
+      from { width: 0%; }
+      to   { width: 100%; }
+    }
+    .progress-bar { height: 3px; background: #10b981; border-radius: 999px; animation: progressFill 1.2s ease forwards; }
   </style>
 </head>
 
@@ -137,51 +156,30 @@
     </section>
 
 
-    <!-- LADO DIREITO: FORMULÁRIO -->
+    <!-- LADO DIREITO: FORMULÁRIO / SUCESSO -->
     <section class="right-panel">
       <div class="form-container">
-        
-        <div class="text-center mb-8">
-          <h2 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Receba o material.</h2>
-          <p class="text-slate-500 text-sm">Preencha os dados e enviaremos o PDF de 45 páginas direto para o seu e-mail corporativo.</p>
-        </div>
 
-        <form action="#" method="POST" class="flex flex-col gap-5">
-          <div>
-            <label for="name" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Primeiro Nome</label>
-            <input type="text" id="name" class="form-input" placeholder="João" required>
-          </div>
-          
-          <div>
-            <label for="email" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">E-mail Corporativo</label>
-            <input type="email" id="email" class="form-input" placeholder="nome@suaempresa.com.br" required>
+        <!-- ── Formulário ── -->
+        <div id="form-panel">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Receba o material.</h2>
+            <p class="text-slate-500 text-sm">Preencha os dados e enviaremos o PDF de 45 páginas direto para o seu e-mail corporativo.</p>
           </div>
 
-          <div>
-            <label for="role" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Qual seu cargo?</label>
-            <select id="role" class="form-input" required>
-              <option value="" disabled selected>Selecione seu nível...</option>
-              <option value="c_level">C-Level / Diretor</option>
-              <option value="manager">Gerente / Lead</option>
-              <option value="dev">Desenvolvedor Sênior</option>
-              <option value="other">Outro</option>
-            </select>
-          </div>
+          <form id="download-form" novalidate class="flex flex-col gap-5">
+            <div>
+              <label for="f-name" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Primeiro Nome</label>
+              <input type="text" id="f-name" class="form-input" placeholder="João" autocomplete="given-name" required>
+              <p class="text-xs text-red-500 mt-1 hidden" id="err-name">Informe seu nome.</p>
+            </div>
 
-          <button type="submit" class="btn-conversion mt-2">
-            Baixar E-book Agora <i class="ph-bold ph-download-simple"></i>
-          </button>
-          
-          <div class="text-center mt-4 flex flex-col items-center gap-2">
-            <span class="flex items-center justify-center gap-1 text-xs text-slate-400"><i class="ph-fill ph-lock-key text-emerald-500"></i> Seus dados estão seguros conosco.</span>
-            <p class="text-[10px] text-slate-400 font-light max-w-xs">Ao solicitar este material você aceita receber conteúdos e ofertas educacionais. Você pode cancelar a qualquer momento.</p>
-          </div>
-        </form>
+            <div>
+              <label for="f-email" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">E-mail Corporativo</label>
+              <input type="email" id="f-email" class="form-input" placeholder="nome@suaempresa.com.br" autocomplete="email" required>
+              <p class="text-xs text-red-500 mt-1 hidden" id="err-email">Informe um e-mail válido.</p>
+            </div>
 
-      </div>
-    </section>
-
-  </main>
-
-</body>
-</html>
+            <div>
+              <label for="f-role" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Qual seu cargo?</label>
+              <select id="f-role" class="form-in

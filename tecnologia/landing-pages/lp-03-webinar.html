@@ -85,8 +85,17 @@
       min-width: 100px;
       box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
     }
-    .timer-val { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); line-height: 1; }
+    .timer-val {
+      font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700;
+      color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); line-height: 1;
+      transition: transform 0.1s ease;
+    }
+    .timer-val.tick { transform: scale(1.08); }
     .timer-lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 0.5rem; }
+
+    /* Seconds box gets purple treatment */
+    .timer-box.secs { border-color: rgba(176, 38, 255, 0.4); box-shadow: 0 0 15px rgba(176,38,255,0.1); }
+    .timer-box.secs .timer-val { color: var(--neon-purple); text-shadow: 0 0 10px rgba(176,38,255,0.5); }
 
     .form-input {
       width: 100%; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);
@@ -99,6 +108,19 @@
       background: linear-gradient(to right, var(--neon-cyan), var(--neon-purple));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
+
+    /* Form/success state */
+    .form-input.error { border-color: #ff4d4d; box-shadow: 0 0 8px rgba(255,77,77,0.25); }
+    #success-state { display: none; }
+    #success-state.show { display: flex; }
+
+    .neon-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in { animation: fadeInUp 0.45s cubic-bezier(0.16,1,0.3,1) forwards; }
   </style>
 </head>
 
@@ -137,19 +159,19 @@
       <!-- Contador Regressivo Gigante -->
       <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-16">
         <div class="timer-box">
-          <span class="timer-val">04</span><span class="timer-lbl">Dias</span>
+          <span class="timer-val" id="t-days">04</span><span class="timer-lbl">Dias</span>
         </div>
-        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block">:</div>
+        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block" aria-hidden="true">:</div>
         <div class="timer-box">
-          <span class="timer-val">12</span><span class="timer-lbl">Horas</span>
+          <span class="timer-val" id="t-hours">12</span><span class="timer-lbl">Horas</span>
         </div>
-        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block">:</div>
+        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block" aria-hidden="true">:</div>
         <div class="timer-box">
-          <span class="timer-val">45</span><span class="timer-lbl">Min</span>
+          <span class="timer-val" id="t-mins">45</span><span class="timer-lbl">Min</span>
         </div>
-        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block">:</div>
-        <div class="timer-box">
-          <span class="timer-val" style="color: var(--neon-purple)">22</span><span class="timer-lbl">Seg</span>
+        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block" aria-hidden="true">:</div>
+        <div class="timer-box secs">
+          <span class="timer-val" id="t-secs">22</span><span class="timer-lbl">Seg</span>
         </div>
       </div>
 
@@ -196,32 +218,8 @@
         </ul>
       </div>
 
-      <!-- Formulário de Inscrição Glassmorphism -->
+      <!-- Formulário de Inscrição / Estado de Sucesso -->
       <div class="glass-card">
-        <div class="text-center mb-8">
-          <h3 class="text-3xl font-bold font-space mb-2">Garantir Acesso</h3>
-          <p class="text-sm text-[var(--text-muted)]">O link de transmissão será enviado para seu e-mail.</p>
-        </div>
 
-        <form action="#" method="POST" class="space-y-5">
-          <div>
-            <input type="text" class="form-input" placeholder="Seu Nome Completo" required>
-          </div>
-          <div>
-            <input type="email" class="form-input" placeholder="seu.email@empresa.com" required>
-          </div>
-          <button type="submit" class="neon-btn w-full mt-4">
-            Quero Participar <i class="ph-bold ph-arrow-right"></i>
-          </button>
-          
-          <p class="text-center text-xs text-[var(--text-muted)] mt-4">
-            Ao se inscrever, você concorda com nossos <a href="#" class="text-[var(--neon-cyan)] underline">Termos de Privacidade</a>.
-          </p>
-        </form>
-      </div>
-
-    </div>
-  </main>
-
-</body>
-</html>
+        <!-- Formulário padrão -->
+        <div i

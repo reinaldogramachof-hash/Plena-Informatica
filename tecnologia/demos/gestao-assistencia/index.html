@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GestÃ£o AssistÃªncia Pro | Ordens de ServiÃ§o, Estoque e Caixa - LicenÃ§a VitalÃ­cia</title>
+    <title>Gestão Assistência Pro | Ordens de Serviço, Estoque e Caixa - Licença Vitalícia</title>
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#2563EB">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="AssistÃªncia Pro">
+    <meta name="apple-mobile-web-app-title" content="Assistência Pro">
     <link rel="manifest" href="manifest.json">
 
     <!-- Demo Bypass (deve ser o primeiro script carregado) -->
@@ -44,8 +44,8 @@
                 <i data-lucide="wrench" class="w-5 h-5 text-white"></i>
             </div>
             <div class="sidebar-header-text">
-                <h1 class="text-lg font-bold tracking-tight uppercase text-white">GESTÃƒO ASSISTÃŠNCIA</h1>
-                <p class="text-[11px] text-blue-300/70 font-medium tracking-wide">Sistema PRO - GestÃ£o Completa</p>
+                <h1 class="text-lg font-bold tracking-tight uppercase text-white">GESTÃO ASSISTÊNCIA</h1>
+                <p class="text-[11px] text-blue-300/70 font-medium tracking-wide">Sistema PRO - Gestão Completa</p>
             </div>
         </div>
 
@@ -54,7 +54,7 @@
                 class="nav-item w-full flex items-center px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all group active-nav mb-1"
                 id="nav-dashboard" title="Action button" aria-label="Action button">
                 <i data-lucide="layout-dashboard" class="w-5 h-5 mr-3 text-white/60 group-hover:text-white"></i>
-                <span class="font-medium sidebar-label">VisÃ£o Geral</span>
+                <span class="font-medium sidebar-label">Visão Geral</span>
             </button>
 
             <div class="px-4 mb-2 mt-4 sidebar-section-divider">
@@ -64,7 +64,7 @@
                 class="nav-item w-full flex items-center px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all group mb-1"
                 id="nav-orders" title="Action button" aria-label="Action button">
                 <i data-lucide="clipboard-list" class="w-5 h-5 mr-3 text-white/60 group-hover:text-white"></i>
-                <span class="font-medium sidebar-label">Ordens de ServiÃ§o</span>
+                <span class="font-medium sidebar-label">Ordens de Serviço</span>
             </button>
             <button onclick="router('clients')"
                 class="nav-item w-full flex items-center px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all group mb-1"
@@ -80,7 +80,7 @@
             </button>
 
             <div class="px-4 mb-2 mt-4 sidebar-section-divider">
-                <span class="text-[10px] font-bold text-white/40 uppercase tracking-wider">GestÃ£o</span>
+                <span class="text-[10px] font-bold text-white/40 uppercase tracking-wider">Gestão</span>
             </div>
             <button onclick="router('inventory')"
                 class="nav-item w-full flex items-center px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all group mb-1"
@@ -98,7 +98,7 @@
                 class="nav-item w-full flex items-center px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all group mb-1"
                 id="nav-reports" title="Action button" aria-label="Action button">
                 <i data-lucide="bar-chart-3" class="w-5 h-5 mr-3 text-white/60 group-hover:text-white"></i>
-                <span class="font-medium sidebar-label">RelatÃ³rios</span>
+                <span class="font-medium sidebar-label">Relatórios</span>
             </button>
 
             <div class="px-4 mb-2 mt-4 sidebar-section-divider">
@@ -108,7 +108,7 @@
                 class="nav-item w-full flex items-center px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all group mb-1"
                 id="nav-settings" title="Action button" aria-label="Action button">
                 <i data-lucide="settings" class="w-5 h-5 mr-3 text-white/60 group-hover:text-white"></i>
-                <span class="font-medium sidebar-label">ConfiguraÃ§Ãµes</span>
+                <span class="font-medium sidebar-label">Configurações</span>
             </button>
             <button onclick="router('instructions')"
                 class="nav-item w-full flex items-center px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all group mb-1"
@@ -120,7 +120,7 @@
                 class="nav-item w-full flex items-center px-4 py-2.5 rounded-xl hover:bg-white/10 transition-all group mb-1"
                 id="nav-about" title="Action button" aria-label="Action button">
                 <i data-lucide="info" class="w-5 h-5 mr-3 text-white/60 group-hover:text-white"></i>
-                <span class="font-medium sidebar-label">InformaÃ§Ãµes Legais</span>
+                <span class="font-medium sidebar-label">Informações Legais</span>
             </button>
         </nav>
 
@@ -128,9 +128,9 @@
             <div
                 class="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500/10 to-amber-600/5 px-3 py-1.5 rounded-full border border-amber-500/20 mb-2">
                 <i data-lucide="gem" class="w-3 h-3 text-amber-400"></i>
-                <span class="text-[11px] font-bold text-amber-400 tracking-wide">LICENÂºA VITALÃCIA</span>
+                <span class="text-[11px] font-bold text-amber-400 tracking-wide">LICENºA VITAL�?CIA</span>
             </div>
-            <p class="text-[10px] text-slate-500">v5.0 PRO - GestÃ£o AssistÃªncia</p>
+            <p class="text-[10px] text-slate-500">v5.0 PRO - Gestão Assistência</p>
         </div>
     </aside>
 
@@ -150,7 +150,7 @@
             </div>
 
             <div class="flex items-center gap-2 sm:gap-3">
-                <!-- BotÃ£o Instalar App (PWA) -->
+                <!-- Botão Instalar App (PWA) -->
                 <button id="install-app-btn" onclick="installPWA()"
                     class="hidden items-center px-4 py-2.5 bg-amber-500 text-white rounded-lg text-sm font-bold hover:bg-amber-600 transition-all shadow-lg shadow-amber-200 active:scale-95 animate-bounce" title="Action button" aria-label="Action button">
                     <i data-lucide="download" class="w-5 h-5 sm:mr-2"></i>
@@ -183,7 +183,7 @@
             </div>
         </header>
 
-        <!-- Content Ãrea -->
+        <!-- Content �?rea -->
         <div class="p-4 lg:p-8 flex-1 overflow-y-auto">
 
             <!-- Dashboard View -->
@@ -221,7 +221,7 @@
                                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Vendas PDV
                                 </p>
                                 <h3 id="dash-pdv-sales" class="text-3xl font-bold text-purple-600">0</h3>
-                                <p class="text-xs text-gray-500 mt-1">Vendas no mÃªs</p>
+                                <p class="text-xs text-gray-500 mt-1">Vendas no mês</p>
                             </div>
                             <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
                                 <i data-lucide="shopping-cart" class="w-6 h-6 text-purple-600"></i>
@@ -233,7 +233,7 @@
                             <div>
                                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Faturamento</p>
                                 <h3 id="dash-revenue" class="text-2xl font-bold text-gray-900">R$ 0,00</h3>
-                                <p class="text-xs text-gray-500 mt-1">MÃªs atual</p>
+                                <p class="text-xs text-gray-500 mt-1">Mês atual</p>
                             </div>
                             <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
                                 <i data-lucide="dollar-sign" class="w-6 h-6 text-yellow-600"></i>
@@ -246,9 +246,9 @@
                 <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
                     <div class="xl:col-span-2 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                         <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-bold text-gray-800">DistribuiÃ§Ã£o por Status</h3>
+                            <h3 class="font-bold text-gray-800">Distribuição por Status</h3>
                         </div>
-                        <div id="chart-Ã¡rea" class="chart-container"></div>
+                        <div id="chart-área" class="chart-container"></div>
                     </div>
 
                     <!-- Quick Actions -->
@@ -256,7 +256,7 @@
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                             <h3 class="font-bold text-gray-800 mb-4 flex items-center">
                                 <i data-lucide="zap" class="w-4 h-4 mr-2 text-brand-primary"></i>
-                                AÃ§Ãµes RÃ¡pidas
+                                Ações Rápidas
                             </h3>
                             <div class="space-y-3">
                                 <button onclick="router('orders')"
@@ -271,7 +271,7 @@
                                 </button>
                                 <button onclick="router('reports')"
                                     class="w-full flex items-center justify-between p-3 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors" title="Action button" aria-label="Action button">
-                                    <span class="text-sm font-medium text-purple-700">Gerar RelatÃ³rio</span>
+                                    <span class="text-sm font-medium text-purple-700">Gerar Relatório</span>
                                     <i data-lucide="file-bar-chart" class="w-4 h-4 text-purple-500"></i>
                                 </button>
                             </div>
@@ -284,7 +284,7 @@
                     <!-- Recent Orders -->
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                         <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-bold text-gray-800">Ordens de ServiÃ§o Recentes</h3>
+                            <h3 class="font-bold text-gray-800">Ordens de Serviço Recentes</h3>
                             <button onclick="router('orders')"
                                 class="text-sm text-brand-primary hover:text-brand-dark font-medium" title="Action button" aria-label="Action button">
                                 Ver todas ?
@@ -315,8 +315,8 @@
             <section id="view-orders" class="view-section hide fade-in">
                 <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
-                        <h2 class="text-xl font-bold text-gray-800">Ordens de ServiÃ§o</h2>
-                        <p class="text-sm text-gray-600">Gerencie todas as ordens de serviÃ§o</p>
+                        <h2 class="text-xl font-bold text-gray-800">Ordens de Serviço</h2>
+                        <p class="text-sm text-gray-600">Gerencie todas as ordens de serviço</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <button onclick="exportOrdersCSV()"
@@ -353,8 +353,8 @@
                                 class="flex-1 px-4 py-2 rounded-lg border border-gray-300 text-sm bg-white outline-none" title="Select option" aria-label="Select option">
                                 <option value="all">Todos Status</option>
                                 <option value="received">Recebido</option>
-                                <option value="analyzing">Em AnÂºlise</option>
-                                <option value="waiting_parts">Aguardando PeÃ§a</option>
+                                <option value="analyzing">Em Anºlise</option>
+                                <option value="waiting_parts">Aguardando Peça</option>
                                 <option value="ready">Pronto</option>
                                 <option value="delivered">Entregue</option>
                             </select>
@@ -370,13 +370,13 @@
                         <table class="w-full text-left">
                             <thead class="bg-gray-50 text-gray-500 text-xs uppercase">
                                 <tr>
-                                    <th class="px-6 py-3">NÂº O.S.</th>
+                                    <th class="px-6 py-3">Nº O.S.</th>
                                     <th class="px-6 py-3">Cliente</th>
                                     <th class="px-6 py-3">Equipamento</th>
                                     <th class="px-6 py-3">Status</th>
                                     <th class="px-6 py-3">Data Entrada</th>
                                     <th class="px-6 py-3 text-right">Valor</th>
-                                    <th class="px-6 py-3 text-center">AÃ§Ãµes</th>
+                                    <th class="px-6 py-3 text-center">Ações</th>
                                 </tr>
                             </thead>
                             <tbody id="orders-table-body" class="divide-y divide-gray-100 text-sm"></tbody>
@@ -384,7 +384,7 @@
                     </div>
                     <div id="empty-msg" class="hidden p-8 text-center text-gray-400">
                         <i data-lucide="clipboard-list" class="w-12 h-12 mx-auto mb-4 text-gray-300"></i>
-                        <p>Nenhuma ordem de serviÃ§o encontrada.</p>
+                        <p>Nenhuma ordem de serviço encontrada.</p>
                     </div>
                 </div>
 
@@ -446,7 +446,7 @@
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Novos este MÃªs
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Novos este Mês
                                 </p>
                                 <h3 id="client-new-month" class="text-3xl font-bold text-green-600">0</h3>
                                 <p class="text-xs text-gray-500 mt-1">Cadastros recentes</p>
@@ -472,7 +472,7 @@
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Ticket MÃ©dio
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Ticket Médio
                                 </p>
                                 <h3 id="client-ticket-avg" class="text-2xl font-bold text-gray-900">R$ 0,00</h3>
                                 <p class="text-xs text-gray-500 mt-1">Gastos O.S + PDV</p>
@@ -502,8 +502,8 @@
                                     <th class="px-6 py-3">Cliente</th>
                                     <th class="px-6 py-3">Contato</th>
                                     <th class="px-6 py-3">Total O.S.</th>
-                                    <th class="px-6 py-3">Ãšltima O.S.</th>
-                                    <th class="px-6 py-3 text-center">AÃ§Ãµes</th>
+                                    <th class="px-6 py-3">Última O.S.</th>
+                                    <th class="px-6 py-3 text-center">Ações</th>
                                 </tr>
                             </thead>
                             <tbody id="clients-table-body" class="divide-y divide-gray-100 text-sm"></tbody>
@@ -551,7 +551,7 @@
                                     <div class="relative">
                                         <i data-lucide="search" class="absolute left-3 top-3 w-4 h-4 text-gray-400"></i>
                                         <input type="text" id="pdv-search" onkeyup="renderPDVGrid(event)" autofocus
-                                            placeholder="Buscar produto por nome ou cÃ³digo (Aperte Enter para bipar)..."
+                                            placeholder="Buscar produto por nome ou código (Aperte Enter para bipar)..."
                                             class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary outline-none text-sm font-medium shadow-inner transition-colors" title="Input field" aria-label="Input field">
                                     </div>
                                 </div>
@@ -561,7 +561,7 @@
                                 </div>
                                 <div id="pdv-empty-products" class="hidden p-8 text-center text-gray-400">
                                     <i data-lucide="package" class="w-12 h-12 mx-auto mb-3 text-gray-300"></i>
-                                    <p class="font-medium">Nenhum produto disponÃ­vel em estoque.</p>
+                                    <p class="font-medium">Nenhum produto disponível em estoque.</p>
                                     <p class="text-xs mt-1">Cadastre produtos na aba <strong>Estoque</strong>.</p>
                                 </div>
                             </div>
@@ -587,7 +587,7 @@
                                         esta Venda</label>
                                     <select id="pdv-client-select"
                                         class="w-full border border-blue-200 rounded-lg p-2 text-sm outline-none focus:border-brand-primary bg-white" title="Select option" aria-label="Select option">
-                                        <option value="">?? Consumidor Final (PadrÃ£o)</option>
+                                        <option value="">?? Consumidor Final (Padrão)</option>
                                         <!-- Clients will be populated here -->
                                     </select>
                                 </div>
@@ -683,7 +683,7 @@
                                             </div>
 
                                             <div class="flex items-center justify-between gap-2">
-                                                <label class="text-xs font-bold text-gray-600 w-16">CartÃ£o</label>
+                                                <label class="text-xs font-bold text-gray-600 w-16">Cartão</label>
                                                 <div class="relative flex-1">
                                                     <span
                                                         class="absolute left-2 top-1.5 text-gray-400 text-sm">R$</span>
@@ -735,7 +735,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- BotÃ£o Finalizar -->
+                                    <!-- Botão Finalizar -->
                                     <button onclick="finalizeSale()"
                                         class="w-full bg-brand-primary text-white py-3 rounded-xl font-bold hover:bg-brand-dark transition-all shadow-lg shadow-blue-200 flex items-center justify-center gap-2" title="Action button" aria-label="Action button">
                                         <i data-lucide="check-circle" class="w-5 h-5"></i>
@@ -756,7 +756,7 @@
                                 <i data-lucide="lock" class="w-10 h-10 text-orange-600"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2">Caixa Fechado</h3>
-                            <p class="text-sm text-gray-500 mb-6 font-medium">VocÃª precisa abrir o caixa para comeï¿½ar a
+                            <p class="text-sm text-gray-500 mb-6 font-medium">Você precisa abrir o caixa para come�ar a
                                 vender produtos.</p>
                             <button onclick="openCashierModal()"
                                 class="w-full bg-brand-primary text-white py-3 rounded-xl font-bold hover:bg-brand-dark transition-all shadow-lg shadow-blue-200 flex items-center justify-center gap-2" title="Action button" aria-label="Action button">
@@ -767,10 +767,10 @@
                     </div>
                 </div>
 
-                <!-- HistÃ³rico de Vendas PDV -->
+                <!-- Histórico de Vendas PDV -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="p-4 border-b border-gray-200 flex items-center justify-between">
-                        <h3 class="font-bold text-gray-800">HistÃ³rico de Vendas</h3>
+                        <h3 class="font-bold text-gray-800">Histórico de Vendas</h3>
                         <span id="pdv-sales-count"
                             class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold">0 vendas</span>
                     </div>
@@ -783,7 +783,7 @@
                                     <th class="px-6 py-3">Itens</th>
                                     <th class="px-6 py-3">Pagamento</th>
                                     <th class="px-6 py-3 text-right">Total</th>
-                                    <th class="px-6 py-3 text-center">AÃ§Ãµes</th>
+                                    <th class="px-6 py-3 text-center">Ações</th>
                                 </tr>
                             </thead>
                             <tbody id="pdv-history-body" class="divide-y divide-gray-100 text-sm"></tbody>
@@ -801,7 +801,7 @@
                 <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
                         <h2 class="text-xl font-bold text-gray-800">Controle de Estoque</h2>
-                        <p class="text-sm text-gray-600">Gerencie produtos, peÃ§as e materiais</p>
+                        <p class="text-sm text-gray-600">Gerencie produtos, peças e materiais</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <button onclick="openProductModal()"
@@ -812,7 +812,7 @@
                         <button onclick="openMovementModal()"
                             class="flex items-center gap-2 px-4 py-2 bg-brand-primary text-white rounded-lg text-sm font-bold hover:bg-brand-dark transition-colors" title="Action button" aria-label="Action button">
                             <i data-lucide="move" class="w-4 h-4"></i>
-                            MovimentaÃ§Ã£o
+                            Movimentação
                         </button>
                     </div>
                 </div>
@@ -850,7 +850,7 @@
                                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Baixo Estoque
                                 </p>
                                 <h3 id="inv-low" class="text-3xl font-bold text-red-600">0</h3>
-                                <p class="text-xs text-gray-500 mt-1">AtenÃ§Ã£o necessÃ³ria</p>
+                                <p class="text-xs text-gray-500 mt-1">Atenção necessória</p>
                             </div>
                             <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
                                 <i data-lucide="alert-triangle" class="w-6 h-6 text-red-600"></i>
@@ -891,7 +891,7 @@
                                     class="px-4 py-2 rounded-lg border border-gray-300 text-sm bg-white outline-none" title="Select option" aria-label="Select option">
                                     <option value="all">Todo Estoque</option>
                                     <option value="low">Baixo Estoque</option>
-                                    <option value="critical">Estoque CrÃ­tico</option>
+                                    <option value="critical">Estoque Crítico</option>
                                     <option value="out">Sem Estoque</option>
                                 </select>
                             </div>
@@ -902,14 +902,14 @@
                         <table class="w-full text-left">
                             <thead class="bg-gray-50 text-gray-500 text-xs uppercase">
                                 <tr>
-                                    <th class="px-6 py-3">CÃ³digo</th>
+                                    <th class="px-6 py-3">Código</th>
                                     <th class="px-6 py-3">Produto</th>
                                     <th class="px-6 py-3">Categoria</th>
                                     <th class="px-6 py-3 text-center">Estoque Atual</th>
-                                    <th class="px-6 py-3 text-center">MÃ­nimo</th>
+                                    <th class="px-6 py-3 text-center">Mínimo</th>
                                     <th class="px-6 py-3 text-right">Custo</th>
                                     <th class="px-6 py-3 text-right">Venda</th>
-                                    <th class="px-6 py-3 text-center">AÃ§Ãµes</th>
+                                    <th class="px-6 py-3 text-center">Ações</th>
                                 </tr>
                             </thead>
                             <tbody id="inventory-table-body" class="divide-y divide-gray-100 text-sm"></tbody>
@@ -923,7 +923,7 @@
 
                 <!-- Movement History -->
                 <div class="mt-8">
-                    <h3 class="text-lg font-bold text-gray-800 mb-4">HistÃ³rico de MovimentaÃ§Ãµes</h3>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Histórico de Movimentações</h3>
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                         <div class="p-4 bg-gray-50 border-b border-gray-200">
                             <div class="flex flex-col md:flex-row gap-3">
@@ -938,9 +938,9 @@
                                 <div class="flex gap-2">
                                     <select id="movement-type" onchange="renderMovements()"
                                         class="px-4 py-2 rounded-lg border border-gray-300 text-sm bg-white outline-none" title="Select option" aria-label="Select option">
-                                        <option value="all">Todas MovimentaÃ§Ãµes</option>
+                                        <option value="all">Todas Movimentações</option>
                                         <option value="in">Entradas</option>
-                                        <option value="out">SaÃ­das</option>
+                                        <option value="out">Saídas</option>
                                         <option value="adjust">Ajustes</option>
                                     </select>
                                 </div>
@@ -971,7 +971,7 @@
                 <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
                         <h2 class="text-xl font-bold text-gray-800">Fluxo de Caixa</h2>
-                        <p class="text-sm text-gray-600">Controle financeiro da assistÃªncia</p>
+                        <p class="text-sm text-gray-600">Controle financeiro da assistência</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <button onclick="exportFinancialCSV()"
@@ -982,7 +982,7 @@
                         <button onclick="openTransactionModal()"
                             class="flex items-center gap-2 px-4 py-2 bg-brand-primary text-white rounded-lg text-sm font-bold hover:bg-brand-dark transition-colors" title="Action button" aria-label="Action button">
                             <i data-lucide="plus" class="w-4 h-4"></i>
-                            Novo LanÂºamento
+                            Novo Lanºamento
                         </button>
                     </div>
                 </div>
@@ -995,7 +995,7 @@
                                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Saldo Total</p>
                                 <h3 id="cash-balance" class="text-3xl font-bold text-gray-900">R$ 0,00</h3>
                                 <div class="flex items-center gap-2 mt-1">
-                                    <p class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">PerÃ­odo:</p>
+                                    <p class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Período:</p>
                                     <p id="period-balance" class="text-sm font-bold text-green-600">R$ 0,00</p>
                                 </div>
                             </div>
@@ -1007,10 +1007,10 @@
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Entradas (MÃªs)
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Entradas (Mês)
                                 </p>
                                 <h3 id="cash-income" class="text-2xl font-bold text-green-600">+R$ 0,00</h3>
-                                <p class="text-xs text-gray-500 mt-1">Receitas do mÃªs</p>
+                                <p class="text-xs text-gray-500 mt-1">Receitas do mês</p>
                             </div>
                             <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
                                 <i data-lucide="trending-up" class="w-6 h-6 text-green-600"></i>
@@ -1020,10 +1020,10 @@
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">SaÃ­das (MÃªs)
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Saídas (Mês)
                                 </p>
                                 <h3 id="cash-expense" class="text-2xl font-bold text-red-600">-R$ 0,00</h3>
-                                <p class="text-xs text-gray-500 mt-1">Despesas do mÃªs</p>
+                                <p class="text-xs text-gray-500 mt-1">Despesas do mês</p>
                             </div>
                             <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
                                 <i data-lucide="trending-down" class="w-6 h-6 text-red-600"></i>
@@ -1060,7 +1060,7 @@
                                 class="flex-1 px-4 py-2 rounded-lg border border-gray-300 text-sm bg-white outline-none" title="Select option" aria-label="Select option">
                                 <option value="all">Todos</option>
                                 <option value="income">Entradas</option>
-                                <option value="expense">SaÃ­das</option>
+                                <option value="expense">Saídas</option>
                             </select>
                         </div>
                     </div>
@@ -1070,10 +1070,10 @@
                             <thead class="bg-gray-50 text-gray-500 text-xs uppercase">
                                 <tr>
                                     <th class="px-6 py-3">Data</th>
-                                    <th class="px-6 py-3">DescriÃ§Ã£o</th>
+                                    <th class="px-6 py-3">Descrição</th>
                                     <th class="px-6 py-3">Categoria</th>
                                     <th class="px-6 py-3 text-right">Valor</th>
-                                    <th class="px-6 py-3 text-center">AÃ§Ãµes</th>
+                                    <th class="px-6 py-3 text-center">Ações</th>
                                 </tr>
                             </thead>
                             <tbody id="trans-table-body" class="divide-y divide-gray-100 text-sm"></tbody>
@@ -1085,8 +1085,8 @@
             <!-- Reports View -->
             <section id="view-reports" class="view-section hide fade-in">
                 <div class="mb-6">
-                    <h2 class="text-xl font-bold text-gray-800 mb-2">RelatÃ³rios da AssistÃªncia</h2>
-                    <p class="text-sm text-gray-600">Gere relatÃ³rios detalhados para anÂºlise</p>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">Relatórios da Assistência</h2>
+                    <p class="text-sm text-gray-600">Gere relatórios detalhados para anºlise</p>
                 </div>
 
                 <!-- Report Cards -->
@@ -1096,8 +1096,8 @@
                         <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
                             <i data-lucide="wrench" class="w-6 h-6 text-brand-primary"></i>
                         </div>
-                        <h3 class="font-bold text-gray-800 mb-2">RelatÃ³rio Mensal</h3>
-                        <p class="text-sm text-gray-600">Resumo completo do mÃªs atual</p>
+                        <h3 class="font-bold text-gray-800 mb-2">Relatório Mensal</h3>
+                        <p class="text-sm text-gray-600">Resumo completo do mês atual</p>
                     </button>
 
                     <button onclick="generateInventoryReport()"
@@ -1106,7 +1106,7 @@
                             <i data-lucide="package" class="w-6 h-6 text-brand-orange"></i>
                         </div>
                         <h3 class="font-bold text-gray-800 mb-2">Estoque</h3>
-                        <p class="text-sm text-gray-600">AnÂºlise de produtos e valores</p>
+                        <p class="text-sm text-gray-600">Anºlise de produtos e valores</p>
                     </button>
 
                     <button onclick="generateFinancialReport()"
@@ -1128,8 +1128,8 @@
             <!-- Settings View -->
             <section id="view-settings" class="view-section hide fade-in">
                 <div class="mb-6">
-                    <h2 class="text-xl font-bold text-gray-800 mb-2">ConfiguraÃ§Ãµes do Sistema</h2>
-                    <p class="text-sm text-gray-600">Personalize e gerencie suas preferÃªncias</p>
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">Configurações do Sistema</h2>
+                    <p class="text-sm text-gray-600">Personalize e gerencie suas preferências</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -1137,13 +1137,13 @@
                     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                         <h3 class="font-bold text-gray-800 mb-6 flex items-center">
                             <i data-lucide="building" class="w-5 h-5 mr-2 text-brand-primary"></i>
-                            ConfiguraÃ§Ãµes da Empresa
+                            Configurações da Empresa
                         </h3>
 
                         <div class="space-y-4 border-b pb-6 mb-6">
                             <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">Nome da AssistÃªncia</label>
-                                <input type="text" id="company-name" placeholder="Sua AssistÃªncia TÃ©cnica"
+                                <label class="text-xs font-bold text-gray-500 uppercase">Nome da Assistência</label>
+                                <input type="text" id="company-name" placeholder="Sua Assistência Técnica"
                                     class="w-full border dark:border-white/10 dark:bg-slate-800 dark:text-white p-2 rounded-lg text-sm outline-none" title="Input field" aria-label="Input field">
                             </div>
                             <div>
@@ -1157,18 +1157,18 @@
                                     class="w-full border dark:border-white/10 dark:bg-slate-800 dark:text-white p-2 rounded-lg text-sm outline-none" title="Input field" aria-label="Input field">
                             </div>
                             <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">EndereÃ§o</label>
-                                <input type="text" id="company-address" placeholder="EndereÃ§o completo"
+                                <label class="text-xs font-bold text-gray-500 uppercase">Endereço</label>
+                                <input type="text" id="company-address" placeholder="Endereço completo"
                                     class="w-full border dark:border-white/10 dark:bg-slate-800 dark:text-white p-2 rounded-lg text-sm outline-none" title="Input field" aria-label="Input field">
                             </div>
                             <div>
-                                <label class="text-xs font-bold text-gray-500 uppercase">Termos de Garantia / CondiÃ§Ãµes
-                                    PadrÃ£o</label>
+                                <label class="text-xs font-bold text-gray-500 uppercase">Termos de Garantia / Condições
+                                    Padrão</label>
                                 <textarea id="company-warranty" rows="6"
-                                    placeholder="Estes termos serÃ£o impressos nas O.S..."
+                                    placeholder="Estes termos serão impressos nas O.S..."
                                     class="w-full border dark:border-white/10 dark:bg-slate-800 dark:text-white p-2 rounded-lg text-sm outline-none"></textarea>
-                                <p class="text-[10px] text-gray-500 mt-1">Este texto aparecerï¿½ na Via do Cliente durante
-                                    a impressÃ£o da Ordem de ServiÃ§o.</p>
+                                <p class="text-[10px] text-gray-500 mt-1">Este texto aparecer� na Via do Cliente durante
+                                    a impressão da Ordem de Serviço.</p>
                             </div>
                             <button onclick="saveCompanySettings()"
                                 class="w-full bg-brand-primary text-white py-3 rounded-lg text-sm font-bold hover:bg-brand-dark transition-colors mt-2" title="Action button" aria-label="Action button">
@@ -1176,14 +1176,14 @@
                             </button>
                         </div>
 
-                        <!-- Gerenciamento de TÃ©cnicos -->
+                        <!-- Gerenciamento de Técnicos -->
                         <div>
                             <h4 class="text-sm font-bold text-gray-800 mb-4 flex items-center">
                                 <i data-lucide="users" class="w-4 h-4 mr-2 text-brand-primary"></i>
-                                Equipe TÃ©cnica / Colaboradores
+                                Equipe Técnica / Colaboradores
                             </h4>
                             <div class="flex gap-2 mb-4">
-                                <input type="text" id="new-tech-name" placeholder="Nome do tÃ©cnico"
+                                <input type="text" id="new-tech-name" placeholder="Nome do técnico"
                                     class="flex-1 border p-2 rounded-lg text-sm outline-none focus:border-brand-primary" title="Input field" aria-label="Input field">
                                 <button onclick="addTechnician()"
                                     class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-green-700 transition-colors" title="Action button" aria-label="Action button">
@@ -1191,7 +1191,7 @@
                                 </button>
                             </div>
                             <div id="technicians-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
-                                <!-- Lista de tÃ©cnicos via JS -->
+                                <!-- Lista de técnicos via JS -->
                             </div>
                         </div>
                     </div>
@@ -1201,12 +1201,12 @@
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                             <h3 class="font-bold text-gray-800 mb-4 flex items-center">
                                 <i data-lucide="shield-alert" class="w-5 h-5 mr-2 text-brand-primary"></i>
-                                SeguranÂºa de Dados
+                                Seguranºa de Dados
                             </h3>
 
                             <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg text-sm text-blue-800 mb-6">
                                 <p class="font-bold mb-2">?? Importante</p>
-                                <p>Seus dados ficam salvos 100% no navegador. FaÃ§a backup regularmente para evitar
+                                <p>Seus dados ficam salvos 100% no navegador. Faça backup regularmente para evitar
                                     perdas!</p>
                             </div>
 
@@ -1237,7 +1237,7 @@
                             </h3>
 
                             <div class="bg-red-50 p-4 rounded-lg border border-red-100 mb-4">
-                                <p class="text-sm text-red-600"><strong>AtenÃ§Ã£o:</strong> Estas aÃ§Ãµes sÃ£o irreversÃ³veis.
+                                <p class="text-sm text-red-600"><strong>Atenção:</strong> Estas ações são irreversóveis.
                                 </p>
                             </div>
 
@@ -1264,7 +1264,7 @@
                         <span
                             class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Progresso
                             do Manual</span>
-                        <span id="tutorial-progress-text" class="text-xs font-bold text-brand-blue">0 / 7 seÃ§Ãµes</span>
+                        <span id="tutorial-progress-text" class="text-xs font-bold text-brand-blue">0 / 7 seções</span>
                     </div>
                     <div class="progress-bar w-full">
                         <div class="progress-fill" id="tutorial-progress" style="width: 0%"></div>
@@ -1272,7 +1272,7 @@
                 </div>
 
                 <div class="max-w-6xl mx-auto pb-12">
-                    <!-- CabeÃ§alho Hero -->
+                    <!-- Cabeçalho Hero -->
                     <div class="text-center mb-10 pt-4">
                         <div
                             class="inline-flex items-center justify-center p-4 bg-gradient-to-r from-brand-primary to-brand-dark rounded-2xl mb-4 shadow-lg">
@@ -1280,31 +1280,31 @@
                         </div>
                         <h1 class="text-3xl font-bold text-gray-800 mb-2">Manual Completo de Uso</h1>
                         <p class="text-gray-600 text-lg max-w-2xl mx-auto">Guia passo a passo para gestores de
-                            assistÃªncia tÃ©cnica</p>
+                            assistência técnica</p>
                         <div class="mt-4 flex flex-wrap justify-center gap-2">
                             <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">? Para
                                 Iniciantes</span>
                             <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold">?? Mobile e
                                 Desktop</span>
                             <span class="px-3 py-1 bg-purple-100 text-brand-primary rounded-full text-xs font-bold">?
-                                RÃ¡pido e PrÃ¡tico</span>
+                                Rápido e Prático</span>
                         </div>
                     </div>
 
-                    <!-- SeÃ§Ã£o 1: InstalaÃ§Ã£o -->
+                    <!-- Seção 1: Instalação -->
                     <div id="instalacao" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center">
                                 <div class="step-number bg-gradient-to-r from-brand-primary to-brand-dark text-white">1
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800">InstalaÃ§Ã£o do Sistema</h3>
+                                <h3 class="text-xl font-bold text-gray-800">Instalação do Sistema</h3>
                             </div>
                         </div>
 
                         <div class="bg-gray-900 rounded-2xl p-6 text-white shadow-lg mb-6">
                             <h4 class="font-bold text-lg mb-4 flex items-center">
                                 <i data-lucide="download" class="w-5 h-5 mr-2 text-green-400"></i>
-                                Torne o App DisponÃ­vel OFFLINE
+                                Torne o App Disponível OFFLINE
                             </h4>
                             <p class="text-gray-300 mb-4">Instale no celular para usar sem internet, igual um app
                                 normal:</p>
@@ -1321,8 +1321,8 @@
                                         <li class="flex items-start">
                                             <span class="mr-2">1.</span>
                                             <div>
-                                                <strong>Abra esta pÃ¡gina no Chrome</strong>
-                                                <p class="text-xs text-gray-400">NÃ£o use outros navegadores</p>
+                                                <strong>Abra esta página no Chrome</strong>
+                                                <p class="text-xs text-gray-400">Não use outros navegadores</p>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
@@ -1335,13 +1335,13 @@
                                         <li class="flex items-start">
                                             <span class="mr-2">3.</span>
                                             <div>
-                                                <strong>Toque em "Instalar app" ou "Adicionar Ã  tela inicial"</strong>
+                                                <strong>Toque em "Instalar app" ou "Adicionar à tela inicial"</strong>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <span class="mr-2">4.</span>
                                             <div>
-                                                <strong>Pronto! O Ãcone aparecerï¿½ na sua tela inicial</strong>
+                                                <strong>Pronto! O �?cone aparecer� na sua tela inicial</strong>
                                             </div>
                                         </li>
                                     </ol>
@@ -1358,21 +1358,21 @@
                                         <li class="flex items-start">
                                             <span class="mr-2">1.</span>
                                             <div>
-                                                <strong>Abra esta pÃ¡gina no Safari</strong>
-                                                <p class="text-xs text-gray-400">NÃ£o use Chrome no iPhone</p>
+                                                <strong>Abra esta página no Safari</strong>
+                                                <p class="text-xs text-gray-400">Não use Chrome no iPhone</p>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <span class="mr-2">2.</span>
                                             <div>
-                                                <strong>Toque no Ãcone de compartilhar</strong>
-                                                <p class="text-xs text-gray-400">Ã‰ o quadrado com seta para cima</p>
+                                                <strong>Toque no �?cone de compartilhar</strong>
+                                                <p class="text-xs text-gray-400">É o quadrado com seta para cima</p>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
                                             <span class="mr-2">3.</span>
                                             <div>
-                                                <strong>Role para baixo e toque em "Adicionar Ã  Tela de InÃ­cio"</strong>
+                                                <strong>Role para baixo e toque em "Adicionar à Tela de Início"</strong>
                                             </div>
                                         </li>
                                         <li class="flex items-start">
@@ -1387,7 +1387,7 @@
                         </div>
                     </div>
 
-                    <!-- SeÃ§Ã£o 2: Controle de Estoque -->
+                    <!-- Seção 2: Controle de Estoque -->
                     <div id="controle-estoque" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center">
@@ -1410,7 +1410,7 @@
                                             A</div>
                                         <div>
                                             <strong>Clique em "Estoque" no menu</strong>
-                                            <p class="text-gray-600 text-xs">Ãcone de caixa</p>
+                                            <p class="text-gray-600 text-xs">�?cone de caixa</p>
                                         </div>
                                     </li>
                                     <li class="flex items-start">
@@ -1419,7 +1419,7 @@
                                             B</div>
                                         <div>
                                             <strong>Clique em "Novo Produto"</strong>
-                                            <p class="text-gray-600 text-xs">BotÃ£o verde</p>
+                                            <p class="text-gray-600 text-xs">Botão verde</p>
                                         </div>
                                     </li>
                                     <li class="flex items-start">
@@ -1431,7 +1431,7 @@
                                             <div class="code-block mt-1 text-xs">
                                                 Nome: "Tela iPhone 12"<br>
                                                 Categoria: "Telas"<br>
-                                                Estoque MÃ­nimo: 3<br>
+                                                Estoque Mínimo: 3<br>
                                                 Custo: R$ 150,00<br>
                                                 Venda: R$ 300,00
                                             </div>
@@ -1443,7 +1443,7 @@
                             <div class="bg-green-50 p-5 rounded-xl border border-green-100">
                                 <h4 class="font-bold text-green-700 mb-3 flex items-center">
                                     <i data-lucide="move" class="w-5 h-5 mr-2"></i>
-                                    PASSO 2: MovimentaÃ§Ãµes
+                                    PASSO 2: Movimentações
                                 </h4>
                                 <ol class="space-y-3 text-sm">
                                     <li class="flex items-start">
@@ -1451,8 +1451,8 @@
                                             class="w-6 h-6 rounded-full bg-green-100 text-green-700 flex items-center justify-center mr-2 text-xs font-bold">
                                             A</div>
                                         <div>
-                                            <strong>Clique em "MovimentaÃ§Ã£o"</strong>
-                                            <p class="text-gray-600 text-xs">BotÃ£o azul no estoque</p>
+                                            <strong>Clique em "Movimentação"</strong>
+                                            <p class="text-gray-600 text-xs">Botão azul no estoque</p>
                                         </div>
                                     </li>
                                     <li class="flex items-start">
@@ -1463,8 +1463,8 @@
                                             <strong>Selecione o tipo:</strong>
                                             <ul class="list-disc pl-5 mt-1 text-xs">
                                                 <li>Entrada (compra)</li>
-                                                <li>SaÃ­da (uso em O.S.)</li>
-                                                <li>Ajuste (correÃ§Ã£o)</li>
+                                                <li>Saída (uso em O.S.)</li>
+                                                <li>Ajuste (correção)</li>
                                             </ul>
                                         </div>
                                     </li>
@@ -1489,36 +1489,36 @@
                             </h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                 <div>
-                                    <p class="font-bold text-gray-800 mb-1">?? Estoque MÃ­nimo</p>
-                                    <p class="text-gray-600">Configure sempre um estoque mÃ­nimo para cada produto. O
-                                        sistema alertarÃ¡ quando estiver baixo.</p>
+                                    <p class="font-bold text-gray-800 mb-1">?? Estoque Mínimo</p>
+                                    <p class="text-gray-600">Configure sempre um estoque mínimo para cada produto. O
+                                        sistema alertará quando estiver baixo.</p>
                                 </div>
                                 <div>
                                     <p class="font-bold text-gray-800 mb-1">?? Margem de Lucro</p>
-                                    <p class="text-gray-600">Calcule preÃ§o de venda com base no custo + mÃ£o de obra +
+                                    <p class="text-gray-600">Calcule preço de venda com base no custo + mão de obra +
                                         lucro desejado.</p>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-gray-800 mb-1">?? IntegraÃ§Ã£o com O.S.</p>
-                                    <p class="text-gray-600">Ao criar uma O.S., vocÃª pode debitar peÃ§as automaticamente
+                                    <p class="font-bold text-gray-800 mb-1">?? Integração com O.S.</p>
+                                    <p class="text-gray-600">Ao criar uma O.S., você pode debitar peças automaticamente
                                         do estoque.</p>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-gray-800 mb-1">?? RelatÃ³rios</p>
+                                    <p class="font-bold text-gray-800 mb-1">?? Relatórios</p>
                                     <p class="text-gray-600">Acompanhe giro de estoque e produtos mais vendidos nos
-                                        relatÃ³rios.</p>
+                                        relatórios.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- SeÃ§Ã£o 3: Ordens de ServiÃ§o (O.S.) -->
-                    <div id="ordens-serviÃ§o" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
+                    <!-- Seção 3: Ordens de Serviço (O.S.) -->
+                    <div id="ordens-serviço" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center">
                                 <div class="step-number bg-gradient-to-r from-brand-primary to-brand-dark text-white">3
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800">Fluxo de Ordens de ServiÃ§o (O.S.)</h3>
+                                <h3 class="text-xl font-bold text-gray-800">Fluxo de Ordens de Serviço (O.S.)</h3>
                             </div>
                         </div>
 
@@ -1527,14 +1527,14 @@
                                 <h4 class="font-bold text-blue-700 text-sm mb-2 flex items-center">
                                     <i data-lucide="plus-circle" class="w-4 h-4 mr-2"></i> Abertura
                                 </h4>
-                                <p class="text-xs text-gray-600">Cadastre o equipamento, peÃ§as iniciais e o problema
-                                    relatado. O sistema gera um nÃºmero Ãºnico.</p>
+                                <p class="text-xs text-gray-600">Cadastre o equipamento, peças iniciais e o problema
+                                    relatado. O sistema gera um número único.</p>
                             </div>
                             <div class="border border-yellow-100 bg-yellow-50/50 p-4 rounded-xl">
                                 <h4 class="font-bold text-yellow-700 text-sm mb-2 flex items-center">
-                                    <i data-lucide="search" class="w-4 h-4 mr-2"></i> DiagnÃ³stico
+                                    <i data-lucide="search" class="w-4 h-4 mr-2"></i> Diagnóstico
                                 </h4>
-                                <p class="text-xs text-gray-600">Atualize o status conforme avanÂºa. Adicione peÃ§as do
+                                <p class="text-xs text-gray-600">Atualize o status conforme avanºa. Adicione peças do
                                     estoque para abater automaticamente.</p>
                             </div>
                             <div class="border border-green-100 bg-green-50/50 p-4 rounded-xl">
@@ -1542,25 +1542,25 @@
                                     <i data-lucide="check-check" class="w-4 h-4 mr-2"></i> Entrega
                                 </h4>
                                 <p class="text-xs text-gray-600">Altere para "Entregue" para confirmar o faturamento.
-                                    VocÃª pode imprimir ou enviar via WhatsApp.</p>
+                                    Você pode imprimir ou enviar via WhatsApp.</p>
                             </div>
                         </div>
 
                         <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
                             <h5 class="font-bold text-gray-800 mb-3 flex items-center text-sm">
-                                <i data-lucide="printer" class="w-4 h-4 mr-2 text-brand-primary"></i> ImpressÃ£o e
+                                <i data-lucide="printer" class="w-4 h-4 mr-2 text-brand-primary"></i> Impressão e
                                 Recibos
                             </h5>
                             <p class="text-sm text-gray-600 mb-2">O sistema gera um layout profissional com <strong>2
-                                    vias automÃ¡tica</strong>:</p>
+                                    vias automática</strong>:</p>
                             <ul class="list-disc pl-5 space-y-1 text-xs text-gray-500">
-                                <li>Via da AssistÃªncia (com seu controle interno)</li>
-                                <li>Via do Cliente (com termos de garantia configurÃ¡veis)</li>
+                                <li>Via da Assistência (com seu controle interno)</li>
+                                <li>Via do Cliente (com termos de garantia configuráveis)</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- SeÃ§Ã£o 4: Frente de Caixa (PDV) -->
+                    <!-- Seção 4: Frente de Caixa (PDV) -->
                     <div id="pdv-manual" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center">
@@ -1576,8 +1576,8 @@
                                     <i data-lucide="shopping-cart" class="w-6 h-6 text-brand-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold">Agilidade no BalcÃ£o</h4>
-                                    <p class="text-gray-400 text-sm">Venda acessÃ³rios e produtos rapidamente sem
+                                    <h4 class="font-bold">Agilidade no Balcão</h4>
+                                    <p class="text-gray-400 text-sm">Venda acessórios e produtos rapidamente sem
                                         precisar abrir uma O.S.</p>
                                 </div>
                             </div>
@@ -1588,8 +1588,8 @@
                                     <p class="text-gray-400">Inicie o dia informando o saldo inicial (suprimento).</p>
                                 </div>
                                 <div class="bg-white/5 p-3 rounded-lg border border-white/10">
-                                    <p class="font-bold text-brand-primary mb-1">MÃ©todos Compostos</p>
-                                    <p class="text-gray-400">Receba pagamentos combinados (Pix + CartÃ£o, etc).</p>
+                                    <p class="font-bold text-brand-primary mb-1">Métodos Compostos</p>
+                                    <p class="text-gray-400">Receba pagamentos combinados (Pix + Cartão, etc).</p>
                                 </div>
                             </div>
                         </div>
@@ -1598,19 +1598,19 @@
                             <h5 class="font-bold text-blue-800 mb-2 text-sm">Destaque: Fechamento de Caixa</h5>
                             <p class="text-xs text-blue-700 leading-relaxed">
                                 Ao final do expediente, clique em "Encerrar Caixa". O sistema gera um resumo completo
-                                das entradas e saÃ­das por mÃ©todo de pagamento, pronto para ser impresso ou compartilhado
+                                das entradas e saídas por método de pagamento, pronto para ser impresso ou compartilhado
                                 via WhatsApp.
                             </p>
                         </div>
                     </div>
 
-                    <!-- SeÃ§Ã£o 5: GestÃ£o de Clientes (VisÃ£o 360) -->
+                    <!-- Seção 5: Gestão de Clientes (Visão 360) -->
                     <div id="clientes-manual" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center">
                                 <div class="step-number bg-gradient-to-r from-brand-primary to-brand-dark text-white">5
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800">GestÃ£o de Clientes (VisÃ£o 360Â°)</h3>
+                                <h3 class="text-xl font-bold text-gray-800">Gestão de Clientes (Visão 360°)</h3>
                             </div>
                         </div>
 
@@ -1620,32 +1620,32 @@
                                     <i data-lucide="user-plus" class="w-5 h-5 text-brand-primary mt-1"></i>
                                     <div>
                                         <p class="font-bold text-gray-800 text-sm">Cadastro Inteligente</p>
-                                        <p class="text-xs text-gray-500">Busca automÃ¡tica de endereÃ§o via CEP (ViaCEP).
+                                        <p class="text-xs text-gray-500">Busca automática de endereço via CEP (ViaCEP).
                                         </p>
                                     </div>
                                 </div>
                                 <div class="flex gap-3">
                                     <i data-lucide="history" class="w-5 h-5 text-brand-primary mt-1"></i>
                                     <div>
-                                        <p class="font-bold text-gray-800 text-sm">HistÃ³rico Ãºnico</p>
-                                        <p class="text-xs text-gray-500">Veja todas as Ordens de ServiÃ§o e Vendas PDV de
-                                            um cliente em um sÃ³ lugar.</p>
+                                        <p class="font-bold text-gray-800 text-sm">Histórico único</p>
+                                        <p class="text-xs text-gray-500">Veja todas as Ordens de Serviço e Vendas PDV de
+                                            um cliente em um só lugar.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex-1 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                                <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">Como usar a VisÃ£o 360</p>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">Como usar a Visão 360</p>
                                 <ol class="list-decimal pl-5 text-xs text-gray-600 space-y-2">
                                     <li>Acesse o menu <strong>Clientes</strong></li>
                                     <li>Clique no nome do cliente na tabela</li>
-                                    <li>O perfil abrirÃ¡ com mÃ©tricas de gasto total e frequÃªncia</li>
+                                    <li>O perfil abrirá com métricas de gasto total e frequência</li>
                                     <li>Inicie novas O.S. ou Vendas direto do perfil</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
 
-                    <!-- SeÃ§Ã£o 6: Financeiro e Fluxo de Caixa -->
+                    <!-- Seção 6: Financeiro e Fluxo de Caixa -->
                     <div id="financeiro-manual" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center">
@@ -1658,13 +1658,13 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="p-4 bg-red-50 rounded-xl border border-red-100">
                                 <h4 class="font-bold text-red-700 text-sm mb-2">Controle de Despesas</h4>
-                                <p class="text-xs text-red-600">Registre aluguel, luz, salÃ¡rios e compra de insumos.
-                                    Tudo o que sai do caixa deve ser lanÂºado para um lucro real.</p>
+                                <p class="text-xs text-red-600">Registre aluguel, luz, salários e compra de insumos.
+                                    Tudo o que sai do caixa deve ser lanºado para um lucro real.</p>
                             </div>
                             <div class="p-4 bg-green-50 rounded-xl border border-green-100">
-                                <h4 class="font-bold text-green-700 text-sm mb-2">Receitas AutomÃ¡ticas</h4>
+                                <h4 class="font-bold text-green-700 text-sm mb-2">Receitas Automáticas</h4>
                                 <p class="text-xs text-green-600">Vendas do PDV e O.S. finalizadas entram
-                                    automaticamente no financeiro. VocÃª sÃ³ precisa auditar.</p>
+                                    automaticamente no financeiro. Você só precisa auditar.</p>
                             </div>
                         </div>
 
@@ -1674,32 +1674,32 @@
                             </div>
                             <div>
                                 <h5 class="font-bold text-gray-800 text-sm">Dashboard de BI</h5>
-                                <p class="text-xs text-gray-500">Acompanhe faturamento lÃ­quido, volume de vendas e
+                                <p class="text-xs text-gray-500">Acompanhe faturamento líquido, volume de vendas e
                                     produtos curva A em tempo real.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- SeÃ§Ã£o 7: Backup e SeguranÂºa -->
+                    <!-- Seção 7: Backup e Seguranºa -->
                     <div id="backup" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-8">
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center">
                                 <div class="step-number bg-gradient-to-r from-brand-primary to-brand-dark text-white">7
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800">Backup e SeguranÂºa dos Dados</h3>
+                                <h3 class="text-xl font-bold text-gray-800">Backup e Seguranºa dos Dados</h3>
                             </div>
                         </div>
 
                         <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl mb-6">
                             <h4 class="font-bold text-red-800 mb-3 flex items-center">
                                 <i data-lucide="alert-octagon" class="w-5 h-5 mr-2"></i>
-                                ATENÃ‡ÃƒO: Leia com Cuidado!
+                                ATENÇÃO: Leia com Cuidado!
                             </h4>
                             <div class="text-sm text-red-800 space-y-2">
                                 <p>?? <strong>Seus dados ficam APENAS no seu celular/computador.</strong></p>
-                                <p>?? <strong>Se vocÃª perder o aparelho ou limpar o navegador, perderÃ¡ TODOS os
+                                <p>?? <strong>Se você perder o aparelho ou limpar o navegador, perderá TODOS os
                                         dados.</strong></p>
-                                <p>?? <strong>O backup Ã‰ SUA responsabilidade.</strong> FaÃ§a SEMPRE!</p>
+                                <p>?? <strong>O backup É SUA responsabilidade.</strong> Faça SEMPRE!</p>
                             </div>
                         </div>
 
@@ -1715,7 +1715,7 @@
                                             class="w-6 h-6 rounded-full bg-green-100 text-green-700 flex items-center justify-center mr-2 text-xs font-bold mt-0.5">
                                             1</div>
                                         <div>
-                                            <strong>Acesse ConfiguraÃ§Ãµes</strong>
+                                            <strong>Acesse Configurações</strong>
                                             <p class="text-gray-600 text-xs">Menu lateral ? Engrenagem</p>
                                         </div>
                                     </li>
@@ -1725,7 +1725,7 @@
                                             2</div>
                                         <div>
                                             <strong>Clique "Baixar Backup (.json)"</strong>
-                                            <p class="text-gray-600 text-xs">Na seÃ§Ã£o "SeguranÂºa de Dados"</p>
+                                            <p class="text-gray-600 text-xs">Na seção "Seguranºa de Dados"</p>
                                         </div>
                                     </li>
                                     <li class="flex items-start">
@@ -1734,7 +1734,7 @@
                                             3</div>
                                         <div>
                                             <strong>Salve em 2 Lugares</strong>
-                                            <p class="text-gray-600 text-xs">Google Drive + WhatsApp (para vocÃª mesmo)
+                                            <p class="text-gray-600 text-xs">Google Drive + WhatsApp (para você mesmo)
                                             </p>
                                         </div>
                                     </li>
@@ -1761,7 +1761,7 @@
                                             class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center mr-2 text-xs font-bold mt-0.5">
                                             2</div>
                                         <div>
-                                            <strong>VÃ¡ em ConfiguraÃ§Ãµes</strong>
+                                            <strong>Vá em Configurações</strong>
                                         </div>
                                     </li>
                                     <li class="flex items-start">
@@ -1778,11 +1778,11 @@
                         </div>
                     </div>
 
-                    <!-- RodapÃ© do Manual -->
+                    <!-- Rodapé do Manual -->
                     <div class="mt-10 bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2">DÃºvidas TÃ©cnicas?</h3>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Dúvidas Técnicas?</h3>
                         <p class="text-gray-500 text-sm">
-                            Para suporte tÃ©cnico, acesse o canal oficial de atendimento pelo portal onde adquiriu este
+                            Para suporte técnico, acesse o canal oficial de atendimento pelo portal onde adquiriu este
                             produto.
                         </p>
                     </div>
@@ -1799,11 +1799,11 @@
                             class="w-20 h-20 rounded-full bg-gradient-to-r from-brand-primary to-brand-dark flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-200">
                             <i data-lucide="shield-check" class="w-10 h-10 text-white"></i>
                         </div>
-                        <h2 class="text-3xl font-bold text-gray-800 mb-1">Central de SeguranÂºa e Legalidade</h2>
-                        <p class="text-gray-500 font-medium">Software Premium - TransparÃªncia Total</p>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-1">Central de Seguranºa e Legalidade</h2>
+                        <p class="text-gray-500 font-medium">Software Premium - Transparência Total</p>
                     </div>
 
-                    <!-- Grid de PolÃ­ticas -->
+                    <!-- Grid de Políticas -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                         <!-- Termos de Uso -->
                         <div class="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-shadow">
@@ -1814,11 +1814,11 @@
                                 Termos de Uso
                             </h3>
                             <p class="text-sm text-gray-600 leading-relaxed text-justify">
-                                A licenÃ§a concedida ï¿½ <strong>pessoal, intransferÃ­vel e nÃ£o exclusiva</strong>. O
-                                software ï¿½
-                                fornecido "no estado em que se encontra" (as-is). Ã© estritamente proibida a revenda,
-                                cÃ³pia,
-                                distribuiÃ§Ã£o nÃ£o autorizada ou engenharia reversa do cÃ³digo-fonte, sob pena das sanÃ§Ãµes
+                                A licença concedida � <strong>pessoal, intransferível e não exclusiva</strong>. O
+                                software �
+                                fornecido "no estado em que se encontra" (as-is). é estritamente proibida a revenda,
+                                cópia,
+                                distribuição não autorizada ou engenharia reversa do código-fonte, sob pena das sanções
                                 previstas na Lei de Propriedade Intelectual (9.610/98).
                             </p>
                         </div>
@@ -1835,14 +1835,14 @@
                                 Adotamos a arquitetura <strong>Privacy by Design (Local-First)</strong>. Seus dados
                                 financeiros e de clientes ficam salvos <strong>exclusivamente no seu
                                     dispositivo</strong>.
-                                Este software nÃ£o coleta, nÃ£o armazena e nÃ£o tem acesso a nenhuma informaÃ§Ã£o inserida no
+                                Este software não coleta, não armazena e não tem acesso a nenhuma informação inserida no
                                 sistema.
-                                Sua privacidade ï¿½ absoluta.
+                                Sua privacidade � absoluta.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Responsabilidade do UsuÃ¡rio -->
+                    <!-- Responsabilidade do Usuário -->
                     <div class="bg-red-50 border border-red-100 p-8 rounded-2xl mb-8 relative overflow-hidden">
                         <div class="absolute top-0 right-0 p-4 opacity-10">
                             <i data-lucide="alert-octagon" class="w-32 h-32 text-red-900"></i>
@@ -1854,18 +1854,18 @@
                             </h3>
                             <div class="space-y-4 text-sm text-red-900/80 text-justify font-medium">
                                 <p>
-                                    <strong>1. Backup ï¿½ ObrigatÃ³rio:</strong> Como nÃ£o temos acesso aos seus dados,
-                                    <strong>nÃ£o podemos recuperÃ¡-los</strong> em caso de perda, roubo ou dano ao seu
-                                    dispositivo. A realizaÃ§Ã£o de cÃ³pias de seguranÃ§a (Backup) Ã© de responsabilidade
-                                    Ãºnica e
-                                    exclusiva do usuÃ¡rio.
+                                    <strong>1. Backup � Obrigatório:</strong> Como não temos acesso aos seus dados,
+                                    <strong>não podemos recuperá-los</strong> em caso de perda, roubo ou dano ao seu
+                                    dispositivo. A realização de cópias de segurança (Backup) é de responsabilidade
+                                    única e
+                                    exclusiva do usuário.
                                 </p>
                                 <p>
-                                    <strong>2. IsenÃ§Ã£o de Responsabilidade TÃ©cnica:</strong> O desenvolvedor exime-se de
+                                    <strong>2. Isenção de Responsabilidade Técnica:</strong> O desenvolvedor exime-se de
                                     qualquer
-                                    responsabilidade por prejuÃ­zos decorrentes de falhas de hardware, vÃ­rus no
+                                    responsabilidade por prejuízos decorrentes de falhas de hardware, vírus no
                                     dispositivo
-                                    do usuÃ¡rio, ou uso incorreto dos cÃ¡lculos financeiros do sistema. Verifique sempre
+                                    do usuário, ou uso incorreto dos cálculos financeiros do sistema. Verifique sempre
                                     as
                                     taxas configuradas.
                                 </p>
@@ -1883,9 +1883,9 @@
                                     Suporte Premium Especializado
                                 </h3>
                                 <p class="text-gray-300 text-sm mb-6 leading-relaxed">
-                                    Precisa de ajuda ou encontrou alguma inconsistÃªncia? O suporte especializado estÃ¡
+                                    Precisa de ajuda ou encontrou alguma inconsistência? O suporte especializado está
                                     pronto
-                                    para atender vocÃª com prioridade. Garantimos a qualidade e a seguranÃ§a do seu
+                                    para atender você com prioridade. Garantimos a qualidade e a segurança do seu
                                     software.
                                 </p>
 
@@ -1896,7 +1896,7 @@
                                     </div>
                                     <div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm">
                                         <p class="text-xs text-gray-400 uppercase font-bold">Tempo de Resposta (SLA)</p>
-                                        <p class="font-bold text-brand-primary">AtÃ© 24h Ãºteis</p>
+                                        <p class="font-bold text-brand-primary">Até 24h úteis</p>
                                     </div>
                                 </div>
                             </div>
@@ -1912,12 +1912,12 @@
                         </div>
                     </div>
 
-                    <!-- RodapÃ© Legal -->
+                    <!-- Rodapé Legal -->
                     <div class="text-center border-t border-gray-200 pt-8">
-                        <p class="text-sm font-bold text-gray-800">GestÃ£o AssistÃªncia Pro</p>
-                        <p class="text-xs text-gray-500 mt-1">Software Premium - LicenÃ§a VitalÃ­cia</p>
+                        <p class="text-sm font-bold text-gray-800">Gestão Assistência Pro</p>
+                        <p class="text-xs text-gray-500 mt-1">Software Premium - Licença Vitalícia</p>
                         <p class="text-[10px] text-gray-400 mt-4">
-                            VersÃ£o 5.0 Pro - Build 2026.01.07 - MÃ³dulo Estoque
+                            Versão 5.0 Pro - Build 2026.01.07 - Módulo Estoque
                         </p>
                     </div>
 
@@ -1931,7 +1931,7 @@
     <div id="orderModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center p-6 border-b sticky top-0 bg-white z-10">
-                <h3 class="text-lg font-bold text-gray-800" id="order-modal-title">Nova Ordem de ServiÃ§o</h3>
+                <h3 class="text-lg font-bold text-gray-800" id="order-modal-title">Nova Ordem de Serviço</h3>
                 <button onclick="closeModal('orderModal')" class="text-gray-400 hover:text-gray-600" title="Action button" aria-label="Action button">
                     <i data-lucide="x"></i>
                 </button>
@@ -1955,10 +1955,10 @@
                                 placeholder="Nome completo" title="Input field" aria-label="Input field">
                         </div>
                         <div>
-                            <label class="text-xs font-bold text-gray-500 uppercase">TÃ©cnico ResponsÃ³vel</label>
+                            <label class="text-xs font-bold text-gray-500 uppercase">Técnico Responsóvel</label>
                             <select id="order-technician"
                                 class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none cursor-pointer" title="Select option" aria-label="Select option">
-                                <option value="">Selecione um tÃ©cnico</option>
+                                <option value="">Selecione um técnico</option>
                             </select>
                         </div>
                         <div>
@@ -1992,7 +1992,7 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="text-xs font-bold text-gray-500 uppercase">NÂºmero de SÃ©rie/IMEI</label>
+                            <label class="text-xs font-bold text-gray-500 uppercase">Nºmero de Série/IMEI</label>
                             <input type="text" id="order-serial"
                                 class="w-full border p-2 rounded-lg bg-white font-mono focus:border-brand-primary outline-none"
                                 placeholder="Opcional" title="Input field" aria-label="Input field">
@@ -2010,18 +2010,18 @@
                 <div class="bg-yellow-50 dark:bg-yellow-900/10 p-4 rounded-xl border border-yellow-200">
                     <h4 class="text-sm font-bold text-yellow-800 mb-4 flex items-center">
                         <i data-lucide="clipboard-check" class="w-4 h-4 mr-2"></i>
-                        CondiÃ§Ãµes de Entrada e Checklist
+                        Condições de Entrada e Checklist
                     </h4>
 
                     <div class="mb-4">
-                        <label class="text-xs font-bold text-gray-500 uppercase">ObservaÃ§Ãµes de Entrada (Estado FÃ­sico)
+                        <label class="text-xs font-bold text-gray-500 uppercase">Observações de Entrada (Estado Físico)
                             *</label>
                         <textarea id="order-entry-notes" rows="2" required
                             class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
-                            placeholder="Ex: Aparelho com a carcaÃ§a arranhada, pelÃ­cula trincada, sem gaveta do chip..."></textarea>
+                            placeholder="Ex: Aparelho com a carcaça arranhada, película trincada, sem gaveta do chip..."></textarea>
                     </div>
 
-                    <label class="text-xs font-bold text-gray-500 uppercase mb-2 block">Checklist FÃ­sico</label>
+                    <label class="text-xs font-bold text-gray-500 uppercase mb-2 block">Checklist Físico</label>
                     <div
                         class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm bg-white p-3 rounded-lg border border-yellow-100">
                         <label class="flex items-center space-x-2"><input type="checkbox" id="chk-screen"
@@ -2032,13 +2032,13 @@
                                 class="text-gray-700">Tampa Traseira</span></label>
                         <label class="flex items-center space-x-2"><input type="checkbox" id="chk-buttons"
                                 class="w-4 h-4 text-brand-primary rounded border-gray-300" title="Input field" aria-label="Input field"> <span
-                                class="text-gray-700">BotÃµes</span></label>
+                                class="text-gray-700">Botões</span></label>
                         <label class="flex items-center space-x-2"><input type="checkbox" id="chk-tray"
                                 class="w-4 h-4 text-brand-primary rounded border-gray-300" title="Input field" aria-label="Input field"> <span
                                 class="text-gray-700">Gaveta Chip</span></label>
                         <label class="flex items-center space-x-2"><input type="checkbox" id="chk-cameras"
                                 class="w-4 h-4 text-brand-primary rounded border-gray-300" title="Input field" aria-label="Input field"> <span
-                                class="text-gray-700">CÃ¢meras</span></label>
+                                class="text-gray-700">Câmeras</span></label>
                         <label class="flex items-center space-x-2"><input type="checkbox" id="chk-biometrics"
                                 class="w-4 h-4 text-brand-primary rounded border-gray-300" title="Input field" aria-label="Input field"> <span
                                 class="text-gray-700">Biometria</span></label>
@@ -2060,10 +2060,10 @@
                             placeholder="Descreva o problema conforme relatado pelo cliente..."></textarea>
                     </div>
                     <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">DiagnÃ³stico/ServiÃ§o</label>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Diagnóstico/Serviço</label>
                         <textarea id="order-diagnosis" rows="3"
                             class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
-                            placeholder="Laudo tÃ©cnico e serviÃ§o a ser realizado..."></textarea>
+                            placeholder="Laudo técnico e serviço a ser realizado..."></textarea>
                     </div>
                 </div>
 
@@ -2071,7 +2071,7 @@
                 <div
                     class="bg-green-50 dark:bg-green-900/10 p-4 rounded-xl border border-green-100 dark:border-green-500/20">
                     <h4 class="text-sm font-bold text-green-700 mb-4 flex items-center justify-between">
-                        <span><i data-lucide="package" class="w-4 h-4 mr-2"></i> PeÃ§as do Estoque</span>
+                        <span><i data-lucide="package" class="w-4 h-4 mr-2"></i> Peças do Estoque</span>
                         <button type="button" onclick="addPartFromInventory()"
                             class="text-xs bg-green-600 text-white px-3 py-1 rounded-lg hover:bg-green-700" title="Action button" aria-label="Action button">
                             <i data-lucide="plus" class="w-3 h-3 inline mr-1"></i> Adicionar
@@ -2081,7 +2081,7 @@
                         <!-- Parts will be added here dynamically -->
                     </div>
                     <div class="mt-4 flex justify-between items-center">
-                        <span class="text-sm font-medium">Total PeÃ§as:</span>
+                        <span class="text-sm font-medium">Total Peças:</span>
                         <span id="order-parts-total" class="font-bold text-green-700">R$ 0,00</span>
                     </div>
                 </div>
@@ -2089,7 +2089,7 @@
                 <!-- Labor & Discount -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">MÃ£o de Obra (R$)</label>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Mão de Obra (R$)</label>
                         <input type="number" step="0.01" id="order-labor"
                             class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
                             placeholder="0.00" value="0" title="Input field" aria-label="Input field">
@@ -2110,11 +2110,11 @@
                     </h4>
                     <div class="space-y-2">
                         <div class="flex justify-between text-sm">
-                            <span>PeÃ§as:</span>
+                            <span>Peças:</span>
                             <span id="summary-parts">R$ 0,00</span>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span>MÃ£o de Obra:</span>
+                            <span>Mão de Obra:</span>
                             <span id="summary-labor">R$ 0,00</span>
                         </div>
                         <div class="flex justify-between text-sm text-red-500">
@@ -2131,7 +2131,7 @@
                 <div class="sticky bottom-0 bg-white pt-4 border-t">
                     <button type="submit"
                         class="w-full bg-brand-primary text-white py-4 rounded-xl font-bold hover:bg-brand-dark transition-all text-lg shadow-lg" title="Action button" aria-label="Action button">
-                        Salvar Ordem de ServiÃ§o
+                        Salvar Ordem de Serviço
                     </button>
                 </div>
             </form>
@@ -2144,7 +2144,7 @@
             class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
             <div class="flex justify-between items-center p-6 border-b bg-gray-50">
                 <div>
-                    <h3 class="text-lg font-bold text-gray-800">HistÃ³rico de MovimentaÃ§Ãµes</h3>
+                    <h3 class="text-lg font-bold text-gray-800">Histórico de Movimentações</h3>
                     <p id="history-product-name" class="text-xs text-gray-500 font-medium mt-1">Produto: --</p>
                 </div>
                 <button onclick="closeModal('productHistoryModal')" class="text-gray-400 hover:text-gray-600" title="Action button" aria-label="Action button">
@@ -2199,7 +2199,7 @@
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">CÃ³digo</label>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Código</label>
                         <input type="text" id="product-code"
                             class="w-full border p-2 rounded-lg bg-white font-mono focus:border-brand-primary outline-none"
                             placeholder="Auto ou manual" title="Input field" aria-label="Input field">
@@ -2208,13 +2208,13 @@
                         <label class="text-xs font-bold text-gray-500 uppercase">Categoria *</label>
                         <input type="text" id="product-category" required list="categories"
                             class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
-                            placeholder="Ex: Telas, Baterias, PeÃ§as" title="Input field" aria-label="Input field">
+                            placeholder="Ex: Telas, Baterias, Peças" title="Input field" aria-label="Input field">
                         <datalist id="categories">
                             <option value="Telas">
                             <option value="Baterias">
                             <option value="Conectores">
-                            <option value="MÃ³dulos">
-                            <option value="PeÃ§as">
+                            <option value="Módulos">
+                            <option value="Peças">
                             <option value="Ferramentas">
                             <option value="Materiais">
                         </datalist>
@@ -2229,7 +2229,7 @@
                             value="0" title="Input field" aria-label="Input field">
                     </div>
                     <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">Estoque MÃ­nimo</label>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Estoque Mínimo</label>
                         <input type="number" id="product-min-stock" min="0" step="1" required
                             class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
                             value="3" title="Input field" aria-label="Input field">
@@ -2238,13 +2238,13 @@
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">PreÃ§o de Custo (R$)</label>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Preço de Custo (R$)</label>
                         <input type="number" step="0.01" id="product-cost" oninput="calculateProfit()" required
                             class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
                             placeholder="0.00" value="0" title="Input field" aria-label="Input field">
                     </div>
                     <div>
-                        <label class="text-xs font-bold text-gray-500 uppercase">PreÃ§o de Venda (R$)</label>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Preço de Venda (R$)</label>
                         <input type="number" step="0.01" id="product-price" oninput="calculateProfit()" required
                             class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
                             placeholder="0.00" value="0" title="Input field" aria-label="Input field">
@@ -2272,7 +2272,7 @@
                 </div>
 
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">ObservaÃ§Ãµes</label>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Observações</label>
                     <textarea id="product-notes" rows="2"
                         class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
                         placeholder="Detalhes adicionais..."></textarea>
@@ -2290,7 +2290,7 @@
     <div id="movementModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center p-6 border-b sticky top-0 bg-white z-10">
-                <h3 class="text-lg font-bold text-gray-800">MovimentaÃ§Ã£o de Estoque</h3>
+                <h3 class="text-lg font-bold text-gray-800">Movimentação de Estoque</h3>
                 <button onclick="closeModal('movementModal')" class="text-gray-400 hover:text-gray-600" title="Action button" aria-label="Action button">
                     <i data-lucide="x"></i>
                 </button>
@@ -2309,7 +2309,7 @@
                         <input type="radio" name="movement-type" value="out" class="peer hidden" title="Input field" aria-label="Input field">
                         <div
                             class="py-2 text-sm font-bold text-gray-500 rounded-md peer-checked:bg-red-100 peer-checked:text-red-600 shadow-sm transition-all">
-                            SaÃ­da
+                            Saída
                         </div>
                     </label>
                     <label class="cursor-pointer text-center">
@@ -2344,7 +2344,7 @@
                 </div>
 
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">Valor UnitÃ¡rio (R$)</label>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Valor Unitário (R$)</label>
                     <input type="number" step="0.01" id="movement-unit-value"
                         class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
                         placeholder="0.00" title="Input field" aria-label="Input field">
@@ -2354,20 +2354,20 @@
                     <label class="text-xs font-bold text-gray-500 uppercase">Motivo *</label>
                     <select id="movement-reason" required
                         class="w-full border p-2 rounded-lg text-sm bg-white outline-none" title="Select option" aria-label="Select option">
-                        <option value="purchase">Compra/ReposiÃ§Ã£o</option>
+                        <option value="purchase">Compra/Reposição</option>
                         <option value="sale">Venda</option>
                         <option value="os_use">Uso em O.S.</option>
                         <option value="loss">Perda/Avaria</option>
-                        <option value="adjustment">Ajuste de InventÃ¡rio</option>
+                        <option value="adjustment">Ajuste de Inventário</option>
                         <option value="other">Outro</option>
                     </select>
                 </div>
 
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">ObservaÃ§Ãµes</label>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Observações</label>
                     <textarea id="movement-notes" rows="2"
                         class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
-                        placeholder="Detalhes da movimentaÃ§Ã£o..."></textarea>
+                        placeholder="Detalhes da movimentação..."></textarea>
                 </div>
 
                 <div id="movement-total" class="bg-gray-50 p-3 rounded-lg hidden">
@@ -2379,7 +2379,7 @@
 
                 <button type="submit"
                     class="w-full bg-brand-primary text-white py-3 rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-brand-dark transition-all mt-2" title="Action button" aria-label="Action button">
-                    Registrar MovimentaÃ§Ã£o
+                    Registrar Movimentação
                 </button>
             </form>
         </div>
@@ -2390,7 +2390,7 @@
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center p-6 border-b sticky top-0 bg-white z-10">
                 <div>
-                    <h3 class="text-lg font-bold text-gray-800">Ordem de ServiÃ§o</h3>
+                    <h3 class="text-lg font-bold text-gray-800">Ordem de Serviço</h3>
                     <p id="view-os-number" class="text-sm text-gray-500">#0000</p>
                 </div>
                 <button onclick="closeModal('orderViewModal')" class="text-gray-400 hover:text-gray-600" title="Action button" aria-label="Action button">
@@ -2405,7 +2405,7 @@
                 <!-- OS Info Row -->
                 <div class="flex justify-between items-center bg-gray-50 p-4 border rounded-lg mb-6">
                     <div>
-                        <p class="text-xs text-gray-500 uppercase font-bold">Ordem de ServiÃ§o</p>
+                        <p class="text-xs text-gray-500 uppercase font-bold">Ordem de Serviço</p>
                         <p id="view-os-id" class="text-2xl font-mono font-bold text-gray-800">#0000</p>
                     </div>
                     <div class="text-right">
@@ -2432,7 +2432,7 @@
                         <div class="space-y-1">
                             <p id="view-device" class="font-bold text-gray-800">--</p>
                             <p id="view-serial" class="text-xs text-gray-500">S/N: --</p>
-                            <p id="view-accessories" class="text-xs text-gray-500 italic">AcessÃ³rios: --</p>
+                            <p id="view-accessories" class="text-xs text-gray-500 italic">Acessórios: --</p>
                         </div>
                     </div>
                 </div>
@@ -2440,11 +2440,11 @@
                 <!-- Device Conditions -->
                 <div class="border border-gray-200 rounded-lg overflow-hidden mb-6">
                     <div class="p-4 bg-yellow-50/50 border-b border-gray-200">
-                        <h4 class="text-xs font-bold text-gray-400 uppercase">Estado FÃ­sico / Obs. de Entrada</h4>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase">Estado Físico / Obs. de Entrada</h4>
                         <p id="view-entry-notes" class="text-gray-800 text-sm mt-1">--</p>
                     </div>
                     <div class="p-4 bg-white">
-                        <h4 class="text-xs font-bold text-gray-400 uppercase mb-2">Checklist FÃ­sico</h4>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase mb-2">Checklist Físico</h4>
                         <div id="view-checklist-grid"
                             class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-gray-600">
                             <!-- Injected via JS -->
@@ -2459,14 +2459,14 @@
                         <p id="view-problem" class="text-gray-800 text-sm mt-1">--</p>
                     </div>
                     <div class="p-4 bg-white">
-                        <h4 class="text-xs font-bold text-gray-400 uppercase">Laudo TÃ©cnico / ServiÃ§o</h4>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase">Laudo Técnico / Serviço</h4>
                         <p id="view-diagnosis" class="text-gray-800 text-sm mt-1">--</p>
                     </div>
                 </div>
 
                 <!-- Parts Used -->
                 <div id="view-parts-container" class="mb-6 hidden">
-                    <h4 class="text-xs font-bold text-gray-400 uppercase mb-3">PeÃ§as Utilizadas</h4>
+                    <h4 class="text-xs font-bold text-gray-400 uppercase mb-3">Peças Utilizadas</h4>
                     <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
                         <table class="w-full text-sm">
                             <thead>
@@ -2481,7 +2481,7 @@
                             </tbody>
                             <tfoot>
                                 <tr class="border-t">
-                                    <td colspan="2" class="pt-2 font-bold">Total PeÃ§as:</td>
+                                    <td colspan="2" class="pt-2 font-bold">Total Peças:</td>
                                     <td id="view-parts-total" class="pt-2 text-right font-bold text-green-600">R$ 0,00
                                     </td>
                                 </tr>
@@ -2496,11 +2496,11 @@
                         <h4 class="text-xs font-bold text-gray-400 uppercase border-b pb-2 mb-3">Resumo Financeiro</h4>
                         <div class="space-y-2 text-sm">
                             <div class="flex justify-between text-gray-600">
-                                <span>PeÃ§as</span>
+                                <span>Peças</span>
                                 <span id="view-parts-summary">R$ 0,00</span>
                             </div>
                             <div class="flex justify-between text-gray-600">
-                                <span>MÃ£o de Obra</span>
+                                <span>Mão de Obra</span>
                                 <span id="view-labor">R$ 0,00</span>
                             </div>
                             <div class="flex justify-between text-red-500">
@@ -2517,7 +2517,7 @@
 
                 <div class="mt-8 border-t-2 border-dashed border-gray-200 pt-6">
                     <div class="text-[10px] text-gray-500 text-justify leading-relaxed mb-12">
-                        <strong class="uppercase text-gray-700">TERMOS DE GARANTIA E CONDIÃ‡Ã•ES:</strong>
+                        <strong class="uppercase text-gray-700">TERMOS DE GARANTIA E CONDIÇÕES:</strong>
                         <div id="view-warranty-terms" class="mt-1 pb-4 border-b">
                             <!-- Injected by JS -->
                         </div>
@@ -2525,16 +2525,16 @@
 
                     <div class="flex justify-between gap-8">
                         <div class="flex-1 border-t border-gray-400 pt-2 text-center">
-                            <p class="text-[10px] font-bold text-gray-600 uppercase">Assinatura do TÃ©cnico / Loja</p>
+                            <p class="text-[10px] font-bold text-gray-600 uppercase">Assinatura do Técnico / Loja</p>
                         </div>
                         <div class="flex-1 border-t border-gray-400 pt-2 text-center">
                             <p class="text-[10px] font-bold text-gray-600 uppercase">Assinatura do Cliente</p>
-                            <p class="text-[9px] text-gray-400">Declaro estar ciente e de acordo com as condiÃ§Ãµes
+                            <p class="text-[9px] text-gray-400">Declaro estar ciente e de acordo com as condições
                                 descritas.</p>
                         </div>
                     </div>
                     <div class="text-center mt-6 text-[9px] text-gray-300 font-bold tracking-widest uppercase">
-                        ---------- VIA DA ASSISTÃŠNCIA ----------
+                        ---------- VIA DA ASSISTÊNCIA ----------
                     </div>
                 </div>
             </div>
@@ -2546,8 +2546,8 @@
                     <select id="view-status-select" onchange="updateOrderStatus(this.value)"
                         class="flex-1 border-none bg-transparent font-bold text-gray-800 outline-none cursor-pointer" title="Select option" aria-label="Select option">
                         <option value="received">?? Recebido</option>
-                        <option value="analyzing">?? Em AnÂºlise</option>
-                        <option value="waiting_parts">?? Aguardando PeÃ§a</option>
+                        <option value="analyzing">?? Em Anºlise</option>
+                        <option value="waiting_parts">?? Aguardando Peça</option>
                         <option value="ready">? Pronto</option>
                         <option value="delivered">?? Entregue</option>
                     </select>
@@ -2568,7 +2568,7 @@
                     </button>
                     <button onclick="usePartsFromOrder()" id="btn-use-parts"
                         class="bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 flex justify-center items-center gap-2" title="Action button" aria-label="Action button">
-                        <i data-lucide="package" class="w-4 h-4"></i> Usar PeÃ§as
+                        <i data-lucide="package" class="w-4 h-4"></i> Usar Peças
                     </button>
                 </div>
             </div>
@@ -2579,7 +2579,7 @@
     <div id="transactionModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md transform transition-all p-6">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-lg font-bold text-gray-800">Novo LanÂºamento</h3>
+                <h3 class="text-lg font-bold text-gray-800">Novo Lanºamento</h3>
                 <button onclick="closeModal('transactionModal')" class="text-gray-400 hover:text-gray-600" title="Action button" aria-label="Action button">
                     <i data-lucide="x"></i>
                 </button>
@@ -2600,7 +2600,7 @@
                         <input type="radio" name="trans-type" value="expense" class="peer hidden" title="Input field" aria-label="Input field">
                         <div
                             class="py-2 text-sm font-bold text-gray-500 rounded-md peer-checked:bg-white peer-checked:text-red-600 shadow-sm transition-all">
-                            SaÃ­da
+                            Saída
                         </div>
                     </label>
                 </div>
@@ -2613,18 +2613,18 @@
                 </div>
 
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">DescriÃ§Ã£o</label>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Descrição</label>
                     <input type="text" id="trans-desc" required
                         class="w-full border p-2 rounded-lg text-sm focus:border-brand-primary outline-none"
-                        placeholder="Ex: Pagamento de OS #001, Compra de peÃ§as, etc." title="Input field" aria-label="Input field">
+                        placeholder="Ex: Pagamento de OS #001, Compra de peças, etc." title="Input field" aria-label="Input field">
                 </div>
 
                 <div>
                     <label class="text-xs font-bold text-gray-500 uppercase">Categoria</label>
                     <select id="trans-category" class="w-full border p-2 rounded-lg text-sm bg-white outline-none" title="Select option" aria-label="Select option">
-                        <option value="service">ServiÃ§o Prestado</option>
+                        <option value="service">Serviço Prestado</option>
                         <option value="sale">Venda PDV</option>
-                        <option value="parts">PeÃ§as</option>
+                        <option value="parts">Peças</option>
                         <option value="supplies">Materiais</option>
                         <option value="rent">Aluguel</option>
                         <option value="utilities">Contas</option>
@@ -2633,12 +2633,12 @@
                 </div>
 
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">MÃ©todo de Pagamento</label>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Método de Pagamento</label>
                     <select id="trans-method" class="w-full border p-2 rounded-lg text-sm bg-white outline-none" title="Select option" aria-label="Select option">
                         <option value="money">Dinheiro</option>
                         <option value="pix">Pix</option>
-                        <option value="debit">CartÃ£o de DÃ©bito</option>
-                        <option value="credit">CartÃ£o de CrÃ©dito</option>
+                        <option value="debit">Cartão de Débito</option>
+                        <option value="credit">Cartão de Crédito</option>
                     </select>
                 </div>
 
@@ -2650,7 +2650,7 @@
 
                 <button type="submit"
                     class="w-full bg-brand-primary text-white py-3 rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-brand-dark transition-all mt-2" title="Action button" aria-label="Action button">
-                    Salvar LanÂºamento
+                    Salvar Lanºamento
                 </button>
             </form>
         </div>
@@ -2705,7 +2705,7 @@
                 </div>
 
                 <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-3">
-                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">EndereÃ§o e LocalizaÃ§Ã£o</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Endereço e Localização</p>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
@@ -2749,10 +2749,10 @@
                 </div>
 
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">ObservaÃ§Ãµes</label>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Observações</label>
                     <textarea id="client-notes" rows="2"
                         class="w-full border p-2 rounded-lg text-sm focus:border-brand-primary outline-none"
-                        placeholder="InformaÃ§Ãµes adicionais..."></textarea>
+                        placeholder="Informações adicionais..."></textarea>
                 </div>
 
                 <button type="submit"
@@ -2763,7 +2763,7 @@
         </div>
     </div>
 
-    <!-- Client Profile Modal (VisÃ£o 360) -->
+    <!-- Client Profile Modal (Visão 360) -->
     <div id="clientProfileModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4">
         <div
             class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
@@ -2818,12 +2818,12 @@
                         </div>
                     </div>
                     <div class="space-y-4">
-                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest border-b pb-2">LocalizaÃ§Ã£o
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest border-b pb-2">Localização
                         </h4>
                         <div class="text-sm text-gray-600" id="profile-address-full">--</div>
                     </div>
                     <div class="space-y-4">
-                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest border-b pb-2">MÃ©tricas
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest border-b pb-2">Métricas
                             Financeiras</h4>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-blue-50 p-3 rounded-xl border border-blue-100">
@@ -2843,7 +2843,7 @@
                     <div class="flex border-b gap-4">
                         <button id="tab-os" onclick="switchProfileTab('os')"
                             class="px-6 py-2 font-bold text-sm border-b-2 border-brand-primary text-brand-primary" title="Action button" aria-label="Action button">Ordens
-                            de ServiÃ§o</button>
+                            de Serviço</button>
                         <button id="tab-pdv" onclick="switchProfileTab('pdv')"
                             class="px-6 py-2 font-bold text-sm border-b-2 border-transparent text-gray-500 hover:text-brand-primary transition-colors" title="Action button" aria-label="Action button">Vendas
                             PDV</button>
@@ -2906,7 +2906,7 @@
                     <i data-lucide="unlock" class="w-8 h-8 text-white"></i>
                 </div>
                 <h3 class="font-bold text-lg uppercase tracking-tight">Abrir Caixa</h3>
-                <p class="text-green-100 text-xs opacity-80 mt-1">Informe o valor inicial para comeï¿½ar</p>
+                <p class="text-green-100 text-xs opacity-80 mt-1">Informe o valor inicial para come�ar</p>
             </div>
             <form onsubmit="submitOpenCashier(event)" class="p-6 space-y-4">
                 <div>
@@ -2955,7 +2955,7 @@
                     <div class="flex justify-between items-center p-3 bg-red-50 rounded-lg border border-red-100">
                         <div class="flex items-center">
                             <i data-lucide="trending-down" class="w-4 h-4 text-red-600 mr-2"></i>
-                            <span class="text-sm">SaÃ­das</span>
+                            <span class="text-sm">Saídas</span>
                         </div>
                         <span id="closing-exp" class="font-bold text-red-700">R$ 0,00</span>
                     </div>
@@ -2982,7 +2982,7 @@
                 </button>
 
                 <div class="mt-4 pt-4 border-t border-gray-100 text-center">
-                    <span class="text-xs text-gray-500">LicenÃ§a VitalÃ­cia</span>
+                    <span class="text-xs text-gray-500">Licença Vitalícia</span>
                 </div>
             </div>
         </div>
@@ -2992,7 +2992,7 @@
     <div id="addPartModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center p-6 border-b sticky top-0 bg-white z-10">
-                <h3 class="text-lg font-bold text-gray-800">Adicionar PeÃ§a do Estoque</h3>
+                <h3 class="text-lg font-bold text-gray-800">Adicionar Peça do Estoque</h3>
                 <button onclick="closeModal('addPartModal')" class="text-gray-400 hover:text-gray-600" title="Action button" aria-label="Action button">
                     <i data-lucide="x"></i>
                 </button>
@@ -3010,11 +3010,11 @@
                 <div id="product-info" class="bg-gray-50 p-4 rounded-lg hidden">
                     <div class="grid grid-cols-2 gap-4 text-sm">
                         <div>
-                            <p class="text-gray-500">Estoque DisponÃ­vel:</p>
+                            <p class="text-gray-500">Estoque Disponível:</p>
                             <p id="available-stock" class="font-bold">0</p>
                         </div>
                         <div>
-                            <p class="text-gray-500">PreÃ§o de Venda:</p>
+                            <p class="text-gray-500">Preço de Venda:</p>
                             <p id="product-price-display" class="font-bold text-green-600">R$ 0,00</p>
                         </div>
                     </div>
@@ -3027,10 +3027,10 @@
                 </div>
 
                 <div>
-                    <label class="text-xs font-bold text-gray-500 uppercase">ObservaÃ§Ãµes (opcional)</label>
+                    <label class="text-xs font-bold text-gray-500 uppercase">Observações (opcional)</label>
                     <input type="text" id="part-notes"
                         class="w-full border p-2 rounded-lg bg-white focus:border-brand-primary outline-none"
-                        placeholder="Ex: Cor preta, versÃ£o Pro, etc." title="Input field" aria-label="Input field">
+                        placeholder="Ex: Cor preta, versão Pro, etc." title="Input field" aria-label="Input field">
                 </div>
 
                 <div id="part-total" class="bg-green-50 p-4 rounded-lg hidden">
@@ -3042,13 +3042,13 @@
 
                 <button onclick="addSelectedPart()"
                     class="w-full bg-green-600 text-white py-3 rounded-xl font-bold shadow-lg shadow-green-200 hover:bg-green-700 transition-all" title="Action button" aria-label="Action button">
-                    Adicionar Ã  O.S.
+                    Adicionar à O.S.
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript (PadrÃ£o Diamante Modularizado) -->
+    <!-- JavaScript (Padrão Diamante Modularizado) -->
     <script src="assets/js/db.js"></script>
     <script src="assets/js/router.js"></script>
     <script src="assets/js/modules/clients.js"></script>
@@ -3059,7 +3059,7 @@
     <script src="assets/js/modules/reports.js"></script>
     <script src="assets/js/app.js"></script>
 
-    <!-- MODAL DE CONFIRMAÃ‡ÃƒO DE ENTREGA (RECIBO DIGITAL - ML COMPRA GARANTIDA) -->
+    <!-- MODAL DE CONFIRMAÇÃO DE ENTREGA (RECIBO DIGITAL - ML COMPRA GARANTIDA) -->
     <div id="welcome-receipt-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog"
         aria-modal="true">
         <!-- Backdrop -->
@@ -3081,7 +3081,7 @@
                             </div>
                             <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                 <h3 class="text-lg font-bold leading-6 text-slate-900 dark:text-white" id="modal-title">
-                                    ConfirmaÃ§Ã£o de Acesso
+                                    Confirmação de Acesso
                                 </h3>
                                 <div class="mt-2">
                                     <p class="text-sm text-slate-500 dark:text-slate-300">
@@ -3094,7 +3094,7 @@
                                         testei seu funcionamento inicial e confirmo a entrega do produto digital."
                                     </div>
                                     <p class="mt-4 text-xs text-slate-400">
-                                        Esta aÃ§Ã£o gera um registro de auditoria para o programa <strong>Compra
+                                        Esta ação gera um registro de auditoria para o programa <strong>Compra
                                             Garantida</strong>.
                                     </p>
                                 </div>
@@ -3112,16 +3112,16 @@
         </div>
     </div>
 
-    <!-- AtivaÃ§Ã£o/unlock gerenciados por demo-bypass.js -->
+    <!-- Ativação/unlock gerenciados por demo-bypass.js -->
 
-    <!-- MÃ³dulo de Manual Interativo -->
+    <!-- Módulo de Manual Interativo -->
     <script>
         (function () {
             // ==========================================
-            // INICIALIZAÃ‡ÃƒO DO MANUAL INTERATIVO
+            // INICIALIZAÇÃO DO MANUAL INTERATIVO
             // ==========================================
 
-            const MANUAL_SECTIONS = ['instalacao', 'controle-estoque', 'ordens-serviÃ§o', 'pdv-manual', 'clientes-manual', 'financeiro-manual', 'backup'];
+            const MANUAL_SECTIONS = ['instalacao', 'controle-estoque', 'ordens-serviço', 'pdv-manual', 'clientes-manual', 'financeiro-manual', 'backup'];
             const STORAGE_KEY = 'manual_progress';
 
             function loadProgress() {
@@ -3147,7 +3147,7 @@
                 const text = document.getElementById('tutorial-progress-text');
 
                 if (bar) bar.style.width = percent + '%';
-                if (text) text.textContent = `${completed} / ${total} seÃ§Ãµes`;
+                if (text) text.textContent = `${completed} / ${total} seções`;
             }
 
             function addCheckboxesToSections() {
@@ -3164,7 +3164,7 @@
                     checkbox.type = 'checkbox';
                     checkbox.className = 'manual-section-checkbox w-5 h-5 rounded border-gray-300 cursor-pointer';
                     checkbox.setAttribute('data-section', sectionId);
-                    checkbox.setAttribute('title', 'Marcar seÃ§Ã£o como lida');
+                    checkbox.setAttribute('title', 'Marcar seção como lida');
 
                     const progress = loadProgress();
                     checkbox.checked = progress[sectionId] === true;
@@ -3188,7 +3188,7 @@
             }
 
             // ==========================================
-            // INTEGRAÃ‡ÃƒO COM O ROTEADOR EXISTENTE
+            // INTEGRAÇÃO COM O ROTEADOR EXISTENTE
             // ==========================================
 
             const originalRouter = window.router;
@@ -3200,7 +3200,7 @@
                 }
             };
 
-            // Fallback: inicializa se view-instructions jÃ¡ estiver visÃ³vel
+            // Fallback: inicializa se view-instructions já estiver visóvel
             document.addEventListener('DOMContentLoaded', function () {
                 const vi = document.getElementById('view-instructions');
                 if (vi && !vi.classList.contains('hide')) {

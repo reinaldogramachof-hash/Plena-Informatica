@@ -1,26 +1,77 @@
 const WHATSAPP_PHONE = '5512992191018';
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const commercialMessages = {
   diagnóstico: 'Olá! Vim pelo site da Plena, na página de tecnologia, e gostaria de um diagnóstico para meu projeto.',
   assistencia: 'Olá! Vim pelo site da Plena e tenho interesse no sistema Assistência Pro. Gostaria de entender os planos e testar a solução.',
   gastro: 'Olá! Vim pelo site da Plena e tenho interesse no sistema Gestão Gastro. Gostaria de agendar uma demonstração.',
   landing: 'Olá! Vim pelo site da Plena e gostaria de criar uma landing page para captar leads ou vender melhor.',
   siteCorporativo: 'Olá! Vim pelo site da Plena e gostaria de consultar sobre um site corporativo.',
-  clinicas: 'Olá! Vim pelo site da Plena e gostaria de consultar sobre um site para escritorio ou clinica.',
-  ecommerce: 'Olá! Vim pelo site da Plena e gostaria de um diagnóstico para e-commerce ou catalogo online.',
-  ia: 'Olá! Vim pelo site da Plena e gostaria de entender como implementar IA ou automacao no meu negocio.'
+  clinicas: 'Olá! Vim pelo site da Plena e gostaria de consultar sobre um site para escritório ou clínica.',
+  ecommerce: 'Olá! Vim pelo site da Plena e gostaria de um diagnóstico para e-commerce ou catálogo online.',
+  ia: 'Olá! Vim pelo site da Plena e gostaria de entender como implementar IA ou automação no meu negócio.'
+};
+
+// Mensagens específicas por oferta (data-offer) — mantém o contexto do lead no WhatsApp
+const OFFER_MESSAGES = {
+  'diagnóstico': commercialMessages.diagnóstico,
+  'landing-pages': commercialMessages.landing,
+  'site-corporativo': commercialMessages.siteCorporativo,
+  'ecommerce': commercialMessages.ecommerce,
+  'assistencia-pro': commercialMessages.assistencia,
+  'gestão-gastro': commercialMessages.gastro,
+  'barbearia-premium': 'Olá! Vim pelo site da Plena e tenho interesse no sistema Barbearia Premium. Gostaria de entender os planos.',
+  'beleza-spa': 'Olá! Vim pelo site da Plena e tenho interesse no sistema Beleza & Spa. Gostaria de entender os planos.',
+  'landing-infoproduto': commercialMessages.landing,
+  'captura-leads': commercialMessages.landing,
+  'eventos-ingressos': commercialMessages.landing,
+  'case-sucesso': commercialMessages.landing,
+  'comparativo': commercialMessages.landing,
+  'agendamento': commercialMessages.landing,
+  'feature': commercialMessages.landing,
+  'waitlist': commercialMessages.landing,
+  'oferta': commercialMessages.landing,
+  'link-bio': commercialMessages.landing,
+  'dashboards-bi': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em Dashboards & B.I. Gostaria de um diagnóstico.',
+  'erps-custom': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em um ERP sob medida. Gostaria de um diagnóstico.',
+  'crms': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em um CRM B2B. Gostaria de um diagnóstico.',
+  'portais': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em Portais & Intranet. Gostaria de um diagnóstico.',
+  'ecom-moda': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Moda & Vestuário. Gostaria de um diagnóstico.',
+  'ecom-eletronicos': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Eletrônicos & Tech. Gostaria de um diagnóstico.',
+  'ecom-supermercado': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Supermercado/Delivery. Gostaria de um diagnóstico.',
+  'ecom-b2b': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce B2B/Atacado. Gostaria de um diagnóstico.',
+  'ecom-infoproduto': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Infoprodutos & Cursos. Gostaria de um diagnóstico.',
+  'ecom-assinaturas': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Assinaturas & Clubes. Gostaria de um diagnóstico.',
+  'ecom-autopecas': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Peças Automotivas. Gostaria de um diagnóstico.',
+  'ecom-farmacia': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Saúde & Farmácia. Gostaria de um diagnóstico.',
+  'ecom-moveis': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Móveis & Decoração. Gostaria de um diagnóstico.',
+  'ecom-cosmeticos': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Cosméticos & Beleza. Gostaria de um diagnóstico.'
 };
 
 const solutionCatalog = [
-  { categoria: 'sistemas', nome: 'Assistência Pro', setor: 'Assistências técnicas', preco: 'R$ 97/mes', status: 'Demo disponivel', landingUrl: '../produtos/assistencia-pro.html', demoUrl: 'demos/gestao-assistencia/index.html', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.assistencia },
-  { categoria: 'sistemas', nome: 'Barbearia Premium', setor: 'Barbearias', preco: 'R$ 79/mes', status: 'Demo disponivel', landingUrl: '../produtos/barbearia-premium.html', demoUrl: 'demos/gestao-barbearia/index.html', ctaLabel: 'Conhecer página', whatsappMessage: 'Olá! Vim pelo site da Plena e tenho interesse no sistema Barbearia Premium.' },
-  { categoria: 'sistemas', nome: 'Beleza & Spa', setor: 'Beleza e estética', preco: 'R$ 97/mes', status: 'Demo disponivel', landingUrl: '../produtos/beleza-spa.html', demoUrl: 'demos/gestao-beleza/index.html', ctaLabel: 'Conhecer página', whatsappMessage: 'Olá! Vim pelo site da Plena e tenho interesse no sistema Beleza & Spa.' },
-  { categoria: 'landing-pages', nome: 'Landing Pages', setor: 'Campanhas e captação', preco: 'Sob consulta', status: 'Demo disponivel', demoUrl: 'landing-pages/lp-01-lancamento.html', ctaLabel: 'Solicitar página', whatsappMessage: commercialMessages.landing }
+  { categoria: 'sistemas', nome: 'Assistência Pro', setor: 'Assistências técnicas', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/assistencia-pro.html', demoUrl: 'demos/gestao-assistencia/index.html', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.assistencia },
+  { categoria: 'sistemas', nome: 'Barbearia Premium', setor: 'Barbearias', preco: 'R$ 79/mês', status: 'Demo disponível', landingUrl: '../produtos/barbearia-premium.html', demoUrl: 'demos/gestao-barbearia/index.html', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['barbearia-premium'] },
+  { categoria: 'sistemas', nome: 'Beleza & Spa', setor: 'Beleza e estética', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/beleza-spa.html', demoUrl: 'demos/gestao-beleza/index.html', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['beleza-spa'] },
+  { categoria: 'landing-pages', nome: 'Landing Pages', setor: 'Campanhas e captação', preco: 'Sob consulta', status: 'Demo disponível', demoUrl: 'landing-pages/lp-01-lancamento.html', ctaLabel: 'Solicitar página', whatsappMessage: commercialMessages.landing }
 ];
+
+// ── Rastreamento de intenção ──────────────────────────────────
+// Mantém o histórico em memória e, se o GA4 estiver configurado
+// (snippet comentado no <head>), envia o evento para o gtag.
 
 function trackIntent(action, offer, category) {
   window.plenaTechEvents = window.plenaTechEvents || [];
   window.plenaTechEvents.push({ action, offer, category, at: new Date().toISOString() });
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', `plena_${action}`, {
+      offer: offer || '(sem oferta)',
+      category: category || '(sem categoria)',
+      page: 'tecnologia'
+    });
+  }
 }
+
+// ── WhatsApp ──────────────────────────────────────────────────
 
 function openWhatsApp(message, meta = {}) {
   const text = encodeURIComponent(message || commercialMessages.diagnóstico);
@@ -32,303 +83,75 @@ function openWhatsAppByKey(key) {
   openWhatsApp(commercialMessages[key] || commercialMessages.diagnóstico, { offer: key, category: 'whatsapp' });
 }
 
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+function openWhatsAppForOffer(offer, category) {
+  const message = OFFER_MESSAGES[offer] || commercialMessages[offer] || commercialMessages.diagnóstico;
+  openWhatsApp(message, { offer, category: category || 'whatsapp' });
+}
 
-    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-    const target = document.getElementById(btn.dataset.target);
-    if (target) {
-      target.classList.add('active');
-      if (target.dataset.loopReady === 'true') {
-        target.scrollLeft = target.scrollWidth / 3;
-      } else {
-        target.scrollLeft = 0;
-      }
-      // rAF ensures the browser has applied display:flex before we measure
-      requestAnimationFrame(() => updateShowcaseMeter(target));
-    }
+// Religa todos os botões de WhatsApp à mensagem específica da sua oferta (sobrescreve o onclick inline)
+document.querySelectorAll('button[data-action="whatsapp"][data-offer]').forEach(btn => {
+  btn.onclick = () => {
+    if (btn.dataset.category === 'mobile-menu') toggleMobileMenu();
+    openWhatsAppForOffer(btn.dataset.offer, btn.dataset.category);
+  };
+});
 
-    trackIntent('tab', btn.dataset.offer || btn.dataset.target, btn.dataset.category || 'tabs');
+// ── Abas do catálogo ──────────────────────────────────────────
+
+function activateTab(btn) {
+  // Desativa todas as abas
+  document.querySelectorAll('.tab-btn[role="tab"]').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+    b.setAttribute('tabindex', '-1');
   });
+  // Ativa a aba clicada
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  btn.removeAttribute('tabindex');
+
+  // Oculta todos os painéis
+  document.querySelectorAll('.tab-pane').forEach(p => {
+    p.classList.remove('active');
+    p.hidden = true;
+  });
+  // Exibe o painel alvo
+  const target = document.getElementById(btn.dataset.target);
+  if (target) {
+    target.hidden = false;
+    target.classList.add('active');
+  }
+
+  showNicheRow(btn.dataset.target);
+  trackIntent('tab', btn.dataset.offer || btn.dataset.target, btn.dataset.category || 'tabs');
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => activateTab(btn));
+});
+
+// Navegação por teclado nas abas (setas esquerda/direita, Home, End)
+document.querySelector('.tab-track')?.addEventListener('keydown', e => {
+  const tabs = [...document.querySelectorAll('.tab-btn[role="tab"]')];
+  const idx  = tabs.indexOf(document.activeElement);
+  if (idx === -1) return;
+
+  let next = -1;
+  if (e.key === 'ArrowRight')  next = (idx + 1) % tabs.length;
+  if (e.key === 'ArrowLeft')   next = (idx - 1 + tabs.length) % tabs.length;
+  if (e.key === 'Home')        next = 0;
+  if (e.key === 'End')         next = tabs.length - 1;
+
+  if (next !== -1) {
+    e.preventDefault();
+    activateTab(tabs[next]);
+    tabs[next].focus();
+  }
 });
 
 const desktopQuery = window.matchMedia('(min-width: 768px)');
-const showcaseMeter = document.querySelector('.showcase-meter span');
-const showcasePrevButton = document.querySelector('[data-rail-control="prev"]');
-const showcaseNextButton = document.querySelector('[data-rail-control="next"]');
-const showcaseCounter = null; // counter removed with showcase-nav
 
-function getActiveRail() {
-  return document.querySelector('.showcase-rail.active');
-}
-
-function countVisibleCards(rail) {
-  if (!rail) return { current: 0, total: 0 };
-  const cards = Array.from(rail.children).filter(card => !card.classList.contains('is-loop-clone') && !card.classList.contains('card-hidden'));
-  const total = cards.length;
-  if (total === 0) return { current: 0, total: 0 };
-  const railLeft = rail.getBoundingClientRect().left;
-  let current = 1;
-  for (let i = 0; i < cards.length; i++) {
-    const cardLeft = cards[i].getBoundingClientRect().left - railLeft;
-    if (cardLeft >= -8) { current = i + 1; break; }
-  }
-  return { current, total };
-}
-
-function updateShowcaseMeter(rail = getActiveRail()) {
-  if (!rail || !showcaseMeter) return;
-  const segment = rail.dataset.loopReady === 'true' ? Math.max(rail.scrollWidth / 3, 1) : 0;
-  const max = Math.max(rail.scrollWidth - rail.clientWidth, 1);
-  const rawProgress = segment ? ((rail.scrollLeft % segment) / segment) : (rail.scrollLeft / max);
-  const progress = Math.min(1, Math.max(0, rawProgress));
-  showcaseMeter.style.setProperty('--rail-progress', progress.toFixed(3));
-  updateShowcaseControls(rail);
-  if (showcaseCounter) {
-    const { current, total } = countVisibleCards(rail);
-    showcaseCounter.textContent = total > 0 ? `${current} / ${total}` : '';
-  }
-}
-
-function updateShowcaseControls(rail = getActiveRail()) {
-  if (!rail || !showcasePrevButton || !showcaseNextButton) return;
-  if (rail.dataset.loopReady === 'true') {
-    showcasePrevButton.disabled = false;
-    showcaseNextButton.disabled = false;
-    return;
-  }
-  const max = Math.max(rail.scrollWidth - rail.clientWidth, 0);
-  showcasePrevButton.disabled = rail.scrollLeft <= 8;
-  showcaseNextButton.disabled = max <= 0 || rail.scrollLeft >= max - 8;
-}
-
-function getShowcaseStep(rail = getActiveRail()) {
-  if (!rail) return 420;
-  return Math.min(Math.max(rail.clientWidth * 0.9, 620), 1080);
-}
-
-function moveActiveRail(direction) {
-  const rail = getActiveRail();
-  if (!rail) return;
-  rail.scrollBy({ left: getShowcaseStep(rail) * direction, behavior: 'smooth' });
-  window.setTimeout(() => {
-    normalizeInfiniteRail(rail);
-    updateShowcaseMeter(rail);
-  }, 420);
-}
-
-showcasePrevButton?.addEventListener('click', () => moveActiveRail(-1));
-showcaseNextButton?.addEventListener('click', () => moveActiveRail(1));
-
-function prepareInfiniteRail(rail) {
-  if (!rail || rail.dataset.loopReady === 'true') return;
-  const originals = Array.from(rail.children);
-  if (originals.length < 2) return;
-
-  originals.forEach(card => {
-    const clone = card.cloneNode(true);
-    clone.classList.add('is-loop-clone');
-    clone.setAttribute('aria-hidden', 'true');
-    rail.appendChild(clone);
-  });
-
-  [...originals].reverse().forEach(card => {
-    const clone = card.cloneNode(true);
-    clone.classList.add('is-loop-clone');
-    clone.setAttribute('aria-hidden', 'true');
-    rail.insertBefore(clone, rail.firstChild);
-  });
-
-  rail.dataset.loopReady = 'true';
-  requestAnimationFrame(() => {
-    rail.scrollLeft = rail.scrollWidth / 3;
-    updateShowcaseMeter(rail);
-  });
-}
-
-function normalizeInfiniteRail(rail) {
-  if (!rail || rail.dataset.loopReady !== 'true') return;
-  const segment = rail.scrollWidth / 3;
-  if (segment <= 0) return;
-  if (rail.scrollLeft < segment * 0.5) {
-    rail.scrollLeft += segment;
-  } else if (rail.scrollLeft > segment * 1.5) {
-    rail.scrollLeft -= segment;
-  }
-}
-
-// Keyboard navigation when viewport is focused or hovered
-const showcaseViewport = document.querySelector('.showcase-viewport');
-if (showcaseViewport) {
-  showcaseViewport.setAttribute('tabindex', '0');
-  showcaseViewport.addEventListener('keydown', event => {
-    if (!desktopQuery.matches) return;
-    if (event.key === 'ArrowLeft') { event.preventDefault(); moveActiveRail(-1); }
-    if (event.key === 'ArrowRight') { event.preventDefault(); moveActiveRail(1); }
-  });
-}
-
-document.querySelectorAll('.showcase-rail').forEach(rail => {
-  prepareInfiniteRail(rail);
-
-  let isDragging = false;
-  let dragStartX = 0;
-  let dragStartLeft = 0;
-  let lastX = 0;
-  let velocity = 0;
-  let momentumFrame = null;
-
-  // On every scroll: normalize loop boundaries instantly (prevents visible gap)
-  // and update the progress meter
-  rail.addEventListener('scroll', () => {
-    if (!isDragging) normalizeInfiniteRail(rail);
-    updateShowcaseMeter(rail);
-  }, { passive: true });
-
-  // scrollend for final state cleanup
-  const onScrollEnd = () => {
-    normalizeInfiniteRail(rail);
-    updateShowcaseMeter(rail);
-  };
-  if ('onscrollend' in window) {
-    rail.addEventListener('scrollend', onScrollEnd, { passive: true });
-  } else {
-    let scrollTimer;
-    rail.addEventListener('scroll', () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(onScrollEnd, 150);
-    }, { passive: true });
-  }
-
-  // Smooth wheel — accumulate delta with rAF to avoid janky jumps
-  let wheelAccum = 0;
-  let wheelFrame = null;
-  rail.addEventListener('wheel', event => {
-    if (!desktopQuery.matches || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-    if (rail.dataset.loopReady !== 'true') {
-      const max = Math.max(rail.scrollWidth - rail.clientWidth, 0);
-      const atStart = rail.scrollLeft <= 2;
-      const atEnd = rail.scrollLeft >= max - 2;
-      if ((event.deltaY < 0 && atStart) || (event.deltaY > 0 && atEnd)) return;
-    }
-    event.preventDefault();
-    wheelAccum += event.deltaY * 0.32;
-    if (!wheelFrame) {
-      wheelFrame = requestAnimationFrame(() => {
-        rail.scrollLeft += wheelAccum;
-        normalizeInfiniteRail(rail);
-        wheelAccum = 0;
-        wheelFrame = null;
-        updateShowcaseMeter(rail);
-      });
-    }
-  }, { passive: false });
-
-  // Drag with momentum
-  rail.addEventListener('pointerdown', event => {
-    if (!desktopQuery.matches) return;
-    cancelAnimationFrame(momentumFrame);
-    isDragging = true;
-    dragStartX = event.clientX;
-    lastX = event.clientX;
-    dragStartLeft = rail.scrollLeft;
-    velocity = 0;
-    rail.classList.add('is-dragging');
-    rail.setPointerCapture(event.pointerId);
-  });
-
-  rail.addEventListener('pointermove', event => {
-    if (!isDragging) return;
-    velocity = (lastX - event.clientX) * 0.52;
-    lastX = event.clientX;
-    rail.scrollLeft = dragStartLeft - ((event.clientX - dragStartX) * 0.74);
-    normalizeInfiniteRail(rail);
-    updateShowcaseMeter(rail);
-  });
-
-  const endDrag = (event) => {
-    if (!isDragging) return;
-    isDragging = false;
-    rail.classList.remove('is-dragging');
-    if (event && rail.hasPointerCapture(event.pointerId)) rail.releasePointerCapture(event.pointerId);
-    // Apply momentum
-    const applyMomentum = () => {
-      if (Math.abs(velocity) < 0.5) return;
-      rail.scrollLeft += velocity;
-      normalizeInfiniteRail(rail);
-      velocity *= 0.82;
-      momentumFrame = requestAnimationFrame(applyMomentum);
-      updateShowcaseMeter(rail);
-    };
-    momentumFrame = requestAnimationFrame(applyMomentum);
-  };
-
-  rail.addEventListener('pointerup', endDrag);
-  rail.addEventListener('pointerleave', () => {
-    if (isDragging) endDrag(null);
-  });
-});
-
-document.querySelectorAll('.tech-showcase article[data-offer]').forEach(card => {
-  card.addEventListener('pointermove', event => {
-    if (!desktopQuery.matches) return;
-    const rect = card.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width;
-    const y = (event.clientY - rect.top) / rect.height;
-    card.style.setProperty('--spot-x', `${(x * 100).toFixed(1)}%`);
-    card.style.setProperty('--spot-y', `${(y * 100).toFixed(1)}%`);
-    card.style.setProperty('--tilt-x', `${((x - 0.5) * 5).toFixed(2)}deg`);
-    card.style.setProperty('--tilt-y', `${((0.5 - y) * 4).toFixed(2)}deg`);
-  });
-
-  card.addEventListener('pointerleave', () => {
-    card.style.removeProperty('--tilt-x');
-    card.style.removeProperty('--tilt-y');
-    card.style.removeProperty('--spot-x');
-    card.style.removeProperty('--spot-y');
-  });
-});
-
-updateShowcaseMeter();
-
-function openDemoModal(url, offer = 'demo') {
-  if (!url) return;
-  const modal = document.getElementById('demo-modal');
-  const iframe = document.getElementById('demo-iframe');
-
-  trackIntent('demo', offer, 'demo-modal');
-  iframe.src = url;
-  modal.classList.remove('hidden');
-  setTimeout(() => {
-    modal.classList.remove('opacity-0');
-    modal.classList.add('opacity-100');
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
-  }, 10);
-}
-
-function closeDemoModal() {
-  const modal = document.getElementById('demo-modal');
-  const iframe = document.getElementById('demo-iframe');
-
-  modal.classList.remove('opacity-100');
-  modal.classList.add('opacity-0');
-  setTimeout(() => {
-    modal.classList.add('hidden');
-    iframe.src = '';
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
-  }, 300);
-}
-
-// ============================================================
-// NICHE FILTERS + AUTOPLAY
-// ============================================================
-
-const AUTOPLAY_INTERVAL   = 4500;  // ms between auto-advances
-const AUTOPLAY_RESUME_DELAY = 7000; // ms after user interaction to resume
+// ── Filtros de nicho ──────────────────────────────────────────
 
 const NICHE_FILTERS = {
   'tab-gestão': [
@@ -358,7 +181,7 @@ const NICHE_FILTERS = {
   ],
 };
 
-// Maps data-offer value → niche key (null = always visible)
+// Mapeia data-offer → nicho (null = sempre visível)
 const NICHE_MAP = {
   'assistencia-pro':     'demo',
   'barbearia-premium':   'demo',
@@ -379,7 +202,7 @@ const NICHE_MAP = {
   'crms':                'sistemas',
   'site-corporativo':    'presenca',
   'portais':             'presenca',
-  'ecommerce':           null,        // header card — always visible
+  'ecommerce':           null,        // card de abertura — sempre visível
   'ecom-moda':           'varejo',
   'ecom-eletronicos':    'varejo',
   'ecom-supermercado':   'alimentacao',
@@ -392,15 +215,7 @@ const NICHE_MAP = {
   'ecom-cosmeticos':     'varejo',
 };
 
-// Active filter per tab
 const activeFilters = {};
-
-// Autoplay state
-let autoplayTimer       = null;
-let autoplayResumeTimer = null;
-let autoplayPaused      = false;
-
-// ── Inject filter container above .showcase-viewport ─────────
 
 function injectNicheFilters() {
   const viewport = document.querySelector('.showcase-viewport');
@@ -432,18 +247,8 @@ function injectNicheFilters() {
     activeFilters[tabId] = '';
   });
 
-  // Autoplay progress bar
-  const bar      = document.createElement('div');
-  bar.className  = 'autoplay-bar';
-  bar.id         = 'autoplay-bar';
-  const barInner = document.createElement('span');
-  barInner.id    = 'autoplay-bar-inner';
-  bar.appendChild(barInner);
-  container.appendChild(bar);
-
   viewport.parentNode.insertBefore(container, viewport);
 
-  // Show row for the initially active tab
   const activeBtn = document.querySelector('.tab-btn.active');
   if (activeBtn) showNicheRow(activeBtn.dataset.target);
 }
@@ -453,8 +258,6 @@ function showNicheRow(tabId) {
     row.hidden = row.id !== `niche-row-${tabId}`;
   });
 }
-
-// ── Handle chip click ─────────────────────────────────────────
 
 function onNicheChipClick(tabId, value) {
   activeFilters[tabId] = value;
@@ -467,150 +270,152 @@ function onNicheChipClick(tabId, value) {
   }
 
   applyNicheFilter(tabId, value);
-  resetAutoplay();
+  trackIntent('filter', value || 'todos', tabId);
 }
-
-// ── Apply / clear filter ──────────────────────────────────────
 
 function applyNicheFilter(tabId, value) {
-  const rail = document.getElementById(tabId);
-  if (!rail) return;
+  const pane = document.getElementById(tabId);
+  if (!pane) return;
 
-  // Select originals AND their infinite-loop clones (both carry data-offer)
-  rail.querySelectorAll('[data-offer]').forEach(card => {
+  pane.querySelectorAll('[data-offer]').forEach(card => {
     const niche   = NICHE_MAP[card.dataset.offer];
-    const matches = niche === null || !value || niche === value; // null = always visible
+    const matches = niche === null || !value || niche === value;
     card.classList.toggle('card-hidden', !matches);
-    if (!card.classList.contains('is-loop-clone')) {
-      card.toggleAttribute('aria-hidden', !matches);
-    }
+    card.toggleAttribute('aria-hidden', !matches);
   });
+}
 
-  // Reset rail scroll position
-  if (desktopQuery.matches && rail.dataset.loopReady === 'true') {
-    requestAnimationFrame(() => {
-      rail.scrollLeft = rail.scrollWidth / 3;
-      updateShowcaseMeter(rail);
+// ── Efeito de profundidade nos cards (desktop, sem movimento reduzido) ──
+
+if (!REDUCED_MOTION) {
+  document.querySelectorAll('.tech-showcase article[data-offer]').forEach(card => {
+    card.addEventListener('pointermove', event => {
+      if (!desktopQuery.matches) return;
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      card.style.setProperty('--spot-x', `${(x * 100).toFixed(1)}%`);
+      card.style.setProperty('--spot-y', `${(y * 100).toFixed(1)}%`);
+      card.style.setProperty('--tilt-x', `${((x - 0.5) * 2.5).toFixed(2)}deg`);
+      card.style.setProperty('--tilt-y', `${((0.5 - y) * 2).toFixed(2)}deg`);
     });
-  } else {
-    rail.scrollLeft = 0;
-    requestAnimationFrame(() => updateShowcaseMeter(rail));
-  }
-}
 
-// ── Autoplay bar animation ────────────────────────────────────
-
-function startAutoplayBar() {
-  const inner = document.getElementById('autoplay-bar-inner');
-  if (!inner) return;
-  inner.style.setProperty('--autoplay-duration', `${AUTOPLAY_INTERVAL}ms`);
-  inner.classList.remove('is-running');
-  void inner.offsetWidth; // force reflow to restart animation
-  inner.classList.add('is-running');
-}
-
-function stopAutoplayBar() {
-  const inner = document.getElementById('autoplay-bar-inner');
-  if (inner) inner.classList.remove('is-running');
-}
-
-// ── Autoplay control ──────────────────────────────────────────
-
-function startAutoplay() {
-  if (!desktopQuery.matches) return;
-  clearInterval(autoplayTimer);
-  startAutoplayBar();
-  autoplayTimer = setInterval(() => {
-    if (!autoplayPaused) {
-      moveActiveRail(1);
-      startAutoplayBar();
-    }
-  }, AUTOPLAY_INTERVAL);
-}
-
-function stopAutoplay() {
-  clearInterval(autoplayTimer);
-  clearTimeout(autoplayResumeTimer);
-  autoplayTimer = null;
-  stopAutoplayBar();
-}
-
-function pauseAutoplay() {
-  autoplayPaused = true;
-  stopAutoplayBar();
-  clearTimeout(autoplayResumeTimer);
-}
-
-function resumeAutoplay() {
-  clearTimeout(autoplayResumeTimer);
-  autoplayResumeTimer = setTimeout(() => {
-    autoplayPaused = false;
-    resetAutoplay();
-  }, AUTOPLAY_RESUME_DELAY);
-}
-
-function resetAutoplay() {
-  stopAutoplay();
-  startAutoplay();
-}
-
-// ── Hook into tab buttons (extend existing listener) ──────────
-
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const tabId = btn.dataset.target;
-    showNicheRow(tabId);
-    resetAutoplay();
+    card.addEventListener('pointerleave', () => {
+      card.style.removeProperty('--tilt-x');
+      card.style.removeProperty('--tilt-y');
+      card.style.removeProperty('--spot-x');
+      card.style.removeProperty('--spot-y');
+    });
   });
-});
+}
 
-// ── Pause autoplay on rail interaction ────────────────────────
+// ── Modal de demonstração ─────────────────────────────────────
 
-document.querySelectorAll('.showcase-rail').forEach(rail => {
-  rail.addEventListener('mouseenter',  pauseAutoplay,  { passive: true });
-  rail.addEventListener('mouseleave',  resumeAutoplay, { passive: true });
-  rail.addEventListener('pointerdown', pauseAutoplay,  { passive: true });
-  rail.addEventListener('pointerup',   resumeAutoplay, { passive: true });
-});
+let currentDemoOffer = 'demo';
+let currentDemoUrl = '';
+let modalOpener = null;
+let modalTrapHandler = null;
 
-// Pause/resume when using arrow controls
-showcasePrevButton?.addEventListener('click', () => { pauseAutoplay(); resumeAutoplay(); });
-showcaseNextButton?.addEventListener('click', () => { pauseAutoplay(); resumeAutoplay(); });
+const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-// ── Init ──────────────────────────────────────────────────────
+function trapModalFocus(modal) {
+  const getFocusable = () => [...modal.querySelectorAll(FOCUSABLE)].filter(el => !el.closest('iframe'));
+  modalTrapHandler = e => {
+    if (e.key !== 'Tab') return;
+    const els   = getFocusable();
+    const first = els[0];
+    const last  = els[els.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  };
+  modal.addEventListener('keydown', modalTrapHandler);
+}
 
-// Wire lateral arrows (they re-use the same data-rail-control attributes the
-// existing JS already listens to, so no extra click listeners needed here)
-const lateralNav = document.getElementById('lateral-nav');
-if (lateralNav && desktopQuery.matches) {
-  // Show/hide based on carousel section visibility
-  const showcaseSection = document.getElementById('soluções');
-  if (showcaseSection && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        lateralNav.classList.toggle('is-visible', entry.isIntersecting);
-        lateralNav.setAttribute('aria-hidden', String(!entry.isIntersecting));
-        // Enable/disable tab index so arrows are keyboard-reachable only when visible
-        lateralNav.querySelectorAll('.lateral-arrow').forEach(btn => {
-          btn.tabIndex = entry.isIntersecting ? 0 : -1;
-        });
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(showcaseSection);
+function removeTrapModalFocus(modal) {
+  if (modalTrapHandler) {
+    modal.removeEventListener('keydown', modalTrapHandler);
+    modalTrapHandler = null;
   }
 }
 
-injectNicheFilters();
-startAutoplay();
+function openDemoModal(url, offer = 'demo') {
+  if (!url) return;
+  const modal = document.getElementById('demo-modal');
+  const iframe = document.getElementById('demo-iframe');
+  const loader = document.getElementById('demo-loader');
+  const newTab = document.getElementById('demo-newtab');
+
+  modalOpener = document.activeElement;
+
+  currentDemoOffer = offer;
+  currentDemoUrl = url;
+  if (newTab) newTab.href = url;
+
+  trackIntent('demo', offer, 'demo-modal');
+  if (loader) loader.classList.remove('is-hidden');
+  iframe.onload = () => { if (loader) loader.classList.add('is-hidden'); };
+  iframe.src = url;
+  modal.classList.remove('hidden');
+  setTimeout(() => {
+    modal.classList.remove('opacity-0');
+    modal.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+    // Mover foco para o botão de fechar e ativar trap
+    const closeBtn = modal.querySelector('button[onclick="closeDemoModal()"]');
+    if (closeBtn) closeBtn.focus();
+    trapModalFocus(modal);
+    document.documentElement.style.overflow = 'hidden';
+  }, 10);
+}
+
+// CTA dentro do modal: leva a demo direto para a conversa no WhatsApp
+const demoCta = document.getElementById('demo-cta');
+if (demoCta) {
+  demoCta.addEventListener('click', () => {
+    trackIntent('demo-cta', currentDemoOffer, 'demo-modal');
+    openWhatsAppForOffer(currentDemoOffer, 'demo-modal');
+  });
+}
+
+// Fecha o modal de demo com a tecla ESC
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  const modal = document.getElementById('demo-modal');
+  if (modal && !modal.classList.contains('hidden')) closeDemoModal();
+});
+
+function closeDemoModal() {
+  const modal = document.getElementById('demo-modal');
+  const iframe = document.getElementById('demo-iframe');
+
+  removeTrapModalFocus(modal);
+
+  modal.classList.remove('opacity-100');
+  modal.classList.add('opacity-0');
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    iframe.src = '';
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    // Restaura foco ao elemento que abriu o modal
+    if (modalOpener && typeof modalOpener.focus === 'function') {
+      modalOpener.focus();
+      modalOpener = null;
+    }
+  }, 300);
+}
+
+// ── Menu mobile ───────────────────────────────────────────────
 
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
   const drawer = document.getElementById('mobile-drawer');
   if (menu.classList.contains('hidden')) {
     menu.classList.remove('hidden');
-    // Trigger reflow
-    void menu.offsetWidth;
+    void menu.offsetWidth; // força reflow para a transição
     drawer.classList.remove('translate-x-full');
     document.body.style.overflow = 'hidden';
   } else {
@@ -619,3 +424,7 @@ function toggleMobileMenu() {
     setTimeout(() => menu.classList.add('hidden'), 300);
   }
 }
+
+// ── Init ──────────────────────────────────────────────────────
+
+injectNicheFilters()
