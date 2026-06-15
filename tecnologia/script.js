@@ -427,4 +427,4 @@ function toggleMobileMenu() {
 
 // ── Init ──────────────────────────────────────────────────────
 
-injectNicheFilters()
+injectNicheFilters();

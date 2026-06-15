@@ -3,129 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Masterclass | Cyber Imersivo</title>
-  
+  <title>Masterclass IA Generativa | EVENT.io</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --bg-black: #000000;
-      --bg-surface: #0a0a0a;
-      --neon-cyan: #00f0ff;
-      --neon-purple: #b026ff;
-      --text-main: #ffffff;
-      --text-muted: #8892b0;
+      --bg-black: #000000; --bg-surface: #0a0a0a;
+      --neon-cyan: #00f0ff; --neon-purple: #b026ff;
+      --text-main: #ffffff; --text-muted: #8892b0;
     }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg-black); color: var(--text-main); overflow-x: hidden; }
+    h1, h2, h3, h4, .font-space { font-family: 'Space Grotesk', sans-serif; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-black);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, .font-space {
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    /* Background Cyber Grid & Glows */
     .bg-grid {
       position: fixed; inset: 0; z-index: -2;
       background-size: 50px 50px;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
       mask-image: radial-gradient(circle at center, black, transparent 80%);
       -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
     }
-
-    .bg-glow-cyan {
-      position: absolute; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 60%);
-      top: -200px; left: -200px; z-index: -1; pointer-events: none;
-    }
-    .bg-glow-purple {
-      position: absolute; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(176, 38, 255, 0.15) 0%, transparent 60%);
-      bottom: -100px; right: -200px; z-index: -1; pointer-events: none;
-    }
+    .bg-glow-cyan  { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,240,255,0.12) 0%, transparent 60%); top: -200px; left: -200px; z-index: -1; pointer-events: none; }
+    .bg-glow-purple{ position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(176,38,255,0.12) 0%, transparent 60%); bottom: -100px; right: -200px; z-index: -1; pointer-events: none; }
 
     .neon-btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-      font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
       color: var(--bg-black); background: var(--neon-cyan);
-      padding: 1.25rem 2.5rem; border: none; border-radius: 0.25rem;
-      transition: all 0.3s ease; cursor: pointer; text-decoration: none;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), 0 0 30px rgba(0, 240, 255, 0.2);
+      padding: 1.1rem 2rem; border: none; border-radius: 0.25rem;
+      cursor: pointer; text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 0 15px rgba(0,240,255,0.4), 0 0 30px rgba(0,240,255,0.2);
     }
-    .neon-btn:hover {
-      background: #ffffff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(0, 240, 255, 0.4);
-      transform: translateY(-2px);
-    }
+    .neon-btn:hover { background: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(0,240,255,0.4); transform: translateY(-2px); }
+    .neon-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
 
     .glass-card {
-      background: rgba(10, 10, 10, 0.6);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(0, 240, 255, 0.2);
-      border-radius: 0.5rem;
-      padding: 2.5rem;
-      box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.05);
+      background: rgba(10,10,10,0.6); backdrop-filter: blur(20px);
+      border: 1px solid rgba(0,240,255,0.2); border-radius: 0.5rem; padding: 2.5rem;
+      box-shadow: inset 0 0 20px rgba(0,240,255,0.05);
     }
 
     .timer-box {
-      background: rgba(0, 0, 0, 0.8);
-      border: 1px solid rgba(0, 240, 255, 0.3);
+      background: rgba(0,0,0,0.8); border: 1px solid rgba(0,240,255,0.3);
       padding: 1rem 1.5rem; border-radius: 0.5rem;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      min-width: 100px;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+      display: flex; flex-direction: column; align-items: center; min-width: 100px;
+      box-shadow: 0 0 15px rgba(0,240,255,0.1);
     }
-    .timer-val {
-      font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700;
-      color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); line-height: 1;
-      transition: transform 0.1s ease;
-    }
+    .timer-val { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0,240,255,0.5); line-height: 1; transition: transform 0.1s; }
     .timer-val.tick { transform: scale(1.08); }
     .timer-lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 0.5rem; }
-
-    /* Seconds box gets purple treatment */
-    .timer-box.secs { border-color: rgba(176, 38, 255, 0.4); box-shadow: 0 0 15px rgba(176,38,255,0.1); }
+    .timer-box.secs { border-color: rgba(176,38,255,0.4); box-shadow: 0 0 15px rgba(176,38,255,0.1); }
     .timer-box.secs .timer-val { color: var(--neon-purple); text-shadow: 0 0 10px rgba(176,38,255,0.5); }
 
     .form-input {
-      width: 100%; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
       border-radius: 0.25rem; padding: 1rem; color: white; transition: all 0.3s;
       font-family: 'Space Grotesk', sans-serif;
     }
-    .form-input:focus { outline: none; border-color: var(--neon-cyan); box-shadow: 0 0 10px rgba(0, 240, 255, 0.2); }
+    .form-input:focus { outline: none; border-color: var(--neon-cyan); box-shadow: 0 0 10px rgba(0,240,255,0.2); }
+    .form-input.error { border-color: #ff4d4d; box-shadow: 0 0 8px rgba(255,77,77,0.25); }
 
     .text-gradient-neon {
       background: linear-gradient(to right, var(--neon-cyan), var(--neon-purple));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
 
-    /* Form/success state */
-    .form-input.error { border-color: #ff4d4d; box-shadow: 0 0 8px rgba(255,77,77,0.25); }
     #success-state { display: none; }
     #success-state.show { display: flex; }
 
-    .neon-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .testimonial-card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0.5rem; padding: 1.5rem;
     }
+    .speaker-stat { border-left: 2px solid rgba(0,240,255,0.4); padding-left: 1rem; }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
     .animate-in { animation: fadeInUp 0.45s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s, transform 0.5s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
-
 <body>
-  
+
   <div class="bg-grid"></div>
   <div class="bg-glow-cyan"></div>
   <div class="bg-glow-purple"></div>
@@ -134,92 +96,278 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="font-space font-bold text-2xl tracking-tighter">EVENT<span class="text-[var(--neon-cyan)]">.io</span></div>
       <div class="flex items-center gap-2 text-xs font-space tracking-widest text-[var(--neon-cyan)] uppercase border border-[var(--neon-cyan)]/30 px-3 py-1 rounded">
-        <span class="w-2 h-2 rounded-full bg-[var(--neon-cyan)] shadow-[0_0_8px_var(--neon-cyan)] animate-pulse"></span> Ao Vivo
+        <span class="w-2 h-2 rounded-full bg-[var(--neon-cyan)] shadow-[0_0_8px_var(--neon-cyan)] animate-pulse"></span> Ao Vivo em Breve
       </div>
     </div>
   </header>
 
   <main class="min-h-[90vh] flex flex-col items-center justify-center pt-16 pb-20 px-5 relative z-10">
-    
     <div class="max-w-4xl mx-auto w-full text-center">
-      
-      <!-- Tema -->
-      <h2 class="text-sm md:text-base font-space tracking-[0.3em] uppercase text-[var(--neon-purple)] mb-6 font-bold">
-        Masterclass Exclusiva
-      </h2>
-
+      <h2 class="text-sm md:text-base font-space tracking-[0.3em] uppercase text-[var(--neon-purple)] mb-6 font-bold">Masterclass Exclusiva</h2>
       <h1 class="text-5xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
-        O Futuro da Inteligência <br/> <span class="text-gradient-neon">Artificial Generativa.</span>
+        O Futuro da Inteligência<br/><span class="text-gradient-neon">Artificial Generativa.</span>
       </h1>
-
       <p class="text-lg text-[var(--text-muted)] max-w-2xl mx-auto mb-12">
-        Junte-se a engenheiros do Vale do Silício para uma sessão prática de codificação sobre como integrar modelos fundacionais em suas aplicações legacy.
+        Junte-se a engenheiros do Vale do Silício para uma sessão prática sobre integração de modelos fundacionais em aplicações legacy.
       </p>
-
-      <!-- Contador Regressivo Gigante -->
+      <!-- Timer -->
       <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-16">
-        <div class="timer-box">
-          <span class="timer-val" id="t-days">04</span><span class="timer-lbl">Dias</span>
-        </div>
-        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block" aria-hidden="true">:</div>
-        <div class="timer-box">
-          <span class="timer-val" id="t-hours">12</span><span class="timer-lbl">Horas</span>
-        </div>
-        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block" aria-hidden="true">:</div>
-        <div class="timer-box">
-          <span class="timer-val" id="t-mins">45</span><span class="timer-lbl">Min</span>
-        </div>
-        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block" aria-hidden="true">:</div>
-        <div class="timer-box secs">
-          <span class="timer-val" id="t-secs">22</span><span class="timer-lbl">Seg</span>
-        </div>
+        <div class="timer-box"><span class="timer-val" id="t-days">00</span><span class="timer-lbl">Dias</span></div>
+        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block">:</div>
+        <div class="timer-box"><span class="timer-val" id="t-hours">00</span><span class="timer-lbl">Horas</span></div>
+        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block">:</div>
+        <div class="timer-box"><span class="timer-val" id="t-mins">00</span><span class="timer-lbl">Min</span></div>
+        <div class="text-4xl text-[var(--text-muted)] font-light mt-4 hidden md:block">:</div>
+        <div class="timer-box secs"><span class="timer-val" id="t-secs">00</span><span class="timer-lbl">Seg</span></div>
       </div>
-
     </div>
 
-    <!-- Seção Dividida: Palestrante vs Formulário -->
-    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-      
-      <!-- Info do Evento e Palestrante -->
+    <!-- Speaker + Form grid -->
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+
+      <!-- Speaker + Agenda -->
       <div class="flex flex-col">
         <h3 class="text-2xl font-bold mb-6 font-space">Sua Host nesta jornada</h3>
-        
-        <div class="flex items-center gap-6 mb-10">
-          <div class="relative">
+        <div class="flex items-center gap-6 mb-6">
+          <div class="relative shrink-0">
             <div class="absolute inset-0 bg-gradient-to-tr from-[var(--neon-cyan)] to-[var(--neon-purple)] rounded-full blur-md opacity-50"></div>
-            <img src="https://i.pravatar.cc/150?img=47" class="w-24 h-24 rounded-full border-2 border-[var(--neon-cyan)] relative z-10 grayscale hover:grayscale-0 transition-all duration-500" alt="Speaker">
+            <img src="https://i.pravatar.cc/150?img=47" class="w-24 h-24 rounded-full border-2 border-[var(--neon-cyan)] relative z-10 grayscale hover:grayscale-0 transition-all duration-500" alt="Sarah Connor">
           </div>
           <div>
             <h4 class="text-xl font-bold text-white mb-1">Sarah Connor</h4>
-            <p class="text-[var(--text-muted)] text-sm mb-2">Lead AI Researcher @ TechCorp</p>
+            <p class="text-[var(--text-muted)] text-sm mb-1">Lead AI Researcher @ TechCorp</p>
+            <p class="text-[var(--text-muted)] text-xs mb-3">Ex-Google Brain · Stanford PhD · 12 anos em NLP</p>
             <div class="flex gap-3 text-white">
-              <a href="#" class="hover:text-[var(--neon-cyan)] transition-colors"><i class="ph-fill ph-twitter-logo text-xl"></i></a>
+              <a href="#" class="hover:text-[var(--neon-cyan)] transition-colors"><i class="ph-fill ph-x-logo text-xl"></i></a>
               <a href="#" class="hover:text-[var(--neon-cyan)] transition-colors"><i class="ph-fill ph-linkedin-logo text-xl"></i></a>
+              <a href="#" class="hover:text-[var(--neon-cyan)] transition-colors"><i class="ph-fill ph-github-logo text-xl"></i></a>
             </div>
           </div>
         </div>
 
-        <h3 class="text-xl font-bold mb-6 font-space border-b border-white/10 pb-2">Agenda</h3>
-        <ul class="space-y-6">
+        <!-- Speaker stats -->
+        <div class="grid grid-cols-3 gap-4 mb-8">
+          <div class="speaker-stat">
+            <div class="text-xl font-black text-[var(--neon-cyan)]">12k+</div>
+            <div class="text-xs text-[var(--text-muted)] mt-0.5">Alunos formados</div>
+          </div>
+          <div class="speaker-stat">
+            <div class="text-xl font-black text-[var(--neon-cyan)]">47</div>
+            <div class="text-xs text-[var(--text-muted)] mt-0.5">Papers publicados</div>
+          </div>
+          <div class="speaker-stat">
+            <div class="text-xl font-black text-[var(--neon-cyan)]">4.9★</div>
+            <div class="text-xs text-[var(--text-muted)] mt-0.5">Rating médio</div>
+          </div>
+        </div>
+
+        <h3 class="text-xl font-bold mb-5 font-space border-b border-white/10 pb-2">Agenda do Evento</h3>
+        <ul class="space-y-5">
           <li class="flex gap-4">
-            <div class="text-[var(--neon-cyan)] font-space font-bold">19:00</div>
+            <div class="text-[var(--neon-cyan)] font-space font-bold shrink-0">19:00</div>
             <div>
-              <strong class="block text-white">Setup e Ambiente de Dev</strong>
-              <p class="text-sm text-[var(--text-muted)] mt-1">Configurando LangChain e Pinecone no zero.</p>
+              <strong class="block text-white">Abertura e Setup</strong>
+              <p class="text-sm text-[var(--text-muted)] mt-0.5">Configurando LangChain, Pinecone e ambiente de dev do zero.</p>
             </div>
           </li>
           <li class="flex gap-4">
-            <div class="text-[var(--neon-cyan)] font-space font-bold">19:40</div>
+            <div class="text-[var(--neon-cyan)] font-space font-bold shrink-0">19:40</div>
             <div>
               <strong class="block text-white">RAG na Prática</strong>
-              <p class="text-sm text-[var(--text-muted)] mt-1">Como criar um assistente que lê a base de dados interna da empresa.</p>
+              <p class="text-sm text-[var(--text-muted)] mt-0.5">Criando um assistente que lê a base de dados interna da sua empresa.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="text-[var(--neon-cyan)] font-space font-bold shrink-0">20:20</div>
+            <div>
+              <strong class="block text-white">Fine-tuning de Modelos Fundacionais</strong>
+              <p class="text-sm text-[var(--text-muted)] mt-0.5">Adaptar GPT-4 e Llama 3 com dados proprietários — custo x benefício real.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="text-[var(--neon-cyan)] font-space font-bold shrink-0">21:00</div>
+            <div>
+              <strong class="block text-white">Deploy e Observabilidade</strong>
+              <p class="text-sm text-[var(--text-muted)] mt-0.5">Monitorando alucinações e custos em produção com LangSmith.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="text-[var(--neon-cyan)] font-space font-bold shrink-0">21:40</div>
+            <div>
+              <strong class="block text-white">Q&amp;A ao Vivo</strong>
+              <p class="text-sm text-[var(--text-muted)] mt-0.5">Perguntas diretas com a Sarah. Sem filtro, sem slides.</p>
             </div>
           </li>
         </ul>
       </div>
 
-      <!-- Formulário de Inscrição / Estado de Sucesso -->
+      <!-- Form / Success -->
       <div class="glass-card">
+        <!-- Form state -->
+        <div id="form-state">
+          <h3 class="text-2xl font-bold font-space mb-1">Reserve sua vaga</h3>
+          <p class="text-[var(--text-muted)] text-sm mb-6">Vagas limitadas a 500 participantes. Gratuito.</p>
 
-        <!-- Formulário padrão -->
-        <div i
+          <form id="webinar-form" novalidate class="flex flex-col gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-2">Nome completo</label>
+              <input type="text" id="w-name" class="form-input" placeholder="Maria Silva" required>
+              <p class="text-xs text-red-400 mt-1 hidden" id="err-w-name">Informe seu nome.</p>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-2">E-mail</label>
+              <input type="email" id="w-email" class="form-input" placeholder="maria@empresa.com" required>
+              <p class="text-xs text-red-400 mt-1 hidden" id="err-w-email">Informe um e-mail válido.</p>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-2">Experiência com IA</label>
+              <select id="w-level" class="form-input" style="cursor:pointer; color:white;">
+                <option value="" style="background:#111;">Selecione</option>
+                <option style="background:#111;">Iniciante — nunca integrei nenhum modelo</option>
+                <option style="background:#111;">Intermediário — já usei APIs de LLMs</option>
+                <option style="background:#111;">Avançado — já fiz fine-tuning</option>
+              </select>
+            </div>
+            <button type="submit" id="w-btn" class="neon-btn w-full mt-2">
+              <span id="w-label">Garantir Minha Vaga</span>
+              <i class="ph-bold ph-arrow-right" id="w-icon"></i>
+            </button>
+          </form>
+
+          <p class="text-xs text-[var(--text-muted)] mt-4 text-center">
+            <i class="ph-bold ph-lock-simple mr-1"></i> Suas informações são seguras e não serão compartilhadas.
+          </p>
+        </div>
+
+        <!-- Success state -->
+        <div id="success-state" class="flex-col items-center justify-center text-center py-4 animate-in">
+          <div class="w-16 h-16 rounded-full border-2 border-[var(--neon-cyan)] flex items-center justify-center mx-auto mb-5" style="box-shadow: 0 0 20px rgba(0,240,255,0.3);">
+            <i class="ph-bold ph-check text-[var(--neon-cyan)] text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-black font-space mb-2">Você está dentro!</h3>
+          <p class="text-[var(--text-muted)] text-sm mb-1">Enviamos o link do evento para</p>
+          <p class="text-[var(--neon-cyan)] font-bold mb-5" id="confirmed-email">—</p>
+          <div class="bg-black/40 border border-white/10 rounded-lg p-4 text-sm text-left mb-5">
+            <div class="flex items-center gap-2 mb-2"><i class="ph-fill ph-calendar text-[var(--neon-cyan)]"></i><span>Quinta-feira, 19h (Brasília)</span></div>
+            <div class="flex items-center gap-2"><i class="ph-fill ph-video-camera text-[var(--neon-cyan)]"></i><span>Link no e-mail · Zoom</span></div>
+          </div>
+          <p class="text-xs text-[var(--text-muted)]">Adicione à agenda para não perder!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Testemunhos de edições anteriores -->
+  <section class="max-w-6xl mx-auto px-5 py-20 relative z-10 reveal">
+    <h2 class="text-3xl font-black font-space text-center mb-2">O que dizem as edições anteriores</h2>
+    <p class="text-[var(--text-muted)] text-center mb-12">+3.200 participantes em 4 edições anteriores</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="testimonial-card">
+        <div class="flex gap-1 mb-3">
+          <i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i>
+        </div>
+        <p class="text-[var(--text-muted)] text-sm leading-relaxed italic mb-4">"Implementei RAG na quinta-feira, estava em produção na terça. Nunca aprendi tanto em 3 horas."</p>
+        <div class="flex items-center gap-3">
+          <img src="https://i.pravatar.cc/100?img=11" class="w-9 h-9 rounded-full" alt="">
+          <div><p class="text-sm font-bold text-white">Rafael Torres</p><p class="text-xs text-[var(--text-muted)]">Staff Eng · Nubank</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card border-[var(--neon-cyan)]/30">
+        <div class="flex gap-1 mb-3">
+          <i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i>
+        </div>
+        <p class="text-[var(--text-muted)] text-sm leading-relaxed italic mb-4">"A Sarah explica coisas impossíveis de forma simples. Melhor evento técnico que já participei na minha carreira."</p>
+        <div class="flex items-center gap-3">
+          <img src="https://i.pravatar.cc/100?img=25" class="w-9 h-9 rounded-full" alt="">
+          <div><p class="text-sm font-bold text-white">Beatriz Lemos</p><p class="text-xs text-[var(--text-muted)]">CTO · Startup São Paulo</p></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="flex gap-1 mb-3">
+          <i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i><i class="ph-fill ph-star text-yellow-400 text-sm"></i>
+        </div>
+        <p class="text-[var(--text-muted)] text-sm leading-relaxed italic mb-4">"Fui como developer curioso, saí como engenheiro de IA. O Q&A ao vivo foi o melhor momento — sem ego, só conteúdo."</p>
+        <div class="flex items-center gap-3">
+          <img src="https://i.pravatar.cc/100?img=33" class="w-9 h-9 rounded-full" alt="">
+          <div><p class="text-sm font-bold text-white">Lucas Mendes</p><p class="text-xs text-[var(--text-muted)]">Eng. Sênior · iFood</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/5 py-8 px-5 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="font-space font-bold text-lg tracking-tighter">EVENT<span class="text-[var(--neon-cyan)]">.io</span></div>
+      <div class="flex gap-5 text-sm text-[var(--text-muted)]">
+        <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+        <a href="#" class="hover:text-white transition-colors">Termos</a>
+        <a href="#" class="hover:text-white transition-colors">Suporte</a>
+      </div>
+      <p class="text-xs text-[var(--text-muted)]">© 2026 EVENT.io</p>
+    </div>
+  </footer>
+
+  <script>
+    // Timer (5 dias a partir de agora, persistido)
+    const TK = 'eventio-webinar-target';
+    let target = parseInt(localStorage.getItem(TK) || '0');
+    if (!target || target < Date.now()) {
+      target = Date.now() + 5 * 24 * 3600 * 1000;
+      localStorage.setItem(TK, target);
+    }
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      const diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('t-days').textContent  = pad(d);
+      document.getElementById('t-hours').textContent = pad(h);
+      document.getElementById('t-mins').textContent  = pad(m);
+      const secEl = document.getElementById('t-secs');
+      secEl.textContent = pad(s);
+      secEl.classList.remove('tick');
+      void secEl.offsetWidth;
+      secEl.classList.add('tick');
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // Form
+    document.getElementById('webinar-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const name  = document.getElementById('w-name').value.trim();
+      const email = document.getElementById('w-email').value.trim();
+      const ok    = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      let valid = true;
+      const setErr = (id, errId, cond) => {
+        document.getElementById(id).classList.toggle('error', cond);
+        document.getElementById(errId).classList.toggle('hidden', !cond);
+        if (cond) valid = false;
+      };
+      setErr('w-name',  'err-w-name',  !name);
+      setErr('w-email', 'err-w-email', !ok);
+      if (!valid) return;
+      const btn = document.getElementById('w-btn');
+      const lbl = document.getElementById('w-label');
+      const ico = document.getElementById('w-icon');
+      btn.disabled = true; lbl.textContent = 'Confirmando...'; ico.className = 'ph-bold ph-circle-notch';
+      setTimeout(() => {
+        document.getElementById('confirmed-email').textContent = email;
+        document.getElementById('form-state').style.display = 'none';
+        document.getElementById('success-state').classList.add('show');
+      }, 1200);
+    });
+    ['w-name','w-email'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => document.getElementById(id).classList.remove('error'));
+    });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

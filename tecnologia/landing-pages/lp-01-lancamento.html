@@ -3,265 +3,553 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lançamento de SaaS | Light Mode</title>
-  
+  <title>NovaPlatforma — Automatize. Escale. Domine.</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: #ffffff;
-      --bg-alt: #f8fafc;
-      --text-dark: #0f172a;
-      --text-muted: #64748b;
-      --accent-primary: #6366f1; /* Indigo */
-      --accent-hover: #4f46e5;
-      --border-soft: #e2e8f0;
-      --shadow-soft: 0 20px 40px -15px rgba(0,0,0,0.05);
-      --shadow-hover: 0 30px 60px -15px rgba(99, 102, 241, 0.15);
+      --accent: #6366f1; --accent-dark: #4f46e5; --accent-light: rgba(99,102,241,0.1);
+      --bg: #ffffff; --surface: #f8fafc; --border: #e2e8f0;
+      --text: #0f172a; --muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); overflow-x: hidden; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 50; width: 100%;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.85); border-bottom: 1px solid var(--border);
+      padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-weight: 900; font-size: 1.25rem; color: var(--text); letter-spacing: -0.03em; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 700;
+      padding: 0.6rem 1.25rem; border-radius: 0.5rem; text-decoration: none; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0;
+        background: #fff; border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; gap: 1.25rem; z-index: 49; }
+      .nav-links.open + .nav-cta { display: block; position: fixed; top: 208px; left: 2rem; right: 2rem; z-index: 49; text-align: center; }
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-alt);
-      color: var(--text-dark);
+    /* HERO */
+    .hero { min-height: 92vh; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center; padding: 5rem 1.5rem 3rem; position: relative; overflow: hidden; }
+    .hero-glow {
+      position: absolute; width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.12) 0%, transparent 65%);
+      top: -100px; left: 50%; transform: translateX(-50%); pointer-events: none;
     }
-
-    .glass-nav {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-soft);
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border: 1px solid rgba(99,102,241,0.3); border-radius: 999px;
+      padding: 0.35rem 1rem; font-size: 0.72rem; font-weight: 700;
+      color: var(--accent); background: var(--accent-light); margin-bottom: 1.75rem;
     }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.04em; max-width: 800px; margin-bottom: 1.5rem; }
+    .hero h1 .hl { background: linear-gradient(135deg, var(--accent), #818cf8);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3.5rem; }
+    .btn-primary { background: var(--accent); color: #fff; padding: 0.9rem 2rem; border-radius: 0.6rem;
+      font-weight: 700; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.35); }
+    .btn-secondary { background: transparent; color: var(--text); padding: 0.9rem 2rem; border-radius: 0.6rem;
+      font-weight: 600; text-decoration: none; transition: all 0.2s; border: 1.5px solid var(--border);
+      display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    .clean-card {
-      background: var(--bg-light);
-      border: 1px solid var(--border-soft);
-      border-radius: 1rem;
-      box-shadow: var(--shadow-soft);
-      padding: 2.5rem;
-      transition: all 0.3s ease;
+    /* DASHBOARD MOCKUP */
+    .dash-wrap {
+      width: 100%; max-width: 960px; border-radius: 1rem;
+      border: 1px solid var(--border); overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
     }
-
-    .clean-card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-4px);
-      border-color: rgba(99, 102, 241, 0.2);
+    .dash-chrome {
+      background: #f1f5f9; border-bottom: 1px solid var(--border);
+      padding: 0.65rem 1rem; display: flex; align-items: center; gap: 0.5rem;
     }
-
-    .card-icon {
-      color: var(--accent-primary);
-      background: #eef2ff;
-      border-radius: 0.75rem;
-      width: 3.5rem; height: 3.5rem;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.3s ease;
+    .dash-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dash-url-bar { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 0.375rem;
+      padding: 0.25rem 0.75rem; font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 0.5rem; }
+    .dash-body { background: #f8fafc; padding: 1.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    @media (max-width: 640px) { .dash-body { grid-template-columns: repeat(2, 1fr); } }
+    .kpi-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem;
+      opacity: 0; transform: translateY(12px); transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
     }
+    .kpi-card.loaded { opacity: 1; transform: translateY(0); }
+    .kpi-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem; }
+    .kpi-val { font-size: 1.5rem; font-weight: 900; color: var(--text); letter-spacing: -0.03em; }
+    .kpi-delta { display: inline-flex; align-items: center; gap: 0.2rem; font-size: 0.7rem; font-weight: 700;
+      margin-top: 0.3rem; padding: 0.1rem 0.4rem; border-radius: 4px; }
+    .kpi-delta.up { background: #f0fdf4; color: #16a34a; }
+    .kpi-delta.down { background: #fef2f2; color: #dc2626; }
 
-    .clean-card:hover .card-icon {
-      background: var(--accent-primary);
-      color: white;
-      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    .dash-chart-row { grid-column: 1 / -1; background: #fff; border: 1px solid var(--border);
+      border-radius: 0.75rem; padding: 1.25rem; }
+    .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .chart-title { font-size: 0.875rem; font-weight: 700; }
+    .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 90px; }
+    .bar { flex: 1; border-radius: 4px 4px 0 0; background: var(--accent); opacity: 0.85;
+      transform-origin: bottom; transition: height 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .bar:nth-child(even) { opacity: 0.55; }
+    .bar-labels { display: flex; gap: 6px; margin-top: 0.4rem; }
+    .bar-label { flex: 1; text-align: center; font-size: 0.6rem; color: var(--muted); }
+
+    .skeleton { background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+      background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 4px; }
+    @keyframes shimmer { to { background-position: -200% 0; } }
+
+    /* SECTIONS */
+    section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.75rem; }
+    .section-h { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.15;
+      letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 540px; line-height: 1.7; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+    @media (max-width: 800px) { .features-grid { grid-template-columns: 1fr; } }
+    .feat-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 1rem; padding: 1.75rem;
+      opacity: 0; transform: translateY(16px); transition: opacity 0.5s, transform 0.5s;
     }
+    .feat-card.visible { opacity: 1; transform: translateY(0); }
+    .feat-icon { width: 44px; height: 44px; border-radius: 0.625rem; background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+      color: var(--accent); font-size: 1.25rem; }
+    .feat-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .feat-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
 
-    .btn-indigo {
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-      font-size: 0.875rem; font-weight: 600; color: white;
-      background: var(--accent-primary); border-radius: 0.5rem;
-      padding: 0.85rem 1.5rem; transition: all 0.2s ease;
-      box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
-      cursor: pointer; text-decoration: none;
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+    @media (max-width: 800px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .plan-card { background: #fff; border: 1.5px solid var(--border); border-radius: 1rem; padding: 2rem; position: relative; }
+    .plan-card.featured { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(99,102,241,0.08); }
+    .plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.85rem; border-radius: 999px; }
+    .plan-name { font-size: 0.875rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+    .plan-price { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.04em; margin-bottom: 0.25rem; }
+    .plan-price small { font-size: 0.9rem; font-weight: 500; color: var(--muted); }
+    .plan-desc { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .plan-features { list-style: none; margin-bottom: 2rem; }
+    .plan-features li { font-size: 0.875rem; color: var(--muted); display: flex; gap: 0.6rem; padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border); }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features i { color: var(--accent); margin-top: 1px; flex-shrink: 0; }
+    .plan-btn { width: 100%; padding: 0.85rem; border-radius: 0.6rem; font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; border: 1.5px solid var(--border); background: #fff; color: var(--text);
+      transition: all 0.2s; }
+    .plan-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .plan-card.featured .plan-btn { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .plan-card.featured .plan-btn:hover { background: var(--accent-dark); }
+
+    /* TESTIMONIALS */
+    #depoimentos { background: var(--surface); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    @media (max-width: 800px) { .testi-grid { grid-template-columns: 1fr; } }
+    .testi-card { background: #fff; border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; }
+    .testi-stars { display: flex; gap: 2px; margin-bottom: 0.75rem; color: #f59e0b; }
+    .testi-card p { font-size: 0.9rem; color: #334155; line-height: 1.65; font-style: italic; margin-bottom: 1.25rem; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-author img { width: 36px; height: 36px; border-radius: 50%; }
+    .testi-name { font-size: 0.82rem; font-weight: 700; }
+    .testi-role { font-size: 0.72rem; color: var(--muted); }
+
+    /* FAQ */
+    .faq-list { max-width: 700px; margin-top: 2.5rem; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 0; background: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text); gap: 1rem;
     }
+    .faq-q .faq-icon { font-size: 1.1rem; color: var(--accent); flex-shrink: 0; transition: transform 0.25s; }
+    .faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-a { overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
+    .faq-a-inner { padding: 0 0 1.25rem; font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
 
-    .btn-indigo:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    /* CTA FINAL */
+    .cta-final {
+      background: linear-gradient(135deg, var(--accent), #818cf8);
+      color: #fff; text-align: center; padding: 6rem 1.5rem;
     }
+    .cta-final h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.03em; }
+    .cta-final p { font-size: 1rem; opacity: 0.85; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.6; }
+    .btn-white { background: #fff; color: var(--accent); padding: 1rem 2.25rem; border-radius: 0.6rem;
+      font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: all 0.2s; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 
-    .btn-outline {
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-      font-size: 0.875rem; font-weight: 600; color: var(--text-dark);
-      background: transparent; border: 1px solid var(--border-soft); border-radius: 0.5rem;
-      padding: 0.85rem 1.5rem; transition: all 0.2s ease;
-      cursor: pointer; text-decoration: none;
-    }
+    /* FOOTER */
+    footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 3rem 1.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+    .footer-logo { font-weight: 900; font-size: 1.25rem; color: #fff; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
 
-    .btn-outline:hover {
-      background: var(--bg-alt);
-      border-color: #cbd5e1;
-    }
-
-    .text-gradient {
-      background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-
-    /* ── Mockup Dashboard ── */
-    @keyframes shimmer {
-      from { background-position: -600px 0; }
-      to   { background-position:  600px 0; }
-    }
-    .skeleton {
-      background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
-      background-size: 600px 100%;
-      animation: shimmer 1.6s infinite;
-      border-radius: 0.375rem;
-    }
-
-    @keyframes fadeInContent {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .dash-content { opacity: 0; }
-    .dash-content.revealed { animation: fadeInContent 0.5s ease forwards; }
-
-    /* Mini bar chart */
-    .bar-chart { display: flex; align-items: flex-end; gap: 5px; height: 64px; }
-    .bar { border-radius: 3px 3px 0 0; flex: 1; transition: height 0.8s cubic-bezier(0.34,1.2,0.64,1); }
-
-    /* Nav item */
-    .dash-nav-item { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; font-size: 11px; font-weight: 500; color: #64748b; margin-bottom: 2px; }
-    .dash-nav-item.active { background: #eef2ff; color: #4f46e5; font-weight: 600; }
-
-    /* Metric card mini */
-    .dash-kpi { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px; }
-    .dash-kpi-val { font-size: 20px; font-weight: 800; color: #0f172a; line-height: 1; }
-    .dash-kpi-lbl { font-size: 10px; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 3px; }
-    .dash-kpi-delta { font-size: 10px; font-weight: 700; margin-top: 4px; }
-    .delta-up { color: #10b981; }
-
-    /* Scroll-reveal para as cards de funcionalidade */
-    .reveal-card { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal-card.visible { opacity: 1; transform: translateY(0); }
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s, transform 0.55s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
+<body>
 
-<body class="antialiased selection:bg-indigo-100 selection:text-indigo-900">
-  
-  <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
-    <nav class="w-full max-w-7xl mx-auto px-5 lg:px-10 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center group shrink-0">
-        <span class="text-xl font-bold text-gray-900 tracking-tight">SaaS<span class="text-indigo-600">Pro</span></span>
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#funcionalidades" class="text-gray-600 hover:text-indigo-600 transition-colors">Funcionalidades</a>
-        <a href="#precos" class="text-gray-600 hover:text-indigo-600 transition-colors">Preços</a>
-        <a href="#precos" class="btn-indigo !py-2 !px-5 !shadow-none">Começar Grátis</a>
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">Nova<span>Plataforma</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#funcionalidades">Funcionalidades</a></li>
+      <li><a href="#precos">Preços</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#precos" class="nav-cta">Começar Grátis</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <i class="ph-bold ph-list text-2xl"></i>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-badge"><i class="ph-fill ph-rocket-launch text-sm"></i> Lançamento da v2.0 — com IA nativa</div>
+    <h1>Automatize a operação.<br/><span class="hl">Escale sem limites.</span></h1>
+    <p>A plataforma de gestão que conecta suas equipes, automatiza processos e entrega visibilidade total — do operacional ao estratégico.</p>
+    <div class="hero-btns">
+      <a href="#precos" class="btn-primary"><i class="ph-bold ph-rocket-launch"></i> Testar 14 dias grátis</a>
+      <a href="#funcionalidades" class="btn-secondary"><i class="ph-bold ph-play-circle"></i> Ver como funciona</a>
+    </div>
+
+    <!-- Dashboard Mockup -->
+    <div class="dash-wrap">
+      <div class="dash-chrome">
+        <div class="dash-dot" style="background:#ef4444;"></div>
+        <div class="dash-dot" style="background:#f59e0b;"></div>
+        <div class="dash-dot" style="background:#22c55e;"></div>
+        <div class="dash-url-bar" style="margin: 0 0.75rem;">
+          <i class="ph-fill ph-lock-simple" style="color:#22c55e; font-size:0.7rem;"></i>
+          app.novaplataforma.com.br/dashboard
+        </div>
       </div>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section class="w-full min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-10 px-5 text-center relative overflow-hidden bg-white">
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-
-      <div class="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-indigo-100 bg-indigo-50 text-indigo-700 text-xs font-bold uppercase tracking-widest relative z-10">
-        🚀 Lançamento 2.0 Disponível
+      <div class="dash-body" id="dash-body">
+        <!-- KPI Cards injected by JS -->
+        <div class="kpi-card" id="kpi-0">
+          <div class="skeleton" style="height:12px; width:60%; margin-bottom:8px;"></div>
+          <div class="skeleton" style="height:28px; width:80%;"></div>
+        </div>
+        <div class="kpi-card" id="kpi-1">
+          <div class="skeleton" style="height:12px; width:60%; margin-bottom:8px;"></div>
+          <div class="skeleton" style="height:28px; width:80%;"></div>
+        </div>
+        <div class="kpi-card" id="kpi-2">
+          <div class="skeleton" style="height:12px; width:60%; margin-bottom:8px;"></div>
+          <div class="skeleton" style="height:28px; width:80%;"></div>
+        </div>
+        <div class="kpi-card" id="kpi-3">
+          <div class="skeleton" style="height:12px; width:60%; margin-bottom:8px;"></div>
+          <div class="skeleton" style="height:28px; width:80%;"></div>
+        </div>
+        <!-- Bar chart row -->
+        <div class="dash-chart-row">
+          <div class="chart-header">
+            <span class="chart-title">Receita Mensal (R$)</span>
+            <span style="font-size:0.7rem; color:var(--muted);">Últimos 8 meses</span>
+          </div>
+          <div class="bar-chart" id="bar-chart"></div>
+          <div class="bar-labels" id="bar-labels"></div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <h1 class="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tighter max-w-4xl mx-auto relative z-10">
-        Automatize a operação. <br/><span class="text-gradient">Escale sem limites.</span>
-      </h1>
-
-      <p class="text-lg md:text-xl text-gray-500 font-normal leading-relaxed max-w-2xl mx-auto mb-10 relative z-10">
-        A plataforma unificada que conecta seu financeiro, vendas e suporte em uma interface elegante. Feita para empresas de alto crescimento.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-        <a href="#precos" class="btn-indigo">Começar Teste Grátis</a>
-        <a href="#funcionalidades" class="btn-outline">Ver documentação</a>
+  <!-- FEATURES -->
+  <section id="funcionalidades">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Funcionalidades</p>
+        <h2 class="section-h">Tudo que sua equipe precisa<br/>em um só lugar.</h2>
+        <p class="section-sub">Sem planilhas, sem ferramentas dispersas. Visibilidade total, do operacional ao estratégico.</p>
       </div>
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><i class="ph-fill ph-robot"></i></div>
+          <h3>IA Generativa Nativa</h3>
+          <p>Automatize relatórios, respostas e triagem de dados sem escrever uma linha de código. Copiloto integrado a cada módulo.</p>
+        </div>
+        <div class="feat-card" style="transition-delay:0.08s;">
+          <div class="feat-icon"><i class="ph-fill ph-chart-line-up"></i></div>
+          <h3>Analytics em Tempo Real</h3>
+          <p>Dashboards dinâmicos com drill-down por equipe, produto e canal. Métricas atualizadas a cada 30 segundos.</p>
+        </div>
+        <div class="feat-card" style="transition-delay:0.16s;">
+          <div class="feat-icon"><i class="ph-fill ph-plug"></i></div>
+          <h3>Integrações Nativas</h3>
+          <p>Conecte com Slack, WhatsApp Business, HubSpot e 80+ ferramentas sem configuração manual ou webhooks.</p>
+        </div>
+        <div class="feat-card" style="transition-delay:0.04s;">
+          <div class="feat-icon"><i class="ph-fill ph-shield-check"></i></div>
+          <h3>Segurança Enterprise</h3>
+          <p>SOC 2 Tipo II, criptografia AES-256, SSO com Azure/Google e auditoria completa de acessos.</p>
+        </div>
+        <div class="feat-card" style="transition-delay:0.12s;">
+          <div class="feat-icon"><i class="ph-fill ph-arrows-out"></i></div>
+          <h3>Multiempresa Nativa</h3>
+          <p>Gerencie múltiplas unidades ou marcas com isolamento total de dados e permissões granulares por contexto.</p>
+        </div>
+        <div class="feat-card" style="transition-delay:0.2s;">
+          <div class="feat-icon"><i class="ph-fill ph-device-mobile"></i></div>
+          <h3>Mobile-First</h3>
+          <p>App nativo para iOS e Android com modo offline, notificações push e biometria — tudo sincronizado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- Dashboard Mockup -->
-      <div class="mt-20 w-full max-w-5xl mx-auto relative z-10" id="mockup-wrap">
-        <!-- Barra de browser fake -->
-        <div class="bg-gray-100 border border-gray-200 rounded-t-2xl px-4 py-2.5 flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full bg-red-400"></span>
-          <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
-          <span class="w-3 h-3 rounded-full bg-green-400"></span>
-          <div class="flex-1 mx-4 bg-white border border-gray-200 rounded-md px-3 py-1 text-xs text-gray-400 text-left">app.saaspro.com.br/dashboard</div>
+  <!-- PRICING -->
+  <section id="precos" style="background: var(--surface);">
+    <div class="section-inner">
+      <div class="reveal text-center" style="max-width: 100%;">
+        <p class="section-label">Planos</p>
+        <h2 class="section-h">Simples, transparente, escalável.</h2>
+        <p class="section-sub mx-auto">14 dias grátis em qualquer plano. Sem cartão de crédito.</p>
+      </div>
+      <div class="pricing-grid">
+
+        <div class="plan-card reveal">
+          <div class="plan-name">Essencial</div>
+          <div class="plan-price">R$ 89<small>/mês</small></div>
+          <div class="plan-desc">Para startups e pequenas equipes</div>
+          <ul class="plan-features">
+            <li><i class="ph-fill ph-check-circle"></i> Até 5 usuários</li>
+            <li><i class="ph-fill ph-check-circle"></i> 3 integrações ativas</li>
+            <li><i class="ph-fill ph-check-circle"></i> Analytics básico</li>
+            <li><i class="ph-fill ph-check-circle"></i> Suporte via e-mail</li>
+            <li><i class="ph-fill ph-x-circle" style="color:#cbd5e1;"></i> IA Copiloto</li>
+            <li><i class="ph-fill ph-x-circle" style="color:#cbd5e1;"></i> Multiempresa</li>
+          </ul>
+          <button class="plan-btn">Começar Grátis</button>
         </div>
 
-        <div class="w-full bg-white border border-t-0 border-gray-200 rounded-b-2xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.12)] overflow-hidden" style="height:420px">
-          <div class="w-full h-full flex bg-gray-50">
+        <div class="plan-card featured reveal" style="transition-delay:0.08s;">
+          <div class="plan-badge">Mais popular</div>
+          <div class="plan-name">Profissional</div>
+          <div class="plan-price">R$ 249<small>/mês</small></div>
+          <div class="plan-desc">Para equipes em crescimento acelerado</div>
+          <ul class="plan-features">
+            <li><i class="ph-fill ph-check-circle"></i> Até 25 usuários</li>
+            <li><i class="ph-fill ph-check-circle"></i> Integrações ilimitadas</li>
+            <li><i class="ph-fill ph-check-circle"></i> Analytics avançado</li>
+            <li><i class="ph-fill ph-check-circle"></i> IA Copiloto incluso</li>
+            <li><i class="ph-fill ph-check-circle"></i> Suporte prioritário 24h</li>
+            <li><i class="ph-fill ph-x-circle" style="color:#cbd5e1;"></i> Multiempresa</li>
+          </ul>
+          <button class="plan-btn">Começar Grátis</button>
+        </div>
 
-            <!-- Sidebar -->
-            <div class="w-52 h-full bg-white border-r border-gray-100 p-3 hidden md:flex flex-col gap-1 shrink-0">
-              <!-- Logo skeleton / content -->
-              <div class="skeleton h-7 w-28 mb-4 mt-1" id="sk-logo"></div>
-              <div class="dash-content" id="dc-logo" style="display:none; margin-bottom:16px;">
-                <span class="text-sm font-bold text-gray-900">SaaS<span class="text-indigo-600">Pro</span></span>
-              </div>
+        <div class="plan-card reveal" style="transition-delay:0.16s;">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-price">Sob<small> consulta</small></div>
+          <div class="plan-desc">Para operações complexas e multi-unidade</div>
+          <ul class="plan-features">
+            <li><i class="ph-fill ph-check-circle"></i> Usuários ilimitados</li>
+            <li><i class="ph-fill ph-check-circle"></i> Multiempresa nativa</li>
+            <li><i class="ph-fill ph-check-circle"></i> SSO + SAML + MFA</li>
+            <li><i class="ph-fill ph-check-circle"></i> SLA 99.99% garantido</li>
+            <li><i class="ph-fill ph-check-circle"></i> Onboarding dedicado</li>
+            <li><i class="ph-fill ph-check-circle"></i> CSM exclusivo</li>
+          </ul>
+          <button class="plan-btn">Falar com vendas</button>
+        </div>
 
-              <!-- Nav skeletons -->
-              <div class="skeleton h-6 w-full mb-1" id="sk-nav1"></div>
-              <div class="skeleton h-6 w-3/4 mb-1" id="sk-nav2"></div>
-              <div class="skeleton h-6 w-5/6 mb-1" id="sk-nav3"></div>
-              <div class="skeleton h-6 w-2/3" id="sk-nav4"></div>
+      </div>
+    </div>
+  </section>
 
-              <!-- Nav real -->
-              <div class="dash-content" id="dc-nav" style="display:none;">
-                <div class="dash-nav-item active"><span style="font-size:12px">⊞</span> Dashboard</div>
-                <div class="dash-nav-item"><span style="font-size:12px">👤</span> Clientes</div>
-                <div class="dash-nav-item"><span style="font-size:12px">💳</span> Financeiro</div>
-                <div class="dash-nav-item"><span style="font-size:12px">⚡</span> Automações</div>
-                <div class="dash-nav-item"><span style="font-size:12px">📊</span> Relatórios</div>
-              </div>
+  <!-- TESTIMONIALS -->
+  <section id="depoimentos">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Depoimentos</p>
+        <h2 class="section-h">Amado por equipes<br/>de alto crescimento.</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+          <p>"Eliminamos 6 planilhas de controle e 2 reuniões semanais de alinhamento. Em 30 dias a equipe já vivia dentro da plataforma."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/100?img=3" alt="">
+            <div><div class="testi-name">Camila Rocha</div><div class="testi-role">COO · Escale Agências</div></div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:0.08s;">
+          <div class="testi-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+          <p>"O IA Copiloto nos economizou 12h/semana em relatórios gerenciais. Hoje o board recebe os números automático toda segunda."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/100?img=17" alt="">
+            <div><div class="testi-name">Thiago Alves</div><div class="testi-role">CEO · TechScale</div></div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:0.16s;">
+          <div class="testi-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+          <p>"Migrar de 4 ferramentas diferentes para uma única plataforma foi mais fácil do que esperávamos. Suporte impecável durante toda transição."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/100?img=29" alt="">
+            <div><div class="testi-name">Fernanda Lima</div><div class="testi-role">VP Operações · Growup</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-              <div class="mt-auto flex items-center gap-2 pt-3 border-t border-gray-100">
-                <div class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 text-xs font-bold">AM</div>
-                <div class="dash-content" id="dc-user" style="display:none; font-size:11px; color:#64748b;">Alice M.</div>
-              </div>
-            </div>
+  <!-- FAQ -->
+  <section id="faq" style="background: var(--surface);">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-h">Perguntas frequentes.</h2>
+      </div>
+      <div class="faq-list reveal" style="transition-delay:0.1s;">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Preciso de cartão de crédito para testar?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Não. Os 14 dias de teste são completamente gratuitos e sem cartão. Você só insere dados de pagamento se decidir continuar após o período de trial.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Como funciona a migração dos dados existentes?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Nossa equipe de onboarding oferece importação assistida de planilhas, APIs e integrações com as principais plataformas do mercado. Planos Pro e Enterprise incluem onboarding dedicado com engenheiro de solução.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Posso cancelar a qualquer momento?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Sim, sem multa e sem carência. Ao cancelar você mantém acesso até o fim do período pago e pode exportar todos os seus dados em formato CSV e JSON.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>A plataforma funciona para múltiplas unidades ou filiais?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Sim. O plano Enterprise inclui multiempresa nativa com isolamento total de dados, permissões hierárquicas e painel consolidado para visão master entre todas as unidades.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>Qual é o SLA de disponibilidade?</span>
+            <i class="ph-bold ph-plus faq-icon"></i>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">99.9% para planos Essencial e Pro, 99.99% para Enterprise, com compensação contratual em caso de violação. Status em tempo real disponível em status.novaplataforma.com.br.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- Main content -->
-            <div class="flex-1 p-5 overflow-hidden flex flex-col gap-4">
-              <!-- Header linha -->
-              <div class="flex items-center justify-between">
-                <div class="skeleton h-5 w-36" id="sk-hdr"></div>
-                <div class="dash-content" id="dc-hdr" style="display:none; font-size:13px; font-weight:700; color:#0f172a;">Visão Geral — Junho 2026</div>
-                <div class="skeleton h-7 w-24 rounded-md" id="sk-btn"></div>
-                <div class="dash-content" id="dc-btn" style="display:none;">
-                  <span style="font-size:11px;background:#6366f1;color:white;padding:4px 10px;border-radius:6px;font-weight:700;">+ Novo Fluxo</span>
-                </div>
-              </div>
+  <!-- CTA FINAL -->
+  <div class="cta-final">
+    <h2>Pronto para escalar?</h2>
+    <p>Junte-se a +2.800 empresas que automatizaram suas operações com NovaPlatforma.</p>
+    <a href="#precos" class="btn-white"><i class="ph-bold ph-rocket-launch"></i> Começar grátis agora</a>
+  </div>
 
-              <!-- KPIs -->
-              <div class="grid grid-cols-3 gap-3">
-                <div class="skeleton h-24 rounded-xl" id="sk-k1"></div>
-                <div class="skeleton h-24 rounded-xl" id="sk-k2"></div>
-                <div class="skeleton h-24 rounded-xl" id="sk-k3"></div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Nova<span>Plataforma</span></div>
+        <p style="font-size:0.8rem;">© 2026 NovaPlatforma. Todos os direitos reservados.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Produto</a><a href="#">Preços</a><a href="#">Blog</a>
+        <a href="#">Carreiras</a><a href="#">Privacidade</a><a href="#">Termos</a>
+      </div>
+    </div>
+  </footer>
 
-                <div class="dash-kpi dash-content" id="dc-k1" style="display:none;">
-                  <div class="dash-kpi-lbl">MRR</div>
-                  <div class="dash-kpi-val" id="kpi-mrr">R$ 0</div>
-                  <div class="dash-kpi-delta delta-up">↑ 18% vs. mês anterior</div>
-                </div>
-                <div class="dash-kpi dash-content" id="dc-k2" style="display:none;">
-                  <div class="dash-kpi-lbl">Novos Clientes</div>
-                  <div class="dash-kpi-val" id="kpi-clients">0</div>
-                  <div class="dash-kpi-delta delta-up">↑ 32 este mês</div>
-                </div>
-                <div class="dash-kpi dash-content" id="dc-k3" style="display:none;">
-                  <div class="dash-kpi-lbl">Churn Rate</div>
-                  <div class="dash-kpi-val">1,8%</div>
-                  <div class="dash-kpi-delta" style="color:#f59e0b;">↓ -0.4% (ótimo!)</div>
-                </div>
-              </div>
+  <script>
+    // Hamburger nav
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('open');
+    });
 
-              <!-- Chart area -->
-              <div class="flex-1 min-h-0">
-                <div class="skeleton h-full rounded-xl" id="sk-chart"></div>
-                <div class="dash-content bg-white border border-gray-100 rounded-xl p-4 h-full" id="dc-chart" style="display:none;">
-                  <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px;">RECEITA MENSAL (R$)</div>
-                  <div class="bar-chart" id="bar-chart">
-                    <!-- bars injected by JS -->
-                  </div>
-                  <div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:4px;font-weight:600;">
-                    <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span>
-    
+    // KPI cards reveal + bar chart injection
+    const kpis = [
+      { label: 'MRR', val: 'R$ 284k', delta: '+18%', dir: 'up' },
+      { label: 'Novos Clientes', val: '143', delta: '+31%', dir: 'up' },
+      { label: 'Churn Rate', val: '1.4%', delta: '-0.3pp', dir: 'up' },
+      { label: 'NPS', val: '72', delta: '+5pts', dir: 'up' },
+    ];
+
+    const bars = [38, 52, 47, 61, 55, 70, 83, 95];
+    const months = ['Nov','Dez','Jan','Fev','Mar','Abr','Mai','Jun'];
+
+    // Bar chart
+    const bc = document.getElementById('bar-chart');
+    const bl = document.getElementById('bar-labels');
+    bars.forEach((h, i) => {
+      const bar = document.createElement('div');
+      bar.className = 'bar'; bar.style.height = '0';
+      bc.appendChild(bar);
+      const lbl = document.createElement('div');
+      lbl.className = 'bar-label'; lbl.textContent = months[i];
+      bl.appendChild(lbl);
+      setTimeout(() => { bar.style.height = h + 'px'; }, 800 + i * 80);
+    });
+
+    // KPI skeleton → content
+    kpis.forEach((k, i) => {
+      setTimeout(() => {
+        const card = document.getElementById('kpi-' + i);
+        card.innerHTML = `
+          <div class="kpi-label">${k.label}</div>
+          <div class="kpi-val">${k.val}</div>
+          <div class="kpi-delta ${k.dir}">${k.dir === 'up' ? '▲' : '▼'} ${k.delta}</div>
+        `;
+        card.classList.add('loaded');
+      }, 400 + i * 200);
+    });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .feat-card').forEach(el => obs.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.style.maxHeight = '0';
+        });
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          const ans = btn.nextElementSibling;
+          ans.style.maxHeight = ans.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

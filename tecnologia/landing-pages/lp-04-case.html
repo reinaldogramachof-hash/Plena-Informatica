@@ -3,79 +3,311 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudo de Caso | SaaSPro</title>
+  <title>Case FastBuy: +214% de Receita | SaaSPro</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #fafaf9; color: #1c1917; }
-    h1, h2, .font-serif { font-family: 'Playfair Display', serif; }
-    .quote-mark { font-size: 6rem; color: #d6d3d1; position: absolute; top: -2rem; left: -2rem; z-index: -1; line-height: 1; font-family: serif; }
-    .metric-card { background: white; border: 1px solid #e7e5e4; padding: 2rem; border-radius: 0.5rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-    .btn-dark { background: #1c1917; color: white; padding: 1rem 2rem; border-radius: 999px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: background 0.2s; }
-    .btn-dark:hover { background: #44403c; }
+    h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+
+    /* Métricas */
+    .metric-card { background: white; border: 1px solid #e7e5e4; padding: 1.75rem; border-radius: 12px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .metric-val { font-size: 3rem; font-weight: 900; line-height: 1; color: #1c1917; font-family: 'Inter', sans-serif; }
+    .metric-lbl { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #a8a29e; margin-top: 6px; }
+
+    /* Quote */
+    .quote-mark { font-size: 7rem; color: #e7e5e4; position: absolute; top: -2.5rem; left: -1rem; z-index: 0; line-height: 1; font-family: serif; pointer-events: none; }
+
+    /* Linha do tempo */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 2px; background: #e7e5e4; }
+    .tl-item { position: relative; margin-bottom: 2.5rem; }
+    .tl-dot { position: absolute; left: -1.625rem; top: 0.2rem; width: 14px; height: 14px; border-radius: 50%; background: #1c1917; border: 3px solid #fafaf9; box-shadow: 0 0 0 2px #1c1917; }
+    .tl-dot.highlight { background: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,0.25); }
+    .tl-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #a8a29e; margin-bottom: 4px; }
+    .tl-title { font-size: 1rem; font-weight: 700; color: #1c1917; margin-bottom: 4px; }
+    .tl-desc { font-size: 0.875rem; color: #78716c; line-height: 1.6; }
+
+    /* Cards de outros cases */
+    .case-card { background: white; border: 1px solid #e7e5e4; border-radius: 12px; padding: 1.5rem; transition: all 0.2s; }
+    .case-card:hover { border-color: #d6d3d1; box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+    .case-tag { display: inline-block; padding: 0.2rem 0.6rem; background: #f5f5f4; color: #78716c; font-size: 0.7rem; font-weight: 700; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    /* Botões */
+    .btn-dark { background: #1c1917; color: white; padding: 1rem 2rem; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; text-decoration: none; border: none; cursor: pointer; font-size: 0.9rem; }
+    .btn-dark:hover { background: #44403c; transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: #57534e; border: 1.5px solid #d6d3d1; padding: 1rem 2rem; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; text-decoration: none; font-size: 0.9rem; }
+    .btn-outline:hover { border-color: #1c1917; color: #1c1917; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.shown { opacity: 1; transform: translateY(0); }
+
+    /* Share */
+    .share-chip { display: inline-flex; align-items: center; gap: 0.35rem; border: 1px solid #e7e5e4; background: white; color: #78716c; font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.9rem; border-radius: 999px; cursor: pointer; transition: all 0.15s; text-decoration: none; }
+    .share-chip:hover { border-color: #1c1917; color: #1c1917; }
   </style>
 </head>
 <body class="antialiased">
-  <header class="w-full p-6 border-b border-stone-200 bg-white">
-    <div class="max-w-5xl mx-auto flex items-center justify-between">
-      <div class="font-bold text-xl tracking-tight">SaaS<span class="text-stone-400">Pro</span></div>
-      <a href="#" class="text-sm font-semibold text-stone-500 hover:text-stone-900">Voltar para cases</a>
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/90 backdrop-blur-sm">
+    <div class="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="#" class="font-bold text-xl tracking-tight text-stone-900">SaaS<span class="text-stone-400">Pro</span></a>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm font-semibold text-stone-500 hover:text-stone-900 hidden sm:block"><i class="ph-bold ph-arrow-left"></i> Todos os cases</a>
+        <a href="#cta" class="btn-dark !py-2 !px-5">Ver a plataforma</a>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-5 py-20">
-    <div class="mb-6 flex items-center gap-3">
-      <span class="px-3 py-1 bg-stone-200 text-stone-700 text-xs font-bold rounded uppercase tracking-widest">E-commerce</span>
-      <span class="text-stone-500 text-sm">Tempo de leitura: 4 min</span>
+  <main class="max-w-4xl mx-auto px-5 py-16">
+
+    <!-- Tag + leitura -->
+    <div class="flex items-center gap-3 mb-6 reveal">
+      <span class="px-3 py-1.5 bg-stone-100 text-stone-600 text-xs font-bold rounded-full uppercase tracking-widest">E-commerce</span>
+      <span class="text-stone-400 text-sm"><i class="ph-bold ph-clock"></i> Leitura: 4 min</span>
     </div>
 
-    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
-      Como a <span class="italic text-stone-500">FastBuy</span> aumentou suas vendas em 214% no primeiro trimestre.
+    <!-- H1 -->
+    <h1 class="text-4xl md:text-6xl font-bold leading-[1.08] mb-8 tracking-tight reveal">
+      Como a <span class="italic text-stone-400">FastBuy</span> aumentou sua receita em <span class="not-italic text-stone-900">214%</span> em um trimestre.
     </h1>
 
-    <!-- Resultados -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+    <!-- Métricas com contador -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16 reveal">
       <div class="metric-card" data-metric>
-        <div class="text-4xl font-black text-stone-900 mb-2" id="m-receita">0%</div>
-        <div class="text-sm text-stone-500 font-semibold uppercase tracking-wider">Receita (YoY)</div>
+        <div class="metric-val" id="m-receita">0%</div>
+        <div class="metric-lbl">Crescimento de receita</div>
       </div>
       <div class="metric-card" data-metric>
-        <div class="text-4xl font-black text-stone-900 mb-2" id="m-horas">0h</div>
-        <div class="text-sm text-stone-500 font-semibold uppercase tracking-wider">Salvas por semana</div>
+        <div class="metric-val" id="m-horas">0h</div>
+        <div class="metric-lbl">Horas operacionais economizadas</div>
       </div>
       <div class="metric-card" data-metric>
-        <div class="text-4xl font-black text-stone-900 mb-2" id="m-erros">12</div>
-        <div class="text-sm text-stone-500 font-semibold uppercase tracking-wider">Erros de faturamento</div>
+        <div class="metric-val" id="m-erros">12</div>
+        <div class="metric-lbl">Erros de faturamento</div>
       </div>
     </div>
 
-    <!-- Foto e Citação principal -->
-    <div class="relative bg-white p-10 md:p-16 rounded-2xl border border-stone-200 shadow-sm mb-16 z-10">
-      <span class="quote-mark">"</span>
+    <!-- Foto empresa + citação principal -->
+    <div class="relative bg-white p-10 md:p-14 rounded-2xl border border-stone-200 shadow-sm mb-16 z-10 reveal">
+      <span class="quote-mark" aria-hidden="true">"</span>
       <p class="font-serif text-2xl md:text-3xl leading-relaxed text-stone-800 mb-8 relative z-10">
-        Antes do SaaSPro, nosso backoffice era um caos de planilhas. A automação nos permitiu focar no que realmente importa: a experiência do nosso cliente final. Foi um divisor de águas.
+        Antes do SaaSPro, nosso backoffice era um caos de planilhas. A automação nos permitiu focar no que realmente importa: a experiência do cliente final. Foi um divisor de águas.
       </p>
       <div class="flex items-center gap-4">
-        <img src="https://i.pravatar.cc/150?img=32" alt="CEO" class="w-16 h-16 rounded-full grayscale">
+        <img src="https://i.pravatar.cc/150?img=32" alt="Mariana Costa" class="w-16 h-16 rounded-full grayscale">
         <div>
-          <div class="font-bold text-stone-900">Mariana Costa</div>
-          <div class="text-stone-500 text-sm">CEO & Founder, FastBuy</div>
+          <p class="font-bold text-stone-900">Mariana Costa</p>
+          <p class="text-stone-500 text-sm">CEO & Founder · FastBuy</p>
+          <div class="flex mt-1.5">
+            <span class="text-yellow-500 text-sm">★★★★★</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Conteúdo Editorial -->
-    <article class="prose prose-stone lg:prose-lg mx-auto text-stone-600 mb-20">
-      <h2 class="text-2xl font-bold text-stone-900 mt-10 mb-4">O Desafio</h2>
-      <p class="mb-6 leading-relaxed">A FastBuy crescia a taxas de 30% ao mês, mas o time de operações estava quebrando. Cada nova venda exigia 4 cliques manuais entre diferentes sistemas (CRM, ERP e Gateway). O gargalo operacional impedia a escala.</p>
-      
-      <h2 class="text-2xl font-bold text-stone-900 mt-10 mb-4">A Solução</h2>
-      <p class="mb-6 leading-relaxed">Em menos de 14 dias, a equipe implementou o SaaSPro, centralizando o checkout e utilizando os webhooks nativos para atualizar o ERP de forma invisível. Nenhum humano precisava mais aprovar pedidos manualmente.</p>
+    <!-- Artigo editorial -->
+    <article class="text-stone-600 mb-16 reveal">
+      <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mt-0 mb-4">O Desafio</h2>
+      <p class="mb-5 leading-relaxed text-base">A FastBuy crescia a 30% ao mês, mas o time de operações estava quebrando. Cada nova venda exigia 4 cliques manuais entre três sistemas distintos (CRM, ERP e Gateway). Com 1.200 pedidos/dia, isso representava mais de 4.800 ações manuais repetitivas.</p>
+      <p class="mb-10 leading-relaxed text-base">O resultado: erros de faturamento, atrasos na entrega e burnout do time. A empresa sabia que precisava escalar a tecnologia ou parar de crescer.</p>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-stone-900 mb-4">A Solução</h2>
+      <p class="mb-5 leading-relaxed text-base">Em menos de 14 dias, a FastBuy implementou o SaaSPro como camada central de integração. Os webhooks nativos passaram a sincronizar CRM, ERP e gateway automaticamente — sem uma única intervenção humana no fluxo padrão.</p>
+      <p class="mb-10 leading-relaxed text-base">O time de operações, antes sobrecarregado com tarefas repetitivas, foi realocado para atividades estratégicas: análise de dados, atendimento especializado e expansão de catálogo.</p>
     </article>
 
-    <!-- CTA -->
-    <div class="bg-stone-900 text-white rounded-2xl p-12 text-center">
+    <!-- Linha do tempo -->
+    <div class="mb-16 reveal">
+      <h2 class="text-2xl font-bold text-stone-900 mb-8">A implementação em 14 dias</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-label">Dia 1</div>
+          <div class="tl-title">Diagnóstico e mapeamento</div>
+          <div class="tl-desc">Auditoria dos fluxos atuais e identificação dos 3 gargalos críticos de integração entre sistemas.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot highlight"></div>
+          <div class="tl-label">Dias 2–5</div>
+          <div class="tl-title">Configuração das automações</div>
+          <div class="tl-desc">Setup do SaaSPro, criação dos webhooks de integração e configuração dos gatilhos de faturamento automático.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot highlight"></div>
+          <div class="tl-label">Dias 6–10</div>
+          <div class="tl-title">Migração e testes em paralelo</div>
+          <div class="tl-desc">Operação dos dois sistemas em paralelo para validação. Zero impacto para o cliente final durante a transição.</div>
+        </div>
+        <div class="tl-item" style="margin-bottom:0">
+          <div class="tl-dot highlight"></div>
+          <div class="tl-label">Dia 14</div>
+          <div class="tl-title">Go-live completo · 100% automatizado</div>
+          <div class="tl-desc">Desativação do sistema legado. A FastBuy passou a processar 1.200+ pedidos/dia sem nenhuma intervenção manual.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2ª citação -->
+    <div class="bg-stone-50 border-l-4 border-stone-900 pl-6 pr-4 py-5 rounded-r-xl mb-16 reveal">
+      <p class="font-serif text-xl leading-relaxed text-stone-700 mb-4 italic">
+        "O suporte do SaaSPro foi presente em cada etapa. Em 14 dias, o que parecia impossível estava funcionando — e gerando resultado."
+      </p>
+      <div class="flex items-center gap-3">
+        <img src="https://i.pravatar.cc/100?img=65" alt="Diego" class="w-10 h-10 rounded-full grayscale">
+        <div>
+          <p class="font-bold text-stone-900 text-sm">Diego Monteiro</p>
+          <p class="text-stone-500 text-xs">CTO · FastBuy</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resultados detalhados -->
+    <div class="mb-16 reveal">
+      <h2 class="text-2xl font-bold text-stone-900 mb-6">Os resultados após 90 dias</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="flex items-start gap-4 bg-white border border-stone-200 rounded-xl p-5">
+          <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+            <i class="ph-fill ph-trend-up text-emerald-600 text-xl"></i>
+          </div>
+          <div>
+            <p class="font-bold text-stone-900 mb-1">Receita cresceu 214%</p>
+            <p class="text-sm text-stone-500">Capacidade de processar 10x mais pedidos com o mesmo time.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white border border-stone-200 rounded-xl p-5">
+          <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+            <i class="ph-fill ph-clock text-blue-600 text-xl"></i>
+          </div>
+          <div>
+            <p class="font-bold text-stone-900 mb-1">45h/semana economizadas</p>
+            <p class="text-sm text-stone-500">Equivalente a 1 FTE de operações, realocado para estratégia.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white border border-stone-200 rounded-xl p-5">
+          <div class="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
+            <i class="ph-fill ph-check-circle text-purple-600 text-xl"></i>
+          </div>
+          <div>
+            <p class="font-bold text-stone-900 mb-1">Zero erros de faturamento</p>
+            <p class="text-sm text-stone-500">De 12 erros mensais para zero. Satisfação do cliente melhorou 38%.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white border border-stone-200 rounded-xl p-5">
+          <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+            <i class="ph-fill ph-rocket-launch text-amber-600 text-xl"></i>
+          </div>
+          <div>
+            <p class="font-bold text-stone-900 mb-1">ROI em 22 dias</p>
+            <p class="text-sm text-stone-500">O investimento no SaaSPro se pagou em menos de 1 mês.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA principal -->
+    <div id="cta" class="bg-stone-900 text-white rounded-2xl p-12 text-center mb-16 reveal">
       <h2 class="font-serif text-3xl md:text-4xl mb-4">Pronto para ser o próximo case de sucesso?</h2>
-      <p class="text-stone-400 mb-8 max-w-lg mx-auto">Descubra como nossa plataforma pode destravar o crescimento da sua operação comercial hoje mesmo.</p>
-      <a href="#" class="bg-white text-stone-900 px-8 py-4 rounded-full font-bold hover:bg-stone-200 transition-colors inline-block">F
+      <p class="text-stone-400 mb-8 max-w-lg mx-auto leading-relaxed">Nossa equipe vai mapear seus gargalos operacionais gratuitamente e mostrar quanto você pode economizar em 90 dias.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#" class="bg-white text-stone-900 px-8 py-4 rounded-full font-bold hover:bg-stone-100 transition-colors inline-flex items-center gap-2">
+          <i class="ph-bold ph-calendar"></i> Falar com um Especialista
+        </a>
+        <a href="#" class="border border-stone-600 text-stone-300 px-8 py-4 rounded-full font-bold hover:border-stone-400 hover:text-white transition-colors inline-flex items-center gap-2">
+          <i class="ph-bold ph-play-circle"></i> Ver Demo Gratuita
+        </a>
+      </div>
+    </div>
+
+    <!-- Outros cases -->
+    <div class="reveal">
+      <h2 class="text-xl font-bold text-stone-900 mb-6">Mais cases de sucesso</h2>
+      <div class="grid md:grid-cols-3 gap-4 mb-10">
+        <a href="#" class="case-card">
+          <span class="case-tag mb-3 inline-block">SaaS B2B</span>
+          <h3 class="font-bold text-stone-900 text-sm leading-snug mb-2">Como a Logista reduziu o churn em 65% com automações inteligentes.</h3>
+          <p class="text-xs text-stone-400">Leitura: 3 min →</p>
+        </a>
+        <a href="#" class="case-card">
+          <span class="case-tag mb-3 inline-block">Varejo</span>
+          <h3 class="font-bold text-stone-900 text-sm leading-snug mb-2">MegaMart centraliza 4 sistemas em 1 plataforma e economiza R$ 18k/mês.</h3>
+          <p class="text-xs text-stone-400">Leitura: 5 min →</p>
+        </a>
+        <a href="#" class="case-card">
+          <span class="case-tag mb-3 inline-block">Fintech</span>
+          <h3 class="font-bold text-stone-900 text-sm leading-snug mb-2">FinBr escala de 500 para 12.000 clientes sem contratar uma única pessoa de ops.</h3>
+          <p class="text-xs text-stone-400">Leitura: 4 min →</p>
+        </a>
+      </div>
+
+      <!-- Compartilhar -->
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="text-xs text-stone-400 font-bold uppercase tracking-widest">Compartilhar:</span>
+        <a href="https://twitter.com/intent/tweet?text=Como+a+FastBuy+cresceu+214%25+com+@SaaSPro&url=" target="_blank" class="share-chip"><i class="ph-fill ph-x-logo"></i> Twitter</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=" target="_blank" class="share-chip"><i class="ph-fill ph-linkedin-logo"></i> LinkedIn</a>
+        <button class="share-chip" id="copy-case">
+          <i class="ph-bold ph-link"></i> <span id="copy-case-lbl">Copiar link</span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-stone-200 bg-white mt-20 py-10">
+    <div class="max-w-5xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="font-bold text-lg text-stone-900">SaaS<span class="text-stone-400">Pro</span></div>
+      <p class="text-sm text-stone-400">© 2026 SaaSPro · Todos os direitos reservados</p>
+      <div class="flex gap-5 text-sm text-stone-400">
+        <a href="#" class="hover:text-stone-700">Privacidade</a>
+        <a href="#" class="hover:text-stone-700">Termos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Contadores animados ──
+    function animateCount(el, from, to, duration, format) {
+      const start = performance.now();
+      function step(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = format(Math.round(from + (to - from) * ease));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    let metricsFired = false;
+    const metricObs = new IntersectionObserver(entries => {
+      if (metricsFired) return;
+      if (!entries.some(e => e.isIntersecting)) return;
+      metricsFired = true;
+      metricObs.disconnect();
+      animateCount(document.getElementById('m-receita'), 0, 214, 1800, v => `+${v}%`);
+      animateCount(document.getElementById('m-horas'), 0, 45, 1500, v => `${v}h`);
+      const errosEl = document.getElementById('m-erros');
+      animateCount(errosEl, 12, 0, 1400, v => v > 0 ? String(v) : 'Zero');
+    }, { threshold: 0.3 });
+    document.querySelectorAll('[data-metric]').forEach(el => metricObs.observe(el));
+
+    // ── Reveal geral ──
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('shown'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // ── Copiar link ──
+    document.getElementById('copy-case').addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const lbl = document.getElementById('copy-case-lbl');
+        lbl.textContent = 'Link copiado!';
+        setTimeout(() => lbl.textContent = 'Copiar link', 2000);
+      });
+    });
+  </script>
+</body>
+</html>

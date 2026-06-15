@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const PHONE = '5512981488505';
-    const MSG = 'Olá! Gostaria de mais informações sobre os serviços da Plena Informática.';
+    const MSG = 'Olá! Gostaria de mais informações sobre os serviços da Plena Informática. 😊';
 
     // ── WhatsApp ──
     function openWA(msg) {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cntObs = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); cntObs.unobserve(e.target); } });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.15 });
     document.querySelectorAll('.counter').forEach(el => cntObs.observe(el));
 
     // ── Testimonials Marquee ──

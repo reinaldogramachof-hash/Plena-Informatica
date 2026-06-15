@@ -3,49 +3,290 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oferta Relâmpago | Black Friday</title>
+  <title>Oferta Relâmpago | Black Friday SaaSPro</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #ef4444; color: white; }
-    h1, h2, .font-oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
-    .stripe { background: repeating-linear-gradient(45deg, #000, #000 20px, #27272a 20px, #27272a 40px); height: 1rem; width: 100%; }
-    .timer-block { background: black; color: white; border-radius: 0.5rem; padding: 1rem; text-align: center; width: 5rem; }
-    .timer-val { font-size: 2.5rem; font-weight: 700; line-height: 1; }
-    .timer-lbl { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; color: #ef4444; }
-    .btn-buy { background: #fde047; color: black; font-weight: 900; font-size: 1.5rem; text-transform: uppercase; padding: 1.5rem 3rem; border-radius: 0.5rem; width: 100%; display: block; text-align: center; box-shadow: 0 10px 0 #ca8a04; transition: transform 0.1s, box-shadow 0.1s; cursor: pointer; text-decoration: none; font-family: 'Oswald', sans-serif; border: none; }
-    .btn-buy:active { transform: translateY(10px); box-shadow: 0 0 0 #ca8a04; }
-    .btn-buy:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: 0 10px 0 #ca8a04; }
+    body { font-family: 'Inter', sans-serif; background-color: #dc2626; color: white; overflow-x: hidden; }
+    h1, h2, .font-oswald { font-family: 'Oswald', sans-serif; }
+    .stripe { background: repeating-linear-gradient(45deg, #000, #000 18px, #1c1c1e 18px, #1c1c1e 36px); height: 14px; width: 100%; }
+    .timer-block { background: #000; color: #fff; border-radius: 8px; padding: 14px 10px; text-align: center; width: 80px; }
+    .timer-val { font-size: 2.8rem; font-weight: 700; line-height: 1; font-family: 'Oswald', sans-serif; }
+    .timer-lbl { font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; color: #fde047; margin-top: 4px; text-transform: uppercase; }
+    .timer-sep { font-size: 2.5rem; font-weight: 900; line-height: 1; align-self: center; font-family: 'Oswald', sans-serif; padding-bottom: 4px; }
 
-    /* Offer expired overlay */
+    /* Card de oferta */
+    .offer-card { background: white; color: #111; border-radius: 16px; padding: 2rem; box-shadow: 0 0 0 4px #fde047, 0 20px 60px rgba(0,0,0,0.4); transform: rotate(0.8deg); }
+    .price-old { font-size: 1.25rem; color: #9ca3af; text-decoration: line-through; font-weight: 700; }
+    .price-new { font-size: 4rem; font-weight: 900; color: #dc2626; line-height: 1; font-family: 'Oswald', sans-serif; }
+    .price-cents { font-size: 1.5rem; vertical-align: super; }
+    .price-period { font-size: 0.9rem; color: #6b7280; font-weight: 600; }
+
+    .btn-buy {
+      background: #fde047; color: #000; font-weight: 900; font-size: 1.35rem;
+      text-transform: uppercase; padding: 1.25rem 2.5rem; border-radius: 8px;
+      width: 100%; display: block; text-align: center;
+      box-shadow: 0 8px 0 #a16207;
+      transition: transform 0.1s, box-shadow 0.1s;
+      cursor: pointer; text-decoration: none; font-family: 'Oswald', sans-serif; border: none;
+      letter-spacing: 1px;
+    }
+    .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 10px 0 #a16207; }
+    .btn-buy:active { transform: translateY(8px); box-shadow: 0 0 0 #a16207; }
+    .btn-buy:disabled { background: #d1d5db; color: #6b7280; box-shadow: none; cursor: not-allowed; transform: none; }
+
+    /* Checklist */
+    .check-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; font-weight: 600; margin-bottom: 10px; }
+    .check-circle { width: 20px; height: 20px; border-radius: 50%; background: #16a34a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+
+    /* Depoimentos */
+    .testi-card { background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.25rem; }
+
+    /* Garantia */
+    .guarantee-badge {
+      display: flex; align-items: center; gap: 1rem;
+      background: rgba(0,0,0,0.3); border: 2px dashed rgba(255,255,255,0.3);
+      border-radius: 12px; padding: 1rem 1.25rem;
+    }
+
+    /* FAQ */
+    details { border-bottom: 1px solid rgba(255,255,255,0.15); }
+    details summary { padding: 1rem 0; cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary .arrow { transition: transform 0.25s; font-size: 1.2rem; }
+    details[open] summary .arrow { transform: rotate(45deg); }
+    details p { padding-bottom: 1rem; color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.7; }
+
+    /* Expired */
     #expired-banner { display: none; }
 
-    /* Success toast */
-    #buy-toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(6rem); background: #22c55e; color: white; font-weight: 700; padding: 1rem 2rem; border-radius: 0.5rem; font-size: 1rem; z-index: 100; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); white-space: nowrap; }
+    /* Toast */
+    #buy-toast {
+      position: fixed; bottom: 2rem; left: 50%;
+      transform: translateX(-50%) translateY(6rem);
+      background: #16a34a; color: white; font-weight: 700;
+      padding: 1rem 2rem; border-radius: 8px; font-size: 1rem;
+      z-index: 100; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      white-space: nowrap; display: flex; align-items: center; gap: 0.5rem;
+    }
     #buy-toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* Pulse no CTA */
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 8px 0 #a16207, 0 0 0 0 rgba(253,224,71,0.6); }
+      70% { box-shadow: 0 8px 0 #a16207, 0 0 0 16px rgba(253,224,71,0); }
+      100% { box-shadow: 0 8px 0 #a16207, 0 0 0 0 rgba(253,224,71,0); }
+    }
+    .btn-buy:not(:disabled) { animation: pulse-ring 2s ease infinite; }
+    .btn-buy:hover { animation: none; }
   </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col items-center justify-center relative">
-  <div class="stripe absolute top-0 left-0"></div>
-  <div class="stripe absolute bottom-0 left-0"></div>
+<body class="antialiased min-h-screen">
 
-  <main class="max-w-3xl w-full px-5 py-20 text-center">
-    
-    <div class="inline-block bg-black text-yellow-300 font-oswald text-xl px-4 py-2 rotate-[-3deg] mb-8 shadow-lg">
-      Apenas as próximas 24 horas!
+  <div class="stripe"></div>
+
+  <main class="max-w-3xl mx-auto px-5 py-14 text-center">
+
+    <!-- Badge rotacionado -->
+    <div class="inline-block bg-black text-yellow-300 font-oswald text-xl font-bold px-5 py-2.5 rotate-[-2deg] mb-8 shadow-xl tracking-wide">
+      ⚡ APENAS 24 HORAS!
     </div>
 
-    <h1 class="text-6xl md:text-8xl font-black mb-4 leading-none" style="text-shadow: 4px 4px 0px black;">
-      BLACK FRIDAY <br/><span class="text-yellow-300">TECH</span>
+    <h1 class="text-6xl md:text-8xl font-black leading-none mb-4 font-oswald tracking-tight" style="text-shadow: 4px 4px 0px rgba(0,0,0,0.4);">
+      BLACK FRIDAY <br/><span class="text-yellow-300">TECH 2026</span>
     </h1>
 
-    <p class="text-xl md:text-2xl font-bold mb-10 max-w-xl mx-auto">
-      Garanta acesso vitalício ao plano Pro Business com <span class="bg-black px-2 py-1">80% de Desconto</span>.
+    <p class="text-xl md:text-2xl font-bold mb-10 max-w-xl mx-auto leading-snug">
+      Acesso <span class="bg-black px-2 py-0.5 rounded">vitalício</span> ao plano Pro Business<br>com <span class="text-yellow-300">80% de desconto</span>.
     </p>
 
     <!-- Timer -->
-    <div class="flex justify-center gap-4 mb-12 font-oswald">
+    <div class="flex justify-center items-center gap-3 mb-10" role="timer" aria-label="Tempo restante para a oferta">
       <div class="timer-block"><div class="timer-val" id="t9-hours">11</div><div class="timer-lbl">HORAS</div></div>
-      <div class="text-4xl font-black mt-2" aria-hidden="true">:</div>
+      <span class="timer-sep" aria-hidden="true">:</span>
       <div class="timer-block"><div class="timer-val" id="t9-mins">59</div><div class="timer-lbl">MINS</div></div>
-      <div class="text-4
+      <span class="timer-sep" aria-hidden="true">:</span>
+      <div class="timer-block"><div class="timer-val text-yellow-300" id="t9-secs">38</div><div class="timer-lbl">SEGS</div></div>
+    </div>
+
+    <!-- Banner oferta encerrada -->
+    <div id="expired-banner" class="bg-black border-4 border-yellow-300 text-yellow-300 font-oswald text-2xl md:text-4xl font-black py-6 px-8 rounded-xl mb-10 tracking-wider">
+      ⚠️ OFERTA ENCERRADA — Volte na próxima edição!
+    </div>
+
+    <!-- Card de oferta -->
+    <div class="offer-card max-w-md mx-auto mb-12">
+
+      <!-- Preço -->
+      <div class="price-old mb-1">De R$ 1.997,00 /ano</div>
+      <div class="flex items-end justify-center gap-1 mb-1">
+        <span class="text-xl font-bold text-gray-400 self-start mt-3">R$</span>
+        <span class="price-new">397</span>
+        <span class="price-cents">,00</span>
+      </div>
+      <p class="price-period mb-6">pagamento único · acesso vitalício</p>
+
+      <!-- O que inclui -->
+      <div class="text-left mb-6">
+        <p class="text-xs font-black uppercase tracking-widest text-gray-400 mb-3">O que você recebe:</p>
+        <div class="check-item"><div class="check-circle"><i class="ph-bold ph-check text-white" style="font-size:11px"></i></div><span>Plano Pro Business — todos os módulos</span></div>
+        <div class="check-item"><div class="check-circle"><i class="ph-bold ph-check text-white" style="font-size:11px"></i></div><span>Usuários ilimitados para sempre</span></div>
+        <div class="check-item"><div class="check-circle"><i class="ph-bold ph-check text-white" style="font-size:11px"></i></div><span>Suporte prioritário por chat (< 5 min)</span></div>
+        <div class="check-item"><div class="check-circle"><i class="ph-bold ph-check text-white" style="font-size:11px"></i></div><span>Automação com IA (Copilot) incluso</span></div>
+        <div class="check-item"><div class="check-circle"><i class="ph-bold ph-check text-white" style="font-size:11px"></i></div><span><strong>Bônus:</strong> Curso de Implementação (R$ 497)</span></div>
+        <div class="check-item"><div class="check-circle"><i class="ph-bold ph-check text-white" style="font-size:11px"></i></div><span><strong>Bônus:</strong> Templates de automação premium</span></div>
+      </div>
+
+      <button id="btn-buy" class="btn-buy">
+        <i class="ph-fill ph-lock-open mr-2"></i>GARANTIR ACESSO AGORA
+      </button>
+
+      <p class="text-xs font-bold text-gray-400 mt-4 uppercase tracking-wide">
+        🔒 Pagamento 100% seguro · Parcelamento disponível
+      </p>
+    </div>
+
+    <!-- Garantia -->
+    <div class="guarantee-badge max-w-md mx-auto mb-14 text-left">
+      <div class="text-5xl">🛡️</div>
+      <div>
+        <p class="font-black text-lg font-oswald tracking-wide">GARANTIA DE 7 DIAS</p>
+        <p class="text-sm text-white/70 mt-0.5">Não gostou? Devolvemos 100% do seu dinheiro, sem burocracia e sem perguntas.</p>
+      </div>
+    </div>
+
+    <!-- Depoimentos -->
+    <h2 class="font-oswald text-3xl font-bold tracking-wide mb-6">O QUE DIZEM OS CLIENTES</h2>
+    <div class="grid md:grid-cols-3 gap-4 mb-14">
+      <div class="testi-card text-left">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://i.pravatar.cc/100?img=5" class="w-10 h-10 rounded-full" alt="Fernanda">
+          <div>
+            <p class="font-bold text-sm">Fernanda Luz</p>
+            <p class="text-xs text-white/50">CEO · FintechBr</p>
+          </div>
+        </div>
+        <p class="text-sm text-white/80 leading-relaxed">"Economizamos 12h/semana em processos manuais. O ROI veio em menos de 30 dias."</p>
+        <p class="text-yellow-300 mt-2 text-sm">★★★★★</p>
+      </div>
+      <div class="testi-card text-left">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://i.pravatar.cc/100?img=12" class="w-10 h-10 rounded-full" alt="Rafael">
+          <div>
+            <p class="font-bold text-sm">Rafael Costa</p>
+            <p class="text-xs text-white/50">CTO · Logista</p>
+          </div>
+        </div>
+        <p class="text-sm text-white/80 leading-relaxed">"Migrei do concorrente em um fim de semana. A equipe de suporte é excepcional."</p>
+        <p class="text-yellow-300 mt-2 text-sm">★★★★★</p>
+      </div>
+      <div class="testi-card text-left">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://i.pravatar.cc/100?img=20" class="w-10 h-10 rounded-full" alt="Amanda">
+          <div>
+            <p class="font-bold text-sm">Amanda Rocha</p>
+            <p class="text-xs text-white/50">Founder · Moda Hub</p>
+          </div>
+        </div>
+        <p class="text-sm text-white/80 leading-relaxed">"Faturamento cresceu 40% no trimestre após centralizar tudo no SaaSPro."</p>
+        <p class="text-yellow-300 mt-2 text-sm">★★★★★</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="max-w-xl mx-auto text-left mb-12">
+      <h2 class="font-oswald text-2xl font-bold tracking-wide mb-4 text-center">PERGUNTAS FREQUENTES</h2>
+      <details>
+        <summary>Esta oferta é realmente vitalícia? <span class="arrow">+</span></summary>
+        <p>Sim. Você paga uma única vez e tem acesso ao plano Pro Business para sempre, incluindo todas as atualizações futuras da plataforma.</p>
+      </details>
+      <details>
+        <summary>Posso cancelar e receber reembolso? <span class="arrow">+</span></summary>
+        <p>Sim. Oferecemos garantia incondicional de 7 dias. Se não ficar satisfeito por qualquer motivo, devolvemos 100% do valor pago sem questionamentos.</p>
+      </details>
+      <details>
+        <summary>Quantas vagas disponíveis? <span class="arrow">+</span></summary>
+        <p>Limitamos a 200 licenças para manter a qualidade do suporte. Após esgotar ou o timer zerar, a oferta é encerrada automaticamente.</p>
+      </details>
+    </div>
+
+    <!-- CTA final -->
+    <div class="max-w-md mx-auto">
+      <button id="btn-buy-2" class="btn-buy" onclick="document.getElementById('btn-buy').click()">
+        <i class="ph-fill ph-lock-open mr-2"></i>QUERO GARANTIR MINHA VAGA
+      </button>
+      <p class="text-sm text-white/60 mt-3">⏰ Oferta expira em <strong id="countdown-text">11:59:38</strong></p>
+    </div>
+
+  </main>
+
+  <div class="stripe"></div>
+
+  <!-- Toast -->
+  <div id="buy-toast" role="status" aria-live="polite">
+    <i class="ph-bold ph-check-circle"></i> Pedido recebido! Aguarde o redirecionamento…
+  </div>
+
+  <script>
+    // ── Countdown persistente (24h desde primeiro acesso) ──
+    const STORAGE_KEY = 'saaspro-bf-target';
+    let target = parseInt(localStorage.getItem(STORAGE_KEY) || '0');
+    if (!target || target < Date.now()) {
+      target = Date.now() + 24 * 3600 * 1000;
+      localStorage.setItem(STORAGE_KEY, target);
+    }
+
+    const els = {
+      h: document.getElementById('t9-hours'),
+      m: document.getElementById('t9-mins'),
+      s: document.getElementById('t9-secs'),
+      txt: document.getElementById('countdown-text'),
+    };
+    const buyBtns = [document.getElementById('btn-buy'), document.getElementById('btn-buy-2')];
+    const expiredBanner = document.getElementById('expired-banner');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function tick() {
+      const diff = Math.max(0, target - Date.now());
+      const h = Math.floor(diff / 36e5);
+      const m = Math.floor((diff % 36e5) / 6e4);
+      const s = Math.floor((diff % 6e4) / 1e3);
+      els.h.textContent = pad(h);
+      els.m.textContent = pad(m);
+      els.s.textContent = pad(s);
+      els.txt.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+
+      if (diff === 0) {
+        clearInterval(timerInterval);
+        expiredBanner.style.display = 'block';
+        buyBtns.forEach(b => { b.disabled = true; b.innerHTML = 'OFERTA ENCERRADA'; });
+      }
+    }
+
+    tick();
+    const timerInterval = setInterval(tick, 1000);
+
+    // ── Botão Comprar ──
+    const toast = document.getElementById('buy-toast');
+    let toastTimer;
+
+    document.getElementById('btn-buy').addEventListener('click', function () {
+      if (this.disabled) return;
+      this.disabled = true;
+      this.innerHTML = '<i class="ph-bold ph-spinner-gap mr-2"></i>Processando...';
+
+      setTimeout(() => {
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+          this.disabled = false;
+          this.innerHTML = '<i class="ph-fill ph-lock-open mr-2"></i>GARANTIR ACESSO AGORA';
+        }, 4000);
+      }, 900);
+    });
+  </script>
+</body>
+</html>

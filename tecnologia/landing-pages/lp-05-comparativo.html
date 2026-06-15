@@ -3,81 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comparativo: SaaSPro vs. Mercado</title>
+  <title>SaaSPro vs. Concorrentes | Comparativo Completo</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
-    .table-cell { padding: 1.25rem 1rem; border-bottom: 1px solid #1e293b; text-align: center; }
-    .table-cell-left { padding: 1.25rem 1rem; border-bottom: 1px solid #1e293b; text-align: left; font-weight: 500; color: #cbd5e1; }
-    .highlight-col { background-color: rgba(99, 102, 241, 0.1); border-left: 1px solid #4f46e5; border-right: 1px solid #4f46e5; }
-    .highlight-top { border-top: 1px solid #4f46e5; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; }
-    .highlight-bot { border-bottom: 1px solid #4f46e5; border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
 
+    /* Tabela */
+    .table-cell { padding: 1.1rem 1rem; border-bottom: 1px solid #1e293b; text-align: center; }
+    .table-cell-left { padding: 1.1rem 1rem; border-bottom: 1px solid #1e293b; text-align: left; font-weight: 500; color: #94a3b8; }
+    .highlight-col { background: rgba(99,102,241,0.08); border-left: 1px solid rgba(79,70,229,0.5); border-right: 1px solid rgba(79,70,229,0.5); }
+    .highlight-top { border-top: 1px solid rgba(79,70,229,0.6); border-radius: 8px 8px 0 0; }
+    .highlight-bot { border-bottom: 1px solid rgba(79,70,229,0.6); border-radius: 0 0 8px 8px; }
     tbody tr { transition: background 0.15s; }
-    tbody tr:hover td { background-color: rgba(255,255,255,0.03); }
-    tbody tr:hover .highlight-col { background-color: rgba(99,102,241,0.18); }
-
-    @keyframes rowIn {
-      from { opacity: 0; transform: translateX(-12px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
+    tbody tr:hover td { background: rgba(255,255,255,0.02); }
+    tbody tr:hover .highlight-col { background: rgba(99,102,241,0.15); }
+    @keyframes rowIn { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: translateX(0); } }
     tbody tr { opacity: 0; }
     tbody tr.visible { animation: rowIn 0.35s ease forwards; }
+
+    /* Pricing cards */
+    .price-card { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 1.75rem; }
+    .price-card.featured { background: rgba(79,70,229,0.12); border-color: #4f46e5; }
+    .price-num { font-size: 2.5rem; font-weight: 900; line-height: 1; }
+    .check-row { display: flex; align-items: center; gap: 8px; font-size: 0.825rem; color: #94a3b8; margin-bottom: 8px; }
+    .check-row i { color: #6366f1; font-size: 1rem; }
+    .check-row.yes i { color: #10b981; }
+    .check-row.no i { color: #ef4444; }
+    .check-row.no { color: #475569; }
+
+    /* Testimonial migração */
+    .testi-migrate { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 1.75rem; }
+
+    /* FAQ */
+    details { border-bottom: 1px solid #1e293b; }
+    details summary { padding: 1.1rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #cbd5e1; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary .arrow { color: #6366f1; transition: transform 0.25s; }
+    details[open] summary .arrow { transform: rotate(45deg); }
+    details p { padding-bottom: 1.1rem; color: #64748b; font-size: 0.875rem; line-height: 1.75; }
+
+    /* CTA button */
+    .btn-cta { background: #4f46e5; color: white; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 800; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; box-shadow: 0 0 30px rgba(79,70,229,0.3); text-decoration: none; }
+    .btn-cta:hover { background: #4338ca; transform: translateY(-2px); box-shadow: 0 0 40px rgba(79,70,229,0.45); }
+    .btn-outline-cta { background: transparent; color: #94a3b8; border: 1px solid #334155; padding: 1rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; text-decoration: none; }
+    .btn-outline-cta:hover { border-color: #6366f1; color: #a5b4fc; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.shown { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body class="antialiased">
-  
-  <header class="w-full p-6 text-center border-b border-slate-800">
-    <div class="font-bold text-xl tracking-tight">SaaS<span class="text-indigo-500">Pro</span></div>
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm">
+    <div class="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
+      <div class="font-bold text-xl tracking-tight">SaaS<span class="text-indigo-500">Pro</span></div>
+      <a href="#migrar" class="btn-cta !py-2 !px-5 !shadow-none text-sm">Migrar Grátis <i class="ph-bold ph-arrow-right"></i></a>
+    </div>
   </header>
 
   <main class="max-w-5xl mx-auto px-5 py-20">
-    <div class="text-center mb-16">
-      <h1 class="text-4xl md:text-5xl font-black mb-4">Por que os times abandonam o <span class="text-slate-500 line-through">Concorrente X</span>?</h1>
-      <p class="text-slate-400 text-lg max-w-2xl mx-auto">Compare as funcionalidades e entenda por que o SaaSPro oferece um ROI 3x maior com metade da curva de aprendizado.</p>
+
+    <!-- Hero -->
+    <div class="text-center mb-16 reveal">
+      <div class="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border border-indigo-900 bg-indigo-950/50 text-indigo-400 text-xs font-bold uppercase tracking-widest">
+        <i class="ph-fill ph-chart-bar-horizontal"></i> Comparativo Atualizado · 2026
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black mb-5 leading-tight">
+        Por que os times estão<br/>abandonando o <span class="text-slate-500 line-through decoration-red-500">Concorrente X</span>?
+      </h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+        Compare funcionalidades, preços e suporte — e veja por que o SaaSPro oferece ROI 3× maior com metade da curva de aprendizado.
+      </p>
+    </div>
+
+    <!-- Mini KPIs -->
+    <div class="grid grid-cols-3 gap-4 mb-16 reveal">
+      <div class="text-center bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+        <div class="text-3xl font-black text-emerald-400 mb-1">3×</div>
+        <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">ROI médio</div>
+      </div>
+      <div class="text-center bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+        <div class="text-3xl font-black text-indigo-400 mb-1">12h</div>
+        <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Economizadas/semana</div>
+      </div>
+      <div class="text-center bg-slate-800/50 border border-slate-700 rounded-xl p-5">
+        <div class="text-3xl font-black text-white mb-1">14 dias</div>
+        <div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Para migrar</div>
+      </div>
     </div>
 
     <!-- Tabela Comparativa -->
-    <div class="w-full overflow-x-auto pb-10">
-      <table class="w-full min-w-[600px] border-collapse">
+    <div class="w-full overflow-x-auto mb-20 reveal">
+      <table class="w-full min-w-[580px] border-collapse">
         <thead>
           <tr>
-            <th class="p-4 text-left text-slate-500 font-semibold w-1/3">Funcionalidade</th>
-            <th class="p-4 text-center text-slate-400 font-bold text-lg w-1/3">A Velha Guarda (Eles)</th>
-            <th class="p-4 text-center text-indigo-400 font-bold text-2xl w-1/3 highlight-col highlight-top">SaaSPro (Nós)</th>
+            <th class="p-4 text-left text-slate-600 font-semibold text-sm w-2/5">Funcionalidade</th>
+            <th class="p-4 text-center text-slate-500 font-bold w-[30%]">
+              <span class="line-through">Concorrente X</span>
+              <div class="text-xs font-normal text-slate-600 mt-0.5">A Velha Guarda</div>
+            </th>
+            <th class="p-4 text-center text-indigo-400 font-black text-xl w-[30%] highlight-col highlight-top">
+              SaaSPro
+              <div class="text-xs font-bold text-indigo-500 mt-0.5">Recomendado</div>
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="table-cell-left">Interface de Usuário</td>
-            <td class="table-cell text-slate-400">Complexa / Década de 90</td>
-            <td class="table-cell highlight-col font-bold text-white">Moderna e Intuitiva</td>
+            <td class="table-cell-left">Interface de usuário</td>
+            <td class="table-cell text-slate-500 text-sm">Complexa · Década de 90</td>
+            <td class="table-cell highlight-col font-bold text-white text-sm">Moderna e intuitiva</td>
           </tr>
           <tr>
-            <td class="table-cell-left">Velocidade (Load Time)</td>
-            <td class="table-cell text-slate-400">> 3.5 segundos</td>
-            <td class="table-cell highlight-col font-bold text-white">< 0.8 segundos</td>
+            <td class="table-cell-left">Velocidade de carregamento</td>
+            <td class="table-cell text-slate-500 text-sm">&gt; 3.5 segundos</td>
+            <td class="table-cell highlight-col font-bold text-emerald-400 text-sm">&lt; 0.8 segundos</td>
           </tr>
           <tr>
             <td class="table-cell-left">Automação com IA</td>
-            <td class="table-cell text-slate-500"><i class="ph-bold ph-x"></i> Não possui</td>
-            <td class="table-cell highlight-col text-indigo-400"><i class="ph-bold ph-check text-xl"></i> Nativa (Copilot)</td>
+            <td class="table-cell"><i class="ph-bold ph-x text-red-500 text-lg"></i></td>
+            <td class="table-cell highlight-col"><i class="ph-bold ph-check text-indigo-400 text-lg"></i> <span class="text-sm text-indigo-300 font-bold">Copilot nativo</span></td>
           </tr>
           <tr>
-            <td class="table-cell-left">Cobrança por usuário adicional</td>
-            <td class="table-cell text-slate-400">R$ 50/mês por cadeira</td>
-            <td class="table-cell highlight-col font-bold text-emerald-400">Ilimitado e Gratuito</td>
+            <td class="table-cell-left">Usuários adicionais</td>
+            <td class="table-cell text-slate-500 text-sm">R$ 50/mês por pessoa</td>
+            <td class="table-cell highlight-col font-bold text-emerald-400 text-sm">Ilimitados e gratuitos</td>
           </tr>
           <tr>
-            <td class="table-cell-left">Suporte Técnico</td>
-            <td class="table-cell text-slate-400">Tickets (2 a 3 dias úteis)</td>
-            <td class="table-cell highlight-col font-bold text-white">Chat Ao Vivo (< 5 min)</td>
+            <td class="table-cell-left">Suporte técnico</td>
+            <td class="table-cell text-slate-500 text-sm">Tickets · 2–3 dias úteis</td>
+            <td class="table-cell highlight-col font-bold text-white text-sm">Chat ao vivo · &lt; 5 min</td>
           </tr>
           <tr>
-            <td class="table-cell-left border-none">Setup Inicial</td>
-            <td class="table-cell text-slate-400 border-none">Requer Consultor Pago</td>
-            <td class="table-cell highlight-col highlight-bot font-bold text-white border-none">Self-service (em minutos)</td>
+            <td class="table-cell-left">Integrações nativas</td>
+            <td class="table-cell text-slate-500 text-sm">8 integrações</td>
+            <td class="table-cell highlight-col font-bold text-white text-sm">120+ integrações</td>
           </tr>
-        
+          <tr>
+            <td class="table-cell-left">Relatórios personalizados</td>
+            <td class="table-cell"><i class="ph-bold ph-x text-red-500 text-lg"></i></td>
+            <td class="table-cell highlight-col"><i class="ph-bold ph-check text-indigo-400 text-lg"></i></td>
+          </tr>
+          <tr>
+            <td class="table-cell-left border-none">Setup inicial</td>
+            <td class="table-cell text-slate-500 text-sm border-none">Consultor pago necessário</td>
+            <td class="table-cell highlight-col highlight-bot font-bold text-white text-sm border-none">Self-service · em minutos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Preços Comparativos -->
+    <div class="mb-20 reveal">
+      <h2 class="text-2xl font-black text-center mb-3">Quanto você está pagando a mais?</h2>
+      <p class="text-slate-400 text-center mb-10 text-sm">Comparação para uma equipe de 15 usuários, plano mensal.</p>
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- Concorrente A -->
+        <div class="price-card">
+          <p class="text-xs font-black uppercase tracking-widest text-slate-500 mb-3">Concorrente A</p>
+          <div class="price-num text-slate-300">R$ 897<span class="text-lg text-slate-500">/mês</span></div>
+          <p class="text-xs text-slate-600 mb-4 mt-1">+ R$ 50/usuário adicional</p>
+          <div class="check-row no"><i class="ph-bold ph-x-circle"></i> Sem IA nativa</div>
+          <div class="check-row no"><i class="ph-bold ph-x-circle"></i> Suporte por ticket</div>
+          <div class="check-row no"><i class="ph-bold ph-x-circle"></i> Setup pago</div>
+        </div>
+        <!-- SaaSPro -->
+        <div class="price-card featured relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">✦ Melhor escolha</div>
+          <p class="text-xs font-black uppercase tracking-widest text-indigo-400 mb-3">SaaSPro Pro</p>
+          <div class="price-num text-white">R$ 297<span class="text-lg text-indigo-300">/mês</span></div>
+          <p class="text-xs text-slate-500 mb-4 mt-1">usuários ilimitados incluso</p>
+          <div class="check-row yes"><i class="ph-bold ph-check-circle"></i> Copilot IA incluso</div>
+          <div class="check-row yes"><i class="ph-bold ph-check-circle"></i> Chat ao vivo &lt; 5 min</div>
+          <div class="check-row yes"><i class="ph-bold ph-check-circle"></i> Setup self-service</div>
+        </div>
+        <!-- Concorrente B -->
+        <div class="price-card">
+          <p class="text-xs font-black uppercase tracking-widest text-slate-500 mb-3">Concorrente B</p>
+          <div class="price-num text-slate-300">R$ 1.190<span class="text-lg text-slate-500">/mês</span></div>
+          <p class="text-xs text-slate-600 mb-4 mt-1">plano enterprise mínimo</p>
+          <div class="check-row no"><i class="ph-bold ph-x-circle"></i> IA em add-on pago</div>
+          <div class="check-row no"><i class="ph-bold ph-x-circle"></i> SLA 8h úteis</div>
+          <div class="check-row no"><i class="ph-bold ph-x-circle"></i> Contrato anual obrigatório</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Depoimento de quem migrou -->
+    <div class="testi-migrate mb-20 reveal">
+      <div class="flex flex-col md:flex-row gap-6 items-start">
+        <img src="https://i.pravatar.cc/150?img=47" alt="Lucas" class="w-16 h-16 rounded-full grayscale flex-shrink-0">
+        <div>
+          <p class="text-lg text-slate-200 leading-relaxed mb-4">
+            "Migramos do Concorrente X em 14 dias sem perda de dados. O suporte do SaaSPro ficou disponível durante toda a migração. A diferença de custo mensal nos permitiu contratar mais um desenvolvedor."
+          </p>
+          <p class="font-bold text-white">Lucas Faria</p>
+          <p class="text-sm text-slate-500">CTO · E-commerce Rápido</p>
+          <div class="flex mt-3 gap-1">
+            <span class="text-yellow-400 text-sm" aria-label="5 estrelas">★★★★★</span>
+            <span class="text-slate-600 text-xs ml-2 self-center">Migrou em Jan/2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mb-20 reveal">
+      <h2 class="text-2xl font-black mb-8 text-center">Dúvidas sobre a migração</h2>
+      <div class="max-w-2xl mx-auto">
+        <details>
+          <summary>A migração dos dados é gratuita? <span class="arrow"><i class="ph-bold ph-plus"></i></span></summary>
+          <p>Sim. Nossa equipe acompanha a migração completa dos dados sem custo adicional. O processo leva em média 14 dias úteis e você continua operando no sistema antigo até a validação.</p>
+        </details>
+        <details>
+          <summary>Posso testar antes de migrar? <span class="arrow"><i class="ph-bold ph-plus"></i></span></summary>
+          <p>Sim, você pode criar uma conta gratuita de 14 dias e importar uma amostra dos seus dados. Assim você valida os fluxos antes de comprometer a migração total.</p>
+        </details>
+        <details>
+          <summary>E se eu precisar voltar ao sistema antigo? <span class="arrow"><i class="ph-bold ph-plus"></i></span></summary>
+          <p>Você pode exportar todos os seus dados do SaaSPro a qualquer momento em formato CSV ou JSON. Não existe lock-in — seus dados são seus.</p>
+        </details>
+        <details>
+          <summary>Tenho contrato anual com o concorrente. Posso migrar? <span class="arrow"><i class="ph-bold ph-plus"></i></span></summary>
+          <p>Sim. Oferecemos um plano de migração antecipada que inclui suporte especializado. Fale com nosso time comercial para avaliarmos como podemos ajudar na transição.</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- CTA Final -->
+    <div id="migrar" class="text-center bg-indigo-950 border border-indigo-900 rounded-2xl p-12 reveal">
+      <p class="text-indigo-400 font-bold text-sm uppercase tracking-widest mb-3">Migração assistida e gratuita</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-4">Pare de pagar caro por sistema legado.</h2>
+      <p class="text-slate-400 mb-8 max-w-lg mx-auto">Em até 14 dias, sua equipe estará operando no SaaSPro — com todos os dados migrados e time de suporte disponível.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#" class="btn-cta">Migrar Agora Gratuitamente <i class="ph-bold ph-arrow-right"></i></a>
+        <a href="#" class="btn-outline-cta"><i class="ph-bold ph-calendar"></i> Agendar Demo</a>
+      </div>
+      <p class="text-slate-600 text-xs mt-6">Sem contrato de fidelidade · Cancele quando quiser · Dados sempre seus</p>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-800 mt-20 py-10">
+    <div class="max-w-5xl mx-auto px-5 text-center text-slate-600 text-sm">
+      <div class="font-bold text-lg mb-2 text-white">SaaS<span class="text-indigo-500">Pro</span></div>
+      <p>© 2026 SaaSPro. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Animação de linhas da tabela
+    const rows = document.querySelectorAll('tbody tr');
+    const rowObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); rowObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    rows.forEach((row, i) => { row.style.animationDelay = `${i * 70}ms`; rowObs.observe(row); });
+
+    // Reveal geral
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('shown'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>

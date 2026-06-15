@@ -8,64 +8,502 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1f2937; }
-    .timeline-item { position: relative; padding-left: 3rem; border-left: 2px solid #f3f4f6; margin-bottom: 4rem; }
-    .timeline-dot { position: absolute; left: -0.5rem; top: 0.25rem; width: 1rem; height: 1rem; border-radius: 50%; background: #3b82f6; border: 4px solid white; box-shadow: 0 0 0 4px #eff6ff; }
-    .tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
-    .tag-new { background: #dbeafe; color: #1d4ed8; }
-    .tag-fix { background: #fef3c7; color: #b45309; }
+    body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #1f2937; }
 
-    /* Filtros */
-    .filter-btn { border: 1.5px solid #e5e7eb; background: white; color: #6b7280; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.4rem 1rem; border-radius: 999px; cursor: pointer; transition: all 0.15s; }
+    .timeline-item {
+      position: relative; padding-left: 3rem;
+      border-left: 2px solid #e5e7eb; margin-bottom: 4rem;
+    }
+    .timeline-dot {
+      position: absolute; left: -0.5625rem; top: 0.25rem;
+      width: 1.125rem; height: 1.125rem; border-radius: 50%;
+      background: #3b82f6; border: 3px solid #fafafa;
+      box-shadow: 0 0 0 3px #dbeafe;
+    }
+    .timeline-dot.yellow { background: #f59e0b; box-shadow: 0 0 0 3px #fef3c7; }
+    .timeline-dot.green  { background: #10b981; box-shadow: 0 0 0 3px #d1fae5; }
+    .timeline-dot.purple { background: #8b5cf6; box-shadow: 0 0 0 3px #ede9fe; }
+    .timeline-dot.red    { background: #ef4444; box-shadow: 0 0 0 3px #fee2e2; }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.22rem 0.7rem; border-radius: 999px;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .tag-new   { background: #dbeafe; color: #1d4ed8; }
+    .tag-fix   { background: #fef3c7; color: #b45309; }
+    .tag-int   { background: #d1fae5; color: #065f46; }
+    .tag-sec   { background: #fee2e2; color: #991b1b; }
+
+    .filter-btn {
+      border: 1.5px solid #e5e7eb; background: white; color: #6b7280;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; padding: 0.4rem 1rem; border-radius: 999px;
+      cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 0.35rem;
+    }
     .filter-btn:hover { border-color: #3b82f6; color: #3b82f6; }
     .filter-btn.active { background: #3b82f6; border-color: #3b82f6; color: white; }
 
-    /* Entrada dos itens de timeline */
+    .release-img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 12px; margin-bottom: 1.5rem;
+      border: 1px solid #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .feature-list { list-style: none; padding: 0; }
+    .feature-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      color: #4b5563; font-size: 0.9rem; padding: 0.35rem 0;
+    }
+    .feature-list li::before {
+      content: ''; flex-shrink: 0; width: 6px; height: 6px;
+      border-radius: 50%; background: #3b82f6; margin-top: 0.45rem;
+    }
+
+    .roadmap-card {
+      background: white; border: 1.5px solid #e5e7eb; border-radius: 12px;
+      padding: 1.25rem; transition: all 0.2s;
+    }
+    .roadmap-card:hover { border-color: #bfdbfe; box-shadow: 0 4px 16px rgba(59,130,246,0.08); }
+
+    .newsletter-section {
+      background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+      border-radius: 16px; padding: 2.5rem; margin: 4rem 0 3rem;
+    }
+    .nl-input {
+      background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.2);
+      color: white; padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.9rem;
+      outline: none; width: 100%; font-family: 'Inter', sans-serif; transition: border-color 0.2s;
+    }
+    .nl-input:focus { border-color: rgba(255,255,255,0.5); }
+    .nl-input::placeholder { color: rgba(255,255,255,0.45); }
+    .nl-btn {
+      background: white; color: #1e40af; font-weight: 700; font-size: 0.85rem;
+      padding: 0.75rem 1.5rem; border-radius: 8px; border: none; cursor: pointer;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .nl-btn:hover { background: #eff6ff; transform: translateY(-1px); }
+
     @keyframes slideUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .timeline-item { animation: slideUp 0.4s ease forwards; }
+    .timeline-item { animation: slideUp 0.4s ease both; }
     .timeline-item.hidden-item { display: none; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    #nl-toast {
+      display: none; background: #d1fae5; color: #065f46;
+      border: 1px solid #a7f3d0; border-radius: 8px;
+      padding: 0.65rem 1rem; font-size: 0.85rem; font-weight: 600;
+      margin-top: 1rem; align-items: center; gap: 0.5rem;
+    }
+    #nl-toast.show { display: flex; }
   </style>
 </head>
 <body class="antialiased">
-  
-  <header class="w-full p-6 border-b border-gray-100 bg-white sticky top-0 z-50">
+
+  <header class="w-full px-6 py-4 border-b border-gray-100 bg-white/90 backdrop-blur-sm sticky top-0 z-50">
     <div class="max-w-4xl mx-auto flex items-center justify-between">
       <div class="font-bold text-xl tracking-tight">SaaS<span class="text-blue-500">Pro</span></div>
-      <div class="flex items-center gap-4">
-        <a href="#" class="text-sm font-semibold text-gray-500 hover:text-gray-900">Roadmap</a>
-        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-bold hover:bg-blue-700">Acessar App</a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#changelog" class="text-sm font-medium text-gray-500 hover:text-gray-900">Changelog</a>
+        <a href="#roadmap" class="text-sm font-medium text-gray-500 hover:text-gray-900">Roadmap</a>
+        <a href="#newsletter" class="text-sm font-medium text-gray-500 hover:text-gray-900">Newsletter</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#newsletter" class="text-sm font-semibold text-blue-600 hover:text-blue-700 hidden sm:inline">Assinar updates</a>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition-colors">Acessar App →</a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-5 py-20">
-    <div class="mb-10">
-      <h1 class="text-4xl md:text-5xl font-black mb-4">Changelog</h1>
-      <p class="text-gray-500 text-lg mb-8">Acompanhe as últimas novidades, integrações e melhorias da plataforma.</p>
+  <main class="max-w-3xl mx-auto px-5 py-16" id="changelog">
 
-      <!-- Filtros -->
-      <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por tipo">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="new">Novo Recurso</button>
-        <button class="filter-btn" data-filter="fix">Melhorias</button>
+    <div class="mb-12 reveal">
+      <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">
+        <i class="ph-fill ph-megaphone-simple"></i> Novidades da Plataforma
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Changelog</h1>
+      <p class="text-gray-500 text-lg leading-relaxed">Acompanhe todas as melhorias, novos recursos e integrações. Publicamos atualizações toda semana.</p>
+      <div class="flex flex-wrap gap-6 mt-6 pt-6 border-t border-gray-100">
+        <div><div class="text-2xl font-black text-gray-900">6</div><div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Releases em 2026</div></div>
+        <div><div class="text-2xl font-black text-gray-900">47+</div><div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Melhorias entregues</div></div>
+        <div><div class="text-2xl font-black text-gray-900">99.9%</div><div class="text-xs text-gray-400 font-medium uppercase tracking-wider mt-0.5">Uptime este ano</div></div>
       </div>
     </div>
 
-    <!-- Release 1 -->
+    <div class="flex flex-wrap gap-2 mb-10 reveal" role="group" aria-label="Filtrar por tipo">
+      <button class="filter-btn active" data-filter="all"><i class="ph-bold ph-squares-four"></i> Todos</button>
+      <button class="filter-btn" data-filter="new"><i class="ph-bold ph-star"></i> Novo Recurso</button>
+      <button class="filter-btn" data-filter="fix"><i class="ph-bold ph-wrench"></i> Melhorias</button>
+      <button class="filter-btn" data-filter="int"><i class="ph-bold ph-plugs-connected"></i> Integração</button>
+      <button class="filter-btn" data-filter="sec"><i class="ph-bold ph-shield-check"></i> Segurança</button>
+    </div>
+
+    <!-- RELEASE 1 -->
     <div class="timeline-item" data-tag="new">
       <div class="timeline-dot"></div>
-      <div class="text-sm font-semibold text-gray-400 mb-2">Outubro 2026</div>
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Automação com Inteligência Artificial (Copilot)</h2>
-      <div class="mb-6"><span class="tag tag-new">Novo Recurso</span></div>
-      
-      <img src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IA" class="w-full h-64 object-cover rounded-xl mb-6 shadow-sm border border-gray-100">
-      
-      <p class="text-gray-600 leading-relaxed mb-4">Agora você pode pedir para o nosso assistente criar fluxos de trabalho usando linguagem natural. Ao invés de arrastar e soltar dezenas de blocos, basta digitar: <em class="text-gray-900">"Sempre que um lead não responder o email por 3 dias, mude o status para Inativo"</em>.</p>
-      
-      <ul class="list-disc pl-5 text-gray-600 space-y-2 mb-6">
-        <li>Acesso liberado para todos os usuários do plano Pro Business.</li>
-        <li>Suporte a comandos em português, inglês e espanhol.</li>
-  
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-sm font-semibold text-gray-400">Outubro 2026</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-xs font-bold text-blue-500 bg-blue-50 px-2 py-0.5 rounded">v4.0.0</span>
+      </div>
+      <h2 class="text-2xl font-black text-gray-900 mb-3 tracking-tight">Automação com Inteligência Artificial (Copilot)</h2>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag tag-new"><i class="ph-fill ph-star"></i> Novo Recurso</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="IA Copilot" class="release-img">
+      <p class="text-gray-600 leading-relaxed mb-5">Apresentamos o <strong class="text-gray-900">Copilot</strong> — seu assistente de automação com IA. Ao invés de arrastar e soltar blocos por horas, basta digitar o que você quer em linguagem natural: <em class="text-gray-700 bg-gray-50 px-1.5 py-0.5 rounded text-sm">"Sempre que um lead não responder em 3 dias, mude o status para Inativo e notifique o responsável"</em> e a automação está criada.</p>
+      <ul class="feature-list mb-5">
+        <li>Disponível para todos os planos Pro Business e superiores</li>
+        <li>Suporte a comandos em português, inglês e espanhol</li>
+        <li>Sugestões inteligentes baseadas no comportamento da sua conta</li>
+        <li>Editor visual gerado automaticamente a partir do comando — editável</li>
+        <li>Histórico de automações criadas com IA e log de execuções</li>
+      </ul>
+      <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 text-sm text-blue-800">
+        <strong class="flex items-center gap-1.5 mb-1"><i class="ph-fill ph-info"></i> Como ativar:</strong>
+        Acesse <strong>Automações → Novo fluxo → "Criar com IA"</strong> no menu lateral.
+      </div>
+    </div>
+
+    <!-- RELEASE 2 -->
+    <div class="timeline-item" data-tag="int">
+      <div class="timeline-dot green"></div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-sm font-semibold text-gray-400">Agosto 2026</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">v3.8.0</span>
+      </div>
+      <h2 class="text-2xl font-black text-gray-900 mb-3 tracking-tight">Integração Nativa com WhatsApp Business API</h2>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag tag-int"><i class="ph-fill ph-plugs-connected"></i> Integração</span>
+        <span class="tag tag-new"><i class="ph-fill ph-star"></i> Novo Recurso</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="WhatsApp" class="release-img">
+      <p class="text-gray-600 leading-relaxed mb-5">Conecte sua conta do WhatsApp Business diretamente ao SaaSPro. Envie mensagens automáticas, acompanhe conversas e gerencie leads sem sair da plataforma. Totalmente compatível com a API oficial da Meta.</p>
+      <ul class="feature-list mb-5">
+        <li>Inbox unificado: WhatsApp + E-mail + CRM em uma só tela</li>
+        <li>Disparo automático de mensagens via fluxos de automação</li>
+        <li>Templates de mensagem aprovados pela Meta disponíveis na biblioteca</li>
+        <li>Relatórios de leitura, resposta e conversão por campanha</li>
+        <li>Multi-atendentes: distribua conversas por equipe com fila automática</li>
+      </ul>
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+          <div class="text-xl font-black text-gray-900">3.2×</div>
+          <div class="text-xs text-gray-400 mt-0.5 font-medium">Taxa de resposta vs. email</div>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+          <div class="text-xl font-black text-gray-900">&lt;5 min</div>
+          <div class="text-xs text-gray-400 mt-0.5 font-medium">Setup inicial</div>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+          <div class="text-xl font-black text-gray-900">98%</div>
+          <div class="text-xs text-gray-400 mt-0.5 font-medium">Taxa de entrega</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELEASE 3 -->
+    <div class="timeline-item" data-tag="fix">
+      <div class="timeline-dot yellow"></div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-sm font-semibold text-gray-400">Julho 2026</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">v3.7.2</span>
+      </div>
+      <h2 class="text-2xl font-black text-gray-900 mb-3 tracking-tight">Dashboard Redesenhado e Performance +85%</h2>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag tag-fix"><i class="ph-fill ph-wrench"></i> Melhorias</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Dashboard" class="release-img">
+      <p class="text-gray-600 leading-relaxed mb-5">Reescrevemos do zero o motor de renderização do dashboard. Carregamento de gráficos com +100k eventos: de <strong class="text-gray-900">8.4s → 1.2s</strong>. Interface ganhou novo layout com maior densidade de informação.</p>
+      <ul class="feature-list">
+        <li>Novo layout de três colunas com drag-and-drop de widgets</li>
+        <li>Gráficos de área com zoom nativo — selecione períodos diretamente</li>
+        <li>Paleta de cores customizável para todos os tipos de gráfico</li>
+        <li>Exportação em PDF e XLSX gerada em background</li>
+        <li>Modo compacto para telas menores — toggle no canto superior direito</li>
+        <li>Corrigido: sessão desconectando após 12h em modo de longa exposição</li>
+        <li>Corrigido: filtro de datas não respeitando fuso horário do usuário</li>
+      </ul>
+    </div>
+
+    <!-- RELEASE 4 -->
+    <div class="timeline-item" data-tag="new">
+      <div class="timeline-dot purple"></div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-sm font-semibold text-gray-400">Maio 2026</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-xs font-bold text-violet-600 bg-violet-50 px-2 py-0.5 rounded">v3.5.0</span>
+      </div>
+      <h2 class="text-2xl font-black text-gray-900 mb-3 tracking-tight">Relatórios Customizados com Editor Visual</h2>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag tag-new"><i class="ph-fill ph-star"></i> Novo Recurso</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Relatórios" class="release-img">
+      <p class="text-gray-600 leading-relaxed mb-5">Crie relatórios 100% personalizados sem SQL ou planilhas. Escolha as métricas, defina filtros, escolha o layout — e agende o envio automático por e-mail para seu time.</p>
+      <ul class="feature-list mb-5">
+        <li>Mais de 80 métricas: vendas, leads, retenção, uso por feature</li>
+        <li>Combinação de múltiplas fontes de dados em um único relatório</li>
+        <li>Agendamento por e-mail: diário, semanal ou mensal</li>
+        <li>Compartilhamento por link público (read-only, sem login)</li>
+        <li>Templates prontos: Relatório Executivo, Pipeline de Vendas, Saúde do Produto</li>
+      </ul>
+      <blockquote class="border-l-4 border-violet-400 pl-4 py-1">
+        <p class="text-gray-700 italic text-sm leading-relaxed">"Economizamos 6 horas por semana que gastávamos exportando dados e montando apresentações no PowerPoint."</p>
+        <footer class="text-xs text-gray-400 font-semibold mt-2">— Mariana Costa, CFO · Startup Fintech São Paulo</footer>
+      </blockquote>
+    </div>
+
+    <!-- RELEASE 5 -->
+    <div class="timeline-item" data-tag="sec">
+      <div class="timeline-dot red"></div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-sm font-semibold text-gray-400">Março 2026</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">v3.3.1</span>
+      </div>
+      <h2 class="text-2xl font-black text-gray-900 mb-3 tracking-tight">Autenticação em Dois Fatores e Auditoria Completa</h2>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag tag-sec"><i class="ph-fill ph-shield-check"></i> Segurança</span>
+        <span class="tag tag-fix"><i class="ph-fill ph-wrench"></i> Melhorias</span>
+      </div>
+      <p class="text-gray-600 leading-relaxed mb-5">Levamos a segurança da sua conta a outro nível. O 2FA agora está disponível para todos os usuários, com suporte a app autenticador (TOTP), SMS e chaves de hardware (WebAuthn/FIDO2).</p>
+      <ul class="feature-list mb-5">
+        <li>2FA via app (Google Authenticator, Authy), SMS ou WebAuthn</li>
+        <li>Log de auditoria completo: acesso, alterações, exports e exclusões</li>
+        <li>Alertas de acesso suspeito via e-mail (novo dispositivo, nova localização)</li>
+        <li>Sessões ativas visíveis e revogáveis por dispositivo</li>
+        <li>Política de senha mínima configurável por workspace</li>
+        <li>SSO com Google Workspace, Microsoft Entra e Okta (planos Enterprise)</li>
+      </ul>
+      <div class="flex items-start gap-3 bg-red-50 border border-red-100 rounded-xl p-4 text-sm">
+        <i class="ph-fill ph-shield-check text-red-500 text-lg flex-shrink-0 mt-0.5"></i>
+        <span class="text-red-700"><strong class="text-red-800">Recomendado:</strong> Ative o 2FA em <strong>Configurações → Segurança → Autenticação</strong>.</span>
+      </div>
+    </div>
+
+    <!-- RELEASE 6 -->
+    <div class="timeline-item" data-tag="int">
+      <div class="timeline-dot green"></div>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-sm font-semibold text-gray-400">Janeiro 2026</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">v3.0.0</span>
+      </div>
+      <h2 class="text-2xl font-black text-gray-900 mb-3 tracking-tight">App Mobile Nativo — iOS e Android</h2>
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="tag tag-int"><i class="ph-fill ph-plugs-connected"></i> Integração</span>
+        <span class="tag tag-new"><i class="ph-fill ph-star"></i> Novo Recurso</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="App Mobile" class="release-img">
+      <p class="text-gray-600 leading-relaxed mb-5">O SaaSPro agora cabe no seu bolso. App nativo para iOS e Android com as funcionalidades mais usadas, interface otimizada para mobile e modo offline.</p>
+      <ul class="feature-list">
+        <li>Dashboard e KPIs em tempo real com widgets na tela inicial</li>
+        <li>Gestão de leads e pipeline com swipe gestures</li>
+        <li>Notificações push para automações, alertas e mensagens</li>
+        <li>Modo offline com sincronização automática ao reconectar</li>
+        <li>Scanner de cartões de visita com extração automática de dados</li>
+        <li>Face ID e Touch ID para acesso seguro</li>
+      </ul>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter-section reveal" id="newsletter">
+      <div class="flex items-start justify-between gap-4 flex-wrap">
+        <div class="flex-1 min-w-[200px]">
+          <div class="text-xs font-black uppercase tracking-[0.18em] text-blue-300 mb-3">Newsletter</div>
+          <h2 class="text-2xl font-black text-white mb-2 tracking-tight">Fique por dentro de cada update</h2>
+          <p class="text-blue-200 text-sm leading-relaxed">Novidades, dicas de produto e insights direto na sua caixa de entrada. Sem spam — prometemos.</p>
+        </div>
+      </div>
+      <form id="nl-form" novalidate class="mt-6">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input type="email" id="nl-email" class="nl-input flex-1" placeholder="seu@email.com" autocomplete="email" required>
+          <button type="submit" id="nl-btn" class="nl-btn"><span id="nl-label">Assinar grátis</span></button>
+        </div>
+        <p id="nl-error" class="text-red-300 text-xs mt-2 hidden"><i class="ph-bold ph-warning-circle"></i> Informe um e-mail válido.</p>
+        <div id="nl-toast" role="status"><i class="ph-fill ph-check-circle text-emerald-600"></i><span>Inscrito com sucesso! Verifique seu e-mail para confirmar.</span></div>
+      </form>
+      <p class="text-blue-300/60 text-xs mt-4"><i class="ph-bold ph-lock-simple"></i> Seus dados são 100% privados. Cancele quando quiser.</p>
+    </div>
+
+    <!-- ROADMAP -->
+    <div id="roadmap" class="reveal">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <div class="text-xs font-black uppercase tracking-[0.15em] text-gray-400 mb-1">O que vem a seguir</div>
+          <h2 class="text-2xl font-black text-gray-900 tracking-tight">Roadmap Público</h2>
+        </div>
+        <a href="#" class="text-sm font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1">Ver tudo <i class="ph-bold ph-arrow-right"></i></a>
+      </div>
+
+      <div class="space-y-3">
+        <div class="roadmap-card">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0"><i class="ph-fill ph-robot text-violet-600 text-lg"></i></div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-bold text-gray-900 text-sm">Agentes de IA Autônomos</h3>
+                <span class="text-xs font-bold text-violet-600 bg-violet-50 px-2 py-0.5 rounded-full">Em desenvolvimento</span>
+              </div>
+              <p class="text-gray-500 text-xs mt-1 leading-relaxed">Agentes que executam tarefas complexas de ponta a ponta: prospecção, qualificação, acompanhamento e fechamento com supervisão humana configurável.</p>
+            </div>
+            <span class="text-xs text-gray-400 font-semibold flex-shrink-0">Q1 2027</span>
+          </div>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0"><i class="ph-fill ph-git-branch text-blue-600 text-lg"></i></div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-bold text-gray-900 text-sm">API Pública v2 + Webhooks</h3>
+                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">Beta privado</span>
+              </div>
+              <p class="text-gray-500 text-xs mt-1 leading-relaxed">API REST completa com OAuth2, webhooks em tempo real e SDK oficial para JavaScript, Python e Go.</p>
+            </div>
+            <span class="text-xs text-gray-400 font-semibold flex-shrink-0">Nov 2026</span>
+          </div>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0"><i class="ph-fill ph-users-three text-emerald-600 text-lg"></i></div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-bold text-gray-900 text-sm">Portal do Cliente</h3>
+                <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">Planejado</span>
+              </div>
+              <p class="text-gray-500 text-xs mt-1 leading-relaxed">Área white-label para clientes acessarem relatórios, aprovarem propostas e acompanharem projetos sem acesso à sua conta interna.</p>
+            </div>
+            <span class="text-xs text-gray-400 font-semibold flex-shrink-0">Dez 2026</span>
+          </div>
+        </div>
+
+        <div class="roadmap-card">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center flex-shrink-0"><i class="ph-fill ph-chart-line-up text-orange-600 text-lg"></i></div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-bold text-gray-900 text-sm">Previsão de Receita com ML</h3>
+                <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">Planejado</span>
+              </div>
+              <p class="text-gray-500 text-xs mt-1 leading-relaxed">Modelo de machine learning para prever MRR, churn e crescimento com 90 dias de antecedência.</p>
+            </div>
+            <span class="text-xs text-gray-400 font-semibold flex-shrink-0">Q1 2027</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-xl p-4">
+        <i class="ph-fill ph-lightbulb text-yellow-500 text-2xl flex-shrink-0"></i>
+        <div>
+          <p class="text-sm font-semibold text-gray-800">Tem uma sugestão?</p>
+          <p class="text-xs text-gray-500">Votamos nas features mais pedidas pela comunidade a cada trimestre.</p>
+        </div>
+        <a href="#" class="ml-auto bg-white border border-gray-200 text-gray-700 text-xs font-bold px-3 py-1.5 rounded-lg hover:border-blue-300 hover:text-blue-700 transition-colors whitespace-nowrap flex-shrink-0">Sugerir →</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-gray-100 bg-white mt-16">
+    <div class="max-w-4xl mx-auto px-5 py-10">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <div class="font-bold text-xl tracking-tight mb-1">SaaS<span class="text-blue-500">Pro</span></div>
+          <p class="text-sm text-gray-400">Plataforma de gestão para empresas em crescimento.</p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm text-gray-500">
+          <a href="#changelog" class="hover:text-gray-900 transition-colors">Changelog</a>
+          <a href="#roadmap" class="hover:text-gray-900 transition-colors">Roadmap</a>
+          <a href="#" class="hover:text-gray-900 transition-colors">Status</a>
+          <a href="#" class="hover:text-gray-900 transition-colors">Documentação</a>
+          <a href="#" class="hover:text-gray-900 transition-colors">Suporte</a>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-gray-400">© 2026 SaaSPro. Todos os direitos reservados.</p>
+        <div class="flex items-center gap-4 text-xs text-gray-400">
+          <a href="#" class="hover:text-gray-600">Privacidade</a>
+          <a href="#" class="hover:text-gray-600">Termos</a>
+          <a href="#" class="hover:text-gray-600">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Filtros com multi-tag
+    const filterBtns = document.querySelectorAll('[data-filter]');
+    const items = document.querySelectorAll('.timeline-item[data-tag]');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        items.forEach(item => {
+          const tags = item.dataset.tag.split(',').map(t => t.trim());
+          const match = filter === 'all' || tags.includes(filter);
+          if (match) {
+            item.classList.remove('hidden-item');
+            item.style.animation = 'none';
+            void item.offsetWidth;
+            item.style.animation = '';
+          } else {
+            item.classList.add('hidden-item');
+          }
+        });
+      });
+    });
+
+    // Newsletter
+    const nlForm  = document.getElementById('nl-form');
+    const nlEmail = document.getElementById('nl-email');
+    const nlBtn   = document.getElementById('nl-btn');
+    const nlLabel = document.getElementById('nl-label');
+    const nlErr   = document.getElementById('nl-error');
+    const nlToast = document.getElementById('nl-toast');
+
+    nlForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = nlEmail.value.trim();
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!ok) {
+        nlEmail.style.borderColor = '#fca5a5';
+        nlErr.classList.remove('hidden');
+        return;
+      }
+      nlBtn.disabled = true;
+      nlLabel.textContent = 'Inscrevendo…';
+      setTimeout(() => {
+        nlErr.classList.add('hidden');
+        nlToast.classList.add('show');
+        nlLabel.textContent = 'Inscrito ✓';
+        nlEmail.value = '';
+        nlEmail.style.borderColor = '';
+      }, 900);
+    });
+
+    nlEmail.addEventListener('input', () => {
+      nlEmail.style.borderColor = '';
+      nlErr.classList.add('hidden');
+    });
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
