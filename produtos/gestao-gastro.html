@@ -17,6 +17,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/produtos.css">
   <style>
+    /* ── Animações Globais ── */
+    @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(224,123,74, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(224,123,74, 0); } 100% { box-shadow: 0 0 0 0 rgba(224,123,74, 0); } }
+    @keyframes dataUpdate { 0%, 100% { color: #4ade80; } 50% { color: #fff; } }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
     /* ── Mockup animado ── */
     @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
     @keyframes blink  { 0%,100%{opacity:1} 50%{opacity:.25} }
@@ -27,11 +32,12 @@
       animation:fadeUp .6s ease both;
     }
     .mkbar {
-      background:#16161a; border-bottom:1px solid rgba(255,255,255,.06);
+      background:rgba(22,22,26,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.06);
       padding:9px 14px; display:flex; align-items:center; gap:7px;
     }
     .mkdot { width:9px;height:9px;border-radius:50%; }
-    .mktitle { font-size:10px;color:#666;letter-spacing:.07em;margin-left:4px;flex:1 }
+    .mktitle { font-size:10px;color:#9CA3AF;letter-spacing:.07em;margin-left:4px;flex:1 }
     .mkbadge { font-size:9px;padding:2px 7px;border-radius:3px;background:rgba(224,123,74,.12);color:#E07B4A;border:1px solid rgba(224,123,74,.25); }
     .mkbody  { display:flex;height:230px; }
     .mksidebar {
@@ -47,17 +53,18 @@
       padding:7px 9px;animation:fadeUp .5s ease both;
     }
     .mkkpi:nth-child(2){animation-delay:.08s}.mkkpi:nth-child(3){animation-delay:.16s}
-    .mkkpi-l { font-size:8px;color:#555;text-transform:uppercase;letter-spacing:.05em; }
+    .mkkpi-l { font-size:8px;color:#9CA3AF;text-transform:uppercase;letter-spacing:.05em; }
     .mkkpi-v { font-size:14px;font-weight:700;color:#fff;margin-top:1px; }
-    .mkkpi-v.g{color:#4ade80}.mkkpi-v.a{color:#E07B4A}
-    .mklabel { font-size:9px;color:#555;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px; }
+    .mkkpi-v.g{color:#4ade80; animation: dataUpdate 3s ease infinite;}
+    .mkkpi-v.a{color:#E07B4A}
+    .mklabel { font-size:9px;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px; }
     .mktables { display:grid;grid-template-columns:repeat(5,1fr);gap:4px; }
     .mkt {
       aspect-ratio:1;border-radius:5px;border:1px solid rgba(255,255,255,.06);
       display:flex;flex-direction:column;align-items:center;justify-content:center;
       font-size:8px;font-weight:600;animation:fadeUp .4s ease both;
     }
-    .mkt.livre { background:#1c1c1f;color:#555; }
+    .mkt.livre { background:#1c1c1f;color:#9CA3AF; }
     .mkt.ocupada { background:rgba(224,123,74,.12);border-color:rgba(224,123,74,.3);color:#E07B4A; }
     .mkt .dot { width:4px;height:4px;border-radius:50%;background:currentColor;margin-bottom:2px;animation:blink 2s ease infinite; }
     .mkt.livre .dot { animation:none; }
@@ -67,27 +74,29 @@
     .mod-item {
       display:flex;align-items:flex-start;gap:9px;
       background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-      border-radius:9px;padding:13px;transition:border-color .2s;
+      border-radius:9px;padding:13px;transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
     }
-    .mod-item:hover { border-color:rgba(224,123,74,.35); }
+    .mod-item:hover { border-color:rgba(224,123,74,.35); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(224, 123, 74, 0.12); }
     .mod-item i { font-size:20px;color:#E07B4A;flex-shrink:0;margin-top:1px; }
     .mod-item h4 { font-size:12px;font-weight:600;color:#fff;margin-bottom:2px; }
-    .mod-item p  { font-size:11px;color:#777;line-height:1.4; }
+    .mod-item p  { font-size:11px;color:#9CA3AF;line-height:1.4; }
 
     /* ── Planos ── */
-    .plan-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px; }
+    .plan-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px; max-width: 1000px; margin: 0 auto; }
+    @media (max-width: 800px) { .plan-grid { grid-template-columns: 1fr; } }
     .plan-card {
       background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
       border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:4px;
-      transition:border-color .2s;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
     }
-    .plan-card:hover { border-color:rgba(224,123,74,.3); }
-    .plan-card.destaque { background:rgba(224,123,74,.07);border-color:rgba(224,123,74,.3); }
+    .plan-card:hover { border-color:rgba(224,123,74,.3); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(224, 123, 74, 0.15); }
+    .plan-card.destaque { background:rgba(224,123,74,.07);border-color:rgba(224,123,74,.3); position: relative; }
+    .plan-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:#E07B4A; color:#fff; font-size:10px; font-weight:700; text-transform:uppercase; padding:4px 12px; border-radius:20px; letter-spacing:0.05em; box-shadow:0 4px 12px rgba(224,123,74,0.3); }
     .plan-name { font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#E07B4A; }
     .plan-price { font-size:36px;font-weight:800;color:#fff;line-height:1;margin:6px 0 2px; }
-    .plan-period { font-size:12px;color:#666;margin-bottom:12px; }
+    .plan-period { font-size:12px;color:#9CA3AF;margin-bottom:12px; }
     .plan-list { list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px; }
-    .plan-list li { display:flex;align-items:flex-start;gap:7px;font-size:12px;color:#aaa; }
+    .plan-list li { display:flex;align-items:flex-start;gap:7px;font-size:12px;color:#D1D5DB; }
     .plan-list li i { color:#4ade80;font-size:13px;flex-shrink:0;margin-top:1px; }
 
     /* ── Demo Modal ── */
@@ -120,8 +129,12 @@
     }
     details summary::after { content:'+';font-size:18px;color:#E07B4A;flex-shrink:0; }
     details[open] summary::after { content:'−'; }
-    details p { color:#888;font-size:13px;line-height:1.7;padding-bottom:14px; }
+    details p { color:#9CA3AF;font-size:13px;line-height:1.7;padding-bottom:14px; display: none; }
+    details[open] p { display: block; animation: slideDown 0.4s ease forwards; }
     details+details { border-top:1px solid rgba(255,255,255,.07); }
+
+    /* Global CTA pulse */
+    .btn.primary { animation: pulseGlow 2s infinite; }
   </style>
 </head>
 <body>
@@ -249,11 +262,13 @@
 <!-- PLANOS -->
 <section id="planos" class="section">
   <div class="container">
-    <span class="eyebrow">Planos e preços</span>
-    <h2>Comece pelo que você precisa agora.</h2>
-    <p style="color:#888;max-width:500px;margin-bottom:28px">
-      Todos os planos incluem suporte e podem ser expandidos com módulos avançados conforme a operação crescer.
-    </p>
+    <div style="text-align:center; max-width:600px; margin:0 auto 48px;">
+      <span class="eyebrow" style="justify-content:center;">Planos e preços</span>
+      <h2 style="margin-left:auto; margin-right:auto;">Comece pelo que você precisa agora.</h2>
+      <p style="color:#9CA3AF;">
+        Todos os planos incluem suporte e podem ser expandidos com módulos avançados conforme a operação crescer.
+      </p>
+    </div>
     <div class="plan-grid">
       <div class="plan-card">
         <div class="plan-name">Essencial</div>
@@ -270,9 +285,10 @@
         </ul>
       </div>
       <div class="plan-card destaque">
+        <div class="plan-badge">Recomendado</div>
         <div class="plan-name">Profissional</div>
         <div class="plan-price">R$ 189</div>
-        <div class="plan-period">por mês · mais escolhido</div>
+        <div class="plan-period">por mês</div>
         <ul class="plan-list">
           <li><i class="ph-bold ph-check-circle"></i> Tudo do Essencial</li>
           <li><i class="ph-bold ph-check-circle"></i> Estoque com ficha técnica</li>
@@ -300,6 +316,19 @@
       </div>
     </div>
     <p style="color:#666;font-size:12px;margin-top:16px">Módulos avançados (Cardápio Digital, Delivery, Inteligência, Dashboard, Estoque) também disponíveis como add-ons individuais.</p>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section class="section" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding-top: 60px; padding-bottom: 60px;">
+  <div class="container" style="text-align:center;">
+    <h3 style="font-size:14px; color:#9CA3AF; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:32px;">Empresas que otimizaram sua operação conosco</h3>
+    <div style="display:flex; justify-content:center; gap:60px; flex-wrap:wrap; opacity:0.5;">
+      <div style="font-weight:800; font-size:22px; color:#fff; font-family: 'Inter', sans-serif;">La Trattoria</div>
+      <div style="font-weight:800; font-size:22px; color:#fff; font-family: 'Inter', sans-serif;">Espeto & Cia</div>
+      <div style="font-weight:800; font-size:22px; color:#fff; font-family: 'Inter', sans-serif;">Burguer Express</div>
+      <div style="font-weight:800; font-size:22px; color:#fff; font-family: 'Inter', sans-serif;">Sushi House</div>
+    </div>
   </div>
 </section>
 
@@ -368,7 +397,7 @@
                                 class="text-[#F26A1B]/80">Informática</span></span>
                     </div>
                     <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-                        Há 20 anos transformando ideias em realidade. Tecnologia, personalizados e serviços digitais em
+                        Há 20 anos transformando ideias em realidade. Tecnologia e serviços digitais em
                         São José dos
                         Campos.
                     </p>
@@ -388,13 +417,6 @@
                                 <span
                                     class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#F26A1B]/80 transition-colors"></span>Serviços
                                 Digitais
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../personalizados/personalizados.html"
-                                class="text-gray-500 hover:text-[#F26A1B] transition-colors flex items-center gap-2 group">
-                                <span
-                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#F26A1B] transition-colors"></span>Personalizados
                             </a>
                         </li>
                         <li>
@@ -484,7 +506,7 @@
                     concordado integralmente com estes Termos de Uso e com nossa Política de Privacidade.</p>
                 <p><strong>2. Serviços.</strong> Nossos serviços digitais (currículo, declaração de IR, suporte MEI,
                     impressão
-                    de documentos) e produtos personalizados são executados com base nas informações fornecidas pelo
+                    de documentos) são executados com base nas informações fornecidas pelo
                     cliente. A
                     veracidade dos dados é de inteira responsabilidade do solicitante.</p>
                 <p><strong>3. Prazos e Valores.</strong> Prazos de entrega e valores são confirmados via WhatsApp antes

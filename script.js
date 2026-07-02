@@ -60,16 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const marqueeTrack = document.getElementById('marquee-track');
     if (marqueeTrack) {
         const testimonials = [
-            { q: 'Eu buscava apenas a regularização do meu IR e saí com um catálogo digital e produtos personalizados. A Plena enxergou um potencial que nem eu via!', n: 'Joana Silva', r: 'Empreendedora · desde 2021', i: 'J', g: 'from-orange-400 to-orange-600' },
-            { q: 'Precisávamos de uniformes e o resultado foi impecável. Qualidade da estampa e do tecido, além de um atendimento super atencioso e pontual.', n: 'Marcos Andrade', r: 'Gestor · desde 2022', i: 'M', g: 'from-blue-400 to-blue-600' },
             { q: 'O site que a Plena desenvolveu para minha empresa aumentou nossas vendas em 40%. Profissionais incríveis, entrega no prazo e suporte excelente!', n: 'Ricardo Oliveira', r: 'Empresário · desde 2023', i: 'R', g: 'from-emerald-400 to-emerald-600' },
             { q: 'A assessoria para MEI foi fundamental para regularizar minha situação. Atendimento humanizado, preço justo e total segurança no processo.', n: 'Carlos Mendes', r: 'MEI · desde 2020', i: 'C', g: 'from-purple-400 to-purple-600' },
             { q: 'Fiz meu currículo com a Plena e em duas semanas já tinha entrevistas agendadas. Eles sabem destacar o que importa!', n: 'Amanda Costa', r: 'Analista · desde 2024', i: 'A', g: 'from-pink-400 to-pink-600' },
-            { q: 'As canecas personalizadas que encomendei para minha equipe foram um sucesso. Todo mundo elogiou a qualidade e o design.', n: 'Fernando Souza', r: 'Diretor · desde 2022', i: 'F', g: 'from-amber-400 to-amber-600' },
             { q: 'Declaração de IR feita com rapidez e total transparência. É a terceira vez que faço com eles e nunca tive problema.', n: 'Patrícia Lima', r: 'Professora · desde 2019', i: 'P', g: 'from-cyan-400 to-cyan-600' },
-            { q: 'A Plena criou toda a identidade visual da minha loja: camisetas, ecobag e cartões. Ficou tudo incrível e com ótimo custo.', n: 'Lucas Ferreira', r: 'Lojista · desde 2023', i: 'L', g: 'from-indigo-400 to-indigo-600' },
             { q: 'Precisei de uma 2ª via de conta urgente e eles resolveram em minutos. Atendimento no WhatsApp rápido e sem burocracia.', n: 'Beatriz Rocha', r: 'Autônoma · desde 2024', i: 'B', g: 'from-rose-400 to-rose-600' },
-            { q: 'Contratei o site e os brindes corporativos juntos. Ter tudo em um fornecedor só facilitou muito a minha vida como gestor.', n: 'Diego Martins', r: 'CEO · desde 2021', i: 'D', g: 'from-teal-400 to-teal-600' },
         ];
         const star = '<svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
         const stars5 = star.repeat(5);

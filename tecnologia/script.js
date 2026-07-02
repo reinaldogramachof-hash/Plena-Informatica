@@ -49,9 +49,9 @@ const OFFER_MESSAGES = {
 };
 
 const solutionCatalog = [
-  { categoria: 'sistemas', nome: 'Assistência Pro', setor: 'Assistências técnicas', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/assistencia-pro.html', demoUrl: 'demos/gestao-assistencia/index.html', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.assistencia },
-  { categoria: 'sistemas', nome: 'Barbearia Premium', setor: 'Barbearias', preco: 'R$ 79/mês', status: 'Demo disponível', landingUrl: '../produtos/barbearia-premium.html', demoUrl: 'demos/gestao-barbearia/index.html', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['barbearia-premium'] },
-  { categoria: 'sistemas', nome: 'Beleza & Spa', setor: 'Beleza e estética', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/beleza-spa.html', demoUrl: 'demos/gestao-beleza/index.html', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['beleza-spa'] },
+  { categoria: 'sistemas', nome: 'Assistência Pro', setor: 'Assistências técnicas', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/assistencia-pro.html', demoUrl: 'demos/gestao-assistencia/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.assistencia },
+  { categoria: 'sistemas', nome: 'Barbearia Premium', setor: 'Barbearias', preco: 'R$ 79/mês', status: 'Demo disponível', landingUrl: '../produtos/barbearia-premium.html', demoUrl: 'demos/gestao-barbearia/', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['barbearia-premium'] },
+  { categoria: 'sistemas', nome: 'Beleza & Spa', setor: 'Beleza e estética', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/beleza-spa.html', demoUrl: 'demos/gestao-beleza/', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['beleza-spa'] },
   { categoria: 'landing-pages', nome: 'Landing Pages', setor: 'Campanhas e captação', preco: 'Sob consulta', status: 'Demo disponível', demoUrl: 'landing-pages/lp-01-lancamento.html', ctaLabel: 'Solicitar página', whatsappMessage: commercialMessages.landing }
 ];
 
@@ -351,13 +351,18 @@ function openDemoModal(url, offer = 'demo') {
   modalOpener = document.activeElement;
 
   currentDemoOffer = offer;
-  currentDemoUrl = url;
-  if (newTab) newTab.href = url;
+  
+  // Adiciona cache buster para evitar problemas de cache de redirecionamento 301 do 'serve'
+  const cacheBuster = url.includes('?') ? '&_t=' + Date.now() : '?_t=' + Date.now();
+  const finalUrl = url + cacheBuster;
+
+  currentDemoUrl = finalUrl;
+  if (newTab) newTab.href = finalUrl;
 
   trackIntent('demo', offer, 'demo-modal');
   if (loader) loader.classList.remove('is-hidden');
   iframe.onload = () => { if (loader) loader.classList.add('is-hidden'); };
-  iframe.src = url;
+  iframe.src = finalUrl;
   modal.classList.remove('hidden');
   setTimeout(() => {
     modal.classList.remove('opacity-0');
