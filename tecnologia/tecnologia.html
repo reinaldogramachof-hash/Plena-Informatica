@@ -2,14 +2,17 @@
 <html lang="pt-BR" class="scroll-smooth">
 
 <head>
-    <!-- TODO: Após criar propriedade GA4 em analytics.google.com, substitua G-XXXXXXXXXX pelo ID real nas Tags GTM -->
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-57SHPVLX');</script>
-    <!-- End Google Tag Manager -->
+  <!-- Após criar a propriedade GA4 em analytics.google.com, substitua G-XXXXXXXXXX pelo ID real nas Tags GTM. -->
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-57SHPVLX');</script>
+  <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,23 +105,24 @@
 </head>
 
 <body class="antialiased selection:bg-[#D4AF37] selection:text-[#080809]">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57SHPVLX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57SHPVLX" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <a href="#soluções" class="skip-link">Ir ao conteúdo principal</a>
   <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
     <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
       <a href="../index.html" class="flex items-center gap-2.5 group flex-shrink-0">
-        <img src="logo-plena.png" alt="Plena Informática"
-          class="h-24 w-auto object-contain group-hover:scale-105 transition-transform duration-300 translate-y-2">
+        <img src="../logo-plena.png" alt="Plena Informática"
+          class="h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
-        <a href="#" class="text-[var(--text-muted)] hover:text-white transition-colors">Início</a>
+        <a href="#inicio" class="text-[var(--text-muted)] hover:text-white transition-colors">Início</a>
         <a href="#soluções" class="text-white">Soluções</a>
         <a href="#processo" class="text-[var(--text-muted)] hover:text-white transition-colors">Como funciona</a>
-        <a href="../servicos/servicos.html" class="text-[var(--text-muted)] hover:text-white transition-colors">Serviços</a>
+        <a href="../servicos/servicos.html"
+          class="text-[var(--text-muted)] hover:text-white transition-colors">Serviços</a>
         <button type="button"
           class="whatsapp-btn px-6 py-2.5 rounded-full bg-white text-black hover:bg-gray-200 transition-colors font-bold"
           data-offer="diagnóstico" data-category="nav" data-action="whatsapp"
@@ -139,7 +143,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="inicio">
     <section
       class="tech-hero w-full min-h-[78vh] md:min-h-[82vh] flex flex-col items-center justify-center pt-32 md:pt-40 pb-16 md:pb-20 px-5 text-center relative overflow-hidden">
       <div
@@ -198,139 +202,126 @@
           class="tab-track flex gap-3 mb-10 overflow-x-auto pb-4 scrollbar-none justify-start md:justify-center w-full border-b border-white/5"
           role="tablist" aria-label="Categorias de soluções">
           <button type="button" class="tab-btn active" data-target="tab-gestão" data-offer="sistemas-gestão"
-            data-category="tabs" data-action="tab"
-            id="tbtn-gestao" role="tab" aria-selected="true" aria-controls="tab-gestão">Sistemas de Gestão</button>
+            data-category="tabs" data-action="tab" id="tbtn-gestao" role="tab" aria-selected="true"
+            aria-controls="tab-gestão">Sistemas de Gestão</button>
           <button type="button" class="tab-btn" data-target="tab-landing" data-offer="landing-pages"
-            data-category="tabs" data-action="tab"
-            id="tbtn-landing" role="tab" aria-selected="false" aria-controls="tab-landing" tabindex="-1">Landing Pages</button>
+            data-category="tabs" data-action="tab" id="tbtn-landing" role="tab" aria-selected="false"
+            aria-controls="tab-landing" tabindex="-1">Landing Pages</button>
           <button type="button" class="tab-btn" data-target="tab-sites" data-offer="projetos-consulta"
-            data-category="tabs" data-action="tab"
-            id="tbtn-sites" role="tab" aria-selected="false" aria-controls="tab-sites" tabindex="-1">Projetos sob Consulta</button>
+            data-category="tabs" data-action="tab" id="tbtn-sites" role="tab" aria-selected="false"
+            aria-controls="tab-sites" tabindex="-1">Projetos sob Consulta</button>
           <button type="button" class="tab-btn" data-target="tab-ecom" data-offer="ecommerce" data-category="tabs"
-            data-action="tab"
-            id="tbtn-ecom" role="tab" aria-selected="false" aria-controls="tab-ecom" tabindex="-1">E-commerce</button>
+            data-action="tab" id="tbtn-ecom" role="tab" aria-selected="false" aria-controls="tab-ecom"
+            tabindex="-1">E-commerce</button>
         </div>
 
         <div class="showcase-viewport w-full relative min-h-[500px]">
           <div id="tab-gestão"
-            class="tab-pane showcase-rail active grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(280px,_auto)]"
+            class="tab-pane showcase-rail active grid-cols-1 md:grid-cols-2 gap-6"
             role="tabpanel" aria-labelledby="tbtn-gestao" tabindex="0">
-            <article class="bento-card md:col-span-2" data-offer="assistencia-pro" data-category="sistemas">
-              <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[80px] rounded-full pointer-events-none">
-              </div>
-              <div>
-                <div class="flex items-center gap-4 mb-6">
+            <article class="bento-card system-sample-card" data-offer="assistencia-pro" data-category="sistemas">
+              <div class="system-card-content">
+                <div class="system-card-header">
                   <div class="card-icon"><i class="ph-light ph-wrench text-3xl"></i></div>
                   <div>
-                    <h3 class="font-bold text-white text-xl">Assistência Pro</h3>
-                    <span class="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase">Plano mensal ·
+                    <h3 class="system-card-title">Assistência Pro</h3>
+                    <span class="system-card-meta">Plano mensal ·
                       Demo disponível</span>
                   </div>
                 </div>
-                <h4 class="text-2xl font-semibold text-white mb-3 max-w-md">Gestão completa para assistências técnicas.
-                </h4>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed max-w-md">Ordens de serviço, PDV, estoque
+                <h4 class="system-card-summary">Gestão completa para assistências técnicas.</h4>
+                <p class="system-card-description">Ordens de serviço, PDV, estoque
                   de peças, clientes, recibos e comunicação via WhatsApp em uma rotina mais organizada.</p>
-                <div
-                  class="mt-4 inline-block px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-semibold text-[#D4AF37]">
-                  Planos a partir de R$ 97/mês</div>
+                <div class="system-card-price">Planos a partir de R$ 59,90/mês</div>
               </div>
-              <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+              <div class="system-card-actions">
+                <button type="button" onclick="openDemoModal('demos/gestao-assistencia/', 'assistencia-pro', 'compact')"
+                  class="premium-btn primary !mt-0" data-offer="assistencia-pro" data-category="sistemas"
+                  data-action="demo"><span>Ver demo</span></button>
                 <a href="../produtos/assistencia-pro.html" class="premium-link" data-offer="assistencia-pro"
-                  data-category="sistemas" data-action="landing"><span>Conhecer página</span> <i
+                  data-category="sistemas" data-action="landing"><span>Ver sistema completo</span> <i
                     class="ph-light ph-arrow-right"></i></a>
-                <button type="button"
-                  onclick="openDemoModal('demos/gestao-assistencia/', 'assistencia-pro')"
-                  class="premium-btn" data-offer="assistencia-pro" data-category="sistemas" data-action="demo"><span>Ver
-                    demo rápido</span></button>
               </div>
             </article>
 
-            <article class="bento-card" data-offer="barbearia-premium" data-category="sistemas">
-              <div>
-                <div class="flex items-center gap-4 mb-6">
+            <article class="bento-card system-sample-card" data-offer="barbearia-premium" data-category="sistemas">
+              <div class="system-card-content">
+                <div class="system-card-header">
                   <div class="card-icon"><i class="ph-light ph-scissors text-3xl"></i></div>
                   <div>
-                    <h3 class="font-bold text-white text-xl">Barbearia Premium</h3>
-                    <span class="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase">Plano
-                      mensal</span>
+                    <h3 class="system-card-title">Barbearia Premium</h3>
+                    <span class="system-card-meta">Plano mensal ·
+                      Demo disponível</span>
                   </div>
                 </div>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed">Agenda, comissões por barbeiro, histórico
+                <h4 class="system-card-summary">Agenda, equipe e atendimento em uma rotina só.</h4>
+                <p class="system-card-description">Agenda, comissões por barbeiro, histórico
                   de clientes, vendas e controle do atendimento sem depender de planilha.</p>
-                <div
-                  class="mt-4 inline-block px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-semibold text-[#D4AF37]">
-                  Planos a partir de R$ 79/mês</div>
+                <div class="system-card-price">Planos a partir de R$ 59,90/mês</div>
               </div>
-              <div class="flex flex-col gap-3">
+              <div class="system-card-actions">
+                <button type="button" onclick="openDemoModal('demos/gestao-barbearia/', 'barbearia-premium', 'compact')"
+                  class="premium-btn primary !mt-0" data-offer="barbearia-premium" data-category="sistemas"
+                  data-action="demo"><span>Ver demo</span></button>
                 <a href="../produtos/barbearia-premium.html" class="premium-link" data-offer="barbearia-premium"
-                  data-category="sistemas" data-action="landing"><span>Conhecer página</span></a>
-                <button type="button"
-                  onclick="openDemoModal('demos/gestao-barbearia/', 'barbearia-premium')"
-                  class="premium-btn !mt-0" data-offer="barbearia-premium" data-category="sistemas"
-                  data-action="demo"><span>Ver demo rápido</span></button>
-              </div>
-            </article>
-
-            <article class="bento-card md:col-span-2" data-offer="gestao-gastro" data-category="sistemas">
-              <div
-                class="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/5 blur-[80px] rounded-full pointer-events-none">
-              </div>
-              <div>
-                <div class="flex items-center gap-4 mb-6">
-                  <div class="card-icon"><i class="ph-light ph-hamburger text-3xl"></i></div>
-                  <div>
-                    <h3 class="font-bold text-white text-xl">Gestão Gastro</h3>
-                    <span class="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase">Novo · Demo disponível</span>
-                  </div>
-                </div>
-                <h4 class="text-2xl font-semibold text-white mb-3 max-w-md">Para restaurantes, pizzarias e
-                  hamburguerias.</h4>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed max-w-md">Mesas, comandas, PDV touch,
-                  painel de cozinha, estoque, delivery e inteligência — tudo integrado em uma plataforma.</p>
-                <div
-                  class="mt-4 inline-block px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-semibold text-[#D4AF37]">
-                  Planos a partir de R$ 89/mês</div>
-              </div>
-              <div class="flex flex-wrap gap-3 mt-2">
-                <button onclick="openDemoModal('demos/gestao-restaurantes/', 'gestao-gastro')"
-                  class="demo-btn" data-offer="gestao-gastro" data-category="sistemas" data-action="demo">
-                  <i class="ph-light ph-play-circle"></i><span>Ver demo</span>
-                </button>
-                <a href="../produtos/gestao-gastro.html" class="premium-link" data-offer="gestao-gastro"
-                  data-category="sistemas" data-action="landing"><span>Conhecer página</span> <i
+                  data-category="sistemas" data-action="landing"><span>Ver sistema completo</span> <i
                     class="ph-light ph-arrow-right"></i></a>
               </div>
             </article>
 
-            <article class="bento-card" data-offer="beleza-spa" data-category="sistemas">
-              <div>
-                <div class="flex items-center gap-4 mb-6">
-                  <div class="card-icon"><i class="ph-light ph-flower-lotus text-3xl"></i></div>
+            <article class="bento-card system-sample-card" data-offer="gestao-gastro" data-category="sistemas">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-hamburger text-3xl"></i></div>
                   <div>
-                    <h3 class="font-bold text-white text-xl">Beleza & Spa</h3>
-                    <span class="text-xs text-[var(--text-muted)] font-mono tracking-wider uppercase">Plano
-                      mensal</span>
+                    <h3 class="system-card-title">Gestão Gastro</h3>
+                    <span class="system-card-meta">Novo · Demo
+                      disponível</span>
                   </div>
                 </div>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed">Pacotes, agenda por profissional,
-                  checkout e acompanhamento de clientes para operações de estética e beleza.</p>
-                <div
-                  class="mt-4 inline-block px-3 py-1 rounded bg-white/5 border border-white/10 text-xs font-semibold text-[#D4AF37]">
-                  Planos a partir de R$ 97/mês</div>
+                <h4 class="system-card-summary">Para restaurantes, pizzarias e hamburguerias.</h4>
+                <p class="system-card-description">Mesas, comandas, PDV touch,
+                  painel de cozinha, estoque, delivery e inteligência — tudo integrado em uma plataforma.</p>
+                <div class="system-card-price">Planos a partir de R$ 89/mês</div>
               </div>
-              <div class="flex flex-col gap-3">
-                <a href="../produtos/beleza-spa.html" class="premium-link" data-offer="beleza-spa" data-category="sistemas"
-                  data-action="landing"><span>Conhecer página</span></a>
-                <button type="button" onclick="openDemoModal('demos/gestao-beleza/', 'beleza-spa')"
-                  class="premium-btn !mt-0" data-offer="beleza-spa" data-category="sistemas"
-                  data-action="demo"><span>Ver demo rápido</span></button>
+              <div class="system-card-actions">
+                <button type="button" onclick="openDemoModal('demos/gestao-restaurantes/', 'gestao-gastro', 'compact')"
+                  class="premium-btn primary !mt-0" data-offer="gestao-gastro" data-category="sistemas"
+                  data-action="demo"><span>Ver demo</span></button>
+                <a href="../produtos/gestao-gastro.html" class="premium-link" data-offer="gestao-gastro"
+                  data-category="sistemas" data-action="landing"><span>Ver sistema completo</span> <i
+                    class="ph-light ph-arrow-right"></i></a>
+              </div>
+            </article>
+
+            <article class="bento-card system-sample-card" data-offer="beleza-spa" data-category="sistemas">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-flower-lotus text-3xl"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Beleza & Spa</h3>
+                    <span class="system-card-meta">Plano mensal ·
+                      Demo disponível</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Uma rotina conectada para beleza e estética.</h4>
+                <p class="system-card-description">Pacotes, agenda por profissional,
+                  checkout e acompanhamento de clientes para operações de estética e beleza.</p>
+                <div class="system-card-price">Planos a partir de R$ 59,90/mês</div>
+              </div>
+              <div class="system-card-actions">
+                <button type="button" onclick="openDemoModal('demos/gestao-beleza/', 'beleza-spa', 'compact')"
+                  class="premium-btn primary !mt-0" data-offer="beleza-spa" data-category="sistemas"
+                  data-action="demo"><span>Ver demo</span></button>
+                <a href="../produtos/beleza-spa.html" class="premium-link" data-offer="beleza-spa"
+                  data-category="sistemas" data-action="landing"><span>Ver sistema completo</span> <i
+                    class="ph-light ph-arrow-right"></i></a>
               </div>
             </article>
           </div>
 
-          <div id="tab-landing" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-2 gap-6"
-            role="tabpanel" aria-labelledby="tbtn-landing" tabindex="0" hidden>
+          <div id="tab-landing" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-2 gap-6" role="tabpanel"
+            aria-labelledby="tbtn-landing" tabindex="0" hidden>
             <article class="bento-card lg:col-span-2 flex flex-col md:flex-row items-center gap-10"
               data-offer="landing-infoproduto" data-category="landing-pages">
               <div class="flex-1 min-w-0">
@@ -455,8 +446,8 @@
             </article>
           </div>
 
-          <div id="tab-sites" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-3 gap-6"
-            role="tabpanel" aria-labelledby="tbtn-sites" tabindex="0" hidden>
+          <div id="tab-sites" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-3 gap-6" role="tabpanel"
+            aria-labelledby="tbtn-sites" tabindex="0" hidden>
             <!-- Dashboards / BI -->
             <article
               class="lg:col-span-2 relative overflow-hidden rounded-2xl p-8 bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex flex-col justify-between group"
@@ -467,15 +458,15 @@
               <div class="relative z-10">
                 <div
                   class="card-icon mb-6 w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
-                  <i class="ph-light ph-chart-polar text-3xl text-blue-400"></i></div>
+                  <i class="ph-light ph-chart-polar text-3xl text-blue-400"></i>
+                </div>
                 <h3 class="font-black text-white text-3xl mb-4 tracking-tight">Dashboards & B.I.</h3>
                 <p class="text-[var(--text-muted)] font-light leading-relaxed mb-8 max-w-lg text-lg">Centralize
                   planilhas caóticas em painéis de controle em tempo real. Visualize metas, KPIs e gargalos operacionais
                   da sua empresa a partir de qualquer dispositivo com design de alto nível.</p>
               </div>
               <div class="flex flex-col sm:flex-row gap-3 relative z-10 mt-auto">
-                <button type="button"
-                  onclick="openDemoModal('demos/projetos-b2b/demo-dashboard.html', 'dashboards-bi')"
+                <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-dashboard.html', 'dashboards-bi')"
                   class="premium-btn !mt-0 !w-fit" data-offer="dashboards-bi" data-category="projetos-consulta"
                   data-action="demo"><span>Ver como fica na prática</span></button>
                 <button type="button" onclick="openWhatsAppForOffer('dashboards-bi')"
@@ -576,8 +567,9 @@
               <p class="text-[var(--text-muted)] max-w-3xl font-light leading-relaxed mb-6">Antes de falar em loja
                 virtual, entendemos catálogo, estoque, entrega, forma de pagamento e rotina comercial. Assim o projeto
                 nasce do processo real da empresa.</p>
-              <button type="button" onclick="openWhatsAppByKey('ecommerce')" class="whatsapp-btn premium-btn" data-offer="ecommerce"
-                data-category="projetos-consulta" data-action="whatsapp">Solicitar diagnóstico de loja</button>
+              <button type="button" onclick="openWhatsAppByKey('ecommerce')" class="whatsapp-btn premium-btn"
+                data-offer="ecommerce" data-category="projetos-consulta" data-action="whatsapp">Solicitar diagnóstico de
+                loja</button>
             </article>
 
             <!-- 1. Moda & Vestuário -->
@@ -775,8 +767,7 @@
                   ingredientes, prova social (UGC) e pacotes do tipo 'Compre Junto'.</p>
               </div>
               <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button"
-                  onclick="openDemoModal('demos/ecommerce/demo-cosmeticos.html', 'ecom-cosmeticos')"
+                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-cosmeticos.html', 'ecom-cosmeticos')"
                   class="premium-btn !mt-0 !text-sm" data-offer="ecom-cosmeticos" data-category="ecommerce"
                   data-action="demo"><span>Ver Demo</span></button>
                 <button type="button" onclick="openWhatsAppForOffer('ecom-cosmeticos')"
@@ -825,49 +816,34 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         PROVA SOCIAL
-         ATENÇÃO: os três depoimentos abaixo são MODELOS DE EXEMPLO.
-         Substitua pelo texto e identificação de clientes reais
-         (com autorização deles) antes de publicar a página.
-         ============================================================ -->
+    <!-- Cenários recorrentes apresentados sem atribuição a clientes reais. -->
     <section id="confianca" class="w-full py-20 md:py-24 px-5 border-t border-white/5">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-12">
-          <span class="text-[#D4AF37] text-xs font-black uppercase tracking-[0.22em]">Quem confia</span>
-          <h2 class="text-3xl md:text-5xl font-black text-white mt-3 mb-4">20 anos resolvendo a operação de negócios
-            reais.</h2>
-          <p class="text-[var(--text-muted)] font-light leading-relaxed">De assistências técnicas a restaurantes,
-            atendemos empresas de São José dos Campos e região com tecnologia que cabe na rotina.</p>
+          <span class="text-[#D4AF37] text-xs font-black uppercase tracking-[0.22em]">Cenários que resolvemos</span>
+          <h2 class="text-3xl md:text-5xl font-black text-white mt-3 mb-4">Rotinas que organizamos com tecnologia.</h2>
+          <p class="text-[var(--text-muted)] font-light leading-relaxed">Situações comuns antes da implantação que
+            ajudam a identificar onde um sistema, uma página ou uma automação pode fazer diferença.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <article class="bento-card">
-            <i class="ph-fill ph-quotes text-3xl text-[#D4AF37] mb-4"></i>
-            <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">"Depoimento de exemplo: organizei as
-              ordens de serviço e parei de perder peça no estoque. O suporte responde de verdade."</p>
-            <div class="mt-auto">
-              <p class="text-white font-bold text-sm">Nome do cliente</p>
-              <p class="text-xs text-[var(--text-muted)]">Assistência técnica · São José dos Campos</p>
-            </div>
+            <i class="ph-light ph-wrench text-3xl text-[#D4AF37] mb-4"></i>
+            <h3 class="text-white font-bold text-sm mb-3">Assistências técnicas</h3>
+            <p class="text-[var(--text-muted)] font-light leading-relaxed">Ordens de serviço espalhadas, estoque sem
+              rastreio de peças e atendimento que depende de mensagens desconectadas.</p>
           </article>
           <article class="bento-card">
-            <i class="ph-fill ph-quotes text-3xl text-[#D4AF37] mb-4"></i>
-            <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">"Depoimento de exemplo: a agenda da
-              barbearia ficou no celular e as comissões fecham sozinhas no fim do mês."</p>
-            <div class="mt-auto">
-              <p class="text-white font-bold text-sm">Nome do cliente</p>
-              <p class="text-xs text-[var(--text-muted)]">Barbearia · região de SJC</p>
-            </div>
+            <i class="ph-light ph-scissors text-3xl text-[#D4AF37] mb-4"></i>
+            <h3 class="text-white font-bold text-sm mb-3">Barbearias e beleza</h3>
+            <p class="text-[var(--text-muted)] font-light leading-relaxed">Agenda, comissões e histórico de clientes
+              em lugares diferentes, dificultando a visão da operação no fim do mês.</p>
           </article>
           <article class="bento-card">
-            <i class="ph-fill ph-quotes text-3xl text-[#D4AF37] mb-4"></i>
-            <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">"Depoimento de exemplo: a landing page
-              começou a trazer orçamento qualificado na primeira semana de campanha."</p>
-            <div class="mt-auto">
-              <p class="text-white font-bold text-sm">Nome do cliente</p>
-              <p class="text-xs text-[var(--text-muted)]">Serviços locais · Vale do Paraíba</p>
-            </div>
+            <i class="ph-light ph-funnel text-3xl text-[#D4AF37] mb-4"></i>
+            <h3 class="text-white font-bold text-sm mb-3">Serviços e vendas</h3>
+            <p class="text-[var(--text-muted)] font-light leading-relaxed">Campanhas que levam a caminhos genéricos,
+              sem uma página clara para explicar a oferta e organizar o próximo contato.</p>
           </article>
         </div>
 
@@ -938,264 +914,267 @@
     </section>
   </main>
 
-    <footer id="contact" class="bg-gray-950 text-white pt-16 pb-8 border-t border-white/5">
-        <div class="container mx-auto px-6">
+  <footer id="contact" class="bg-gray-950 text-white pt-16 pb-8 border-t border-white/5">
+    <div class="container mx-auto px-6">
 
-            <div class="grid md:grid-cols-3 gap-12 pb-12 border-b border-white/5 text-left">
+      <div class="grid md:grid-cols-3 gap-12 pb-12 border-b border-white/5 text-left">
 
-                <div>
-                    <div class="flex items-center gap-2.5 mb-5 justify-start">
-                        <div class="w-9 h-9 bg-[#F26A1B] rounded-lg flex items-center justify-center">
-                            <span class="text-white font-black text-lg font-accent leading-none">P</span>
-                        </div>
-                        <span class="font-accent font-bold text-xl text-white">Plena <span
-                                class="text-[#F26A1B]/80">Informática</span></span>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-                        Há 20 anos transformando ideias em realidade. Tecnologia e serviços digitais em
-                        São José dos
-                        Campos.
-                    </p>
-                    <div
-                        class="mt-6 inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium py-1.5 px-3 rounded-full">
-                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                        Site Seguro
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Nossas Áreas</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li>
-                            <a href="../servicos/servicos.html"
-                                class="text-gray-500 hover:text-[#F26A1B]/80 transition-colors flex items-center gap-2 group">
-                                <span
-                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#F26A1B]/80 transition-colors"></span>Serviços
-                                Digitais
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../tecnologia/tecnologia.html"
-                                class="text-gray-500 hover:text-[#D6A23A] transition-colors flex items-center gap-2 group">
-                                <span
-                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#D6A23A] transition-colors"></span>Tecnologia
-                                Web
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Contato</h3>
-                    <ul class="space-y-4 text-sm text-left">
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-[#F26A1B] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            <span class="text-gray-500">São José dos Campos, SP</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-[#F26A1B] flex-shrink-0" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            <a href="https://api.whatsapp.com/send?phone=5512992191018&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Plena%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20tecnologia." class="whatsapp-btn text-gray-500 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">(12) 99219-1018</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <svg class="w-4 h-4 text-[#F26A1B] flex-shrink-0" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            <a href="mailto:tecnologia@plenainformatica.com.br"
-                                class="text-gray-500 hover:text-white transition-colors">tecnologia@plenainformatica.com.br</a>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-[#F26A1B] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span class="text-gray-500">Seg–Sex: 13h–18h.</span>
-                        </li>
-                    </ul>
-                </div>
-
+        <div>
+          <div class="flex items-center gap-2.5 mb-5 justify-start">
+            <div class="w-9 h-9 bg-[#F26A1B] rounded-lg flex items-center justify-center">
+              <span class="text-white font-black text-lg font-accent leading-none">P</span>
             </div>
-
-            <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div>
-                    <p class="text-xs italic text-gray-600 mb-1">"Tudo posso naquele que me fortalece."</p>
-                    <p class="text-xs text-gray-600">
-                        &copy; 2026 Plena Informática. CNPJ: 14.549.923/0001-35. Todos os direitos reservados.
-                    </p>
-                </div>
-                <div class="flex gap-6 text-xs text-gray-600">
-                    <button type="button" class="open-modal hover:text-gray-400 transition-colors"
-                        data-modal="terms">Termos de Uso</button>
-                    <button type="button" class="open-modal hover:text-gray-400 transition-colors"
-                        data-modal="privacy">Política de Privacidade</button>
-                </div>
-            </div>
-
+            <span class="font-accent font-bold text-xl text-white">Plena <span
+                class="text-[#F26A1B]/80">Informática</span></span>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+            Há 20 anos transformando ideias em realidade. Tecnologia e serviços digitais em
+            São José dos
+            Campos.
+          </p>
+          <div
+            class="mt-6 inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium py-1.5 px-3 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+            Site Seguro
+          </div>
         </div>
-    </footer>
 
-    <!-- ══════════════════════════════════════════
+        <div>
+          <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Nossas Áreas</h3>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="../servicos/servicos.html"
+                class="text-gray-500 hover:text-[#F26A1B]/80 transition-colors flex items-center gap-2 group">
+                <span
+                  class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#F26A1B]/80 transition-colors"></span>Serviços
+                Digitais
+              </a>
+            </li>
+            <li>
+              <a href="../tecnologia/tecnologia.html"
+                class="text-gray-500 hover:text-[#D6A23A] transition-colors flex items-center gap-2 group">
+                <span
+                  class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#D6A23A] transition-colors"></span>Tecnologia
+                Web
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Contato</h3>
+          <ul class="space-y-4 text-sm text-left">
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-[#F26A1B] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-gray-500">São José dos Campos, SP</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-[#F26A1B] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="https://api.whatsapp.com/send?phone=5512992191018&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Plena%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20tecnologia."
+                class="whatsapp-btn text-gray-500 hover:text-white transition-colors" target="_blank"
+                rel="noopener noreferrer">(12) 99219-1018</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-[#F26A1B] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <a href="mailto:tecnologia@plenainformatica.com.br"
+                class="text-gray-500 hover:text-white transition-colors">tecnologia@plenainformatica.com.br</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-[#F26A1B] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-gray-500">Seg–Sex: 13h–18h.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+          <p class="text-xs italic text-gray-600 mb-1">"Tudo posso naquele que me fortalece."</p>
+          <p class="text-xs text-gray-600">
+            &copy; 2026 Plena Informática. CNPJ: 14.549.923/0001-35. Todos os direitos reservados.
+          </p>
+        </div>
+        <div class="flex gap-6 text-xs text-gray-600">
+          <button type="button" class="open-modal hover:text-gray-400 transition-colors" data-modal="terms">Termos de
+            Uso</button>
+          <button type="button" class="open-modal hover:text-gray-400 transition-colors" data-modal="privacy">Política
+            de Privacidade</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
        MODALS DE TERMOS E PRIVACIDADE
     ══════════════════════════════════════════ -->
-    <div id="terms-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"
-        aria-labelledby="terms-title">
-        <div class="modal-content">
-            <button type="button"
-                class="modal-close absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl leading-none transition-colors"
-                aria-label="Fechar">&times;</button>
-            <h2 id="terms-title" class="font-accent text-2xl font-bold mb-4">Termos de Uso</h2>
-            <div class="text-gray-600 space-y-3 text-sm leading-relaxed text-left">
-                <p><strong>1. Aceitação.</strong> Ao utilizar os serviços da Plena Informática, você declara ter lido e
-                    concordado integralmente com estes Termos de Uso e com nossa Política de Privacidade.</p>
-                <p><strong>2. Serviços.</strong> Nossos serviços digitais (currículo, declaração de IR, suporte MEI,
-                    impressão
-                    de documentos) são executados com base nas informações fornecidas pelo
-                    cliente. A
-                    veracidade dos dados é de inteira responsabilidade do solicitante.</p>
-                <p><strong>3. Prazos e Valores.</strong> Prazos de entrega e valores são confirmados via WhatsApp antes
-                    do
-                    membro. Uma vez aprovado o orçamento, o cancelamento fica sujeito às condições
-                    informadas no
-                    momento da contratação.</p>
-                <p><strong>4. Propriedade Intelectual.</strong> Todo o conteúdo deste site — textos, imagens, logotipos
-                    e design
-                    — é propriedade intelectual da Plena Informática e não pode ser reproduzido, copiado ou distribuído
-                    sem
-                    autorização prévia por escrito.</p>
-                <p><strong>5. Limitação de Responsabilidade.</strong> A Plena Informática não se responsabiliza por
-                    informações
-                    incorretas fornecidas pelo cliente, nem por atrasos decorrentes de fatores alheios ao nosso
-                    controle.</p>
-                <p><strong>6. Recusa de Serviço.</strong> Reservamo-nos o direito de recusar serviços que violem a
-                    legislação
-                    vigente ou que sejam incompatíveis com nossos valores.</p>
-                <p><strong>7. Alterações.</strong> Estes termos podem ser atualizados a qualquer momento. A versão
-                    vigente
-                    estará sempre disponível nesta página.</p>
-                <p class="text-xs text-gray-400 pt-2">Última atualização: março de 2026.</p>
-            </div>
-        </div>
+  <div id="terms-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="terms-title">
+    <div class="modal-content">
+      <button type="button"
+        class="modal-close absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl leading-none transition-colors"
+        aria-label="Fechar">&times;</button>
+      <h2 id="terms-title" class="font-accent text-2xl font-bold mb-4">Termos de Uso</h2>
+      <div class="text-gray-600 space-y-3 text-sm leading-relaxed text-left">
+        <p><strong>1. Aceitação.</strong> Ao utilizar os serviços da Plena Informática, você declara ter lido e
+          concordado integralmente com estes Termos de Uso e com nossa Política de Privacidade.</p>
+        <p><strong>2. Serviços.</strong> Nossos serviços digitais (currículo, declaração de IR, suporte MEI,
+          impressão
+          de documentos) são executados com base nas informações fornecidas pelo
+          cliente. A
+          veracidade dos dados é de inteira responsabilidade do solicitante.</p>
+        <p><strong>3. Prazos e Valores.</strong> Prazos de entrega e valores são confirmados via WhatsApp antes
+          do
+          membro. Uma vez aprovado o orçamento, o cancelamento fica sujeito às condições
+          informadas no
+          momento da contratação.</p>
+        <p><strong>4. Propriedade Intelectual.</strong> Todo o conteúdo deste site — textos, imagens, logotipos
+          e design
+          — é propriedade intelectual da Plena Informática e não pode ser reproduzido, copiado ou distribuído
+          sem
+          autorização prévia por escrito.</p>
+        <p><strong>5. Limitação de Responsabilidade.</strong> A Plena Informática não se responsabiliza por
+          informações
+          incorretas fornecidas pelo cliente, nem por atrasos decorrentes de fatores alheios ao nosso
+          controle.</p>
+        <p><strong>6. Recusa de Serviço.</strong> Reservamo-nos o direito de recusar serviços que violem a
+          legislação
+          vigente ou que sejam incompatíveis com nossos valores.</p>
+        <p><strong>7. Alterações.</strong> Estes termos podem ser atualizados a qualquer momento. A versão
+          vigente
+          estará sempre disponível nesta página.</p>
+        <p class="text-xs text-gray-400 pt-2">Última atualização: março de 2026.</p>
+      </div>
     </div>
+  </div>
 
-    <div id="privacy-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"
-        aria-labelledby="privacy-title">
-        <div class="modal-content">
-            <button type="button"
-                class="modal-close absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl leading-none transition-colors"
-                aria-label="Fechar">&times;</button>
-            <h2 id="privacy-title" class="font-accent text-2xl font-bold mb-4">Política de Privacidade</h2>
-            <div class="text-gray-600 space-y-3 text-sm leading-relaxed text-left">
-                <p><strong>1. Compromisso.</strong> A Plena Informática respeita sua privacidade e está comprometida com
-                    a
-                    proteção dos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei
-                    nº
-                    13.709/2018).</p>
-                <p><strong>2. Dados Coletados.</strong> Coletamos apenas dados fornecidos voluntariamente por você
-                    (nome,
-                    e-mail, telefone, documentos para serviços contratados) e dados técnicos de navegação (cookies
-                    essenciais).
-                </p>
-                <p><strong>3. Finalidade.</strong> Seus dados pessoais são utilizados exclusivamente para: (a) executar
-                    o
-                    serviço contratado; (b) comunicação sobre andamento e conclusão dos serviços; (c) melhoria da
-                    experiência de
-                    navegação.</p>
-                <p><strong>4. Documentos Sigilosos.</strong> Dados sensíveis fornecidos para serviços específicos (CPF,
-                    renda,
-                    senhas de portais governamentais para Declaração de IR) são utilizados estritamente para a
-                    finalidade
-                    contratada e <strong>não são armazenados</strong> após a conclusão do serviço.</p>
-                <p><strong>5. Compartilhamento.</strong> Não compartilhamos, vendemos ou cedemos seus dados a terceiros
-                    sem seu
-                    consentimento explícito.</p>
-                <p><strong>6. Cookies.</strong> Utilizamos apenas cookies essenciais para o funcionamento básico do site
-                    e para
-                    lembrar suas preferências (ex: consentimento de cookies). Não utilizamos cookies de rastreamento ou
-                    publicidade.</p>
-                <p><strong>7. Seus Direitos.</strong> Você pode, a qualquer momento, solicitar acesso, correção ou
-                    exclusão dos
-                    seus dados pessoais pelo e-mail <a href="mailto:tecnologia@plenainformatica.com.br"
-                        class="text-[#F26A1B] underline">tecnologia@plenainformatica.com.br</a>.</p>
-                <p><strong>8. Alterações.</strong> Esta política pode ser atualizada periodicamente. A versão vigente
-                    estará
-                    sempre disponível nesta página.</p>
-                <p class="text-xs text-gray-400 pt-2">Última atualização: março de 2026.</p>
-            </div>
-        </div>
+  <div id="privacy-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"
+    aria-labelledby="privacy-title">
+    <div class="modal-content">
+      <button type="button"
+        class="modal-close absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl leading-none transition-colors"
+        aria-label="Fechar">&times;</button>
+      <h2 id="privacy-title" class="font-accent text-2xl font-bold mb-4">Política de Privacidade</h2>
+      <div class="text-gray-600 space-y-3 text-sm leading-relaxed text-left">
+        <p><strong>1. Compromisso.</strong> A Plena Informática respeita sua privacidade e está comprometida com
+          a
+          proteção dos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei
+          nº
+          13.709/2018).</p>
+        <p><strong>2. Dados Coletados.</strong> Coletamos apenas dados fornecidos voluntariamente por você
+          (nome,
+          e-mail, telefone, documentos para serviços contratados) e dados técnicos de navegação (cookies
+          essenciais).
+        </p>
+        <p><strong>3. Finalidade.</strong> Seus dados pessoais são utilizados exclusivamente para: (a) executar
+          o
+          serviço contratado; (b) comunicação sobre andamento e conclusão dos serviços; (c) melhoria da
+          experiência de
+          navegação.</p>
+        <p><strong>4. Documentos Sigilosos.</strong> Dados sensíveis fornecidos para serviços específicos (CPF,
+          renda,
+          senhas de portais governamentais para Declaração de IR) são utilizados estritamente para a
+          finalidade
+          contratada e <strong>não são armazenados</strong> após a conclusão do serviço.</p>
+        <p><strong>5. Compartilhamento.</strong> Não compartilhamos, vendemos ou cedemos seus dados a terceiros
+          sem seu
+          consentimento explícito.</p>
+        <p><strong>6. Cookies.</strong> Utilizamos apenas cookies essenciais para o funcionamento básico do site
+          e para
+          lembrar suas preferências (ex: consentimento de cookies). Não utilizamos cookies de rastreamento ou
+          publicidade.</p>
+        <p><strong>7. Seus Direitos.</strong> Você pode, a qualquer momento, solicitar acesso, correção ou
+          exclusão dos
+          seus dados pessoais pelo e-mail <a href="mailto:tecnologia@plenainformatica.com.br"
+            class="text-[#F26A1B] underline">tecnologia@plenainformatica.com.br</a>.</p>
+        <p><strong>8. Alterações.</strong> Esta política pode ser atualizada periodicamente. A versão vigente
+          estará
+          sempre disponível nesta página.</p>
+        <p class="text-xs text-gray-400 pt-2">Última atualização: março de 2026.</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Estilos de Modal Reutilizáveis (para páginas sem style.css da raiz) -->
-    <style>
-      .modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, .6);
-        -webkit-backdrop-filter: blur(6px);
-        backdrop-filter: blur(6px);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-      }
-      .modal-content {
-        background: white;
-        border-radius: 16px;
-        padding: 2rem;
-        max-width: 540px;
-        width: 90%;
-        max-height: 80vh;
-        overflow-y: auto;
-        position: relative;
-        color: #1e293b;
-      }
-    </style>
+  <!-- Estilos de Modal Reutilizáveis (para páginas sem style.css da raiz) -->
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .6);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
 
-    <!-- Controle de Modais via JS -->
-    <script>
-      (function() {
-        const modals = {
-          terms: document.getElementById('terms-modal'),
-          privacy: document.getElementById('privacy-modal')
-        };
-        function closeAll() {
-          Object.values(modals).forEach(m => {
-            if (!m) return;
-            m.style.display = 'none';
-            m.setAttribute('aria-hidden', 'true');
-          });
-          document.body.style.overflow = '';
-        }
-        document.querySelectorAll('.open-modal').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const m = modals[btn.dataset.modal];
-            if (!m) return;
-            closeAll();
-            m.style.display = 'flex';
-            m.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-          });
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 540px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      color: #1e293b;
+    }
+  </style>
+
+  <!-- Controle de Modais via JS -->
+  <script>
+    (function () {
+      const modals = {
+        terms: document.getElementById('terms-modal'),
+        privacy: document.getElementById('privacy-modal')
+      };
+      function closeAll() {
+        Object.values(modals).forEach(m => {
+          if (!m) return;
+          m.style.display = 'none';
+          m.setAttribute('aria-hidden', 'true');
         });
-        document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeAll(); }));
-        document.querySelectorAll('.modal-close').forEach(b => b.addEventListener('click', closeAll));
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
-      })();
-    </script>
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.open-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const m = modals[btn.dataset.modal];
+          if (!m) return;
+          closeAll();
+          m.style.display = 'flex';
+          m.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeAll(); }));
+      document.querySelectorAll('.modal-close').forEach(b => b.addEventListener('click', closeAll));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+    })();
+  </script>
 
   <div id="demo-modal"
-    class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex flex-col transition-all duration-300 opacity-0">
-    <div class="h-14 bg-[#050508] border-b border-white/10 flex items-center justify-between px-4 md:px-6 shrink-0">
+    class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-stretch transition-all duration-300 opacity-0">
+    <div class="demo-modal-shell flex flex-1 min-h-0 w-full flex-col">
+      <div class="h-14 bg-[#050508] border-b border-white/10 flex items-center justify-between px-4 md:px-6 shrink-0">
       <div class="flex items-center gap-3 min-w-0">
         <div class="w-3 h-3 rounded-full bg-red-500 shrink-0"></div>
         <div class="w-3 h-3 rounded-full bg-yellow-500 shrink-0"></div>
@@ -1205,9 +1184,6 @@
           demonstração</span>
       </div>
       <div class="flex items-center gap-2 md:gap-3 shrink-0">
-        <a id="demo-newtab" href="#" target="_blank" rel="noopener noreferrer"
-          class="hidden md:inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-white transition-colors font-semibold uppercase tracking-wider">
-          Abrir em nova aba <i class="ph-light ph-arrow-square-out"></i></a>
         <button type="button" id="demo-cta"
           class="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-[#D4AF37] text-[#080809] text-xs font-black hover:bg-white transition-colors">
           <i class="ph-fill ph-whatsapp-logo text-base"></i><span class="hidden sm:inline">Falar sobre esta
@@ -1215,11 +1191,12 @@
         <button type="button" onclick="closeDemoModal()"
           class="text-white/60 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold uppercase tracking-wider">Fechar</button>
       </div>
-    </div>
-    <div class="flex-1 w-full relative bg-white">
-      <div id="demo-loader" class="demo-loader" aria-hidden="true"><span class="demo-spinner"></span></div>
-      <iframe id="demo-iframe" title="Demonstração da solução Plena"
-        class="absolute inset-0 w-full h-full border-0 bg-white"></iframe>
+      </div>
+      <div class="flex-1 min-h-0 w-full relative bg-white">
+        <div id="demo-loader" class="demo-loader" aria-hidden="true"><span class="demo-spinner"></span></div>
+        <iframe id="demo-iframe" title="Demonstração da solução Plena"
+          class="absolute inset-0 w-full h-full border-0 bg-white"></iframe>
+      </div>
     </div>
   </div>
 
@@ -1232,7 +1209,7 @@
       class="absolute top-0 right-0 w-72 h-full bg-[#080809] border-l border-white/10 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300"
       id="mobile-drawer">
       <div class="p-6 flex items-center justify-between border-b border-white/5">
-        <img src="logo-plena.png" alt="Plena" class="h-10 w-auto object-contain">
+        <img src="../logo-plena.png" alt="Plena" class="h-10 w-auto object-contain">
         <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-[#D4AF37] p-2" aria-label="Fechar menu"
           title="Fechar menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1241,14 +1218,13 @@
         </button>
       </div>
       <div class="flex flex-col p-6 gap-6 text-sm font-semibold tracking-wide overflow-y-auto">
-        <a href="#" class="text-gray-400 hover:text-white transition-colors"
-          onclick="toggleMobileMenu()">Início</a>
+        <a href="#inicio" class="text-gray-400 hover:text-white transition-colors" onclick="toggleMobileMenu()">Início</a>
         <a href="#soluções" class="text-white hover:text-[#D4AF37] transition-colors"
           onclick="toggleMobileMenu()">Soluções</a>
-        <a href="#processo" class="text-gray-400 hover:text-white transition-colors"
-          onclick="toggleMobileMenu()">Como funciona</a>
-        <a href="#faq" class="text-gray-400 hover:text-white transition-colors"
-          onclick="toggleMobileMenu()">Dúvidas rápidas</a>
+        <a href="#processo" class="text-gray-400 hover:text-white transition-colors" onclick="toggleMobileMenu()">Como
+          funciona</a>
+        <a href="#faq" class="text-gray-400 hover:text-white transition-colors" onclick="toggleMobileMenu()">Dúvidas
+          rápidas</a>
         <a href="../servicos/servicos.html" class="text-gray-400 hover:text-white transition-colors"
           onclick="toggleMobileMenu()">Serviços</a>
         <button type="button"

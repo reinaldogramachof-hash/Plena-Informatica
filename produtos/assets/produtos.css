@@ -1214,6 +1214,159 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   border-color: #E2E8F0;
   color: #64748B;
 }
+.barber-product-page {
+  --bg: #020617;
+  --surface: rgba(15, 23, 42, .72);
+  --surface-strong: rgba(21, 27, 44, .9);
+  --muted: #A8B5CA;
+  --text: #F8FAFC;
+  --line: rgba(148, 163, 184, .18);
+  --brand-primary: #2563EB;
+  --brand-dark: #0F172A;
+  --brand-accent: #D4AF37;
+  --brand-soft: rgba(37, 99, 235, .18);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 8% 0%, rgba(37, 99, 235, .18), transparent 34rem),
+    radial-gradient(circle at 96% 36%, rgba(212, 175, 55, .08), transparent 28rem),
+    linear-gradient(180deg, #020617 0%, #0B0F19 48%, #020617 100%);
+}
+.barber-product-page .assistencia-hero {
+  background-image:
+    linear-gradient(90deg, rgba(2, 6, 23, .96) 0%, rgba(2, 6, 23, .88) 35%, rgba(2, 6, 23, .48) 63%, rgba(2, 6, 23, .16) 100%),
+    linear-gradient(180deg, rgba(15, 23, 42, .22), rgba(2, 6, 23, .62)),
+    url("../../herobarbearia.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.barber-product-page .assistencia-hero__pro { -webkit-text-stroke-color: #D4AF37; text-shadow: 0 0 24px rgba(212, 175, 55, .24); }
+.barber-product-page .assistencia-hero .btn.primary { background: #2563EB; border-color: #2563EB; }
+.barber-product-page .assistencia-nav-brand__icon { color: #93C5FD; }
+.barber-product-page .assistencia-nav-brand__copy small { color: #D4AF37; }
+.barber-product-page .assistencia-benefits-section .eyebrow,
+.barber-product-page .assistencia-benefit-card > svg { color: #2563EB; }
+.barber-product-page .assistencia-test-card { border-color: rgba(212, 175, 55, .4); background: linear-gradient(150deg, #0F2A58, #0B0F19); }
+.barber-product-page .assistencia-test-card > span { color: #FDE68A; }
+.barber-product-page .assistencia-test-card small { color: #DBEAFE; }
+.barber-product-page .assistencia-price-card { max-width: none; margin: 0; }
+.barber-product-page .assistencia-price-card__eyebrow { color: #D4AF37; }
+.barber-product-page .assistencia-pricing-note svg { color: #D4AF37; }
+.barber-section-intro { max-width: 700px; margin: 0 auto 32px; text-align: center; }
+.barber-section-intro .eyebrow { justify-content: center; }
+.barber-product-page .assistencia-faq { background: linear-gradient(180deg, #F8FAFC, #EEF4FF); }
+.barber-product-page .assistencia-final-cta { background: linear-gradient(180deg, #020617, #0F2A58); }
+.beauty-product-page {
+  --bg: #160810;
+  --surface: rgba(73, 17, 38, .54);
+  --surface-strong: rgba(91, 20, 48, .78);
+  --muted: #F7C9D8;
+  --text: #FFF7FA;
+  --line: rgba(251, 113, 133, .22);
+  --brand-primary: #E11D48;
+  --brand-dark: #4C0519;
+  --brand-accent: #FB7185;
+  --brand-soft: rgba(225, 29, 72, .18);
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 8% 0%, rgba(225, 29, 72, .22), transparent 32rem), radial-gradient(circle at 90% 32%, rgba(168, 85, 247, .12), transparent 26rem), linear-gradient(180deg, #160810, #2A0B1B 48%, #160810);
+}
+.beauty-product-page .assistencia-hero { background-image: linear-gradient(90deg, rgba(22, 8, 16, .98), rgba(22, 8, 16, .9) 45%, rgba(76, 5, 25, .54)), radial-gradient(circle at 78% 30%, rgba(251, 113, 133, .24), transparent 26rem), url("../../herobeleza.png"); background-position: center; background-repeat: no-repeat; background-size: cover; }
+.beauty-product-page .assistencia-hero .beauty-hero-grid { width: 100%; max-width: none; margin: 0; padding-left: clamp(48px, 7.2vw, 152px); padding-right: 24px; grid-template-columns: minmax(0, 780px) 1fr; gap: 0; }
+.beauty-product-page .assistencia-hero .product-demo-panel { display: none; }
+.beauty-product-page .beauty-hero-copy { max-width: 780px; }
+.beauty-product-page .assistencia-hero h1 { max-width: 780px; margin: 14px 0 14px; font-size: clamp(46px, 5vw, 70px); line-height: 1.02; }
+.beauty-product-page .assistencia-hero .lead { max-width: 610px; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.58; }
+.beauty-product-page .assistencia-hero .actions { display: grid; grid-template-columns: minmax(220px, .9fr) minmax(300px, 1.1fr); width: min(100%, 660px); margin-top: 26px; }
+.beauty-product-page .assistencia-hero .actions .btn { width: 100%; min-width: 0; padding-inline: 16px; white-space: nowrap; }
+.beauty-product-page .assistencia-hero-note { max-width: 480px; margin-top: 18px; }
+.beauty-product-page .assistencia-hero__pro { -webkit-text-stroke-color: #FB7185; text-shadow: 0 0 24px rgba(251, 113, 133, .32); }
+.beauty-product-page .assistencia-hero .btn.primary { background: #E11D48; border-color: #E11D48; }
+.beauty-product-page .assistencia-nav-brand__icon { color: #FDA4AF; }
+.beauty-product-page .assistencia-nav-brand__copy small { color: #FB7185; }
+.beauty-product-page .assistencia-benefits-section .eyebrow,
+.beauty-product-page .assistencia-benefit-card > svg { color: #E11D48; }
+.beauty-product-page .assistencia-price-card { max-width: none; margin: 0; }
+.beauty-product-page .assistencia-price-card__eyebrow { color: #FDA4AF; border-color: rgba(251, 113, 133, .34); background: rgba(225, 29, 72, .12); }
+.beauty-product-page .assistencia-price-card--featured { border-color: rgba(251, 113, 133, .48) !important; background: linear-gradient(150deg, rgba(225, 29, 72, .28), rgba(255, 255, 255, .06)) !important; box-shadow: 0 24px 52px -34px rgba(225, 29, 72, .7) !important; }
+.beauty-product-page .assistencia-price-card--featured::after { background: #E11D48; }
+.beauty-product-page .assistencia-price-card--custom { background: linear-gradient(150deg, rgba(168, 85, 247, .18), rgba(255, 255, 255, .045)) !important; border-color: rgba(196, 181, 253, .32) !important; }
+.beauty-product-page .assistencia-price-card--custom .assistencia-price-card__eyebrow { color: #DDD6FE; border-color: rgba(221, 214, 254, .34); background: rgba(139, 92, 246, .14); }
+.beauty-product-page .assistencia-pricing-note svg { color: #FB7185; }
+.beauty-product-page .assistencia-faq { background: linear-gradient(180deg, #FFF7FA, #FFF1F5); }
+.beauty-product-page .assistencia-faq details:hover,
+.beauty-product-page .assistencia-faq details[open] { border-color: rgba(225, 29, 72, .32); box-shadow: 0 18px 34px -28px rgba(225, 29, 72, .42); }
+.beauty-product-page .assistencia-faq summary b { background: #FFE4E6; color: #E11D48; }
+.beauty-product-page .assistencia-faq summary::after { color: #E11D48; border-color: #FECDD3; }
+.beauty-product-page .assistencia-faq details[open] summary::after { background: #E11D48; border-color: #E11D48; }
+.beauty-product-page .assistencia-final-cta { background: linear-gradient(180deg, #160810, #5C102D); }
+.gastro-product-page {
+  --bg: #180C07;
+  --surface: rgba(71, 30, 14, .56);
+  --surface-strong: rgba(82, 34, 15, .82);
+  --muted: #F3C9B4;
+  --text: #FFF8F3;
+  --line: rgba(242, 106, 27, .24);
+  --brand-primary: #E96B2D;
+  --brand-dark: #4A1E0B;
+  --brand-accent: #F6AF70;
+  --brand-soft: rgba(233, 107, 45, .18);
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 7% 0%, rgba(233, 107, 45, .22), transparent 34rem), radial-gradient(circle at 93% 35%, rgba(246, 175, 112, .10), transparent 28rem), linear-gradient(180deg, #180C07, #2C1008 48%, #180C07);
+}
+.gastro-product-page .assistencia-hero {
+  background-image: linear-gradient(90deg, rgba(24, 12, 7, .98), rgba(24, 12, 7, .9) 42%, rgba(74, 30, 11, .48)), linear-gradient(180deg, rgba(24, 12, 7, .14), rgba(24, 12, 7, .56)), url("../../herogastro.png");
+  background-color: #190B06;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.gastro-product-page .assistencia-hero .mockup-shell { display: none; }
+.gastro-product-page .assistencia-hero__pro { -webkit-text-stroke-color: #F6AF70; text-shadow: 0 0 24px rgba(246, 175, 112, .3); }
+.gastro-product-page .assistencia-hero .btn.primary { background: #E96B2D; border-color: #E96B2D; }
+.gastro-product-page .assistencia-nav-brand__icon { color: #FED7AA; background: linear-gradient(145deg, rgba(233, 107, 45, .28), rgba(246, 175, 112, .08)); border-color: rgba(246, 175, 112, .34); }
+.gastro-product-page .assistencia-nav-brand__copy small { color: #F6AF70; }
+.gastro-product-page .nav-links .btn.light { width: 46px; min-width: 46px; min-height: 46px; padding: 0; color: #0F172A; }
+.gastro-product-page .nav-links .btn.light:hover, .gastro-product-page .nav-links .btn.light:focus-visible { background: #E96B2D; border-color: #E96B2D; color: #FFFFFF; }
+.gastro-product-page .gastro-resources-section .mod-grid { margin-top: 30px; }
+.gastro-product-page .gastro-resources-section .mod-item { background: rgba(255,255,255,.045); border-color: var(--line); }
+.gastro-product-page .gastro-resources-section .mod-item:hover { border-color: rgba(246, 175, 112, .5); box-shadow: 0 12px 28px rgba(233, 107, 45, .14); }
+.gastro-product-page .gastro-resources-section .mod-item i { color: #F6AF70; }
+.gastro-product-page .assistencia-benefits-section .eyebrow, .gastro-product-page .assistencia-benefit-card > i { color: #D95820; }
+.gastro-product-page .assistencia-benefit-card > i { display: block; margin-bottom: 18px; font-size: 24px; }
+.gastro-product-page .assistencia-test-card { border-color: rgba(246, 175, 112, .4); background: linear-gradient(150deg, #6A2810, #210E08); }
+.gastro-product-page .assistencia-test-card > span, .gastro-product-page .assistencia-test-card small { color: #FED7AA; }
+.gastro-product-page .assistencia-test-card .btn.primary { background: #E96B2D; border-color: #E96B2D; }
+.gastro-product-page .assistencia-pricing-intro { text-align: center; max-width: 720px; margin: 0 auto 42px; }
+.gastro-product-page .assistencia-pricing-intro .eyebrow { justify-content: center; }
+.gastro-product-page .assistencia-price-card { max-width: none; margin: 0; }
+.gastro-product-page .assistencia-price-card__eyebrow { color: #F6AF70; border-color: rgba(246, 175, 112, .34); background: rgba(233, 107, 45, .13); }
+.gastro-product-page .assistencia-price-card--featured { border-color: rgba(233, 107, 45, .5) !important; background: linear-gradient(150deg, rgba(233, 107, 45, .28), rgba(255, 255, 255, .06)) !important; box-shadow: 0 24px 52px -34px rgba(233, 107, 45, .7) !important; }
+.gastro-product-page .assistencia-price-card--featured::after { background: #E96B2D; }
+.gastro-product-page .assistencia-price-card--custom { background: linear-gradient(150deg, rgba(246, 175, 112, .2), rgba(255, 255, 255, .045)) !important; border-color: rgba(254, 215, 170, .32) !important; }
+.gastro-product-page .assistencia-price-card--custom .assistencia-price-card__eyebrow { color: #FED7AA; border-color: rgba(254, 215, 170, .32); background: rgba(233, 107, 45, .12); }
+.gastro-product-page .plan-grid.assistencia-pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; max-width: 1060px; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .assistencia-price-card { min-height: 100%; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .plan-list { min-height: 118px; }
+.gastro-product-page .plan-card .plan-badge { background: #E96B2D; }
+.gastro-product-page .plan-card .plan-period { color: var(--muted); }
+.gastro-product-page .plan-card ul.clean li { color: #FDEDE3; }
+.gastro-product-page .plan-card ul.clean li i { color: #86EFAC; }
+.gastro-product-page .assistencia-faq { background: linear-gradient(180deg, #FFF8F3, #FFF0E6); }
+.gastro-product-page .assistencia-faq details:hover, .gastro-product-page .assistencia-faq details[open] { border-color: rgba(233, 107, 45, .34); box-shadow: 0 18px 34px -28px rgba(233, 107, 45, .42); }
+.gastro-product-page .assistencia-faq summary::after { color: #D95820; border-color: #FED7AA; }
+.gastro-product-page .assistencia-faq details[open] summary::after { background: #E96B2D; border-color: #E96B2D; }
+.gastro-product-page .assistencia-final-cta { background: linear-gradient(180deg, #180C07, #6A2810); }
+.gastro-product-page .assistencia-final-cta .actions { justify-content: center; }
+.gastro-product-page .legacy-gastro-footer { display: none; }
+@media (max-width: 820px) {
+  .beauty-product-page .assistencia-hero .beauty-hero-grid { display: block; padding-left: 0; padding-right: 0; }
+  .beauty-product-page .beauty-hero-copy,
+  .beauty-product-page .assistencia-hero h1,
+  .beauty-product-page .assistencia-hero .lead,
+  .beauty-product-page .assistencia-hero-note { max-width: 100%; }
+  .beauty-product-page .assistencia-hero .actions { grid-template-columns: 1fr; width: 100%; margin-top: 22px; }
+  .beauty-product-page .assistencia-hero .actions .btn { white-space: normal; }
+}
 @media (max-width: 1100px) {
   .assistencia-product-page .hero-grid { grid-template-columns: 1fr; }
   .assistencia-app-preview { grid-template-columns: 200px minmax(0, 1fr); }
@@ -1327,7 +1480,7 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
     linear-gradient(180deg, #080809, #0c0c0e 45%, #070708);
   color: var(--text);
 }
-.barber-product-page {
+.real-system-page.barber-product-page {
   --brand-primary: #3B82F6;
   --brand-accent: #D4AF37;
   --brand-soft: rgba(212, 175, 55, .16);
@@ -2181,4 +2334,18 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
     width: min(100vw - 16px, 980px);
     height: min(100vh - 16px, 700px);
   }
+}
+
+/* Gestão Beleza Pro: manter a paleta do sistema acima das regras legadas. */
+.assistencia-product-page.beauty-product-page {
+  --bg: #160810;
+  --surface: rgba(73, 17, 38, .54);
+  --surface-strong: rgba(91, 20, 48, .78);
+  --muted: #F7C9D8;
+  --text: #FFF7FA;
+  --line: rgba(251, 113, 133, .22);
+  --brand-primary: #E11D48;
+  --brand-dark: #4C0519;
+  --brand-accent: #FB7185;
+  --brand-soft: rgba(225, 29, 72, .18);
 }

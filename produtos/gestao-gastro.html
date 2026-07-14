@@ -137,48 +137,84 @@
     .btn.primary { animation: pulseGlow 2s infinite; }
   </style>
 </head>
-<body>
+<body id="topo" class="assistencia-product-page gastro-product-page" data-demo-fullscreen="true"
+  data-demo-url="../tecnologia/demos/gestao-restaurantes/index.html"
+  data-demo-title="Gestão Gastro"
+  data-demo-mobile-message="Olá! Quero ver a demo do Gestão Gastro mas estou pelo celular - pode me mostrar por aqui?">
 
 <!-- HEADER -->
 <header class="header">
   <nav class="nav">
-    <a href="../tecnologia/tecnologia.html">
-      <img class="logo" src="../logo-plena.png" alt="Plena Informática">
+    <a class="assistencia-nav-brand gastro-nav-brand" href="#topo" aria-label="Gestão Gastro Pro — voltar ao topo da página">
+      <span class="assistencia-nav-brand__icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 11v18M25 11v18M18 21h7M25 29v24M41 11v20c0 6 4 10 10 10V11M51 41v12" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 53h39" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></svg>
+      </span>
+      <span class="assistencia-nav-brand__copy"><strong>Gestão Gastro</strong><small>Pro</small></span>
     </a>
     <div class="nav-links">
-      <a href="../tecnologia/tecnologia.html">Tecnologia</a>
-      <a href="#modulos">Módulos</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#beneficios">Benefícios</a>
       <a href="#planos">Planos</a>
       <a href="#faq">FAQ</a>
+      <a href="../tecnologia/tecnologia.html">Tecnologia</a>
       <button type="button" class="btn light"
         onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Gastro e vim pelo site. Gostaria de agendar uma demonstração.', 'Gestão Gastro')">
-        WhatsApp
+        <i class="ph-light ph-whatsapp-logo"></i><span class="sr-only">WhatsApp</span>
+      </button>
+    </div>
+    <div class="nav-mobile-actions">
+      <button type="button" class="btn light mobile-header-whatsapp"
+        onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Gastro e vim pelo site. Gostaria de agendar uma demonstração.', 'Gestão Gastro')">
+        <i class="ph-light ph-whatsapp-logo"></i><span class="sr-only">WhatsApp</span>
+      </button>
+      <button class="mobile-menu-toggle" type="button" onclick="toggleProductMobileMenu()" aria-label="Abrir menu">
+        <i class="ph-light ph-list"></i>
       </button>
     </div>
   </nav>
 </header>
 
+<div id="product-mobile-menu" class="product-mobile-menu" aria-hidden="true">
+  <div class="product-mobile-menu__backdrop" data-mobile-menu-close></div>
+  <aside class="product-mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Menu móvel Gestão Gastro">
+    <div class="product-mobile-menu__header">
+      <div class="product-mobile-menu__title">
+        <span class="product-mobile-menu__eyebrow">Navegação</span>
+        <strong>Gestão Gastro</strong>
+      </div>
+      <button class="mobile-menu-panel__close" type="button" onclick="toggleProductMobileMenu(false)" aria-label="Fechar menu">
+        <i class="ph-light ph-x"></i>
+      </button>
+    </div>
+    <nav class="product-mobile-menu__links">
+      <a href="#recursos" data-mobile-menu-close><span>Recursos</span><span>→</span></a>
+      <a href="#beneficios" data-mobile-menu-close><span>Benefícios</span><span>→</span></a>
+      <a href="#planos" data-mobile-menu-close><span>Planos</span><span>→</span></a>
+      <a href="#faq" data-mobile-menu-close><span>FAQ</span><span>→</span></a>
+      <a href="../tecnologia/tecnologia.html" data-mobile-menu-close><span>Tecnologia</span><span>→</span></a>
+    </nav>
+    <button type="button" class="btn light"
+      onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Tenho interesse no Gestão Gastro e vim pelo site. Gostaria de agendar uma demonstração.', 'Gestão Gastro')">
+      <i class="ph-light ph-whatsapp-logo"></i>
+      WhatsApp
+    </button>
+  </aside>
+</div>
+
 <main>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="container hero-grid">
+<section class="hero assistencia-hero gastro-hero">
+  <div class="container assistencia-hero-content">
     <div>
-      <span class="eyebrow">Plataforma SaaS para bares e restaurantes</span>
-      <h1>Operação completa — do pedido ao relatório — em um só lugar.</h1>
-      <p class="lead">
-        O Gestão Gastro conecta salão, cozinha, caixa, estoque e delivery em tempo real.
-        Do plano Essencial ao Gestão, cada módulo foi pensado para reduzir erros e aumentar o controle sem complicar a rotina.
-      </p>
+      <span class="eyebrow">Sistema para restaurantes, bares e operações de delivery</span>
+      <h1>Gestão Gastro <span class="assistencia-hero__pro">Pro</span></h1>
+      <p class="lead">Pedidos, cozinha, salão, caixa e estoque conectados para a operação ganhar ritmo sem perder o controle.</p>
       <div class="actions">
-        <button class="btn primary" onclick="openDemoModal()">
-          <i class="ph-light ph-play-circle"></i> Experimentar demo grátis
-        </button>
-        <button class="btn"
-          onclick="openProductWhatsApp('Olá! Vim pelo site da Plena e gostaria de agendar uma demonstração do Gestão Gastro.', 'Gestão Gastro')">
-          Agendar demonstração
-        </button>
+        <button class="btn primary" onclick="openDemoModal()"><i class="ph-light ph-monitor-up"></i> Abrir Demo do Sistema</button>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Gastro Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Gestão Gastro')"><i class="ph-light ph-rocket-launch"></i> Solicitar teste gratuito de 7 dias</button>
       </div>
+      <p class="assistencia-hero-note"><i class="ph-light ph-whatsapp-logo"></i> Teste orientado pelo WhatsApp, sem cartão nesta página.</p>
     </div>
 
     <!-- Mockup -->
@@ -226,7 +262,7 @@
 </section>
 
 <!-- MÓDULOS -->
-<section id="modulos" class="section">
+<section id="recursos" class="section assistencia-section gastro-resources-section">
   <div class="container">
     <span class="eyebrow">O que está incluso</span>
     <h2>20+ módulos integrados — toda a operação conectada.</h2>
@@ -259,87 +295,112 @@
   </div>
 </section>
 
-<!-- PLANOS -->
-<section id="planos" class="section">
+<section id="beneficios" class="section assistencia-benefits-section gastro-benefits-section">
   <div class="container">
-    <div style="text-align:center; max-width:600px; margin:0 auto 48px;">
-      <span class="eyebrow" style="justify-content:center;">Planos e preços</span>
-      <h2 style="margin-left:auto; margin-right:auto;">Comece pelo que você precisa agora.</h2>
-      <p style="color:#9CA3AF;">
-        Todos os planos incluem suporte e podem ser expandidos com módulos avançados conforme a operação crescer.
-      </p>
+    <div class="assistencia-benefits-intro">
+      <span class="eyebrow">Benefícios para a operação</span>
+      <h2>Menos pedido perdido, menos controle paralelo e mais clareza em cada turno.</h2>
+      <p>O Gestão Gastro organiza o fluxo que começa no atendimento e termina no fechamento, sem separar a visão da equipe da visão de quem gere o negócio.</p>
     </div>
-    <div class="plan-grid">
-      <div class="plan-card">
-        <div class="plan-name">Essencial</div>
-        <div class="plan-price">R$ 89</div>
-        <div class="plan-period">por mês</div>
-        <ul class="plan-list">
-          <li><i class="ph-bold ph-check-circle"></i> PDV Touch</li>
-          <li><i class="ph-bold ph-check-circle"></i> Mesas e Comandas</li>
-          <li><i class="ph-bold ph-check-circle"></i> Painel de Cozinha</li>
-          <li><i class="ph-bold ph-check-circle"></i> Caixa</li>
-          <li><i class="ph-bold ph-check-circle"></i> Relatórios</li>
-          <li><i class="ph-bold ph-check-circle"></i> Cardápio Digital</li>
-          <li><i class="ph-bold ph-check-circle"></i> Produtos / Cardápio</li>
-        </ul>
+    <div class="assistencia-benefits-layout">
+      <div class="assistencia-benefits-grid">
+        <article class="assistencia-benefit-card"><i class="ph-light ph-table"></i><h3>Salão com contexto</h3><p>Mesas, comandas e pedidos ficam visíveis para o atendimento avançar com menos ruído em horários de pico.</p></article>
+        <article class="assistencia-benefit-card"><i class="ph-light ph-cooking-pot"></i><h3>Cozinha no ritmo certo</h3><p>O painel de cozinha ajuda a acompanhar status e tempo de preparo para que cada pedido avance com mais previsibilidade.</p></article>
+        <article class="assistencia-benefit-card"><i class="ph-light ph-package"></i><h3>Estoque ligado à venda</h3><p>Fichas técnicas e movimentações aproximam o consumo real das decisões de compra e reposição.</p></article>
+        <article class="assistencia-benefit-card"><i class="ph-light ph-chart-bar"></i><h3>Fechamento que informa</h3><p>Caixa, faturamento e relatórios ficam no mesmo fluxo para a gestão enxergar o resultado sem planilhas paralelas.</p></article>
       </div>
-      <div class="plan-card destaque">
-        <div class="plan-badge">Recomendado</div>
-        <div class="plan-name">Profissional</div>
-        <div class="plan-price">R$ 189</div>
-        <div class="plan-period">por mês</div>
-        <ul class="plan-list">
-          <li><i class="ph-bold ph-check-circle"></i> Tudo do Essencial</li>
-          <li><i class="ph-bold ph-check-circle"></i> Estoque com ficha técnica</li>
-          <li><i class="ph-bold ph-check-circle"></i> Clientes e Fidelidade</li>
-          <li><i class="ph-bold ph-check-circle"></i> Fornecedores</li>
-          <li><i class="ph-bold ph-check-circle"></i> Delivery</li>
-          <li><i class="ph-bold ph-check-circle"></i> Pedidos Online</li>
-          <li><i class="ph-bold ph-check-circle"></i> Central de Vendas</li>
-          <li><i class="ph-bold ph-check-circle"></i> Colaboradores</li>
-        </ul>
-      </div>
-      <div class="plan-card">
-        <div class="plan-name">Gestão</div>
-        <div class="plan-price">R$ 329</div>
-        <div class="plan-period">por mês</div>
-        <ul class="plan-list">
-          <li><i class="ph-bold ph-check-circle"></i> Tudo do Profissional</li>
-          <li><i class="ph-bold ph-check-circle"></i> Dashboard analítico</li>
-          <li><i class="ph-bold ph-check-circle"></i> Inteligência e insights</li>
-          <li><i class="ph-bold ph-check-circle"></i> Diário de Bordo</li>
-          <li><i class="ph-bold ph-check-circle"></i> Auditoria e Segurança</li>
-          <li><i class="ph-bold ph-check-circle"></i> Suporte prioritário</li>
-          <li><i class="ph-bold ph-check-circle"></i> Manual integrado</li>
-        </ul>
-      </div>
+      <aside class="assistencia-test-card gastro-test-card" aria-label="Teste gratuito de 7 dias">
+        <span>Teste gratuito de 7 dias</span>
+        <h3>Veja a operação do seu estabelecimento em um fluxo mais claro.</h3>
+        <p>Solicite seu período de teste pelo WhatsApp e receba orientação inicial para conhecer PDV, cozinha, mesas e estoque.</p>
+        <button class="btn primary" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Gastro Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Gestão Gastro')"><i class="ph-light ph-whatsapp-logo"></i> Solicitar teste gratuito</button>
+        <small>Sem cartão ou cadastro nesta página.</small>
+      </aside>
     </div>
-    <p style="color:#666;font-size:12px;margin-top:16px">Módulos avançados (Cardápio Digital, Delivery, Inteligência, Dashboard, Estoque) também disponíveis como add-ons individuais.</p>
   </div>
 </section>
 
-<!-- PROVA SOCIAL -->
-<section class="section" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding-top: 60px; padding-bottom: 60px;">
-  <div class="container" style="text-align:center;">
-    <h3 style="font-size:14px; color:#9CA3AF; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:32px;">Empresas que otimizaram sua operação conosco</h3>
-    <div style="display:flex; justify-content:center; gap:60px; flex-wrap:wrap; opacity:0.5;">
-      <div style="font-weight:800; font-size:22px; color:#fff; font-family: 'Inter', sans-serif;">La Trattoria</div>
-      <div style="font-weight:800; font-size:22px; color:#fff; font-family: 'Inter', sans-serif;">Espeto & Cia</div>
-      <div style="font-weight:800; font-size:22px; color:#fff; font-family: 'Inter', sans-serif;">Burguer Express</div>
-      <div style="font-weight:800; font-size:22px; color:#fff; font-family: 'Inter', sans-serif;">Sushi House</div>
+<!-- PLANOS -->
+<section id="planos" class="section assistencia-plan gastro-plan">
+  <div class="container">
+    <div class="assistencia-pricing-intro">
+      <span class="eyebrow" style="justify-content:center;">Planos e preços</span>
+      <h2 style="margin-left:auto; margin-right:auto;">Comece pelo que você precisa agora.</h2>
+      <p style="color:#9CA3AF;">Escolha o nível de controle que sua operação precisa hoje e evolua com recursos, implantação e personalização orientados.</p>
+    </div>
+    <div class="plan-grid assistencia-pricing-grid">
+      <div class="plan-card card assistencia-price-card">
+        <div class="plan-name assistencia-price-card__eyebrow">Essencial</div>
+        <div class="plan-price assistencia-price-card__price">R$ 89</div>
+        <div class="plan-period">por mês</div>
+        <ul class="plan-list clean">
+          <li><i class="ph-bold ph-check-circle"></i> PDV, mesas, comandas e painel de cozinha.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Caixa, relatórios e gestão de produtos.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Cardápio digital para a operação começar organizada.</li>
+        </ul>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Quero conhecer o plano Essencial do Gestão Gastro Pro por R$ 89/mês.', 'Gestão Gastro')">Falar sobre o plano essencial</button>
+      </div>
+      <div class="plan-card destaque card assistencia-price-card assistencia-price-card--featured">
+        <div class="plan-badge">Recomendado</div>
+        <div class="plan-name assistencia-price-card__eyebrow">Profissional</div>
+        <div class="plan-price assistencia-price-card__price">R$ 189</div>
+        <div class="plan-period">por mês</div>
+        <ul class="plan-list clean">
+          <li><i class="ph-bold ph-check-circle"></i> Tudo do Essencial, com estoque e ficha técnica.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Clientes, fidelidade, fornecedores e colaboradores.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Delivery, pedidos on-line e central de vendas.</li>
+        </ul>
+        <button class="btn primary" onclick="openProductWhatsApp('Olá! Quero conhecer o plano Profissional do Gestão Gastro Pro por R$ 189/mês.', 'Gestão Gastro')">Quero o plano profissional</button>
+      </div>
+      <div class="plan-card card assistencia-price-card">
+        <div class="plan-name assistencia-price-card__eyebrow">Gestão</div>
+        <div class="plan-price assistencia-price-card__price">R$ 329</div>
+        <div class="plan-period">por mês</div>
+        <ul class="plan-list clean">
+          <li><i class="ph-bold ph-check-circle"></i> Tudo do Profissional, com dashboard analítico.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Inteligência, diário de bordo, auditoria e segurança.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Suporte prioritário e manual integrado.</li>
+        </ul>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Quero entender o plano Gestão do Gestão Gastro Pro por R$ 329/mês.', 'Gestão Gastro')">Falar sobre o plano gestão</button>
+      </div>
+      <div class="plan-card card assistencia-price-card assistencia-price-card--custom">
+        <div class="plan-name assistencia-price-card__eyebrow">Projeto personalizado</div>
+        <div class="plan-price assistencia-price-card__price">R$ 4.999,90</div>
+        <div class="plan-period">implantação inicial</div>
+        <ul class="plan-list clean">
+          <li><i class="ph-bold ph-check-circle"></i> Sistema completo preparado com a identidade da sua marca.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Configuração orientada dos fluxos e módulos contratados.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Hospedagem e domínio cobrados à parte, com renovação anual.</li>
+        </ul>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Quero solicitar uma proposta para o Gestão Gastro Pro personalizado com minha marca, a partir de R$ 4.999,90.', 'Gestão Gastro')">Solicitar proposta personalizada</button>
+      </div>
+    </div>
+    <p class="assistencia-pricing-note"><i class="ph-light ph-info"></i> Recursos avançados, implantação e escopo personalizado são alinhados com a rotina do estabelecimento antes da contratação.</p>
+  </div>
+</section>
+
+<!-- CENÁRIOS QUE RESOLVEMOS -->
+<section class="section proof-section gastro-proof-section">
+  <div class="container gastro-proof-section__content">
+    <h3 class="gastro-proof-section__title">Cenários que resolvemos</h3>
+    <div class="proof-segment-pills">
+      <span class="proof-pill">Restaurantes</span>
+      <span class="proof-pill">Hamburguerias</span>
+      <span class="proof-pill">Pizzarias</span>
+      <span class="proof-pill">Bares</span>
+      <span class="proof-pill">Food trucks</span>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="section faq">
-  <div class="container" style="max-width:700px">
+<section id="faq" class="section faq assistencia-section assistencia-faq gastro-faq">
+  <div class="container assistencia-faq__list" style="max-width:760px">
     <span class="eyebrow">FAQ</span>
     <h2>Perguntas frequentes</h2>
     <details>
       <summary>Posso testar antes de contratar?</summary>
-      <p>Sim. A demo completa está disponível nesta página — clique em "Experimentar demo grátis". Você acessa todos os módulos do plano Gestão com dados simulados de um bar e restaurante real, sem precisar criar conta.</p>
+      <p>Sim. Em desktop ou tablet, a demo completa abre nesta página quando você clica em "Experimentar demo grátis". No celular, o botão direciona para o WhatsApp para fazermos a apresentação de forma guiada.</p>
     </details>
     <details>
       <summary>Funciona para hamburguerias, pizzarias e bares?</summary>
@@ -347,7 +408,7 @@
     </details>
     <details>
       <summary>Precisa instalar algum programa?</summary>
-      <p>Não. O sistema roda no navegador, em qualquer tablet, computador ou celular. Também está disponível como PWA para instalação rápida sem loja de aplicativos.</p>
+      <p>Não. O sistema roda no navegador, em qualquer tablet, computador ou celular, sem exigir instalação de programa local.</p>
     </details>
     <details>
       <summary>O estoque é atualizado automaticamente com as vendas?</summary>
@@ -365,17 +426,18 @@
 </section>
 
 <!-- CTA FINAL -->
-<section class="section" style="text-align:center;padding-bottom:80px">
+<section class="section assistencia-final-cta gastro-final-cta">
   <div class="container">
-    <h2 style="max-width:460px;margin:0 auto 10px">Pronto para ver funcionando?</h2>
-    <p style="color:#888;margin-bottom:26px">Acesse a demo agora ou fale com a equipe para uma apresentação do seu plano ideal.</p>
-    <div class="actions" style="justify-content:center">
+    <span class="eyebrow">Próximo passo</span>
+    <h2>Deixe a gestão acompanhar o ritmo do seu salão, da sua cozinha e do seu caixa.</h2>
+    <p>Abra a demo no desktop ou solicite seu teste gratuito de 7 dias para conhecer o Gestão Gastro Pro com orientação.</p>
+    <div class="actions">
       <button class="btn primary" onclick="openDemoModal()">
-        <i class="ph-light ph-play-circle"></i> Abrir demo grátis
+        <i class="ph-light ph-play-circle"></i> Abrir demo real
       </button>
       <button class="btn"
-        onclick="openProductWhatsApp('Olá! Vim pelo site e quero agendar uma demonstração do Gestão Gastro.', 'Gestão Gastro')">
-        Agendar demonstração
+        onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Gastro Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Gestão Gastro')">
+        Solicitar teste gratuito
       </button>
     </div>
   </div>
@@ -383,7 +445,7 @@
 
 </main>
 
-    <footer id="contact" class="bg-gray-950 text-white pt-16 pb-8 border-t border-white/5">
+    <footer id="contact" class="legacy-gastro-footer bg-gray-950 text-white pt-16 pb-8 border-t border-white/5">
         <div class="container mx-auto px-6">
 
             <div class="grid md:grid-cols-3 gap-12 pb-12 border-b border-white/5 text-left">
@@ -491,7 +553,9 @@
         </div>
     </footer>
 
-    <!-- ══════════════════════════════════════════
+  <footer class="footer">Plena Informática — Gestão Gastro Pro</footer>
+
+  <!-- ══════════════════════════════════════════
        MODALS DE TERMOS E PRIVACIDADE
     ══════════════════════════════════════════ -->
     <div id="terms-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"
@@ -643,36 +707,17 @@
   <div class="mbox">
     <div class="mhead">
       <i class="ph-light ph-hamburger" style="color:#E07B4A;font-size:16px"></i>
-      <span>Plena Gestão Gastro — Demo interativa (plano Gestão completo)</span>
-      <button class="mclose" onclick="closeDemoModal()" aria-label="Fechar">✕</button>
+      <span>Plena Gestão Gastro - Demo interativa (plano Gestão completo)</span>
+      <button class="mclose" onclick="closeDemoModal()" aria-label="Fechar">×</button>
     </div>
-    <iframe id="demo-frame" src="" title="Demo Gestão Gastro" allow="fullscreen"></iframe>
+    <div class="demo-frame-stage">
+      <button class="demo-fullscreen-close" type="button" onclick="closeDemoModal()" aria-label="Fechar demonstração"><i class="ph-light ph-x"></i></button>
+      <div class="demo-frame-loader" aria-live="polite"><span class="demo-frame-loader__spinner" aria-hidden="true"></span><strong>Preparando sua demonstração</strong><p>Estamos carregando o sistema para você explorar em tela cheia.</p></div>
+      <iframe id="demo-frame" src="" title="Demo Gestão Gastro" allow="fullscreen"></iframe>
+    </div>
   </div>
 </div>
 
 <script src="assets/produtos.js"></script>
-<script>
-  const DEMO_URL = '../tecnologia/demos/gestao-restaurantes/index.html';
-
-  function openDemoModal() {
-    var frame = document.getElementById('demo-frame');
-    if (!frame.src || frame.src === window.location.href) frame.src = DEMO_URL;
-    document.getElementById('demo-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeDemoModal() {
-    document.getElementById('demo-modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('demo-modal').addEventListener('click', function(e) {
-    if (e.target === this) closeDemoModal();
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeDemoModal();
-  });
-</script>
 </body>
 </html>

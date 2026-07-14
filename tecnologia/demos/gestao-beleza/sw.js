@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gestão-beleza-v2';
+const CACHE_NAME = 'gestão-beleza-v3';
 const ASSETS_TO_CACHE = [
     './index.html',
     './css/styles.css',

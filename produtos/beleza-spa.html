@@ -15,167 +15,117 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/produtos.css">
 </head>
-<body class="real-system-page beauty-product-page">
+<body id="topo"
+  class="assistencia-product-page beauty-product-page"
+  data-demo-fullscreen="true"
+  data-demo-url="../tecnologia/demos/gestao-beleza/index.html"
+  data-demo-title="Beleza & Spa"
+  data-demo-mobile-message="Olá! Quero ver a demo do Beleza & Spa mas estou pelo celular - pode me mostrar por aqui?">
   <header class="header">
     <nav class="nav">
-      <a href="../tecnologia.html">
-        <img class="logo brand-logo" src="../logo-plena.png" alt="Plena Informática">
+      <a class="assistencia-nav-brand beauty-nav-brand" href="#topo" aria-label="Gestão Beleza Pro — voltar ao topo da página">
+        <span class="assistencia-nav-brand__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 10c6 9 16 15 16 26a16 16 0 1 1-32 0c0-11 10-17 16-26Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M23 41c4-1 6-4 9-9 2 5 5 8 9 9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></span>
+        <span class="assistencia-nav-brand__copy"><strong>Gestão Beleza</strong><small>Pro</small></span>
       </a>
       <div class="nav-links">
-        <a href="../tecnologia.html">Tecnologia</a>
-        <a href="#interface">Interface</a>
         <a href="#recursos">Recursos</a>
-        <a href="#plano">Plano</a>
-        <button class="btn light" onclick="openProductWhatsApp('Olá! Tenho interesse no Beleza & Spa e vim pelo site. Gostaria de entender planos e implantação.', 'Beleza & Spa')">
-          <i data-lucide="message-circle"></i>
-          WhatsApp
+        <a href="#beneficios">Benefícios</a>
+        <a href="#plano">Planos</a>
+        <a href="#faq">FAQ</a>
+        <a href="../tecnologia/tecnologia.html">Tecnologia</a>
+        <button class="btn light assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Beleza Pro e vim pelo site. Gostaria de entender planos e implantação.', 'Beleza & Spa')"><i data-lucide="message-circle"></i></button>
+      </div>
+      <div class="nav-mobile-actions">
+        <button class="btn light mobile-header-whatsapp assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Beleza Pro e vim pelo site. Gostaria de entender planos e implantação.', 'Beleza & Spa')"><i data-lucide="message-circle"></i></button>
+        <button class="mobile-menu-toggle" type="button" onclick="toggleProductMobileMenu()" aria-label="Abrir menu">
+          <i data-lucide="menu"></i>
         </button>
       </div>
     </nav>
   </header>
 
+  <div id="product-mobile-menu" class="product-mobile-menu" aria-hidden="true">
+    <div class="product-mobile-menu__backdrop" data-mobile-menu-close></div>
+    <aside class="product-mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Menu móvel Beleza & Spa">
+      <div class="product-mobile-menu__header">
+        <div class="product-mobile-menu__title">
+          <span class="product-mobile-menu__eyebrow">Navegação</span>
+          <strong>Beleza & Spa</strong>
+        </div>
+        <button class="mobile-menu-panel__close" type="button" onclick="toggleProductMobileMenu(false)" aria-label="Fechar menu">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <nav class="product-mobile-menu__links">
+        <a href="#recursos" data-mobile-menu-close><span>Recursos</span><span>→</span></a>
+        <a href="#beneficios" data-mobile-menu-close><span>Benefícios</span><span>→</span></a>
+        <a href="#plano" data-mobile-menu-close><span>Planos</span><span>→</span></a>
+        <a href="#faq" data-mobile-menu-close><span>FAQ</span><span>→</span></a>
+        <a href="../tecnologia/tecnologia.html" data-mobile-menu-close><span>Tecnologia</span><span>→</span></a>
+      </nav>
+      <button class="btn light" onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Tenho interesse no Beleza & Spa e vim pelo site. Gostaria de entender planos e implantação.', 'Beleza & Spa')">
+        <i data-lucide="message-circle"></i>
+        WhatsApp
+      </button>
+    </aside>
+  </div>
+
   <main>
-    <section class="hero real-hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Gestão Beleza Pro</span>
-          <h1>Agenda, pacotes e clientes com visual de clínica premium.</h1>
-          <p class="lead">Prévia visual baseada no modo demo real: controle agendamentos, profissionais, serviços, clientes, financeiro, relatórios e estoque em uma interface com o visual dark rose do sistema.</p>
+    <section class="hero assistencia-hero beauty-hero">
+      <div class="container hero-grid beauty-hero-grid">
+        <div class="beauty-hero-copy">
+          <span class="eyebrow">Sistema para salões, estética e spa</span>
+          <h1>Gestão Beleza <span class="assistencia-hero__pro">Pro</span></h1>
+          <p class="lead">Agenda, pacotes, atendimento e financeiro conectados para sua equipe cuidar da experiência de cada cliente.</p>
           <div class="actions">
-            <a class="btn primary" href="../tecnologia/demos/gestao-beleza/index.html" target="_blank" rel="noopener">
+            <button class="btn primary" onclick="openDemoModal()">
               <i data-lucide="monitor-up"></i>
-              Abrir demo real
-            </a>
-            <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pelo site da Plena e quero saber mais sobre o Beleza & Spa.', 'Beleza & Spa')">
-              <i data-lucide="send"></i>
-              Quero esse sistema
+              Abrir Demo do Sistema
+            </button>
+            <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Beleza Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Beleza & Spa')">
+              <i data-lucide="rocket"></i>
+              Solicitar teste gratuito de 7 dias
             </button>
           </div>
-          <div class="promo-phrase">
-            ⭐ <strong>solicite um perído de teste gratuito</strong>
-          </div>
+          <p class="assistencia-hero-note"><i data-lucide="message-circle"></i> Teste orientado pelo WhatsApp, sem cartão nesta página.</p>
         </div>
 
-        <div id="interface" class="real-demo-frame dark-theme beauty-frame" aria-label="Prévia visual baseada no modo demo real do Beleza e Spa">
-          <div class="demo-strip">
-            <span>MODO DEMONSTRAÇÃO • BELEZA & SPA • DADOS FICTÍCIOS</span>
-            <div class="demo-strip-buttons">
-              <span class="demo-strip-btn primary"><i data-lucide="message-circle" style="width:12px;height:12px"></i> Gostei, chamar no WhatsApp</span>
-              <span class="demo-strip-btn"><i data-lucide="rotate-ccw" style="width:12px;height:12px"></i> Resetar demo</span>
-            </div>
+        <div id="interface" class="product-demo-panel" aria-label="Acesso à demonstração real do Beleza & Spa">
+          <span class="product-demo-kicker">
+            <i data-lucide="sparkles"></i>
+            Demo interativa liberada
+          </span>
+          <div>
+            <h2>Veja agenda, pacotes e checkout no sistema real.</h2>
+            <p>A proposta desta página é simples: em desktop ou tablet, você abre o build real dentro do modal. No celular, o mesmo CTA te leva para uma apresentação guiada no WhatsApp, sem forçar uma demo apertada.</p>
           </div>
-          
-          <div class="demo-app-layout">
-            <aside class="demo-sidebar-rail">
-              <div class="demo-sidebar-logo">
-                <i data-lucide="sparkles" style="width:20px;height:20px;color:#fff;"></i>
-              </div>
-              <div class="demo-nav-icon active"><i data-lucide="layout-dashboard"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="calendar"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="contact"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="users"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="sparkles"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="wallet"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="package"></i></div>
-              <div style="flex:1"></div>
-              <div class="demo-nav-icon" style="color:#fbbf24"><i data-lucide="gem"></i></div>
-            </aside>
-            
-            <main class="demo-app-main">
-              <header class="demo-app-header">
-                <div>
-                  <div class="demo-header-title">Visão Geral</div>
-                  <div class="demo-header-subtitle">Domingo, 07 de junho de 2026 • 21:14:18</div>
-                </div>
-                <div class="demo-header-actions">
-                  <div class="demo-btn demo-btn-primary" style="background:#E11D48"><i data-lucide="plus"></i> Novo Agendamento</div>
-                </div>
-              </header>
-              
-              <div class="demo-app-content">
-                <div class="demo-stat-grid">
-                  <div class="demo-stat-card">
-                    <div>
-                      <div class="demo-stat-label">Agendamentos</div>
-                      <div class="demo-stat-value" style="color:#E11D48">0</div>
-                    </div>
-                    <div class="demo-stat-icon" style="background:rgba(225, 29, 72, 0.1);color:#E11D48"><i data-lucide="calendar"></i></div>
-                  </div>
-                  <div class="demo-stat-card">
-                    <div>
-                      <div class="demo-stat-label">Faturamento</div>
-                      <div class="demo-stat-value" style="color:#10B981">R$ 0,00</div>
-                    </div>
-                    <div class="demo-stat-icon" style="background:rgba(16, 185, 129, 0.1);color:#10B981"><i data-lucide="trending-up"></i></div>
-                  </div>
-                  <div class="demo-stat-card">
-                    <div>
-                      <div class="demo-stat-label">Comissões</div>
-                      <div class="demo-stat-value" style="color:#F59E0B">R$ 0,00</div>
-                    </div>
-                    <div class="demo-stat-icon" style="background:rgba(245, 158, 11, 0.1);color:#F59E0B"><i data-lucide="dollar-sign"></i></div>
-                  </div>
-                  <div class="demo-stat-card">
-                    <div>
-                      <div class="demo-stat-label">Clientes Ativos</div>
-                      <div class="demo-stat-value" style="color:#8B5CF6">0</div>
-                    </div>
-                    <div class="demo-stat-icon" style="background:rgba(139, 92, 246, 0.1);color:#8B5CF6"><i data-lucide="users"></i></div>
-                  </div>
-                </div>
-                
-                <div class="demo-dashboard-grid beauty-dashboard">
-                  <div class="demo-panel">
-                    <div class="demo-panel-header">
-                      <div class="demo-panel-title">Ações Rápidas</div>
-                    </div>
-                    <div class="demo-quick-action" style="background:rgba(225, 29, 72, 0.1);color:#FB7185">
-                      Novo Agendamento <i data-lucide="calendar-plus"></i>
-                    </div>
-                    <div class="demo-quick-action" style="background:rgba(255,255,255,0.05);color:#fff">
-                      Fechar Caixa <i data-lucide="check-circle-2"></i>
-                    </div>
-                    <div class="demo-quick-action" style="background:rgba(255,255,255,0.05);color:#fff">
-                      Gerar Relatório <i data-lucide="file-bar-chart"></i>
-                    </div>
-                  </div>
-                  <div class="demo-panel demo-panel-large demo-panel-empty">
-                    <div class="demo-panel-header">
-                      <div class="demo-panel-title">Próximos Agendamentos</div>
-                    </div>
-                    <div class="demo-empty-state">
-                      <i data-lucide="calendar-check"></i>
-                      <strong>Tudo tranquilo por hoje</strong>
-                      <span>A recepção acompanha horários, profissionais e clientes nesta área.</span>
-                    </div>
-                  </div>
-                  <div class="demo-panel demo-panel-wide demo-panel-empty">
-                    <div class="demo-panel-header">
-                      <div class="demo-panel-title">Tendência Semanal</div>
-                    </div>
-                    <div class="demo-empty-state demo-empty-state-inline">
-                      <i data-lucide="bar-chart-3"></i>
-                      <strong>Sem dados suficientes</strong>
-                      <span>Os indicadores aparecem conforme atendimentos, pacotes e checkout são registrados.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </main>
+          <ul class="product-demo-list">
+            <li>Agenda por especialista com visão prática de horários, serviços e equipe.</li>
+            <li>Pacotes, recorrência, checkout e clientes no mesmo fluxo de atendimento.</li>
+            <li>Estoque e relatórios para acompanhar faturamento e desempenho da operação.</li>
+          </ul>
+          <div class="product-demo-note">
+            <i data-lucide="smartphone"></i>
+            No celular, o botão de demo abre o WhatsApp com a mensagem pronta para seguirmos por ali.
           </div>
-          
-          <div class="demo-script-card">
-            <div class="demo-script-title"><i data-lucide="mouse-pointer-click"></i> Roteiro rápido</div>
-            <div class="demo-script-text">1. Veja agenda por profissional<br>2. Abra checkout/caixa e pacotes<br>3. Confira clientes, estoque e relatórios</div>
+          <div class="actions">
+            <button class="btn primary" onclick="openDemoModal()">
+              <i data-lucide="play-circle"></i>
+              Experimentar demo
+            </button>
+            <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Beleza & Spa e quero uma apresentação guiada da demo.', 'Beleza & Spa')">
+              <i data-lucide="message-square-text"></i>
+              Ver pelo WhatsApp
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="recursos" class="section real-section">
+    <section id="recursos" class="section assistencia-section">
       <div class="container">
-        <span class="eyebrow">O que está no sistema</span>
-        <h2>Mais previsibilidade para uma operação cheia de detalhes.</h2>
+        <span class="eyebrow">Módulos do sistema</span>
+        <h2>Os blocos que sustentam a rotina de beleza e estética.</h2>
         <div class="grid cols-3">
           <article class="card"><h3><i data-lucide="calendar"></i>Agenda por especialista</h3><p>Organize horários, serviços e profissionais em uma visão simples para recepção e equipe.</p></article>
           <article class="card"><h3><i data-lucide="sparkles"></i>Pacotes e recorrência</h3><p>Acompanhe sessões, tratamentos vendidos e clientes que retornam.</p></article>
@@ -187,87 +137,146 @@
       </div>
     </section>
 
-    <section id="como-funciona" class="section real-section">
+    <section id="como-funciona" class="section assistencia-section">
       <div class="container">
         <span class="eyebrow">Como funciona na rotina</span>
         <h2>Do agendamento ao retorno recorrente.</h2>
         <div class="routine-flow">
           <div class="routine-step">
             <div class="step-number">1</div>
-            <h3>Agendamento Fácil</h3>
+            <h3>Agendamento fácil</h3>
             <p>A recepcionista marca o horário com a especialista ideal, reduzindo sobreposições e salas vazias.</p>
           </div>
           <div class="routine-step">
             <div class="step-number">2</div>
-            <h3>O Atendimento</h3>
-            <p>O cliente aproveita a experiência. A clínica acompanha se foi um serviço avulso ou a baixa de um pacote.</p>
+            <h3>O atendimento</h3>
+            <p>O cliente aproveita a experiência enquanto a clínica acompanha se foi um serviço avulso ou a baixa de um pacote.</p>
           </div>
           <div class="routine-step">
             <div class="step-number">3</div>
-            <h3>Checkout e Compras</h3>
-            <p>Na saída, o cliente paga o serviço e pode comprar aquele produto sugerido (baixa no estoque imediata).</p>
+            <h3>Checkout e compras</h3>
+            <p>Na saída, o cliente paga o serviço e pode comprar o produto sugerido, com baixa imediata no estoque.</p>
           </div>
           <div class="routine-step">
             <div class="step-number">4</div>
-            <h3>Retorno Garantido</h3>
-            <p>O sistema processa as comissões e já programa o retorno do cliente para não perder a recorrência.</p>
+            <h3>Retorno garantido</h3>
+            <p>O sistema processa comissões e ajuda a organizar o retorno para não perder recorrência.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="por-que-usar" class="section real-section">
+    <section id="beneficios" class="section assistencia-benefits-section beauty-benefits-section">
       <div class="container grid cols-2">
-        <div>
+        <div class="assistencia-benefits-intro">
           <span class="eyebrow">Por que usar</span>
           <h2>A beleza está nos detalhes da gestão.</h2>
           <p>O Beleza & Spa entende que você vende bem-estar. Tire o papel da recepção, evite falhas na agenda e cuide para que cada cliente se sinta único, enquanto o financeiro se organiza sozinho.</p>
         </div>
-        <div class="grid cols-2">
-          <article class="card">
-            <h3>Controle de Pacotes</h3>
-            <p>Chega de cartão de papel. Saiba quantas sessões o cliente ainda tem disponíveis no pacote.</p>
+        <div class="assistencia-benefits-grid">
+          <article class="assistencia-benefit-card">
+            <h3>Controle de pacotes</h3>
+            <p>Saiba quantas sessões o cliente ainda tem disponíveis sem depender de cartão manual.</p>
           </article>
-          <article class="card">
-            <h3>Agenda Harmoniosa</h3>
-            <p>Colunas visuais por especialista. Encaixes são feitos sem gerar estresse e filas de espera.</p>
+          <article class="assistencia-benefit-card">
+            <h3>Agenda harmoniosa</h3>
+            <p>Colunas por especialista ajudam a fazer encaixes sem gerar estresse e filas de espera.</p>
           </article>
-          <article class="card">
-            <h3>Estoque e Revenda</h3>
-            <p>Sabe aqueles produtos de manutenção do tratamento? O sistema controla o estoque e registra o lucro.</p>
+          <article class="assistencia-benefit-card">
+            <h3>Estoque e revenda</h3>
+            <p>Produtos de manutenção do tratamento entram no mesmo controle da operação diária.</p>
           </article>
-          <article class="card">
-            <h3>Comissões Automatizadas</h3>
+          <article class="assistencia-benefit-card">
+            <h3>Comissões automatizadas</h3>
             <p>Cada profissional sabe exatamente quanto gerou, e a clínica não precisa refazer contas no fim do mês.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="plano" class="section real-plan">
-      <div class="container grid cols-2">
-        <div>
-          <span class="eyebrow">Entrada comercial</span>
-          <h2>A partir de R$ 97/mês.</h2>
-          <p>Para salões, clínicas de estética e spas que precisam profissionalizar agenda, pacotes e atendimento sem perder o cuidado da experiência.</p>
-          <div class="promo-phrase">
-            ⭐ <strong>solicite um perído de teste gratuito</strong>
-          </div>
+    <section id="plano" class="section assistencia-plan beauty-plan">
+      <div class="container">
+        <div class="assistencia-pricing-intro"><span class="eyebrow" style="justify-content:center;">Planos e implantação</span><h2>Escolha o formato que acompanha a evolução do seu espaço de beleza.</h2><p>Comece com uma licença para organizar a operação local ou amplie o atendimento com recursos on-line, agendamento e uma experiência personalizada para sua marca.</p></div>
+        <div class="assistencia-pricing-grid">
+          <article class="card assistencia-price-card"><span class="assistencia-price-card__eyebrow">Compra única</span><h3>Licença Vitalícia</h3><p class="assistencia-price-card__price">R$ 299,90 <small>pagamento único</small></p><p class="assistencia-price-card__summary">Para organizar a operação com os recursos atuais do Gestão Beleza Pro.</p><ul class="clean"><li>Agenda, clientes, pacotes e histórico de atendimentos.</li><li>Checkout, caixa, comissões, estoque e relatórios da operação.</li><li>Backup e restauração para manter a rotina protegida.</li></ul><button class="btn light" onclick="openProductWhatsApp('Olá! Quero entender a Licença Vitalícia do Gestão Beleza Pro por R$ 299,90.', 'Beleza & Spa')">Quero a licença vitalícia</button></article>
+          <article class="card assistencia-price-card assistencia-price-card--featured"><span class="assistencia-price-card__eyebrow">Operação on-line</span><h3>On-line Essencial</h3><p class="assistencia-price-card__price">R$ 59,90 <small>por mês</small></p><p class="assistencia-price-card__summary">Para equipes que precisam acompanhar a rotina em mais de um ponto do negócio.</p><ul class="clean"><li>7 módulos para agenda, clientes, checkout, caixa, comissões, estoque e relatórios.</li><li>Até 6 usuários configurados para a equipe.</li><li>Uso em até 2 dispositivos da operação.</li></ul><button class="btn primary" onclick="openProductWhatsApp('Olá! Quero conhecer o plano On-line Essencial do Gestão Beleza Pro por R$ 59,90/mês.', 'Beleza & Spa')">Falar sobre recursos on-line</button></article>
+          <article class="card assistencia-price-card"><span class="assistencia-price-card__eyebrow">Experiência premium</span><h3>On-line Premium</h3><p class="assistencia-price-card__price">R$ 99,00 <small>por mês</small></p><p class="assistencia-price-card__summary">Para ampliar conveniência para clientes e flexibilidade para a equipe.</p><ul class="clean"><li>9 módulos para uma visão mais completa da rotina.</li><li>Agendamento on-line para clientes solicitarem horários.</li><li>Mais usuários e dispositivos, definidos conforme a operação.</li></ul><button class="btn light" onclick="openProductWhatsApp('Olá! Quero avaliar os recursos do plano On-line Premium do Gestão Beleza Pro por R$ 99,00/mês.', 'Beleza & Spa')">Avaliar plano premium</button></article>
+          <article class="card assistencia-price-card assistencia-price-card--custom"><span class="assistencia-price-card__eyebrow">Projeto personalizado</span><h3>Sistema Completo com sua Marca</h3><p class="assistencia-price-card__price">R$ 1.699,90 <small>implantação inicial</small></p><p class="assistencia-price-card__summary">Uma versão completa, preparada com sua identidade visual e os fluxos da sua empresa.</p><ul class="clean"><li>Personalização de marca, cores e apresentação do sistema.</li><li>Configuração orientada da implantação e dos recursos contratados.</li><li>Hospedagem e domínio cobrados à parte, com renovação anual.</li></ul><button class="btn light" onclick="openProductWhatsApp('Olá! Quero solicitar uma proposta para o Sistema Completo com minha marca, a partir de R$ 1.699,90.', 'Beleza & Spa')">Solicitar proposta</button></article>
         </div>
-        <div class="card plan-card">
-          <p class="price">Teste antes de conversar</p>
-          <ul class="clean">
-            <li>Interface alinhada ao sistema de beleza.</li>
-            <li>Fluxo de agenda, pacotes, checkout, equipe e estoque.</li>
-            <li>Dados fictícios para avaliar a rotina.</li>
-            <li>Mensagem de WhatsApp identifica o site.</li>
-          </ul>
+        <p class="assistencia-pricing-note"><i data-lucide="info"></i> Os recursos on-line, usuários e dispositivos são configurados conforme o plano contratado. Confirme a composição ideal pelo WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="section proof-section">
+      <div class="container">
+        <div style="text-align:center; max-width:640px; margin:0 auto 32px;">
+          <span class="eyebrow" style="justify-content:center;">Cenários que resolvemos</span>
+          <h2 style="margin-left:auto; margin-right:auto;">Perfis de operação que costumam buscar esse tipo de sistema.</h2>
+          <p>Quando agenda, pacotes, recepção e retorno ficam separados, o negócio perde tempo e previsibilidade. Este é o tipo de operação que a landing atende.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="card proof-card"><span class="proof-meta">Clínica de estética</span><p>Recorrência e pacotes precisam conversar com a agenda sem controle paralelo.</p></article>
+          <article class="card proof-card"><span class="proof-meta">Salão premium</span><p>Equipe, especialistas e checkout operam melhor quando a recepção vê tudo em uma só tela.</p></article>
+          <article class="card proof-card"><span class="proof-meta">Spa urbano</span><p>Pacotes, consumo de produtos e retorno do cliente pedem mais rastreabilidade.</p></article>
+          <article class="card proof-card"><span class="proof-meta">Operação recorrente</span><p>Atendimento, revenda e faturamento ficam mais previsíveis com o fluxo integrado.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section faq assistencia-section assistencia-faq beauty-faq">
+      <div class="container" style="max-width:760px;">
+        <div class="assistencia-faq__list">
+        <details>
+          <summary><span><b>01</b> Posso testar antes de contratar?</span></summary>
+          <p>Sim. Abra a demo completa ou solicite o teste gratuito de 7 dias pelo WhatsApp para conhecer a rotina antes de decidir.</p>
+        </details>
+        <details>
+          <summary><span><b>02</b> O sistema ajuda a controlar pacotes e recorrência?</span></summary>
+          <p>Sim. A gestão de sessões, tratamentos e histórico do cliente foi pensada para manter a recorrência visível na mesma rotina da agenda.</p>
+        </details>
+        <details>
+          <summary><span><b>03</b> Agenda, checkout e estoque ficam conectados?</span></summary>
+          <p>Sim. O atendimento parte da agenda, passa pelo checkout e pode atualizar o controle dos produtos usados ou vendidos na recepção.</p>
+        </details>
+        <details>
+          <summary><span><b>04</b> A demo abre no celular?</span></summary>
+          <p>A demonstração é voltada para tela ampla. No celular, recomendamos solicitar uma apresentação ou o teste guiado pelo WhatsApp.</p>
+        </details>
+        <details><summary><span><b>05</b> Como começo?</span></summary><p>Abra a demo do sistema ou chame a Plena no WhatsApp para alinharmos plano, implantação e a rotina do seu espaço.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section assistencia-final-cta beauty-final-cta">
+      <div class="container">
+        <span class="eyebrow">Próximo passo</span><h2 style="max-width:620px;margin:0 auto 10px">Deixe a gestão acompanhar o cuidado que sua equipe entrega.</h2>
+        <p>Abra a demo no desktop ou solicite seu teste gratuito de 7 dias para conhecer o Gestão Beleza Pro com orientação.</p>
+        <div class="actions" style="justify-content:center">
+          <button class="btn primary" onclick="openDemoModal()">
+            <i data-lucide="play-circle"></i>
+            Abrir demo real
+          </button>
+          <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pelo site e quero agendar uma demonstração do Beleza & Spa.', 'Beleza & Spa')">
+            Solicitar teste gratuito
+          </button>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">Plena Informática - Beleza & Spa</footer>
+
+  <div id="demo-modal" role="dialog" aria-modal="true" aria-label="Demo Beleza & Spa">
+    <div class="mbox">
+      <div class="mhead">
+        <i data-lucide="monitor-up" style="color:#E11D48;width:16px;height:16px;"></i>
+        <span>Plena Beleza & Spa - Demo interativa</span>
+        <button class="mclose" onclick="closeDemoModal()" aria-label="Fechar">×</button>
+      </div>
+      <div class="demo-frame-stage"><button class="demo-fullscreen-close" type="button" onclick="closeDemoModal()" aria-label="Fechar demonstração"><i data-lucide="x"></i></button><div class="demo-frame-loader" aria-live="polite"><span class="demo-frame-loader__spinner" aria-hidden="true"></span><strong>Preparando sua demonstração</strong><p>Estamos carregando o sistema para você explorar em tela cheia.</p></div><iframe id="demo-frame" src="" title="Demo Beleza & Spa" allow="fullscreen"></iframe></div>
+    </div>
+  </div>
+
   <script src="../tecnologia/demos/gestao-barbearia/assets/libs/lucide.js"></script>
   <script src="assets/produtos.js"></script>
   <script>if (window.lucide) window.lucide.createIcons();</script>

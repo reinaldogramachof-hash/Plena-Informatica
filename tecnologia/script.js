@@ -133,14 +133,14 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 // Navegação por teclado nas abas (setas esquerda/direita, Home, End)
 document.querySelector('.tab-track')?.addEventListener('keydown', e => {
   const tabs = [...document.querySelectorAll('.tab-btn[role="tab"]')];
-  const idx  = tabs.indexOf(document.activeElement);
+  const idx = tabs.indexOf(document.activeElement);
   if (idx === -1) return;
 
   let next = -1;
-  if (e.key === 'ArrowRight')  next = (idx + 1) % tabs.length;
-  if (e.key === 'ArrowLeft')   next = (idx - 1 + tabs.length) % tabs.length;
-  if (e.key === 'Home')        next = 0;
-  if (e.key === 'End')         next = tabs.length - 1;
+  if (e.key === 'ArrowRight') next = (idx + 1) % tabs.length;
+  if (e.key === 'ArrowLeft') next = (idx - 1 + tabs.length) % tabs.length;
+  if (e.key === 'Home') next = 0;
+  if (e.key === 'End') next = tabs.length - 1;
 
   if (next !== -1) {
     e.preventDefault();
@@ -155,64 +155,64 @@ const desktopQuery = window.matchMedia('(min-width: 768px)');
 
 const NICHE_FILTERS = {
   'tab-gestão': [
-    { label: 'Todos',         value: '' },
-    { label: 'Com Demo',      value: 'demo' },
-    { label: 'Em Implantação',value: 'breve' },
+    { label: 'Todos', value: '' },
+    { label: 'Com Demo', value: 'demo' },
+    { label: 'Em Implantação', value: 'breve' },
   ],
   'tab-landing': [
-    { label: 'Todos',         value: '' },
-    { label: 'Captação',      value: 'captacao' },
-    { label: 'Lançamento',    value: 'lancamento' },
-    { label: 'Eventos',       value: 'eventos' },
+    { label: 'Todos', value: '' },
+    { label: 'Captação', value: 'captacao' },
+    { label: 'Lançamento', value: 'lancamento' },
+    { label: 'Eventos', value: 'eventos' },
     { label: 'Institucional', value: 'institucional' },
   ],
   'tab-sites': [
-    { label: 'Todos',         value: '' },
-    { label: 'Dados & B.I.',  value: 'dados' },
-    { label: 'Sistemas',      value: 'sistemas' },
+    { label: 'Todos', value: '' },
+    { label: 'Dados & B.I.', value: 'dados' },
+    { label: 'Sistemas', value: 'sistemas' },
     { label: 'Presença Digital', value: 'presenca' },
   ],
   'tab-ecom': [
-    { label: 'Todos',             value: '' },
-    { label: 'Varejo',            value: 'varejo' },
-    { label: 'Alimentação',       value: 'alimentacao' },
+    { label: 'Todos', value: '' },
+    { label: 'Varejo', value: 'varejo' },
+    { label: 'Alimentação', value: 'alimentacao' },
     { label: 'Serviços Digitais', value: 'servicos' },
-    { label: 'Especialidade',     value: 'especialidade' },
+    { label: 'Especialidade', value: 'especialidade' },
   ],
 };
 
 // Mapeia data-offer → nicho (null = sempre visível)
 const NICHE_MAP = {
-  'assistencia-pro':     'demo',
-  'barbearia-premium':   'demo',
-  'beleza-spa':          'demo',
-  'gestão-gastro':       'breve',
+  'assistencia-pro': 'demo',
+  'barbearia-premium': 'demo',
+  'beleza-spa': 'demo',
+  'gestão-gastro': 'breve',
   'landing-infoproduto': 'lancamento',
-  'captura-leads':       'captacao',
-  'eventos-ingressos':   'eventos',
-  'case-sucesso':        'institucional',
-  'comparativo':         'institucional',
-  'agendamento':         'institucional',
-  'feature':             'lancamento',
-  'waitlist':            'captacao',
-  'oferta':              'lancamento',
-  'link-bio':            'institucional',
-  'dashboards-bi':       'dados',
-  'erps-custom':         'sistemas',
-  'crms':                'sistemas',
-  'site-corporativo':    'presenca',
-  'portais':             'presenca',
-  'ecommerce':           null,        // card de abertura — sempre visível
-  'ecom-moda':           'varejo',
-  'ecom-eletronicos':    'varejo',
-  'ecom-supermercado':   'alimentacao',
-  'ecom-b2b':            'servicos',
-  'ecom-infoproduto':    'servicos',
-  'ecom-assinaturas':    'servicos',
-  'ecom-autopecas':      'especialidade',
-  'ecom-farmacia':       'especialidade',
-  'ecom-moveis':         'varejo',
-  'ecom-cosmeticos':     'varejo',
+  'captura-leads': 'captacao',
+  'eventos-ingressos': 'eventos',
+  'case-sucesso': 'institucional',
+  'comparativo': 'institucional',
+  'agendamento': 'institucional',
+  'feature': 'lancamento',
+  'waitlist': 'captacao',
+  'oferta': 'lancamento',
+  'link-bio': 'institucional',
+  'dashboards-bi': 'dados',
+  'erps-custom': 'sistemas',
+  'crms': 'sistemas',
+  'site-corporativo': 'presenca',
+  'portais': 'presenca',
+  'ecommerce': null,        // card de abertura — sempre visível
+  'ecom-moda': 'varejo',
+  'ecom-eletronicos': 'varejo',
+  'ecom-supermercado': 'alimentacao',
+  'ecom-b2b': 'servicos',
+  'ecom-infoproduto': 'servicos',
+  'ecom-assinaturas': 'servicos',
+  'ecom-autopecas': 'especialidade',
+  'ecom-farmacia': 'especialidade',
+  'ecom-moveis': 'varejo',
+  'ecom-cosmeticos': 'varejo',
 };
 
 const activeFilters = {};
@@ -222,23 +222,23 @@ function injectNicheFilters() {
   if (!viewport) return;
 
   const container = document.createElement('div');
-  container.id        = 'niche-filter-container';
+  container.id = 'niche-filter-container';
   container.className = 'niche-filter-container';
 
   Object.entries(NICHE_FILTERS).forEach(([tabId, filters]) => {
     const row = document.createElement('div');
-    row.className     = 'niche-filter-row';
-    row.id            = `niche-row-${tabId}`;
+    row.className = 'niche-filter-row';
+    row.id = `niche-row-${tabId}`;
     row.setAttribute('role', 'group');
     row.setAttribute('aria-label', 'Filtrar por categoria');
     row.hidden = true;
 
     filters.forEach(({ label, value }) => {
       const btn = document.createElement('button');
-      btn.type      = 'button';
+      btn.type = 'button';
       btn.className = 'niche-chip' + (value === '' ? ' active' : '');
       btn.dataset.niche = value;
-      btn.textContent   = label;
+      btn.textContent = label;
       btn.addEventListener('click', () => onNicheChipClick(tabId, value));
       row.appendChild(btn);
     });
@@ -278,7 +278,7 @@ function applyNicheFilter(tabId, value) {
   if (!pane) return;
 
   pane.querySelectorAll('[data-offer]').forEach(card => {
-    const niche   = NICHE_MAP[card.dataset.offer];
+    const niche = NICHE_MAP[card.dataset.offer];
     const matches = niche === null || !value || niche === value;
     card.classList.toggle('card-hidden', !matches);
     card.toggleAttribute('aria-hidden', !matches);
@@ -322,13 +322,13 @@ function trapModalFocus(modal) {
   const getFocusable = () => [...modal.querySelectorAll(FOCUSABLE)].filter(el => !el.closest('iframe'));
   modalTrapHandler = e => {
     if (e.key !== 'Tab') return;
-    const els   = getFocusable();
+    const els = getFocusable();
     const first = els[0];
-    const last  = els[els.length - 1];
+    const last = els[els.length - 1];
     if (e.shiftKey) {
       if (document.activeElement === first) { e.preventDefault(); last.focus(); }
     } else {
-      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   };
   modal.addEventListener('keydown', modalTrapHandler);
@@ -341,7 +341,7 @@ function removeTrapModalFocus(modal) {
   }
 }
 
-function openDemoModal(url, offer = 'demo') {
+function openDemoModal(url, offer = 'demo', displayMode = 'fullscreen') {
   if (!url) return;
   const modal = document.getElementById('demo-modal');
   const iframe = document.getElementById('demo-iframe');
@@ -351,7 +351,8 @@ function openDemoModal(url, offer = 'demo') {
   modalOpener = document.activeElement;
 
   currentDemoOffer = offer;
-  
+  modal.classList.toggle('demo-modal--compact', displayMode === 'compact');
+
   // Adiciona cache buster para evitar problemas de cache de redirecionamento 301 do 'serve'
   const cacheBuster = url.includes('?') ? '&_t=' + Date.now() : '?_t=' + Date.now();
   const finalUrl = url + cacheBuster;
@@ -402,6 +403,7 @@ function closeDemoModal() {
   modal.classList.add('opacity-0');
   setTimeout(() => {
     modal.classList.add('hidden');
+    modal.classList.remove('demo-modal--compact');
     iframe.src = '';
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gestão-assistencia-cache-v6';
+const CACHE_NAME = 'gestão-assistencia-cache-v7';
 const urlsToCache = [
   './',
   './index.html',
