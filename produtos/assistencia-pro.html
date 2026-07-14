@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assistência Pro | Sistema para Assistências Técnicas</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='56' y2='56' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2360A5FA'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230B1730'/%3E%3Cpath d='M41.8 11.5a14.2 14.2 0 0 0-15.9 18L12.2 43.2a6.3 6.3 0 0 0 8.9 8.9l13.7-13.7a14.2 14.2 0 0 0 18-15.4l-8.4 8.4-7.1-1.9-1.9-7.1z' fill='url(%23g)'/%3E%3Cpath d='M18 47.5 31.5 34' stroke='%23EAF2FF' stroke-width='3.5' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='47.5' r='2.7' fill='%23EAF2FF'/%3E%3Cpath d='M12 18h9m0 0v-6m0 6 5 5' fill='none' stroke='%2360A5FA' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='18' r='2.6' fill='%2360A5FA'/%3E%3C/svg%3E">
   <meta name="description" content="Sistema para assistências técnicas com ordens de serviço, orçamentos, estoque de peças, PDV, clientes, garantias e recibos via WhatsApp. Teste a demonstração da Plena.">
   <link rel="canonical" href="https://plenainformatica.com.br/produtos/assistencia-pro">
   <meta property="og:title" content="Assistência Pro | Plena Informática">
@@ -15,179 +16,99 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/produtos.css">
 </head>
-<body class="assistencia-product-page">
+<body id="topo"
+  class="assistencia-product-page"
+  data-demo-fullscreen="true"
+  data-demo-url="../tecnologia/demos/gestao-assistencia/index.html"
+  data-demo-title="Assistência Pro"
+  data-demo-mobile-message="Olá! Quero ver a demo do Assistência Pro mas estou pelo celular - pode me mostrar por aqui?">
   <header class="header">
     <nav class="nav">
-      <a href="../tecnologia.html">
-        <img class="logo brand-logo" src="../logo-plena.png" alt="Plena Informática">
+      <a class="assistencia-nav-brand" href="#topo" aria-label="Gestão Assistência Pro — voltar ao topo da página">
+        <span class="assistencia-nav-brand__icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M41.8 11.5a14.2 14.2 0 0 0-15.9 18L12.2 43.2a6.3 6.3 0 0 0 8.9 8.9l13.7-13.7a14.2 14.2 0 0 0 18-15.4l-8.4 8.4-7.1-1.9-1.9-7.1z" fill="currentColor"/>
+            <path d="M18 47.5 31.5 34" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M12 18h9m0 0v-6m0 6 5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="18" r="2.6" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="assistencia-nav-brand__copy">
+          <strong>Gestão Assistência</strong>
+          <small>Pro</small>
+        </span>
       </a>
       <div class="nav-links">
-        <a href="../tecnologia.html">Tecnologia</a>
-        <a href="#interface">Interface</a>
         <a href="#recursos">Recursos</a>
-        <a href="#plano">Plano</a>
-        <button class="btn light" onclick="openProductWhatsApp('Olá! Tenho interesse no Assistência Pro e vim pelo site. Gostaria de entender planos e implantação.', 'Assistência Pro')">
+        <a href="#por-que-usar">Benefícios</a>
+        <a href="#plano">Planos</a>
+        <a href="#faq">FAQ</a>
+        <a href="../tecnologia/tecnologia.html">Tecnologia</a>
+        <button class="btn light assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Tenho interesse no Assistência Pro e vim pelo site. Gostaria de entender planos e implantação.', 'Assistência Pro')">
           <i data-lucide="message-circle"></i>
-          WhatsApp
+        </button>
+      </div>
+      <div class="nav-mobile-actions">
+        <button class="btn light mobile-header-whatsapp assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Tenho interesse no Assistência Pro e vim pelo site. Gostaria de entender planos e implantação.', 'Assistência Pro')">
+          <i data-lucide="message-circle"></i>
+        </button>
+        <button class="mobile-menu-toggle" type="button" onclick="toggleProductMobileMenu()" aria-label="Abrir menu">
+          <i data-lucide="menu"></i>
         </button>
       </div>
     </nav>
   </header>
 
+  <div id="product-mobile-menu" class="product-mobile-menu" aria-hidden="true">
+    <div class="product-mobile-menu__backdrop" data-mobile-menu-close></div>
+    <aside class="product-mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Menu móvel Assistência Pro">
+      <div class="product-mobile-menu__header">
+        <div class="product-mobile-menu__title">
+          <span class="product-mobile-menu__eyebrow">Navegação</span>
+          <strong>Assistência Pro</strong>
+        </div>
+        <button class="mobile-menu-panel__close" type="button" onclick="toggleProductMobileMenu(false)" aria-label="Fechar menu">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <nav class="product-mobile-menu__links">
+        <a href="#recursos" data-mobile-menu-close><span>Recursos</span><span>→</span></a>
+        <a href="#por-que-usar" data-mobile-menu-close><span>Benefícios</span><span>→</span></a>
+        <a href="#plano" data-mobile-menu-close><span>Planos</span><span>→</span></a>
+        <a href="#faq" data-mobile-menu-close><span>FAQ</span><span>→</span></a>
+        <a href="../tecnologia/tecnologia.html" data-mobile-menu-close><span>Tecnologia</span><span>→</span></a>
+      </nav>
+      <button class="btn light" onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Tenho interesse no Assistência Pro e vim pelo site. Gostaria de entender planos e implantação.', 'Assistência Pro')">
+        <i data-lucide="message-circle"></i>
+        WhatsApp
+      </button>
+    </aside>
+  </div>
+
   <main>
     <section class="hero assistencia-hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Gestão Assistência Pro</span>
-          <h1>Ordens de serviço, estoque e caixa no mesmo painel.</h1>
-          <p class="lead">Prévia visual baseada no modo demo real: controle sua rotina operacional com dashboard, O.S., clientes, PDV, estoque, fluxo de caixa e relatórios.</p>
-          <div class="actions">
-            <a class="btn primary" href="../tecnologia/demos/gestao-assistencia/index.html" target="_blank" rel="noopener">
-              <i data-lucide="monitor-up"></i>
-              Abrir demo real
-            </a>
-            <button class="btn light" onclick="openProductWhatsApp('Olá! Testei ou quero testar o Assistência Pro pelo site da Plena. Gostaria de receber uma proposta.', 'Assistência Pro')">
-              <i data-lucide="send"></i>
-              Quero uma proposta
-            </button>
-          </div>
-          <div class="promo-phrase">
-            ⭐ <strong>solicite um perído de teste gratuito</strong>
-          </div>
+      <div class="container assistencia-hero-content">
+        <span class="eyebrow">Sistema para assistências técnicas</span>
+        <h1>Gestão Assistência <span class="assistencia-hero__pro">Pro</span></h1>
+        <p class="lead">Ordens de serviço, estoque e caixa organizados em uma única rotina.</p>
+        <div class="actions">
+          <button class="btn primary" onclick="openDemoModal()">
+            <i data-lucide="monitor-up"></i>
+            Abrir Demo do Sistema
+          </button>
+          <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Assistência Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Assistência Pro')">
+            <i data-lucide="rocket"></i>
+            Solicitar teste gratuito de 7 dias
+          </button>
         </div>
-
-        <div id="interface" class="real-demo-frame assistencia-frame" aria-label="Prévia visual baseada no modo demo real do Assistência Pro">
-          <div class="demo-strip">
-            <span>MODO DEMONSTRAÇÃO • ASSISTÊNCIA PRO • DADOS FICTÍCIOS</span>
-            <div class="demo-strip-buttons">
-              <span class="demo-strip-btn primary"><i data-lucide="message-circle" style="width:12px;height:12px"></i> Gostei, chamar no WhatsApp</span>
-              <span class="demo-strip-btn"><i data-lucide="rotate-ccw" style="width:12px;height:12px"></i> Resetar demo</span>
-            </div>
-          </div>
-          
-          <div class="demo-app-layout">
-            <aside class="demo-sidebar-rail">
-              <div class="demo-sidebar-logo">
-                <i data-lucide="wrench" style="width:20px;height:20px;color:#fff;"></i>
-              </div>
-              <div class="demo-nav-icon active"><i data-lucide="layout-dashboard"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="clipboard-list"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="users"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="shopping-cart"></i></div>
-              <div class="demo-nav-icon"><i data-lucide="package"></i></div>
-              <div style="flex:1"></div>
-              <div class="demo-nav-icon" style="color:#fbbf24"><i data-lucide="gem"></i></div>
-            </aside>
-            
-            <main class="demo-app-main">
-              <header class="demo-app-header">
-                <div>
-                  <div class="demo-header-title">Visão Geral</div>
-                  <div class="demo-header-subtitle">Domingo, 07 de junho de 2026 • 21:14:18</div>
-                </div>
-                <div class="demo-header-actions">
-                  <div class="demo-btn demo-btn-secondary"><i data-lucide="check-circle-2"></i> Fechar Caixa</div>
-                  <div class="demo-btn demo-btn-primary"><i data-lucide="plus"></i> Nova O.S.</div>
-                </div>
-              </header>
-              
-              <div class="demo-app-content">
-                <div class="demo-stat-grid">
-                  <div class="demo-stat-card">
-                    <div>
-                      <div class="demo-stat-label">Em Andamento</div>
-                      <div class="demo-stat-value" style="color:#2563EB">0</div>
-                    </div>
-                    <div class="demo-stat-icon" style="background:#EFF6FF;color:#2563EB"><i data-lucide="clock"></i></div>
-                  </div>
-                  <div class="demo-stat-card">
-                    <div>
-                      <div class="demo-stat-label">Prontos</div>
-                      <div class="demo-stat-value" style="color:#16A34A">0</div>
-                    </div>
-                    <div class="demo-stat-icon" style="background:#DCFCE7;color:#16A34A"><i data-lucide="check-circle"></i></div>
-                  </div>
-                  <div class="demo-stat-card">
-                    <div>
-                      <div class="demo-stat-label">Vendas PDV</div>
-                      <div class="demo-stat-value" style="color:#9333EA">0</div>
-                    </div>
-                    <div class="demo-stat-icon" style="background:#F3E8FF;color:#9333EA"><i data-lucide="shopping-cart"></i></div>
-                  </div>
-                  <div class="demo-stat-card">
-                    <div>
-                      <div class="demo-stat-label">Faturamento</div>
-                      <div class="demo-stat-value">R$ 0,00</div>
-                    </div>
-                    <div class="demo-stat-icon" style="background:#FEF9C3;color:#CA8A04"><i data-lucide="dollar-sign"></i></div>
-                  </div>
-                </div>
-                
-                <div class="demo-dashboard-grid assistencia-dashboard">
-                  <div class="demo-panel demo-panel-large">
-                    <div class="demo-panel-header">
-                      <div class="demo-panel-title">Distribuição por Status</div>
-                    </div>
-                    <div class="demo-status-chart">
-                      <span style="--h:18%;--c:#94A3B8"><b>Rec</b></span>
-                      <span style="--h:18%;--c:#3B82F6"><b>Ana</b></span>
-                      <span style="--h:18%;--c:#F59E0B"><b>Peç</b></span>
-                      <span style="--h:18%;--c:#10B981"><b>Pro</b></span>
-                      <span style="--h:18%;--c:#8B5CF6"><b>Ent</b></span>
-                    </div>
-                  </div>
-                  
-                  <div class="demo-panel">
-                    <div class="demo-panel-header">
-                      <div class="demo-panel-title">Ações Rápidas</div>
-                    </div>
-                    <div class="demo-quick-action" style="background:#EFF6FF;color:#1D4ED8">
-                      Ver todas as O.S. <i data-lucide="arrow-right"></i>
-                    </div>
-                    <div class="demo-quick-action" style="background:#DCFCE7;color:#15803D">
-                      Cadastrar Produto <i data-lucide="package-plus"></i>
-                    </div>
-                    <div class="demo-quick-action" style="background:#F3E8FF;color:#7E22CE">
-                      Gerar Relatório <i data-lucide="file-bar-chart"></i>
-                    </div>
-                  </div>
-                  <div class="demo-panel demo-panel-empty">
-                    <div class="demo-panel-header">
-                      <div class="demo-panel-title">Ordens de Serviço Recentes</div>
-                    </div>
-                    <div class="demo-empty-state">
-                      <i data-lucide="clipboard-list"></i>
-                      <strong>Nenhuma ordem recente</strong>
-                      <span>As O.S. abertas aparecem aqui conforme a rotina de balcão.</span>
-                    </div>
-                  </div>
-                  <div class="demo-panel demo-panel-empty">
-                    <div class="demo-panel-header">
-                      <div class="demo-panel-title">Alerta de Baixo Estoque</div>
-                    </div>
-                    <div class="demo-empty-state">
-                      <i data-lucide="package-check"></i>
-                      <strong>Estoque em dia</strong>
-                      <span>Itens críticos ficam destacados quando chegam ao limite mínimo.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </main>
-          </div>
-          
-          <div class="demo-script-card">
-            <div class="demo-script-title"><i data-lucide="mouse-pointer-click"></i> Roteiro rápido</div>
-            <div class="demo-script-text">1. Abra uma ordem de serviço<br>2. Confira estoque, peças e PDV<br>3. Veja clientes, recibos e relatórios</div>
-          </div>
-        </div>
+        <p class="assistencia-hero-note"><i data-lucide="message-circle"></i> Teste orientado pelo WhatsApp, sem cartão nesta página.</p>
       </div>
     </section>
 
     <section id="recursos" class="section assistencia-section">
       <div class="container">
-        <span class="eyebrow">O que está no sistema</span>
-        <h2>Os módulos reais do demo, explicados para o cliente.</h2>
+        <span class="eyebrow">Módulos do sistema</span>
+        <h2>Os módulos reais da operação técnica, explicados com clareza.</h2>
         <div class="grid cols-3">
           <article class="card">
             <h3><i data-lucide="clipboard-list"></i>Ordens de serviço</h3>
@@ -198,7 +119,7 @@
             <p>Controle de peças, baixa vinculada à O.S., alerta de item crítico e custo para manter margem nas vendas.</p>
           </article>
           <article class="card">
-            <h3><i data-lucide="shopping-cart"></i>PDV - Vendas</h3>
+            <h3><i data-lucide="shopping-cart"></i>PDV - vendas</h3>
             <p>Venda rápida de acessórios, serviços e produtos com reflexo no caixa e recibos para o cliente.</p>
           </article>
           <article class="card">
@@ -224,105 +145,224 @@
         <div class="routine-flow">
           <div class="routine-step">
             <div class="step-number">1</div>
-            <h3>Cliente Entra</h3>
-            <p>O equipamento é registrado no balcão e uma nova Ordem de Serviço é criada com foto e relato do cliente.</p>
+            <h3>Cliente entra</h3>
+            <p>O equipamento é registrado no balcão e uma nova ordem de serviço é criada com foto e relato do cliente.</p>
           </div>
           <div class="routine-step">
             <div class="step-number">2</div>
-            <h3>Análise Técnica</h3>
+            <h3>Análise técnica</h3>
             <p>O técnico inclui o diagnóstico, vincula as peças necessárias do estoque e envia o orçamento pelo WhatsApp.</p>
           </div>
           <div class="routine-step">
             <div class="step-number">3</div>
-            <h3>Conserto & Peças</h3>
-            <p>Após a aprovação, o serviço é realizado, a peça é baixada do estoque automaticamente e o status muda para Pronto.</p>
+            <h3>Conserto e peças</h3>
+            <p>Após a aprovação, o serviço é realizado, a peça é baixada do estoque automaticamente e o status muda para pronto.</p>
           </div>
           <div class="routine-step">
             <div class="step-number">4</div>
-            <h3>Entrega & Caixa</h3>
-            <p>O cliente retira o aparelho, paga no balcão (PDV), o recibo e a garantia são emitidos e o caixa do dia é alimentado.</p>
+            <h3>Entrega e caixa</h3>
+            <p>O cliente retira o aparelho, paga no balcão, recebe recibo e garantia, e o caixa do dia é atualizado.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="por-que-usar" class="section assistencia-section">
-      <div class="container grid cols-2">
-        <div>
-          <span class="eyebrow">Por que usar</span>
-          <h2>Deixe de perder peças e esquecer orçamentos.</h2>
-          <p>O Assistência Pro é desenhado especificamente para a realidade de uma oficina técnica ou loja de reparos, onde a organização precisa acontecer entre o toque do telefone e o cliente esperando no balcão.</p>
+    <section id="por-que-usar" class="section assistencia-benefits-section">
+      <div class="container">
+        <div class="assistencia-benefits-intro">
+          <span class="eyebrow">Benefícios para a operação</span>
+          <h2>Menos improviso no balcão. Mais previsibilidade para a assistência.</h2>
+          <p>O Assistência Pro transforma cada atendimento em um fluxo rastreável, para que a equipe tenha contexto, o cliente receba informação clara e a gestão enxergue a operação além do caixa do dia.</p>
         </div>
-        <div class="grid cols-2">
-          <article class="card">
-            <h3>Fim das anotações soltas</h3>
-            <p>Pare de procurar no WhatsApp o que o cliente pediu. Tudo fica registrado na O.S.</p>
-          </article>
-          <article class="card">
-            <h3>Estoque sob controle</h3>
-            <p>Saber exatamente o custo da peça ajuda a precificar o serviço e manter a margem.</p>
-          </article>
-          <article class="card">
-            <h3>Garantia sem dor de cabeça</h3>
-            <p>Ache rapidamente a O.S. anterior, veja quem consertou e que peça foi usada.</p>
-          </article>
-          <article class="card">
-            <h3>Caixa em tempo real</h3>
-            <p>Saiba quanto a loja faturou hoje no conserto, na capinha e no cabo vendido.</p>
-          </article>
+
+        <div class="assistencia-benefits-layout">
+          <div class="assistencia-benefits-grid">
+            <article class="assistencia-benefit-card">
+              <i data-lucide="clipboard-check"></i>
+              <h3>Atendimento com histórico</h3>
+              <p>Cliente, equipamento, diagnóstico, peças e status ficam na mesma ordem de serviço para reduzir retrabalho e respostas desencontradas.</p>
+            </article>
+            <article class="assistencia-benefit-card">
+              <i data-lucide="package-check"></i>
+              <h3>Peças ligadas ao serviço</h3>
+              <p>A baixa de estoque acompanha a execução da O.S., ajudando a acompanhar custo, reposição e margem de cada reparo.</p>
+            </article>
+            <article class="assistencia-benefit-card">
+              <i data-lucide="badge-check"></i>
+              <h3>Garantia sem busca manual</h3>
+              <p>O histórico do atendimento dá base para conferir o que foi feito, por quem e quais componentes foram usados.</p>
+            </article>
+            <article class="assistencia-benefit-card">
+              <i data-lucide="bar-chart-3"></i>
+              <h3>Decisão com visão da rotina</h3>
+              <p>Caixa, vendas, serviços aguardando retirada e O.S. por status deixam de depender de planilhas separadas.</p>
+            </article>
+          </div>
+
+          <aside class="assistencia-test-card" aria-label="Teste gratuito de 7 dias">
+            <span>Teste gratuito de 7 dias</span>
+            <h3>Veja o sistema encaixado na sua rotina antes de decidir.</h3>
+            <p>Peça o período de teste pelo WhatsApp e receba uma orientação inicial para explorar os fluxos que mais importam para sua assistência.</p>
+            <button class="btn primary" onclick="openProductWhatsApp('Olá! Vim pela página do Assistência Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Assistência Pro')">
+              <i data-lucide="message-circle"></i>
+              Solicitar teste gratuito
+            </button>
+            <small>Sem cartão ou cadastro nesta página.</small>
+          </aside>
         </div>
       </div>
     </section>
 
     <section id="plano" class="section assistencia-plan">
-      <div class="container grid cols-2">
-        <div>
-          <span class="eyebrow">Entrada comercial</span>
-          <h2>A partir de R$ 97/mês.</h2>
-          <p>Indicado para assistências que precisam trocar caderno, planilha e recibo improvisado por um fluxo operacional com cara de sistema profissional.</p>
-          <div class="actions">
-            <button class="btn primary" onclick="openProductWhatsApp('Olá! Vim pela página do Assistência Pro e quero avaliar o plano de R$ 97/mês.', 'Assistência Pro')">
-              <i data-lucide="message-square-text"></i>
-              Avaliar meu plano
-            </button>
-          </div>
-          <div class="promo-phrase">
-            ⭐ <strong>solicite um perído de teste gratuito</strong>
-          </div>
+      <div class="container">
+        <div class="assistencia-pricing-intro">
+          <span class="eyebrow" style="justify-content:center;">Plano e implantação</span>
+          <h2>Escolha o formato que acompanha o momento da sua assistência.</h2>
+          <p>Comece com a licença que já organiza a rotina do balcão ou evolua para uma operação com mais pessoas, presença on-line e identidade própria.</p>
         </div>
-        <div class="card plan-card">
-          <p class="price">Demo disponível agora</p>
-          <ul class="clean">
-            <li>Interface e cores alinhadas ao sistema real.</li>
-            <li>Fluxo de O.S., estoque, venda, caixa e relatório na demonstração.</li>
-            <li>Dados fictícios para testar com segurança.</li>
-            <li>WhatsApp já identifica a origem do produto.</li>
-          </ul>
+        <div class="assistencia-pricing-grid">
+          <article class="card assistencia-price-card">
+            <span class="assistencia-price-card__eyebrow">Compra única</span>
+            <h3>Licença Vitalícia</h3>
+            <p class="assistencia-price-card__price">R$ 299,90 <small>pagamento único</small></p>
+            <p class="assistencia-price-card__summary">Para organizar a operação com os recursos atuais do Gestão Assistência Pro.</p>
+            <ul class="clean">
+              <li>Ordens de serviço com cliente, equipamento, diagnóstico, peças e status.</li>
+              <li>Estoque conectado à O.S., PDV, caixa, recibos e relatórios.</li>
+              <li>Backup e restauração dos dados, além de manual de uso da rotina.</li>
+            </ul>
+            <button class="btn light" onclick="openProductWhatsApp('Olá! Quero entender a Licença Vitalícia do Gestão Assistência Pro por R$ 299,90.', 'Assistência Pro')">Quero a licença vitalícia</button>
+          </article>
+
+          <article class="card assistencia-price-card assistencia-price-card--featured">
+            <span class="assistencia-price-card__eyebrow">Para a equipe</span>
+            <h3>Multiusuário</h3>
+            <p class="assistencia-price-card__price">R$ 97,90 <small>por mês</small></p>
+            <p class="assistencia-price-card__summary">Para assistências que precisam atender, executar e acompanhar a operação em conjunto.</p>
+            <ul class="clean">
+              <li>Múltiplos acessos para a equipe, configurados conforme a rotina da operação.</li>
+              <li>Permissões por função para separar balcão, técnico e gestão.</li>
+              <li>Visão compartilhada de ordens, estoque e caixa para reduzir desencontros.</li>
+            </ul>
+            <button class="btn primary" onclick="openProductWhatsApp('Olá! Quero conhecer o plano Multiusuário do Gestão Assistência Pro por R$ 97,90/mês.', 'Assistência Pro')">Falar sobre multiusuário</button>
+          </article>
+
+          <article class="card assistencia-price-card">
+            <span class="assistencia-price-card__eyebrow">Operação conectada</span>
+            <h3>On-line Avançado</h3>
+            <p class="assistencia-price-card__price">R$ 149,90 <small>por mês</small></p>
+            <p class="assistencia-price-card__summary">Para quem precisa ampliar a operação com recursos on-line definidos na implantação.</p>
+            <ul class="clean">
+              <li>Acesso remoto e sincronização da operação, conforme a arquitetura contratada.</li>
+              <li>Backup externo e recursos digitais avançados alinhados à necessidade da empresa.</li>
+              <li>Acompanhamento de configuração para manter a rotina segura e organizada.</li>
+            </ul>
+            <button class="btn light" onclick="openProductWhatsApp('Olá! Quero avaliar os recursos do plano On-line Avançado do Gestão Assistência Pro por R$ 149,90/mês.', 'Assistência Pro')">Avaliar recursos on-line</button>
+          </article>
+
+          <article class="card assistencia-price-card assistencia-price-card--custom">
+            <span class="assistencia-price-card__eyebrow">Projeto personalizado</span>
+            <h3>Sistema Completo com sua Marca</h3>
+            <p class="assistencia-price-card__price">R$ 1.299,90 <small>implantação inicial</small></p>
+            <p class="assistencia-price-card__summary">Uma versão completa, preparada com a identidade visual e os fluxos que fazem sentido para sua empresa.</p>
+            <ul class="clean">
+              <li>Personalização de marca, cores e apresentação do sistema para o seu negócio.</li>
+              <li>Configuração orientada da implantação e dos recursos contratados.</li>
+              <li>Hospedagem e domínio são cobrados à parte, com renovação anual.</li>
+            </ul>
+            <button class="btn light" onclick="openProductWhatsApp('Olá! Quero solicitar uma proposta para o Sistema Completo com minha marca, a partir de R$ 1.299,90.', 'Assistência Pro')">Solicitar proposta</button>
+          </article>
+        </div>
+        <p class="assistencia-pricing-note"><i data-lucide="info"></i> Os recursos multiusuário e on-line são configurados conforme o escopo de implantação. Confirme a composição do seu plano pelo WhatsApp.</p>
+      </div>
+    </section>
+
+    <section class="section proof-section">
+      <div class="container">
+        <div style="text-align:center; max-width:640px; margin:0 auto 32px;">
+          <span class="eyebrow" style="justify-content:center;">Cenários que resolvemos</span>
+          <h2 style="margin-left:auto; margin-right:auto;">Perfis de assistência que costumam procurar esse fluxo.</h2>
+          <p>Essa página fala com operações que já sentiram o custo de orçamento perdido, peça sem rastreio e caixa sem visão consolidada.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="card proof-card"><span class="proof-meta">Reparo multimarcas</span><p>OS, estoque e retirada do cliente precisam conversar no mesmo painel.</p></article>
+          <article class="card proof-card"><span class="proof-meta">Balcão técnico</span><p>Peças, caixa e recibos deixam de depender de papel e memória da equipe.</p></article>
+          <article class="card proof-card"><span class="proof-meta">Loja com acessórios</span><p>Serviços e vendas de balcão exigem fluxo único para não distorcer margem.</p></article>
+          <article class="card proof-card"><span class="proof-meta">Equipe enxuta</span><p>Manual, rotina operacional e histórico ajudam a manter padrão mesmo com poucos atendentes.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="section faq assistencia-section">
+    <section id="faq" class="section faq assistencia-section assistencia-faq">
+      <div class="container" style="max-width:760px;">
+        <div class="assistencia-faq__list">
+          <details>
+            <summary><span><b>01</b> Posso ver a demo pelo celular?</span></summary>
+            <p>A demo ainda não está otimizada para uso no celular. Para uma navegação completa, recomendamos acessar pelo computador; pelo WhatsApp, podemos orientar a apresentação e tirar dúvidas.</p>
+          </details>
+          <details>
+            <summary><span><b>02</b> Como funciona o teste gratuito de 7 dias?</span></summary>
+            <p>Chame no WhatsApp pelo botão de teste. Alinhamos a sua rotina e orientamos os primeiros passos para você conhecer o sistema antes de decidir.</p>
+          </details>
+          <details>
+            <summary><span><b>03</b> O sistema cobre toda a rotina de ordem de serviço?</span></summary>
+            <p>Sim. A página já descreve cadastro do cliente, equipamento, diagnóstico, peças usadas, status e histórico do atendimento dentro da O.S.</p>
+          </details>
+          <details>
+            <summary><span><b>04</b> Estoque e caixa ficam conectados ao atendimento?</span></summary>
+            <p>Sim. A baixa de peças pode ser vinculada à O.S., enquanto PDV, recibos e fluxo de caixa acompanham a entrega ao cliente.</p>
+          </details>
+          <details>
+            <summary><span><b>05</b> Como começo?</span></summary>
+            <p>Abra a demo em tela cheia ou chame no WhatsApp para alinharmos plano, implantação e a rotina da sua assistência.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section assistencia-final-cta">
       <div class="container">
-        <span class="eyebrow">FAQ</span>
-        <h2>Perguntas comuns</h2>
-        <details>
-          <summary>Funciona no celular?</summary>
-          <p>Sim. A interface do demo já trabalha com menu mobile, botões compactos e rotina de balcão em telas menores.</p>
-        </details>
-        <details>
-          <summary>A página está fiel ao demo?</summary>
-          <p>Sim. A paleta, os módulos, os cards de dashboard, os status de O.S. e as ações principais foram trazidos do modo demo.</p>
-        </details>
-        <details>
-          <summary>Como começo?</summary>
-          <p>Abra a demo real e depois chame no WhatsApp para receber orientação de plano e implantação.</p>
-        </details>
+        <span class="eyebrow">Próximo passo</span>
+        <h2>Organize a operação antes que o próximo atendimento vire mais uma anotação solta.</h2>
+        <p>Abra a demo no desktop ou solicite seu teste gratuito de 7 dias pelo WhatsApp para conhecer o Assistência Pro com orientação.</p>
+        <div class="actions">
+          <button class="btn primary" onclick="openProductWhatsApp('Olá! Vim pela página do Assistência Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Assistência Pro')">
+            <i data-lucide="rocket"></i>
+            Começar teste gratuito
+          </button>
+          <button class="btn light" onclick="openDemoModal()">
+            <i data-lucide="play-circle"></i>
+            Abrir demo real
+          </button>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">Plena Informática - Assistência Pro</footer>
+
+  <div id="demo-modal" role="dialog" aria-modal="true" aria-label="Demo Assistência Pro">
+    <div class="mbox">
+      <div class="mhead">
+        <i data-lucide="monitor-up" style="color:#2563EB;width:16px;height:16px;"></i>
+        <span>Plena Assistência Pro - Demo interativa</span>
+        <button class="mclose" onclick="closeDemoModal()" aria-label="Fechar">×</button>
+      </div>
+      <div class="demo-frame-stage">
+        <button class="demo-fullscreen-close" type="button" onclick="closeDemoModal()" aria-label="Fechar demonstração">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="demo-frame-loader" aria-live="polite">
+          <span class="demo-frame-loader__spinner" aria-hidden="true"></span>
+          <strong>Preparando sua demonstração</strong>
+          <p>Estamos carregando o sistema para você explorar em tela cheia.</p>
+          <a id="demo-direct-link" href="#" target="_blank" rel="noopener noreferrer">Abrir demo em nova aba</a>
+        </div>
+        <iframe id="demo-frame" src="" title="Demo Assistência Pro" allow="fullscreen"></iframe>
+      </div>
+    </div>
+  </div>
+
   <script src="../tecnologia/demos/gestao-assistencia/assets/libs/lucide.js"></script>
   <script src="assets/produtos.js"></script>
   <script>

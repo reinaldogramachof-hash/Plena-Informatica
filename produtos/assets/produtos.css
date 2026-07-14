@@ -393,6 +393,112 @@ a { color: inherit; text-decoration: none; }
 .brand-logo { width: 190px; height: 54px; object-fit: cover; object-position: center; }
 .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-weight: 700; font-size: 14px; }
 .nav-links a:hover { color: white; }
+.nav-mobile-actions { display: none; align-items: center; gap: 10px; }
+.mobile-header-whatsapp {
+  min-height: 42px;
+  padding: 10px 16px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.mobile-menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: .22s ease;
+}
+.mobile-menu-toggle:hover { transform: translateY(-2px); }
+.mobile-menu-toggle svg,
+.mobile-menu-panel__close svg { width: 18px; height: 18px; }
+.product-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: none;
+}
+.product-mobile-menu.open { display: block; }
+.product-mobile-menu__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .52);
+  backdrop-filter: blur(8px);
+}
+.product-mobile-menu__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(88vw, 360px);
+  height: 100%;
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+  box-shadow: -18px 0 48px rgba(0, 0, 0, .25);
+  padding: 22px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.product-mobile-menu__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.product-mobile-menu__title {
+  display: grid;
+  gap: 4px;
+}
+.product-mobile-menu__eyebrow {
+  color: var(--brand-primary, var(--gold));
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.product-mobile-menu__title strong {
+  color: var(--text);
+  font-size: 16px;
+  letter-spacing: -.02em;
+}
+.mobile-menu-panel__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+.product-mobile-menu__links {
+  display: grid;
+  gap: 10px;
+}
+.product-mobile-menu__links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 800;
+}
+.product-mobile-menu__links a span:last-child {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+}
+.product-mobile-menu .btn { width: 100%; }
 .container { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
 .hero { min-height: 74vh; display: grid; align-items: center; padding: 72px 0 58px; position: relative; }
 .hero-grid { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(300px,.95fr); gap: 42px; align-items: center; }
@@ -451,9 +557,9 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   .container { width: 100%; padding: 0 18px; }
   .nav { padding: 0 14px; }
   .brand-logo { width: 160px; height: 48px; }
-  .nav-links .btn { min-height: 44px; padding: 11px 14px; font-size: 13px; }
-  .nav-links button.btn { display: none; }
-  .nav-links a:not(.btn) { display: none; }
+  .nav-links { display: none; }
+  .nav-mobile-actions { display: flex; }
+  .mobile-header-whatsapp { padding: 10px 14px; }
   .hero-grid, .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
   .hero-grid > * { width: 100%; max-width: 100%; }
   .hero { padding-top: 46px; }
@@ -469,14 +575,14 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 
 /* Assistência Pro product page mirrors the real demo interface. */
 .assistencia-product-page {
-  --bg: #F8FAFC;
-  --surface: #FFFFFF;
-  --surface-strong: #F1F5F9;
+  --bg: #080809;
+  --surface: rgba(255,255,255,.045);
+  --surface-strong: rgba(255,255,255,.075);
   --gold: #2563EB;
-  --muted: #64748B;
-  --text: #0F172A;
-  --line: #E2E8F0;
-  --brand-primary: #2563EB;
+  --muted: #A1A1AA;
+  --text: #FAFAF9;
+  --line: rgba(255,255,255,.1);
+  --brand-primary: #3B82F6;
   --brand-dark: #1D4ED8;
   --brand-black: #0F172A;
   --brand-green: #10B981;
@@ -484,18 +590,57 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   --brand-purple: #8B5CF6;
   background-color: var(--bg);
   background-image:
-    radial-gradient(circle at 0% 0%, rgba(37, 99, 235, .12), transparent 32rem),
-    radial-gradient(circle at 100% 100%, rgba(37, 99, 235, .08), transparent 32rem);
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, .14), transparent 32rem),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, .08), transparent 32rem),
+    linear-gradient(180deg, #080809, #0c0c0e 45%, #070708);
   color: var(--text);
 }
 .assistencia-product-page * { min-width: 0; }
 .assistencia-product-page .container { max-width: 1280px; }
 .assistencia-product-page .header {
-  background: rgba(248, 250, 252, .88);
-  border-bottom: 1px solid rgba(226, 232, 240, .9);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, .04);
+  position: fixed;
+  inset: 0 0 auto;
+  background: rgba(5, 14, 31, .68);
+  border-bottom: 1px solid rgba(147, 197, 253, .16);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .24);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
 }
-.assistencia-product-page .nav-links { color: #475569; }
+.assistencia-product-page section[id] { scroll-margin-top: 92px; }
+.assistencia-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.assistencia-nav-brand__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  color: #93C5FD;
+  background: linear-gradient(145deg, rgba(96, 165, 250, .26), rgba(37, 99, 235, .08));
+  border: 1px solid rgba(147, 197, 253, .3);
+  border-radius: 13px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 8px 18px rgba(0, 0, 0, .2);
+}
+.assistencia-nav-brand__icon svg { width: 27px; height: 27px; }
+.assistencia-nav-brand__copy {
+  display: grid;
+  gap: 1px;
+  color: #FFFFFF;
+  line-height: 1;
+}
+.assistencia-nav-brand__copy strong { font-size: 14px; letter-spacing: -.025em; }
+.assistencia-nav-brand__copy small {
+  color: #93C5FD;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.assistencia-product-page .nav-links { color: var(--muted); }
 .assistencia-product-page .nav-links a:hover { color: var(--brand-primary); }
 .assistencia-product-page .btn {
   border-radius: 12px;
@@ -513,22 +658,89 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   border-color: #E2E8F0;
   color: #0F172A;
 }
+.assistencia-product-page .assistencia-nav-whatsapp {
+  width: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 0;
+  color: #0F172A;
+}
+.assistencia-product-page .assistencia-nav-whatsapp:hover,
+.assistencia-product-page .assistencia-nav-whatsapp:focus-visible {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #FFFFFF;
+  box-shadow: 0 12px 24px -16px rgba(37, 99, 235, .9);
+}
 .assistencia-product-page .eyebrow {
   color: var(--brand-primary);
   letter-spacing: .16em;
 }
 .assistencia-product-page h1,
 .assistencia-product-page .section h2 {
-  color: #0F172A;
+  color: var(--text);
 }
 .assistencia-product-page .lead,
 .assistencia-product-page .section p {
-  color: #475569;
+  color: var(--muted);
 }
 .assistencia-hero {
-  min-height: auto;
-  padding: 72px 0 72px;
+  min-height: clamp(620px, 78vh, 790px);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  background-image:
+    linear-gradient(90deg, rgba(3, 12, 28, .96) 0%, rgba(3, 12, 28, .88) 35%, rgba(3, 12, 28, .42) 63%, rgba(3, 12, 28, .16) 100%),
+    linear-gradient(180deg, rgba(3, 12, 28, .18), rgba(3, 12, 28, .56)),
+    url("../../heroassistencia.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+.assistencia-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 124px;
+  padding-bottom: 92px;
+}
+.assistencia-hero h1 {
+  max-width: 740px;
+  margin: 16px 0 16px;
+  color: #FFFFFF;
+  font-size: clamp(48px, 6.4vw, 88px) !important;
+  letter-spacing: -.065em;
+}
+.assistencia-hero__pro {
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 2px #93C5FD;
+  text-shadow: 0 0 24px rgba(147, 197, 253, .18);
+}
+.assistencia-hero .lead {
+  max-width: 600px;
+  margin: 0;
+  color: #D8E6FA;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.55;
+}
+.assistencia-hero .actions { margin-top: 30px; }
+.assistencia-hero .btn.primary {
+  background: #2563EB;
+  border-color: #2563EB;
+}
+.assistencia-hero-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 0;
+  color: #BFDBFE;
+  font-size: 13px;
+  font-weight: 700;
+}
+.assistencia-hero-note svg { width: 16px; height: 16px; color: #60A5FA; }
 .assistencia-product-page .hero-grid {
   grid-template-columns: minmax(0, .72fr) minmax(680px, 1.28fr);
 }
@@ -753,19 +965,114 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 .tag.green { color: #047857; background: #D1FAE5; }
 .assistencia-section,
 .assistencia-plan {
-  background: rgba(255, 255, 255, .54);
+  background: rgba(255, 255, 255, .02);
 }
+.assistencia-pricing-intro {
+  max-width: 700px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+.assistencia-pricing-intro h2 { margin-left: auto; margin-right: auto; }
+.assistencia-pricing-intro p { margin: 0; }
+.assistencia-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.assistencia-price-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.assistencia-price-card__eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 16px;
+  padding: 7px 10px;
+  border: 1px solid rgba(96, 165, 250, .26);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, .1);
+  color: #93C5FD;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.assistencia-price-card h3 { margin: 0 0 10px; font-size: 24px; }
+.assistencia-price-card__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+  color: #FFFFFF !important;
+  font-size: clamp(29px, 3vw, 38px);
+  font-weight: 900;
+  letter-spacing: -.055em;
+  line-height: 1;
+}
+.assistencia-price-card__price small {
+  color: #A5B4FC;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.assistencia-price-card__summary { min-height: 68px; margin: 16px 0 18px !important; }
+.assistencia-price-card ul.clean { margin: 0 0 24px; }
+.assistencia-price-card .btn { width: 100%; margin-top: auto; }
+.assistencia-price-card--featured {
+  border-color: rgba(96, 165, 250, .46) !important;
+  background: linear-gradient(150deg, rgba(37, 99, 235, .23), rgba(255, 255, 255, .06)) !important;
+  box-shadow: 0 24px 52px -34px rgba(37, 99, 235, .7) !important;
+}
+.assistencia-price-card--featured::after {
+  content: 'Mais procurado';
+  position: absolute;
+  top: 18px;
+  right: -31px;
+  padding: 7px 34px;
+  background: #2563EB;
+  color: white;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transform: rotate(38deg);
+}
+.assistencia-price-card--custom {
+  background: linear-gradient(150deg, rgba(212, 175, 55, .16), rgba(255, 255, 255, .045)) !important;
+  border-color: rgba(212, 175, 55, .28) !important;
+}
+.assistencia-price-card--custom .assistencia-price-card__eyebrow { color: #FDE68A; border-color: rgba(253, 230, 138, .32); background: rgba(212, 175, 55, .12); }
+.assistencia-pricing-note {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 760px;
+  margin: 22px auto 0;
+  color: #94A3B8 !important;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: center;
+}
+.assistencia-pricing-note svg { width: 16px; height: 16px; flex: 0 0 16px; color: #60A5FA; }
 .assistencia-product-page .card {
-  background: white;
-  border-color: #E2E8F0;
+  background: var(--surface);
+  border-color: var(--line);
   border-radius: 18px;
-  box-shadow: 0 12px 26px -24px rgba(15, 23, 42, .26);
+  box-shadow: 0 12px 26px -24px rgba(0, 0, 0, .35);
 }
 .assistencia-product-page .card h3 {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #1E293B;
+  color: var(--text);
 }
 .assistencia-product-page .card h3 svg {
   width: 20px;
@@ -775,10 +1082,133 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 .assistencia-product-page .price { color: var(--brand-primary); }
 .assistencia-product-page ul.clean li { color: #475569; }
 .assistencia-product-page ul.clean li::before { color: var(--brand-primary); }
+.assistencia-benefits-section {
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 96px 0;
+}
+.assistencia-benefits-section .eyebrow { color: #2563EB; }
+.assistencia-product-page .assistencia-benefits-section h2,
+.assistencia-product-page .assistencia-benefits-section h3 { color: #0F172A; }
+.assistencia-product-page .assistencia-benefits-section p { color: #475569; }
+.assistencia-benefits-intro { max-width: 760px; margin-bottom: 42px; }
+.assistencia-benefits-intro h2 { max-width: 720px; }
+.assistencia-benefits-intro p { max-width: 680px; font-size: 17px; }
+.assistencia-benefits-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(290px, .8fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.assistencia-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.assistencia-benefit-card {
+  padding: 24px;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  background: #FFFFFF;
+  box-shadow: 0 16px 34px -30px rgba(15, 23, 42, .35);
+}
+.assistencia-benefit-card > svg {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 18px;
+  color: #2563EB;
+}
+.assistencia-benefit-card h3 { margin: 0 0 9px; font-size: 18px; line-height: 1.25; }
+.assistencia-benefit-card p { margin: 0; font-size: 14px; line-height: 1.7; }
+.assistencia-test-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  border: 1px solid rgba(96, 165, 250, .38);
+  border-radius: 20px;
+  background: linear-gradient(150deg, #0F2A58, #0B1730);
+  box-shadow: 0 26px 54px -36px rgba(15, 23, 42, .78);
+}
+.assistencia-test-card > span {
+  margin-bottom: 18px;
+  color: #93C5FD;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.assistencia-product-page .assistencia-test-card h3 { margin: 0 0 12px; color: #FFFFFF; font-size: clamp(24px, 2.5vw, 32px); line-height: 1.13; }
+.assistencia-product-page .assistencia-test-card p { margin: 0 0 22px; color: #C7D2FE; }
+.assistencia-test-card .btn { width: 100%; margin-top: auto; }
+.assistencia-test-card small { margin-top: 14px; color: #BFDBFE; font-size: 12px; line-height: 1.5; }
+.assistencia-final-cta { padding-bottom: 96px; text-align: center; }
+.assistencia-final-cta h2 { max-width: 740px; margin-left: auto; margin-right: auto; }
+.assistencia-final-cta p { max-width: 640px; margin: 0 auto 26px; }
+.assistencia-final-cta .actions { justify-content: center; }
 .assistencia-product-page .faq details {
-  background: white;
+  background: rgba(255, 255, 255, .82);
   border-color: #E2E8F0;
 }
+.assistencia-faq { padding: 34px 0; background: linear-gradient(180deg, #F8FAFC, #EEF4FF); }
+.assistencia-faq__list { display: grid; gap: 10px; }
+.assistencia-faq details {
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 26px -25px rgba(15, 23, 42, .4);
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.assistencia-faq details:hover,
+.assistencia-faq details[open] {
+  background: #FFFFFF;
+  border-color: rgba(37, 99, 235, .3);
+  box-shadow: 0 18px 34px -28px rgba(37, 99, 235, .42);
+}
+.assistencia-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 62px;
+  padding: 14px 18px;
+  color: #0F172A;
+  list-style: none;
+  font-size: 16px;
+  line-height: 1.35;
+}
+.assistencia-faq summary::-webkit-details-marker { display: none; }
+.assistencia-faq summary > span { display: inline-flex; align-items: center; gap: 13px; }
+.assistencia-faq summary b {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border-radius: 9px;
+  background: #E0ECFF;
+  color: #2563EB;
+  font-size: 10px;
+  letter-spacing: .05em;
+}
+.assistencia-faq summary::after {
+  content: '+';
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border: 1px solid #D8E4F5;
+  border-radius: 50%;
+  color: #2563EB;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.assistencia-faq details[open] summary::after { transform: rotate(45deg); background: #2563EB; color: #FFFFFF; border-color: #2563EB; }
+.assistencia-faq summary:focus-visible { outline: 3px solid rgba(37, 99, 235, .35); outline-offset: -3px; }
+.assistencia-faq details p { margin: 0; padding: 0 58px 16px 59px; color: #475569; line-height: 1.65; }
 .assistencia-product-page .footer {
   background: white;
   border-color: #E2E8F0;
@@ -789,8 +1219,17 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   .assistencia-app-preview { grid-template-columns: 200px minmax(0, 1fr); }
 }
 @media (max-width: 820px) {
+  .assistencia-faq { padding: 28px 0; }
+  .assistencia-pricing-grid { grid-template-columns: 1fr; }
+  .assistencia-price-card { padding: 24px; }
+  .assistencia-price-card__summary { min-height: 0; }
+  .assistencia-pricing-note { text-align: left; }
+  .assistencia-nav-brand { gap: 8px; }
+  .assistencia-nav-brand__icon { width: 39px; height: 39px; flex-basis: 39px; border-radius: 12px; }
+  .assistencia-nav-brand__icon svg { width: 25px; height: 25px; }
+  .assistencia-nav-brand__copy strong { font-size: 12px; }
+  .assistencia-nav-brand__copy small { font-size: 10px; }
   .assistencia-product-page .container { width: 100%; max-width: 100%; padding: 0 24px; }
-  .assistencia-product-page .nav-links { display: none; }
   .assistencia-product-page h1 { font-size: clamp(30px, 8.8vw, 34px); line-height: 1.08; }
   .assistencia-product-page .hero-grid {
     display: block;
@@ -806,7 +1245,26 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   .assistencia-product-page .hero h1,
   .assistencia-product-page .hero .lead { max-width: 100%; overflow-wrap: normal; }
   .assistencia-product-page .hero .lead { font-size: 16px; line-height: 1.6; }
+  .assistencia-hero {
+    min-height: 680px;
+    align-items: flex-end;
+    background-position: 64% center;
+    background-image:
+      linear-gradient(180deg, rgba(3, 12, 28, .4) 0%, rgba(3, 12, 28, .93) 60%, rgba(3, 12, 28, .98) 100%),
+      url("../../heroassistencia.png");
+  }
+  .assistencia-hero-content { padding-top: 108px; padding-bottom: 48px; }
+  .assistencia-hero h1 { max-width: 100%; font-size: clamp(42px, 12.5vw, 58px) !important; }
+  .assistencia-hero__pro { -webkit-text-stroke-width: 1.5px; }
+  .assistencia-hero .lead { max-width: 34rem; color: #D8E6FA; font-size: 17px; }
+  .assistencia-hero .actions { margin-top: 24px; }
+  .assistencia-hero-note { align-items: flex-start; line-height: 1.45; }
   .assistencia-product-page .actions { width: calc(100% - 12px); }
+  .assistencia-benefits-section { padding: 64px 0; }
+  .assistencia-benefits-layout,
+  .assistencia-benefits-grid { grid-template-columns: 1fr; }
+  .assistencia-benefit-card { padding: 22px; }
+  .assistencia-test-card { padding: 26px 22px; }
   .assistencia-app-preview {
     width: 100%;
     max-width: 100%;
@@ -853,40 +1311,40 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 
 /* Shared real-system product pages: Barbearia Premium and Beleza & Spa. */
 .real-system-page {
-  --bg: #F8FAFC;
-  --surface: #FFFFFF;
-  --surface-strong: #F1F5F9;
-  --muted: #64748B;
-  --text: #0F172A;
-  --line: #E2E8F0;
+  --bg: #080809;
+  --surface: rgba(255,255,255,.045);
+  --surface-strong: rgba(255,255,255,.075);
+  --muted: #A1A1AA;
+  --text: #FAFAF9;
+  --line: rgba(255,255,255,.1);
   --brand-primary: #2563EB;
   --brand-dark: #0F172A;
   --brand-accent: #D4AF37;
-  --brand-soft: rgba(37, 99, 235, .1);
+  --brand-soft: rgba(37, 99, 235, .16);
   background-color: var(--bg);
   background-image:
     radial-gradient(circle at 0% 0%, var(--brand-soft), transparent 32rem),
-    linear-gradient(180deg, #F8FAFC, #FFFFFF 46%, #F8FAFC);
+    linear-gradient(180deg, #080809, #0c0c0e 45%, #070708);
   color: var(--text);
 }
 .barber-product-page {
-  --brand-primary: #2563EB;
+  --brand-primary: #3B82F6;
   --brand-accent: #D4AF37;
-  --brand-soft: rgba(212, 175, 55, .13);
+  --brand-soft: rgba(212, 175, 55, .16);
 }
 .beauty-product-page {
-  --brand-primary: #E11D48;
+  --brand-primary: #FB7185;
   --brand-accent: #FB7185;
-  --brand-soft: rgba(225, 29, 72, .11);
+  --brand-soft: rgba(225, 29, 72, .16);
 }
 .real-system-page * { min-width: 0; }
 .real-system-page .container { max-width: 1280px; }
 .real-system-page .header {
-  background: rgba(248, 250, 252, .9);
-  border-bottom: 1px solid rgba(226, 232, 240, .9);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, .04);
+  background: rgba(8, 8, 9, .82);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
 }
-.real-system-page .nav-links { color: #475569; }
+.real-system-page .nav-links { color: var(--muted); }
 .real-system-page .nav-links a:hover { color: var(--brand-primary); }
 .real-system-page .btn {
   border-radius: 12px;
@@ -909,10 +1367,10 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   letter-spacing: .16em;
 }
 .real-system-page h1,
-.real-system-page .section h2 { color: #0F172A; }
+.real-system-page .section h2 { color: var(--text); }
 .real-system-page h1 { font-size: clamp(42px, 4.7vw, 72px); }
 .real-system-page .lead,
-.real-system-page .section p { color: #475569; }
+.real-system-page .section p { color: var(--muted); }
 .real-hero {
   min-height: auto;
   padding: 72px 0;
@@ -989,18 +1447,18 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 }
 .tag.rose { color: #BE123C; background: #FFE4E6; }
 .real-section,
-.real-plan { background: rgba(255, 255, 255, .62); }
+.real-plan { background: rgba(255, 255, 255, .03); }
 .real-system-page .card {
-  background: white;
-  border-color: #E2E8F0;
+  background: var(--surface);
+  border-color: var(--line);
   border-radius: 18px;
-  box-shadow: 0 12px 26px -24px rgba(15, 23, 42, .26);
+  box-shadow: 0 12px 26px -24px rgba(0, 0, 0, .35);
 }
 .real-system-page .card h3 {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #1E293B;
+  color: var(--text);
 }
 .real-system-page .card h3 svg {
   width: 20px;
@@ -1008,12 +1466,287 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   color: var(--brand-primary);
 }
 .real-system-page .price { color: var(--brand-primary); }
-.real-system-page ul.clean li { color: #475569; }
+.real-system-page ul.clean li { color: var(--muted); }
 .real-system-page ul.clean li::before { color: var(--brand-primary); }
 .real-system-page .footer {
-  background: white;
-  border-color: #E2E8F0;
-  color: #64748B;
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.single-plan-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.proof-section {
+  background: rgba(255, 255, 255, .02);
+}
+
+.gastro-proof-section {
+  border-top: 1px solid rgba(255, 255, 255, .05);
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.gastro-proof-section__content {
+  text-align: center;
+}
+
+.gastro-proof-section__title {
+  margin: 0 0 32px;
+  color: #9CA3AF;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.proof-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.proof-meta {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+
+.proof-segment-pills {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.proof-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #D1D5DB;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.product-demo-panel {
+  display: grid;
+  gap: 22px;
+  padding: 32px;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--brand-primary) 16%, transparent), transparent 18rem),
+    linear-gradient(160deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .015));
+  box-shadow: 0 28px 80px -42px rgba(0, 0, 0, .5);
+}
+
+.product-demo-panel h2,
+.product-demo-panel p,
+.product-demo-panel strong {
+  color: var(--text);
+}
+
+.product-demo-panel p {
+  margin: 0;
+}
+
+.product-demo-panel .actions {
+  margin-top: 0;
+}
+
+.product-demo-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--brand-primary) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-primary) 32%, var(--line));
+  color: var(--brand-primary);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+.product-demo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.product-demo-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.product-demo-list li::before {
+  content: '✓';
+  color: var(--brand-primary);
+  font-weight: 900;
+}
+
+.product-demo-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#demo-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, .88);
+  align-items: center;
+  justify-content: center;
+}
+
+#demo-modal.open {
+  display: flex;
+}
+
+#demo-modal .mbox {
+  background: #111113;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 14px;
+  overflow: hidden;
+  width: min(980px, 95vw);
+  height: min(700px, 92vh);
+  display: flex;
+  flex-direction: column;
+}
+.assistencia-product-page #demo-modal.demo-modal--fullscreen .mbox {
+  width: 100vw;
+  height: 100vh;
+  border: 0;
+  border-radius: 0;
+}
+.assistencia-product-page #demo-modal.demo-modal--fullscreen .mhead { display: none; }
+.assistencia-product-page #demo-modal.demo-modal--fullscreen .demo-frame-stage { height: 100vh; }
+.assistencia-product-page #demo-modal.demo-modal--fullscreen { overscroll-behavior: none; }
+
+#demo-modal .mhead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
+}
+
+#demo-modal .mhead span {
+  font-size: 12px;
+  color: #bbb;
+  flex: 1;
+}
+
+#demo-modal .mclose {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #777;
+  font-size: 18px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  transition: background .15s, color .15s;
+}
+
+#demo-modal .mclose:hover {
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+}
+
+#demo-modal .demo-frame-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+#demo-modal iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.demo-frame-loader {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: none;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 28px;
+  background: #0B1730;
+  color: #FFFFFF;
+  text-align: center;
+}
+.demo-fullscreen-close {
+  position: absolute;
+  z-index: 3;
+  top: 16px;
+  right: 16px;
+  display: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 50%;
+  background: rgba(2, 6, 23, .72);
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, .22);
+  backdrop-filter: blur(10px);
+}
+.demo-fullscreen-close:hover { background: #2563EB; border-color: #2563EB; }
+.demo-fullscreen-close:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
+.demo-fullscreen-close svg { width: 20px; height: 20px; }
+.assistencia-product-page #demo-modal.demo-modal--fullscreen .demo-fullscreen-close { display: grid; }
+#demo-modal.is-loading .demo-frame-loader { display: grid; }
+.demo-frame-loader__spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(147, 197, 253, .25);
+  border-top-color: #93C5FD;
+  border-radius: 50%;
+  animation: demo-frame-spin .8s linear infinite;
+}
+.demo-frame-loader strong { font-size: 17px; }
+.demo-frame-loader p { max-width: 330px; margin: 0; color: #BFDBFE; font-size: 14px; line-height: 1.55; }
+.demo-frame-loader a { display: none; margin-top: 4px; color: #FFFFFF; font-size: 13px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
+#demo-modal.is-delayed .demo-frame-loader a { display: inline; }
+@keyframes demo-frame-spin { to { transform: rotate(360deg); } }
 }
 @media (max-width: 1100px) {
   .real-system-page .hero-grid { grid-template-columns: 1fr; }
@@ -1028,11 +1761,11 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   margin-top: 32px;
 }
 .routine-step {
-  background: white;
-  border: 1px solid #E2E8F0;
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 18px;
   padding: 24px;
-  box-shadow: 0 12px 26px -24px rgba(15, 23, 42, .26);
+  box-shadow: 0 12px 26px -24px rgba(0, 0, 0, .3);
   position: relative;
 }
 .routine-step::after {
@@ -1060,17 +1793,20 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   margin-bottom: 16px;
 }
 .routine-step h3 {
-  color: #1E293B;
+  color: var(--text);
   font-size: 18px;
   margin: 0 0 8px;
 }
 .routine-step p {
-  color: #475569;
+  color: var(--muted);
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
 }
 @media (max-width: 820px) {
+  .assistencia-faq summary { min-height: 64px; padding: 15px 16px; font-size: 15px; }
+  .assistencia-faq summary > span { gap: 10px; }
+  .assistencia-faq details p { padding: 0 16px 18px; font-size: 14px; }
   .routine-flow { grid-template-columns: 1fr; gap: 16px; }
   .routine-step::after { display: none; }
 }
@@ -1420,5 +2156,29 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 
   .demo-panel-wide {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 820px) {
+  .single-plan-grid,
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-segment-pills {
+    gap: 10px;
+  }
+
+  .product-demo-panel {
+    padding: 24px 20px;
+  }
+
+  .product-demo-note {
+    align-items: flex-start;
+  }
+
+  #demo-modal .mbox {
+    width: min(100vw - 16px, 980px);
+    height: min(100vh - 16px, 700px);
   }
 }
