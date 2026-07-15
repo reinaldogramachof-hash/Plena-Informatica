@@ -1344,9 +1344,21 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 .gastro-product-page .assistencia-price-card--featured::after { background: #E96B2D; }
 .gastro-product-page .assistencia-price-card--custom { background: linear-gradient(150deg, rgba(246, 175, 112, .2), rgba(255, 255, 255, .045)) !important; border-color: rgba(254, 215, 170, .32) !important; }
 .gastro-product-page .assistencia-price-card--custom .assistencia-price-card__eyebrow { color: #FED7AA; border-color: rgba(254, 215, 170, .32); background: rgba(233, 107, 45, .12); }
-.gastro-product-page .plan-grid.assistencia-pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; max-width: 1060px; }
-.gastro-product-page .plan-grid.assistencia-pricing-grid .assistencia-price-card { min-height: 100%; }
-.gastro-product-page .plan-grid.assistencia-pricing-grid .plan-list { min-height: 118px; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; align-items: stretch; max-width: 1060px; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .assistencia-price-card { min-height: 432px; padding: 30px; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .assistencia-price-card__eyebrow { align-self: flex-start; margin-bottom: 18px; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .assistencia-price-card__price { margin: 0 0 4px; font-size: clamp(38px, 4vw, 50px); letter-spacing: -.055em; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .plan-period { margin-bottom: 22px; color: #F3C9B4; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .plan-list { min-height: 116px; gap: 12px; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .plan-list li { padding-left: 0; font-size: 14px; line-height: 1.5; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .plan-list li::before { display: none; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .plan-list li i { display: inline-block; margin-top: 3px; color: #86EFAC; font-size: 16px; }
+.gastro-product-page .plan-grid.assistencia-pricing-grid .btn { min-height: 56px; margin-top: auto; font-size: 15px; }
+@media (max-width: 820px) {
+  .gastro-product-page .plan-grid.assistencia-pricing-grid { grid-template-columns: 1fr !important; }
+  .gastro-product-page .plan-grid.assistencia-pricing-grid .assistencia-price-card { min-height: 0; padding: 25px; }
+  .gastro-product-page .plan-grid.assistencia-pricing-grid .plan-list { min-height: 0; }
+}
 .gastro-product-page .plan-card .plan-badge { background: #E96B2D; }
 .gastro-product-page .plan-card .plan-period { color: var(--muted); }
 .gastro-product-page .plan-card ul.clean li { color: #FDEDE3; }

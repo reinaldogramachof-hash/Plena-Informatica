@@ -122,17 +122,6 @@
     #demo-modal .mclose:hover { background:rgba(255,255,255,.08);color:#fff; }
     #demo-modal iframe { flex:1;border:none;width:100%; }
 
-    /* ── FAQ ── */
-    details summary {
-      cursor:pointer;list-style:none;padding:17px 0;font-weight:600;
-      color:#ddd;display:flex;justify-content:space-between;align-items:center;font-size:14px;
-    }
-    details summary::after { content:'+';font-size:18px;color:#E07B4A;flex-shrink:0; }
-    details[open] summary::after { content:'−'; }
-    details p { color:#9CA3AF;font-size:13px;line-height:1.7;padding-bottom:14px; display: none; }
-    details[open] p { display: block; animation: slideDown 0.4s ease forwards; }
-    details+details { border-top:1px solid rgba(255,255,255,.07); }
-
     /* Global CTA pulse */
     .btn.primary { animation: pulseGlow 2s infinite; }
   </style>
@@ -341,7 +330,6 @@
         <button class="btn light" onclick="openProductWhatsApp('Olá! Quero conhecer o plano Essencial do Gestão Gastro Pro por R$ 89/mês.', 'Gestão Gastro')">Falar sobre o plano essencial</button>
       </div>
       <div class="plan-card destaque card assistencia-price-card assistencia-price-card--featured">
-        <div class="plan-badge">Recomendado</div>
         <div class="plan-name assistencia-price-card__eyebrow">Profissional</div>
         <div class="plan-price assistencia-price-card__price">R$ 189</div>
         <div class="plan-period">por mês</div>
@@ -395,33 +383,29 @@
 
 <!-- FAQ -->
 <section id="faq" class="section faq assistencia-section assistencia-faq gastro-faq">
-  <div class="container assistencia-faq__list" style="max-width:760px">
-    <span class="eyebrow">FAQ</span>
-    <h2>Perguntas frequentes</h2>
-    <details>
-      <summary>Posso testar antes de contratar?</summary>
-      <p>Sim. Em desktop ou tablet, a demo completa abre nesta página quando você clica em "Experimentar demo grátis". No celular, o botão direciona para o WhatsApp para fazermos a apresentação de forma guiada.</p>
-    </details>
-    <details>
-      <summary>Funciona para hamburguerias, pizzarias e bares?</summary>
-      <p>Sim. O sistema foi desenvolvido para qualquer operação que combine salão, PDV e produção — restaurantes, hamburguerias, pizzarias, bares, food trucks e operações de balcão.</p>
-    </details>
-    <details>
-      <summary>Precisa instalar algum programa?</summary>
-      <p>Não. O sistema roda no navegador, em qualquer tablet, computador ou celular, sem exigir instalação de programa local.</p>
-    </details>
-    <details>
-      <summary>O estoque é atualizado automaticamente com as vendas?</summary>
-      <p>Sim. Cada produto tem uma ficha técnica vinculada aos insumos do estoque. A cada venda, os ingredientes são baixados automaticamente na quantidade registrada na receita.</p>
-    </details>
-    <details>
-      <summary>Como funciona a demonstração acompanhada?</summary>
-      <p>Após contato pelo WhatsApp agendamos uma sessão onde configuramos mesas, cardápio e fluxo de cozinha conforme a rotina do seu estabelecimento. A implantação é guiada e sem custo adicional.</p>
-    </details>
-    <details>
-      <summary>Posso mudar de plano depois?</summary>
-      <p>Sim, o upgrade ou downgrade de plano pode ser feito a qualquer momento. Os dados e configurações são preservados na migração entre planos.</p>
-    </details>
+  <div class="container" style="max-width:760px;">
+    <div class="assistencia-faq__list">
+      <details>
+        <summary><span><b>01</b> Posso testar antes de contratar?</span></summary>
+        <p>Sim. Abra a demo completa no desktop ou solicite o teste gratuito de 7 dias pelo WhatsApp para conhecer a rotina antes de decidir.</p>
+      </details>
+      <details>
+        <summary><span><b>02</b> Funciona para restaurantes, bares e delivery?</span></summary>
+        <p>Sim. O sistema organiza operações com salão, balcão, cozinha e entrega — incluindo restaurantes, hamburguerias, pizzarias, bares e food trucks.</p>
+      </details>
+      <details>
+        <summary><span><b>03</b> Mesas, pedidos e cozinha ficam conectados?</span></summary>
+        <p>Sim. O pedido pode nascer no PDV ou na mesa, seguir para a cozinha e voltar ao caixa com o histórico da operação no mesmo fluxo.</p>
+      </details>
+      <details>
+        <summary><span><b>04</b> O estoque baixa com as vendas?</span></summary>
+        <p>Sim. As fichas técnicas vinculam produtos e insumos para apoiar a baixa e o acompanhamento de reposição conforme as vendas são registradas.</p>
+      </details>
+      <details>
+        <summary><span><b>05</b> A demo abre no celular?</span></summary>
+        <p>A demonstração foi planejada para tela ampla. No celular, recomendamos solicitar a apresentação ou o teste guiado pelo WhatsApp.</p>
+      </details>
+    </div>
   </div>
 </section>
 

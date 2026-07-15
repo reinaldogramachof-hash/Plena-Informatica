@@ -105,6 +105,9 @@
   }
 
   function enrichDashboardWithSampleData() {
+    // O build da demonstração já entrega dados reais de teste pelo provider local.
+    // Mantemos o roteiro sem reescrever métricas visuais por cima desses dados.
+    return;
     if (currentTitle().indexOf('Dashboard') === -1) return;
     function setMetric(label, value) {
       var labelElement = Array.from(document.querySelectorAll('p, span, div')).find(function (element) {
@@ -132,6 +135,8 @@
   }
 
   function enrichCurrentModuleWithSampleData() {
+    // Os módulos já recebem coleções fictícias próprias no build de demonstração.
+    return;
     var title = currentTitle();
     if (title === lastSampleTitle) return;
     var key = Object.keys(moduleSamples).find(function (name) { return title.indexOf(name) !== -1; });
