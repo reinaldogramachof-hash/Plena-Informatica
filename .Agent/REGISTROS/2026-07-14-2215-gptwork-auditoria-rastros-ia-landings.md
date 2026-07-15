@@ -1,0 +1,21 @@
+# Auditoria de linguagem e rastros visuais — landings de gestão
+
+- **Objetivo:** aplicar nas landings de Assistência, Barbearia e Beleza o mesmo critério de revisão usado no Gestão Gastro: reduzir promessas vagas, elementos redundantes e efeitos que não contribuam para clareza comercial.
+- **Escopo auditado:**
+  - `produtos/assistencia-pro.html`
+  - `produtos/barbearia-premium.html`
+  - `produtos/beleza-spa.html`
+  - `produtos/assets/produtos.css`
+- **Resumo das mudanças:**
+  - Assistência Pro e Barbearia Premium foram auditadas e mantidas sem mudança estrutural: não foram encontrados efeitos legados, dependências extras ou promessas artificiais que justificassem alteração.
+  - Gestão Beleza teve textos de benefício revisados para substituir promessa automática por descrições verificáveis da rotina.
+  - O painel de demonstração redundante e oculto da hero do Gestão Beleza foi removido; os dois CTAs visíveis da hero continuam sendo os únicos caminhos de demonstração e teste.
+  - A hero móvel do Gestão Beleza foi corrigida para manter recuos laterais consistentes e evitar cortes em título, descrição e CTAs.
+- **Validações executadas:**
+  - HTTP local `200` para Assistência Pro, Barbearia Premium, Gestão Beleza e Gestão Gastro.
+  - Varredura dos três arquivos auditados sem `Ã`, `Â`, `�`, `&Atilde;`, `&Acirc;`, `TODO`, `TBD`, `Depoimento de exemplo` ou `Nome do cliente`.
+  - Capturas locais da hero do Gestão Beleza em desktop e mobile.
+  - Verificação por viewport emulado de 375 px: largura do documento em `375 px`, sem overflow horizontal; hero, descrição e CTAs entre `24 px` e `351 px`.
+  - `git diff --check` executado na validação final desta entrega.
+- **Pendências/riscos:** nenhuma alteração de preços, CTA, destino de demo, ou lógica de modal foi feita. A revisão visual final de preferência comercial permanece com o responsável do projeto.
+- **Commit/push:** solicitados pelo responsável; serão registrados após a confirmação do Git.

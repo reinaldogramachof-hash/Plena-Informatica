@@ -1,0 +1,23 @@
+# Lapidação comercial e visual — Gestão Gastro
+
+- **Objetivo:** enriquecer a decisão comercial dos planos do Gestão Gastro e reduzir elementos visuais e textuais com aparência genérica ou excessivamente promocional.
+- **Arquivos modificados:**
+  - `produtos/gestao-gastro.html`
+  - `produtos/assets/produtos.css`
+  - `.Agent/REGISTROS/2026-07-14-2135-gptwork-lapidacao-planos-gastro.md`
+- **Resumo das mudanças:**
+  - Os quatro planos passaram a informar cenário de uso e indicação de perfil, mantendo preços, CTAs e condições comerciais já definidos.
+  - O plano personalizado recebeu nota explícita sobre escopo, prazo e integrações serem definidos em proposta.
+  - O destaque do plano Profissional foi simplificado para um marcador discreto, sem faixa diagonal.
+  - A seção de segmentos virou um bloco editorial objetivo, explicando o fluxo operacional atendido.
+  - Foram reduzidos brilho, animações pulsantes e elevação excessiva dos cards; os estados de hover agora são mais sóbrios.
+  - Foram atualizados metadados e textos de recursos para uma linguagem mais concreta e operacional.
+  - A dependência de Tailwind carregada apenas para classes ocultas foi removida; a classe de acessibilidade usada na navegação recebeu estilo local.
+- **Validações executadas:**
+  - `git diff --check -- produtos/gestao-gastro.html produtos/assets/produtos.css` sem apontamentos.
+  - Busca por `Ã`, `Â`, `�`, `&Atilde;` e `&Acirc;` em `produtos/gestao-gastro.html`: zero ocorrências.
+  - Busca por `TODO`, `TBD`, `Depoimento de exemplo` e `Nome do cliente` em `produtos/gestao-gastro.html`: zero ocorrências.
+  - HTTP local em `/produtos/gestao-gastro.html`: `200`.
+  - Captura local da hero e navegação em viewport de desktop, confirmando carregamento da página e o botão de WhatsApp somente com ícone.
+- **Pendências/riscos:** a apreciação estética final dos cards de planos em todos os breakpoints permanece sujeita à validação visual manual; nenhuma regra de preço, integração, ou demo foi alterada.
+- **Commit/push:** não realizados nesta ação.

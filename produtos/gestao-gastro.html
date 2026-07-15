@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestão Gastro | Plataforma para Restaurantes e Bares</title>
-  <meta name="description" content="Plataforma completa para bares e restaurantes — mesas, PDV, cozinha, estoque, delivery, inteligência e muito mais. Demo gratuita disponível agora.">
+  <meta name="description" content="Sistema de gestão para restaurantes, bares e delivery com PDV, mesas, cozinha, estoque, caixa e relatórios integrados.">
   <link rel="canonical" href="https://plenainformatica.com.br/produtos/gestao-gastro">
   <meta property="og:title" content="Gestão Gastro | Plena Informática">
-  <meta property="og:description" content="Plataforma SaaS para bares e restaurantes com 20+ módulos. Demo gratuita disponível.">
+  <meta property="og:description" content="Gestão integrada de pedidos, cozinha, salão, caixa e estoque para operações gastronômicas.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://plenainformatica.com.br/plena.jpg">
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -253,11 +252,11 @@
 <!-- MÓDULOS -->
 <section id="recursos" class="section assistencia-section gastro-resources-section">
   <div class="container">
-    <span class="eyebrow">O que está incluso</span>
-    <h2>20+ módulos integrados — toda a operação conectada.</h2>
+    <span class="eyebrow">Módulos do sistema</span>
+    <h2>Do salão à cozinha, o fluxo da operação no mesmo sistema.</h2>
     <p style="color:#888;max-width:560px;margin-bottom:28px">
-      Cada módulo conversa com os demais em tempo real. O pedido do salão aparece na cozinha,
-      baixa do estoque e fecha no caixa — sem integrações externas, sem retrabalho.
+      O pedido registrado no salão segue para a cozinha, atualiza o estoque e chega ao caixa no mesmo fluxo,
+      reduzindo reentradas e controles paralelos.
     </p>
     <div class="mod-grid">
       <div class="mod-item"><i class="ph-light ph-squares-four"></i><div><h4>Dashboard</h4><p>KPIs de faturamento, mesas e pedidos em tempo real.</p></div></div>
@@ -314,54 +313,64 @@
   <div class="container">
     <div class="assistencia-pricing-intro">
       <span class="eyebrow" style="justify-content:center;">Planos e preços</span>
-      <h2 style="margin-left:auto; margin-right:auto;">Comece pelo que você precisa agora.</h2>
-      <p style="color:#9CA3AF;">Escolha o nível de controle que sua operação precisa hoje e evolua com recursos, implantação e personalização orientados.</p>
+      <h2 style="margin-left:auto; margin-right:auto;">Planos para acompanhar o porte da sua operação.</h2>
+      <p style="color:#9CA3AF;">Compare o escopo de cada plano com clareza e escolha a estrutura que faz sentido para o seu momento.</p>
     </div>
     <div class="plan-grid assistencia-pricing-grid">
-      <div class="plan-card card assistencia-price-card">
+      <article class="plan-card card assistencia-price-card gastro-plan-card">
         <div class="plan-name assistencia-price-card__eyebrow">Essencial</div>
         <div class="plan-price assistencia-price-card__price">R$ 89</div>
         <div class="plan-period">por mês</div>
+        <p class="gastro-plan-card__summary">Para estruturar o atendimento, as mesas e a cozinha em uma única rotina.</p>
+        <p class="gastro-plan-card__fit"><strong>Indicado para:</strong> operações iniciando a organização digital.</p>
         <ul class="plan-list clean">
           <li><i class="ph-bold ph-check-circle"></i> PDV, mesas, comandas e painel de cozinha.</li>
           <li><i class="ph-bold ph-check-circle"></i> Caixa, relatórios e gestão de produtos.</li>
           <li><i class="ph-bold ph-check-circle"></i> Cardápio digital para a operação começar organizada.</li>
         </ul>
         <button class="btn light" onclick="openProductWhatsApp('Olá! Quero conhecer o plano Essencial do Gestão Gastro Pro por R$ 89/mês.', 'Gestão Gastro')">Falar sobre o plano essencial</button>
-      </div>
-      <div class="plan-card destaque card assistencia-price-card assistencia-price-card--featured">
+      </article>
+      <article class="plan-card destaque card assistencia-price-card assistencia-price-card--featured gastro-plan-card">
+        <span class="gastro-plan-card__label">Mais escolhido</span>
         <div class="plan-name assistencia-price-card__eyebrow">Profissional</div>
         <div class="plan-price assistencia-price-card__price">R$ 189</div>
         <div class="plan-period">por mês</div>
+        <p class="gastro-plan-card__summary">Mais controle para conectar estoque, clientes, delivery e equipe ao dia a dia.</p>
+        <p class="gastro-plan-card__fit"><strong>Indicado para:</strong> casas em crescimento e com mais canais de venda.</p>
         <ul class="plan-list clean">
           <li><i class="ph-bold ph-check-circle"></i> Tudo do Essencial, com estoque e ficha técnica.</li>
           <li><i class="ph-bold ph-check-circle"></i> Clientes, fidelidade, fornecedores e colaboradores.</li>
           <li><i class="ph-bold ph-check-circle"></i> Delivery, pedidos on-line e central de vendas.</li>
         </ul>
         <button class="btn primary" onclick="openProductWhatsApp('Olá! Quero conhecer o plano Profissional do Gestão Gastro Pro por R$ 189/mês.', 'Gestão Gastro')">Quero o plano profissional</button>
-      </div>
-      <div class="plan-card card assistencia-price-card">
+      </article>
+      <article class="plan-card card assistencia-price-card gastro-plan-card">
         <div class="plan-name assistencia-price-card__eyebrow">Gestão</div>
         <div class="plan-price assistencia-price-card__price">R$ 329</div>
         <div class="plan-period">por mês</div>
+        <p class="gastro-plan-card__summary">Visão gerencial para decisões de operação, acompanhamento e segurança.</p>
+        <p class="gastro-plan-card__fit"><strong>Indicado para:</strong> gestores que precisam acompanhar resultado e rotina.</p>
         <ul class="plan-list clean">
           <li><i class="ph-bold ph-check-circle"></i> Tudo do Profissional, com dashboard analítico.</li>
           <li><i class="ph-bold ph-check-circle"></i> Inteligência, diário de bordo, auditoria e segurança.</li>
           <li><i class="ph-bold ph-check-circle"></i> Suporte prioritário e manual integrado.</li>
         </ul>
         <button class="btn light" onclick="openProductWhatsApp('Olá! Quero entender o plano Gestão do Gestão Gastro Pro por R$ 329/mês.', 'Gestão Gastro')">Falar sobre o plano gestão</button>
-      </div>
-      <div class="plan-card card assistencia-price-card assistencia-price-card--custom">
+      </article>
+      <article class="plan-card card assistencia-price-card assistencia-price-card--custom gastro-plan-card">
         <div class="plan-name assistencia-price-card__eyebrow">Projeto personalizado</div>
         <div class="plan-price assistencia-price-card__price">R$ 4.999,90</div>
         <div class="plan-period">implantação inicial</div>
+        <p class="gastro-plan-card__summary">Projeto preparado para a identidade, os fluxos e as prioridades da sua operação.</p>
+        <p class="gastro-plan-card__fit"><strong>Indicado para:</strong> negócios com processo, marca ou escopo próprios.</p>
         <ul class="plan-list clean">
           <li><i class="ph-bold ph-check-circle"></i> Sistema completo preparado com a identidade da sua marca.</li>
           <li><i class="ph-bold ph-check-circle"></i> Configuração orientada dos fluxos e módulos contratados.</li>
           <li><i class="ph-bold ph-check-circle"></i> Hospedagem e domínio cobrados à parte, com renovação anual.</li>
         </ul>
         <button class="btn light" onclick="openProductWhatsApp('Olá! Quero solicitar uma proposta para o Gestão Gastro Pro personalizado com minha marca, a partir de R$ 4.999,90.', 'Gestão Gastro')">Solicitar proposta personalizada</button>
-      </div>
+        <small class="gastro-plan-card__footnote">Escopo, prazo e integrações são definidos em proposta.</small>
+      </article>
     </div>
     <p class="assistencia-pricing-note"><i class="ph-light ph-info"></i> Recursos avançados, implantação e escopo personalizado são alinhados com a rotina do estabelecimento antes da contratação.</p>
   </div>
@@ -370,14 +379,9 @@
 <!-- CENÁRIOS QUE RESOLVEMOS -->
 <section class="section proof-section gastro-proof-section">
   <div class="container gastro-proof-section__content">
-    <h3 class="gastro-proof-section__title">Cenários que resolvemos</h3>
-    <div class="proof-segment-pills">
-      <span class="proof-pill">Restaurantes</span>
-      <span class="proof-pill">Hamburguerias</span>
-      <span class="proof-pill">Pizzarias</span>
-      <span class="proof-pill">Bares</span>
-      <span class="proof-pill">Food trucks</span>
-    </div>
+    <span class="eyebrow">Onde faz diferença</span>
+    <h2 class="gastro-proof-section__title">Uma operação integrada, do pedido ao fechamento.</h2>
+    <p class="gastro-proof-section__text">Para restaurantes, hamburguerias, pizzarias, bares e food trucks que precisam reduzir controles paralelos entre salão, cozinha, caixa e entrega.</p>
   </div>
 </section>
 
