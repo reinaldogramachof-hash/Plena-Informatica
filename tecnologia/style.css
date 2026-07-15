@@ -66,11 +66,17 @@ footer {
 }
 
 .glass-nav {
-  background: rgba(8, 8, 9, 0.78);
+  background: rgba(5, 8, 15, 0.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+.tech-nav-brand { display: inline-flex; align-items: center; gap: .72rem; color: #fff; text-decoration: none; }
+.tech-nav-brand__mark { display: grid; place-items: center; width: 2.55rem; height: 2.55rem; border: 1px solid rgba(212, 175, 55, .55); border-radius: .78rem; background: linear-gradient(145deg, rgba(212, 175, 55, .22), rgba(255, 255, 255, .035)); color: #F3DF98; font-size: 1.22rem; font-weight: 900; letter-spacing: -.08em; }
+.tech-nav-brand__copy { display: grid; gap: .12rem; line-height: 1; }
+.tech-nav-brand__copy strong { font-size: .82rem; font-weight: 900; letter-spacing: .15em; }
+.tech-nav-brand__copy small { color: #A1A1AA; font-size: .5rem; font-weight: 800; letter-spacing: .14em; }
 
 .bento-card {
   background: var(--surface-glass);
@@ -254,7 +260,7 @@ button:focus-visible,
   --light-muted: #475569;
   --light-line: rgba(15, 23, 42, 0.11);
   color: var(--light-text);
-  background-color: #fcfcfd;
+  background-color: #f8fafc;
   background-image:
     radial-gradient(circle at 50% 30%, #ffffff 15%, rgba(255, 255, 255, 0) 85%),
     radial-gradient(circle, rgba(15, 23, 42, 0.12) 1px, transparent 1.5px),
@@ -267,6 +273,18 @@ button:focus-visible,
   overflow: hidden;
   isolation: isolate;
 }
+
+.tech-showcase > .max-w-7xl { position: relative; }
+.tech-showcase > .max-w-7xl::before { content: "CATÁLOGO PLENA"; position: absolute; top: -2.4rem; left: 0; color: rgba(15, 23, 42, .1); font-size: .62rem; font-weight: 900; letter-spacing: .22em; }
+
+#processo { background: linear-gradient(135deg, rgba(255, 255, 255, .025), transparent 42%), #0A0B10; }
+#processo .bento-card { min-height: 13rem; border-radius: 1rem; }
+#processo .bento-card > span { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border: 1px solid rgba(212, 175, 55, .26); border-radius: .6rem; background: rgba(212, 175, 55, .08); }
+#confianca { background: #0D0E13; }
+#confianca .proof-pill { background: rgba(255, 255, 255, .025); border-color: rgba(255, 255, 255, .08); }
+#faq { background: linear-gradient(180deg, #090A0E, #0D0E13) !important; }
+#faq .bento-card { padding: 1.55rem; border-radius: 1rem; }
+#contato { background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, .1), transparent 28rem), #07080B; }
 
 .tech-showcase::before {
   display: none;
@@ -541,6 +559,14 @@ button:focus-visible,
     max-width: calc(100vw - 2rem) !important;
   }
 
+  .tech-hero-layout { grid-template-columns: 1fr; gap: 1.5rem; text-align: left; }
+  .tech-hero-copy { max-width: 100%; }
+  .tech-hero-copy .hero-title { margin-bottom: 1.25rem; }
+  .tech-hero-proof { margin-top: 1.25rem; }
+  .tech-hero-proof span { width: 100%; }
+  .tech-delivery-panel { padding: 1.1rem; border-radius: 1.1rem; }
+  .tech-delivery-panel h2 { max-width: 100%; font-size: 1.38rem !important; }
+
   .hero-kicker {
     width: calc(100vw - 2rem);
     justify-content: center;
@@ -771,6 +797,37 @@ button:focus-visible,
    ============================================================ */
 .tech-hero {
   position: relative;
+  background: linear-gradient(115deg, #06080d 0%, #0a0b10 55%, #0b0c0e 100%);
+}
+
+.tech-hero-layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(320px, .72fr); align-items: center; gap: clamp(2rem, 6vw, 6rem); position: relative; z-index: 1; text-align: left; }
+.tech-hero-copy { max-width: 47rem; }
+.tech-hero-copy .hero-title { max-width: 46rem; margin-left: 0; margin-right: 0; }
+.tech-hero-copy > p { max-width: 39rem; }
+.tech-hero-proof { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.85rem; }
+.tech-hero-proof span { padding: .52rem .72rem; border-left: 2px solid rgba(212, 175, 55, .72); background: rgba(255, 255, 255, .035); color: #D4D4D8; font-size: .73rem; font-weight: 700; }
+.tech-delivery-panel { padding: 1.45rem; border: 1px solid rgba(255, 255, 255, .12); border-radius: 1.45rem; background: linear-gradient(150deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .025)); box-shadow: 0 30px 85px -52px rgba(0, 0, 0, .92); backdrop-filter: blur(16px); }
+.tech-delivery-panel__top { display: flex; align-items: center; justify-content: space-between; color: #D4AF37; font-size: .66rem; font-weight: 900; letter-spacing: .16em; }
+.tech-delivery-panel__top i { font-size: 1.3rem; }
+.tech-delivery-panel h2 { max-width: 18rem; margin: 1.4rem 0 1.35rem; color: #fff; font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 800; letter-spacing: -.045em; line-height: 1.13; }
+.tech-delivery-panel__items { display: grid; gap: .62rem; }
+.tech-delivery-panel__items > div { display: flex; gap: .75rem; align-items: flex-start; padding: .86rem; border: 1px solid rgba(255, 255, 255, .075); border-radius: .85rem; background: rgba(0, 0, 0, .15); }
+.tech-delivery-panel__items i { color: #F3DF98; font-size: 1.1rem; margin-top: .1rem; }
+.tech-delivery-panel__items span { display: grid; gap: .22rem; }
+.tech-delivery-panel__items strong { color: #F4F4F5; font-size: .82rem; }
+.tech-delivery-panel__items small { color: #A1A1AA; font-size: .72rem; line-height: 1.45; }
+.tech-delivery-panel > p { display: flex; align-items: center; gap: .5rem; margin: 1rem 0 0; color: #D4D4D8; font-size: .72rem; font-weight: 700; }
+.tech-delivery-panel__signal { width: .5rem; height: .5rem; border-radius: 50%; background: #22C55E; }
+
+@media (max-width: 767px) {
+  .tech-hero-layout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .tech-hero-copy { width: 100%; max-width: 100%; }
+  .tech-hero-copy .hero-title { width: 100%; max-width: 100% !important; margin-bottom: 1.25rem; }
+  .tech-hero-copy > p { width: 100%; max-width: 100%; }
+  .tech-hero-proof { margin-top: 1.25rem; }
+  .tech-hero-proof span { width: 100%; }
+  .tech-delivery-panel { width: 100%; padding: 1.1rem; border-radius: 1.1rem; }
+  .tech-delivery-panel h2 { max-width: 100%; font-size: 1.38rem !important; }
 }
 
 .tech-hero::after {

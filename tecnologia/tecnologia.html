@@ -113,9 +113,9 @@
   <a href="#soluções" class="skip-link">Ir ao conteúdo principal</a>
   <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
     <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-2.5 group flex-shrink-0">
-        <img src="../logo-plena.png" alt="Plena Informática"
-          class="h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+      <a href="../index.html" class="tech-nav-brand group flex-shrink-0" aria-label="Plena Informática — página inicial">
+        <span class="tech-nav-brand__mark" aria-hidden="true">P</span>
+        <span class="tech-nav-brand__copy"><strong>PLENA</strong><small>TECNOLOGIA APLICADA</small></span>
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
         <a href="#inicio" class="text-[var(--text-muted)] hover:text-white transition-colors">Início</a>
@@ -153,38 +153,48 @@
         class="absolute bottom-0 right-[-10rem] w-[24rem] h-[24rem] bg-emerald-500/5 blur-[95px] rounded-full pointer-events-none">
       </div>
 
-      <div
-        class="hero-kicker inline-flex items-center gap-3 mb-7 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm max-w-full">
-        <span class="w-2 h-2 rounded-full bg-[#22c55e] shadow-[0_0_8px_#22c55e]"></span>
-        <span class="text-[#D4AF37] text-[0.7rem] md:text-xs font-black uppercase tracking-[0.18em]">Tecnologia prática
-          para vender e organizar melhor</span>
-      </div>
+      <div class="tech-hero-layout max-w-7xl mx-auto w-full">
+        <div class="tech-hero-copy">
+          <div class="hero-kicker inline-flex items-center gap-3 mb-7 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm max-w-full">
+            <span class="w-2 h-2 rounded-full bg-[#22c55e]"></span>
+            <span class="text-[#D4AF37] text-[0.7rem] md:text-xs font-black uppercase tracking-[0.18em]">Tecnologia prática para vender e organizar melhor</span>
+          </div>
 
-      <h1
-        class="hero-title text-5xl md:text-7xl lg:text-[5.4rem] font-black text-white mb-7 leading-[1.02] tracking-tight max-w-6xl mx-auto">
-        Sistemas e sites para <span class="text-gradient-gold">negócios reais.</span>
-      </h1>
+          <h1 class="hero-title text-5xl md:text-7xl lg:text-[5.4rem] font-black text-white mb-7 leading-[1.02] tracking-tight">
+            Sistemas e sites para <span class="text-gradient-gold">negócios reais.</span>
+          </h1>
 
-      <p class="text-base md:text-xl text-[var(--text-muted)] font-light leading-relaxed max-w-3xl mx-auto mb-9">
-        Desenvolvemos sistemas de gestão, páginas de alta conversão e softwares sob medida focados na sua operação real.
-        Tudo pronto para você testar, entender e contratar sem burocracia.
-      </p>
+          <p class="text-base md:text-xl text-[var(--text-muted)] font-light leading-relaxed mb-9">
+            Sistemas de gestão, páginas comerciais e projetos sob medida construídos a partir da rotina da sua operação.
+            Você vê a solução, entende o fluxo e decide com mais clareza.
+          </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
-        <a href="#soluções" class="premium-link primary !mt-0" data-offer="catalogo" data-category="hero"
-          data-action="anchor">
-          Ver demos e soluções <i class="ph-light ph-arrow-down text-xl"></i>
-        </a>
-        <button type="button" class="whatsapp-btn premium-btn light !mt-0" data-offer="diagnóstico" data-category="hero"
-          data-action="whatsapp" onclick="openWhatsAppByKey('diagnóstico')">
-          Solicitar diagnóstico <i class="ph-fill ph-whatsapp-logo text-xl"></i>
-        </button>
-      </div>
+          <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            <a href="#soluções" class="premium-link primary !mt-0" data-offer="catalogo" data-category="hero" data-action="anchor">
+              Ver demos e soluções <i class="ph-light ph-arrow-down text-xl"></i>
+            </a>
+            <button type="button" class="whatsapp-btn premium-btn light !mt-0" data-offer="diagnóstico" data-category="hero" data-action="whatsapp" onclick="openWhatsAppByKey('diagnóstico')">
+              Solicitar diagnóstico <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+            </button>
+          </div>
 
-      <div class="flex flex-wrap justify-center gap-2 mt-8 max-w-3xl">
-        <span class="proof-pill">20 anos de experiência em SJC</span>
-        <span class="proof-pill">Demos prontas para testar</span>
-        <span class="proof-pill">Atendimento 100% humano</span>
+          <div class="tech-hero-proof" aria-label="Diferenciais da Plena">
+            <span>20 anos de experiência em SJC</span>
+            <span>Demos prontas para testar</span>
+            <span>Atendimento humano</span>
+          </div>
+        </div>
+
+        <aside class="tech-delivery-panel" aria-label="Como a Plena estrutura sua solução">
+          <div class="tech-delivery-panel__top"><span>VISÃO DA ENTREGA</span><i class="ph-light ph-cpu"></i></div>
+          <h2>Da necessidade ao uso com uma rota definida.</h2>
+          <div class="tech-delivery-panel__items">
+            <div><i class="ph-light ph-squares-four"></i><span><strong>Sistemas de gestão</strong><small>Rotinas, pessoas e indicadores conectados.</small></span></div>
+            <div><i class="ph-light ph-layout"></i><span><strong>Páginas comerciais</strong><small>Oferta clara, CTA visível e caminho de conversão.</small></span></div>
+            <div><i class="ph-light ph-sliders-horizontal"></i><span><strong>Projetos sob medida</strong><small>Escopo alinhado ao processo que precisa evoluir.</small></span></div>
+          </div>
+          <p><span class="tech-delivery-panel__signal"></span> Demonstrações e diagnóstico antes da decisão.</p>
+        </aside>
       </div>
     </section>
 
