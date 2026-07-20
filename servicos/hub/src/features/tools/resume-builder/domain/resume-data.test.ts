@@ -4,6 +4,7 @@ import {
   MAX_EDUCATION_ITEMS,
   MAX_EXPERIENCE_ITEMS,
   MAX_SKILLS,
+  MAX_SUMMARY_CHARS,
   parseResumeData,
 } from './resume-data'
 
@@ -29,7 +30,8 @@ describe('parseResumeData', () => {
     expect(result.skills).toEqual(['Organizacao', 'Atendimento'])
   })
 
-  it('requires name, email, phone, headline and summary', () => {
+  it('requires name, email, phone and headline — summary is optional', () => {
+    // Todos os campos obrigatórios vazios: erro no primeiro (fullName)
     expect(() =>
       parseResumeData({
         ...validResume,
@@ -43,6 +45,29 @@ describe('parseResumeData', () => {
         },
       }),
     ).toThrow('Informe seu nome completo')
+
+    // summary vazio não deve lançar erro
+    expect(() =>
+      parseResumeData({
+        ...validResume,
+        personal: {
+          ...validResume.personal,
+          summary: '',
+        },
+      }),
+    ).not.toThrow()
+  })
+
+  it('rejects summary longer than the limit', () => {
+    expect(() =>
+      parseResumeData({
+        ...validResume,
+        personal: {
+          ...validResume.personal,
+          summary: 'a'.repeat(MAX_SUMMARY_CHARS + 1),
+        },
+      }),
+    ).toThrow(`${MAX_SUMMARY_CHARS} caracteres`)
   })
 
   it('rejects incomplete experience items', () => {

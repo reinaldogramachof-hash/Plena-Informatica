@@ -19,10 +19,6 @@ export function TransactionListPage() {
   const [filterCategory, setFilterCategory] = useState('')
   const [filterPayment, setFilterPayment] = useState('')
 
-  useEffect(() => {
-    loadTransactions()
-  }, [])
-
   async function loadTransactions() {
     setIsLoading(true)
     try {
@@ -35,14 +31,22 @@ export function TransactionListPage() {
     }
   }
 
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      void loadTransactions()
+    }, 0)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [])
+
   async function handleAddTransaction(data: Transaction) {
     setIsSubmitting(true)
     try {
       const record = await addTransaction(data)
       setTransactions((prev) => [record, ...prev])
       setShowForm(false)
-    } catch (err) {
-      throw err // Repassa o erro para o form exibir
     } finally {
       setIsSubmitting(false)
     }

@@ -24,9 +24,9 @@ export async function createPrintCostPdf(
     val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
   // Título
-  page.drawText('Comparativo de Custos de Impressao', { x, y, size: 20, font: bold, color: textC })
+  page.drawText('Comparativo de Custos de Impressão', { x, y, size: 20, font: bold, color: textC })
   y -= 25
-  page.drawText('Plena Informatica - Analise Estimativa', { x, y, size: 12, font: oblique, color: mutedC })
+  page.drawText('Plena Informática - Análise estimativa', { x, y, size: 12, font: oblique, color: mutedC })
   y -= 40
 
   // Linha
@@ -43,13 +43,13 @@ export async function createPrintCostPdf(
     y -= 15
   }
 
-  drawLabelValue('Paginas Pretas / mes:', input.pagesBlack.toString())
-  drawLabelValue('Paginas Coloridas / mes:', input.pagesColor.toString())
+  drawLabelValue('Páginas pretas / mês:', input.pagesBlack.toString())
+  drawLabelValue('Páginas coloridas / mês:', input.pagesColor.toString())
   drawLabelValue('Custo do Cartucho/Toner:', formatCurrency(input.cartridgeCost))
-  drawLabelValue('Rendimento do Cartucho:', `${input.cartridgeYield} paginas`)
+  drawLabelValue('Rendimento do cartucho:', `${input.cartridgeYield} páginas`)
   drawLabelValue('Custo do Papel (Resma):', formatCurrency(input.paperResmaCost))
   drawLabelValue('Folhas por Resma:', input.paperResmaSheets.toString())
-  drawLabelValue('Custo de Manutencao (Mensal):', formatCurrency(input.maintenanceCost))
+  drawLabelValue('Custo de manutenção (mensal):', formatCurrency(input.maintenanceCost))
   
   y -= 20
   page.drawLine({ start: { x, y }, end: { x: 595.28 - x, y }, thickness: 0.5, color: mutedC })
@@ -59,29 +59,29 @@ export async function createPrintCostPdf(
   page.drawText('RESULTADOS DO COMPARATIVO', { x, y, size: 14, font: bold, color: textC })
   y -= 25
 
-  page.drawText('Impressora Propria', { x, y, size: 12, font: bold, color: textC })
+  page.drawText('Impressora própria', { x, y, size: 12, font: bold, color: textC })
   y -= 15
   drawLabelValue('Custo Mensal Estimado:', formatCurrency(result.ownCostMonthly))
-  drawLabelValue('Custo por Pagina Estimado:', formatCurrency(result.ownCostPerPage))
+  drawLabelValue('Custo por página estimado:', formatCurrency(result.ownCostPerPage))
   
   y -= 10
-  page.drawText('Terceirizando na Plena Informatica', { x, y, size: 12, font: bold, color: textC })
+  page.drawText('Terceirizando na Plena Informática', { x, y, size: 12, font: bold, color: textC })
   y -= 15
   drawLabelValue('Custo Mensal Estimado:', formatCurrency(result.plenaCostMonthly))
-  drawLabelValue('Custo Medio por Pagina:', formatCurrency(result.plenaCostPerPage))
+  drawLabelValue('Custo médio por página:', formatCurrency(result.plenaCostPerPage))
   
   y -= 20
   page.drawLine({ start: { x, y }, end: { x: 595.28 - x, y }, thickness: 0.5, color: mutedC })
   y -= 30
 
   // Veredito
-  page.drawText('CONCLUSAO', { x, y, size: 14, font: bold, color: textC })
+  page.drawText('CONCLUSÃO', { x, y, size: 14, font: bold, color: textC })
   y -= 20
 
   const verdictText = {
-    economy: `Voce economizaria ${formatCurrency(result.difference)} por mes imprimindo na Plena.`,
-    extra: `Sua impressora propria e ${formatCurrency(result.difference)} mais barata por mes.`,
-    tie: 'Os custos sao praticamente iguais.',
+    economy: `Você economizaria ${formatCurrency(result.difference)} por mês imprimindo na Plena.`,
+    extra: `Sua impressora própria é ${formatCurrency(result.difference)} mais barata por mês.`,
+    tie: 'Os custos são praticamente iguais.',
   }[result.verdict]
 
   page.drawText(verdictText, { x, y, size: 12, font: bold, color: accentC })
@@ -90,9 +90,9 @@ export async function createPrintCostPdf(
   const formattedDate = `${day}/${month}/${year}`
 
   y -= 40
-  page.drawText('Esta calculadora e apenas orientativa e nao representa proposta comercial.', { x, y, size: 9, font: oblique, color: mutedC })
+  page.drawText('Esta calculadora é apenas orientativa e não representa proposta comercial.', { x, y, size: 9, font: oblique, color: mutedC })
   page.drawText(`Calculo baseado nos valores informados e nos preços da Plena conferidos em ${formattedDate}.`, { x, y: y - 12, size: 9, font: oblique, color: mutedC })
-  page.drawText('Nao inclui energia eletrica, depreciacao do equipamento ou acabamentos.', { x, y: y - 24, size: 9, font: oblique, color: mutedC })
+  page.drawText('Não inclui energia elétrica, depreciação do equipamento ou acabamentos.', { x, y: y - 24, size: 9, font: oblique, color: mutedC })
 
   return pdf.save()
 }

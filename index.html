@@ -145,7 +145,7 @@
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center gap-2.5 group flex-shrink-0">
                     <img src="logo-plena.png" alt="Plena Informática"
-                        class="h-24 w-auto object-contain group-hover:scale-105 transition-transform duration-300 translate-y-2">
+                        class="h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                 </a>
 
                 <!-- Nav Desktop -->
@@ -223,12 +223,16 @@
         <section id="hero" class="relative flex items-center justify-center overflow-hidden"
             style="height:100dvh;min-height:620px;">
 
-            <div class="absolute inset-0 hero-bg" role="img" aria-label="Equipe Plena Informática"></div>
-            <div class="absolute inset-0 hero-overlay"></div>
+            <!-- Vídeo de background da Hero (substituindo a imagem estática) -->
+            <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="plena.jpg" class="absolute inset-0 w-full h-full object-cover z-0">
+                <source src="hero.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            <div class="absolute inset-0 hero-overlay z-10"></div>
 
-            <div class="relative z-10 container mx-auto px-6 text-center">
+            <!-- Conteúdo de texto ocultado temporariamente para testes visuais
+            <div class="relative z-20 container mx-auto px-6 text-center">
 
-                <!-- Badge -->
                 <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2.5 mb-8 animate-in"
                     style="animation-delay:.1s">
                     <span class="w-2 h-2 rounded-full bg-brand-orange/80 animate-pulse"></span>
@@ -236,7 +240,6 @@
                         Excelência</span>
                 </div>
 
-                <!-- Headline -->
                 <h1 class="font-accent font-black text-white leading-[1.08] mb-6 animate-in"
                     style="font-size:clamp(2.6rem,7.5vw,5.5rem);animation-delay:.25s;">
                     Tecnologia<br>
@@ -244,7 +247,6 @@
                     no mesmo lugar.
                 </h1>
 
-                <!-- CTAs -->
                 <div class="flex flex-col sm:flex-row justify-center gap-4 animate-in" style="animation-delay:.55s;">
                     <a href="#services"
                         class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-[#d55b1a] text-white font-bold px-9 py-4 rounded-2xl shadow-2xl shadow-brand-orange/40 hover:shadow-orange-500/60 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
@@ -265,6 +267,7 @@
                 </div>
 
             </div>
+            -->
 
             <div class="absolute inset-x-0 bottom-8 flex flex-col items-center gap-1.5 bounce-down pointer-events-none"
                 aria-hidden="true">

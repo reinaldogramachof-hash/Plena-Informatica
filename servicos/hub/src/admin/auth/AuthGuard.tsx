@@ -17,20 +17,55 @@ export function AuthGuard({
   const [session, setSession] = useState<AdminSession | null | 'loading'>(
     'loading',
   )
+  const [redirectError, setRedirectError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
-    getSession().then((s) => {
-      if (!cancelled) setSession(s)
-    })
+    let subscription: { unsubscribe: () => void } | null = null
 
-    const subscription = onAdminAuthStateChange((s) => {
-      if (!cancelled) setSession(s)
-    })
+    getSession()
+      .then((s) => {
+        if (cancelled) return
+        setRedirectError(null)
+        setSession(s)
+      })
+      .catch((error: unknown) => {
+        if (cancelled) return
+        setRedirectError(
+          error instanceof Error
+            ? error.message
+            : 'Não foi possível validar a sessão.',
+        )
+        setSession(null)
+      })
+
+    void Promise.resolve()
+      .then(() => onAdminAuthStateChange((s) => {
+        if (cancelled) return
+        setRedirectError(null)
+        setSession(s)
+      }))
+      .then((nextSubscription) => {
+        if (cancelled) {
+          nextSubscription.unsubscribe()
+          return
+        }
+        subscription = nextSubscription
+      })
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          setRedirectError(
+            error instanceof Error
+              ? error.message
+              : 'Não foi possível validar a sessão.',
+          )
+          setSession(null)
+        }
+      })
 
     return () => {
       cancelled = true
-      subscription.unsubscribe()
+      subscription?.unsubscribe()
     }
   }, [getSession])
 
@@ -39,7 +74,13 @@ export function AuthGuard({
   }
 
   if (session === null) {
-    return <Navigate to="/admin/login" replace />
+    return (
+      <Navigate
+        to="/admin/login"
+        replace
+        state={redirectError ? { error: redirectError } : undefined}
+      />
+    )
   }
 
   return <>{children}</>

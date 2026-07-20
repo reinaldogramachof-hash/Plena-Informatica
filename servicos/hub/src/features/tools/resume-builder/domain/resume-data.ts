@@ -3,6 +3,10 @@ import { z } from 'zod'
 export const MAX_EXPERIENCE_ITEMS = 6
 export const MAX_EDUCATION_ITEMS = 4
 export const MAX_SKILLS = 12
+export const MAX_SUMMARY_CHARS = 700
+export const MAX_DESCRIPTION_CHARS = 700
+export const CURRENT_YEAR = new Date().getFullYear()
+export const MIN_YEAR = 1950
 
 const requiredText = (message: string, maximum: number) =>
   z.string().trim().min(1, message).max(maximum, `Use no máximo ${maximum} caracteres`)
@@ -18,7 +22,7 @@ const personalSchema = z.object({
   phone: requiredText('Informe seu telefone', 30),
   city: z.string().trim().max(100, 'Use no máximo 100 caracteres'),
   headline: requiredText('Informe seu título profissional', 100),
-  summary: requiredText('Informe seu resumo profissional', 700),
+  summary: z.string().trim().max(MAX_SUMMARY_CHARS, `Use no máximo ${MAX_SUMMARY_CHARS} caracteres no resumo`),
 })
 
 const experienceSchema = z
@@ -29,7 +33,7 @@ const experienceSchema = z
     startDate: requiredText('Informe o início da experiência', 20),
     endDate: z.string().trim().max(20),
     current: z.boolean(),
-    description: requiredText('Descreva suas principais atividades', 700),
+    description: requiredText('Descreva suas principais atividades', MAX_DESCRIPTION_CHARS),
   })
   .superRefine((experience, context) => {
     if (!experience.current && !experience.endDate) {
@@ -41,12 +45,27 @@ const experienceSchema = z
     }
   })
 
+const yearField = z
+  .string()
+  .trim()
+  .refine(
+    (v) =>
+      v === '' ||
+      (/^\d{4}$/.test(v) &&
+        Number(v) >= MIN_YEAR &&
+        Number(v) <= CURRENT_YEAR + 10),
+    'Informe um ano válido (ex: 2020)',
+  )
+  .optional()
+  .default('')
+
 const educationSchema = z.object({
   id: z.string().min(1),
   course: requiredText('Informe o curso', 120),
   institution: requiredText('Informe a instituição', 120),
-  startYear: z.string().trim().max(10),
-  endYear: z.string().trim().max(10),
+  startYear: yearField,
+  endYear: yearField,
+  current: z.boolean().optional().default(false),
 })
 
 const resumeSchema = z.object({

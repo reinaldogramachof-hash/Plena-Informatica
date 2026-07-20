@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
 import { signIn } from '../supabase-client'
@@ -24,13 +24,16 @@ export function LoginPage({
   onSuccess,
 }: LoginPageProps) {
   const navigate = useNavigate()
+  const location = useLocation()
   const handleSuccess = onSuccess ?? (() => navigate('/admin/dashboard', { replace: true }))
+  const redirectedError =
+    typeof location.state?.error === 'string' ? location.state.error : ''
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [error, setError] = useState(redirectedError)
 
   const emailRef = useRef<HTMLInputElement>(null)
 
@@ -57,6 +60,12 @@ export function LoginPage({
       } else {
         handleSuccess()
       }
+    } catch (error) {
+      setError(
+        error instanceof Error
+          ? error.message
+          : 'Não foi possível acessar a área administrativa.',
+      )
     } finally {
       setIsLoading(false)
     }

@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from 'react'
+import { useEffect, useState, type ComponentType, type ReactNode } from 'react'
 import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom'
 
 import { InstitutionalShell } from './app/InstitutionalShell'
@@ -8,6 +8,7 @@ import { getToolBySlug, toolRegistry } from './app/tool-registry'
 import { AuthGuard } from './admin/auth/AuthGuard'
 import { LoginPage } from './admin/auth/LoginPage'
 import { AdminShell } from './admin/shell/AdminShell'
+import { getAdminSession, signOut } from './admin/supabase-client'
 import { DashboardPage } from './admin/dashboard/DashboardPage'
 import { TransactionListPage } from './admin/transactions/TransactionListPage'
 import { ReportPage } from './admin/reports/ReportPage'
@@ -94,9 +95,38 @@ function ToolRoute() {
 }
 
 function AdminPage({ title, children }: { title: string; children: ReactNode }) {
+  const [userEmail, setUserEmail] = useState('')
+
+  useEffect(() => {
+    let cancelled = false
+
+    getAdminSession()
+      .then((session) => {
+        if (!cancelled) {
+          setUserEmail(session?.email ?? '')
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setUserEmail('')
+        }
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  async function handleLogout() {
+    await signOut()
+    window.location.hash = '#/admin/login'
+  }
+
   return (
     <AuthGuard>
-      <AdminShell pageTitle={title}>{children}</AdminShell>
+      <AdminShell pageTitle={title} userEmail={userEmail} onLogout={handleLogout}>
+        {children}
+      </AdminShell>
     </AuthGuard>
   )
 }

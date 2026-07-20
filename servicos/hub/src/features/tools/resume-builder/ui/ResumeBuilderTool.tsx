@@ -2,8 +2,13 @@ import { useRef, useState } from 'react'
 
 import { createResumePdf } from '../domain/create-resume-pdf'
 import {
+  CURRENT_YEAR,
+  MAX_DESCRIPTION_CHARS,
   MAX_EDUCATION_ITEMS,
   MAX_EXPERIENCE_ITEMS,
+  MAX_SKILLS,
+  MAX_SUMMARY_CHARS,
+  MIN_YEAR,
   parseResumeData,
   type ResumeData,
   type ResumeEducation,
@@ -52,7 +57,27 @@ function createEducation(): ResumeEducation {
     institution: '',
     startYear: '',
     endYear: '',
+    current: false,
   }
+}
+
+function CharCounter({
+  value,
+  max,
+}: {
+  value: string
+  max: number
+}) {
+  const len = value.length
+  const near = len >= Math.floor(max * 0.9)
+  return (
+    <span
+      className={`resume-builder__char-counter${near ? ' resume-builder__char-counter--near' : ''}`}
+      aria-live="polite"
+    >
+      {len}/{max}
+    </span>
+  )
 }
 
 export function ResumeBuilderTool({
@@ -74,7 +99,7 @@ export function ResumeBuilderTool({
       education: [],
       skillsText: '',
       templateId: DEFAULT_TEMPLATE_ID,
-    }
+    },
   )
 
   const [showDraftBanner, setShowDraftBanner] = useState(() => {
@@ -102,19 +127,30 @@ export function ResumeBuilderTool({
   const skillsText = resumeState.skillsText
   const templateId = resumeState.templateId
 
-  const setPersonal = (newVal: ResumePersonal | ((prev: ResumePersonal) => ResumePersonal)) => {
+  const setPersonal = (
+    newVal: ResumePersonal | ((prev: ResumePersonal) => ResumePersonal),
+  ) => {
     setResumeState((prev) => ({
       ...prev,
       personal: newVal instanceof Function ? newVal(prev.personal) : newVal,
     }))
   }
-  const setExperiences = (newVal: ResumeExperience[] | ((prev: ResumeExperience[]) => ResumeExperience[])) => {
+  const setExperiences = (
+    newVal:
+      | ResumeExperience[]
+      | ((prev: ResumeExperience[]) => ResumeExperience[]),
+  ) => {
     setResumeState((prev) => ({
       ...prev,
-      experiences: newVal instanceof Function ? newVal(prev.experiences) : newVal,
+      experiences:
+        newVal instanceof Function ? newVal(prev.experiences) : newVal,
     }))
   }
-  const setEducation = (newVal: ResumeEducation[] | ((prev: ResumeEducation[]) => ResumeEducation[])) => {
+  const setEducation = (
+    newVal:
+      | ResumeEducation[]
+      | ((prev: ResumeEducation[]) => ResumeEducation[]),
+  ) => {
     setResumeState((prev) => ({
       ...prev,
       education: newVal instanceof Function ? newVal(prev.education) : newVal,
@@ -126,10 +162,13 @@ export function ResumeBuilderTool({
       skillsText: newVal instanceof Function ? newVal(prev.skillsText) : newVal,
     }))
   }
-  const setTemplateId = (newVal: TemplateId | ((prev: TemplateId) => TemplateId)) => {
+  const setTemplateId = (
+    newVal: TemplateId | ((prev: TemplateId) => TemplateId),
+  ) => {
     setResumeState((prev) => ({
       ...prev,
-      templateId: newVal instanceof Function ? newVal(prev.templateId) : newVal,
+      templateId:
+        newVal instanceof Function ? newVal(prev.templateId) : newVal,
     }))
   }
 
@@ -146,15 +185,15 @@ export function ResumeBuilderTool({
     .map((skill) => skill.trim())
     .filter(Boolean)
 
-  // Required progress: nome, email, telefone, título, (experiência OR formação > 0)
-  const filledRequired = [
+  // Obrigatórios: nome, e-mail, telefone, título, (ao menos 1 experiência OU formação)
+  const requiredChecks = [
     personal.fullName.trim().length > 0,
     personal.email.trim().length > 0,
     personal.phone.trim().length > 0,
     personal.headline.trim().length > 0,
     experiences.length > 0 || education.length > 0,
-  ].filter(Boolean).length
-
+  ]
+  const filledRequired = requiredChecks.filter(Boolean).length
   const allRequiredFilled = filledRequired === 5
 
   function updatePersonal<Key extends keyof ResumePersonal>(
@@ -216,7 +255,6 @@ export function ResumeBuilderTool({
           ? caughtError.message
           : 'Não foi possível gerar o currículo'
       setError(message)
-      // Focus first invalid field
       if (!personal.fullName.trim()) {
         nameRef.current?.focus()
       } else if (!personal.email.trim()) {
@@ -231,20 +269,43 @@ export function ResumeBuilderTool({
     }
   }
 
-  const previewData = {
+  const previewData: Partial<ResumeData> = {
     personal,
     experiences,
-    education,
+    education: education.map((item) => ({
+      id: item.id,
+      course: item.course,
+      institution: item.institution,
+      startYear: item.startYear ?? '',
+      endYear: item.endYear ?? '',
+      current: item.current ?? false,
+    })),
     skills,
   }
 
   return (
     <section className="resume-builder" aria-labelledby="resume-builder-title">
       {showDraftBanner && (
-        <div className="rb-draft-banner" style={{ background: '#f0f4ff', border: '1px solid #cbd5e1', borderRadius: '6px', padding: '1rem', marginBottom: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div
+          className="rb-draft-banner"
+          style={{
+            background: '#f0f4ff',
+            border: '1px solid #cbd5e1',
+            borderRadius: '6px',
+            padding: '1rem',
+            marginBottom: '1.25rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
           <div>
-            <p style={{ margin: 0, fontWeight: 600, fontSize: '0.875rem' }}>Rascunho detectado</p>
-            <p style={{ margin: 0, fontSize: '0.8125rem', color: '#4b5563' }}>Você quer continuar editando o rascunho salvo anteriormente?</p>
+            <p style={{ margin: 0, fontWeight: 600, fontSize: '0.875rem' }}>
+              Rascunho detectado
+            </p>
+            <p style={{ margin: 0, fontSize: '0.8125rem', color: '#4b5563' }}>
+              Você quer continuar editando o rascunho salvo anteriormente?
+            </p>
           </div>
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             <button
@@ -259,25 +320,44 @@ export function ResumeBuilderTool({
                 setResumeState(emptyState)
                 setShowDraftBanner(false)
               }}
-              style={{ background: '#ef4444', color: '#fff', border: 'none', borderRadius: '4px', padding: '0.4rem 0.8rem', fontSize: '0.8125rem', fontWeight: 600, cursor: 'pointer' }}
+              style={{
+                background: '#ef4444',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '0.4rem 0.8rem',
+                fontSize: '0.8125rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+              }}
             >
               Começar do zero
             </button>
             <button
               onClick={() => setShowDraftBanner(false)}
-              style={{ background: '#10b981', color: '#fff', border: 'none', borderRadius: '4px', padding: '0.4rem 0.8rem', fontSize: '0.8125rem', fontWeight: 600, cursor: 'pointer' }}
+              style={{
+                background: '#10b981',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '0.4rem 0.8rem',
+                fontSize: '0.8125rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+              }}
             >
               Continuar rascunho
             </button>
           </div>
         </div>
       )}
+
       <div className="resume-builder__intro">
         <span className="eyebrow">Ferramenta local</span>
         <h2 id="resume-builder-title">Criador de Currículo</h2>
         <p>
-          Preencha seus dados, escolha o modelo, acompanhe a prévia e baixe um currículo
-          profissional em PDF.
+          Preencha seus dados, escolha o modelo, acompanhe a prévia e baixe um
+          currículo profissional em PDF.
         </p>
       </div>
 
@@ -292,8 +372,10 @@ export function ResumeBuilderTool({
         <div className="resume-builder__editor">
           <p className="required-note">Campos marcados com * são obrigatórios</p>
 
+          {/* ── Dados profissionais ── */}
           <fieldset>
             <legend>Dados profissionais</legend>
+
             <label>
               Nome completo *
               <input
@@ -305,6 +387,7 @@ export function ResumeBuilderTool({
                 value={personal.fullName}
               />
             </label>
+
             <div className="resume-builder__field-grid">
               <label>
                 E-mail *
@@ -331,6 +414,7 @@ export function ResumeBuilderTool({
                 />
               </label>
             </div>
+
             <label>
               Cidade e estado
               <input
@@ -342,6 +426,7 @@ export function ResumeBuilderTool({
                 value={personal.city}
               />
             </label>
+
             <label>
               Título profissional *
               <input
@@ -354,24 +439,31 @@ export function ResumeBuilderTool({
                 value={personal.headline}
               />
             </label>
-            <label>
+
+            <label htmlFor="resume-summary">
               Resumo profissional
-              <textarea
-                maxLength={700}
+            </label>
+            <textarea
+              id="resume-summary"
+                maxLength={MAX_SUMMARY_CHARS}
                 onChange={(event) =>
                   updatePersonal('summary', event.target.value)
                 }
+                placeholder="Descreva brevemente seu perfil, objetivos e diferenciais"
                 rows={5}
                 value={personal.summary}
-              />
-            </label>
+            />
+            <CharCounter value={personal.summary} max={MAX_SUMMARY_CHARS} />
           </fieldset>
 
+          {/* ── Experiência profissional ── */}
           <fieldset>
             <div className="resume-builder__section-heading">
               <legend>Experiência profissional</legend>
               <button
-                disabled={experiences.length >= MAX_EXPERIENCE_ITEMS || isGenerating}
+                disabled={
+                  experiences.length >= MAX_EXPERIENCE_ITEMS || isGenerating
+                }
                 onClick={() =>
                   setExperiences((current) => [...current, createExperience()])
                 }
@@ -380,8 +472,12 @@ export function ResumeBuilderTool({
                 Adicionar experiência
               </button>
             </div>
+
             {experiences.map((experience, index) => (
-              <div className="resume-builder__dynamic-card" key={experience.id}>
+              <div
+                className="resume-builder__dynamic-card"
+                key={experience.id}
+              >
                 <div className="resume-builder__section-heading">
                   <strong>Experiência {index + 1}</strong>
                   <button
@@ -389,7 +485,7 @@ export function ResumeBuilderTool({
                     disabled={isGenerating}
                     onClick={() =>
                       setExperiences((current) =>
-                        current.filter((_, itemIndex) => itemIndex !== index),
+                        current.filter((_, i) => i !== index),
                       )
                     }
                     type="button"
@@ -397,10 +493,12 @@ export function ResumeBuilderTool({
                     Remover
                   </button>
                 </div>
+
                 <div className="resume-builder__field-grid">
-                  <label>
+                  <label htmlFor={`experience-role-${experience.id}`}>
                     Cargo {index + 1}
                     <input
+                      id={`experience-role-${experience.id}`}
                       maxLength={100}
                       onChange={(event) =>
                         updateExperience(index, 'role', event.target.value)
@@ -408,9 +506,10 @@ export function ResumeBuilderTool({
                       value={experience.role}
                     />
                   </label>
-                  <label>
+                  <label htmlFor={`experience-company-${experience.id}`}>
                     Empresa {index + 1}
                     <input
+                      id={`experience-company-${experience.id}`}
                       maxLength={100}
                       onChange={(event) =>
                         updateExperience(index, 'company', event.target.value)
@@ -418,19 +517,25 @@ export function ResumeBuilderTool({
                       value={experience.company}
                     />
                   </label>
-                  <label>
+                  <label htmlFor={`experience-start-${experience.id}`}>
                     Início {index + 1}
                     <input
+                      id={`experience-start-${experience.id}`}
                       onChange={(event) =>
-                        updateExperience(index, 'startDate', event.target.value)
+                        updateExperience(
+                          index,
+                          'startDate',
+                          event.target.value,
+                        )
                       }
                       type="month"
                       value={experience.startDate}
                     />
                   </label>
-                  <label>
+                  <label htmlFor={`experience-end-${experience.id}`}>
                     Fim {index + 1}
                     <input
+                      id={`experience-end-${experience.id}`}
                       disabled={experience.current}
                       onChange={(event) =>
                         updateExperience(index, 'endDate', event.target.value)
@@ -440,6 +545,7 @@ export function ResumeBuilderTool({
                     />
                   </label>
                 </div>
+
                 <label className="resume-builder__checkbox">
                   <input
                     checked={experience.current}
@@ -450,26 +556,40 @@ export function ResumeBuilderTool({
                   />
                   Trabalho atualmente nesta empresa
                 </label>
-                <label>
-                  Atividades {index + 1}
-                  <textarea
-                    maxLength={700}
+
+                <label htmlFor={`experience-description-${experience.id}`}>
+                  Atividades e conquistas
+                </label>
+                <textarea
+                  id={`experience-description-${experience.id}`}
+                    maxLength={MAX_DESCRIPTION_CHARS}
                     onChange={(event) =>
-                      updateExperience(index, 'description', event.target.value)
+                      updateExperience(
+                        index,
+                        'description',
+                        event.target.value,
+                      )
                     }
+                    placeholder="Descreva suas responsabilidades e principais resultados"
                     rows={4}
                     value={experience.description}
-                  />
-                </label>
+                />
+                <CharCounter
+                  value={experience.description}
+                  max={MAX_DESCRIPTION_CHARS}
+                />
               </div>
             ))}
           </fieldset>
 
+          {/* ── Formação ── */}
           <fieldset>
             <div className="resume-builder__section-heading">
               <legend>Formação</legend>
               <button
-                disabled={education.length >= MAX_EDUCATION_ITEMS || isGenerating}
+                disabled={
+                  education.length >= MAX_EDUCATION_ITEMS || isGenerating
+                }
                 onClick={() =>
                   setEducation((current) => [...current, createEducation()])
                 }
@@ -478,6 +598,7 @@ export function ResumeBuilderTool({
                 Adicionar formação
               </button>
             </div>
+
             {education.map((item, index) => (
               <div className="resume-builder__dynamic-card" key={item.id}>
                 <div className="resume-builder__section-heading">
@@ -487,7 +608,7 @@ export function ResumeBuilderTool({
                     disabled={isGenerating}
                     onClick={() =>
                       setEducation((current) =>
-                        current.filter((_, itemIndex) => itemIndex !== index),
+                        current.filter((_, i) => i !== index),
                       )
                     }
                     type="button"
@@ -495,8 +616,9 @@ export function ResumeBuilderTool({
                     Remover
                   </button>
                 </div>
+
                 <label>
-                  Curso {index + 1}
+                  Curso
                   <input
                     maxLength={120}
                     onChange={(event) =>
@@ -505,8 +627,9 @@ export function ResumeBuilderTool({
                     value={item.course}
                   />
                 </label>
+
                 <label>
-                  Instituição {index + 1}
+                  Instituição
                   <input
                     maxLength={120}
                     onChange={(event) =>
@@ -515,49 +638,77 @@ export function ResumeBuilderTool({
                     value={item.institution}
                   />
                 </label>
+
                 <div className="resume-builder__field-grid">
                   <label>
-                    Ano de início {index + 1}
+                    Ano de início
                     <input
-                      inputMode="numeric"
-                      maxLength={10}
+                      max={CURRENT_YEAR + 10}
+                      min={MIN_YEAR}
                       onChange={(event) =>
                         updateEducation(index, 'startYear', event.target.value)
                       }
-                      value={item.startYear}
+                      placeholder="2018"
+                      type="number"
+                      value={item.startYear ?? ''}
                     />
                   </label>
                   <label>
-                    Ano de conclusão {index + 1}
+                    Ano de conclusão
                     <input
-                      inputMode="numeric"
-                      maxLength={10}
+                      disabled={!!item.current}
+                      max={CURRENT_YEAR + 10}
+                      min={MIN_YEAR}
                       onChange={(event) =>
                         updateEducation(index, 'endYear', event.target.value)
                       }
-                      value={item.endYear}
+                      placeholder="2022"
+                      type="number"
+                      value={item.endYear ?? ''}
                     />
                   </label>
                 </div>
+
+                <label className="resume-builder__checkbox">
+                  <input
+                    checked={!!item.current}
+                    onChange={(event) => {
+                      updateEducation(index, 'current', event.target.checked)
+                      if (event.target.checked) {
+                        updateEducation(index, 'endYear', '')
+                      }
+                    }}
+                    type="checkbox"
+                  />
+                  Cursando atualmente
+                </label>
               </div>
             ))}
           </fieldset>
 
+          {/* ── Competências ── */}
           <fieldset>
             <legend>Competências</legend>
             <label>
-              Competências separadas por vírgula
+              Liste suas competências
               <textarea
                 maxLength={720}
                 onChange={(event) => setSkillsText(event.target.value)}
-                placeholder="Atendimento, organização, Excel"
+                placeholder="Atendimento ao cliente, Excel, organização"
                 rows={4}
                 value={skillsText}
               />
             </label>
+            <p className="resume-builder__field-hint">
+              Separe por vírgula ou uma por linha. Máximo de {MAX_SKILLS}{' '}
+              competências.
+            </p>
           </fieldset>
 
-          <p className={`required-progress${allRequiredFilled ? ' required-progress--complete' : ''}`}>
+          {/* ── Progresso e ação ── */}
+          <p
+            className={`required-progress${allRequiredFilled ? ' required-progress--complete' : ''}`}
+          >
             {filledRequired} de 5 campos obrigatórios preenchidos
           </p>
 
@@ -565,7 +716,11 @@ export function ResumeBuilderTool({
             <p className="resume-valid-notice">Currículo pronto para gerar</p>
           )}
 
-          {error && <p role="alert">{error}</p>}
+          {error && (
+            <p className="resume-builder__error" role="alert">
+              {error}
+            </p>
+          )}
 
           <button
             className="resume-builder__submit"

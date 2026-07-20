@@ -5,10 +5,10 @@ import { PrintCostEstimatorTool } from './PrintCostEstimatorTool'
 
 // ── testes de regressao ───────────────────────────────────────────────────────
 describe('PrintCostEstimatorTool', () => {
-  it('renderiza o heading "Calculadora de Impressao"', () => {
+  it('renderiza o heading com acentuação correta', () => {
     render(<PrintCostEstimatorTool />)
     expect(
-      screen.getByRole('heading', { name: /Calculadora de Impressao/i }),
+      screen.getByRole('heading', { name: /Calculadora de Impressão/i }),
     ).toBeDefined()
   })
 
@@ -22,10 +22,10 @@ describe('PrintCostEstimatorTool', () => {
   it('inputs de paginas em preto e colorido estao presentes', () => {
     render(<PrintCostEstimatorTool />)
     expect(
-      screen.getByRole('spinbutton', { name: /Paginas em preto por mes/i }),
+      screen.getByRole('spinbutton', { name: /Páginas em preto por mês/i }),
     ).toBeDefined()
     expect(
-      screen.getByRole('spinbutton', { name: /Paginas coloridas por mes/i }),
+      screen.getByRole('spinbutton', { name: /Páginas coloridas por mês/i }),
     ).toBeDefined()
   })
 
@@ -38,7 +38,7 @@ describe('PrintCostEstimatorTool', () => {
   it('aviso editorial esta presente', () => {
     render(<PrintCostEstimatorTool />)
     expect(
-      screen.getByText(/Esta calculadora e apenas orientativa/i),
+      screen.getByText(/Esta calculadora é apenas orientativa/i),
     ).toBeDefined()
   })
 
@@ -58,7 +58,7 @@ describe('PrintCostEstimatorTool', () => {
 
   it('custo Plena aumenta ao digitar paginas em preto', () => {
     render(<PrintCostEstimatorTool />)
-    const inputBlack = screen.getByRole('spinbutton', { name: /Paginas em preto por mes/i })
+    const inputBlack = screen.getByRole('spinbutton', { name: /Páginas em preto por mês/i })
     fireEvent.change(inputBlack, { target: { value: '10' } })
     // 10 paginas pretas × R$ 3,00 = R$ 30,00
     expect(screen.getAllByText(/30,00/i).length).toBeGreaterThan(0)
@@ -66,8 +66,8 @@ describe('PrintCostEstimatorTool', () => {
 
   it('custo Plena soma preto e colorido separadamente', () => {
     render(<PrintCostEstimatorTool />)
-    const inputBlack = screen.getByRole('spinbutton', { name: /Paginas em preto por mes/i })
-    const inputColor = screen.getByRole('spinbutton', { name: /Paginas coloridas por mes/i })
+    const inputBlack = screen.getByRole('spinbutton', { name: /Páginas em preto por mês/i })
+    const inputColor = screen.getByRole('spinbutton', { name: /Páginas coloridas por mês/i })
     fireEvent.change(inputBlack, { target: { value: '10' } })
     fireEvent.change(inputColor, { target: { value: '5' } })
     // 10×3 + 5×4 = 30 + 20 = R$ 50,00
@@ -82,10 +82,10 @@ describe('PrintCostEstimatorTool', () => {
 
   it('exibe conclusao (verdict) apos digitar paginas', () => {
     render(<PrintCostEstimatorTool />)
-    const inputBlack = screen.getByRole('spinbutton', { name: /Paginas em preto por mes/i })
+    const inputBlack = screen.getByRole('spinbutton', { name: /Páginas em preto por mês/i })
     fireEvent.change(inputBlack, { target: { value: '100' } })
     // Com paginas e sem custo proprio, proprio = 0, plena = 300 => economy
-    const verdict = screen.getByLabelText(/Conclusao da comparacao/i)
+    const verdict = screen.getByLabelText(/Conclusão da comparação/i)
     expect(verdict).toBeDefined()
     expect(verdict.textContent).toMatch(/economiz|barata|iguais/i)
   })
@@ -105,5 +105,43 @@ describe('PrintCostEstimatorTool', () => {
     expect(
       screen.getByText(/Cálculo baseado nos valores informados e nos preços da Plena conferidos em 12\/06\/2026/i)
     ).toBeInTheDocument()
+  })
+
+  it('mantém o download indisponível enquanto nenhum volume foi informado', () => {
+    render(<PrintCostEstimatorTool />)
+
+    expect(
+      screen.getByRole('button', { name: /Baixar comparativo PDF/i }),
+    ).toBeDisabled()
+    expect(screen.getByText(/Informe ao menos uma página/i)).toBeInTheDocument()
+  })
+
+  it('libera o download quando há ao menos uma página', () => {
+    render(<PrintCostEstimatorTool />)
+
+    fireEvent.change(
+      screen.getByRole('spinbutton', { name: /Páginas em preto por mês/i }),
+      { target: { value: '1' } },
+    )
+
+    expect(
+      screen.getByRole('button', { name: /Baixar comparativo PDF/i }),
+    ).toBeEnabled()
+  })
+
+  it('avisa de forma acessível quando um valor negativo é informado', () => {
+    render(<PrintCostEstimatorTool />)
+
+    fireEvent.change(
+      screen.getByRole('spinbutton', { name: /Páginas em preto por mês/i }),
+      { target: { value: '-1' } },
+    )
+
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      /Use apenas valores iguais ou maiores que zero/i,
+    )
+    expect(
+      screen.getByRole('button', { name: /Baixar comparativo PDF/i }),
+    ).toBeDisabled()
   })
 })

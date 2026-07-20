@@ -26,7 +26,7 @@ describe('LoginPage', () => {
     expect(screen.getByRole('button', { name: /Entrar/i })).toBeDefined()
   })
 
-  it('e-mail inválido ao submeter → role="alert" com mensagem Zod', async () => {
+  it('e-mail inválido ao submeter -> role="alert" com mensagem Zod', async () => {
     const { container } = render(
       <MemoryRouter>
         <LoginPage />
@@ -47,7 +47,7 @@ describe('LoginPage', () => {
     })
   })
 
-  it('senha curta ao submeter → role="alert" com mensagem Zod', async () => {
+  it('senha curta ao submeter -> role="alert" com mensagem Zod', async () => {
     const { container } = render(
       <MemoryRouter>
         <LoginPage />
@@ -128,7 +128,7 @@ describe('LoginPage', () => {
     })
   })
 
-  it('quando onLogin retorna error → exibe role="alert" com "E-mail ou senha incorretos."', async () => {
+  it('quando onLogin retorna error -> exibe role="alert" com "E-mail ou senha incorretos."', async () => {
     const onLogin = vi
       .fn()
       .mockResolvedValue({ error: new Error('Invalid credentials') })
@@ -154,7 +154,54 @@ describe('LoginPage', () => {
     })
   })
 
-  it('toggle de senha: clique alterna type password ↔ text', () => {
+  it('quando onLogin rejeita por erro de infraestrutura -> exibe role="alert" com mensagem visível', async () => {
+    const onLogin = vi
+      .fn()
+      .mockRejectedValue(new Error('Configure VITE_SUPABASE_URL antes de entrar.'))
+
+    const { container } = render(
+      <MemoryRouter>
+        <LoginPage onLogin={onLogin} onSuccess={vi.fn()} />
+      </MemoryRouter>,
+    )
+
+    fireEvent.change(container.querySelector('#adm-email')!, {
+      target: { value: 'admin@plena.com' },
+    })
+    fireEvent.change(container.querySelector('#adm-password')!, {
+      target: { value: 'senha123' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /Entrar/i }))
+
+    await waitFor(() => {
+      expect(screen.getByRole('alert').textContent).toContain(
+        'Configure VITE_SUPABASE_URL antes de entrar.',
+      )
+    })
+  })
+
+  it('renderiza erro vindo do redirecionamento do AuthGuard', async () => {
+    render(
+      <MemoryRouter
+        initialEntries={[
+          {
+            pathname: '/admin/login',
+            state: { error: 'Não foi possível validar a sessão.' },
+          },
+        ]}
+      >
+        <LoginPage />
+      </MemoryRouter>,
+    )
+
+    await waitFor(() => {
+      expect(screen.getByRole('alert').textContent).toContain(
+        'Não foi possível validar a sessão.',
+      )
+    })
+  })
+
+  it('toggle de senha: clique alterna type password <-> text', () => {
     const { container } = render(
       <MemoryRouter>
         <LoginPage />

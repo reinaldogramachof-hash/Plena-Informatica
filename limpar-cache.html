@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpando Cache e Service Workers</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: rgba(30, 41, 59, 0.7);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #38bdf8;
+        }
+        p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #38bdf8;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Limpando Recursos Locais...</h1>
+        <p>Removendo Service Workers, caches de aplicativos anteriores e armazenamentos locais do localhost:8080.</p>
+    </div>
+
+    <script>
+        async function limparTudo() {
+            let logs = [];
+            try {
+                // 1. Desregistrar Service Workers
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (let registration of registrations) {
+                        await registration.unregister();
+                        logs.push('Service Worker removido: ' + registration.scope);
+                    }
+                }
+                
+                // 2. Limpar Cache Storage
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    for (let cacheName of cacheNames) {
+                        await caches.delete(cacheName);
+                        logs.push('Cache limpo: ' + cacheName);
+                    }
+                }
+
+                // 3. Limpar localStorage e sessionStorage
+                localStorage.clear();
+                sessionStorage.clear();
+                logs.push('LocalStorage e SessionStorage limpos.');
+
+                // 4. Limpeza via Clear Site Data (se suportado pelo navegador)
+                // Isto força uma limpeza profunda
+                console.log('Limpeza concluída com sucesso:', logs);
+            } catch (e) {
+                console.error('Erro na limpeza:', e);
+            } finally {
+                // Pequeno delay visual antes de redirecionar para a home limpa
+                setTimeout(() => {
+                    window.location.href = '/index.html?cache-reset=' + Date.now();
+                }, 1500);
+            }
+        }
+        
+        // Executar ao carregar
+        window.addEventListener('load', limparTudo);
+    </script>
+</body>
+</html>

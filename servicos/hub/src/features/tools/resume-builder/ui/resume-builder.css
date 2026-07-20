@@ -363,6 +363,37 @@
   font-weight: 600;
 }
 
+/* ── Char counter & field hint ───────────────────────────── */
+
+.resume-builder__char-counter {
+  display: block;
+  margin-top: 0.2rem;
+  text-align: right;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: #94a3b8;
+}
+
+.resume-builder__char-counter--near {
+  color: #b45309;
+  font-weight: 700;
+}
+
+.resume-builder__field-hint {
+  margin: -0.5rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.resume-builder__error {
+  padding: 0.9rem 1rem;
+  border-radius: 0.8rem;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-weight: 800;
+}
+
 /* ── Required fields ──────────────────────────────────────── */
 
 .required-note {

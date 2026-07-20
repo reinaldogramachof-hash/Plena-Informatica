@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
 
 import { AuthGuard } from './AuthGuard'
 
@@ -13,6 +13,17 @@ const ADMIN_SESSION = {
   userId: 'user-123',
   email: 'admin@plena.com',
   role: 'admin',
+}
+
+function LoginProbe() {
+  const location = useLocation()
+
+  return (
+    <div>
+      <p>Tela de login</p>
+      <p>{String(location.state?.error ?? '')}</p>
+    </div>
+  )
 }
 
 describe('AuthGuard', () => {
@@ -60,6 +71,34 @@ describe('AuthGuard', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Conteúdo protegido')).toBeDefined()
+    })
+  })
+
+  it('quando getSession rejeita, redireciona para /admin/login com erro legível', async () => {
+    const getSession = vi
+      .fn()
+      .mockRejectedValue(new Error('Não foi possível validar a sessão.'))
+
+    render(
+      <MemoryRouter initialEntries={['/admin/dashboard']}>
+        <Routes>
+          <Route
+            path="/admin/dashboard"
+            element={(
+              <AuthGuard getSession={getSession}>
+                <p>Conteúdo protegido</p>
+              </AuthGuard>
+            )}
+          />
+          <Route path="/admin/login" element={<LoginProbe />} />
+        </Routes>
+      </MemoryRouter>,
+    )
+
+    await waitFor(() => {
+      expect(screen.getByText('Tela de login')).toBeDefined()
+      expect(screen.getByText('Não foi possível validar a sessão.')).toBeDefined()
+      expect(screen.queryByText('Verificando acesso...')).toBeNull()
     })
   })
 })

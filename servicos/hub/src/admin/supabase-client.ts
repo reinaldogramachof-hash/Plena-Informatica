@@ -22,13 +22,36 @@ export type AdminSession = {
   role: string
 }
 
+type ProfileRoleRow = {
+  role: string
+}
+
+async function getProfileRole(userId: string): Promise<string | null> {
+  const supabase = getSupabaseClient()
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', userId)
+    .maybeSingle() as { data: ProfileRoleRow | null; error: { message: string } | null }
+
+  if (error || !data?.role) {
+    return null
+  }
+
+  return data.role
+}
+
 export async function getAdminSession(): Promise<AdminSession | null> {
   const supabase = getSupabaseClient()
   const {
     data: { session },
   } = await supabase.auth.getSession()
   if (!session) return null
-  return { userId: session.user.id, email: session.user.email ?? '', role: 'admin' }
+
+  const role = await getProfileRole(session.user.id)
+  if (!role) return null
+
+  return { userId: session.user.id, email: session.user.email ?? '', role }
 }
 
 export async function signIn(email: string, password: string) {
@@ -52,7 +75,23 @@ export function onAdminAuthStateChange(
       callback(null)
       return
     }
-    callback({ userId: session.user.id, email: session.user.email ?? '', role: 'admin' })
+
+    void getProfileRole(session.user.id)
+      .then((role) => {
+        if (!role) {
+          callback(null)
+          return
+        }
+
+        callback({
+          userId: session.user.id,
+          email: session.user.email ?? '',
+          role,
+        })
+      })
+      .catch(() => {
+        callback(null)
+      })
   })
 
   return subscription
