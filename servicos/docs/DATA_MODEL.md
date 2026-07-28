@@ -11,10 +11,50 @@ Extensao minima de `auth.users`.
 
 - `id uuid primary key references auth.users`
 - `display_name text`
+- `role text not null default 'client'`
 - `created_at timestamptz`
 - `updated_at timestamptz`
 
 Nao armazenar papeis em metadados editaveis pelo usuario.
+
+### proposals
+
+Propostas comerciais acessadas pelo cliente por magic link e gerenciadas pela
+equipe interna.
+
+- `id uuid primary key`
+- `client_name text not null`
+- `client_email text not null`
+- `client_user_id uuid null references auth.users`
+- `title text not null`
+- `scope_included jsonb not null`
+- `scope_excluded jsonb not null`
+- `tech_stack jsonb`
+- `investment_amount numeric not null`
+- `currency text not null default 'BRL'`
+- `estimated_timeline text`
+- `status text not null default 'draft'`
+- `version integer not null default 1`
+- `valid_until date`
+- `created_by uuid references profiles(id)`
+- `created_at timestamptz`
+- `updated_at timestamptz`
+- `sent_at timestamptz`
+- `accepted_at timestamptz`
+
+Estados previstos:
+
+- `draft`: proposta em preparo pela equipe interna.
+- `sent`: proposta enviada e visivel para o cliente autenticado vinculado.
+- `accepted`: aceite registrado via `consent_records`.
+- `declined`: proposta recusada ou encerrada sem aceite.
+
+Indices previstos:
+
+- `(client_user_id)`
+- `(lower(client_email))`
+- `(status)`
+- `(created_by)`
 
 ### tool_projects
 
@@ -51,8 +91,21 @@ Indices previstos:
 - `id uuid primary key`
 - `user_id uuid not null`
 - `document_type text not null`
-- `document_version text not null`
+- `document_id uuid not null`
+- `document_version integer not null`
+- `user_agent text`
+- `ip_address inet`
 - `accepted_at timestamptz not null`
+
+Para propostas, o cliente autenticado insere apenas:
+
+- `document_type = 'proposal'`
+- `document_id = proposals.id`
+- `document_version = proposals.version`
+- `user_agent`, quando disponivel no navegador
+
+O cliente nao atualiza `proposals`. O gatilho de banco vinculado a
+`consent_records` marca a proposta como aceita e registra a auditoria tecnica.
 
 ### audit_events
 

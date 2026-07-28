@@ -42,6 +42,14 @@ export function AdminShell({
             Atendimentos
           </NavLink>
           <NavLink
+            to="/admin/propostas"
+            className={({ isActive }) =>
+              isActive ? 'adm-nav-link adm-nav-link--active' : 'adm-nav-link'
+            }
+          >
+            Propostas
+          </NavLink>
+          <NavLink
             to="/admin/relatorios"
             className={({ isActive }) =>
               isActive ? 'adm-nav-link adm-nav-link--active' : 'adm-nav-link'

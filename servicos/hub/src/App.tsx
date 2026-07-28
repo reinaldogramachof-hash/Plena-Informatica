@@ -12,6 +12,8 @@ import { getAdminSession, signOut } from './admin/supabase-client'
 import { DashboardPage } from './admin/dashboard/DashboardPage'
 import { TransactionListPage } from './admin/transactions/TransactionListPage'
 import { ReportPage } from './admin/reports/ReportPage'
+import { AdminProposalsPage } from './features/proposals/ui/AdminProposalsPage'
+import { ClientProposalPage } from './features/proposals/ui/ClientProposalPage'
 import { BusinessCardCreatorTool } from './features/tools/business-card-creator/ui/BusinessCardCreatorTool'
 import { DeclarationBuilderTool } from './features/tools/declaration-builder/ui/DeclarationBuilderTool'
 import { ImagesToPdfTool } from './features/tools/images-to-pdf/ui/ImagesToPdfTool'
@@ -149,9 +151,14 @@ export default function App() {
           element={<AdminPage title="Atendimentos"><TransactionListPage /></AdminPage>}
         />
         <Route
+          path="/admin/propostas"
+          element={<AdminPage title="Propostas"><AdminProposalsPage /></AdminPage>}
+        />
+        <Route
           path="/admin/relatorios"
           element={<AdminPage title="Relatórios"><ReportPage /></AdminPage>}
         />
+        <Route path="/propostas" element={<ClientProposalPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

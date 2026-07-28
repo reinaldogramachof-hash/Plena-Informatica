@@ -472,6 +472,75 @@ Pasta proprietária:
 - Nenhum dado sensível é solicitado ou armazenado.
 - Testes focados, suite completa, lint e build aprovados.
 
+## Pacote F8 — Propostas comerciais
+
+Status: `Em desenvolvimento`.
+
+Pasta proprietária:
+
+`servicos/hub/src/features/proposals/`
+
+Arquivos compartilhados autorizados neste pacote:
+
+- `servicos/hub/src/App.tsx`;
+- `servicos/hub/src/admin/shell/AdminShell.tsx`;
+- `servicos/docs/DATA_MODEL.md`;
+- `servicos/ROADMAP.md`;
+- `servicos/supabase/migrations/`.
+
+### Situação atual
+
+- schema do projeto Supabase `nnckpyzjllqsdcwlnxei` foi aplicado manualmente
+  pelo responsável via SQL Editor;
+- tabelas `profiles`, `proposals`, `consent_records` e `audit_events` existem
+  no schema `public`, com RLS e gatilhos configurados;
+- migrações equivalentes precisam ficar versionadas apenas para rastreabilidade;
+- não existe interface administrativa de propostas;
+- não existe fluxo do cliente para magic link, visualização e aceite.
+
+### Entrega funcional
+
+- Documentar em Git as migrações equivalentes ao schema aplicado manualmente,
+  sem executar DDL.
+- Adicionar a seção administrativa `/admin/propostas`.
+- Permitir criar, listar e enviar propostas, alterando `draft` para `sent`.
+- Manter admin com e-mail e senha pelo AuthGuard existente.
+- Criar fluxo de cliente fora do AuthGuard administrativo.
+- Enviar magic link para o e-mail do cliente.
+- Mostrar apenas propostas visíveis ao cliente autenticado por RLS.
+- Aceitar proposta via `insert` em `consent_records`.
+- Capturar `navigator.userAgent` no aceite; IP permanece nulo no cliente.
+- Refletir o status atualizado após o aceite.
+- Usar identidade visual da Plena, sem marca do cliente final.
+- Não liberar link público na página institucional.
+
+### Arquivos previstos
+
+- Criar `src/features/proposals/domain/proposal-schema.ts`.
+- Criar `src/features/proposals/services/proposal-service.ts`.
+- Criar `src/features/proposals/ui/AdminProposalsPage.tsx`.
+- Criar `src/features/proposals/ui/ClientProposalPage.tsx`.
+- Criar `src/features/proposals/ui/proposals.css`.
+- Criar testes focados de schema, serviço, admin e cliente.
+- Modificar `src/App.tsx`.
+- Modificar `src/admin/shell/AdminShell.tsx`.
+- Modificar `servicos/docs/DATA_MODEL.md`.
+- Modificar `servicos/ROADMAP.md`.
+- Criar migrações em `servicos/supabase/migrations/`.
+
+### Critérios de aceite
+
+- Migrações ficam documentadas em Git e não são executadas pela rodada.
+- Tipos TypeScript reais do Supabase são gerados quando CLI ou MCP tiver acesso
+  ao projeto correto.
+- Admin cria proposta em `draft`.
+- Admin envia proposta mudando status para `sent` e preenchendo `sent_at`.
+- Cliente solicita magic link sem acessar o AuthGuard admin.
+- Cliente visualiza somente propostas liberadas para ele pelo banco.
+- Cliente aceita proposta apenas inserindo `consent_records`.
+- UI não usa dados reais de Jeferson Mathias ou TechTower nos testes.
+- Testes focados, suite completa, lint e build aprovados.
+
 ## Pacote I1 — Integração e liberação pública
 
 Status: `Bloqueada` até a validação local de cada pacote funcional.
@@ -511,6 +580,16 @@ Responsável: Codex ou agente integrador único.
 - Modificar `servicos/style.css` se necessário.
 - Modificar `servicos/ROADMAP.md`.
 - Atualizar o build em `servicos/ferramentas/qr-code/`.
+
+## Dívida técnica — Base pública do Hub
+
+O Hub React ainda é publicado em `servicos/ferramentas/qr-code/` por decisão
+histórica da primeira ferramenta liberada. Essa base afeta URLs públicas como
+`ferramentas/qr-code/#/...` e o `outDir` do Vite.
+
+Não alterar `servicos/hub/vite.config.ts`, a pasta de build ou links públicos
+sem decisão arquitetural específica, porque a mudança exige migração de URLs,
+validação de SEO, redirects e revisão dos cards já publicados.
 
 ## Ordem recomendada de validação local
 

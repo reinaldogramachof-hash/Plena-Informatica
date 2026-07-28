@@ -17,6 +17,7 @@ export type ActivityType =
   | 'services'
   | 'both'
   | 'transport'
+  | 'freight'
   | 'freight-commerce'
   | 'freight-services'
   | 'freight-both'

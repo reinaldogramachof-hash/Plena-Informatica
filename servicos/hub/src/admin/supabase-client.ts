@@ -1,9 +1,10 @@
 import { createClient } from '@supabase/supabase-js'
+import type { Database } from '../lib/supabase/database.types'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string
 const supabasePublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string
 
-let supabaseClient: ReturnType<typeof createClient> | undefined
+let supabaseClient: ReturnType<typeof createClient<Database>> | undefined
 
 export function getSupabaseClient() {
   if (!supabaseUrl || !supabasePublishableKey) {
@@ -12,7 +13,7 @@ export function getSupabaseClient() {
     )
   }
 
-  supabaseClient ??= createClient(supabaseUrl, supabasePublishableKey)
+  supabaseClient ??= createClient<Database>(supabaseUrl, supabasePublishableKey)
   return supabaseClient
 }
 
