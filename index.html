@@ -144,7 +144,7 @@
 
                 <!-- Logo -->
                 <a href="index.html" class="flex items-center gap-2.5 group flex-shrink-0">
-                    <img src="logo-plena.png" alt="Plena Informática"
+                    <img src="logoplena.svg" alt="Plena Informática"
                         class="h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
                 </a>
 
@@ -161,14 +161,6 @@
                         class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Contato</a>
                     <a href="/blog/" class="text-gray-600 hover:text-brand-orange font-medium transition-colors duration-200 text-sm">Blog</a>
                 </div>
-
-                <a href="https://www.instagram.com/plenainf_2025" target="_blank" rel="noopener noreferrer"
-                   aria-label="Instagram"
-                   class="hidden md:flex w-9 h-9 rounded-full border border-gray-200 hover:border-brand-orange items-center justify-center transition-colors duration-200">
-                  <svg class="w-4 h-4 text-gray-600 hover:text-brand-orange" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </a>
 
                 <!-- CTA Desktop -->
                 <button type="button"
@@ -223,53 +215,29 @@
         <section id="hero" class="relative flex items-center justify-center overflow-hidden"
             style="height:100dvh;min-height:620px;">
 
-            <!-- Vídeo de background da Hero (substituindo a imagem estática) -->
-            <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="plena.jpg" class="absolute inset-0 w-full h-full object-cover z-0">
-                <source src="hero.mp4" type="video/mp4">
-                Seu navegador não suporta vídeos HTML5.
-            </video>
+            <!-- Imagem de background da Hero (substituindo o vídeo) -->
+            <img id="hero-image" src="plena.jpg" alt="Plena Informática" class="absolute inset-0 w-full h-full object-cover z-0 animate-zoom-lento">
             <div class="absolute inset-0 hero-overlay z-10"></div>
 
-            <!-- Conteúdo de texto ocultado temporariamente para testes visuais
-            <div class="relative z-20 container mx-auto px-6 text-center">
-
-                <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2.5 mb-8 animate-in"
+            <!-- Tag destacada no topo do Hero -->
+            <div class="absolute top-28 left-0 right-0 z-20 text-center container mx-auto px-6">
+                <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2.5 animate-in"
                     style="animation-delay:.1s">
                     <span class="w-2 h-2 rounded-full bg-brand-orange/80 animate-pulse"></span>
-                    <span class="text-white/90 text-sm font-semibold tracking-widest uppercase">20 Anos de
-                        Excelência</span>
+                    <span class="text-white text-xs font-bold tracking-widest uppercase">Mais de 20 anos de serviços digitais</span>
                 </div>
-
-                <h1 class="font-accent font-black text-white leading-[1.08] mb-6 animate-in"
-                    style="font-size:clamp(2.6rem,7.5vw,5.5rem);animation-delay:.25s;">
-                    Tecnologia<br>
-                    e Serviços <span class="gradient-text">Digitais</span><br>
-                    no mesmo lugar.
-                </h1>
-
-                <div class="flex flex-col sm:flex-row justify-center gap-4 animate-in" style="animation-delay:.55s;">
-                    <a href="#services"
-                        class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-[#d55b1a] text-white font-bold px-9 py-4 rounded-2xl shadow-2xl shadow-brand-orange/40 hover:shadow-orange-500/60 hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-                        Conhecer Soluções
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                    <button type="button"
-                        class="whatsapp-btn inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-9 py-4 rounded-2xl shadow-2xl shadow-green-500/30 hover:-translate-y-1 transition-all duration-300">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.398 1.88 6.223l-1.078 3.948 4.035-1.052z" />
-                        </svg>
-                        Falar no WhatsApp
-                    </button>
-                </div>
-
             </div>
-            -->
 
-            <div class="absolute inset-x-0 bottom-8 flex flex-col items-center gap-1.5 bounce-down pointer-events-none"
+            <!-- Conteúdo de texto do Hero posicionado na parte inferior para não obstruir o conteúdo da imagem -->
+            <div class="absolute bottom-28 left-0 right-0 z-20 text-center container mx-auto px-6">
+                <h1 class="font-accent font-black text-white leading-tight animate-in"
+                    style="font-size: clamp(2rem, 5vw, 3.5rem); animation-delay: .2s;">
+                    Um ecossistema completo<br>
+                    <span class="gradient-text">para o seu negócio</span>
+                </h1>
+            </div>
+
+            <div class="absolute inset-x-0 bottom-8 flex flex-col items-center gap-1.5 bounce-down pointer-events-none z-20"
                 aria-hidden="true">
                 <span class="text-white/35 text-xs uppercase tracking-widest">Explorar</span>
                 <svg class="w-5 h-5 text-white/35" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -281,61 +249,16 @@
 
 
         <!-- ══════════════════════════════════════════
-         STATS STRIP
-    ══════════════════════════════════════════ -->
-        <section class="bg-slate-900 py-16">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-
-                    <div class="reveal">
-                        <p class="font-accent font-black text-4xl md:text-5xl text-brand-orange/80">
-                            <span class="counter" data-target="20" data-suffix="+">20+</span>
-                        </p>
-                        <p class="text-slate-500 text-xs uppercase tracking-widest mt-2">Anos de Mercado</p>
-                    </div>
-
-                    <div class="reveal" style="transition-delay:.1s">
-                        <p class="font-accent font-black text-4xl md:text-5xl text-brand-orange/80">
-                            <span class="counter" data-target="500" data-suffix="+">500+</span>
-                        </p>
-                        <p class="text-slate-500 text-xs uppercase tracking-widest mt-2">Clientes Atendidos</p>
-                    </div>
-
-                    <div class="reveal" style="transition-delay:.2s">
-                        <p class="font-accent font-black text-4xl md:text-5xl text-brand-orange/80">
-                            <span class="counter" data-target="1000" data-suffix="+">1.000+</span>
-                        </p>
-                        <p class="text-slate-500 text-xs uppercase tracking-widest mt-2">Projetos Entregues</p>
-                    </div>
-
-                    <div class="reveal" style="transition-delay:.3s">
-                        <p class="font-accent font-black text-4xl md:text-5xl text-brand-orange/80">
-                            <span class="counter" data-target="3" data-suffix="">3</span>
-                        </p>
-                        <p class="text-slate-500 text-xs uppercase tracking-widest mt-2">Áreas de Atuação</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ══════════════════════════════════════════
          SERVICES
     ══════════════════════════════════════════ -->
-        <section id="services" class="py-28 bg-white">
+        <section id="services" class="pt-16 pb-20 bg-white">
             <div class="container mx-auto px-6">
 
-                <div class="text-center max-w-2xl mx-auto mb-20 reveal">
-                    <span
-                        class="inline-block text-orange-600 font-bold tracking-widest uppercase text-xs px-4 py-2 bg-orange-100 rounded-full">Nossos
-                        Departamentos</span>
-                    <h2 class="font-accent font-black text-4xl md:text-5xl text-gray-900 mt-4 leading-tight">
-                        Um ecossistema completo<br>
-                        <span class="text-brand-orange">para o seu negócio</span>
-                    </h2>
-                    <p class="text-gray-500 mt-5 text-lg leading-relaxed">Duas frentes integradas, pensadas para atender
-                        você e sua empresa com mais clareza e consistência.</p>
+                <div class="text-center max-w-2xl mx-auto mb-10 reveal">
+                    <div class="inline-flex items-center gap-2.5 bg-orange-50 border border-orange-100/80 rounded-full px-6 py-2.5">
+                        <span class="w-2 h-2 rounded-full bg-brand-orange/80 animate-pulse"></span>
+                        <h2 class="text-brand-orange text-xs font-bold tracking-widest uppercase m-0">Nossos Departamentos</h2>
+                    </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
@@ -343,91 +266,96 @@
                     <!-- Serviços Digitais -->
                     <a href="servicos/servicos.html" class="group block reveal">
                         <div
-                            class="service-card service-card-orange h-full bg-white rounded-3xl p-8 border border-gray-100">
-                            <div
-                                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-orange to-[#d55b1a] flex items-center justify-center mb-6 shadow-lg shadow-brand-orange/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
+                            class="service-card service-card-orange h-full bg-white rounded-3xl p-8 border border-gray-100/80 hover:border-brand-orange/20 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-6">
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-orange to-[#d55b1a] flex items-center justify-center shadow-lg shadow-brand-orange/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </div>
+                                <span class="text-[10px] font-extrabold text-white bg-gradient-to-r from-orange-500 to-amber-500 px-3 py-1 rounded-full shadow-sm animate-pulse tracking-wide uppercase">11+ Ferramentas Online</span>
                             </div>
-                            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Serviços
-                                Digitais</span>
+                            <span class="text-xs font-extrabold text-brand-orange uppercase tracking-wider bg-orange-50 border border-orange-100 px-3 py-1 rounded-full">Serviços Digitais</span>
                             <h3
-                                class="font-accent font-bold text-xl text-gray-900 mt-2 mb-3 group-hover:text-orange-600 transition-colors">
+                                class="font-accent font-black text-2xl text-gray-900 mt-4 mb-3 group-hover:text-orange-600 transition-colors">
                                 Para o Seu Dia a Dia</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Agilidade e profissionalismo para suas
-                                necessidades
-                                cotidianas. Atendimento rápido, resultado garantido.</p>
-                            <ul class="space-y-2 mb-8">
-                                <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange/80 flex-shrink-0"></span>
-                                    Currículos Profissionais
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Agilidade e profissionalismo com utilitários digitais rápidos para suas rotinas. Atendimento online prático e sem burocracia.</p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                                    <span class="w-2 h-2 rounded-full bg-brand-orange/80 flex-shrink-0 transition-transform"></span>
+                                    Criador de Currículos e Cartão Digital
                                 </li>
-                                <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange/80 flex-shrink-0"></span>
-                                    Declaração de Imposto de Renda
+                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                                    <span class="w-2 h-2 rounded-full bg-brand-orange/80 flex-shrink-0 transition-transform"></span>
+                                    Utilitários de PDF (Unificar, Converter Imagens)
                                 </li>
-                                <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange/80 flex-shrink-0"></span>
-                                    Suporte ao MEI e Empreendedor
+                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                                    <span class="w-2 h-2 rounded-full bg-brand-orange/80 flex-shrink-0 transition-transform"></span>
+                                    Gerador de Declarações e Guias DAS MEI
                                 </li>
                             </ul>
-                            <span
-                                class="flex items-center gap-1.5 text-sm font-bold text-brand-orange group-hover:gap-3 transition-all">
-                                Ver todos os serviços
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </span>
+                            <div class="pt-4 border-t border-gray-50">
+                                <span
+                                    class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-orange-50 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 font-bold text-sm border border-orange-100/50 shadow-sm group-hover:shadow-md">
+                                    Acessar utilitários
+                                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
                     </a>
 
                     <!-- Tecnologia -->
                     <a href="tecnologia/tecnologia.html" class="group block reveal" style="transition-delay:.2s">
                         <div
-                            class="service-card service-card-gold h-full bg-white rounded-3xl p-8 border border-gray-100">
-                            <div
-                                class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-gold to-[#b4862b] flex items-center justify-center mb-6 shadow-lg shadow-brand-gold/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                </svg>
+                            class="service-card service-card-gold h-full bg-white rounded-3xl p-8 border border-gray-100/80 hover:border-brand-gold/20 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-6">
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-gold to-[#b4862b] flex items-center justify-center shadow-lg shadow-brand-gold/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
+                                </div>
+                                <span class="text-[10px] font-extrabold text-white bg-gradient-to-r from-amber-500 to-yellow-500 px-3 py-1 rounded-full shadow-sm tracking-wide uppercase">Projetos sob Medida</span>
                             </div>
-                            <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">Tecnologia</span>
+                            <span class="text-xs font-extrabold text-brand-gold uppercase tracking-wider bg-amber-50 border border-amber-100 px-3 py-1 rounded-full">Tecnologia</span>
                             <h3
-                                class="font-accent font-bold text-xl text-gray-900 mt-2 mb-3 group-hover:text-brand-gold transition-colors">
+                                class="font-accent font-black text-2xl text-gray-900 mt-4 mb-3 group-hover:text-brand-gold transition-colors">
                                 Sua Marca no Digital</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Desenvolvemos soluções web que geram
-                                resultados
-                                reais. Do site institucional ao sistema sob medida.</p>
-                            <ul class="space-y-2 mb-8">
-                                <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0"></span>
-                                    Sites Institucionais e Landing Pages
+                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Desenvolvemos sistemas web e plataformas corporativas completas que organizam e impulsionam o seu negócio com inteligência.</p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                                    <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0 transition-transform"></span>
+                                    Sites Premium e Landing Pages Rápidas
                                 </li>
-                                <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0"></span>
-                                    Cardápios e Agendamento Digital
+                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                                    <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0 transition-transform"></span>
+                                    Dashboards Inteligentes e Relatórios B.I.
                                 </li>
-                                <li class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0"></span>
-                                    Sistemas Web sob Medida
+                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                                    <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0 transition-transform"></span>
+                                    Sistemas Corporativos ERP & CRM sob Medida
                                 </li>
                             </ul>
-                            <span
-                                class="flex items-center gap-1.5 text-sm font-bold text-brand-gold group-hover:gap-3 transition-all">
-                                Ver soluções web
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </span>
+                            <div class="pt-4 border-t border-gray-50">
+                                <span
+                                    class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-amber-50 text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all duration-300 font-bold text-sm border border-amber-100/50 shadow-sm group-hover:shadow-md">
+                                    Ver soluções web
+                                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
                     </a>
 
@@ -453,54 +381,53 @@
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
+                    <!-- Suporte Ágil -->
                     <div
-                        class="bg-white rounded-2xl p-8 border border-orange-100 reveal hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                        <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-5">
+                        class="bg-white rounded-2xl p-8 border border-orange-100/70 reveal hover:shadow-lg hover:border-orange-200 hover:-translate-y-2 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-orange-200/50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                             <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                             </svg>
                         </div>
-                        <h3 class="font-accent font-bold text-gray-900 mb-2">Atendimento Humano</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Sem robôs nem filas. Pessoas reais, prontas
-                            para ouvir e
-                            resolver suas demandas com atenção.</p>
+                        <h3 class="font-accent font-bold text-gray-900 mb-2">Suporte Ágil</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Sem perda de tempo. Nossa triagem automática via WhatsApp responde suas dúvidas básicas instantaneamente e direciona para a solução ideal.</p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-8 border border-orange-100 reveal hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                    <!-- Experiência Comprovada -->
+                    <div class="bg-white rounded-2xl p-8 border border-orange-100/70 reveal hover:shadow-lg hover:border-amber-200 hover:-translate-y-2 transition-all duration-300"
                         style="transition-delay:.1s">
-                        <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-5">
-                            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 to-amber-200/50 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 013.138-3.138z" />
                             </svg>
                         </div>
-                        <h3 class="font-accent font-bold text-gray-900 mb-2">Experiência Comprovada</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Mais de 20 anos no mercado. Expertise
-                            consolidada e
-                            histórico de resultados reais para nossos clientes.</p>
+                        <h3 class="font-accent font-bold text-gray-900 mb-2">20+ Anos de Mercado</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Mais de duas décadas no setor digital. Experiência consolidada e histórico de excelentes resultados para nossos parceiros.</p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-8 border border-orange-100 reveal hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                    <!-- Soluções Integradas -->
+                    <div class="bg-white rounded-2xl p-8 border border-orange-100/70 reveal hover:shadow-lg hover:border-emerald-200 hover:-translate-y-2 transition-all duration-300"
                         style="transition-delay:.2s">
-                        <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-5">
-                            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-100 to-emerald-200/50 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                             </svg>
                         </div>
-                        <h3 class="font-accent font-bold text-gray-900 mb-2">Soluções Integradas</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Tecnologia e serviços digitais no mesmo lugar.
-                            Menos ruído operacional, mais agilidade para tirar projetos do papel.</p>
+                        <h3 class="font-accent font-bold text-gray-900 mb-2">Tudo em um Só Lugar</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">De utilitários básicos do dia a dia a sistemas corporativos complexos. Menos burocracia, mais eficiência e integração.</p>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-8 border border-orange-100 reveal hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                    <!-- Presença Local -->
+                    <div class="bg-white rounded-2xl p-8 border border-orange-100/70 reveal hover:shadow-lg hover:border-blue-200 hover:-translate-y-2 transition-all duration-300"
                         style="transition-delay:.3s">
-                        <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-5">
-                            <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200/50 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -508,12 +435,9 @@
                                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                         </div>
-                        <h3 class="font-accent font-bold text-gray-900 mb-2">Presença Local</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed">Atendemos SJC e toda a região com agilidade.
-                            Somos sua
-                            empresa de confiança aqui do lado.</p>
+                        <h3 class="font-accent font-bold text-gray-900 mb-2">Parceria Regional</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Atendimento focado em São José dos Campos e região metropolitana do Vale. Proximidade e suporte próximo de você.</p>
                     </div>
-
                 </div>
             </div>
         </section>

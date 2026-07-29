@@ -66,7 +66,7 @@ section[id] {
 }
 
 .service-card:hover {
-    transform: translateY(8px);
+    transform: translateY(-10px);
 }
 
 .service-card-orange:hover { box-shadow: 0 24px 48px -8px rgba(242, 106, 27, .18); }
@@ -109,8 +109,15 @@ section[id] {
 /* â”€â”€ INFINITE MARQUEE CAROUSEL â”€â”€ */
 .marquee-wrapper {
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 54%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 54%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+@media (max-width: 767px) {
+    .marquee-wrapper {
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
 }
 
 .marquee-track {
@@ -204,4 +211,32 @@ section[id] {
 
 .animate-slide-up {
     animation: slideUp .5s ease-out forwards;
+}
+
+/* ── HERO SLOW ZOOM EFFECT ── */
+@keyframes slow-zoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.08);
+    }
+}
+
+.animate-zoom-lento {
+    animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+/* ── MICRO-INTERAÇÕES DOS CARDS DE DEPARTAMENTOS ── */
+.service-card li {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card:hover li {
+    transform: translateX(6px);
+}
+.service-card li span {
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover li span {
+    transform: scale(1.25);
 }

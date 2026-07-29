@@ -60,11 +60,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const marqueeTrack = document.getElementById('marquee-track');
     if (marqueeTrack) {
         const testimonials = [
-            { q: 'O site que a Plena desenvolveu para minha empresa aumentou nossas vendas em 40%. Profissionais incríveis, entrega no prazo e suporte excelente!', n: 'Ricardo Oliveira', r: 'Empresário · desde 2023', i: 'R', g: 'from-emerald-400 to-emerald-600' },
-            { q: 'A assessoria para MEI foi fundamental para regularizar minha situação. Atendimento humanizado, preço justo e total segurança no processo.', n: 'Carlos Mendes', r: 'MEI · desde 2020', i: 'C', g: 'from-purple-400 to-purple-600' },
-            { q: 'Fiz meu currículo com a Plena e em duas semanas já tinha entrevistas agendadas. Eles sabem destacar o que importa!', n: 'Amanda Costa', r: 'Analista · desde 2024', i: 'A', g: 'from-pink-400 to-pink-600' },
-            { q: 'Declaração de IR feita com rapidez e total transparência. É a terceira vez que faço com eles e nunca tive problema.', n: 'Patrícia Lima', r: 'Professora · desde 2019', i: 'P', g: 'from-cyan-400 to-cyan-600' },
-            { q: 'Precisei de uma 2ª via de conta urgente e eles resolveram em minutos. Atendimento no WhatsApp rápido e sem burocracia.', n: 'Beatriz Rocha', r: 'Autônoma · desde 2024', i: 'B', g: 'from-rose-400 to-rose-600' },
+            { q: 'Muito bom! Sempre bom atendimento e me ajuda sempre !! Super indico', n: 'Paulo Henrique Marques', r: 'Cliente Google · há 4 meses', i: 'P', g: 'from-orange-400 to-orange-600' },
+            { q: 'Já conheço a Cacilda e seu trabalho a muitos anos. Pessoa dedicada, atenciosa, honesta e organizada. Recomendo a todos.', n: 'Rita Maria Magalhães', r: 'Cliente Google · há 4 meses', i: 'R', g: 'from-blue-400 to-blue-600' },
+            { q: 'Super recomendo nota mil Atendimento, dedicação e profissionalismo em tudo que faz', n: 'Sandra Antonina Pereira', r: 'Cliente Google · há 4 meses', i: 'S', g: 'from-emerald-400 to-emerald-600' },
+            { q: 'Ótimo atendimento, ótimo preço tudo que eu preciso resolver de documentação trabalho eles resolvem pra mim. Lugar que salva meus dias de correria 🙏', n: 'Tânia Reis', r: 'Cliente Google · há 4 meses', i: 'T', g: 'from-purple-400 to-purple-600' },
+            { q: 'Super recomendo e ótimo trabalho perfeito eu mando mensagem rápido para me responder tirar todas as dúvidas', n: 'Patrícia Estevam', r: 'Cliente Google · há 4 meses', i: 'P', g: 'from-pink-400 to-pink-600' },
+            { q: 'Excelente...bem atencioso e dedicado. Trabalho..', n: 'RRodrigues Renatinho', r: 'Cliente Google · há 3 meses', i: 'R', g: 'from-cyan-400 to-cyan-600' },
+            { q: 'Lugar ótimo ,acolhedor...Cacilda muito atenciosa', n: 'Ana Paula', r: 'Cliente Google · há 4 meses', i: 'A', g: 'from-rose-400 to-rose-600' },
+            { q: 'Top super indico', n: 'Diego Martins', r: 'Cliente Google · há 1 mês', i: 'D', g: 'from-amber-400 to-amber-600' },
+            { q: 'Ótimo atendimento.', n: 'David Renan', r: 'Cliente Google · há 4 meses', i: 'D', g: 'from-teal-400 to-teal-600' },
+            { q: 'Excelente atendimento', n: 'Lucineia Cristina', r: 'Cliente Google · há 2 meses', i: 'L', g: 'from-indigo-400 to-indigo-600' }
         ];
         const star = '<svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
         const stars5 = star.repeat(5);
