@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
-import { signIn } from '../supabase-client'
+import { getAdminSession, signIn, signOut } from '../supabase-client'
+import { ADMIN_AREAS, canAccessArea, type AdminArea } from './admin-areas'
 import '../admin.css'
 import './login-page.css'
 
@@ -11,23 +12,31 @@ const loginSchema = z.object({
   password: z.string().min(6, 'Senha deve ter ao menos 6 caracteres'),
 })
 
-interface LoginPageProps {
+interface LoginPanelProps {
+  area?: AdminArea
   onLogin?: (
     email: string,
     password: string,
   ) => Promise<{ error: Error | null }>
   onSuccess?: () => void
+  redirectedError?: string
+  showPortalLink?: boolean
+  autoFocus?: boolean
 }
 
-export function LoginPage({
+type LoginPageProps = Omit<LoginPanelProps, 'redirectedError'>
+
+export function LoginPanel({
+  area = 'digital',
   onLogin = signIn,
   onSuccess,
-}: LoginPageProps) {
+  redirectedError = '',
+  showPortalLink = true,
+  autoFocus = false,
+}: LoginPanelProps) {
   const navigate = useNavigate()
-  const location = useLocation()
-  const handleSuccess = onSuccess ?? (() => navigate('/admin/dashboard', { replace: true }))
-  const redirectedError =
-    typeof location.state?.error === 'string' ? location.state.error : ''
+  const portal = ADMIN_AREAS[area]
+  const handleSuccess = onSuccess ?? (() => navigate(portal.path, { replace: true }))
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -38,8 +47,10 @@ export function LoginPage({
   const emailRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    emailRef.current?.focus()
-  }, [])
+    if (autoFocus) {
+      emailRef.current?.focus()
+    }
+  }, [autoFocus])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -57,14 +68,22 @@ export function LoginPage({
       const { error: authError } = await onLogin(email, password)
       if (authError) {
         setError('E-mail ou senha incorretos.')
-      } else {
-        handleSuccess()
+        return
       }
+
+      const session = await getAdminSession()
+      if (!canAccessArea(session, area)) {
+        await signOut()
+        setError(`Seu perfil não tem acesso ao portal ${portal.title}.`)
+        return
+      }
+
+      handleSuccess()
     } catch (error) {
       setError(
         error instanceof Error
           ? error.message
-          : 'Não foi possível acessar a área administrativa.',
+          : 'Não foi possível acessar este portal.',
       )
     } finally {
       setIsLoading(false)
@@ -72,23 +91,20 @@ export function LoginPage({
   }
 
   return (
-    <div className="adm-login-page">
-      <div className="adm-login-header">
-        <strong className="adm-login-brand">PLENA</strong>
-        <span className="adm-login-brand-sub">Área Administrativa</span>
-      </div>
-
-      <div className="adm-login-card">
-        <h1>Acesso restrito</h1>
+    <>
+      <div className={`adm-login-card adm-login-card--${area}`}>
+        <span className="adm-login-pill">{area === 'escritorio' ? 'Atendimento presencial' : 'Operação digital'}</span>
+        <h1>{area === 'escritorio' ? 'Entrar no Escritório' : 'Entrar no Digital'}</h1>
+        <p className="adm-login-copy">{portal.description}</p>
 
         <form onSubmit={handleSubmit} noValidate>
           <div className="adm-field">
-            <label className="adm-label" htmlFor="adm-email">
+            <label className="adm-label" htmlFor={`adm-${area}-email`}>
               E-mail <span aria-hidden="true">*</span>
             </label>
             <input
               ref={emailRef}
-              id="adm-email"
+              id={`adm-${area}-email`}
               className="adm-input"
               type="email"
               autoComplete="email"
@@ -99,12 +115,12 @@ export function LoginPage({
           </div>
 
           <div className="adm-field">
-            <label className="adm-label" htmlFor="adm-password">
+            <label className="adm-label" htmlFor={`adm-${area}-password`}>
               Senha <span aria-hidden="true">*</span>
             </label>
             <div className="adm-password-row">
               <input
-                id="adm-password"
+                id={`adm-${area}-password`}
                 className="adm-input adm-input--password"
                 type={showPassword ? 'text' : 'password'}
                 autoComplete="current-password"
@@ -118,7 +134,7 @@ export function LoginPage({
                 onClick={() => setShowPassword((v) => !v)}
                 aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
               >
-                {showPassword ? '🙈' : '👁'}
+                {showPassword ? 'Ocultar' : 'Ver'}
               </button>
             </div>
           </div>
@@ -134,16 +150,50 @@ export function LoginPage({
             className="adm-btn adm-btn--primary adm-btn--full"
             disabled={isLoading}
           >
-            {isLoading ? 'Entrando...' : 'Entrar'}
+            {isLoading
+              ? 'Entrando...'
+              : area === 'escritorio'
+                ? 'Entrar no Escritório'
+                : 'Entrar no Digital'}
           </button>
         </form>
       </div>
 
-      <p className="adm-login-notice">
-        Não compartilhe suas credenciais.
-        <br />
-        Acesso monitorado e restrito.
-      </p>
+      {showPortalLink && (
+        <p className="adm-login-notice">
+          <Link to="/portais">Voltar aos portais</Link>
+          <br />
+          Acesso monitorado e restrito.
+        </p>
+      )}
+    </>
+  )
+}
+
+export function LoginPage({
+  area = 'digital',
+  onLogin = signIn,
+  onSuccess,
+}: LoginPageProps) {
+  const location = useLocation()
+  const portal = ADMIN_AREAS[area]
+  const redirectedError =
+    typeof location.state?.error === 'string' ? location.state.error : ''
+
+  return (
+    <div className={`adm-login-page adm-login-page--${area}`}>
+      <div className="adm-login-header">
+        <strong className="adm-login-brand">PLENA</strong>
+        <span className="adm-login-brand-sub">{portal.title}</span>
+      </div>
+
+      <LoginPanel
+        area={area}
+        onLogin={onLogin}
+        onSuccess={onSuccess}
+        redirectedError={redirectedError}
+        autoFocus
+      />
     </div>
   )
 }

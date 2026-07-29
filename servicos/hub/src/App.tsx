@@ -6,14 +6,14 @@ import { ToolCard } from './app/ToolCard'
 import { ToolPageLayout } from './app/ToolPageLayout'
 import { getToolBySlug, toolRegistry } from './app/tool-registry'
 import { AuthGuard } from './admin/auth/AuthGuard'
+import { AreaSelectionPage } from './admin/auth/AreaSelectionPage'
+import { canAccessArea, type AdminArea } from './admin/auth/admin-areas'
 import { LoginPage } from './admin/auth/LoginPage'
 import { AdminShell } from './admin/shell/AdminShell'
-import { getAdminSession, signOut } from './admin/supabase-client'
-import { DashboardPage } from './admin/dashboard/DashboardPage'
-import { TransactionListPage } from './admin/transactions/TransactionListPage'
-import { ReportPage } from './admin/reports/ReportPage'
+import { getAdminSession, signOut, type AdminSession } from './admin/supabase-client'
 import { AdminProposalsPage } from './features/proposals/ui/AdminProposalsPage'
 import { ClientProposalPage } from './features/proposals/ui/ClientProposalPage'
+import { OfficeAreaPage } from './features/office/ui/OfficeAreaPage'
 import { BusinessCardCreatorTool } from './features/tools/business-card-creator/ui/BusinessCardCreatorTool'
 import { DeclarationBuilderTool } from './features/tools/declaration-builder/ui/DeclarationBuilderTool'
 import { ImagesToPdfTool } from './features/tools/images-to-pdf/ui/ImagesToPdfTool'
@@ -96,8 +96,17 @@ function ToolRoute() {
   )
 }
 
-function AdminPage({ title, children }: { title: string; children: ReactNode }) {
-  const [userEmail, setUserEmail] = useState('')
+function AdminPage({
+  title,
+  area,
+  children,
+}: {
+  title: string
+  area: AdminArea
+  children: ReactNode
+}) {
+  const [session, setSession] = useState<AdminSession | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     let cancelled = false
@@ -105,12 +114,17 @@ function AdminPage({ title, children }: { title: string; children: ReactNode }) 
     getAdminSession()
       .then((session) => {
         if (!cancelled) {
-          setUserEmail(session?.email ?? '')
+          setSession(session)
         }
       })
       .catch(() => {
         if (!cancelled) {
-          setUserEmail('')
+          setSession(null)
+        }
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setIsLoading(false)
         }
       })
 
@@ -121,14 +135,26 @@ function AdminPage({ title, children }: { title: string; children: ReactNode }) 
 
   async function handleLogout() {
     await signOut()
-    window.location.hash = '#/admin/login'
+    window.location.hash = area === 'escritorio' ? '#/escritorio/login' : '#/digital/login'
   }
 
+  const loginPath = area === 'escritorio' ? '/escritorio/login' : '/digital/login'
+
   return (
-    <AuthGuard>
-      <AdminShell pageTitle={title} userEmail={userEmail} onLogout={handleLogout}>
-        {children}
-      </AdminShell>
+    <AuthGuard loginPath={loginPath}>
+      {isLoading ? (
+        <div aria-live="polite">Carregando area administrativa...</div>
+      ) : session && canAccessArea(session, area) ? (
+        <AdminShell pageTitle={title} session={session} activeArea={area} onLogout={handleLogout}>
+          {children}
+        </AdminShell>
+      ) : (
+        <Navigate
+          to={loginPath}
+          replace
+          state={{ error: 'Seu perfil nao tem acesso a este portal.' }}
+        />
+      )}
     </AuthGuard>
   )
 }
@@ -137,28 +163,53 @@ export default function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/ferramentas/qr-code" replace />} />
+        <Route path="/" element={<Navigate to="/catalogo" replace />} />
         <Route path="/catalogo" element={<ToolCatalog />} />
         <Route path="/ferramentas/:slug" element={<ToolRoute />} />
-        <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
-        <Route path="/admin/login" element={<LoginPage />} />
+        <Route path="/admin" element={<Navigate to="/portais" replace />} />
+        <Route path="/admin/login" element={<Navigate to="/portais" replace />} />
+        <Route path="/admin/areas" element={<Navigate to="/portais" replace />} />
+        <Route path="/portais" element={<AreaSelectionPage />} />
+        <Route path="/escritorio/login" element={<LoginPage area="escritorio" />} />
+        <Route path="/digital/login" element={<LoginPage area="digital" />} />
+        <Route path="/admin/dashboard" element={<Navigate to="/escritorio" replace />} />
+        <Route path="/admin/atendimentos" element={<Navigate to="/escritorio" replace />} />
+        <Route path="/admin/relatorios" element={<Navigate to="/escritorio" replace />} />
+        <Route path="/admin/escritorio" element={<Navigate to="/escritorio" replace />} />
+        <Route path="/admin/propostas" element={<Navigate to="/digital/propostas" replace />} />
+        <Route path="/admin/digital/propostas" element={<Navigate to="/digital/propostas" replace />} />
         <Route
-          path="/admin/dashboard"
-          element={<AdminPage title="Dashboard"><DashboardPage /></AdminPage>}
+          path="/escritorio"
+          element={<AdminPage title="Gestao Escritorio" area="escritorio"><OfficeAreaPage /></AdminPage>}
         />
         <Route
-          path="/admin/atendimentos"
-          element={<AdminPage title="Atendimentos"><TransactionListPage /></AdminPage>}
+          path="/escritorio/transacoes"
+          element={<AdminPage title="Transacoes" area="escritorio"><OfficeAreaPage initialTab="transactions" /></AdminPage>}
         />
         <Route
-          path="/admin/propostas"
-          element={<AdminPage title="Propostas"><AdminProposalsPage /></AdminPage>}
+          path="/escritorio/clientes"
+          element={<AdminPage title="Clientes" area="escritorio"><OfficeAreaPage initialTab="clients" /></AdminPage>}
         />
         <Route
-          path="/admin/relatorios"
-          element={<AdminPage title="Relatórios"><ReportPage /></AdminPage>}
+          path="/escritorio/servicos"
+          element={<AdminPage title="Servicos" area="escritorio"><OfficeAreaPage initialTab="services" /></AdminPage>}
         />
-        <Route path="/propostas" element={<ClientProposalPage />} />
+        <Route
+          path="/escritorio/fechamento"
+          element={<AdminPage title="Fechamento" area="escritorio"><OfficeAreaPage initialTab="closing" /></AdminPage>}
+        />
+        <Route
+          path="/escritorio/categorias"
+          element={<AdminPage title="Categorias" area="escritorio"><OfficeAreaPage initialTab="settings" /></AdminPage>}
+        />
+        <Route
+          path="/escritorio/importar"
+          element={<AdminPage title="Importar JSON" area="escritorio"><OfficeAreaPage initialTab="import" /></AdminPage>}
+        />
+        <Route
+          path="/digital/propostas"
+          element={<AdminPage title="Propostas" area="digital"><AdminProposalsPage /></AdminPage>}
+        />        <Route path="/propostas" element={<ClientProposalPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

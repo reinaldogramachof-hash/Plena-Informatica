@@ -21,25 +21,30 @@ export type AdminSession = {
   userId: string
   email: string
   role: string
+  areas: string[]
 }
 
-type ProfileRoleRow = {
+type ProfileAccessRow = {
   role: string
+  areas: string[] | null
 }
 
-async function getProfileRole(userId: string): Promise<string | null> {
+async function getProfileAccess(userId: string): Promise<Pick<AdminSession, 'role' | 'areas'> | null> {
   const supabase = getSupabaseClient()
   const { data, error } = await supabase
     .from('profiles')
-    .select('role')
+    .select('role, areas')
     .eq('id', userId)
-    .maybeSingle() as { data: ProfileRoleRow | null; error: { message: string } | null }
+    .maybeSingle() as { data: ProfileAccessRow | null; error: { message: string } | null }
 
   if (error || !data?.role) {
     return null
   }
 
-  return data.role
+  return {
+    role: data.role,
+    areas: Array.isArray(data.areas) ? data.areas : [],
+  }
 }
 
 export async function getAdminSession(): Promise<AdminSession | null> {
@@ -49,10 +54,15 @@ export async function getAdminSession(): Promise<AdminSession | null> {
   } = await supabase.auth.getSession()
   if (!session) return null
 
-  const role = await getProfileRole(session.user.id)
-  if (!role) return null
+  const access = await getProfileAccess(session.user.id)
+  if (!access) return null
 
-  return { userId: session.user.id, email: session.user.email ?? '', role }
+  return {
+    userId: session.user.id,
+    email: session.user.email ?? '',
+    role: access.role,
+    areas: access.areas,
+  }
 }
 
 export async function signIn(email: string, password: string) {
@@ -77,9 +87,9 @@ export function onAdminAuthStateChange(
       return
     }
 
-    void getProfileRole(session.user.id)
-      .then((role) => {
-        if (!role) {
+    void getProfileAccess(session.user.id)
+      .then((access) => {
+        if (!access) {
           callback(null)
           return
         }
@@ -87,7 +97,8 @@ export function onAdminAuthStateChange(
         callback({
           userId: session.user.id,
           email: session.user.email ?? '',
-          role,
+          role: access.role,
+          areas: access.areas,
         })
       })
       .catch(() => {

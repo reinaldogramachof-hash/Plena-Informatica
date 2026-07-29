@@ -541,6 +541,74 @@ Arquivos compartilhados autorizados neste pacote:
 - UI não usa dados reais de Jeferson Mathias ou TechTower nos testes.
 - Testes focados, suite completa, lint e build aprovados.
 
+## Pacote F9 — Gestao Escritorio e login unificado
+
+Status: `Em desenvolvimento`.
+
+Pasta proprietaria:
+
+`servicos/hub/src/features/office/`
+
+Arquivos compartilhados autorizados neste pacote:
+
+- `servicos/hub/src/App.tsx`;
+- `servicos/hub/src/admin/auth/`;
+- `servicos/hub/src/admin/shell/AdminShell.tsx`;
+- `servicos/hub/src/admin/supabase-client.ts`;
+- `servicos/hub/src/lib/supabase/database.types.ts`;
+- `servicos/docs/DATA_MODEL.md`;
+- `servicos/ROADMAP.md`;
+- `servicos/supabase/migrations/`.
+
+### Situacao atual
+
+- schema de Clientes e Gestao Escritorio foi aplicado no Supabase
+  `nnckpyzjllqsdcwlnxei` por migracao executada via MCP;
+- `profiles.areas` existe e orienta a navegacao administrativa;
+- `clients` passa a ser o cadastro unico compartilhado entre Escritorio e
+  Digital;
+- o modulo antigo de Atendimentos apontava para `transactions`, tabela que nao
+  existe no schema real;
+- o app legado Plena Cash Control continua como fonte de backup JSON para uma
+  importacao unica.
+
+### Entrega funcional
+
+- Manter uma pagina neutra de portais, com cards para "Plena Gestao Escritorio"
+  e "Plena Gestao Digital".
+- Cada card leva ao login proprio do portal correspondente.
+- Apos login, validar `profiles.areas` ou `role = 'admin'` para a area
+  solicitada; negar acesso com mensagem clara quando o perfil nao possuir a
+  area.
+- Nao usar seletor de area pos-login nem redirecionar usuario sem permissao para
+  outro portal.
+- Admin pode autenticar nos dois portais, sempre passando pela entrada propria
+  de cada um.
+- Implementar Gestao Escritorio com Dashboard, Transacoes, Clientes, Servicos,
+  Fechamento de Caixa, Categorias e Importador JSON.
+- Usar Supabase real com RLS `private.is_staff()` para toda escrita, leitura e
+  exclusao.
+- Nao portar o assistente Gemini nem instalar `@google/genai` nesta fase.
+- Aposentar o fluxo antigo de Atendimentos baseado em `transactions`.
+- Importar uma vez o JSON exportado do Cash Control para `clients`,
+  `office_transactions`, `office_service_items` e `office_service_records`.
+
+### Regra fixa
+
+`clients` e a unica tabela compartilhada entre Gestao Escritorio e Gestao
+Digital. `office_transactions` e `proposals.investment_amount` nunca devem ser
+somados ou combinados em nenhum relatorio, dashboard ou view.
+
+### Criterios de aceite
+
+- Schema documentado em `servicos/supabase/migrations/`.
+- Grants finais deixam `anon` sem acesso e `authenticated` com DML sob RLS.
+- Staff (`admin` ou `recepcao`) acessa dados de Escritorio.
+- Usuario autenticado sem papel staff nao le nem grava dados de Escritorio.
+- Importador JSON e admin-only na UI.
+- Testes automatizados usam mocks do Supabase.
+- Suite completa, lint e build executados antes de revisao.
+
 ## Pacote I1 — Integração e liberação pública
 
 Status: `Bloqueada` até a validação local de cada pacote funcional.

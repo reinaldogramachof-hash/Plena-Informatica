@@ -13,6 +13,7 @@ const ADMIN_SESSION = {
   userId: 'user-123',
   email: 'admin@plena.com',
   role: 'admin',
+  areas: ['escritorio', 'digital'],
 }
 
 function LoginProbe() {
@@ -45,8 +46,8 @@ describe('AuthGuard', () => {
     const getSession = vi.fn().mockResolvedValue(null)
 
     render(
-      <MemoryRouter initialEntries={['/admin/dashboard']}>
-        <AuthGuard getSession={getSession}>
+      <MemoryRouter initialEntries={['/escritorio']}>
+        <AuthGuard getSession={getSession} loginPath="/escritorio/login">
           <p>Conteúdo protegido</p>
         </AuthGuard>
       </MemoryRouter>,
@@ -63,7 +64,7 @@ describe('AuthGuard', () => {
 
     render(
       <MemoryRouter>
-        <AuthGuard getSession={getSession}>
+        <AuthGuard getSession={getSession} loginPath="/escritorio/login">
           <p>Conteúdo protegido</p>
         </AuthGuard>
       </MemoryRouter>,
@@ -80,17 +81,17 @@ describe('AuthGuard', () => {
       .mockRejectedValue(new Error('Não foi possível validar a sessão.'))
 
     render(
-      <MemoryRouter initialEntries={['/admin/dashboard']}>
+      <MemoryRouter initialEntries={['/escritorio']}>
         <Routes>
           <Route
-            path="/admin/dashboard"
+            path="/escritorio"
             element={(
-              <AuthGuard getSession={getSession}>
+              <AuthGuard getSession={getSession} loginPath="/escritorio/login">
                 <p>Conteúdo protegido</p>
               </AuthGuard>
             )}
           />
-          <Route path="/admin/login" element={<LoginProbe />} />
+          <Route path="/escritorio/login" element={<LoginProbe />} />
         </Routes>
       </MemoryRouter>,
     )

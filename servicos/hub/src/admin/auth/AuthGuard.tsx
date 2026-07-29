@@ -8,11 +8,13 @@ import { getAdminSession, onAdminAuthStateChange } from '../supabase-client'
 interface AuthGuardProps {
   children: ReactNode
   getSession?: () => Promise<AdminSession | null>
+  loginPath?: string
 }
 
 export function AuthGuard({
   children,
   getSession = getAdminSession,
+  loginPath = '/digital/login',
 }: AuthGuardProps) {
   const [session, setSession] = useState<AdminSession | null | 'loading'>(
     'loading',
@@ -76,7 +78,7 @@ export function AuthGuard({
   if (session === null) {
     return (
       <Navigate
-        to="/admin/login"
+        to={loginPath}
         replace
         state={redirectError ? { error: redirectError } : undefined}
       />

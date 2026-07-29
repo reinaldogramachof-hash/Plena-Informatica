@@ -37,21 +37,21 @@ describe('integracao institucional do QR Code', () => {
     )
 
     expect(servicesHtml).toContain(
-      'href="ferramentas/qr-code/"',
+      'href="ferramentas/qr-code/#/ferramentas/qr-code"',
     )
     expect(servicesHtml).toContain('aria-label="Usar Gerador de QR Code"')
   })
 
-  it('abre a ferramenta diretamente no caminho publico sem hash adicional', () => {
+  it('abre o catalogo no caminho publico sem hash adicional', () => {
     window.location.hash = ''
 
     render(<App />)
 
     expect(
-      screen.getByRole('heading', { name: 'Gerador de QR Code' }),
+      screen.getByRole('heading', { name: 'Escolha o que precisa resolver' }),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('link', { name: 'Voltar para ferramentas' }),
+      screen.getByText('Ferramentas simples, seguras e sob seu controle.'),
     ).toBeInTheDocument()
   })
 

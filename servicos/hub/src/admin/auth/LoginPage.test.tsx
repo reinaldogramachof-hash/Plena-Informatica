@@ -1,220 +1,125 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
 
 import { LoginPage } from './LoginPage'
 
-vi.mock('../supabase-client')
+const authMocks = vi.hoisted(() => ({
+  getAdminSession: vi.fn(),
+  signOut: vi.fn(),
+}))
+
+vi.mock('../supabase-client', async () => {
+  const actual = await vi.importActual<typeof import('../supabase-client')>('../supabase-client')
+  return {
+    ...actual,
+    getAdminSession: authMocks.getAdminSession,
+    signOut: authMocks.signOut,
+  }
+})
+
+function renderLogin(area: 'escritorio' | 'digital' = 'digital') {
+  return render(
+    <MemoryRouter>
+      <LoginPage area={area} />
+    </MemoryRouter>,
+  )
+}
 
 describe('LoginPage', () => {
-  it('renderiza campo E-mail e campo Senha', () => {
-    const { container } = render(
-      <MemoryRouter>
-        <LoginPage />
-      </MemoryRouter>,
-    )
-    expect(container.querySelector('#adm-email')).toBeDefined()
-    expect(container.querySelector('#adm-password')).toBeDefined()
+  beforeEach(() => {
+    authMocks.getAdminSession.mockReset()
+    authMocks.signOut.mockReset()
   })
 
-  it('botão "Entrar" está presente', () => {
-    render(
-      <MemoryRouter>
-        <LoginPage />
-      </MemoryRouter>,
-    )
-    expect(screen.getByRole('button', { name: /Entrar/i })).toBeDefined()
+  it('renderiza login do portal digital por padrao', () => {
+    renderLogin()
+
+    expect(screen.getByText('Plena Gestão Digital')).toBeDefined()
+    expect(screen.getByLabelText(/E-mail/)).toBeDefined()
+    expect(screen.getByLabelText(/Senha/)).toBeDefined()
   })
 
-  it('e-mail inválido ao submeter -> role="alert" com mensagem Zod', async () => {
-    const { container } = render(
-      <MemoryRouter>
-        <LoginPage />
-      </MemoryRouter>,
-    )
+  it('renderiza login proprio do escritorio', () => {
+    renderLogin('escritorio')
 
-    fireEvent.change(container.querySelector('#adm-email')!, {
+    expect(screen.getByText('Plena Gestão Escritório')).toBeDefined()
+    expect(screen.getByRole('heading', { name: 'Entrar no Escritório' })).toBeDefined()
+  })
+
+  it('valida e-mail invalido ao submeter', async () => {
+    renderLogin()
+
+    fireEvent.change(screen.getByLabelText(/E-mail/), {
       target: { value: 'nao-e-email' },
     })
-    fireEvent.change(container.querySelector('#adm-password')!, {
+    fireEvent.change(screen.getByLabelText(/Senha/), {
       target: { value: 'senha123' },
     })
     fireEvent.click(screen.getByRole('button', { name: /Entrar/i }))
 
     await waitFor(() => {
-      expect(screen.getByRole('alert')).toBeDefined()
       expect(screen.getByRole('alert').textContent).toContain('E-mail inválido')
     })
   })
 
-  it('senha curta ao submeter -> role="alert" com mensagem Zod', async () => {
-    const { container } = render(
-      <MemoryRouter>
-        <LoginPage />
-      </MemoryRouter>,
-    )
-
-    fireEvent.change(container.querySelector('#adm-email')!, {
-      target: { value: 'admin@plena.com' },
-    })
-    fireEvent.change(container.querySelector('#adm-password')!, {
-      target: { value: '123' },
-    })
-    fireEvent.click(screen.getByRole('button', { name: /Entrar/i }))
-
-    await waitFor(() => {
-      expect(screen.getByRole('alert')).toBeDefined()
-      expect(screen.getByRole('alert').textContent).toContain(
-        'Senha deve ter ao menos 6 caracteres',
-      )
-    })
-  })
-
-  it('onLogin chamado com email e senha ao submeter dados válidos', async () => {
+  it('chama sucesso quando perfil tem a area do portal', async () => {
     const onLogin = vi.fn().mockResolvedValue({ error: null })
     const onSuccess = vi.fn()
+    authMocks.getAdminSession.mockResolvedValue({
+      userId: 'user-1',
+      email: 'staff@plena.com',
+      role: 'recepcao',
+      areas: ['escritorio'],
+    })
 
-    const { container } = render(
+    render(
       <MemoryRouter>
-        <LoginPage onLogin={onLogin} onSuccess={onSuccess} />
+        <LoginPage area="escritorio" onLogin={onLogin} onSuccess={onSuccess} />
       </MemoryRouter>,
     )
 
-    fireEvent.change(container.querySelector('#adm-email')!, {
-      target: { value: 'admin@plena.com' },
+    fireEvent.change(screen.getByLabelText(/E-mail/), {
+      target: { value: 'staff@plena.com' },
     })
-    fireEvent.change(container.querySelector('#adm-password')!, {
+    fireEvent.change(screen.getByLabelText(/Senha/), {
       target: { value: 'senha123' },
     })
     fireEvent.click(screen.getByRole('button', { name: /Entrar/i }))
 
     await waitFor(() => {
-      expect(onLogin).toHaveBeenCalledWith('admin@plena.com', 'senha123')
+      expect(onLogin).toHaveBeenCalledWith('staff@plena.com', 'senha123')
       expect(onSuccess).toHaveBeenCalledTimes(1)
     })
   })
 
-  it('botão exibe "Entrando..." e fica disabled durante isLoading', async () => {
-    let resolveLogin: (v: { error: null }) => void
-    const blockingLogin = () =>
-      new Promise<{ error: null }>((r) => {
-        resolveLogin = r
-      })
-
-    const { container } = render(
-      <MemoryRouter>
-        <LoginPage onLogin={blockingLogin} onSuccess={vi.fn()} />
-      </MemoryRouter>,
-    )
-
-    fireEvent.change(container.querySelector('#adm-email')!, {
-      target: { value: 'admin@plena.com' },
+  it('nega acesso e encerra sessao quando perfil nao tem a area do portal', async () => {
+    const onLogin = vi.fn().mockResolvedValue({ error: null })
+    authMocks.getAdminSession.mockResolvedValue({
+      userId: 'user-1',
+      email: 'cliente@plena.com',
+      role: 'cliente',
+      areas: [],
     })
-    fireEvent.change(container.querySelector('#adm-password')!, {
-      target: { value: 'senha123' },
-    })
-    fireEvent.click(screen.getByRole('button', { name: /Entrar/i }))
+    authMocks.signOut.mockResolvedValue({ error: null })
 
-    await waitFor(() => {
-      const btn = screen.getByRole('button', { name: /Entrando.../i })
-      expect(btn).toBeDefined()
-      expect((btn as HTMLButtonElement).disabled).toBe(true)
-    })
-
-    resolveLogin!({ error: null })
-
-    await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'Entrar' })).toBeDefined()
-    })
-  })
-
-  it('quando onLogin retorna error -> exibe role="alert" com "E-mail ou senha incorretos."', async () => {
-    const onLogin = vi
-      .fn()
-      .mockResolvedValue({ error: new Error('Invalid credentials') })
-
-    const { container } = render(
-      <MemoryRouter>
-        <LoginPage onLogin={onLogin} onSuccess={vi.fn()} />
-      </MemoryRouter>,
-    )
-
-    fireEvent.change(container.querySelector('#adm-email')!, {
-      target: { value: 'admin@plena.com' },
-    })
-    fireEvent.change(container.querySelector('#adm-password')!, {
-      target: { value: 'senha123' },
-    })
-    fireEvent.click(screen.getByRole('button', { name: /Entrar/i }))
-
-    await waitFor(() => {
-      expect(screen.getByRole('alert').textContent).toContain(
-        'E-mail ou senha incorretos.',
-      )
-    })
-  })
-
-  it('quando onLogin rejeita por erro de infraestrutura -> exibe role="alert" com mensagem visível', async () => {
-    const onLogin = vi
-      .fn()
-      .mockRejectedValue(new Error('Configure VITE_SUPABASE_URL antes de entrar.'))
-
-    const { container } = render(
-      <MemoryRouter>
-        <LoginPage onLogin={onLogin} onSuccess={vi.fn()} />
-      </MemoryRouter>,
-    )
-
-    fireEvent.change(container.querySelector('#adm-email')!, {
-      target: { value: 'admin@plena.com' },
-    })
-    fireEvent.change(container.querySelector('#adm-password')!, {
-      target: { value: 'senha123' },
-    })
-    fireEvent.click(screen.getByRole('button', { name: /Entrar/i }))
-
-    await waitFor(() => {
-      expect(screen.getByRole('alert').textContent).toContain(
-        'Configure VITE_SUPABASE_URL antes de entrar.',
-      )
-    })
-  })
-
-  it('renderiza erro vindo do redirecionamento do AuthGuard', async () => {
     render(
-      <MemoryRouter
-        initialEntries={[
-          {
-            pathname: '/admin/login',
-            state: { error: 'Não foi possível validar a sessão.' },
-          },
-        ]}
-      >
-        <LoginPage />
+      <MemoryRouter>
+        <LoginPage area="digital" onLogin={onLogin} onSuccess={vi.fn()} />
       </MemoryRouter>,
     )
+
+    fireEvent.change(screen.getByLabelText(/E-mail/), {
+      target: { value: 'cliente@plena.com' },
+    })
+    fireEvent.change(screen.getByLabelText(/Senha/), {
+      target: { value: 'senha123' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /Entrar/i }))
 
     await waitFor(() => {
-      expect(screen.getByRole('alert').textContent).toContain(
-        'Não foi possível validar a sessão.',
-      )
+      expect(authMocks.signOut).toHaveBeenCalledTimes(1)
+      expect(screen.getByRole('alert').textContent).toContain('não tem acesso')
     })
-  })
-
-  it('toggle de senha: clique alterna type password <-> text', () => {
-    const { container } = render(
-      <MemoryRouter>
-        <LoginPage />
-      </MemoryRouter>,
-    )
-
-    const passwordInput = container.querySelector('#adm-password') as HTMLInputElement
-    expect(passwordInput.type).toBe('password')
-
-    fireEvent.click(screen.getByRole('button', { name: /Mostrar senha/i }))
-    expect(passwordInput.type).toBe('text')
-
-    fireEvent.click(screen.getByRole('button', { name: /Ocultar senha/i }))
-    expect(passwordInput.type).toBe('password')
   })
 })

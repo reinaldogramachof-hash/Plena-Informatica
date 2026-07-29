@@ -16,7 +16,7 @@ async function loadModule() {
   return import('./supabase-client')
 }
 
-function mockProfilesQuery(result: { data: { role: string } | null; error: Error | null }) {
+function mockProfilesQuery(result: { data: { role: string; areas?: string[] } | null; error: Error | null }) {
   const maybeSingle = vi.fn().mockResolvedValue(result)
   const eq = vi.fn().mockReturnValue({ maybeSingle })
   const select = vi.fn().mockReturnValue({ eq })
@@ -69,6 +69,7 @@ describe('supabase-client', () => {
       userId: 'user-1',
       email: 'admin@plena.com',
       role: 'admin',
+      areas: [],
     })
   })
 
@@ -136,6 +137,7 @@ describe('supabase-client', () => {
       userId: 'user-2',
       email: 'manager@plena.com',
       role: 'manager',
+      areas: [],
     })
   })
 

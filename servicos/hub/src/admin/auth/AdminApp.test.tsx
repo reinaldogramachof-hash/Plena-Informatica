@@ -94,9 +94,13 @@ vi.mock('../../features/tools/resume-builder/ui/ResumeBuilderTool', () => ({
   ResumeBuilderTool: () => null,
 }))
 
+vi.mock('../../features/office/ui/OfficeAreaPage', () => ({
+  OfficeAreaPage: () => <p>Conteudo da gestao escritorio</p>,
+}))
+
 describe('Admin app shell integration', () => {
   beforeEach(() => {
-    window.location.hash = '#/admin/dashboard'
+    window.location.hash = '#/escritorio'
     authMocks.getAdminSession.mockReset()
     authMocks.signOut.mockReset()
   })
@@ -105,26 +109,28 @@ describe('Admin app shell integration', () => {
     window.location.hash = ''
   })
 
-  it('exibe o e-mail do usuário autenticado na topbar', async () => {
+  it('exibe o portal de escritorio para usuario autorizado', async () => {
     authMocks.getAdminSession.mockResolvedValue({
       userId: 'user-1',
       email: 'reinaldogramachof@gmail.com',
       role: 'admin',
+      areas: ['escritorio', 'digital'],
     })
 
     render(<App />)
 
     await waitFor(() => {
-      expect(screen.getByText('reinaldogramachof@gmail.com')).toBeDefined()
-      expect(screen.getByText('Conteúdo do dashboard')).toBeDefined()
+      expect(screen.getAllByText('Gestao Escritorio').length).toBeGreaterThan(0)
+      expect(screen.getByText('Conteudo da gestao escritorio')).toBeDefined()
     })
   })
 
-  it('clicar em "Sair" executa logout e redireciona para /admin/login', async () => {
+  it('clicar em "Sair" executa logout e redireciona para o login do portal', async () => {
     authMocks.getAdminSession.mockResolvedValue({
       userId: 'user-1',
       email: 'reinaldogramachof@gmail.com',
       role: 'admin',
+      areas: ['escritorio', 'digital'],
     })
     authMocks.signOut.mockResolvedValue({ error: null })
 
