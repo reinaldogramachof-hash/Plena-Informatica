@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     emptyOutDir: true,
-    outDir: '../ferramentas/qr-code',
+    outDir: '../hub-app',
   },
   test: {
     environment: 'jsdom',

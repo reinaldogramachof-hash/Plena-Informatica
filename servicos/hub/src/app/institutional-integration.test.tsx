@@ -5,6 +5,7 @@ import { render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import App from '../App'
+import { redirectToPublicCatalog } from './catalog-redirect-target'
 
 describe('integracao institucional do QR Code', () => {
   beforeEach(() => {
@@ -36,23 +37,20 @@ describe('integracao institucional do QR Code', () => {
       'utf8',
     )
 
-    expect(servicesHtml).toContain(
-      'href="ferramentas/qr-code/#/ferramentas/qr-code"',
-    )
+    expect(servicesHtml).toContain('href="hub-app/#/ferramentas/qr-code"')
     expect(servicesHtml).toContain('aria-label="Usar Gerador de QR Code"')
   })
 
-  it('abre o catalogo no caminho publico sem hash adicional', () => {
-    window.location.hash = ''
+  it('monta o redirecionamento de /catalogo para a pagina publica real', () => {
+    const fakeLocation = {
+      href: 'http://localhost:3000/#/catalogo',
+      origin: 'http://localhost:3000',
+    }
 
-    render(<App />)
+    const target = redirectToPublicCatalog(fakeLocation)
 
-    expect(
-      screen.getByRole('heading', { name: 'Escolha o que precisa resolver' }),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText('Ferramentas simples, seguras e sob seu controle.'),
-    ).toBeInTheDocument()
+    expect(target).toBe('http://localhost:3000/servicos/servicos.html')
+    expect(fakeLocation.href).toBe('http://localhost:3000/servicos/servicos.html')
   })
 
   it('abre o Criador de Curriculo no shell institucional', () => {
@@ -81,9 +79,7 @@ describe('integracao institucional do QR Code', () => {
       'utf8',
     )
 
-    expect(servicesHtml).toContain(
-      'href="ferramentas/qr-code/#/ferramentas/resume-builder"',
-    )
+    expect(servicesHtml).toContain('href="hub-app/#/ferramentas/resume-builder"')
     expect(servicesHtml).toContain(
       'aria-label="Usar Criador de Curriculo"',
     )
@@ -134,9 +130,7 @@ describe('integracao institucional do QR Code', () => {
       'utf8',
     )
 
-    expect(servicesHtml).toContain(
-      'href="ferramentas/qr-code/#/ferramentas/declaration-builder"',
-    )
+    expect(servicesHtml).toContain('href="hub-app/#/ferramentas/declaration-builder"')
     expect(servicesHtml).toContain(
       'aria-label="Usar Gerador de Declaracoes"',
     )
@@ -173,9 +167,7 @@ describe('integracao institucional do QR Code', () => {
       'utf8',
     )
 
-    expect(servicesHtml).toContain(
-      'href="ferramentas/qr-code/#/ferramentas/mei-irpf-checklist"',
-    )
+    expect(servicesHtml).toContain('href="hub-app/#/ferramentas/mei-irpf-checklist"')
     expect(servicesHtml).toContain(
       'aria-label="Iniciar Checklist MEI e IRPF"',
     )
@@ -189,9 +181,7 @@ describe('integracao institucional do QR Code', () => {
     )
 
     expect(servicesHtml).toContain('data-tool="menu-builder"')
-    expect(servicesHtml).toContain(
-      'href="ferramentas/qr-code/#/ferramentas/menu-builder"',
-    )
+    expect(servicesHtml).toContain('href="hub-app/#/ferramentas/menu-builder"')
   })
 
   it('padroniza busca, filtros e metadados dos onze cards', () => {

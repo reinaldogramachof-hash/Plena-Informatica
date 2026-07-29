@@ -2,17 +2,17 @@ import { useEffect, useState, type ComponentType, type ReactNode } from 'react'
 import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom'
 
 import { InstitutionalShell } from './app/InstitutionalShell'
-import { ToolCard } from './app/ToolCard'
+import { CatalogRedirect } from './app/catalog-redirect'
 import { ToolPageLayout } from './app/ToolPageLayout'
-import { getToolBySlug, toolRegistry } from './app/tool-registry'
+import { getToolBySlug } from './app/tool-registry'
 import { AuthGuard } from './admin/auth/AuthGuard'
 import { AreaSelectionPage } from './admin/auth/AreaSelectionPage'
 import { canAccessArea, type AdminArea } from './admin/auth/admin-areas'
 import { LoginPage } from './admin/auth/LoginPage'
 import { AdminShell } from './admin/shell/AdminShell'
 import { getAdminSession, signOut, type AdminSession } from './admin/supabase-client'
-import { AdminProposalsPage } from './features/proposals/ui/AdminProposalsPage'
 import { ClientProposalPage } from './features/proposals/ui/ClientProposalPage'
+import { AdminProposalsPage } from './features/proposals/ui/AdminProposalsPage'
 import { OfficeAreaPage } from './features/office/ui/OfficeAreaPage'
 import { BusinessCardCreatorTool } from './features/tools/business-card-creator/ui/BusinessCardCreatorTool'
 import { DeclarationBuilderTool } from './features/tools/declaration-builder/ui/DeclarationBuilderTool'
@@ -39,43 +39,6 @@ const toolComponents: Record<string, ComponentType> = {
   'label-generator': LabelGeneratorTool,
   'mei-das-guide': MeiDasGuideTool,
   'print-cost-estimator': PrintCostEstimatorTool,
-}
-
-function ToolCatalog() {
-  return (
-    <main>
-      <section className="hub-hero">
-        <a className="brand" href="../servicos.html">
-          Plena Informática
-        </a>
-        <span className="eyebrow">Hub de Soluções Digitais</span>
-        <h1>Ferramentas simples, seguras e sob seu controle.</h1>
-        <p>
-          Escolha uma solução, entenda o resultado antes de começar e conte com
-          atendimento profissional somente quando precisar.
-        </p>
-      </section>
-
-      <section className="catalog" aria-labelledby="catalog-title">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow">Serviços digitais Plena</span>
-            <h2 id="catalog-title">Escolha o que precisa resolver</h2>
-          </div>
-          <p>
-            Benefícios claros, processamento local sempre que possível e
-            ferramentas preparadas para celular.
-          </p>
-        </div>
-
-        <div className="tool-grid">
-          {toolRegistry.map((tool) => (
-            <ToolCard key={tool.slug} tool={tool} />
-          ))}
-        </div>
-      </section>
-    </main>
-  )
 }
 
 function ToolRoute() {
@@ -164,7 +127,7 @@ export default function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/catalogo" replace />} />
-        <Route path="/catalogo" element={<ToolCatalog />} />
+        <Route path="/catalogo" element={<CatalogRedirect />} />
         <Route path="/ferramentas/:slug" element={<ToolRoute />} />
         <Route path="/admin" element={<Navigate to="/portais" replace />} />
         <Route path="/admin/login" element={<Navigate to="/portais" replace />} />
@@ -209,7 +172,8 @@ export default function App() {
         <Route
           path="/digital/propostas"
           element={<AdminPage title="Propostas" area="digital"><AdminProposalsPage /></AdminPage>}
-        />        <Route path="/propostas" element={<ClientProposalPage />} />
+        />
+        <Route path="/propostas" element={<ClientProposalPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>
