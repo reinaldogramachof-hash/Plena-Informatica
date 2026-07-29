@@ -98,6 +98,14 @@ vi.mock('../../features/office/ui/OfficeAreaPage', () => ({
   OfficeAreaPage: () => <p>Conteudo da gestao escritorio</p>,
 }))
 
+vi.mock('../../features/proposals/ui/AdminProposalsPage', () => ({
+  AdminProposalsPage: () => <p>Conteudo de propostas</p>,
+}))
+
+vi.mock('../../features/proposals/ui/ClientProposalPage', () => ({
+  ClientProposalPage: () => null,
+}))
+
 describe('Admin app shell integration', () => {
   beforeEach(() => {
     window.location.hash = '#/escritorio'
@@ -145,6 +153,49 @@ describe('Admin app shell integration', () => {
     await waitFor(() => {
       expect(authMocks.signOut).toHaveBeenCalledTimes(1)
       expect(screen.getByText('Tela de login')).toBeDefined()
+    })
+  })
+
+  it('agrupa o menu de escritorio em secoes e usa icones reais', async () => {
+    authMocks.getAdminSession.mockResolvedValue({
+      userId: 'user-1',
+      email: 'reinaldogramachof@gmail.com',
+      role: 'admin',
+      areas: ['escritorio', 'digital'],
+    })
+
+    render(<App />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Principal')).toBeDefined()
+      expect(screen.getByText('Operacional')).toBeDefined()
+      expect(screen.getByText('Sistema')).toBeDefined()
+      expect(screen.getByRole('navigation', { name: 'Menu Gestao Escritorio' })).toBeDefined()
+      expect(screen.getByTestId('nav-icon--escritorio')).toBeDefined()
+      expect(screen.getByTestId('nav-icon--escritorio-transacoes')).toBeDefined()
+      expect(screen.getByTestId('nav-icon--escritorio-clientes')).toBeDefined()
+      expect(screen.getByTestId('nav-icon--escritorio-servicos')).toBeDefined()
+    })
+  })
+
+  it('mostra apenas Propostas no menu digital por enquanto', async () => {
+    window.location.hash = '#/digital/propostas'
+    authMocks.getAdminSession.mockResolvedValue({
+      userId: 'user-1',
+      email: 'reinaldogramachof@gmail.com',
+      role: 'admin',
+      areas: ['escritorio', 'digital'],
+    })
+
+    render(<App />)
+
+    await waitFor(() => {
+      expect(screen.getByRole('navigation', { name: 'Menu Gestao Digital' })).toBeDefined()
+      expect(screen.getByText('Conteudo de propostas')).toBeDefined()
+      expect(screen.getByRole('link', { name: 'Propostas' })).toBeDefined()
+      expect(screen.queryByText('Clientes tecnologia')).toBeNull()
+      expect(screen.queryByText('Projetos')).toBeNull()
+      expect(screen.queryByText('Catalogo')).toBeNull()
     })
   })
 })

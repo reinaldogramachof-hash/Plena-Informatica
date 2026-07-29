@@ -37,8 +37,12 @@
   border-radius: 10px;
   background: linear-gradient(135deg, #f17a02, #d55b1a);
   color: #fff;
-  font-weight: 900;
   box-shadow: 0 12px 24px rgba(213, 91, 26, 0.25);
+}
+
+.adm-sidebar__brand-icon-svg {
+  width: 24px;
+  height: 24px;
 }
 
 .adm-sidebar__brand strong {
@@ -60,9 +64,31 @@
 }
 
 .adm-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 16px;
+}
+
+.adm-nav-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.adm-nav-section__title {
+  margin: 0;
+  padding: 0 12px;
+  color: #6b7280;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.adm-nav-section__items {
   display: grid;
   gap: 6px;
-  padding: 16px;
 }
 
 .adm-nav-link {
@@ -103,11 +129,16 @@
 .adm-nav-link__icon {
   width: 22px;
   height: 22px;
+  flex-shrink: 0;
   display: grid;
   place-items: center;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
-  font-size: 0.72rem;
+}
+
+.adm-nav-link__icon-svg {
+  width: 14px;
+  height: 14px;
 }
 
 .adm-sidebar__footer {
@@ -166,12 +197,20 @@
 
 .adm-menu-button {
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   background: #fff;
   color: #4b5563;
-  font-weight: 800;
-  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.adm-menu-button__icon {
+  width: 20px;
+  height: 20px;
 }
 
 .adm-topbar__title {

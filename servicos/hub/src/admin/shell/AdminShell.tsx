@@ -1,4 +1,18 @@
 import { useState, type ReactNode } from 'react'
+import {
+  ArrowRightLeft,
+  Briefcase,
+  FileJson,
+  FileText,
+  Lock,
+  Menu,
+  PieChart,
+  Tag,
+  Users,
+  Wallet,
+  X,
+  type LucideIcon,
+} from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 
 import type { AdminArea } from '../auth/admin-areas'
@@ -14,21 +28,60 @@ interface AdminShellProps {
   onLogout?: () => void
 }
 
-const officeModules = [
-  { icon: 'D', label: 'Dashboard', path: '/escritorio' },
-  { icon: 'T', label: 'Transacoes', path: '/escritorio/transacoes' },
-  { icon: 'C', label: 'Clientes', path: '/escritorio/clientes' },
-  { icon: 'S', label: 'Servicos', path: '/escritorio/servicos' },
-  { icon: 'F', label: 'Fechamento', path: '/escritorio/fechamento' },
-  { icon: 'G', label: 'Categorias', path: '/escritorio/categorias' },
-  { icon: 'I', label: 'Importar JSON', path: '/escritorio/importar' },
+interface AdminModuleItem {
+  icon: LucideIcon
+  label: string
+  path: string
+  iconLabel: string
+}
+
+interface AdminModuleSection {
+  title: string
+  items: AdminModuleItem[]
+}
+
+const officeSections: AdminModuleSection[] = [
+  {
+    title: 'Principal',
+    items: [
+      { icon: PieChart, label: 'Dashboard', path: '/escritorio', iconLabel: 'Dashboard' },
+    ],
+  },
+  {
+    title: 'Operacional',
+    items: [
+      {
+        icon: ArrowRightLeft,
+        label: 'Transacoes',
+        path: '/escritorio/transacoes',
+        iconLabel: 'Transacoes',
+      },
+      { icon: Users, label: 'Clientes', path: '/escritorio/clientes', iconLabel: 'Clientes' },
+      { icon: Briefcase, label: 'Servicos', path: '/escritorio/servicos', iconLabel: 'Servicos' },
+      { icon: Lock, label: 'Fechamento', path: '/escritorio/fechamento', iconLabel: 'Fechamento' },
+    ],
+  },
+  {
+    title: 'Sistema',
+    items: [
+      { icon: Tag, label: 'Categorias', path: '/escritorio/categorias', iconLabel: 'Categorias' },
+      {
+        icon: FileJson,
+        label: 'Importar JSON',
+        path: '/escritorio/importar',
+        iconLabel: 'Importar JSON',
+      },
+    ],
+  },
 ]
 
-const digitalModules = [
-  { icon: 'P', label: 'Propostas', path: '/digital/propostas' },
-  { icon: 'C', label: 'Clientes tecnologia', path: '/digital/propostas' },
-  { icon: 'J', label: 'Projetos', path: '/digital/propostas' },
-  { icon: 'A', label: 'Catalogo', path: '/digital/propostas' },
+const digitalSections: AdminModuleSection[] = [
+  {
+    title: 'Digital',
+    items: [
+      { icon: FileText, label: 'Propostas', path: '/digital/propostas', iconLabel: 'Propostas' },
+    ],
+  },
 ]
 
 export function AdminShell({
@@ -39,13 +92,17 @@ export function AdminShell({
   onLogout,
 }: AdminShellProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const modules = activeArea === 'escritorio' ? officeModules : digitalModules
+  const sections = activeArea === 'escritorio' ? officeSections : digitalSections
   const portalLabel = activeArea === 'escritorio' ? 'Controle v2.0' : 'Digital'
+  const areaLabel = activeArea === 'escritorio' ? 'Gestao Escritorio' : 'Gestao Digital'
   const todayLabel = new Date().toLocaleDateString('pt-BR', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
   })
+  const avatarLabel = session.email.trim().charAt(0).toUpperCase() || 'P'
+  const MobileMenuIcon = isSidebarOpen ? X : Menu
+  const mobileMenuLabel = isSidebarOpen ? 'Fechar menu' : 'Abrir menu'
 
   return (
     <div className="adm-layout">
@@ -63,41 +120,56 @@ export function AdminShell({
         aria-label="Navegacao administrativa"
       >
         <div className="adm-sidebar__brand">
-          <div className="adm-sidebar__brand-icon">$</div>
+          <div className="adm-sidebar__brand-icon" aria-hidden="true">
+            <Wallet className="adm-sidebar__brand-icon-svg" />
+          </div>
           <div>
             <strong>PLENA</strong>
             <span>{portalLabel}</span>
           </div>
         </div>
 
-        <nav className="adm-sidebar__nav">
-          {modules.map((item, index) => (
-            <NavLink
-              key={`${item.label}-${index}`}
-              to={item.path}
-              onClick={() => setIsSidebarOpen(false)}
-              className={({ isActive }) =>
-                isActive
-                  ? 'adm-nav-link adm-nav-link--active'
-                  : 'adm-nav-link'
-              }
-            >
-              <span className="adm-nav-link__icon">{item.icon}</span>
-              <span>{item.label}</span>
-            </NavLink>
+        <nav className="adm-sidebar__nav" aria-label={`Menu ${areaLabel}`}>
+          {sections.map((section) => (
+            <div key={section.title} className="adm-nav-section">
+              <h2 className="adm-nav-section__title">{section.title}</h2>
+
+              <div className="adm-nav-section__items">
+                {section.items.map((item) => {
+                  const Icon = item.icon
+
+                  return (
+                    <NavLink
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => setIsSidebarOpen(false)}
+                      className={({ isActive }) =>
+                        isActive ? 'adm-nav-link adm-nav-link--active' : 'adm-nav-link'
+                      }
+                    >
+                      <span
+                        className="adm-nav-link__icon"
+                        aria-hidden="true"
+                        data-testid={`nav-icon-${item.path.replace(/[^\w]+/g, '-')}`}
+                      >
+                        <Icon className="adm-nav-link__icon-svg" />
+                      </span>
+                      <span>{item.label}</span>
+                    </NavLink>
+                  )
+                })}
+              </div>
+            </div>
           ))}
         </nav>
 
         <div className="adm-sidebar__footer">
-          <button
-            type="button"
-            className="adm-logout"
-            onClick={onLogout}
-          >
+          <button type="button" className="adm-logout" onClick={onLogout}>
             Sair
           </button>
           <p>
-            Desenvolvido por<br />
+            Desenvolvido por
+            <br />
             Plena Informatica
           </p>
         </div>
@@ -109,15 +181,14 @@ export function AdminShell({
             type="button"
             className="adm-menu-button"
             onClick={() => setIsSidebarOpen((value) => !value)}
-            aria-label="Abrir menu"
+            aria-label={mobileMenuLabel}
+            title={mobileMenuLabel}
           >
-            Menu
+            <MobileMenuIcon className="adm-menu-button__icon" aria-hidden="true" />
           </button>
           <div>
             <h1 className="adm-topbar__title">{pageTitle}</h1>
-            <span className="adm-topbar__portal">
-              {activeArea === 'escritorio' ? 'Gestao Escritorio' : 'Gestao Digital'}
-            </span>
+            <span className="adm-topbar__portal">{areaLabel}</span>
           </div>
           <div className="adm-topbar__meta">
             <div className="adm-topbar__date">
@@ -125,7 +196,7 @@ export function AdminShell({
               <strong>{todayLabel}</strong>
             </div>
             <div className="adm-topbar__avatar" title={session.email}>
-              P
+              {avatarLabel}
             </div>
           </div>
         </header>
