@@ -329,262 +329,149 @@
             </article>
           </div>
 
-          <div id="tab-landing" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-2 gap-6" role="tabpanel"
+          <div id="tab-landing" class="tab-pane showcase-rail grid-cols-1 gap-6" role="tabpanel"
             aria-labelledby="tbtn-landing" tabindex="0" hidden>
-            <article class="bento-card lg:col-span-2 flex flex-col md:flex-row items-center gap-10"
-              data-offer="landing-infoproduto" data-category="landing-pages">
-              <div class="flex-1 min-w-0">
-                <div
-                  class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white">
-                  Captação e venda</div>
-                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Landing pages para campanhas, lançamentos e
-                  orçamentos.</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Páginas objetivas para transformar
-                  tráfego em lead, venda ou conversa no WhatsApp. Ideais para anúncios, eventos, infoprodutos e serviços
-                  locais.</p>
+            <article class="category-portal-card bento-card" data-offer="landing-pages-portal" data-category="landing-pages">
+              <div class="category-portal-info">
+                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white max-w-max">
+                  Captação, Campanhas e Vendas
+                </div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Páginas Comerciais e Landing Pages Premium</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">
+                  Apresente sua oferta de forma clara, objetiva e profissional. Estruturas ideais para campanhas de tráfego pago, lançamentos de produtos e captação direta de clientes qualificados.
+                </p>
+
+                <div class="category-portal-metrics" aria-label="Diferenciais técnicos das landing pages">
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-lightning"></i> Carregamento otimizado</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-code"></i> Código limpo sem construtores lentos</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-magnifying-glass"></i> Otimização técnica para SEO nativo</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-device-mobile"></i> Responsividade mobile homologada</span>
+                </div>
+
                 <div class="flex flex-col sm:flex-row gap-3">
                   <a href="landing-pages/index.html" class="premium-btn primary !mt-0 text-center"
-                    data-offer="landing-infoproduto" data-category="landing-pages"
-                    data-action="landing"><span>Ver modelos de landing pages</span> <i class="ph-light ph-arrow-right"></i></a>
+                    data-offer="landing-pages-portal" data-category="landing-pages"
+                    data-action="landing"><span>Ver catálogo de landing pages</span> <i class="ph-light ph-arrow-right"></i></a>
                   <button type="button" onclick="openWhatsAppByKey('landing')" class="whatsapp-btn premium-btn !mt-0"
-                    data-offer="landing-pages" data-category="landing-pages" data-action="whatsapp">Solicitar página</button>
+                    data-offer="landing-pages-portal" data-category="landing-pages" data-action="whatsapp">Solicitar página</button>
+                </div>
+
+                <div class="category-portal-tags">
+                  <span class="category-portal-tags-title">Formatos inclusos no catálogo:</span>
+                  <span class="category-portal-tag">Captura de Leads</span>
+                  <span class="category-portal-tag">Diagnóstico WhatsApp</span>
+                  <span class="category-portal-tag">Agendamento & Orçamento</span>
+                  <span class="category-portal-tag">Lançamento / SaaS</span>
+                  <span class="category-portal-tag">Material Rico</span>
+                  <span class="category-portal-tag">Evento / Webinar</span>
+                  <span class="category-portal-tag">Case de Sucesso</span>
+                  <span class="category-portal-tag">Comparativo de Mercado</span>
+                  <span class="category-portal-tag">Release Notes</span>
+                  <span class="category-portal-tag">Lista de Espera (VIP)</span>
+                  <span class="category-portal-tag">Oferta Relâmpago</span>
+                  <span class="category-portal-tag">Link na Bio</span>
                 </div>
               </div>
-              <div
-                class="flex-1 w-full bg-black/40 rounded-xl border border-white/5 h-64 flex items-center justify-center p-6">
-                <div
-                  class="w-full h-full border border-white/10 rounded-lg bg-gradient-to-br from-white/5 to-transparent relative overflow-hidden">
-                  <div class="absolute top-4 left-4 w-1/2 h-4 bg-white/10 rounded"></div>
-                  <div class="absolute top-12 left-4 w-3/4 h-8 bg-white/20 rounded"></div>
-                  <div class="absolute bottom-4 right-4 w-32 h-10 bg-[#D4AF37] rounded-full"></div>
+
+              <div class="category-portal-preview-wrapper hidden lg:flex">
+                <!-- Mockup de Landing Page em CSS -->
+                <div class="portal-preview-lp" aria-hidden="true">
+                  <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                    <div class="flex gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                    </div>
+                    <span class="text-[8px] text-gray-400 font-mono">lp-preview.html</span>
+                  </div>
+                  <div class="portal-preview-lp-hero">
+                    <div class="portal-preview-lp-badge"></div>
+                    <div class="portal-preview-lp-title"></div>
+                    <div class="portal-preview-lp-text"></div>
+                    <div class="portal-preview-lp-text" style="width: 140px;"></div>
+                    <div class="portal-preview-lp-button"></div>
+                  </div>
+                  <div class="portal-preview-lp-dots">
+                    <span class="portal-preview-lp-dot" style="background: #D4AF37;"></span>
+                    <span class="portal-preview-lp-dot"></span>
+                    <span class="portal-preview-lp-dot"></span>
+                  </div>
                 </div>
               </div>
-            </article>
-
-            <article class="bento-card" data-offer="captura-leads" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-target text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Captura de Leads</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Formulários, opt-in, promessa clara e
-                integração com atendimento para gerar conversas qualificadas.</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-02-material-rico.html', 'captura-leads')"
-                class="premium-btn" data-offer="captura-leads" data-category="landing-pages"
-                data-action="demo"><span>Ver demo opt-in</span> <i class="ph-light ph-arrow-right"></i></button>
-            </article>
-
-            <article class="bento-card" data-offer="eventos-ingressos" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-ticket text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Eventos & Ingressos</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Apresentação do evento, lotes, escassez
-                visual e caminho de compra ou inscrição sem distrações.</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-03-webinar.html', 'eventos-ingressos')"
-                class="premium-btn" data-offer="eventos-ingressos" data-category="landing-pages"
-                data-action="demo"><span>Ver demo evento</span> <i class="ph-light ph-arrow-right"></i></button>
-            </article>
-
-            <!-- Novos Modelos -->
-            <article class="bento-card" data-offer="case-sucesso" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-medal text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Case de Sucesso</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Mostre seus resultados com provas sociais
-                fortes em um design editorial para clientes enterprise.</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-04-case.html', 'case-sucesso')"
-                class="premium-btn" data-offer="case-sucesso" data-category="landing-pages" data-action="demo"><span>Ver
-                  demo de Case</span> <i class="ph-light ph-arrow-right"></i></button>
-            </article>
-
-            <article class="bento-card" data-offer="comparativo" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-scales text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Comparativo de Mercado</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Posicione-se contra os concorrentes com
-                tabelas diretas que facilitam a decisão do usuário.</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-05-comparativo.html', 'comparativo')"
-                class="premium-btn" data-offer="comparativo" data-category="landing-pages" data-action="demo"><span>Ver
-                  demo Comparativo</span> <i class="ph-light ph-arrow-right"></i></button>
-            </article>
-
-            <article class="bento-card" data-offer="agendamento" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-calendar-check text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Agendamento de Demo</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Converta tráfego em reuniões com uma
-                interface integrada a calendários (Calendly style).</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-06-agendamento.html', 'agendamento')"
-                class="premium-btn" data-offer="agendamento" data-category="landing-pages" data-action="demo"><span>Ver
-                  demo Agendamento</span> <i class="ph-light ph-arrow-right"></i></button>
-            </article>
-
-            <article class="bento-card" data-offer="feature" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-rocket-launch text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Release Notes</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Engaje usuários atuais e atraia novos
-                anunciando funcionalidades no estilo Changelog.</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-07-feature.html', 'feature')"
-                class="premium-btn" data-offer="feature" data-category="landing-pages" data-action="demo"><span>Ver demo
-                  Release</span> <i class="ph-light ph-arrow-right"></i></button>
-            </article>
-
-            <article class="bento-card" data-offer="waitlist" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-hourglass text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Lista de Espera (VIP)</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Crie expectativa para pré-lançamentos. Dark
-                mode imersivo focado em escassez de vagas.</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-08-waitlist.html', 'waitlist')"
-                class="premium-btn" data-offer="waitlist" data-category="landing-pages" data-action="demo"><span>Ver
-                  demo Waitlist</span> <i class="ph-light ph-arrow-right"></i></button>
-            </article>
-
-            <article class="bento-card" data-offer="oferta" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-lightning text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Oferta Relâmpago</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Black Friday ou Flash Sales. Contadores
-                regressivos e cores agressivas para conversão por impulso.</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-09-oferta.html', 'oferta')"
-                class="premium-btn" data-offer="oferta" data-category="landing-pages" data-action="demo"><span>Ver demo
-                  Oferta</span> <i class="ph-light ph-arrow-right"></i></button>
-            </article>
-
-            <article class="bento-card" data-offer="link-bio" data-category="landing-pages">
-              <div class="card-icon mb-6"><i class="ph-light ph-link text-3xl"></i></div>
-              <h3 class="font-bold text-white text-xl mb-3">Hub de Links (Bio)</h3>
-              <p class="text-[var(--text-muted)] font-light leading-relaxed">Otimizado para Instagram/TikTok. Concentre
-                todos os seus CTAs estratégicos em um só lugar.</p>
-              <button type="button" onclick="openDemoModal('landing-pages/lp-10-bio.html', 'link-bio')"
-                class="premium-btn" data-offer="link-bio" data-category="landing-pages" data-action="demo"><span>Ver
-                  demo Link-Bio</span> <i class="ph-light ph-arrow-right"></i></button>
             </article>
           </div>
 
-          <div id="tab-sites" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-3 gap-6" role="tabpanel"
+          <div id="tab-sites" class="tab-pane showcase-rail grid-cols-1 gap-6" role="tabpanel"
             aria-labelledby="tbtn-sites" tabindex="0" hidden>
-            <!-- Apresentação da Categoria: Projetos sob Consulta -->
-            <article class="bento-card lg:col-span-3 flex flex-col md:flex-row items-center gap-10"
-              data-offer="projetos-consulta" data-category="projetos-consulta">
-              <div class="flex-1 min-w-0">
-                <div
-                  class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white">
-                  Sistemas e Soluções Customizadas</div>
+            <article class="category-portal-card bento-card" data-offer="projetos-consulta-portal" data-category="projetos-consulta">
+              <div class="category-portal-info">
+                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white max-w-max">
+                  Sistemas e Soluções Customizadas
+                </div>
                 <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Sistemas Web e Softwares sob Medida</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Desenvolvemos ERPs, CRMs, portais corporativos e dashboards de inteligência sob diagnóstico técnico. Foco na sua eficiência operacional e na autonomia do código, sem taxas recorrentes obrigatórias de licença.</p>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">
+                  Desenvolvemos ERPs, CRMs, portais corporativos e dashboards de inteligência integrados à sua operação real. Foco na autonomia total do código e na eficiência dos seus processos, reduzindo dependência de licenças recorrentes quando o escopo permitir.
+                </p>
+
+                <div class="category-portal-metrics" aria-label="Diferenciais de projetos sob consulta">
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-key"></i> Autonomia de dados e código</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-plugs"></i> Integrações nativas de pagamento e APIs</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-shield-check"></i> Segurança e escalabilidade B2B</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-cloud-arrow-up"></i> Hospedagem em nuvem própria</span>
+                </div>
+
                 <div class="flex flex-col sm:flex-row gap-3">
                   <a href="projetos-sob-consulta/index.html" class="premium-btn primary !mt-0 text-center"
-                    data-offer="projetos-consulta" data-category="projetos-consulta"
+                    data-offer="projetos-consulta-portal" data-category="projetos-consulta"
                     data-action="landing"><span>Ver catálogo de projetos</span> <i class="ph-light ph-arrow-right"></i></a>
                   <button type="button" onclick="openWhatsAppForOffer('erps-custom')" class="whatsapp-btn premium-btn !mt-0"
-                    data-offer="projetos-consulta" data-category="projetos-consulta" data-action="whatsapp">Consultar especialista</button>
+                    data-offer="projetos-consulta-portal" data-category="projetos-consulta" data-action="whatsapp">Consultar especialista</button>
+                </div>
+
+                <div class="category-portal-tags">
+                  <span class="category-portal-tags-title">Segmentos inclusos no catálogo:</span>
+                  <span class="category-portal-tag">Dashboards & B.I.</span>
+                  <span class="category-portal-tag">ERPs Corporativos</span>
+                  <span class="category-portal-tag">CRMs sob Medida</span>
+                  <span class="category-portal-tag">Sites Premium</span>
+                  <span class="category-portal-tag">Portais de Clientes</span>
+                  <span class="category-portal-tag">Intranet</span>
                 </div>
               </div>
-              <div class="flex-1 w-full bg-black/40 rounded-xl border border-white/5 h-56 flex items-center justify-center p-6">
-                <div class="w-full h-full border border-white/10 rounded-lg bg-gradient-to-br from-white/5 to-transparent relative overflow-hidden">
-                  <div class="absolute top-4 left-4 w-1/3 h-4 bg-white/10 rounded"></div>
-                  <div class="absolute top-10 left-4 w-2/3 h-5 bg-white/15 rounded"></div>
-                  <div class="absolute top-18 left-4 w-1/2 h-6 bg-blue-500/10 rounded"></div>
-                  <div class="absolute bottom-4 right-4 w-28 h-8 bg-[#D4AF37] rounded-full flex items-center justify-center text-[10px] font-black text-black">B2B DEMO</div>
+
+              <div class="category-portal-preview-wrapper hidden lg:flex">
+                <!-- Mockup de Dashboard/Sistema em CSS -->
+                <div class="portal-preview-sys" aria-hidden="true">
+                  <div class="portal-preview-sys-sidebar">
+                    <span class="portal-preview-sys-icon" style="background: #D4AF37;"></span>
+                    <span class="portal-preview-sys-icon"></span>
+                    <span class="portal-preview-sys-icon"></span>
+                    <span class="portal-preview-sys-icon" style="margin-top: auto;"></span>
+                  </div>
+                  <div class="portal-preview-sys-content">
+                    <div class="portal-preview-sys-header">
+                      <div class="portal-preview-sys-title"></div>
+                      <span class="w-8 h-2 rounded bg-green-200"></span>
+                    </div>
+                    <div class="portal-preview-sys-metrics">
+                      <div class="portal-preview-sys-metric-card">
+                        <span class="w-10 h-1.5 bg-gray-200 rounded"></span>
+                        <span class="w-6 h-3 bg-gray-400 rounded"></span>
+                      </div>
+                      <div class="portal-preview-sys-metric-card">
+                        <span class="w-12 h-1.5 bg-gray-200 rounded"></span>
+                        <span class="w-8 h-3 bg-gray-400 rounded"></span>
+                      </div>
+                    </div>
+                    <div class="portal-preview-sys-bar-chart">
+                      <span class="portal-preview-sys-bar"></span>
+                      <span class="portal-preview-sys-bar"></span>
+                      <span class="portal-preview-sys-bar"></span>
+                      <span class="portal-preview-sys-bar"></span>
+                    </div>
+                  </div>
+                  </div>
                 </div>
-              </div>
-            </article>
-
-            <!-- Dashboards / BI -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors group"
-              data-offer="dashboards-bi" data-category="projetos-consulta">
-              <div
-                class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-all duration-500">
-              </div>
-              <div class="relative z-10">
-                <div
-                  class="card-icon mb-6 w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
-                  <i class="ph-light ph-chart-polar text-3xl text-blue-400"></i>
-                </div>
-                <h3 class="font-bold text-white text-2xl mb-3">Dashboards & B.I.</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Centralize planilhas caóticas em painéis de controle em tempo real. Visualize metas, KPIs e gargalos operacionais da sua empresa.</p>
-              </div>
-              <div class="flex flex-col sm:flex-row gap-3 relative z-10 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-dashboard.html', 'dashboards-bi')"
-                  class="premium-btn !mt-0" data-offer="dashboards-bi" data-category="projetos-consulta"
-                  data-action="demo"><span>Ver como fica na prática</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('dashboards-bi')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
-                  data-offer="dashboards-bi" data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- ERPs e Sistemas custom -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="erps-custom" data-category="projetos-consulta">
-              <div>
-                <div class="card-icon mb-6 text-[#D4AF37]"><i class="ph-light ph-kanban text-4xl"></i></div>
-                <h3 class="font-bold text-white text-2xl mb-3">ERPs Sob Medida</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Desenvolvemos o sistema que se adapta ao seu processo, e não o contrário, reduzindo a dependência de plataformas rígidas.</p>
-              </div>
-              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-erp.html', 'erps-custom')"
-                  class="premium-btn !mt-0" data-offer="erps-custom" data-category="projetos-consulta"
-                  data-action="demo"><span>Ver como fica na prática</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('erps-custom')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
-                  data-offer="erps-custom" data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- CRMs -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="crms" data-category="projetos-consulta">
-              <div>
-                <div class="card-icon mb-6 text-emerald-400"><i class="ph-light ph-funnel text-4xl"></i></div>
-                <h3 class="font-bold text-white text-2xl mb-3">CRMs B2B</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Acompanhamento de leads, funil de
-                  vendas e automação de propostas. Construído para o seu modelo comercial.</p>
-              </div>
-              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-crm.html', 'crms')"
-                  class="premium-btn !mt-0" data-offer="crms" data-category="projetos-consulta"
-                  data-action="demo"><span>Ver como fica na prática</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('crms')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
-                  data-offer="crms" data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- Sites Corporativos -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="site-corporativo" data-category="projetos-consulta">
-              <div>
-                <div class="card-icon mb-6 text-purple-400"><i class="ph-light ph-buildings text-4xl"></i></div>
-                <h3 class="font-bold text-white text-2xl mb-3">Sites Premium</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Mais que presença: autoridade
-                  digital. Sites ultrarrápidos pensados para posicionamento de mercado e SEO.</p>
-              </div>
-              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
-                <button type="button"
-                  onclick="openDemoModal('demos/projetos-b2b/demo-site-premium.html', 'site-corporativo')"
-                  class="premium-btn !mt-0" data-offer="site-corporativo" data-category="projetos-consulta"
-                  data-action="demo"><span>Ver como fica na prática</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('site-corporativo')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
-                  data-offer="site-corporativo" data-category="projetos-consulta"
-                  data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- Portais / Intranet -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="portais" data-category="projetos-consulta">
-              <div>
-                <div class="card-icon mb-6 text-rose-400"><i class="ph-light ph-users-three text-4xl"></i></div>
-                <h3 class="font-bold text-white text-2xl mb-3">Portais & Intranet</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Áreas restritas para clientes
-                  (Portal do Cliente), franquias ou colaboradores. Seguro, escalável e integrado.</p>
-              </div>
-              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-portal.html', 'portais')"
-                  class="premium-btn !mt-0" data-offer="portais" data-category="projetos-consulta"
-                  data-action="demo"><span>Ver como fica na prática</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('portais')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
-                  data-offer="portais" data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
               </div>
             </article>
           </div>

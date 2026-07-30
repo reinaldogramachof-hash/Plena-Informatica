@@ -889,3 +889,261 @@ button:focus-visible,
     transform: none !important;
   }
 }
+
+/* ============================================================
+   PORTAL DE CATEGORIAS (Fase 7 - Vitrine-mãe como entrada)
+   ============================================================ */
+
+.category-portal-card {
+  grid-column: span 2;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch;
+  gap: 2.5rem;
+  padding: 3rem !important;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.72)) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+}
+
+@media (max-width: 1024px) {
+  .category-portal-card {
+    flex-direction: column !important;
+    padding: 2rem !important;
+  }
+}
+
+.category-portal-info {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  text-align: left;
+}
+
+.category-portal-preview-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  min-height: 280px;
+}
+
+/* Preview de Landing Pages */
+.portal-preview-lp {
+  width: 100%;
+  max-width: 320px;
+  height: 220px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-preview-lp-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.portal-preview-lp-badge {
+  width: 60px;
+  height: 6px;
+  background: rgba(212, 175, 55, 0.25);
+  border-radius: 3px;
+}
+
+.portal-preview-lp-title {
+  width: 120px;
+  height: 12px;
+  background: linear-gradient(90deg, #0f172a 0%, #334155 100%);
+  border-radius: 3px;
+}
+
+.portal-preview-lp-text {
+  width: 180px;
+  height: 6px;
+  background: rgba(15, 23, 42, 0.08);
+  border-radius: 2px;
+}
+
+.portal-preview-lp-button {
+  width: 100px;
+  height: 20px;
+  background: #D4AF37;
+  border-radius: 99px;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+.portal-preview-lp-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 4px;
+}
+.portal-preview-lp-dot {
+  width: 6px;
+  height: 6px;
+  background: rgba(15, 23, 42, 0.12);
+  border-radius: 50%;
+}
+
+/* Preview de Projetos/Sistemas */
+.portal-preview-sys {
+  width: 100%;
+  max-width: 320px;
+  height: 220px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.15);
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-preview-sys-sidebar {
+  width: 45px;
+  background: #0f172a;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 4px;
+  align-items: center;
+}
+
+.portal-preview-sys-icon {
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+.portal-preview-sys-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.portal-preview-sys-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portal-preview-sys-title {
+  width: 70px;
+  height: 10px;
+  background: #0f172a;
+  border-radius: 2px;
+}
+
+.portal-preview-sys-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.portal-preview-sys-metric-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 4px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.portal-preview-sys-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 45px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 0 4px;
+  margin-top: auto;
+}
+
+.portal-preview-sys-bar {
+  flex: 1;
+  background: #D4AF37;
+  border-radius: 2px 2px 0 0;
+  min-height: 10px;
+}
+
+.portal-preview-sys-bar:nth-child(2) { background: #0f172a; height: 35px; }
+.portal-preview-sys-bar:nth-child(1) { height: 20px; }
+.portal-preview-sys-bar:nth-child(3) { height: 40px; }
+.portal-preview-sys-bar:nth-child(4) { height: 15px; }
+
+/* Badges de características técnicas (Metrics) */
+.category-portal-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.category-portal-metric-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.category-portal-metric-tag i {
+  color: #D4AF37;
+}
+
+/* Tags de mini-lista de categorias internas */
+.category-portal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.85rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  padding-top: 1.25rem;
+}
+
+.category-portal-tags-title {
+  width: 100%;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.category-portal-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0f172a;
+  background: rgba(15, 23, 42, 0.06);
+  padding: 0.25rem 0.65rem;
+}
