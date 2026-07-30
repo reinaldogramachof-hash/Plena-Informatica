@@ -476,225 +476,81 @@
             </article>
           </div>
 
-          <div id="tab-ecom" class="tab-pane showcase-rail grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          <div id="tab-ecom" class="tab-pane showcase-rail grid-cols-1 gap-6"
             role="tabpanel" aria-labelledby="tbtn-ecom" tabindex="0" hidden>
-            <article class="bento-card md:col-span-2 lg:col-span-3" data-offer="ecommerce"
-              data-category="projetos-consulta">
-              <h3 class="text-3xl font-black text-white mb-4">E-commerce sob consulta, sem promessa vazia.</h3>
-              <p class="text-[var(--text-muted)] max-w-3xl font-light leading-relaxed mb-6">Antes de falar em loja
-                virtual, entendemos catálogo, estoque, entrega, forma de pagamento e rotina comercial. Assim o projeto
-                nasce do processo real da empresa.</p>
-              <button type="button" onclick="openWhatsAppByKey('ecommerce')" class="whatsapp-btn premium-btn"
-                data-offer="ecommerce" data-category="projetos-consulta" data-action="whatsapp">Solicitar diagnóstico de
-                loja</button>
-            </article>
+            <article class="category-portal-card bento-card" data-offer="ecommerce-portal" data-category="ecommerce">
+              <div class="category-portal-info">
+                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white max-w-max">
+                  Lojas Virtuais e Catálogos Online
+                </div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">E-commerce sob Diagnóstico</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">
+                  Antes de falar em loja virtual, entendemos catálogo, estoque, formas de pagamento, logística de entrega e rotina comercial.
+                  O projeto nasce desse diagnóstico — sem prometer resultados que dependem de fatores fora do código.
+                </p>
 
-            <!-- 1. Moda & Vestuário -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-moda" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-pink-400"><i class="ph-light ph-t-shirt text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Moda & Vestuário</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Foco em grandes imagens,
-                  galeria lookbook e seleção fácil de variações (cores, tamanhos).</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-moda.html', 'ecom-moda')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-moda" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-moda')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-moda" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
+                <div class="category-portal-metrics" aria-label="Diferenciais do e-commerce Plena">
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-storefront"></i> Projeto sob diagnóstico</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-plugs"></i> Integrações avaliadas por escopo</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-device-mobile"></i> Responsivo e otimizado</span>
+                  <span class="category-portal-metric-tag"><i class="ph-bold ph-magnifying-glass"></i> SEO técnico nativo</span>
+                </div>
 
-            <!-- 2. Eletrônicos -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-eletronicos" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-blue-400"><i class="ph-light ph-desktop-tower text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Eletrônicos & Tech</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Fichas técnicas densas,
-                  comparativos, reviews reais e cross-sell avançado.</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button"
-                  onclick="openDemoModal('demos/ecommerce/demo-eletronicos.html', 'ecom-eletronicos')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-eletronicos" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-eletronicos')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-eletronicos" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a href="ecommerce/index.html" class="premium-btn primary !mt-0 text-center"
+                    data-offer="ecommerce-portal" data-category="ecommerce"
+                    data-action="landing"><span>Ver catálogo de e-commerce</span> <i class="ph-light ph-arrow-right"></i></a>
+                  <button type="button" onclick="openWhatsAppByKey('ecommerce')" class="whatsapp-btn premium-btn !mt-0"
+                    data-offer="ecommerce-portal" data-category="ecommerce" data-action="whatsapp">Solicitar diagnóstico de loja</button>
+                </div>
 
-            <!-- 3. Supermercado -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-supermercado" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-green-400"><i class="ph-light ph-shopping-cart text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Supermercado/Delivery</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Navegação hiper-rápida,
-                  busca robusta e botão rápido (+ e -) de itens sem ir à página do produto.</p>
+                <div class="category-portal-tags">
+                  <span class="category-portal-tags-title">Segmentos no catálogo:</span>
+                  <span class="category-portal-tag">Moda &amp; Vestuário</span>
+                  <span class="category-portal-tag">Eletrônicos &amp; Tech</span>
+                  <span class="category-portal-tag">Supermercado / Delivery</span>
+                  <span class="category-portal-tag">B2B / Atacado</span>
+                  <span class="category-portal-tag">Infoprodutos &amp; Cursos</span>
+                  <span class="category-portal-tag">Assinaturas &amp; Clubes</span>
+                  <span class="category-portal-tag">Peças Automotivas</span>
+                  <span class="category-portal-tag">Saúde &amp; Farmácia</span>
+                  <span class="category-portal-tag">Móveis &amp; Decoração</span>
+                  <span class="category-portal-tag">Cosméticos &amp; Beleza</span>
+                </div>
               </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button"
-                  onclick="openDemoModal('demos/ecommerce/demo-supermercado.html', 'ecom-supermercado')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-supermercado" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-supermercado')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-supermercado" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
 
-            <!-- 4. Atacado B2B -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-b2b" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-slate-400"><i class="ph-light ph-buildings text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">B2B / Atacado</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Restrição de preços
-                  pré-login, tabelas de preço por volume e aprovação de crédito corporativa.</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-atacado-b2b.html', 'ecom-b2b')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-b2b" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-b2b')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-b2b" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- 5. Infoprodutos -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-infoproduto" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-purple-400"><i class="ph-light ph-monitor-play text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Infoprodutos & Cursos</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Página de alta conversão,
-                  ementas de aulas, prova social e checkout fluido em um único passo.</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button"
-                  onclick="openDemoModal('demos/ecommerce/demo-infoproduto.html', 'ecom-infoproduto')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-infoproduto" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-infoproduto')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-infoproduto" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- 6. Assinaturas -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-assinaturas" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-amber-400"><i class="ph-light ph-arrows-clockwise text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Assinaturas & Clubes</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Pagamento recorrente
-                  inteligente, seleção de planos flexíveis e área de gestão da assinatura.</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button"
-                  onclick="openDemoModal('demos/ecommerce/demo-assinaturas.html', 'ecom-assinaturas')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-assinaturas" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-assinaturas')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-assinaturas" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- 7. Peças Automotivas -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-autopecas" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-red-500"><i class="ph-light ph-car text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Peças Automotivas</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Foco total na precisão:
-                  busca avançada por Marca > Ano > Modelo e tabela estrita de compatibilidade.</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-autopecas.html', 'ecom-autopecas')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-autopecas" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-autopecas')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-autopecas" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- 8. Farmácia -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-farmacia" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-emerald-400"><i class="ph-light ph-first-aid text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Saúde & Farmácia</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Upload ágil de receitas,
-                  compra rápida (refil de remédios) e navegação intuitiva por sintoma.</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-farmacia.html', 'ecom-farmacia')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-farmacia" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-farmacia')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-farmacia" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- 9. Móveis & Decoração -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-moveis" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-orange-400"><i class="ph-light ph-armchair text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Móveis & Decoração</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Ambientação (fotos de
-                  cômodos completos) e cálculos de frete dinâmicos e precisos para itens volumosos.</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-moveis.html', 'ecom-moveis')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-moveis" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-moveis')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-moveis" data-category="ecommerce" data-action="whatsapp">Consultar</button>
-              </div>
-            </article>
-
-            <!-- 10. Cosméticos -->
-            <article
-              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors"
-              data-offer="ecom-cosmeticos" data-category="ecommerce">
-              <div>
-                <div class="card-icon mb-6 text-rose-300"><i class="ph-light ph-sparkle text-4xl"></i></div>
-                <h3 class="font-bold text-white text-xl mb-3">Cosméticos & Beleza</h3>
-                <p class="text-[var(--text-muted)] text-sm font-light leading-relaxed mb-6">Listagem detalhada de
-                  ingredientes, prova social (UGC) e pacotes do tipo 'Compre Junto'.</p>
-              </div>
-              <div class="flex flex-col xl:flex-row gap-3 mt-auto">
-                <button type="button" onclick="openDemoModal('demos/ecommerce/demo-cosmeticos.html', 'ecom-cosmeticos')"
-                  class="premium-btn !mt-0 !text-sm" data-offer="ecom-cosmeticos" data-category="ecommerce"
-                  data-action="demo"><span>Ver Demo</span></button>
-                <button type="button" onclick="openWhatsAppForOffer('ecom-cosmeticos')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-4 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center whitespace-nowrap"
-                  data-offer="ecom-cosmeticos" data-category="ecommerce" data-action="whatsapp">Consultar</button>
+              <div class="category-portal-preview-wrapper hidden lg:flex">
+                <!-- Mockup de E-commerce em CSS -->
+                <div class="portal-preview-lp" aria-hidden="true" style="background:#fff;">
+                  <div class="flex justify-between items-center border-b border-gray-100 pb-2">
+                    <div class="flex gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                    </div>
+                    <span class="text-[8px] text-gray-400 font-mono">loja-virtual.html</span>
+                  </div>
+                  <div class="portal-preview-lp-hero" style="background:linear-gradient(135deg,#6366f1 0%,#a78bfa 100%);">
+                    <div class="portal-preview-lp-badge" style="background:rgba(255,255,255,0.2);"></div>
+                    <div class="portal-preview-lp-title" style="background:rgba(255,255,255,0.85);"></div>
+                    <div class="portal-preview-lp-text" style="background:rgba(255,255,255,0.5);"></div>
+                    <div class="portal-preview-lp-text" style="width: 120px; background:rgba(255,255,255,0.4);"></div>
+                    <div class="portal-preview-lp-button" style="background:#D4AF37;"></div>
+                  </div>
+                  <div class="portal-preview-lp-dots">
+                    <span class="portal-preview-lp-dot" style="background:#6366f1;"></span>
+                    <span class="portal-preview-lp-dot"></span>
+                    <span class="portal-preview-lp-dot"></span>
+                  </div>
+                </div>
               </div>
             </article>
           </div>
-        </div>
-      </div>
+
+          <!-- placeholder: cards de segmento movidos para tecnologia/ecommerce/index.html em 2026-07-30 -->
+          </div><!-- /showcase-viewport -->
+        </div><!-- /max-w-7xl -->
+      </div><!-- /section#soluções -->
     </section>
 
     <section id="processo" class="w-full py-20 md:py-24 px-5 border-t border-white/5">
