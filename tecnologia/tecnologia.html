@@ -343,13 +343,11 @@
                   tráfego em lead, venda ou conversa no WhatsApp. Ideais para anúncios, eventos, infoprodutos e serviços
                   locais.</p>
                 <div class="flex flex-col sm:flex-row gap-3">
-                  <button type="button"
-                    onclick="openDemoModal('landing-pages/lp-01-lancamento.html', 'landing-infoproduto')"
-                    class="premium-btn !mt-0" data-offer="landing-infoproduto" data-category="landing-pages"
-                    data-action="demo">Ver demo de SaaS <i class="ph-light ph-arrow-right"></i></button>
+                  <a href="landing-pages/index.html" class="premium-btn primary !mt-0 text-center"
+                    data-offer="landing-infoproduto" data-category="landing-pages"
+                    data-action="landing"><span>Ver modelos de landing pages</span> <i class="ph-light ph-arrow-right"></i></a>
                   <button type="button" onclick="openWhatsAppByKey('landing')" class="whatsapp-btn premium-btn !mt-0"
-                    data-offer="landing-pages" data-category="landing-pages" data-action="whatsapp">Solicitar
-                    página</button>
+                    data-offer="landing-pages" data-category="landing-pages" data-action="whatsapp">Solicitar página</button>
                 </div>
               </div>
               <div
@@ -457,9 +455,36 @@
 
           <div id="tab-sites" class="tab-pane showcase-rail grid-cols-1 lg:grid-cols-3 gap-6" role="tabpanel"
             aria-labelledby="tbtn-sites" tabindex="0" hidden>
+            <!-- Apresentação da Categoria: Projetos sob Consulta -->
+            <article class="bento-card lg:col-span-3 flex flex-col md:flex-row items-center gap-10"
+              data-offer="projetos-consulta" data-category="projetos-consulta">
+              <div class="flex-1 min-w-0">
+                <div
+                  class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white">
+                  Sistemas e Soluções Customizadas</div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Sistemas Web e Softwares sob Medida</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Desenvolvemos ERPs, CRMs, portais corporativos e dashboards de inteligência sob diagnóstico técnico. Foco na sua eficiência operacional e na autonomia do código, sem taxas recorrentes obrigatórias de licença.</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a href="projetos-sob-consulta/index.html" class="premium-btn primary !mt-0 text-center"
+                    data-offer="projetos-consulta" data-category="projetos-consulta"
+                    data-action="landing"><span>Ver catálogo de projetos</span> <i class="ph-light ph-arrow-right"></i></a>
+                  <button type="button" onclick="openWhatsAppForOffer('erps-custom')" class="whatsapp-btn premium-btn !mt-0"
+                    data-offer="projetos-consulta" data-category="projetos-consulta" data-action="whatsapp">Consultar especialista</button>
+                </div>
+              </div>
+              <div class="flex-1 w-full bg-black/40 rounded-xl border border-white/5 h-56 flex items-center justify-center p-6">
+                <div class="w-full h-full border border-white/10 rounded-lg bg-gradient-to-br from-white/5 to-transparent relative overflow-hidden">
+                  <div class="absolute top-4 left-4 w-1/3 h-4 bg-white/10 rounded"></div>
+                  <div class="absolute top-10 left-4 w-2/3 h-5 bg-white/15 rounded"></div>
+                  <div class="absolute top-18 left-4 w-1/2 h-6 bg-blue-500/10 rounded"></div>
+                  <div class="absolute bottom-4 right-4 w-28 h-8 bg-[#D4AF37] rounded-full flex items-center justify-center text-[10px] font-black text-black">B2B DEMO</div>
+                </div>
+              </div>
+            </article>
+
             <!-- Dashboards / BI -->
             <article
-              class="lg:col-span-2 relative overflow-hidden rounded-2xl p-8 bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] flex flex-col justify-between group"
+              class="relative overflow-hidden rounded-2xl p-8 bg-white/[0.02] backdrop-blur-md border border-white/5 flex flex-col justify-between hover:bg-white/[0.04] transition-colors group"
               data-offer="dashboards-bi" data-category="projetos-consulta">
               <div
                 class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-all duration-500">
@@ -469,19 +494,16 @@
                   class="card-icon mb-6 w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
                   <i class="ph-light ph-chart-polar text-3xl text-blue-400"></i>
                 </div>
-                <h3 class="font-black text-white text-3xl mb-4 tracking-tight">Dashboards & B.I.</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-8 max-w-lg text-lg">Centralize
-                  planilhas caóticas em painéis de controle em tempo real. Visualize metas, KPIs e gargalos operacionais
-                  da sua empresa a partir de qualquer dispositivo com design de alto nível.</p>
+                <h3 class="font-bold text-white text-2xl mb-3">Dashboards & B.I.</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Centralize planilhas caóticas em painéis de controle em tempo real. Visualize metas, KPIs e gargalos operacionais da sua empresa.</p>
               </div>
               <div class="flex flex-col sm:flex-row gap-3 relative z-10 mt-auto">
                 <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-dashboard.html', 'dashboards-bi')"
-                  class="premium-btn !mt-0 !w-fit" data-offer="dashboards-bi" data-category="projetos-consulta"
+                  class="premium-btn !mt-0" data-offer="dashboards-bi" data-category="projetos-consulta"
                   data-action="demo"><span>Ver como fica na prática</span></button>
                 <button type="button" onclick="openWhatsAppForOffer('dashboards-bi')"
-                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 w-fit"
-                  data-offer="dashboards-bi" data-category="projetos-consulta" data-action="whatsapp">Falar com
-                  consultor</button>
+                  class="whatsapp-btn text-sm font-medium text-[var(--text-muted)] hover:text-white transition-colors py-3 px-6 border border-white/10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center"
+                  data-offer="dashboards-bi" data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
               </div>
             </article>
 
@@ -492,8 +514,7 @@
               <div>
                 <div class="card-icon mb-6 text-[#D4AF37]"><i class="ph-light ph-kanban text-4xl"></i></div>
                 <h3 class="font-bold text-white text-2xl mb-3">ERPs Sob Medida</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Desenvolvemos o sistema que se
-                  adapta ao seu processo, e não o contrário. Fim das assinaturas caras de softwares engessados.</p>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Desenvolvemos o sistema que se adapta ao seu processo, e não o contrário, reduzindo a dependência de plataformas rígidas.</p>
               </div>
               <div class="flex flex-col sm:flex-row gap-3 mt-auto">
                 <button type="button" onclick="openDemoModal('demos/projetos-b2b/demo-erp.html', 'erps-custom')"
