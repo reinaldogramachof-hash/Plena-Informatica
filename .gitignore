@@ -35,3 +35,8 @@ deploy_staging/
 # Operating system
 Thumbs.db
 .DS_Store
+
+# Ferramentas de analise/agentes (artefatos locais, nao versionados)
+graphify-out/
+*.tmp
+C:Temp*.txt

@@ -96,4 +96,82 @@ describe('office-service', () => {
       created_by: 'staff-1',
     })
   })
+
+  it('grava fechamento de caixa em office_cash_closings', async () => {
+    const single = vi.fn().mockResolvedValue({
+      data: {
+        id: 'closing-1',
+        closing_date: '2026-07-29',
+        total_income: 500,
+        total_expense: 120,
+        balance: 380,
+      },
+      error: null,
+    })
+    const select = vi.fn().mockReturnValue({ single })
+    const insert = vi.fn().mockReturnValue({ select })
+    const from = vi.fn().mockReturnValue({ insert })
+
+    getSupabaseClient.mockReturnValue({
+      auth: {
+        getSession: vi.fn().mockResolvedValue({
+          data: { session: { user: { id: 'staff-1' } } },
+        }),
+      },
+      from,
+    })
+
+    const { createOfficeCashClosing } = await loadModule()
+    const result = await createOfficeCashClosing({
+      closingDate: '2026-07-29',
+      totalIncome: 500,
+      totalExpense: 120,
+      balance: 380,
+      notes: 'Fechamento de teste',
+    })
+
+    expect(result).toEqual({
+      id: 'closing-1',
+      closing_date: '2026-07-29',
+      total_income: 500,
+      total_expense: 120,
+      balance: 380,
+    })
+    expect(from).toHaveBeenCalledWith('office_cash_closings')
+    expect(insert).toHaveBeenCalledWith({
+      closing_date: '2026-07-29',
+      total_income: 500,
+      total_expense: 120,
+      balance: 380,
+      notes: 'Fechamento de teste',
+      closed_by: 'staff-1',
+    })
+  })
+
+  it('propaga erro quando o insert de fechamento falha', async () => {
+    const single = vi.fn().mockResolvedValue({ data: null, error: { message: 'boom' } })
+    const select = vi.fn().mockReturnValue({ single })
+    const insert = vi.fn().mockReturnValue({ select })
+    const from = vi.fn().mockReturnValue({ insert })
+
+    getSupabaseClient.mockReturnValue({
+      auth: {
+        getSession: vi.fn().mockResolvedValue({
+          data: { session: { user: { id: 'staff-1' } } },
+        }),
+      },
+      from,
+    })
+
+    const { createOfficeCashClosing } = await loadModule()
+    await expect(
+      createOfficeCashClosing({
+        closingDate: '2026-07-29',
+        totalIncome: 0,
+        totalExpense: 0,
+        balance: 0,
+        notes: '',
+      }),
+    ).rejects.toThrow('Falha ao fechar caixa.')
+  })
 })

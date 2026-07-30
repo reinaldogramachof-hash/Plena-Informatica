@@ -227,6 +227,16 @@ Digital. `office_transactions` e `proposals.investment_amount` nunca devem ser
 somados ou combinados em relatorios, dashboards ou views. Sao fontes de receita
 com ticket, ciclo comercial e estrutura de custo diferentes.
 
+### Fonte Unica de Verdade e Transicao
+
+- **Fonte Oficial de Verdade**:
+  - **Fase de Transição**: O aplicativo standalone Plena Cash Control (`localStorage`) permanece temporariamente como fonte operacional até a importação única.
+  - **Fase Definitiva**: O **Plena Digital Hub** (projeto Supabase `nnckpyzjllqsdcwlnxei`) é a **Fonte Única de Verdade Oficial** a partir do momento da importação.
+- **Importação e Migração Única**:
+  - A migração será realizada via `importCashControlJson` (em `/admin/escritorio`), importando o JSON do Cash Control para `clients`, `office_transactions`, `office_service_items` e `office_service_records`.
+  - Data-alvo da importação: **03/08/2026**.
+  - Desligamento operacional e arquivamento do standalone: **05/08/2026**. Após essa data, o app standalone é marcado como descontinuado e fica vedada a inserção dupla de dados.
+
 ## Dados fora do banco
 
 - PDFs processados localmente.

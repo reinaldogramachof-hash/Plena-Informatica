@@ -38,9 +38,8 @@ describe('OfficeAreaPage', () => {
   it('renderiza dashboard com dados do escritorio', async () => {
     render(<OfficeAreaPage />)
 
-    expect(await screen.findByText('Plena Gestao Escritorio')).toBeDefined()
-    expect(screen.getByText('Impressao colorida')).toBeDefined()
-    expect(screen.getByText('Cliente Ficticio')).toBeDefined()
+    expect(await screen.findByText('Saldo em Caixa')).toBeDefined()
+    expect(screen.getByText('Receitas')).toBeDefined()
   })
 
   it('salva cliente usando o servico mockado', async () => {
@@ -48,8 +47,9 @@ describe('OfficeAreaPage', () => {
     render(<OfficeAreaPage initialTab="clients" />)
 
     await screen.findByText('Cliente Ficticio')
-    fireEvent.change(screen.getByPlaceholderText('Nome'), { target: { value: 'Cliente Novo' } })
-    fireEvent.click(screen.getByRole('button', { name: 'Salvar cliente' }))
+    fireEvent.click(screen.getByRole('button', { name: /novo cliente/i }))
+    fireEvent.change(screen.getByPlaceholderText('Nome do Cliente ou Empresa'), { target: { value: 'Cliente Novo' } })
+    fireEvent.click(screen.getByRole('button', { name: /criar cliente/i }))
 
     await waitFor(() => {
       expect(officeServiceMocks.createOfficeClient).toHaveBeenCalledWith({

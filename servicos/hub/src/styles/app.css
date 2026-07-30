@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   color: #132238;
   background: #f4f7fb;
@@ -40,6 +42,7 @@ a {
   border-bottom: 1px solid #edf1f5;
   background: rgb(255 255 255 / 94%);
   box-shadow: 0 8px 28px rgb(6 26 53 / 8%);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
 }
 
@@ -68,7 +71,7 @@ a {
 }
 
 .institutional-header nav a:hover {
-  color: #f26a1b;
+  color: #f17a02;
 }
 
 .institutional-contact {
@@ -86,7 +89,7 @@ a {
   display: grid;
   padding: 2.75rem max(1.5rem, calc((100vw - 1180px) / 2)) 1.75rem;
   gap: 1.5rem;
-  border-top: 4px solid #f26a1b;
+  border-top: 4px solid #f17a02;
   background: #030e1d;
   color: #fff;
   text-align: center;
@@ -98,7 +101,7 @@ a {
 }
 
 .institutional-footer strong span {
-  color: #f26a1b;
+  color: #f17a02;
 }
 
 .institutional-footer p,
@@ -118,7 +121,7 @@ a {
 .brand {
   display: inline-block;
   margin-bottom: 5rem;
-  color: #f26a1b;
+  color: #f17a02;
   font-weight: 900;
   text-decoration: none;
 }
@@ -126,7 +129,7 @@ a {
 .eyebrow {
   display: block;
   margin-bottom: 0.8rem;
-  color: #f26a1b;
+  color: #f17a02;
   font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.16em;
@@ -300,7 +303,7 @@ a {
 }
 
 .tool-page--qr {
-  min-height: auto;
+  min-height: 0;
   padding-top: 2.75rem;
   padding-bottom: 4rem;
 }
@@ -390,8 +393,8 @@ a {
 }
 
 .qr-mode-list button.is-active {
-  border-color: #f26a1b;
-  background: #f26a1b;
+  border-color: #f17a02;
+  background: #f17a02;
   color: #fff;
 }
 
@@ -429,8 +432,8 @@ a {
 .qr-fields input:focus,
 .qr-fields select:focus,
 .qr-fields textarea:focus {
-  border-color: #f26a1b;
-  outline: 3px solid rgb(242 106 27 / 15%);
+  border-color: #f17a02;
+  outline: 3px solid rgb(241 122 2 / 15%);
 }
 
 .qr-fields .qr-checkbox {

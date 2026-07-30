@@ -329,3 +329,102 @@ export async function importCashControlJson(payload: CashControlJson) {
 
   return inserted
 }
+
+export async function updateOfficeServiceItem(id: string, name: string, defaultPrice: number) {
+  const supabase = getSupabaseClient()
+  const { data, error } = await supabase
+    .from('office_service_items')
+    .update({ name, default_price: defaultPrice })
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) throw new Error('Falha ao atualizar serviço no catálogo.')
+  return data
+}
+
+export async function deleteOfficeServiceItem(id: string) {
+  const supabase = getSupabaseClient()
+  const { error } = await supabase
+    .from('office_service_items')
+    .delete()
+    .eq('id', id)
+
+  if (error) throw new Error('Falha ao deletar serviço do catálogo.')
+}
+
+export async function updateOfficeServiceRecord(id: string, quantity: number) {
+  const supabase = getSupabaseClient()
+  const { data, error } = await supabase
+    .from('office_service_records')
+    .update({ quantity })
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) throw new Error('Falha ao atualizar quantidade do serviço.')
+  return data
+}
+
+export async function deleteOfficeServiceRecord(id: string) {
+  const supabase = getSupabaseClient()
+  const { error } = await supabase
+    .from('office_service_records')
+    .delete()
+    .eq('id', id)
+
+  if (error) throw new Error('Falha ao deletar registro de serviço.')
+}
+
+export async function updateOfficeClient(id: string, input: OfficeClientInput) {
+  const supabase = getSupabaseClient()
+  const { data, error } = await supabase
+    .from('clients')
+    .update({
+      name: input.name,
+      phone: nullIfBlank(input.phone),
+      email: nullIfBlank(input.email),
+      document: nullIfBlank(input.document),
+      address: nullIfBlank(input.address),
+      notes: nullIfBlank(input.notes),
+    })
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) throw new Error('Falha ao atualizar cliente.')
+  return data
+}
+
+export async function deleteOfficeClient(id: string) {
+  const supabase = getSupabaseClient()
+  const { error } = await supabase
+    .from('clients')
+    .delete()
+    .eq('id', id)
+
+  if (error) throw new Error('Falha ao excluir cliente.')
+}
+
+export async function deleteClientTask(id: string) {
+  const supabase = getSupabaseClient()
+  const { error } = await supabase
+    .from('client_tasks')
+    .delete()
+    .eq('id', id)
+
+  if (error) throw new Error('Falha ao excluir tarefa.')
+}
+
+export async function updateClientTask(id: string, text: string, dueDate: string | null) {
+  const supabase = getSupabaseClient()
+  const { data, error } = await supabase
+    .from('client_tasks')
+    .update({ text, due_date: nullIfBlank(dueDate || undefined) })
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) throw new Error('Falha ao atualizar tarefa.')
+  return data
+}

@@ -560,7 +560,7 @@ Arquivos compartilhados autorizados neste pacote:
 - `servicos/ROADMAP.md`;
 - `servicos/supabase/migrations/`.
 
-### Situacao atual
+### Situacao atual e Fonte Unica de Verdade
 
 - schema de Clientes e Gestao Escritorio foi aplicado no Supabase
   `nnckpyzjllqsdcwlnxei` por migracao executada via MCP;
@@ -569,8 +569,12 @@ Arquivos compartilhados autorizados neste pacote:
   Digital;
 - o modulo antigo de Atendimentos apontava para `transactions`, tabela que nao
   existe no schema real;
-- o app legado Plena Cash Control continua como fonte de backup JSON para uma
-  importacao unica.
+- **Decisão Formal de Fonte Única de Verdade (29/07/2026)**:
+  - **Fase de Transição**: O app standalone Plena Cash Control (React/Vite com `localStorage`) é mantido temporariamente como fonte operacional enquanto a colaboradora conclui seu uso ativo.
+  - **Fase Definitiva**: Após a execução do `importCashControlJson`, o **Plena Digital Hub** (módulo Gestão Escritório no Supabase `nnckpyzjllqsdcwlnxei`) torna-se a **Fonte Única de Verdade Oficial e Definitiva**.
+- **Plano Formal de Transição e Descontinuação**:
+  - Data-alvo da importação única de dados: **03/08/2026** (operada por Reinaldo via `/admin/escritorio`).
+  - Desligamento operacional e arquivamento do standalone: **05/08/2026** (após essa data, o uso do app standalone fica descontinuado/vedado para evitar fontes duplas de dados).
 
 ### Entrega funcional
 
