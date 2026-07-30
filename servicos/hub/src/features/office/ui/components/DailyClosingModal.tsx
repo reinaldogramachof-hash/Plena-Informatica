@@ -1,13 +1,21 @@
-import React, { useMemo } from 'react'
-import { X, MessageCircle, Calculator, Briefcase } from 'lucide-react'
-import type { OfficeTransaction, OfficeServiceRecord, OfficeServiceItem } from '../../services/office-service'
+import React, { useMemo, useState } from 'react'
+import { X, MessageCircle, Calculator, Briefcase, Lock, CheckCircle2 } from 'lucide-react'
+import type {
+  OfficeTransaction,
+  OfficeServiceRecord,
+  OfficeServiceItem,
+  OfficeCashClosing,
+} from '../../services/office-service'
+import { createOfficeCashClosing } from '../../services/office-service'
 import { formatCurrency, getTodayLocal, toNumber } from '../utils'
 
 interface DailyClosingModalProps {
   transactions: OfficeTransaction[]
   services: OfficeServiceRecord[]
   serviceItems: OfficeServiceItem[]
+  cashClosings: OfficeCashClosing[]
   onClose: () => void
+  onClosed: () => void | Promise<void>
 }
 
 interface DailyStats {
@@ -22,9 +30,19 @@ export const DailyClosingModal: React.FC<DailyClosingModalProps> = ({
   transactions,
   services,
   serviceItems,
+  cashClosings,
   onClose,
+  onClosed,
 }) => {
   const todayStr = useMemo(() => getTodayLocal(), [])
+  const [notes, setNotes] = useState('')
+  const [isSaving, setIsSaving] = useState(false)
+  const [saveError, setSaveError] = useState('')
+
+  const existingClosing = useMemo(
+    () => (cashClosings || []).find((c) => c.closing_date === todayStr) ?? null,
+    [cashClosings, todayStr]
+  )
 
   const todayStats: DailyStats = useMemo(() => {
     const todaysTransactions = transactions.filter(
@@ -111,6 +129,26 @@ export const DailyClosingModal: React.FC<DailyClosingModalProps> = ({
     window.open(`https://wa.me/${phoneNumber}?text=${encoded}`, '_blank')
   }
 
+  const handleConfirmClosing = async () => {
+    if (existingClosing || isSaving) return
+    setIsSaving(true)
+    setSaveError('')
+    try {
+      await createOfficeCashClosing({
+        closingDate: todayStr,
+        totalIncome: todayStats.income,
+        totalExpense: todayStats.expense,
+        balance: todayStats.balance,
+        notes,
+      })
+      await onClosed()
+    } catch (err) {
+      setSaveError(err instanceof Error ? err.message : 'Falha ao fechar caixa.')
+    } finally {
+      setIsSaving(false)
+    }
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
       <div className="bg-white rounded-xl shadow-xl w-full max-w-lg overflow-hidden flex flex-col max-h-[90vh] animate-fade-in">
@@ -133,6 +171,17 @@ export const DailyClosingModal: React.FC<DailyClosingModalProps> = ({
             <p className="text-lg font-mono font-bold mt-2 border-b-2 border-dashed border-gray-200 inline-block pb-1 text-gray-800">
               {new Date().toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
+            {existingClosing ? (
+              <p className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-100 text-green-700 text-xs font-bold uppercase tracking-wide">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                Caixa já fechado hoje
+              </p>
+            ) : (
+              <p className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-bold uppercase tracking-wide">
+                <Lock className="w-3.5 h-3.5" />
+                Fechamento ainda não registrado
+              </p>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -194,25 +243,67 @@ export const DailyClosingModal: React.FC<DailyClosingModalProps> = ({
               Total de transações: {todayStats.count} | Gerado em: {new Date().toLocaleTimeString()}
             </p>
           </div>
+
+          {!existingClosing && (
+            <div>
+              <label className="block text-xs font-bold text-gray-500 uppercase mb-1.5" htmlFor="closing-notes">
+                Observações do fechamento (opcional)
+              </label>
+              <textarea
+                id="closing-notes"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                rows={2}
+                placeholder="Ex: diferença de troco, ocorrência do dia..."
+                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-plena-orange bg-white text-gray-800"
+              />
+            </div>
+          )}
+
+          {saveError && (
+            <p role="alert" className="text-sm font-medium text-red-700 bg-red-50 border border-red-100 rounded-lg px-3 py-2">
+              {saveError}
+            </p>
+          )}
+
+          {existingClosing && (
+            <p className="text-xs text-center text-gray-400">
+              Registrado em {new Date(existingClosing.created_at ?? '').toLocaleString('pt-BR')}
+              {existingClosing.notes ? ` — "${existingClosing.notes}"` : ''}
+            </p>
+          )}
         </div>
 
         {/* Footer Actions */}
-        <div className="p-6 border-t border-gray-100 bg-gray-50 flex gap-3">
-          <button
-            type="button"
-            onClick={handleWhatsApp}
-            className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-bold rounded-xl text-white bg-green-600 hover:bg-green-700 shadow-md transition-all active:scale-95 cursor-pointer"
-          >
-            <MessageCircle className="w-5 h-5 mr-2" />
-            Enviar WhatsApp
-          </button>
-          <button
-            type="button"
-            onClick={onClose}
-            className="flex-1 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl font-bold text-sm transition-colors cursor-pointer"
-          >
-            Concluir
-          </button>
+        <div className="p-6 border-t border-gray-100 bg-gray-50 flex flex-col gap-3">
+          {!existingClosing && (
+            <button
+              type="button"
+              onClick={() => void handleConfirmClosing()}
+              disabled={isSaving}
+              className="w-full inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-bold rounded-xl text-white bg-plena-orange hover:bg-orange-600 shadow-md transition-all active:scale-95 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              <Lock className="w-5 h-5 mr-2" />
+              {isSaving ? 'Fechando caixa...' : 'Confirmar Fechamento'}
+            </button>
+          )}
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={handleWhatsApp}
+              className="flex-1 inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-bold rounded-xl text-white bg-green-600 hover:bg-green-700 shadow-md transition-all active:scale-95 cursor-pointer"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Enviar WhatsApp
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex-1 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl font-bold text-sm transition-colors cursor-pointer"
+            >
+              {existingClosing ? 'Fechar' : 'Cancelar'}
+            </button>
+          </div>
         </div>
       </div>
     </div>

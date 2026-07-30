@@ -1117,7 +1117,12 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
           transactions={data.transactions}
           services={data.serviceRecords}
           serviceItems={data.serviceItems}
+          cashClosings={data.cashClosings}
           onClose={() => setIsClosingModalOpen(false)}
+          onClosed={async () => {
+            showSuccess('Caixa fechado com sucesso.')
+            await loadData()
+          }}
         />
       )}
 
