@@ -8,6 +8,7 @@ import type {
 } from '../../services/office-service'
 import { createOfficeCashClosing } from '../../services/office-service'
 import { formatCurrency, getTodayLocal, toNumber } from '../utils'
+import { Button } from '../../../../components/ui/Button'
 
 interface DailyClosingModalProps {
   transactions: OfficeTransaction[]
@@ -277,15 +278,15 @@ export const DailyClosingModal: React.FC<DailyClosingModalProps> = ({
         {/* Footer Actions */}
         <div className="p-6 border-t border-gray-100 bg-gray-50 flex flex-col gap-3">
           {!existingClosing && (
-            <button
+            <Button
               type="button"
               onClick={() => void handleConfirmClosing()}
               disabled={isSaving}
-              className="w-full inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-bold rounded-xl text-white bg-plena-orange hover:bg-orange-600 shadow-md transition-all active:scale-95 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full font-bold"
             >
               <Lock className="w-5 h-5 mr-2" />
               {isSaving ? 'Fechando caixa...' : 'Confirmar Fechamento'}
-            </button>
+            </Button>
           )}
           <div className="flex gap-3">
             <button
@@ -296,13 +297,14 @@ export const DailyClosingModal: React.FC<DailyClosingModalProps> = ({
               <MessageCircle className="w-5 h-5 mr-2" />
               Enviar WhatsApp
             </button>
-            <button
+            <Button
               type="button"
+              variant="outline"
               onClick={onClose}
-              className="flex-1 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl font-bold text-sm transition-colors cursor-pointer"
+              className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 font-bold"
             >
               {existingClosing ? 'Fechar' : 'Cancelar'}
-            </button>
+            </Button>
           </div>
         </div>
       </div>

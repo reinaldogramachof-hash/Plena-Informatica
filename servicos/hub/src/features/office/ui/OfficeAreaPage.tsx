@@ -44,6 +44,7 @@ import { Dashboard } from './components/Dashboard'
 import { TransactionForm } from './components/TransactionForm'
 import { DailyClosingModal } from './components/DailyClosingModal'
 import { formatCurrency, getTodayLocal, toNumber } from './utils'
+import { Button } from '../../../components/ui/Button'
 
 export type OfficeTab = 'dashboard' | 'transactions' | 'clients' | 'services' | 'closing' | 'settings' | 'import'
 
@@ -545,22 +546,19 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
     <div className="max-w-7xl mx-auto space-y-6">
 
       <div className="flex flex-col sm:flex-row justify-end gap-3">
-        <button
+        <Button
           type="button"
+          variant="outline"
           onClick={() => setIsClosingModalOpen(true)}
-          className="bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-4 py-2.5 rounded-xl font-medium shadow-sm transition-all active:scale-95 flex items-center justify-center cursor-pointer"
+          className="border-gray-200 text-gray-700 hover:bg-gray-50 shadow-sm"
         >
           <CheckCircle className="w-5 h-5 mr-2 text-green-600" />
           Fechar Caixa
-        </button>
-        <button
-          type="button"
-          onClick={() => setIsTransactionModalOpen(true)}
-          className="bg-plena-orange hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl font-medium shadow-lg shadow-orange-200 transition-all active:scale-95 flex items-center justify-center cursor-pointer"
-        >
+        </Button>
+        <Button type="button" onClick={() => setIsTransactionModalOpen(true)}>
           <Plus className="w-5 h-5 mr-2" />
           Nova Transação
-        </button>
+        </Button>
       </div>
 
       {message && (
@@ -682,14 +680,14 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
                   onChange={e => setClientSearchTerm(e.target.value)}
                 />
               </div>
-              <button
+              <Button
                 type="button"
                 onClick={() => { setEditingClient(null); setIsClientModalOpen(true); }}
-                className="bg-plena-orange hover:bg-orange-600 text-white px-4 py-2 rounded-xl font-bold shadow-lg shadow-orange-200 transition-all active:scale-95 flex items-center justify-center cursor-pointer whitespace-nowrap text-sm"
+                className="whitespace-nowrap"
               >
                 <Plus className="w-5 h-5 mr-1" />
                 Novo Cliente
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -787,14 +785,10 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
                 onChange={e => setSelectedServiceDate(e.target.value)}
                 className="px-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-plena-orange outline-none bg-white text-gray-700 shadow-sm"
               />
-              <button
-                type="button"
-                onClick={() => setIsCatalogModalOpen(true)}
-                className="flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-xl hover:bg-gray-800 transition-colors shadow-sm cursor-pointer"
-              >
-                <Settings2 className="w-5 h-5" />
+              <Button type="button" variant="secondary" onClick={() => setIsCatalogModalOpen(true)}>
+                <Settings2 className="w-5 h-5 mr-2" />
                 Catálogo
-              </button>
+              </Button>
               <button
                 type="button"
                 onClick={() => setIsServiceReportModalOpen(true)}
@@ -896,14 +890,15 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
               </div>
 
               <div className="flex gap-2">
-                <button
+                <Button
                   type="button"
+                  variant="outline"
                   onClick={() => fileInputRef.current?.click()}
-                  className="flex-1 px-4 py-2 border border-gray-200 hover:bg-gray-50 rounded-xl font-bold transition-colors flex items-center justify-center gap-2 text-sm cursor-pointer whitespace-nowrap"
+                  className="flex-1 border-gray-200 text-gray-700 hover:bg-gray-50 whitespace-nowrap"
                 >
-                  <Upload className="w-4 h-4 text-gray-500" />
+                  <Upload className="w-4 h-4 text-gray-500 mr-2" />
                   Consolidar
-                </button>
+                </Button>
                 <input
                   type="file"
                   multiple
@@ -1077,7 +1072,7 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
                   <label className="text-sm text-gray-500">Cor:</label>
                   <input name="color" type="color" defaultValue="#f17a02" className="w-10 h-10 p-0 border-0 rounded cursor-pointer" />
                 </div>
-                <button type="submit" className="w-full bg-plena-orange text-white py-2 rounded-lg font-medium hover:bg-orange-600 transition-colors">Salvar Categoria</button>
+                <Button type="submit" className="w-full">Salvar Categoria</Button>
               </form>
             </div>
 
@@ -1176,24 +1171,22 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
                     />
                   </div>
                   <div className="pt-2 flex flex-col gap-2">
-                    <button
-                      type="submit"
-                      className="w-full py-2 text-white bg-gray-900 rounded-lg hover:bg-black transition-colors font-medium shadow-sm cursor-pointer"
-                    >
+                    <Button type="submit" variant="secondary" className="w-full">
                       {editingServiceItem ? 'Atualizar' : 'Adicionar'}
-                    </button>
+                    </Button>
                     {editingServiceItem && (
-                      <button
+                      <Button
                         type="button"
+                        variant="ghost"
+                        className="w-full bg-gray-100 hover:bg-gray-200"
                         onClick={() => {
                           setEditingServiceItem(null)
                           setServiceItemName('')
                           setServiceItemPrice('')
                         }}
-                        className="w-full py-2 text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors font-medium cursor-pointer"
                       >
                         Cancelar
-                      </button>
+                      </Button>
                     )}
                   </div>
                 </form>
@@ -1407,14 +1400,15 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
                         )}
                      </div>
 
-                     <button
+                     <Button
                        type="button"
-                       className="w-full py-2 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 rounded-xl font-medium shadow-sm transition-all text-sm flex items-center justify-center gap-2 cursor-pointer"
+                       variant="outline"
+                       className="w-full border-gray-200 text-gray-700 hover:bg-gray-50 shadow-sm"
                        onClick={() => { setEditingClient(selectedClient); setIsClientModalOpen(true); }}
                      >
-                       <Edit2 className="w-4 h-4" />
+                       <Edit2 className="w-4 h-4 mr-2" />
                        Editar Informações
-                     </button>
+                     </Button>
                   </div>
 
                   {/* Notes & Tasks Column */}
@@ -1693,11 +1687,18 @@ export function OfficeAreaPage({ initialTab = 'dashboard' }: { initialTab?: Offi
               </div>
 
               <div className="flex space-x-3 pt-4 border-t border-gray-100">
-                <button type="button" className="flex-1 py-2 border border-gray-200 hover:bg-gray-50 rounded-xl font-bold cursor-pointer transition-colors" onClick={() => { setIsClientModalOpen(false); setEditingClient(null); }}>Cancelar</button>
-                <button type="submit" className="flex-1 py-2 bg-plena-orange hover:bg-orange-600 text-white rounded-xl font-bold cursor-pointer transition-colors flex items-center justify-center gap-2">
-                  <Save className="w-4 h-4" />
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="flex-1 border-gray-200 text-gray-700 hover:bg-gray-50 font-bold"
+                  onClick={() => { setIsClientModalOpen(false); setEditingClient(null); }}
+                >
+                  Cancelar
+                </Button>
+                <Button type="submit" className="flex-1 font-bold">
+                  <Save className="w-4 h-4 mr-2" />
                   {editingClient ? 'Salvar Alterações' : 'Criar Cliente'}
-                </button>
+                </Button>
               </div>
             </form>
           </div>
