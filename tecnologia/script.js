@@ -45,7 +45,12 @@ const OFFER_MESSAGES = {
   'ecom-autopecas': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Peças Automotivas. Gostaria de um diagnóstico.',
   'ecom-farmacia': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Saúde & Farmácia. Gostaria de um diagnóstico.',
   'ecom-moveis': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Móveis & Decoração. Gostaria de um diagnóstico.',
-  'ecom-cosmeticos': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Cosméticos & Beleza. Gostaria de um diagnóstico.'
+  'ecom-cosmeticos': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em e-commerce de Cosméticos & Beleza. Gostaria de um diagnóstico.',
+  'site-premium-clinica': 'Olá! Vim pela página de tecnologia da Plena, naveguei no modelo de site premium para Clínica & Saúde e gostaria de um orçamento para o meu negócio.',
+  'site-premium-arquitetura': 'Olá! Vim pela página de tecnologia da Plena, naveguei no modelo de site premium para Arquitetura & Engenharia e gostaria de um orçamento para o meu escritório.',
+  'site-premium-advocacia': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no site premium para Advocacia. Gostaria de um orçamento.',
+  'site-premium-imobiliaria': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no site premium para Imobiliária. Gostaria de um orçamento.',
+  'site-premium-outro': 'Olá! Vim pela página de tecnologia da Plena, vi a vitrine de Sites Premium e gostaria de um modelo para o meu segmento.'
 };
 
 const solutionCatalog = [
@@ -124,6 +129,18 @@ function activateTab(btn) {
 
   showNicheRow(btn.dataset.target);
   trackIntent('tab', btn.dataset.offer || btn.dataset.target, btn.dataset.category || 'tabs');
+}
+
+function activateTabByTarget(targetId) {
+  const btn = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
+  if (btn) activateTab(btn);
+}
+
+// Deep link: tecnologia.html#sites-premium abre o catálogo já na aba Sites Premium
+// (usado pelos links "Voltar à vitrine" dos modelos premium e por links de divulgação).
+if (window.location.hash === '#sites-premium') {
+  activateTabByTarget('tab-premium');
+  document.getElementById('soluções')?.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
 }
 
 document.querySelectorAll('.tab-btn').forEach(btn => {

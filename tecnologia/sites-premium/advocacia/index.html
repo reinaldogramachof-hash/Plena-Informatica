@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vasconcelos &amp; Prado Advogados | Modelo de Site Premium | Plena Informática</title>
+  <meta name="description"
+    content="Modelo demonstrativo de site premium para escritórios de advocacia, criado pela Plena Informática. Conteúdo fictício para apresentação.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230d1321'/><text x='16' y='22' text-anchor='middle' font-size='15' font-family='Georgia,serif' fill='%23b89b5e'>VP</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0d1321;
+      --navy-2: #131c31;
+      --navy-3: #1a2542;
+      --linha: rgba(242, 239, 232, .1);
+      --marfim: #f2efe8;
+      --cinza: #9aa1b0;
+      --ouro: #b89b5e;
+      --ouro-claro: #d3bc86;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--marfim);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    h1,
+    h2,
+    h3,
+    .serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 26px;
+    }
+
+    /* ── Barra do modelo demonstrativo ─────────────────── */
+    .demo-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: var(--marfim);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 10px 16px;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+
+    .demo-bar a {
+      color: var(--marfim);
+      background: var(--navy);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      transition: background .2s ease;
+    }
+
+    .demo-bar a:hover {
+      background: var(--navy-3);
+    }
+
+    .demo-bar .voltar {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid rgba(13, 19, 33, .35);
+    }
+
+    /* ── Progresso ─────────────────────────────────────── */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, var(--ouro), var(--ouro-claro));
+    }
+
+    /* ── Header ────────────────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      background: rgba(13, 19, 33, .88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--marfim);
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--ouro);
+      display: grid;
+      place-items: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--ouro);
+      letter-spacing: .04em;
+    }
+
+    .logo strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: .3em;
+      color: var(--cinza);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--cinza);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+      position: relative;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--marfim);
+    }
+
+    .nav-links a:not(.btn)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      height: 1px;
+      width: 100%;
+      background: var(--ouro);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .nav-links a:not(.btn):hover::after {
+      transform: scaleX(1);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ouro);
+      color: var(--navy);
+      text-decoration: none;
+      padding: 13px 30px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .06em;
+      border: 1px solid var(--ouro);
+      cursor: pointer;
+      transition: background .25s ease, color .25s ease, transform .25s ease;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--ouro);
+      transform: translateY(-2px);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ouro);
+    }
+
+    .btn.ghost:hover {
+      background: var(--ouro);
+      color: var(--navy);
+    }
+
+    .nav .btn {
+      padding: 10px 22px;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--marfim);
+      margin: 5px 0;
+    }
+
+    /* ── Hero ──────────────────────────────────────────── */
+    .hero {
+      min-height: 92svh;
+      display: flex;
+      align-items: center;
+      padding: 150px 0 100px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(55% 70% at 82% 25%, rgba(184, 155, 94, .12), transparent 65%),
+        linear-gradient(165deg, var(--navy) 0%, var(--navy-2) 60%, var(--navy-3) 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .35;
+      background-image: linear-gradient(var(--linha) 1px, transparent 1px);
+      background-size: 100% 88px;
+      transform: translate3d(0, calc(var(--par, 0) * 0.12px), 0);
+      mask-image: radial-gradient(75% 65% at 50% 40%, #000 30%, transparent 80%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 50px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--ouro);
+      margin-bottom: 26px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background: var(--ouro);
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5.4vw, 66px);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: .005em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--ouro-claro);
+    }
+
+    .hero p.lead {
+      font-size: 16.5px;
+      color: var(--cinza);
+      max-width: 500px;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      margin-top: 30px;
+      font-size: 12.5px;
+      color: var(--cinza);
+      letter-spacing: .04em;
+    }
+
+    .hero-note strong {
+      color: var(--marfim);
+      font-weight: 600;
+    }
+
+    .balanca-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .balanca {
+      width: min(78%, 330px);
+      opacity: .9;
+    }
+
+    .balanca path,
+    .balanca line,
+    .balanca circle,
+    .balanca rect {
+      fill: none;
+      stroke: var(--ouro);
+      stroke-width: 1.3;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: draw 2.2s cubic-bezier(.55, 0, .25, 1) forwards;
+    }
+
+    .balanca .fina {
+      stroke: rgba(242, 239, 232, .38);
+      stroke-width: .8;
+    }
+
+    .balanca *:nth-child(2) {
+      animation-delay: .2s;
+    }
+
+    .balanca *:nth-child(3) {
+      animation-delay: .4s;
+    }
+
+    .balanca *:nth-child(4) {
+      animation-delay: .6s;
+    }
+
+    .balanca *:nth-child(5) {
+      animation-delay: .8s;
+    }
+
+    .balanca *:nth-child(6) {
+      animation-delay: 1s;
+    }
+
+    .balanca *:nth-child(7) {
+      animation-delay: 1.2s;
+    }
+
+    .balanca *:nth-child(8) {
+      animation-delay: 1.4s;
+    }
+
+    .balanca *:nth-child(9) {
+      animation-delay: 1.6s;
+    }
+
+    .balanca *:nth-child(10) {
+      animation-delay: 1.8s;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* ── Números ───────────────────────────────────────── */
+    .numeros {
+      border-top: 1px solid var(--linha);
+      border-bottom: 1px solid var(--linha);
+      background: var(--navy-2);
+    }
+
+    .num-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .num {
+      text-align: center;
+      padding: 44px 20px;
+      border-right: 1px solid var(--linha);
+    }
+
+    .num:last-child {
+      border-right: none;
+    }
+
+    .num strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 4vw, 48px);
+      font-weight: 600;
+      color: var(--ouro-claro);
+      line-height: 1.1;
+    }
+
+    .num small {
+      font-size: 12px;
+      color: var(--cinza);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    /* ── Seções ────────────────────────────────────────── */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-head {
+      max-width: 620px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin: 16px 0 14px;
+    }
+
+    .section-head p {
+      color: var(--cinza);
+      font-weight: 300;
+      font-size: 15px;
+    }
+
+    .kicker {
+      color: var(--ouro);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+    }
+
+    /* ── Áreas de atuação ──────────────────────────────── */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--linha);
+      border: 1px solid var(--linha);
+    }
+
+    .area {
+      background: var(--navy);
+      padding: 40px 34px;
+      position: relative;
+      overflow: hidden;
+      transition: background .3s ease;
+    }
+
+    .area:hover {
+      background: var(--navy-2);
+    }
+
+    .area::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s ease;
+      background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(184, 155, 94, .12), transparent 70%);
+    }
+
+    .area:hover::after {
+      opacity: 1;
+    }
+
+    .area .num-area {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: var(--ouro);
+      display: block;
+      margin-bottom: 18px;
+      letter-spacing: .1em;
+    }
+
+    .area h3 {
+      font-size: 23px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .area p {
+      font-size: 13.5px;
+      color: var(--cinza);
+      font-weight: 300;
+    }
+
+    /* ── Escritório ────────────────────────────────────── */
+    .escritorio {
+      background: var(--navy-2);
+      border-top: 1px solid var(--linha);
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .esc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .esc-txt h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 600;
+      line-height: 1.12;
+      margin: 16px 0 22px;
+    }
+
+    .esc-txt p {
+      color: var(--cinza);
+      font-weight: 300;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    .esc-principios {
+      margin-top: 30px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .principio {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .principio::before {
+      content: "";
+      color: var(--ouro);
+      flex-shrink: 0;
+    }
+
+    .principio div strong {
+      display: block;
+      font-size: 14.5px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .principio div span {
+      font-size: 13.5px;
+      color: var(--cinza);
+      font-weight: 300;
+    }
+
+    .esc-visual {
+      aspect-ratio: 4/4.6;
+      border: 1px solid var(--linha);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(155deg, var(--navy-3) 0%, var(--navy) 100%);
+      display: grid;
+      place-items: center;
+    }
+
+    .esc-visual .colunas {
+      width: 68%;
+      opacity: .8;
+    }
+
+    .esc-visual .colunas line,
+    .esc-visual .colunas path,
+    .esc-visual .colunas rect {
+      fill: none;
+      stroke: rgba(242, 239, 232, .4);
+      stroke-width: 1;
+    }
+
+    .esc-visual .colunas .ouro {
+      stroke: var(--ouro);
+    }
+
+    /* ── Equipe ────────────────────────────────────────── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .socio {
+      border: 1px solid var(--linha);
+      background: var(--navy-2);
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .socio:hover {
+      transform: translateY(-6px);
+      border-color: rgba(184, 155, 94, .45);
+    }
+
+    .socio-foto {
+      aspect-ratio: 4/3.2;
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .socio-foto .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--navy);
+      background: linear-gradient(140deg, var(--ouro-claro), var(--ouro));
+    }
+
+    .socio-info {
+      padding: 24px 26px 28px;
+    }
+
+    .socio-info h3 {
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .socio-info .oab {
+      font-size: 10.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ouro);
+      font-weight: 700;
+      margin: 6px 0 12px;
+    }
+
+    .socio-info p {
+      font-size: 13.5px;
+      color: var(--cinza);
+      font-weight: 300;
+    }
+
+    /* ── Como atuamos ──────────────────────────────────── */
+    .metodo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      counter-reset: etapa;
+    }
+
+    .etapa {
+      border-top: 1px solid var(--linha);
+      padding-top: 24px;
+      position: relative;
+    }
+
+    .etapa::before {
+      counter-increment: etapa;
+      content: counter(etapa, upper-roman);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ouro);
+      position: absolute;
+      top: -13px;
+      left: 0;
+      background: var(--navy);
+      padding-right: 14px;
+    }
+
+    .etapa h3 {
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .etapa p {
+      font-size: 13.5px;
+      color: var(--cinza);
+      font-weight: 300;
+    }
+
+    /* Cenario demonstrativo */
+    .quote-sec {
+      background: var(--navy-2);
+      border-top: 1px solid var(--linha);
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .quote {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .quote .aspas {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 70px;
+      color: var(--ouro);
+      line-height: .6;
+      display: block;
+      margin-bottom: 22px;
+    }
+
+    .quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.4;
+      margin-bottom: 26px;
+    }
+
+    .quote cite {
+      font-style: normal;
+      color: var(--cinza);
+      font-size: 13.5px;
+      letter-spacing: .06em;
+    }
+
+    .quote cite strong {
+      color: var(--marfim);
+      font-weight: 600;
+    }
+
+    /* ── CTA ───────────────────────────────────────────── */
+    .cta {
+      padding-bottom: 140px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 4.6vw, 52px);
+      font-weight: 600;
+      line-height: 1.1;
+      margin: 16px 0 18px;
+    }
+
+    .cta p {
+      color: var(--cinza);
+      font-weight: 300;
+      max-width: 520px;
+      margin: 0 auto 38px;
+    }
+
+    /* ── Footer ────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--linha);
+      padding: 50px 0 96px;
+      font-size: 13px;
+      color: var(--cinza);
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .foot-note {
+      margin-top: 26px;
+      font-size: 12px;
+      color: #5f6675;
+      max-width: 660px;
+    }
+
+    /* ── Reveal ────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .btn,
+      .socio,
+      .area {
+        transition: none;
+      }
+
+      .balanca path,
+      .balanca line,
+      .balanca circle,
+      .balanca rect {
+        animation: none;
+        stroke-dashoffset: 0;
+      }
+
+      .hero::before {
+        transform: none;
+      }
+    }
+
+    /* ── Responsivo ────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .balanca-wrap {
+        display: none;
+      }
+
+      .areas-grid,
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .metodo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 36px 18px;
+      }
+
+      .esc-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      section {
+        padding: 68px 0;
+      }
+
+      .hero {
+        padding: 130px 0 70px;
+        min-height: auto;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .areas-grid,
+      .team-grid,
+      .metodo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .num-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .num {
+        border-right: none;
+        border-bottom: 1px solid var(--linha);
+      }
+
+      .num:last-child {
+        border-bottom: none;
+      }
+
+      .demo-bar {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="logo" aria-label="Vasconcelos & Prado, início">
+        <span class="logo-mark">VP</span>
+        <span><strong>Vasconcelos &amp; Prado</strong><span>Advogados Associados</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#areas">Áreas de atuação</a>
+        <a href="#escritorio">O escritório</a>
+        <a href="#equipe">Sócios</a>
+        <a href="#metodo">Como atuamos</a>
+        <a href="#contato" class="btn">Agendar consulta</a>
+      </nav>
+      <button class="menu-btn" aria-label="Abrir menu"
+        onclick="document.querySelector('.nav-links').style.display='flex'">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <section class="hero" aria-label="Apresentação">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Advocacia consultiva e contenciosa</span>
+          <h1>Defesa técnica com <em>atendimento próximo</em>.</h1>
+          <p class="lead">Há mais de duas décadas, unimos rigor jurídico e comunicação clara para que cada cliente
+            entenda seu caso, seus riscos e suas alternativas antes de qualquer decisão.</p>
+          <div class="hero-actions">
+            <a href="#contato" class="btn">Agendar consulta</a>
+            <a href="#areas" class="btn ghost">Áreas de atuação</a>
+          </div>
+          <p class="hero-note">Atendimento presencial e on-line · <strong>Resposta em até 1 dia útil</strong></p>
+        </div>
+        <div class="balanca-wrap" aria-hidden="true">
+          <svg class="balanca" viewBox="0 0 300 340">
+            <line x1="150" y1="30" x2="150" y2="250" pathLength="1" />
+            <line x1="60" y1="70" x2="240" y2="70" pathLength="1" />
+            <circle cx="150" cy="30" r="8" pathLength="1" />
+            <path d="M60 70l-28 80h56l-28-80z" pathLength="1" />
+            <path class="fina" d="M32 150a28 14 0 0056 0" pathLength="1" />
+            <path d="M240 70l-28 80h56l-28-80z" pathLength="1" />
+            <path class="fina" d="M212 150a28 14 0 0056 0" pathLength="1" />
+            <line x1="105" y1="250" x2="195" y2="250" pathLength="1" />
+            <rect x="90" y="250" width="120" height="16" pathLength="1" />
+            <line class="fina" x1="70" y1="296" x2="230" y2="296" pathLength="1" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="numeros" aria-label="Números do escritório">
+      <div class="container num-grid">
+        <div class="num reveal"><strong data-count="22" data-suffix="+">22+</strong><small>Anos de atuação</small></div>
+        <div class="num reveal"><strong data-count="1400" data-suffix="+">1400+</strong><small>Casos conduzidos</small>
+        </div>
+        <div class="num reveal"><strong data-count="12">12</strong><small>Advogados na equipe</small></div>
+      </div>
+    </div>
+
+    <section id="areas" aria-label="Áreas de atuação">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Áreas de atuação</span>
+          <h2>Especialização a serviço do seu caso</h2>
+          <p>Atuação consultiva e contenciosa, com pareceres claros e estratégia definida em conjunto com o cliente.</p>
+        </div>
+        <div class="areas-grid">
+          <article class="area reveal">
+            <span class="num-area">I</span>
+            <h3>Direito Civil</h3>
+            <p>Contratos, responsabilidade civil, cobranças e disputas patrimoniais conduzidas com objetividade.</p>
+          </article>
+          <article class="area reveal">
+            <span class="num-area">II</span>
+            <h3>Direito Empresarial</h3>
+            <p>Societário, contratos empresariais e assessoria contínua para decisões seguras no dia a dia da empresa.
+            </p>
+          </article>
+          <article class="area reveal">
+            <span class="num-area">III</span>
+            <h3>Direito Trabalhista</h3>
+            <p>Defesa de empresas e empregados, consultoria preventiva e acompanhamento de rotinas trabalhistas.</p>
+          </article>
+          <article class="area reveal">
+            <span class="num-area">IV</span>
+            <h3>Direito de Família</h3>
+            <p>Inventários, divórcios, guarda e planejamento sucessório tratados com discrição e sensibilidade.</p>
+          </article>
+          <article class="area reveal">
+            <span class="num-area">V</span>
+            <h3>Direito Imobiliário</h3>
+            <p>Compra e venda, locações, regularização de imóveis e análise de risco em transações.</p>
+          </article>
+          <article class="area reveal">
+            <span class="num-area">VI</span>
+            <h3>Direito do Consumidor</h3>
+            <p>Defesa em relações de consumo, revisões contratuais e reparação por falhas de fornecimento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="escritorio" class="escritorio" aria-label="O escritório">
+      <div class="container esc-grid">
+        <div class="esc-txt reveal">
+          <span class="kicker">O escritório</span>
+          <h2>Tradição não é discurso.<br>É método.</h2>
+          <p>Fundado em 2004, o Vasconcelos &amp; Prado nasceu com a convicção de que advocacia séria se faz com
+            estudo profundo, prazos respeitados e clientes informados a cada etapa.</p>
+          <div class="esc-principios">
+            <div class="principio">
+              <div><strong>Transparência sobre riscos</strong><span>Você conhece as chances e os custos do caso antes
+                  de decidir seguir.</span></div>
+            </div>
+            <div class="principio">
+              <div><strong>Comunicação sem juridiquês</strong><span>Relatórios periódicos em linguagem clara, sem
+                  depender de tradução.</span></div>
+            </div>
+            <div class="principio">
+              <div><strong>Sigilo e discrição</strong><span>Estrutura e processos orientados à confidencialidade de
+                  cada cliente.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="esc-visual reveal" role="img" aria-label="Composição gráfica de colunas clássicas">
+          <svg class="colunas" viewBox="0 0 260 300" aria-hidden="true">
+            <line x1="10" y1="30" x2="250" y2="30" class="ouro" />
+            <path d="M20 30l110-22 110 22" />
+            <rect x="40" y="52" width="24" height="190" />
+            <rect x="118" y="52" width="24" height="190" />
+            <rect x="196" y="52" width="24" height="190" />
+            <line x1="10" y1="252" x2="250" y2="252" />
+            <line x1="20" y1="266" x2="240" y2="266" class="ouro" />
+            <line x1="30" y1="280" x2="230" y2="280" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipe" aria-label="Sócios">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Sócios</span>
+          <h2>Quem assina a estratégia</h2>
+          <p>Cada caso é acompanhado diretamente por um sócio responsável, do primeiro parecer à conclusão.</p>
+        </div>
+        <div class="team-grid">
+          <article class="socio reveal">
+            <div class="socio-foto" style="background:linear-gradient(150deg,#1a2542,#131c31)">
+              <span class="avatar">HV</span>
+            </div>
+            <div class="socio-info">
+              <h3>Heitor Vasconcelos</h3>
+              <p class="oab">Sócio-fundador · OAB/SP 000.000</p>
+              <p>Direito empresarial e societário. Mestre em Direito Comercial, com atuação em operações complexas.</p>
+            </div>
+          </article>
+          <article class="socio reveal">
+            <div class="socio-foto" style="background:linear-gradient(150deg,#1a2542,#131c31)">
+              <span class="avatar">CP</span>
+            </div>
+            <div class="socio-info">
+              <h3>Cecília Prado</h3>
+              <p class="oab">Sócia-fundadora · OAB/SP 000.000</p>
+              <p>Direito civil e de família. Especialista em planejamento sucessório e resolução consensual de
+                conflitos.</p>
+            </div>
+          </article>
+          <article class="socio reveal">
+            <div class="socio-foto" style="background:linear-gradient(150deg,#1a2542,#131c31)">
+              <span class="avatar">RM</span>
+            </div>
+            <div class="socio-info">
+              <h3>Rafael Meireles</h3>
+              <p class="oab">Sócio · OAB/SP 000.000</p>
+              <p>Direito trabalhista e contencioso estratégico, com foco em prevenção de passivos para empresas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo" aria-label="Como atuamos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Como atuamos</span>
+          <h2>Um caminho claro, da consulta à conclusão</h2>
+        </div>
+        <div class="metodo-grid">
+          <div class="etapa reveal">
+            <h3>Consulta inicial</h3>
+            <p>Escuta do caso, análise documental preliminar e definição de viabilidade.</p>
+          </div>
+          <div class="etapa reveal">
+            <h3>Parecer e estratégia</h3>
+            <p>Cenários, riscos e custos apresentados por escrito, em linguagem acessível.</p>
+          </div>
+          <div class="etapa reveal">
+            <h3>Condução do caso</h3>
+            <p>Atuação técnica com relatórios periódicos e acesso direto ao advogado responsável.</p>
+          </div>
+          <div class="etapa reveal">
+            <h3>Encerramento</h3>
+            <p>Prestação de contas final e orientações para prevenir novas disputas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-sec" aria-label="Cenário demonstrativo">
+      <div class="container">
+        <div class="quote reveal">
+          <span class="aspas">“</span>
+          <blockquote>O modelo mostra como traduzir etapas jurídicas complexas em uma comunicação clara, discreta e consultiva.</blockquote>
+          <cite><strong>Cenário demonstrativo</strong> · comunicação institucional</cite>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="cta" aria-label="Contato">
+      <div class="container reveal">
+        <span class="kicker">Primeiro passo</span>
+        <h2>Seu caso merece uma análise séria.</h2>
+        <p>Agende uma consulta e receba uma avaliação honesta sobre viabilidade, riscos e caminhos possíveis.</p>
+        <a href="#" class="btn" onclick="return false;">Agendar consulta</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <a href="#inicio" class="logo" aria-label="Vasconcelos & Prado">
+          <span class="logo-mark" style="width:32px;height:32px;font-size:13px">VP</span>
+          <strong style="font-size:15px">Vasconcelos &amp; Prado</strong>
+        </a>
+        <span>Av. Exemplo, 800 · São José dos Campos/SP · (12) 0000-0000</span>
+      </div>
+      <p class="foot-note">Modelo demonstrativo desenvolvido pela Plena Informática. Escritório, profissionais,
+        números e cenários são fictícios e usados apenas para apresentação de layout. Conteúdo sem promessa de
+        resultado, em respeito às normas de publicidade da advocacia.</p>
+    </div>
+  </footer>
+
+  <div class="demo-bar" role="note" aria-label="Aviso de modelo demonstrativo">
+    <span>Você está navegando em um <strong>modelo demonstrativo</strong> da Plena Informática.</span>
+    <a class="voltar" href="../index.html#modelos">← Voltar ao portal</a>
+    <a href="https://wa.me/5512992191018?text=Ol%C3%A1!%20Naveguei%20no%20modelo%20de%20site%20premium%20para%20Advocacia%20da%20Plena%20e%20quero%20um%20or%C3%A7amento."
+      target="_blank" rel="noopener noreferrer">Quero um site assim</a>
+  </div>
+
+  <script>
+    (function () {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var bar = document.createElement('div');
+      bar.className = 'scroll-progress';
+      document.body.appendChild(bar);
+      var hero = document.querySelector('.hero');
+      var ticking = false;
+      function paint() {
+        ticking = false;
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0).toFixed(2) + '%';
+        if (!reduced && hero) hero.style.setProperty('--par', String(Math.min(h.scrollTop, 800)));
+      }
+      document.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+      }, { passive: true });
+      paint();
+
+      var els = document.querySelectorAll('.reveal');
+      var groups = new Map();
+      els.forEach(function (el) {
+        var n = groups.get(el.parentElement) || 0;
+        el.dataset.si = n;
+        groups.set(el.parentElement, n + 1);
+      });
+      if (reduced || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.style.transitionDelay = Math.min(entry.target.dataset.si || 0, 5) * 85 + 'ms';
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        els.forEach(function (el) { io.observe(el); });
+      }
+
+      var counts = document.querySelectorAll('[data-count]');
+      if (!reduced && 'IntersectionObserver' in window) {
+        var co = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            co.unobserve(entry.target);
+            var el = entry.target;
+            var target = parseInt(el.dataset.count, 10);
+            var suffix = el.dataset.suffix || '';
+            var t0 = null;
+            function step(t) {
+              if (!t0) t0 = t;
+              var p = Math.min((t - t0) / 1300, 1);
+              el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }, { threshold: 0.6 });
+        counts.forEach(function (el) { co.observe(el); });
+      }
+
+      if (window.matchMedia('(pointer: fine)').matches) {
+        document.querySelectorAll('.area').forEach(function (card) {
+          card.addEventListener('mousemove', function (e) {
+            var r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+            card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+          });
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

@@ -213,6 +213,9 @@
           <button type="button" class="tab-btn active" data-target="tab-gestão" data-offer="sistemas-gestão"
             data-category="tabs" data-action="tab" id="tbtn-gestao" role="tab" aria-selected="true"
             aria-controls="tab-gestão">Sistemas de Gestão</button>
+          <button type="button" class="tab-btn" data-target="tab-premium" data-offer="sites-premium"
+            data-category="tabs" data-action="tab" id="tbtn-premium" role="tab" aria-selected="false"
+            aria-controls="tab-premium" tabindex="-1">Sites Premium</button>
           <button type="button" class="tab-btn" data-target="tab-landing" data-offer="landing-pages"
             data-category="tabs" data-action="tab" id="tbtn-landing" role="tab" aria-selected="false"
             aria-controls="tab-landing" tabindex="-1">Landing Pages</button>
@@ -341,6 +344,24 @@
             </article>
           </div>
 
+          <div id="tab-premium"
+            class="tab-pane showcase-rail grid-cols-1 md:grid-cols-2 gap-6"
+            role="tabpanel" aria-labelledby="tbtn-premium" tabindex="0" hidden>
+            <article class="category-portal-card bento-card md:col-span-2" data-offer="sites-premium-portal" data-category="sites-premium">
+              <div class="category-portal-info">
+                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white max-w-max">Presença digital de alto nível</div>
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Sites Premium para marcas que querem crescer</h3>
+                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Explore referências por segmento, entenda como construímos e inicie um diagnóstico com a Plena.</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a href="sites-premium/index.html" class="premium-btn primary !mt-0 text-center" data-offer="sites-premium-portal" data-category="sites-premium" data-action="landing"><span>Entrar no portal</span> <i class="ph-light ph-arrow-right"></i></a>
+                  <button type="button" onclick="openWhatsAppForOffer('site-premium-outro')" class="whatsapp-btn premium-btn !mt-0" data-offer="site-premium-outro" data-category="sites-premium" data-action="whatsapp">Planejar meu site</button>
+                </div>
+              </div>
+              <div class="category-portal-preview-wrapper hidden lg:flex !p-0 overflow-hidden">
+                <img src="sites-premium/assets/portal-hero.png" alt="Portal visual de Sites Premium" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              </div>
+            </article>
+          </div>
           <div id="tab-landing" class="tab-pane showcase-rail grid-cols-1 gap-6" role="tabpanel"
             aria-labelledby="tbtn-landing" tabindex="0" hidden>
             <article class="category-portal-card bento-card" data-offer="landing-pages-portal" data-category="landing-pages">
@@ -487,7 +508,6 @@
           <!-- placeholder: cards de segmento movidos para tecnologia/ecommerce/index.html em 2026-07-30 -->
           </div><!-- /showcase-viewport -->
         </div><!-- /max-w-7xl -->
-      </div><!-- /section#soluções -->
     </section>
 
     <section id="processo" class="w-full py-20 md:py-24 px-5 border-t border-white/5">
