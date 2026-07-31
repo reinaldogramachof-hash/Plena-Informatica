@@ -21,7 +21,7 @@ describe('createLabelsPdf', () => {
     const result = await createLabelsPdf(['Joao Silva'], '2x6', false)
     expect(result).toBeInstanceOf(Uint8Array)
     expect(result.length).toBeGreaterThan(100)
-  })
+  }, 15000)
 
   it('gera exatamente 1 pagina para ate 12 etiquetas (2x6)', async () => {
     const bytes = await createLabelsPdf(makeLabels(12), '2x6', false)

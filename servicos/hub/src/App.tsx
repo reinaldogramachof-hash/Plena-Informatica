@@ -7,8 +7,6 @@ import { ToolPageLayout } from './app/ToolPageLayout'
 import { getToolBySlug } from './app/tool-registry'
 import './styles/app.css'
 
-const ClientProposalPage = lazy(() => import('./features/proposals/ui/ClientProposalPage').then((m) => ({ default: m.ClientProposalPage })))
-
 const BusinessCardCreatorTool = lazy(() => import('./features/tools/business-card-creator/ui/BusinessCardCreatorTool').then((m) => ({ default: m.BusinessCardCreatorTool })))
 const DeclarationBuilderTool = lazy(() => import('./features/tools/declaration-builder/ui/DeclarationBuilderTool').then((m) => ({ default: m.DeclarationBuilderTool })))
 const ImagesToPdfTool = lazy(() => import('./features/tools/images-to-pdf/ui/ImagesToPdfTool').then((m) => ({ default: m.ImagesToPdfTool })))
@@ -61,7 +59,6 @@ export default function App() {
           <Route path="/" element={<Navigate to="/catalogo" replace />} />
           <Route path="/catalogo" element={<CatalogRedirect />} />
           <Route path="/ferramentas/:slug" element={<ToolRoute />} />
-          <Route path="/propostas" element={<ClientProposalPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>

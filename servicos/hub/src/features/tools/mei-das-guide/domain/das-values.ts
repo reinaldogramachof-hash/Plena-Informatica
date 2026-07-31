@@ -1,7 +1,7 @@
 /**
  * Valores oficiais do DAS-MEI — Competencia 2026
  *
- * Conferencia: 2026-01-02
+ * Conferencia: 2026-07-31
  * Fonte: Receita Federal do Brasil — Simples Nacional
  * URL:   https://www8.receita.fazenda.gov.br/simplesnacional/Noticias/NoticiaCompleta.aspx?id=c3b2044c-ff97-432a-b33c-ecf2a3df6dc3
  * Base legal: Decreto n. 12.797, de 23 de dezembro de 2025
@@ -42,17 +42,17 @@ export const INSS_MEI  = 81.05  // 5% x R$ 1.621,00
 export const ISS_MEI   = 5.00
 export const ICMS_MEI  = 1.00
 
-const SOURCE_URL   = 'https://www.gov.br/empresas-e-negocios/pt-br/empreendedor/perguntas-frequentes/pagamento-da-contribuicao-mensal-carne-mensal/qual-o-valor-das-contribuicoes'
-const SOURCE_LABEL = 'Portal do Empreendedor - Gov.br (atualizado em 02/01/2026)'
+const SOURCE_URL   = 'https://www8.receita.fazenda.gov.br/simplesnacional/Noticias/NoticiaCompleta.aspx?id=c3b2044c-ff97-432a-b33c-ecf2a3df6dc3'
+const SOURCE_LABEL = 'Receita Federal - Simples Nacional (publicado em 02/01/2026)'
 const YEAR         = 2026
-const CHECKED_AT   = '2026-07-13'
+const CHECKED_AT   = '2026-07-31'
 
 /**
  * Retorna os componentes do DAS e o total para a atividade informada.
  * Os valores sao fixos oficiais; nao ha calculo proporcional nem sobre salario.
  */
 export function getDasInfo(activity: ActivityType): DasInfo {
-  const isFreight = activity.startsWith('freight-')
+  const isFreight = activity === 'freight' || activity.startsWith('freight-')
   const inssValue = isFreight ? 194.52 : INSS_MEI
   const inssNote = isFreight
     ? 'Previdencia social — 12% do salario-minimo (R$ 1.621,00) para transporte de cargas'
@@ -83,6 +83,7 @@ export function getDasInfo(activity: ActivityType): DasInfo {
     activity === 'services' ||
     activity === 'both' ||
     activity === 'transport' ||
+    activity === 'freight' ||
     activity === 'freight-services' ||
     activity === 'freight-both'
   ) {

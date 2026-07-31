@@ -17,8 +17,8 @@ describe('tabela oficial do DAS-MEI 2026 para caminhoneiros', () => {
         expectedComponents,
       )
       expect(info.total).toBeCloseTo(expectedTotal)
-      expect(info.checkedAt).toBe('2026-07-13')
-      expect(info.sourceUrl).toContain('gov.br')
+      expect(info.checkedAt).toBe('2026-07-31')
+      expect(info.sourceUrl).toContain('receita.fazenda.gov.br')
     },
   )
 })

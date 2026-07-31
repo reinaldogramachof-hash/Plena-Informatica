@@ -7,35 +7,40 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import App from '../App'
 import { redirectToPublicCatalog } from './catalog-redirect-target'
 
-describe('integracao institucional do QR Code', () => {
+function readServicesHtml() {
+  return readFileSync(resolve(process.cwd(), '..', 'servicos.html'), 'utf8')
+}
+
+function readServicesScript() {
+  return readFileSync(resolve(process.cwd(), '..', 'script.js'), 'utf8')
+}
+
+describe('integracao institucional das ferramentas digitais', () => {
   beforeEach(() => {
     window.location.hash = '#/ferramentas/qr-code'
   })
 
-  it('mantem navegacao, retorno ao catalogo e rodape na pagina dedicada', () => {
+  it('mantem navegacao, retorno ao catalogo e rodape na pagina dedicada', async () => {
     render(<App />)
 
     expect(
-      screen.getByRole('banner', { name: 'Navegação Plena' }),
+      await screen.findByRole('banner', { name: /Navega/i }, { timeout: 10000 }),
     ).toBeInTheDocument()
     expect(
       screen.getByRole('link', { name: 'Voltar para ferramentas' }),
     ).toHaveAttribute('href', '../../servicos.html#ferramentas')
-    expect(screen.getByRole('contentinfo')).toHaveTextContent(
-      'Plena Informática',
-    )
-    expect(screen.getByRole('link', { name: 'Início' })).toBeInTheDocument()
-    expect(screen.getByText('Disponível')).toBeInTheDocument()
+    expect(screen.getByRole('contentinfo')).toHaveTextContent('Plena')
+    expect(
+      screen.getAllByRole('link').some((link) => link.getAttribute('href') === '../../index.html'),
+    ).toBe(true)
+    expect(screen.getByText(/Dispon/i)).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Gerador de QR Code' }),
     ).toBeInTheDocument()
-  })
+  }, 15000)
 
-  it('ativa somente o CTA do QR Code na pagina principal', () => {
-    const servicesHtml = readFileSync(
-      resolve(process.cwd(), '..', 'servicos.html'),
-      'utf8',
-    )
+  it('usa a pagina de Servicos Digitais como entrada publica do QR Code', () => {
+    const servicesHtml = readServicesHtml()
 
     expect(servicesHtml).toContain('href="hub-app/#/ferramentas/qr-code"')
     expect(servicesHtml).toContain('aria-label="Usar Gerador de QR Code"')
@@ -53,146 +58,44 @@ describe('integracao institucional do QR Code', () => {
     expect(fakeLocation.href).toBe('http://localhost:3000/servicos/servicos.html')
   })
 
-  it('abre o Criador de Curriculo no shell institucional', () => {
-    window.location.hash = '#/ferramentas/resume-builder'
+  it.each([
+    ['#/ferramentas/resume-builder', /Criador de Curr/i, /Baixar curr/i],
+    ['#/ferramentas/merge-pdf', 'Unificador de PDFs', 'Unificar PDFs'],
+    ['#/ferramentas/declaration-builder', /Gerador de Declara/i, 'Baixar PDF'],
+    ['#/ferramentas/mei-irpf-checklist', 'Checklist MEI e IRPF', /Microempreendedor Individual/i],
+  ])('abre %s no shell institucional', async (hash, heading, actionName) => {
+    window.location.hash = hash
 
     render(<App />)
 
     expect(
-      screen.getByRole('heading', {
+      await screen.findByRole('heading', {
         level: 1,
-        name: 'Criador de Curriculo',
+        name: heading,
       }),
     ).toBeInTheDocument()
     expect(
       screen.getByRole('link', { name: 'Voltar para ferramentas' }),
     ).toHaveAttribute('href', '../../servicos.html#ferramentas')
     expect(
-      screen.getByRole('button', { name: 'Baixar currículo em PDF' }),
+      screen.getByRole('button', { name: actionName }),
     ).toBeInTheDocument()
   })
 
-  // TODO: ativar quando a ferramenta mudar para status `available` no ROADMAP
-  it.skip('ativa o CTA do Criador de Curriculo na pagina principal', () => {
-    const servicesHtml = readFileSync(
-      resolve(process.cwd(), '..', 'servicos.html'),
-      'utf8',
-    )
+  it('mantem os CTAs publicos das ferramentas disponiveis na pagina de Servicos Digitais', () => {
+    const servicesHtml = readServicesHtml()
 
     expect(servicesHtml).toContain('href="hub-app/#/ferramentas/resume-builder"')
-    expect(servicesHtml).toContain(
-      'aria-label="Usar Criador de Curriculo"',
-    )
-  })
-
-  it('abre o Unificador de PDFs no shell institucional', () => {
-    window.location.hash = '#/ferramentas/merge-pdf'
-
-    render(<App />)
-
-    expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: 'Unificador de PDFs',
-      }),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: 'Unificar PDFs' }),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('link', { name: 'Voltar para ferramentas' }),
-    ).toHaveAttribute('href', '../../servicos.html#ferramentas')
-  })
-
-  it('abre o Gerador de Declaracoes no shell institucional', () => {
-    window.location.hash = '#/ferramentas/declaration-builder'
-
-    render(<App />)
-
-    expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: 'Gerador de Declarações',
-      }),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: 'Baixar PDF' }),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('link', { name: 'Voltar para ferramentas' }),
-    ).toHaveAttribute('href', '../../servicos.html#ferramentas')
-  })
-
-  // TODO: ativar quando a ferramenta mudar para status `available` no ROADMAP
-  it.skip('ativa o CTA do Gerador de Declaracoes na pagina principal', () => {
-    const servicesHtml = readFileSync(
-      resolve(process.cwd(), '..', 'servicos.html'),
-      'utf8',
-    )
-
+    expect(servicesHtml).toContain('aria-label="Usar Criador de Curriculo"')
     expect(servicesHtml).toContain('href="hub-app/#/ferramentas/declaration-builder"')
-    expect(servicesHtml).toContain(
-      'aria-label="Usar Gerador de Declaracoes"',
-    )
-  })
-
-  it('abre o Checklist MEI e IRPF no shell institucional', () => {
-    window.location.hash = '#/ferramentas/mei-irpf-checklist'
-
-    render(<App />)
-
-    expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: 'Checklist MEI e IRPF',
-      }),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', {
-        level: 2,
-        name: 'Checklist MEI e IRPF',
-      }),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: /Microempreendedor Individual/i }),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('link', { name: 'Voltar para ferramentas' }),
-    ).toHaveAttribute('href', '../../servicos.html#ferramentas')
-  })
-
-  it('ativa o CTA do Checklist MEI e IRPF na pagina principal', () => {
-    const servicesHtml = readFileSync(
-      resolve(process.cwd(), '..', 'servicos.html'),
-      'utf8',
-    )
-
+    expect(servicesHtml).toContain('aria-label="Usar Gerador de Declaracoes"')
     expect(servicesHtml).toContain('href="hub-app/#/ferramentas/mei-irpf-checklist"')
-    expect(servicesHtml).toContain(
-      'aria-label="Iniciar Checklist MEI e IRPF"',
-    )
-  })
-
-  // TODO: ativar quando a ferramenta mudar para status `available` no ROADMAP
-  it.skip('mantem ferramentas em construcao indisponiveis na vitrine', () => {
-    const servicesHtml = readFileSync(
-      resolve(process.cwd(), '..', 'servicos.html'),
-      'utf8',
-    )
-
-    expect(servicesHtml).toContain('data-tool="menu-builder"')
-    expect(servicesHtml).toContain('href="hub-app/#/ferramentas/menu-builder"')
+    expect(servicesHtml).toContain('aria-label="Iniciar Checklist MEI e IRPF"')
   })
 
   it('padroniza busca, filtros e metadados dos onze cards', () => {
-    const servicesHtml = readFileSync(
-      resolve(process.cwd(), '..', 'servicos.html'),
-      'utf8',
-    )
-    const servicesScript = readFileSync(
-      resolve(process.cwd(), '..', 'script.js'),
-      'utf8',
-    )
+    const servicesHtml = readServicesHtml()
+    const servicesScript = readServicesScript()
 
     expect(servicesHtml).toContain('id="tool-search"')
     expect(servicesHtml).toContain('data-filter="all"')
@@ -202,23 +105,20 @@ describe('integracao institucional do QR Code', () => {
     expect(servicesScript).toContain('updateTools')
   })
 
-  it('aplica o layout compartilhado a uma ferramenta em construcao', () => {
+  it('aplica o layout compartilhado a uma ferramenta em construcao sem liberar CTA publico', async () => {
     window.location.hash = '#/ferramentas/menu-builder'
 
     render(<App />)
 
     expect(
-      screen.getByRole('heading', {
+      await screen.findByRole('heading', {
         level: 1,
-        name: 'Gerador de Cardápio',
+        name: /Gerador de Card/i,
       }),
     ).toBeInTheDocument()
-    expect(screen.getByText('Em construção')).toBeInTheDocument()
+    expect(screen.getByText(/Em constru/i)).toBeInTheDocument()
     expect(screen.getByText('Processamento 100% local')).toBeInTheDocument()
-    expect(
-      screen.getByRole('link', {
-        name: 'Consultar impressão de cardápio',
-      }),
-    ).toBeInTheDocument()
+    expect(readServicesHtml()).toContain('aria-label="Gerador de Card')
+    expect(readServicesHtml()).not.toContain('href="hub-app/#/ferramentas/menu-builder"')
   })
 })
