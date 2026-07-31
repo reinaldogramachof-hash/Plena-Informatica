@@ -706,6 +706,51 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   padding-top: 124px;
   padding-bottom: 92px;
 }
+.product-hero-copy {
+  min-width: 0;
+}
+.product-hero-media {
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: clamp(360px, 38vw, 520px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 28px;
+  background: rgba(2, 6, 23, .62);
+  box-shadow: 0 30px 90px -46px rgba(0, 0, 0, .95);
+}
+.product-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 6, 23, .02), rgba(2, 6, 23, .78));
+  pointer-events: none;
+}
+.product-hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.01);
+}
+.product-hero-media span {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin: 0 24px 24px;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 .assistencia-hero h1 {
   max-width: 740px;
   margin: 16px 0 16px;
@@ -1271,8 +1316,7 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   background-image: radial-gradient(circle at 8% 0%, rgba(225, 29, 72, .22), transparent 32rem), radial-gradient(circle at 90% 32%, rgba(168, 85, 247, .12), transparent 26rem), linear-gradient(180deg, #160810, #2A0B1B 48%, #160810);
 }
 .beauty-product-page .assistencia-hero { background-image: linear-gradient(90deg, rgba(22, 8, 16, .98), rgba(22, 8, 16, .9) 45%, rgba(76, 5, 25, .54)), radial-gradient(circle at 78% 30%, rgba(251, 113, 133, .24), transparent 26rem), url("../../herobeleza.png"); background-position: center; background-repeat: no-repeat; background-size: cover; }
-.beauty-product-page .assistencia-hero .beauty-hero-grid { width: 100%; max-width: none; margin: 0; padding-left: clamp(48px, 7.2vw, 152px); padding-right: 24px; grid-template-columns: minmax(0, 780px) 1fr; gap: 0; }
-.beauty-product-page .assistencia-hero .product-demo-panel { display: none; }
+.beauty-product-page .assistencia-hero .beauty-hero-grid { width: 100%; max-width: none; margin: 0; padding-left: clamp(48px, 7.2vw, 152px); padding-right: clamp(24px, 5vw, 96px); grid-template-columns: minmax(0, 780px) minmax(360px, .82fr); gap: clamp(28px, 4vw, 56px); }
 .beauty-product-page .beauty-hero-copy { max-width: 780px; }
 .beauty-product-page .assistencia-hero h1 { max-width: 780px; margin: 14px 0 14px; font-size: clamp(46px, 5vw, 70px); line-height: 1.02; }
 .beauty-product-page .assistencia-hero .lead { max-width: 610px; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.58; }
@@ -1422,6 +1466,7 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
     max-width: 100%;
     overflow: hidden;
   }
+  .product-hero-media { display: none; }
   .assistencia-product-page .hero h1,
   .assistencia-product-page .hero .lead { max-width: 100%; overflow-wrap: normal; }
   .assistencia-product-page .hero .lead { font-size: 16px; line-height: 1.6; }

@@ -90,7 +90,7 @@ button:focus-visible {
 .ec-hero {
   position: relative;
   overflow: hidden;
-  padding: 7rem 1.25rem 5rem;
+  padding: 5.75rem 1.25rem 3.75rem;
   text-align: center;
 }
 
@@ -632,7 +632,7 @@ button:focus-visible {
 
 /* ── Responsividade ──────────────────────────────────────────── */
 @media (max-width: 767px) {
-  .ec-hero { padding: 6rem 1rem 4rem; }
+  .ec-hero { padding: 5rem 1rem 3rem; }
   .section { padding: 3.5rem 1rem; }
   .catalog-card__actions { flex-direction: column; }
   .catalog-card__actions .btn { width: 100%; }

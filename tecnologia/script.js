@@ -153,33 +153,7 @@ const desktopQuery = window.matchMedia('(min-width: 768px)');
 
 // ── Filtros de nicho ──────────────────────────────────────────
 
-const NICHE_FILTERS = {
-  'tab-gestão': [
-    { label: 'Todos', value: '' },
-    { label: 'Com Demo', value: 'demo' },
-    { label: 'Em Implantação', value: 'breve' },
-  ],
-  'tab-landing': [
-    { label: 'Todos', value: '' },
-    { label: 'Captação', value: 'captacao' },
-    { label: 'Lançamento', value: 'lancamento' },
-    { label: 'Eventos', value: 'eventos' },
-    { label: 'Institucional', value: 'institucional' },
-  ],
-  'tab-sites': [
-    { label: 'Todos', value: '' },
-    { label: 'Dados & B.I.', value: 'dados' },
-    { label: 'Sistemas', value: 'sistemas' },
-    { label: 'Presença Digital', value: 'presenca' },
-  ],
-  'tab-ecom': [
-    { label: 'Todos', value: '' },
-    { label: 'Varejo', value: 'varejo' },
-    { label: 'Alimentação', value: 'alimentacao' },
-    { label: 'Serviços Digitais', value: 'servicos' },
-    { label: 'Especialidade', value: 'especialidade' },
-  ],
-};
+const NICHE_FILTERS = {};
 
 // Mapeia data-offer → nicho (null = sempre visível)
 const NICHE_MAP = {
@@ -254,9 +228,17 @@ function injectNicheFilters() {
 }
 
 function showNicheRow(tabId) {
+  let hasRow = false;
   document.querySelectorAll('.niche-filter-row').forEach(row => {
-    row.hidden = row.id !== `niche-row-${tabId}`;
+    const isTarget = row.id === `niche-row-${tabId}`;
+    row.hidden = !isTarget;
+    if (isTarget) hasRow = true;
   });
+
+  const container = document.getElementById('niche-filter-container');
+  if (container) {
+    container.style.display = hasRow ? '' : 'none';
+  }
 }
 
 function onNicheChipClick(tabId, value) {

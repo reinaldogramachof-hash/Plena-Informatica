@@ -427,6 +427,41 @@ button:focus-visible,
 .tech-showcase .system-sample-card {
   min-height: 29rem;
   padding: clamp(1.5rem, 2.5vw, 2rem);
+  gap: 1.25rem;
+}
+
+.system-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 8.5;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 1rem;
+  background: #0f172a;
+  box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.9);
+}
+
+.system-card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(15, 23, 42, 0.14));
+  pointer-events: none;
+}
+
+.system-card-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.01);
+  transition: transform 0.35s ease;
+}
+
+.tech-showcase .system-sample-card:hover .system-card-media img {
+  transform: scale(1.045);
 }
 
 .system-card-content {
