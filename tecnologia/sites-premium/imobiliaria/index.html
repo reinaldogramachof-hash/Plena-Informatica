@@ -103,6 +103,7 @@
       right: 0;
       z-index: 80;
       background: rgba(255, 255, 255, .92);
+      -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(23, 40, 31, .08);
     }
@@ -319,8 +320,8 @@
       display: flex;
       gap: 10px;
       background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: 20px;
       padding: 12px;
@@ -537,6 +538,7 @@
       left: 14px;
       z-index: 1;
       background: rgba(255, 255, 255, .92);
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
       border-radius: 999px;
       padding: 6px 14px;
@@ -1034,7 +1036,7 @@
         <div class="imoveis-grid">
           <article class="imovel reveal">
             <div class="imovel-foto">
-              <div class="cena" style="background:linear-gradient(140deg,#cfe4d8 0%,#9dc7b2 55%,#6fa78e 100%)"></div>
+              <div class="cena bg-cena-1"></div>
               <span class="selo">Lançamento</span>
             </div>
             <div class="imovel-info">
@@ -1048,7 +1050,7 @@
           </article>
           <article class="imovel reveal">
             <div class="imovel-foto">
-              <div class="cena" style="background:linear-gradient(140deg,#e8dcc8 0%,#cdb794 55%,#a98f66 100%)"></div>
+              <div class="cena bg-cena-2"></div>
               <span class="selo">Exclusivo</span>
             </div>
             <div class="imovel-info">
@@ -1062,7 +1064,7 @@
           </article>
           <article class="imovel reveal">
             <div class="imovel-foto">
-              <div class="cena" style="background:linear-gradient(140deg,#d3dde8 0%,#9fb4c8 55%,#71889e 100%)"></div>
+              <div class="cena bg-cena-3"></div>
               <span class="selo">Aluguel</span>
             </div>
             <div class="imovel-info">
@@ -1087,17 +1089,17 @@
           </div>
         </div>
         <div class="cat-grid">
-          <a href="#destaques" class="cat reveal" style="background:linear-gradient(150deg,#1e5c46,#14402f)">
+          <a href="#destaques" class="cat reveal bg-cat-1">
             <span class="seta">→</span>
             <h3>Comprar</h3>
             <p>Apartamentos, casas e terrenos com documentação verificada e negociação assistida.</p>
           </a>
-          <a href="#destaques" class="cat reveal" style="background:linear-gradient(150deg,#2c6e55,#1a4a38)">
+          <a href="#destaques" class="cat reveal bg-cat-2">
             <span class="seta">→</span>
             <h3>Alugar</h3>
             <p>Contratos claros, vistoria fotográfica e atendimento rápido durante toda a locação.</p>
           </a>
-          <a href="#destaques" class="cat reveal" style="background:linear-gradient(150deg,#3b8168,#245844)">
+          <a href="#destaques" class="cat reveal bg-cat-3">
             <span class="seta">→</span>
             <h3>Anunciar meu imóvel</h3>
             <p>Avaliação gratuita, fotos profissionais e divulgação para compradores qualificados.</p>
@@ -1145,19 +1147,19 @@
         </div>
         <div class="corr-grid">
           <article class="corretor reveal">
-            <span class="avatar" style="background:linear-gradient(140deg,#2c6e55,#1e5c46)">PA</span>
+            <span class="avatar bg-avatar-1">PA</span>
             <h3>Paula Andrade</h3>
             <p class="creci">CRECI 000000-F</p>
             <p>Especialista na zona oeste. 9 anos ajudando famílias a encontrar o primeiro apartamento.</p>
           </article>
           <article class="corretor reveal">
-            <span class="avatar" style="background:linear-gradient(140deg,#a98f66,#8a7350)">DT</span>
+            <span class="avatar bg-avatar-2">DT</span>
             <h3>Diego Tavares</h3>
             <p class="creci">CRECI 000000-F</p>
             <p>Alto padrão e condomínios fechados. Negociação direta com proprietários e construtoras.</p>
           </article>
           <article class="corretor reveal">
-            <span class="avatar" style="background:linear-gradient(140deg,#71889e,#566c80)">MF</span>
+            <span class="avatar bg-avatar-3">MF</span>
             <h3>Marina Freitas</h3>
             <p class="creci">CRECI 000000-F</p>
             <p>Locações residenciais e comerciais, com foco em contratos sem dor de cabeça.</p>
@@ -1191,7 +1193,7 @@
     <div class="container">
       <div class="foot-grid">
         <div>
-          <a href="#inicio" class="logo" style="color:#fff;margin-bottom:14px">
+          <a href="#inicio" class="logo foot-logo">
             <span class="logo-mark">
               <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
                 <path d="M9 24V14l7-6 7 6v10h-5v-6h-4v6H9z" fill="#f2f7f4" />
@@ -1199,7 +1201,7 @@
             </span>
             <strong>Alameda Imóveis</strong>
           </a>
-          <p style="max-width:280px">Imobiliária fictícia, criada como modelo demonstrativo de site premium.</p>
+          <p class="foot-desc">Imobiliária fictícia, criada como modelo demonstrativo de site premium.</p>
         </div>
         <div>
           <h4>Navegação</h4>

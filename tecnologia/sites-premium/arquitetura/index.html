@@ -101,6 +101,7 @@
       right: 0;
       z-index: 80;
       background: rgba(16, 16, 18, .85);
+      -webkit-backdrop-filter: blur(14px);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--linha);
     }
@@ -409,6 +410,7 @@
       top: 22px;
       left: 22px;
       background: rgba(16, 16, 18, .75);
+      -webkit-backdrop-filter: blur(6px);
       backdrop-filter: blur(6px);
       border: 1px solid var(--linha);
       border-radius: 999px;
@@ -418,6 +420,28 @@
       padding: 7px 16px;
       color: var(--bronze);
       font-weight: 600;
+    }
+
+    /* Cores de fundo dinâmicas para projetos */
+    .bg-proj-1 { background: linear-gradient(120deg, #3a3428 0%, #57503c 45%, #201e18 100%); }
+    .bg-proj-2 { background: linear-gradient(140deg, #22262e 0%, #39414e 55%, #161a20 100%); }
+    .bg-proj-3 { background: linear-gradient(150deg, #25301f 0%, #3c4a2e 55%, #151b12 100%); }
+    .bg-proj-4 { background: linear-gradient(135deg, #2e2126 0%, #4a3540 55%, #1b1216 100%); }
+    .bg-proj-5 { background: linear-gradient(125deg, #1f262b 0%, #31414a 50%, #131a1e 100%); }
+
+    /* Estilos da Seção Processo que estavam inline */
+    #processo {
+      position: relative;
+      overflow: hidden;
+      background: #141416;
+    }
+    #processo .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    footer .logo strong {
+      font-size: 12px;
     }
 
     .proj-card h3 {
@@ -931,36 +955,31 @@
         </div>
         <div class="proj-grid">
           <a href="#" onclick="return false;" class="proj-card p-span-7 reveal" aria-label="Projeto Casa Horizonte">
-            <div class="proj-visual" style="background:
-              linear-gradient(120deg,#3a3428 0%,#57503c 45%,#201e18 100%);"></div>
+            <div class="proj-visual bg-proj-1"></div>
             <span class="proj-tag">Residencial</span>
             <h3>Casa Horizonte</h3>
             <p>Residência de 420 m² integrada ao desnível natural do terreno, em São José dos Campos.</p>
           </a>
           <a href="#" onclick="return false;" class="proj-card p-span-5 reveal" aria-label="Projeto Sede Vetor">
-            <div class="proj-visual" style="background:
-              linear-gradient(140deg,#22262e 0%,#39414e 55%,#161a20 100%);"></div>
+            <div class="proj-visual bg-proj-2"></div>
             <span class="proj-tag">Corporativo</span>
             <h3>Sede Vetor</h3>
             <p>Retrofit de edifício industrial em escritório aberto para 200 pessoas.</p>
           </a>
           <a href="#" onclick="return false;" class="proj-card p-span-4 reveal" aria-label="Projeto Pavilhão Mata">
-            <div class="proj-visual" style="background:
-              linear-gradient(150deg,#25301f 0%,#3c4a2e 55%,#151b12 100%);"></div>
+            <div class="proj-visual bg-proj-3"></div>
             <span class="proj-tag">Institucional</span>
             <h3>Pavilhão Mata</h3>
             <p>Estrutura em madeira laminada para centro de visitantes.</p>
           </a>
           <a href="#" onclick="return false;" class="proj-card p-span-4 reveal" aria-label="Projeto Loft Vila">
-            <div class="proj-visual" style="background:
-              linear-gradient(135deg,#2e2126 0%,#4a3540 55%,#1b1216 100%);"></div>
+            <div class="proj-visual bg-proj-4"></div>
             <span class="proj-tag">Interiores</span>
             <h3>Loft Vila</h3>
             <p>Reforma completa de 90 m² com marcenaria autoral.</p>
           </a>
           <a href="#" onclick="return false;" class="proj-card p-span-4 reveal" aria-label="Projeto Ponte Leve">
-            <div class="proj-visual" style="background:
-              linear-gradient(125deg,#1f262b 0%,#31414a 50%,#131a1e 100%);"></div>
+            <div class="proj-visual bg-proj-5"></div>
             <span class="proj-tag">Engenharia</span>
             <h3>Ponte Leve</h3>
             <p>Passarela estaiada de 60 m em parque urbano.</p>
@@ -969,9 +988,9 @@
       </div>
     </section>
 
-    <section id="processo" aria-label="Processo de trabalho" style="position: relative; overflow: hidden; background: #141416;">
+    <section id="processo" aria-label="Processo de trabalho">
       <div id="process-canvas" class="webgl-canvas"></div>
-      <div class="container" style="position: relative; z-index: 2;">
+      <div class="container">
         <div class="sec-head reveal">
           <div>
             <span class="kicker">Método</span>
@@ -1067,7 +1086,7 @@
             <rect width="32" height="32" fill="none" stroke="#c8a96a" stroke-width="1.5" />
             <path d="M8 24L16 8l8 16h-4l-4-8-4 8H8z" fill="#c8a96a" />
           </svg>
-          <strong style="font-size:12px">Atelier <em>Forma</em></strong>
+          <strong>Atelier <em>Forma</em></strong>
         </a>
         <span>Av. Exemplo, 500 · São José dos Campos/SP · (12) 0000-0000</span>
       </div>
