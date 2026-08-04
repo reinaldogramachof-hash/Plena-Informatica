@@ -107,6 +107,7 @@
       right: 0;
       z-index: 80;
       background: rgba(17, 17, 17, 0.85);
+      -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       transition: all 0.4s ease;
@@ -164,6 +165,32 @@
     .btn-reserve:hover {
       background: var(--accent-gold);
       color: var(--bg-dark);
+    }
+    
+    .btn-reserve--solid {
+      background: var(--accent-gold);
+      color: var(--bg-dark);
+    }
+    
+    .about-image-inner {
+      background: #1a1a1a;
+      padding: 40px;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .link-gold {
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--accent-gold);
+      padding-bottom: 4px;
+      display: inline-block;
+      margin-top: 16px;
     }
 
     /* ── Hero ──────────────────────────────────────────── */
@@ -448,14 +475,14 @@
         <span class="hero-subtitle">Alta Gastronomia</span>
         <h1 class="hero-title">Onde o sabor encontra <br>a <em>arte</em>.</h1>
         <p class="hero-desc">Uma jornada sensorial através de ingredientes excepcionais, técnica apurada e um ambiente desenhado para celebrar o tempo presente.</p>
-        <a href="#reservas" class="btn-reserve" style="background: var(--accent-gold); color: var(--bg-dark);">Reservar Mesa</a>
+        <a href="#reservas" class="btn-reserve btn-reserve--solid">Reservar Mesa</a>
       </div>
     </section>
 
     <section id="experiencia" class="container">
       <div class="about-grid">
         <div class="about-image">
-          <div style="background: #1a1a1a; padding: 40px; aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center;">
+          <div class="about-image-inner">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
             </svg>
@@ -466,7 +493,7 @@
           <h3>Design. Som. <br><em>Sabor.</em></h3>
           <p>Acreditamos que a verdadeira alta gastronomia não começa no prato, mas no momento em que você cruza nossas portas. Cada detalhe do L'Essence foi meticulosamente projetado para acolher e impressionar.</p>
           <p>Da iluminação cênica que valoriza cada cor do prato à acústica que permite conversas intimistas sem perder a vibração do salão. Aqui, o ambiente é o palco onde a nossa cozinha brilha.</p>
-          <a href="#" style="color: var(--accent-gold); text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid var(--accent-gold); padding-bottom: 4px; display: inline-block; margin-top: 16px;">Conheça nossos ambientes</a>
+          <a href="#" class="link-gold">Conheça nossos ambientes</a>
         </div>
       </div>
     </section>

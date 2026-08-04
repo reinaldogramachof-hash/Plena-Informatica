@@ -107,6 +107,7 @@
       right: 0;
       z-index: 80;
       background: rgba(250, 247, 242, 0.9);
+      -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
       transition: all 0.4s ease;
@@ -268,6 +269,10 @@
       font-size: 2.5rem;
       color: var(--text-dark);
       margin-bottom: 24px;
+    }
+    
+    #tratamentos {
+      background: var(--bg-white);
     }
     
     .section-desc {
@@ -447,7 +452,7 @@
       </div>
     </section>
 
-    <section id="tratamentos" style="background: var(--bg-white);">
+    <section id="tratamentos">
       <div class="container">
         <div class="section-header">
           <span class="section-eyebrow">Nossos Protocolos</span>
