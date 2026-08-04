@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Essence | Alta Gastronomia | Modelo Premium | Plena Informática</title>
+  <meta name="description"
+    content="Modelo demonstrativo de site premium para restaurantes sofisticados e alta gastronomia, criado pela Plena Informática.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111111'/><path d='M16 6L26 26H6L16 6z' fill='%23C0824B'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #111111;
+      --bg-darker: #0a0a0a;
+      --text-main: #F5F5F0;
+      --text-muted: #A3A3A0;
+      --accent-gold: #C0824B;
+      --accent-gold-light: #D4A373;
+      --border-color: rgba(192, 130, 75, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Barra do modelo demonstrativo ─────────────────── */
+    .demo-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: var(--bg-darker);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 12px 20px;
+      font-size: 13px;
+      border-top: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+
+    .demo-bar a {
+      color: var(--bg-darker);
+      background: var(--accent-gold);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: background 0.3s ease;
+    }
+
+    .demo-bar a:hover {
+      background: var(--accent-gold-light);
+    }
+
+    .demo-bar .voltar {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    .demo-bar .voltar:hover {
+      color: var(--text-main);
+      border-color: var(--accent-gold);
+      background: transparent;
+    }
+
+    /* ── Header ────────────────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      background: rgba(17, 17, 17, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.4s ease;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .btn-reserve {
+      border: 1px solid var(--accent-gold);
+      padding: 10px 24px;
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+    }
+
+    .btn-reserve:hover {
+      background: var(--accent-gold);
+      color: var(--bg-dark);
+    }
+
+    /* ── Hero ──────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(17, 17, 17, 0.3), rgba(17, 17, 17, 0.9));
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 800px;
+      padding: 0 24px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 1.2s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .hero-subtitle {
+      display: block;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--accent-gold);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.1;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+    }
+
+    /* ── Seções ────────────────────────────────────────── */
+    section {
+      padding: 120px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent-gold);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--text-main);
+    }
+
+    /* ── Sobre ─────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: 20px;
+      bottom: 20px;
+      border: 1px solid var(--accent-gold);
+      z-index: 1;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 2;
+      filter: grayscale(20%) contrast(1.1);
+    }
+
+    /* ── Menu Destalhe ─────────────────────────────────── */
+    .menu-section {
+      background: var(--bg-darker);
+    }
+
+    .menu-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+      margin-bottom: 32px;
+    }
+
+    .menu-item-info {
+      flex: 1;
+      padding-right: 24px;
+    }
+
+    .menu-item-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .menu-item-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .menu-item-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--accent-gold);
+    }
+
+    .menu-cta {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    /* ── Rodapé ────────────────────────────────────────── */
+    footer {
+      background: #000;
+      padding: 80px 0 40px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: var(--text-main);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .footer-info {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-bottom: 60px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .footer-info div strong {
+      display: block;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .copyright {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* Animações */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .footer-info {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo-bar">
+    <span>L'Essence — Restaurante Sofisticado</span>
+    <a href="../../tecnologia.html#sites-premium" class="voltar">Voltar para tecnologia</a>
+    <a href="#">Simular Atendimento</a>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">L'Esse<span>nce</span></a>
+      <nav class="nav-links">
+        <a href="#experiencia">A Experiência</a>
+        <a href="#menu">Menu</a>
+        <a href="#chef">O Chef</a>
+      </nav>
+      <a href="#reservas" class="btn-reserve">Reservas</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="../assets/gastro-hero.png" alt="Interior sofisticado do restaurante" class="hero-img">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-subtitle">Alta Gastronomia</span>
+        <h1 class="hero-title">Onde o sabor encontra <br>a <em>arte</em>.</h1>
+        <p class="hero-desc">Uma jornada sensorial através de ingredientes excepcionais, técnica apurada e um ambiente desenhado para celebrar o tempo presente.</p>
+        <a href="#reservas" class="btn-reserve" style="background: var(--accent-gold); color: var(--bg-dark);">Reservar Mesa</a>
+      </div>
+    </section>
+
+    <section id="experiencia" class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <div style="background: #1a1a1a; padding: 40px; aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center;">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="section-eyebrow">A Atmosfera</span>
+          <h3>Design. Som. <br><em>Sabor.</em></h3>
+          <p>Acreditamos que a verdadeira alta gastronomia não começa no prato, mas no momento em que você cruza nossas portas. Cada detalhe do L'Essence foi meticulosamente projetado para acolher e impressionar.</p>
+          <p>Da iluminação cênica que valoriza cada cor do prato à acústica que permite conversas intimistas sem perder a vibração do salão. Aqui, o ambiente é o palco onde a nossa cozinha brilha.</p>
+          <a href="#" style="color: var(--accent-gold); text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid var(--accent-gold); padding-bottom: 4px; display: inline-block; margin-top: 16px;">Conheça nossos ambientes</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Amostra do Cardápio</span>
+          <h2 class="section-title">Nossa Assinatura</h2>
+        </div>
+        
+        <div class="menu-list">
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4 class="menu-item-name">Crudo de Vieiras</h4>
+              <p class="menu-item-desc">Vieiras canadenses, emulsão de yuzu, ovas de capelin e azeite de dill.</p>
+            </div>
+            <span class="menu-item-price">86</span>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4 class="menu-item-name">Magret de Canard</h4>
+              <p class="menu-item-desc">Peito de pato grelhado, purê de cenoura caramelizada e redução de frutas vermelhas ao vinho do Porto.</p>
+            </div>
+            <span class="menu-item-price">142</span>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4 class="menu-item-name">Risotto al Tartufo Nero</h4>
+              <p class="menu-item-desc">Arroz Acquerello, trufas negras frescas de Umbria e parmigiano reggiano 36 meses.</p>
+            </div>
+            <span class="menu-item-price">168</span>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4 class="menu-item-name">Texturas de Chocolate</h4>
+              <p class="menu-item-desc">Cacau amazônico 70%, crumble de amêndoas e sorbet de cupuaçu.</p>
+            </div>
+            <span class="menu-item-price">54</span>
+          </div>
+        </div>
+
+        <div class="menu-cta">
+          <a href="#" class="btn-reserve">Ver Menu Completo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span class="footer-logo">L'Esse<span>nce</span></span>
+      <div class="footer-info">
+        <div>
+          <strong>Endereço</strong>
+          <p>Rua Haddock Lobo, 1234<br>Jardins, São Paulo - SP</p>
+        </div>
+        <div>
+          <strong>Horários</strong>
+          <p>Ter a Qui: 19h às 23h30<br>Sex e Sáb: 19h às 00h30</p>
+        </div>
+        <div>
+          <strong>Contato</strong>
+          <p>reservas@lessence.com.br<br>+55 11 99999-0000</p>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 Plena Informática. Modelo demonstrativo de Site Premium para Restaurantes.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -467,13 +467,26 @@ button {
   background: #1b2921;
 }
 
+.portal-card--gastro::before {
+  background: #151515;
+}
+
+.portal-card--beauty::before {
+  background: #fdfaf6;
+}
+
 .portal-card--health {
+  color: #17362f;
+}
+
+.portal-card--beauty {
   color: #17362f;
 }
 
 .portal-card--architecture,
 .portal-card--law,
-.portal-card--realty {
+.portal-card--realty,
+.portal-card--gastro {
   color: #f4f5ef;
 }
 
@@ -515,6 +528,18 @@ button {
   inset: 8% 15% 12% 18%;
   border: 1px solid rgba(143, 199, 174, .8);
   box-shadow: 28px 22px 0 rgba(143, 199, 174, .22), -28px 44px 0 rgba(143, 199, 174, .12);
+}
+
+.portal-card--gastro .card-art::before {
+  inset: 12% 12% 12% 12%;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 16px 16px 0 rgba(212, 175, 55, 0.15);
+}
+
+.portal-card--beauty .card-art::before {
+  inset: 10% 25% 10% 25%;
+  background: rgba(163, 177, 155, 0.15);
+  border-radius: 40px;
 }
 
 .card-status {
