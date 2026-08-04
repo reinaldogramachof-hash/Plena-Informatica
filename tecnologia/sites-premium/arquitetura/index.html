@@ -220,21 +220,7 @@
       padding: 140px 0 90px;
       position: relative;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(16, 16, 18, .2) 0%, rgba(16, 16, 18, .9) 75%),
-        linear-gradient(115deg, #1b1b1f 0%, #232329 45%, #2d2d35 100%);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .5;
-      background-image:
-        linear-gradient(var(--linha) 1px, transparent 1px),
-        linear-gradient(90deg, var(--linha) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(80% 70% at 60% 30%, #000 20%, transparent 75%);
+      background: var(--preto);
     }
 
     .hero::after {
@@ -670,7 +656,16 @@
       transform: none;
     }
 
-    /* ── Imersão: progresso, parallax, blueprint ───────── */
+    .webgl-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Imersão: progresso, parallax ──────────────────── */
     .scroll-progress {
       position: fixed;
       top: 0;
@@ -689,80 +684,6 @@
     .hero::after {
       transform: translate3d(0, calc(var(--par, 0) * -0.1px), 0);
       will-change: transform;
-    }
-
-    .blueprint {
-      position: absolute;
-      right: 3%;
-      top: 11%;
-      width: min(42vw, 540px);
-      opacity: .34;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .blueprint path,
-    .blueprint line,
-    .blueprint rect,
-    .blueprint circle {
-      fill: none;
-      stroke: var(--bronze);
-      stroke-width: 1.1;
-      vector-effect: non-scaling-stroke;
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      animation: draw 2.4s cubic-bezier(.55, 0, .25, 1) forwards;
-    }
-
-    .blueprint .fina {
-      stroke: rgba(244, 241, 234, .4);
-      stroke-width: .7;
-    }
-
-    .blueprint *:nth-child(2) {
-      animation-delay: .25s;
-    }
-
-    .blueprint *:nth-child(3) {
-      animation-delay: .5s;
-    }
-
-    .blueprint *:nth-child(4) {
-      animation-delay: .7s;
-    }
-
-    .blueprint *:nth-child(5) {
-      animation-delay: .9s;
-    }
-
-    .blueprint *:nth-child(6) {
-      animation-delay: 1.1s;
-    }
-
-    .blueprint *:nth-child(7) {
-      animation-delay: 1.3s;
-    }
-
-    .blueprint *:nth-child(8) {
-      animation-delay: 1.5s;
-    }
-
-    .blueprint *:nth-child(9) {
-      animation-delay: 1.7s;
-    }
-
-    .blueprint *:nth-child(10) {
-      animation-delay: 1.9s;
-    }
-
-    .blueprint *:nth-child(11) {
-      animation-delay: 2.1s;
-    }
-
-    @keyframes draw {
-      to {
-        stroke-dashoffset: 0;
-      }
     }
 
     /* ── Imersão: faixa de disciplinas ─────────────────── */
@@ -859,14 +780,6 @@
         animation: none;
       }
 
-      .blueprint path,
-      .blueprint line,
-      .blueprint rect,
-      .blueprint circle {
-        animation: none;
-        stroke-dashoffset: 0;
-      }
-
       .hero::before,
       .hero::after {
         transform: none;
@@ -875,10 +788,6 @@
 
     /* ── Responsivo ────────────────────────────────────── */
     @media (max-width: 960px) {
-      .blueprint {
-        display: none;
-      }
-
       .proj-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -942,6 +851,7 @@
       }
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
@@ -1059,8 +969,9 @@
       </div>
     </section>
 
-    <section id="processo" aria-label="Processo de trabalho">
-      <div class="container">
+    <section id="processo" aria-label="Processo de trabalho" style="position: relative; overflow: hidden; background: #141416;">
+      <div id="process-canvas" class="webgl-canvas"></div>
+      <div class="container" style="position: relative; z-index: 2;">
         <div class="sec-head reveal">
           <div>
             <span class="kicker">Método</span>
@@ -1172,6 +1083,7 @@
       target="_blank" rel="noopener noreferrer">Quero um site assim</a>
   </div>
 
+  <script src="../assets/three.min.js"></script>
   <script>
     (function () {
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1250,6 +1162,152 @@
           });
         });
       }
+
+      // Three.js Integration
+      if (typeof THREE !== 'undefined' && !reduced) {
+        // Hero Scene - Solid Geometric Blocks
+        const initHeroScene = () => {
+          const container = document.getElementById('hero-canvas');
+          if (!container) return;
+          const scene = new THREE.Scene();
+          scene.fog = new THREE.Fog('#101012', 10, 50);
+          
+          const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+          camera.position.set(0, 5, 20);
+          camera.lookAt(0, 0, 0);
+
+          const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+          renderer.setSize(container.clientWidth, container.clientHeight);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          container.appendChild(renderer.domElement);
+
+          const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+          scene.add(ambientLight);
+          const dirLight = new THREE.DirectionalLight(0xffeedd, 0.8);
+          dirLight.position.set(10, 20, 10);
+          scene.add(dirLight);
+
+          const group = new THREE.Group();
+          scene.add(group);
+
+          const material = new THREE.MeshStandardMaterial({
+            color: 0x1e1e22,
+            roughness: 0.8,
+            metalness: 0.1
+          });
+
+          for (let i = 0; i < 25; i++) {
+            const width = Math.random() * 2 + 1;
+            const height = Math.random() * 4 + 1;
+            const depth = Math.random() * 2 + 1;
+            const geometry = new THREE.BoxGeometry(width, height, depth);
+            const mesh = new THREE.Mesh(geometry, material);
+            
+            mesh.position.x = (Math.random() - 0.5) * 30;
+            mesh.position.y = (Math.random() - 0.5) * 15;
+            mesh.position.z = (Math.random() - 0.5) * 30;
+            
+            group.add(mesh);
+          }
+
+          let mouseX = 0;
+          let mouseY = 0;
+          document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+          }, { passive: true });
+
+          const animate = () => {
+            if (!ticking) requestAnimationFrame(animate); // Reuse the ticketing loop or just simple loop
+            group.rotation.y += 0.002;
+            camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+            camera.position.y += (mouseY * 5 + 5 - camera.position.y) * 0.05;
+            camera.lookAt(0, 0, 0);
+            renderer.render(scene, camera);
+          };
+          
+          const loop = () => {
+            animate();
+            requestAnimationFrame(loop);
+          };
+          loop();
+
+          window.addEventListener('resize', () => {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+          });
+        };
+
+        // Process Scene - Holographic Wireframe
+        const initProcessScene = () => {
+          const container = document.getElementById('process-canvas');
+          if (!container) return;
+          const scene = new THREE.Scene();
+          
+          const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+          camera.position.set(0, 8, 12);
+          camera.lookAt(0, 0, 0);
+
+          const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+          renderer.setSize(container.clientWidth, container.clientHeight);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          container.appendChild(renderer.domElement);
+
+          const group = new THREE.Group();
+          scene.add(group);
+
+          const material = new THREE.LineBasicMaterial({ color: 0xc8a96a, transparent: true, opacity: 0.3 });
+
+          for (let i = 0; i < 15; i++) {
+            const width = Math.random() * 3 + 2;
+            const height = Math.random() * 5 + 2;
+            const depth = Math.random() * 3 + 2;
+            const geometry = new THREE.EdgesGeometry(new THREE.BoxGeometry(width, height, depth));
+            const lines = new THREE.LineSegments(geometry, material);
+            
+            lines.position.x = (Math.random() - 0.5) * 20;
+            lines.position.y = (Math.random() - 0.5) * 10;
+            lines.position.z = (Math.random() - 0.5) * 15;
+            
+            group.add(lines);
+          }
+          
+          // Add ground grid
+          const gridHelper = new THREE.GridHelper(40, 20, 0xc8a96a, 0x444444);
+          gridHelper.position.y = -6;
+          gridHelper.material.opacity = 0.15;
+          gridHelper.material.transparent = true;
+          scene.add(gridHelper);
+
+          const loop = () => {
+            group.rotation.x += 0.001;
+            group.rotation.y += 0.0015;
+            renderer.render(scene, camera);
+            requestAnimationFrame(loop);
+          };
+          
+          // Intersection Observer to only render when visible
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                loop();
+              }
+            });
+          });
+          observer.observe(container);
+
+          window.addEventListener('resize', () => {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+          });
+        };
+
+        initHeroScene();
+        initProcessScene();
+      }
+
     })();
   </script>
 
