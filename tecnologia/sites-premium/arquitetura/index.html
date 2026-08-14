@@ -33,12 +33,18 @@
       box-sizing: border-box;
     }
 
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--preto);
       color: var(--marfim);
       -webkit-font-smoothing: antialiased;
       line-height: 1.65;
+      padding-bottom: 58px;
+      overflow-x: hidden;
     }
 
     h1,
@@ -49,27 +55,31 @@
     }
 
     .container {
-      max-width: 1200px;
+      width: 100%;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 clamp(28px, 4vw, 54px);
     }
 
-    /* ── Barra do modelo demonstrativo ─────────────────── */
+    /* Barra do modelo demonstrativo */
     .demo-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       z-index: 90;
-      background: var(--marfim);
+      background: rgba(244, 241, 234, .92);
       color: var(--preto);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 14px;
-      padding: 10px 16px;
+      padding: 9px 16px;
       font-size: 13px;
       flex-wrap: wrap;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 -16px 44px rgba(0, 0, 0, .18);
     }
 
     .demo-bar a {
@@ -93,16 +103,16 @@
       border: 1px solid rgba(16, 16, 18, .35);
     }
 
-    /* ── Header ────────────────────────────────────────── */
+    /* Header */
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 80;
-      background: rgba(16, 16, 18, .85);
-      -webkit-backdrop-filter: blur(14px);
-      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(16, 16, 18, .92), rgba(16, 16, 18, .74));
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--linha);
     }
 
@@ -202,6 +212,7 @@
       border: none;
       cursor: pointer;
       padding: 8px;
+      color: var(--marfim);
     }
 
     .menu-btn span {
@@ -212,61 +223,432 @@
       margin: 5px 0;
     }
 
-    /* ── Hero ──────────────────────────────────────────── */
+    /* Hero */
     .hero {
       min-height: 100svh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 140px 0 90px;
+      justify-content: center;
+      padding: 118px 0 92px;
       position: relative;
       overflow: hidden;
-      background: var(--preto);
+      background: transparent;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -8%;
-      top: 6%;
-      width: 46vw;
-      max-width: 640px;
-      aspect-ratio: 1;
-      background: conic-gradient(from 210deg at 50% 50%, transparent 0deg, rgba(200, 169, 106, .16) 90deg, transparent 200deg);
-      filter: blur(2px);
-    }
 
     .hero .container {
       position: relative;
-      z-index: 2;
+      z-index: 3;
+      width: 100%;
     }
+
+    /* Layout Fixo de Profundidade */
+    .viewport-fixed {
+      position: fixed;
+      inset: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(16, 16, 18, .96) 0%, rgba(16, 16, 18, .70) 44%, rgba(16, 16, 18, .90) 100%),
+        var(--preto);
+    }
+
+    .viewport-fixed::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(16, 16, 18, .76), transparent 24%, transparent 70%, rgba(16, 16, 18, .76)),
+        linear-gradient(90deg, rgba(16, 16, 18, .78), transparent 34%, transparent 72%, rgba(16, 16, 18, .62));
+    }
+
+    .project-evolution {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background: #101012;
+    }
+
+    .evolution-stage {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0;
+      transform: scale(.92);
+      transition: opacity 1.15s cubic-bezier(.25, 1, .5, 1), transform 1.45s cubic-bezier(.25, 1, .5, 1), filter 1.15s ease;
+      will-change: opacity, transform, filter;
+    }
+
+    .evolution-stage::before,
+    .evolution-stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .stage-blueprint::before,
+    .stage-materials::before,
+    .stage-construction::before,
+    .stage-delivery::before {
+      opacity: .42;
+      background: var(--stage-ambient);
+    }
+
+    .stage-image {
+      position: absolute;
+      top: 24%;
+      bottom: 24%;
+      left: 46%;
+      right: 5%;
+      z-index: 2;
+      background-image: var(--stage-image, none);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: saturate(.92) contrast(1.05);
+      opacity: 0;
+      transform: translate3d(0, 26px, 0) scale(.86);
+      transform-origin: center center;
+      border: 1px solid rgba(244, 241, 234, .16);
+      border-radius: 6px;
+      background-color: rgba(244, 241, 234, .045);
+      box-shadow: 0 36px 120px rgba(0, 0, 0, .42), 0 0 0 1px rgba(200, 169, 106, .10) inset;
+      transition: opacity 1.15s cubic-bezier(.25, 1, .5, 1), transform 1.45s cubic-bezier(.25, 1, .5, 1), filter 1.15s ease;
+      overflow: hidden;
+    }
+
+    .stage-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(120deg, rgba(244, 241, 234, .18), transparent 34%),
+        linear-gradient(180deg, rgba(16, 16, 18, .08), rgba(16, 16, 18, .38));
+    }
+
+    .stage-image::after {
+      content: attr(data-stage-label);
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      z-index: 2;
+      color: rgba(244, 241, 234, .78);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, .7);
+    }
+
+    .evolution-stage.image-left .stage-image {
+      left: 5%;
+      right: 46%;
+    }
+
+    .evolution-stage.is-current {
+      z-index: 3;
+      opacity: 1;
+      transform: scale(1);
+      filter: none;
+    }
+
+    .evolution-stage.is-current .stage-image {
+      opacity: var(--stage-image-opacity, 0);
+      transform: scale(1);
+    }
+
+    .evolution-stage.is-previous {
+      z-index: 1;
+      opacity: .24;
+      transform: scale(.88);
+      filter: saturate(.72) blur(.5px);
+    }
+
+    .evolution-stage.is-previous .stage-image {
+      opacity: .26;
+      transform: scale(.78);
+    }
+
+    .stage-blueprint {
+      --stage-image: url("assets/atelier-planta-baixa.png");
+      --stage-image-opacity: .92;
+      --stage-ambient:
+        linear-gradient(rgba(244, 241, 234, .05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 241, 234, .04) 1px, transparent 1px),
+        radial-gradient(circle at 68% 44%, rgba(200, 169, 106, .16), transparent 28%);
+      background:
+        radial-gradient(circle at 68% 44%, rgba(200, 169, 106, .16), transparent 28%),
+        linear-gradient(rgba(244, 241, 234, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 241, 234, .035) 1px, transparent 1px),
+        linear-gradient(135deg, #121216, #080809 72%);
+      background-size: auto, 74px 74px, 74px 74px, auto;
+    }
+
+    .stage-blueprint::after {
+      background:
+        linear-gradient(34deg, transparent 44%, rgba(200, 169, 106, .20) 44.4%, transparent 45.2%),
+        linear-gradient(146deg, transparent 52%, rgba(244, 241, 234, .12) 52.3%, transparent 53%);
+      opacity: .45;
+    }
+
+    .stage-materials {
+      --stage-image: url("assets/atelier-paredes-erguidas.png");
+      --stage-image-opacity: .94;
+      --stage-ambient:
+        linear-gradient(118deg, rgba(76, 69, 54, .42) 0 26%, transparent 26.4%),
+        repeating-linear-gradient(90deg, rgba(244, 241, 234, .05) 0 1px, transparent 1px 18px),
+        radial-gradient(circle at 72% 46%, rgba(244, 241, 234, .12), transparent 22%);
+      background:
+        linear-gradient(118deg, rgba(76, 69, 54, .74) 0 26%, transparent 26.4%),
+        linear-gradient(146deg, transparent 0 58%, rgba(198, 175, 126, .18) 58.4% 70%, transparent 70.4%),
+        radial-gradient(circle at 72% 46%, rgba(244, 241, 234, .14), transparent 22%),
+        linear-gradient(135deg, #151515, #0a0a0b 72%);
+    }
+
+    .stage-materials::before {
+      background:
+        repeating-linear-gradient(90deg, rgba(244, 241, 234, .06) 0 1px, transparent 1px 18px),
+        repeating-linear-gradient(0deg, rgba(200, 169, 106, .05) 0 1px, transparent 1px 22px);
+      opacity: .34;
+      mask-image: linear-gradient(90deg, transparent, #000 34%, #000 74%, transparent);
+    }
+
+    .stage-construction {
+      --stage-image: url("assets/atelier-acabamento-vista-superior.png");
+      --stage-image-opacity: .94;
+      --stage-ambient:
+        radial-gradient(circle at 56% 42%, rgba(200, 169, 106, .18), transparent 24%),
+        linear-gradient(90deg, rgba(15, 15, 16, .86), transparent 54%, rgba(15, 15, 16, .70));
+      background:
+        linear-gradient(90deg, rgba(15, 15, 16, .95), rgba(15, 15, 16, .34) 54%, rgba(15, 15, 16, .72)),
+        radial-gradient(circle at 66% 50%, rgba(200, 169, 106, .24), transparent 24%),
+        linear-gradient(150deg, #111113, #1a1712 46%, #080809);
+    }
+
+    .stage-construction::before {
+      background:
+        linear-gradient(90deg, transparent 0 57%, rgba(200, 169, 106, .16) 57.2% 57.8%, transparent 58%),
+        linear-gradient(78deg, transparent 0 42%, rgba(244, 241, 234, .13) 42.1% 42.5%, transparent 42.8%),
+        linear-gradient(112deg, transparent 0 64%, rgba(200, 169, 106, .13) 64.1% 64.5%, transparent 64.8%);
+      opacity: .76;
+    }
+
+    .stage-delivery {
+      --stage-image: url("assets/atelier-fachada-final.png");
+      --stage-image-opacity: .96;
+      --stage-ambient:
+        radial-gradient(circle at 68% 42%, rgba(255, 216, 150, .24), transparent 25%),
+        radial-gradient(circle at 78% 76%, rgba(105, 126, 91, .20), transparent 18%),
+        linear-gradient(90deg, rgba(16, 16, 18, .88), transparent 52%, rgba(16, 16, 18, .58));
+      background:
+        linear-gradient(90deg, rgba(16, 16, 18, .94), rgba(16, 16, 18, .28) 52%, rgba(16, 16, 18, .58)),
+        radial-gradient(circle at 68% 42%, rgba(255, 216, 150, .32), transparent 25%),
+        radial-gradient(circle at 78% 76%, rgba(105, 126, 91, .22), transparent 18%),
+        linear-gradient(135deg, #111113, #241f17 58%, #0a0a0b);
+    }
+
+    .stage-delivery::before {
+      left: 55%;
+      right: 11%;
+      top: 22%;
+      bottom: 18%;
+      border: 1px solid rgba(244, 241, 234, .10);
+      background:
+        linear-gradient(180deg, rgba(244, 241, 234, .16), transparent 42%),
+        linear-gradient(90deg, rgba(200, 169, 106, .16), transparent 52%);
+      box-shadow: 0 0 90px rgba(200, 169, 106, .14);
+      transform: skewY(-5deg);
+    }
+
+    .stage-delivery::after {
+      background:
+        linear-gradient(8deg, transparent 66%, rgba(244, 241, 234, .10) 66.2%, transparent 67%),
+        linear-gradient(176deg, transparent 56%, rgba(200, 169, 106, .18) 56.2%, transparent 57%);
+      opacity: .5;
+    }
+
+    .virtual-scroll-height {
+      height: 450vh;
+      pointer-events: none;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+      grid-template-rows: 1fr;
+      gap: clamp(60px, 7vw, 112px);
+      align-items: center;
+      min-height: calc(100svh - 180px);
+    }
+
+    /* Estilização dos Steps */
+    .content-step {
+      grid-row: 1;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate3d(0, 24px, 0);
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+      max-width: 560px;
+      min-width: 0;
+      text-shadow: 0 18px 54px rgba(0, 0, 0, .46);
+    }
+
+    .content-step[data-step="1"],
+    .content-step[data-step="3"] {
+      grid-column: 1;
+    }
+
+    .content-step[data-step="2"],
+    .content-step[data-step="4"] {
+      grid-column: 2;
+      justify-self: end;
+    }
+
+    .content-step.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: translate3d(0, 0, 0);
+    }
+
+    /* Links de Etapa Ativa */
+    .nav-step-link {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .nav-step-link.active {
+      color: var(--bronze) !important;
+    }
+
+    .nav-step-link::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: var(--bronze);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-step-link.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Timeline de Dots Lateral */
+    .timeline-indicator {
+      position: fixed;
+      right: clamp(28px, 3vw, 54px);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      z-index: 90;
+    }
+
+    .timeline-indicator::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      right: 5px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(200, 169, 106, .32), transparent);
+    }
+
+    .timeline-indicator .dot {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      padding: 0;
+      border: 1px solid rgba(200, 169, 106, .26);
+      border-radius: 50%;
+      background: rgba(244, 241, 234, 0.2);
+      color: inherit;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .timeline-indicator .dot:focus-visible {
+      outline: 1px solid rgba(244, 241, 234, .72);
+      outline-offset: 8px;
+    }
+
+    .timeline-indicator .dot:hover {
+      background: rgba(200, 169, 106, 0.6);
+      transform: scale(1.14);
+    }
+
+    .timeline-indicator .dot.active {
+      background: var(--bronze);
+      border-color: rgba(244, 241, 234, .52);
+      box-shadow: 0 0 0 7px rgba(200, 169, 106, .10);
+      transform: scale(1.16);
+    }
+
+    .timeline-indicator .dot span {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--bronze);
+      letter-spacing: 0.1em;
+      opacity: 0;
+      pointer-events: none;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .timeline-indicator .dot.active span,
+    .timeline-indicator .dot:hover span {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .timeline-indicator {
+        display: none;
+      }
+    }
+
 
     .hero-kicker {
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       color: var(--bronze);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: .28em;
       text-transform: uppercase;
-    }
-
-    .hero-kicker::before {
-      content: "";
-      width: 44px;
-      height: 1px;
-      background: var(--bronze);
+      flex-wrap: wrap;
     }
 
     .hero h1 {
-      font-size: clamp(44px, 8vw, 104px);
+      font-size: clamp(44px, 5.9vw, 86px);
       font-weight: 800;
       line-height: .98;
-      letter-spacing: -.02em;
+      letter-spacing: 0;
       text-transform: uppercase;
-      margin-bottom: 34px;
+      margin-bottom: 32px;
     }
 
     .hero h1 .outline {
@@ -276,30 +658,41 @@
 
     .hero-foot {
       display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
+      align-items: flex-start;
+      justify-content: flex-start;
       gap: 30px;
       flex-wrap: wrap;
     }
 
     .hero-foot p {
       max-width: 420px;
-      color: var(--cinza);
+      color: rgba(244, 241, 234, .70);
       font-weight: 300;
-      font-size: 15.5px;
+      font-size: 16px;
+      min-width: 0;
     }
 
     .hero-stats {
       display: flex;
-      gap: 44px;
+      gap: 22px;
+      flex-wrap: wrap;
+      padding-top: 2px;
     }
 
     .stat strong {
       display: block;
       font-family: 'Archivo Expanded', sans-serif;
-      font-size: 30px;
+      font-size: 20px;
       font-weight: 800;
       color: var(--marfim);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .stat {
+      min-width: 0;
+      padding-left: 14px;
+      border-left: 1px solid rgba(200, 169, 106, .42);
     }
 
     .stat small {
@@ -307,9 +700,26 @@
       color: var(--cinza);
       letter-spacing: .1em;
       text-transform: uppercase;
+      display: block;
+      max-width: 130px;
     }
 
-    /* ── Seções ────────────────────────────────────────── */
+    .hero-action {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .hero-action-note {
+      max-width: 220px;
+      color: rgba(244, 241, 234, .52);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    /* Seções */
     section {
       padding: 110px 0;
     }
@@ -328,7 +738,7 @@
       font-weight: 800;
       line-height: 1.02;
       text-transform: uppercase;
-      letter-spacing: -.01em;
+      letter-spacing: 0;
     }
 
     .sec-head h2 span {
@@ -352,7 +762,7 @@
       margin-bottom: 16px;
     }
 
-    /* ── Projetos ──────────────────────────────────────── */
+    /* Projetos */
     .projetos {
       background: var(--carvao);
       border-top: 1px solid var(--linha);
@@ -391,7 +801,9 @@
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(180deg, transparent 30%, rgba(16, 16, 18, .88) 100%);
+      background:
+        linear-gradient(180deg, rgba(16, 16, 18, .08) 0%, rgba(16, 16, 18, .18) 38%, rgba(16, 16, 18, .92) 100%),
+        linear-gradient(90deg, rgba(16, 16, 18, .56), transparent 54%);
     }
 
     .proj-visual {
@@ -399,6 +811,29 @@
       inset: 0;
       z-index: -2;
       transition: transform .6s ease;
+    }
+
+    .proj-visual::before,
+    .proj-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .42;
+      background:
+        linear-gradient(rgba(244, 241, 234, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 241, 234, .06) 1px, transparent 1px);
+      background-size: 52px 52px;
+      -webkit-mask-image: linear-gradient(180deg, #000, transparent 78%);
+      mask-image: linear-gradient(180deg, #000, transparent 78%);
+    }
+
+    .proj-visual::after {
+      inset: 20% 12% 18%;
+      border: 1px solid rgba(244, 241, 234, .18);
+      border-left-color: rgba(200, 169, 106, .42);
+      background: none;
+      transform: skewY(-8deg);
+      opacity: .7;
     }
 
     .proj-card:hover .proj-visual {
@@ -435,6 +870,17 @@
       overflow: hidden;
       background: #141416;
     }
+
+    #processo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(200, 169, 106, .14), transparent 28%),
+        linear-gradient(120deg, rgba(244, 241, 234, .035), transparent 42%);
+      pointer-events: none;
+    }
+
     #processo .container {
       position: relative;
       z-index: 2;
@@ -456,6 +902,25 @@
       font-weight: 300;
     }
 
+    .proj-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .proj-meta span {
+      border: 1px solid rgba(244, 241, 234, .14);
+      background: rgba(16, 16, 18, .5);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: rgba(244, 241, 234, .72);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
     .p-span-7 {
       grid-column: span 7;
     }
@@ -468,7 +933,7 @@
       grid-column: span 4;
     }
 
-    /* ── Processo ──────────────────────────────────────── */
+    /* Processo */
     .proc-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -476,13 +941,28 @@
       border: 1px solid var(--linha);
       border-radius: 4px;
       overflow: hidden;
+      background: rgba(16, 16, 18, .58);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     }
 
     .proc-item {
       padding: 44px 36px;
       border-right: 1px solid var(--linha);
-      background: var(--carvao);
+      background: rgba(23, 23, 26, .78);
       transition: background .3s ease;
+      position: relative;
+    }
+
+    .proc-item::after {
+      content: attr(data-output);
+      display: block;
+      margin-top: 26px;
+      color: rgba(200, 169, 106, .82);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
     }
 
     .proc-item:last-child {
@@ -517,7 +997,7 @@
       font-weight: 300;
     }
 
-    /* ── Estúdio ───────────────────────────────────────── */
+    /* Estúdio */
     .estudio {
       background: var(--carvao);
       border-top: 1px solid var(--linha);
@@ -536,8 +1016,23 @@
       border-radius: 4px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(150deg, #2a2a30 0%, #1c1c20 100%);
+      background:
+        radial-gradient(circle at 72% 22%, rgba(200, 169, 106, .16), transparent 24%),
+        linear-gradient(150deg, #2a2a30 0%, #1c1c20 100%);
       border: 1px solid var(--linha);
+    }
+
+    .estudio-visual::after {
+      content: "compatibilização / estrutura / interiores";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      color: rgba(244, 241, 234, .5);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
     }
 
     .estudio-visual svg {
@@ -599,7 +1094,7 @@
       font-size: clamp(22px, 3vw, 34px);
       font-weight: 500;
       line-height: 1.3;
-      letter-spacing: -.01em;
+      letter-spacing: 0;
       margin-bottom: 30px;
     }
 
@@ -619,7 +1114,7 @@
       font-weight: 600;
     }
 
-    /* ── CTA ───────────────────────────────────────────── */
+    /* CTA */
     .cta {
       border-top: 1px solid var(--linha);
       padding-bottom: 140px;
@@ -645,7 +1140,7 @@
       margin-bottom: 40px;
     }
 
-    /* ── Footer ────────────────────────────────────────── */
+    /* Footer */
     footer {
       border-top: 1px solid var(--linha);
       padding: 54px 0 96px;
@@ -668,7 +1163,7 @@
       max-width: 640px;
     }
 
-    /* ── Reveal ────────────────────────────────────────── */
+    /* Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -680,16 +1175,7 @@
       transform: none;
     }
 
-    .webgl-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* ── Imersão: progresso, parallax ──────────────────── */
+    /* Imersão: progresso, parallax */
     .scroll-progress {
       position: fixed;
       top: 0;
@@ -700,17 +1186,8 @@
       background: linear-gradient(90deg, var(--bronze), var(--bronze-escuro));
     }
 
-    .hero::before {
-      transform: translate3d(0, calc(var(--par, 0) * 0.16px), 0);
-      will-change: transform;
-    }
 
-    .hero::after {
-      transform: translate3d(0, calc(var(--par, 0) * -0.1px), 0);
-      will-change: transform;
-    }
-
-    /* ── Imersão: faixa de disciplinas ─────────────────── */
+    /* Imersão: faixa de disciplinas */
     .band {
       border-top: 1px solid var(--linha);
       border-bottom: 1px solid var(--linha);
@@ -739,9 +1216,9 @@
     }
 
     .band-track span::after {
-      content: "◆";
+      content: "•";
       color: var(--bronze);
-      font-size: 7px;
+      font-size: 8px;
     }
 
     @keyframes band {
@@ -750,7 +1227,7 @@
       }
     }
 
-    /* ── Imersão: spotlight e nav ──────────────────────── */
+    /* Imersão: spotlight e nav */
     .proj-card::before {
       content: "";
       position: absolute;
@@ -804,14 +1281,37 @@
         animation: none;
       }
 
-      .hero::before,
-      .hero::after {
+      .blueprint {
         transform: none;
       }
     }
 
-    /* ── Responsivo ────────────────────────────────────── */
+    /* Responsivo */
     @media (max-width: 960px) {
+      .hero {
+        justify-content: flex-start;
+        padding-top: 112px;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        gap: 34px;
+        min-height: 0;
+        min-width: 0;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .content-step[data-step="1"],
+      .content-step[data-step="2"],
+      .content-step[data-step="3"],
+      .content-step[data-step="4"] {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+
       .proj-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -842,17 +1342,84 @@
     }
 
     @media (max-width: 640px) {
+      body {
+        padding-bottom: 102px;
+      }
+
       section {
         padding: 72px 0;
       }
 
       .nav-links {
         display: none;
+        position: fixed;
+        top: 76px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 18px 28px 24px;
+        background: rgba(16, 16, 18, .97);
+        border-bottom: 1px solid var(--linha);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 14px 0;
       }
 
       .menu-btn {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        top: 18px;
+        right: 24px;
+        z-index: 95;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(200, 169, 106, .35);
+        background: rgba(16, 16, 18, .78);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
       }
+
+      .hero {
+        padding: 104px 0 66px;
+      }
+
+      .hero-content {
+        width: min(300px, calc(100vw - 56px));
+        max-width: min(300px, calc(100vw - 56px));
+      }
+
+      .hero h1 {
+        font-size: clamp(31px, 8.8vw, 38px);
+        line-height: 1.02;
+        width: 100%;
+      }
+
+      .hero-foot p {
+        width: 100%;
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+
+      .hero h1 .outline {
+        -webkit-text-stroke-width: 1.1px;
+      }
+
+      .hero-kicker {
+        font-size: 10px;
+        letter-spacing: .16em;
+        gap: 10px;
+      }
+
+
 
       .proj-grid {
         grid-template-columns: 1fr;
@@ -867,242 +1434,157 @@
       }
 
       .hero-stats {
-        gap: 28px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        width: 100%;
+      }
+
+      .stat strong {
+        font-size: 25px;
+      }
+
+      .stat small {
+        font-size: 9px;
+        letter-spacing: .12em;
+        max-width: 100%;
+        overflow-wrap: anywhere;
       }
 
       .demo-bar {
         font-size: 12px;
+        align-items: center;
+        padding: 10px 12px 12px;
+      }
+
+      .demo-bar span {
+        flex-basis: 100%;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
 
   <header>
     <div class="container nav">
-      <a href="#inicio" class="logo" aria-label="Atelier Forma, início">
+      <a href="#" class="logo nav-step-link active" data-target-step="1" aria-label="Atelier Forma, início">
         <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
           <rect width="32" height="32" fill="none" stroke="#c8a96a" stroke-width="1.5" />
           <path d="M8 24L16 8l8 16h-4l-4-8-4 8H8z" fill="#c8a96a" />
         </svg>
         <strong>Atelier <em>Forma</em></strong>
       </a>
-      <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#projetos">Projetos</a>
-        <a href="#processo">Processo</a>
-        <a href="#estudio">Estúdio</a>
-        <a href="#contato" class="btn">Iniciar projeto</a>
+      <nav class="nav-links" id="site-menu" aria-label="Navegação principal">
+        <a href="#" class="nav-step-link" data-target-step="2">Obra</a>
+        <a href="#" class="nav-step-link" data-target-step="3">Acabamento</a>
+        <a href="#" class="nav-step-link btn" data-target-step="4">Entrega final</a>
       </nav>
-      <button class="menu-btn" aria-label="Abrir menu"
-        onclick="document.querySelector('.nav-links').style.display='flex'">
+      <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main id="inicio">
-
-    <section class="hero" aria-label="Apresentação">
-      <svg class="blueprint" viewBox="0 0 540 420" aria-hidden="true">
-        <line class="fina" x1="20" y1="360" x2="520" y2="360" pathLength="1" />
-        <path d="M120 360V190L270 90l150 100v170" pathLength="1" />
-        <rect x="160" y="240" width="80" height="120" pathLength="1" />
-        <rect x="300" y="240" width="90" height="70" pathLength="1" />
-        <line x1="120" y1="190" x2="420" y2="190" pathLength="1" />
-        <path class="fina" d="M270 90V40" pathLength="1" />
-        <circle cx="270" cy="40" r="6" pathLength="1" />
-        <path class="fina" d="M90 360V180L270 60l180 120v180" pathLength="1" />
-        <line class="fina" x1="60" y1="190" x2="60" y2="360" pathLength="1" />
-        <path class="fina" d="M55 190h10M55 360h10" pathLength="1" />
-        <path class="fina" d="M450 250l40-20M450 310l40-20" pathLength="1" />
-      </svg>
-      <div class="container">
-        <p class="hero-kicker">Arquitetura · Interiores · Engenharia</p>
-        <h1 class="reveal visible">Arquitetura<br><span class="outline">que permanece.</span></h1>
-        <div class="hero-foot">
-          <p>Projetamos espaços que envelhecem bem no concreto, na madeira e na memória de quem os habita.
-            Do estudo preliminar à entrega da obra.</p>
-          <div class="hero-stats" aria-label="Números do estúdio">
-            <div class="stat"><strong data-count="120" data-suffix="+">120+</strong><small>Projetos entregues</small>
-            </div>
-            <div class="stat"><strong data-count="14">14</strong><small>Anos de estúdio</small></div>
-            <div class="stat"><strong data-count="9">9</strong><small>Prêmios de design</small></div>
-          </div>
-        </div>
+  <div class="viewport-fixed">
+    <div class="project-evolution" data-stage="1" aria-hidden="true">
+      <div class="evolution-stage stage-blueprint">
+        <div class="stage-image" data-image-slot="projeto-planta-baixa" data-stage-label="01 · Planta baixa completa"></div>
       </div>
-    </section>
-
-    <div class="band" aria-hidden="true">
-      <div class="band-track">
-        <span>Projeto Executivo</span><span>Arquitetura Residencial</span><span>Interiores</span><span>Engenharia
-          Estrutural</span><span>Retrofit</span><span>Acompanhamento de Obra</span><span>Projeto
-          Executivo</span><span>Arquitetura Residencial</span><span>Interiores</span><span>Engenharia
-          Estrutural</span><span>Retrofit</span><span>Acompanhamento de Obra</span>
+      <div class="evolution-stage stage-materials image-left">
+        <div class="stage-image" data-image-slot="construcao-paredes-erguidas" data-stage-label="02 · Paredes erguidas"></div>
+      </div>
+      <div class="evolution-stage stage-construction">
+        <div class="stage-image" data-image-slot="acabamento-vista-superior" data-stage-label="03 · Acabamento em obra"></div>
+      </div>
+      <div class="evolution-stage stage-delivery image-left">
+        <div class="stage-image" data-image-slot="fachada-final-paisagismo" data-stage-label="04 · Casa pronta"></div>
       </div>
     </div>
+    <main id="inicio">
 
-    <section id="projetos" class="projetos" aria-label="Projetos selecionados">
-      <div class="container">
-        <div class="sec-head reveal">
-          <div>
-            <span class="kicker">Portfólio</span>
-            <h2>Projetos<br><span>selecionados</span></h2>
-          </div>
-          <p>Uma seleção de obras residenciais, corporativas e institucionais conduzidas pelo estúdio nos
-            últimos anos.</p>
-        </div>
-        <div class="proj-grid">
-          <a href="#" onclick="return false;" class="proj-card p-span-7 reveal" aria-label="Projeto Casa Horizonte">
-            <div class="proj-visual bg-proj-1"></div>
-            <span class="proj-tag">Residencial</span>
-            <h3>Casa Horizonte</h3>
-            <p>Residência de 420 m² integrada ao desnível natural do terreno, em São José dos Campos.</p>
-          </a>
-          <a href="#" onclick="return false;" class="proj-card p-span-5 reveal" aria-label="Projeto Sede Vetor">
-            <div class="proj-visual bg-proj-2"></div>
-            <span class="proj-tag">Corporativo</span>
-            <h3>Sede Vetor</h3>
-            <p>Retrofit de edifício industrial em escritório aberto para 200 pessoas.</p>
-          </a>
-          <a href="#" onclick="return false;" class="proj-card p-span-4 reveal" aria-label="Projeto Pavilhão Mata">
-            <div class="proj-visual bg-proj-3"></div>
-            <span class="proj-tag">Institucional</span>
-            <h3>Pavilhão Mata</h3>
-            <p>Estrutura em madeira laminada para centro de visitantes.</p>
-          </a>
-          <a href="#" onclick="return false;" class="proj-card p-span-4 reveal" aria-label="Projeto Loft Vila">
-            <div class="proj-visual bg-proj-4"></div>
-            <span class="proj-tag">Interiores</span>
-            <h3>Loft Vila</h3>
-            <p>Reforma completa de 90 m² com marcenaria autoral.</p>
-          </a>
-          <a href="#" onclick="return false;" class="proj-card p-span-4 reveal" aria-label="Projeto Ponte Leve">
-            <div class="proj-visual bg-proj-5"></div>
-            <span class="proj-tag">Engenharia</span>
-            <h3>Ponte Leve</h3>
-            <p>Passarela estaiada de 60 m em parque urbano.</p>
-          </a>
-        </div>
-      </div>
-    </section>
+      <section class="hero" aria-label="Apresentação">
+        <div class="container">
+          <div class="hero-layout">
 
-    <section id="processo" aria-label="Processo de trabalho">
-      <div id="process-canvas" class="webgl-canvas"></div>
-      <div class="container">
-        <div class="sec-head reveal">
-          <div>
-            <span class="kicker">Método</span>
-            <h2>Do briefing<br><span>à chave na mão</span></h2>
-          </div>
-          <p>Um processo transparente, com etapas e entregas definidas em contrato desde o primeiro dia.</p>
-        </div>
-        <div class="proc-grid reveal">
-          <div class="proc-item">
-            <span class="proc-num">01</span>
-            <h3>Escuta &amp; Estudo</h3>
-            <p>Imersão no terreno, na rotina e no orçamento. O estudo preliminar nasce do que é real, não do que é
-              tendência.</p>
-          </div>
-          <div class="proc-item">
-            <span class="proc-num">02</span>
-            <h3>Projeto Executivo</h3>
-            <p>Detalhamento arquitetônico, estrutural e complementar, compatibilizado em modelo 3D
-              único.</p>
-          </div>
-          <div class="proc-item">
-            <span class="proc-num">03</span>
-            <h3>Obra Acompanhada</h3>
-            <p>Visitas técnicas periódicas e gestão de fornecedores até a entrega, com relatório fotográfico por
-              etapa.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="estudio" class="estudio" aria-label="O estúdio">
-      <div class="container estudio-grid">
-        <div class="estudio-visual reveal" role="img" aria-label="Composição geométrica representando o estúdio">
-          <svg viewBox="0 0 400 440" aria-hidden="true">
-            <rect width="400" height="440" fill="none" />
-            <line x1="0" y1="330" x2="400" y2="330" stroke="rgba(244,241,234,.18)" stroke-width="1" />
-            <rect x="60" y="140" width="150" height="190" fill="none" stroke="#c8a96a" stroke-width="1.5" />
-            <rect x="150" y="80" width="190" height="250" fill="none" stroke="rgba(244,241,234,.35)" stroke-width="1" />
-            <line x1="60" y1="140" x2="150" y2="80" stroke="rgba(244,241,234,.25)" stroke-width="1" />
-            <line x1="210" y1="140" x2="340" y2="80" stroke="rgba(244,241,234,.25)" stroke-width="1" />
-            <circle cx="300" cy="210" r="34" fill="none" stroke="#c8a96a" stroke-width="1" />
-            <path d="M60 330l75-95 75 95" fill="none" stroke="rgba(200,169,106,.6)" stroke-width="1.5" />
-          </svg>
-        </div>
-        <div class="estudio-txt reveal">
-          <span class="kicker">O estúdio</span>
-          <h2>Desenho técnico, olhar de autor.</h2>
-          <p>O Atelier Forma reúne arquitetos e engenheiros sob o mesmo teto e a mesma prancheta. Projetamos e
-            calculamos juntos, o que elimina o vai-e-vem entre projeto bonito e projeto possível.</p>
-          <p>Cada obra sai do papel com orçamento rastreável, cronograma realista e um responsável técnico que
-            acompanha do primeiro risco à entrega das chaves.</p>
-          <div class="assinaturas">
-            <div class="assinatura">
-              <span class="cargo">Arquitetura</span>
-              <strong>Marina Duarte</strong>
-              <small>CAU A00000-0</small>
+            <div class="hero-content content-step active" data-step="1" id="atelier-step-1">
+              <p class="hero-kicker">Projeto arquitetônico</p>
+              <h1 class="reveal visible">A casa<br><span class="outline">nasce<br>no papel.</span></h1>
+              <div class="hero-foot">
+                <p>A primeira cena apresenta a planta baixa completa: partido, circulação, áreas molhadas, aberturas e proporção geral da mesma casa que será revelada ao final.</p>
+                <div class="hero-stats" aria-label="Eixos do modelo">
+                  <div class="stat"><strong>Planta</strong><small>Forma base</small></div>
+                  <div class="stat"><strong>Fluxo</strong><small>Uso dos ambientes</small></div>
+                  <div class="stat"><strong>Volume</strong><small>Previsão da fachada</small></div>
+                </div>
+              </div>
             </div>
-            <div class="assinatura">
-              <span class="cargo">Engenharia</span>
-              <strong>Felipe Sanches</strong>
-              <small>CREA 000000/D</small>
+
+            <div class="hero-content content-step" data-step="2" id="atelier-step-2">
+              <p class="hero-kicker">Obra em elevação</p>
+              <h1 class="reveal">Paredes<br><span class="outline">tomam<br>forma.</span></h1>
+              <div class="hero-foot">
+                <p>A segunda imagem mostra a fase de construção com as paredes erguidas, preservando a mesma implantação, vãos e leitura espacial definida na planta.</p>
+                <div class="hero-stats" aria-label="Marcos da obra">
+                  <div class="stat"><strong>Alvenaria</strong><small>Estrutura visível</small></div>
+                  <div class="stat"><strong>Vãos</strong><small>Portas e janelas</small></div>
+                  <div class="stat"><strong>Escala</strong><small>Casa reconhecível</small></div>
+                </div>
+              </div>
             </div>
+
+            <div class="hero-content content-step" data-step="3" id="atelier-step-3">
+              <p class="hero-kicker">Acabamento em andamento</p>
+              <h1 class="reveal">A obra<br><span class="outline">ganha<br>acabamento.</span></h1>
+              <div class="hero-foot">
+                <p>A terceira cena sobe o ponto de vista: uma vista superior do canteiro com cobertura, esquadrias, revestimentos e acabamento avançando sobre a mesma volumetria.</p>
+                <div class="hero-stats" aria-label="Etapas do processo">
+                  <div class="stat"><strong>Cobertura</strong><small>Volume consolidado</small></div>
+                  <div class="stat"><strong>Acabamento</strong><small>Texturas finais</small></div>
+                  <div class="stat"><strong>Canteiro</strong><small>Projeto em execução</small></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-content content-step" data-step="4" id="atelier-step-4">
+              <p class="hero-kicker">Entrega final</p>
+              <h1 class="reveal">A casa<br><span class="outline">pronta<br>para morar.</span></h1>
+              <div class="hero-foot">
+                <p>A última imagem revela a fachada frontal concluída, com materiais, aberturas e paisagismo integrados ao desenho que começou na planta baixa.</p>
+                <div class="hero-action">
+                  <a href="https://wa.me/5512992191018?text=Ol%C3%A1!%20Naveguei%20no%20site%20do%20Atelier%20Forma%20da%20Plena%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="btn solid">Iniciar conversa</a>
+                  <span class="hero-action-note">Modelo conceitual para apresentação de sites premium da Plena.</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section aria-label="Cenário demonstrativo">
-      <div class="container">
-        <div class="quote reveal">
-          <blockquote>“Cronograma claro no primeiro mês, obra acompanhada de perto e decisões registradas em cada etapa.”</blockquote>
-          <cite><strong>Cenário demonstrativo</strong> · Casa Horizonte</cite>
-        </div>
-      </div>
-    </section>
+    </main>
+  </div>
 
-    <section id="contato" class="cta" aria-label="Contato">
-      <div class="container cta-inner reveal">
-        <span class="kicker">Próximo projeto</span>
-        <h2>Vamos tirar sua obra do papel?</h2>
-        <p>Conte sobre o terreno, o prazo e o sonho. Retornamos com uma proposta de escopo em até 48 horas úteis.</p>
-        <a href="#" class="btn solid" onclick="return false;">Iniciar conversa</a>
-      </div>
-    </section>
+  <div class="timeline-indicator" aria-label="Navegação da apresentação">
+    <button class="dot active" type="button" data-target-step="1" aria-label="Ver planta baixa"><span>Planta</span></button>
+    <button class="dot" type="button" data-target-step="2" aria-label="Ver paredes erguidas"><span>Obra</span></button>
+    <button class="dot" type="button" data-target-step="3" aria-label="Ver acabamento"><span>Acabamento</span></button>
+    <button class="dot" type="button" data-target-step="4" aria-label="Ver entrega final"><span>Entrega</span></button>
+  </div>
 
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="foot">
-        <a href="#inicio" class="logo" aria-label="Atelier Forma">
-          <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="32" fill="none" stroke="#c8a96a" stroke-width="1.5" />
-            <path d="M8 24L16 8l8 16h-4l-4-8-4 8H8z" fill="#c8a96a" />
-          </svg>
-          <strong>Atelier <em>Forma</em></strong>
-        </a>
-        <span>Av. Exemplo, 500 · São José dos Campos/SP · (12) 0000-0000</span>
-      </div>
-      <p class="foot-note">Modelo demonstrativo desenvolvido pela Plena Informática. Estúdio, projetos,
-        profissionais e cenários são fictícios e usados apenas para apresentação de layout.</p>
-    </div>
-  </footer>
+  <div class="virtual-scroll-height"></div>
 
   <div class="demo-bar" role="note" aria-label="Aviso de modelo demonstrativo">
     <span>Você está navegando em um <strong>modelo demonstrativo</strong> da Plena Informática.</span>
-    <a class="voltar" href="../index.html#modelos">← Voltar ao portal</a>
+    <a class="voltar" href="../index.html#modelos">Voltar ao portal</a>
     <a href="https://wa.me/5512992191018?text=Ol%C3%A1!%20Naveguei%20no%20modelo%20de%20site%20premium%20para%20Arquitetura%20%26%20Engenharia%20da%20Plena%20e%20quero%20um%20or%C3%A7amento."
       target="_blank" rel="noopener noreferrer">Quero um site assim</a>
   </div>
 
-  <script src="../assets/three.min.js"></script>
   <script>
     (function () {
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1182,156 +1664,114 @@
         });
       }
 
-      // Three.js Integration
-      if (typeof THREE !== 'undefined' && !reduced) {
-        // Hero Scene - Solid Geometric Blocks
-        const initHeroScene = () => {
-          const container = document.getElementById('hero-canvas');
-          if (!container) return;
-          const scene = new THREE.Scene();
-          scene.fog = new THREE.Fog('#101012', 10, 50);
-          
-          const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-          camera.position.set(0, 5, 20);
-          camera.lookAt(0, 0, 0);
-
-          const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-          renderer.setSize(container.clientWidth, container.clientHeight);
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-          container.appendChild(renderer.domElement);
-
-          const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-          scene.add(ambientLight);
-          const dirLight = new THREE.DirectionalLight(0xffeedd, 0.8);
-          dirLight.position.set(10, 20, 10);
-          scene.add(dirLight);
-
-          const group = new THREE.Group();
-          scene.add(group);
-
-          const material = new THREE.MeshStandardMaterial({
-            color: 0x1e1e22,
-            roughness: 0.8,
-            metalness: 0.1
+      var menuButton = document.querySelector('.menu-btn');
+      var menu = document.getElementById('site-menu');
+      if (menuButton && menu) {
+        menuButton.addEventListener('click', function () {
+          var open = menu.classList.toggle('open');
+          menuButton.setAttribute('aria-expanded', String(open));
+          menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        });
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            menu.classList.remove('open');
+            menuButton.setAttribute('aria-expanded', 'false');
+            menuButton.setAttribute('aria-label', 'Abrir menu');
           });
-
-          for (let i = 0; i < 25; i++) {
-            const width = Math.random() * 2 + 1;
-            const height = Math.random() * 4 + 1;
-            const depth = Math.random() * 2 + 1;
-            const geometry = new THREE.BoxGeometry(width, height, depth);
-            const mesh = new THREE.Mesh(geometry, material);
-            
-            mesh.position.x = (Math.random() - 0.5) * 30;
-            mesh.position.y = (Math.random() - 0.5) * 15;
-            mesh.position.z = (Math.random() - 0.5) * 30;
-            
-            group.add(mesh);
-          }
-
-          let mouseX = 0;
-          let mouseY = 0;
-          document.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-          }, { passive: true });
-
-          const animate = () => {
-            if (!ticking) requestAnimationFrame(animate); // Reuse the ticketing loop or just simple loop
-            group.rotation.y += 0.002;
-            camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
-            camera.position.y += (mouseY * 5 + 5 - camera.position.y) * 0.05;
-            camera.lookAt(0, 0, 0);
-            renderer.render(scene, camera);
-          };
-          
-          const loop = () => {
-            animate();
-            requestAnimationFrame(loop);
-          };
-          loop();
-
-          window.addEventListener('resize', () => {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-          });
-        };
-
-        // Process Scene - Holographic Wireframe
-        const initProcessScene = () => {
-          const container = document.getElementById('process-canvas');
-          if (!container) return;
-          const scene = new THREE.Scene();
-          
-          const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-          camera.position.set(0, 8, 12);
-          camera.lookAt(0, 0, 0);
-
-          const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-          renderer.setSize(container.clientWidth, container.clientHeight);
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-          container.appendChild(renderer.domElement);
-
-          const group = new THREE.Group();
-          scene.add(group);
-
-          const material = new THREE.LineBasicMaterial({ color: 0xc8a96a, transparent: true, opacity: 0.3 });
-
-          for (let i = 0; i < 15; i++) {
-            const width = Math.random() * 3 + 2;
-            const height = Math.random() * 5 + 2;
-            const depth = Math.random() * 3 + 2;
-            const geometry = new THREE.EdgesGeometry(new THREE.BoxGeometry(width, height, depth));
-            const lines = new THREE.LineSegments(geometry, material);
-            
-            lines.position.x = (Math.random() - 0.5) * 20;
-            lines.position.y = (Math.random() - 0.5) * 10;
-            lines.position.z = (Math.random() - 0.5) * 15;
-            
-            group.add(lines);
-          }
-          
-          // Add ground grid
-          const gridHelper = new THREE.GridHelper(40, 20, 0xc8a96a, 0x444444);
-          gridHelper.position.y = -6;
-          gridHelper.material.opacity = 0.15;
-          gridHelper.material.transparent = true;
-          scene.add(gridHelper);
-
-          const loop = () => {
-            group.rotation.x += 0.001;
-            group.rotation.y += 0.0015;
-            renderer.render(scene, camera);
-            requestAnimationFrame(loop);
-          };
-          
-          // Intersection Observer to only render when visible
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                loop();
-              }
-            });
-          });
-          observer.observe(container);
-
-          window.addEventListener('resize', () => {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-          });
-        };
-
-        initHeroScene();
-        initProcessScene();
+        });
       }
+
+      const steps = document.querySelectorAll('.content-step');
+      const menuLinks = document.querySelectorAll('.nav-step-link');
+      const dots = document.querySelectorAll('.timeline-indicator .dot');
+      const projectEvolution = document.querySelector('.project-evolution');
+      const evolutionStages = document.querySelectorAll('.evolution-stage');
+
+      const getActiveStepIndex = () => {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollHeight > 0 ? window.scrollY / scrollHeight : 0;
+        if (progress < 0.20) return 0;
+        if (progress < 0.50) return 1;
+        if (progress < 0.80) return 2;
+        return 3;
+      };
+
+      const updateActiveDOM = (stepIndex) => {
+        if (projectEvolution) {
+          projectEvolution.dataset.stage = String(stepIndex + 1);
+        }
+        evolutionStages.forEach((el, index) => {
+          el.classList.toggle('is-current', index === stepIndex);
+          el.classList.toggle('is-previous', index === stepIndex - 1);
+        });
+        steps.forEach((el, index) => {
+          el.classList.toggle('active', index === stepIndex);
+        });
+        menuLinks.forEach((el) => {
+          const linkStep = parseInt(el.getAttribute('data-target-step'), 10);
+          const active = linkStep === (stepIndex + 1);
+          el.classList.toggle('active', active);
+          if (active) el.setAttribute('aria-current', 'step');
+          else el.removeAttribute('aria-current');
+        });
+        dots.forEach((el, index) => {
+          const active = index === stepIndex;
+          el.classList.toggle('active', active);
+          el.setAttribute('aria-pressed', String(active));
+        });
+      };
+
+      const scrollToStep = (stepNumber) => {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        let targetScrollY = 0;
+        if (stepNumber === 1) targetScrollY = 0;
+        else if (stepNumber === 2) targetScrollY = scrollHeight * 0.35;
+        else if (stepNumber === 3) targetScrollY = scrollHeight * 0.65;
+        else if (stepNumber === 4) targetScrollY = scrollHeight * 0.92;
+        updateActiveDOM(stepNumber - 1);
+
+        try {
+          window.scrollTo({
+            top: targetScrollY,
+            behavior: reduced ? 'auto' : 'smooth'
+          });
+          setTimeout(() => {
+            if (Math.abs(window.scrollY - targetScrollY) > 5) {
+              window.scrollTo({ top: targetScrollY, behavior: 'auto' });
+              updateActiveDOM(stepNumber - 1);
+            }
+          }, 260);
+        } catch (err) {
+          window.scrollTo({ top: targetScrollY, behavior: 'auto' });
+          updateActiveDOM(stepNumber - 1);
+        }
+      };
+
+      menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const step = parseInt(link.getAttribute('data-target-step'), 10);
+          if (step) scrollToStep(step);
+        });
+      });
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          e.preventDefault();
+          const step = parseInt(dot.getAttribute('data-target-step'), 10);
+          if (step) scrollToStep(step);
+        });
+      });
+
+      document.addEventListener('scroll', function () {
+        updateActiveDOM(getActiveStepIndex());
+      }, { passive: true });
+      updateActiveDOM(getActiveStepIndex());
+
 
     })();
   </script>
 
 </body>
-
-</html>
 
 </html>
