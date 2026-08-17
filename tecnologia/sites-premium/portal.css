@@ -171,12 +171,13 @@ button {
   gap: 24px;
 }
 .nav-links a {
-  color: var(--muted);
+  color: #c5cac0;
   text-decoration: none;
-  font-family: 'Pinyon Script', cursive;
-  font-size: 26px;
-  font-weight: 400;
-  transition: color .2s;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  transition: color .2s ease;
 }
 
 .nav-links a:hover {
@@ -492,59 +493,40 @@ button {
 
 .card-art {
   position: absolute;
-  inset: 20px 20px auto auto;
-  width: 48%;
-  aspect-ratio: 1.25;
-  opacity: .95;
+  top: 24px;
+  right: 24px;
+  width: 145px;
+  height: 145px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.card-art::before,
-.card-art::after {
-  content: '';
-  position: absolute;
+.card-art svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
 }
 
-.portal-card--health .card-art::before {
-  inset: 8% 23% 12% 9%;
-  border: 18px solid #fff;
-  border-radius: 2px;
-  box-shadow: 34px 28px 0 rgba(15, 104, 88, .35);
+.portal-card:hover .card-art svg {
+  transform: scale(1.1) rotate(2deg);
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.45));
 }
 
-.portal-card--architecture .card-art::before {
-  inset: 6% 10% 5% 32%;
-  border: 1px solid var(--gold);
-  transform: skewY(-16deg);
-  box-shadow: -55px 80px 0 rgba(244, 245, 239, .1);
-}
-
-.portal-card--law .card-art::before {
-  inset: 15% 14% 9% 14%;
-  border: 1px solid rgba(201, 168, 106, .8);
-  border-radius: 50% 50% 2px 2px;
-}
-
-.portal-card--realty .card-art::before {
-  inset: 8% 15% 12% 18%;
-  border: 1px solid rgba(143, 199, 174, .8);
-  box-shadow: 28px 22px 0 rgba(143, 199, 174, .22), -28px 44px 0 rgba(143, 199, 174, .12);
-}
-
-.portal-card--gastro .card-art::before {
-  inset: 12% 12% 12% 12%;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  box-shadow: 16px 16px 0 rgba(212, 175, 55, 0.15);
-}
-
-.portal-card--beauty .card-art::before {
-  inset: 10% 25% 10% 25%;
-  background: rgba(163, 177, 155, 0.15);
-  border-radius: 40px;
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: auto;
 }
 
 .card-status {
   align-self: flex-start;
-  padding: 6px 9px;
+  padding: 5px 9px;
   border: 1px solid currentColor;
   border-radius: 3px;
   font-size: 10px;
@@ -553,21 +535,58 @@ button {
   text-transform: uppercase;
 }
 
+.card-tag {
+  padding: 5px 9px;
+  background: rgba(0, 0, 0, 0.22);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.portal-card--health .card-tag,
+.portal-card--beauty .card-tag {
+  background: rgba(255, 255, 255, 0.45);
+}
+
 .portal-card h3 {
-  margin: auto 0 8px;
+  margin: 24px 0 8px;
   max-width: 360px;
-  font: 400 clamp(30px, 3.2vw, 46px)/1 'DM Serif Display', Georgia, serif;
+  font: 400 clamp(28px, 3vw, 42px)/1.05 'DM Serif Display', Georgia, serif;
 }
 
 .portal-card p {
   max-width: 390px;
-  margin: 0;
+  margin: 0 0 16px;
   font-size: 14px;
-  opacity: .8;
+  opacity: .85;
+}
+
+.card-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.card-highlights span {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.portal-card--health .card-highlights span,
+.portal-card--beauty .card-highlights span {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .card-link {
-  margin-top: 23px;
+  margin-top: 18px;
   display: inline-flex;
   gap: 9px;
   align-items: center;
@@ -578,6 +597,11 @@ button {
 .card-link::after {
   content: '→';
   font-size: 18px;
+  transition: transform .2s ease;
+}
+
+.portal-card:hover .card-link::after {
+  transform: translateX(4px);
 }
 
 .method {

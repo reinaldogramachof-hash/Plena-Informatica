@@ -24,6 +24,7 @@
       --accent-gold: #C0824B;
       --accent-gold-light: #D4A373;
       --border-color: rgba(192, 130, 75, 0.2);
+      --white-soft: rgba(255, 255, 255, 0.06);
     }
 
     * {
@@ -51,7 +52,7 @@
       padding: 0 24px;
     }
 
-    /* ── Barra do modelo demonstrativo ─────────────────── */
+    /* Barra do modelo demonstrativo */
     .demo-bar {
       position: fixed;
       bottom: 0;
@@ -99,7 +100,7 @@
       background: transparent;
     }
 
-    /* ── Header ────────────────────────────────────────── */
+    /* Header */
     header {
       position: fixed;
       top: 0;
@@ -110,7 +111,6 @@
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.4s ease;
     }
 
     .nav {
@@ -160,27 +160,23 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       transition: all 0.3s ease;
+      display: inline-block;
     }
 
     .btn-reserve:hover {
       background: var(--accent-gold);
       color: var(--bg-dark);
     }
-    
+
     .btn-reserve--solid {
       background: var(--accent-gold);
       color: var(--bg-dark);
     }
-    
-    .about-image-inner {
-      background: #1a1a1a;
-      padding: 40px;
-      aspect-ratio: 4/5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+    .btn-reserve--solid:hover {
+      background: var(--accent-gold-light);
     }
-    
+
     .link-gold {
       color: var(--accent-gold);
       text-decoration: none;
@@ -193,7 +189,7 @@
       margin-top: 16px;
     }
 
-    /* ── Hero ──────────────────────────────────────────── */
+    /* Hero */
     .hero {
       position: relative;
       height: 100vh;
@@ -212,7 +208,7 @@
       height: 100%;
       object-fit: cover;
       z-index: 1;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     .hero-overlay {
@@ -221,7 +217,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(17, 17, 17, 0.3), rgba(17, 17, 17, 0.9));
+      background: linear-gradient(to bottom, rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.95));
       z-index: 2;
     }
 
@@ -230,10 +226,6 @@
       z-index: 3;
       max-width: 800px;
       padding: 0 24px;
-      transform: translateY(20px);
-      opacity: 0;
-      animation: fadeUp 1.2s ease forwards;
-      animation-delay: 0.2s;
     }
 
     .hero-subtitle {
@@ -256,11 +248,35 @@
       font-size: 16px;
       color: var(--text-muted);
       max-width: 500px;
-      margin: 0 auto 40px;
+      margin: 0 auto 36px;
       font-weight: 300;
     }
 
-    /* ── Seções ────────────────────────────────────────── */
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .hero-gastronomy-bar {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 1px solid rgba(212, 175, 55, 0.25);
+    }
+
+    .hero-gastronomy-bar span {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(244, 241, 234, 0.85);
+      letter-spacing: .04em;
+    }
+
+    /* Seções */
     section {
       padding: 120px 0;
     }
@@ -284,7 +300,7 @@
       color: var(--text-main);
     }
 
-    /* ── Sobre ─────────────────────────────────────────── */
+    /* Sobre / Experiência */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -329,9 +345,68 @@
       filter: grayscale(20%) contrast(1.1);
     }
 
-    /* ── Menu Destalhe ─────────────────────────────────── */
+    /* Pilares */
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 80px;
+    }
+
+    .pilar {
+      background: var(--bg-darker);
+      border: 1px solid var(--border-color);
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .pilar:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+    }
+
+    .pilar-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--accent-gold);
+      border-radius: 50%;
+    }
+
+    .pilar h4 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .pilar p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* Menu */
     .menu-section {
       background: var(--bg-darker);
+    }
+
+    .menu-categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .menu-category h3 {
+      font-size: 28px;
+      color: var(--accent-gold);
+      margin-bottom: 32px;
+      font-style: italic;
     }
 
     .menu-list {
@@ -370,6 +445,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 22px;
       color: var(--accent-gold);
+      white-space: nowrap;
     }
 
     .menu-cta {
@@ -377,7 +453,248 @@
       margin-top: 60px;
     }
 
-    /* ── Rodapé ────────────────────────────────────────── */
+    /* Chef */
+    .chef-section {
+      background: var(--bg-dark);
+    }
+
+    .chef-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .chef-image {
+      position: relative;
+    }
+
+    .chef-image::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: -20px;
+      bottom: -20px;
+      border: 1px solid var(--accent-gold);
+      z-index: 0;
+    }
+
+    .chef-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: contrast(1.05);
+    }
+
+    .chef-info h3 {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+
+    .chef-info .chef-role {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent-gold);
+      margin-bottom: 24px;
+    }
+
+    .chef-info p {
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .chef-awards {
+      list-style: none;
+      padding: 0;
+      margin-top: 32px;
+    }
+
+    .chef-awards li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .chef-awards li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Galeria */
+    .galeria-section {
+      background: var(--bg-darker);
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .galeria-item {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.3s ease;
+      filter: grayscale(30%);
+    }
+
+    .galeria-item:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+
+    .galeria-item span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .galeria-item:hover span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Eventos */
+    .eventos-section {
+      background: var(--bg-dark);
+    }
+
+    .eventos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .eventos-text h3 {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+    }
+
+    .eventos-text p {
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .eventos-image {
+      position: relative;
+    }
+
+    .eventos-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Depoimentos */
+    .depoimentos-section {
+      background: var(--bg-darker);
+    }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .depoimento {
+      background: var(--bg-dark);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .depoimento blockquote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-main);
+      margin-bottom: 24px;
+    }
+
+    .depoimento cite {
+      font-style: normal;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .depoimento cite strong {
+      display: block;
+      color: var(--accent-gold);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* Reservas / CTA */
+    .reservas-section {
+      background: var(--bg-dark);
+      padding: 140px 0;
+    }
+
+    .reservas-box {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      padding: 60px 40px;
+      background: var(--bg-darker);
+    }
+
+    .reservas-box h3 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .reservas-box p {
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .reservas-box .btn-reserve {
+      font-size: 14px;
+      padding: 14px 36px;
+    }
+
+    /* Footer */
     footer {
       background: #000;
       padding: 80px 0 40px;
@@ -402,6 +719,7 @@
       margin-bottom: 60px;
       color: var(--text-muted);
       font-size: 14px;
+      flex-wrap: wrap;
     }
 
     .footer-info div strong {
@@ -430,117 +748,397 @@
       }
     }
 
-    @media (max-width: 768px) {
-      .about-grid {
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .about-grid,
+      .chef-grid,
+      .eventos-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .menu-categories {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pilares {
         grid-template-columns: 1fr;
       }
+
+      .depoimentos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        height: 80vh;
+      }
+
       .nav-links {
         display: none;
       }
+
       .footer-info {
         flex-direction: column;
         gap: 32px;
       }
+
       .hero-title {
         font-size: 2.5rem;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-item-price {
+        margin-top: 8px;
+      }
+
+      .galeria-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="demo-bar">
-    <span>L'Essence — Restaurante Sofisticado</span>
-    <a href="../../tecnologia.html#sites-premium" class="voltar">Voltar para tecnologia</a>
-    <a href="#">Simular Atendimento</a>
+  <div class="demo-bar" role="note" aria-label="Aviso de modelo demonstrativo">
+    <span>Você está navegando em um <strong>modelo demonstrativo</strong> da Plena Informática.</span>
+    <a class="voltar" href="../index.html#modelos">Voltar ao portal</a>
+    <a href="https://wa.me/5512992191018?text=Ol%C3%A1!%20Naveguei%20no%20modelo%20de%20site%20premium%20para%20Restaurante%20da%20Plena%20e%20quero%20um%20or%C3%A7amento."
+      target="_blank" rel="noopener noreferrer">Quero um site assim</a>
   </div>
 
   <header>
     <div class="container nav">
       <a href="#" class="logo">L'Esse<span>nce</span></a>
-      <nav class="nav-links">
-        <a href="#experiencia">A Experiência</a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#experiencia">Experiência</a>
         <a href="#menu">Menu</a>
-        <a href="#chef">O Chef</a>
+        <a href="#chef">Chef</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#eventos">Eventos</a>
       </nav>
       <a href="#reservas" class="btn-reserve">Reservas</a>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
-      <img src="../assets/gastro-hero.png" alt="Interior sofisticado do restaurante" class="hero-img">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80"
+        alt="Interior sofisticado do restaurante L'Essence" class="hero-img">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <span class="hero-subtitle">Alta Gastronomia</span>
+        <span class="hero-subtitle">L'Essence • Alta Gastronomia Contemporânea</span>
         <h1 class="hero-title">Onde o sabor encontra <br>a <em>arte</em>.</h1>
         <p class="hero-desc">Uma jornada sensorial através de ingredientes excepcionais, técnica apurada e um ambiente desenhado para celebrar o tempo presente.</p>
-        <a href="#reservas" class="btn-reserve btn-reserve--solid">Reservar Mesa</a>
+        <div class="hero-actions">
+          <a href="#reservas" class="btn-reserve btn-reserve--solid">Reservar Mesa</a>
+          <a href="#menu" class="btn-reserve">Ver Menu Degustação</a>
+        </div>
+        <div class="hero-gastronomy-bar">
+          <span>🍷 Carta de Vinhos Selecionada</span>
+          <span>✨ Menu Degustação 7 Passos</span>
+          <span>🕯️ Ambiente Climatizado &amp; Intimista</span>
+        </div>
       </div>
     </section>
 
+    <!-- Experiência / Sobre -->
     <section id="experiencia" class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">A Experiência</span>
+        <h2 class="section-title">Mais que um jantar, um ritual</h2>
+      </div>
+
       <div class="about-grid">
-        <div class="about-image">
-          <div class="about-image-inner">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-          </div>
+        <div class="about-image reveal">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80"
+            alt="Prato de alta gastronomia servido no L'Essence">
         </div>
-        <div class="about-text">
-          <span class="section-eyebrow">A Atmosfera</span>
+        <div class="about-text reveal">
           <h3>Design. Som. <br><em>Sabor.</em></h3>
           <p>Acreditamos que a verdadeira alta gastronomia não começa no prato, mas no momento em que você cruza nossas portas. Cada detalhe do L'Essence foi meticulosamente projetado para acolher e impressionar.</p>
           <p>Da iluminação cênica que valoriza cada cor do prato à acústica que permite conversas intimistas sem perder a vibração do salão. Aqui, o ambiente é o palco onde a nossa cozinha brilha.</p>
-          <a href="#" class="link-gold">Conheça nossos ambientes</a>
+          <a href="#galeria" class="link-gold">Conheça nossos ambientes</a>
+        </div>
+      </div>
+
+      <!-- Pilares -->
+      <div class="pilares">
+        <div class="pilar reveal">
+          <div class="pilar-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="var(--accent-gold)"></path>
+            </svg>
+          </div>
+          <h4>Cozinha Autoral</h4>
+          <p>Pratos criados a partir de ingredientes sazonais e fornecedores locais selecionados, com técnica francesa contemporânea.</p>
+        </div>
+        <div class="pilar reveal">
+          <div class="pilar-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M3 10h18l-2 11H5L3 10zM9 10V6a3 3 0 0 1 6 0v4" stroke="var(--accent-gold)"></path>
+            </svg>
+          </div>
+          <h4>Ambiente Exclusivo</h4>
+          <p>Salão com 48 lugares, iluminação indireta, obras de arte originais e uma adega com mais de 300 rótulos.</p>
+        </div>
+        <div class="pilar reveal">
+          <div class="pilar-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M12 21s-7-5.1-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.9-7 11-7 11z" stroke="var(--accent-gold)"></path>
+            </svg>
+          </div>
+          <h4>Serviço Impecável</h4>
+          <p>Equipe treinada na Europa, atenta a cada detalhe da experiência, do couvert à despedida.</p>
         </div>
       </div>
     </section>
 
+    <!-- Menu -->
     <section id="menu" class="menu-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">Amostra do Cardápio</span>
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Menu Degustação</span>
           <h2 class="section-title">Nossa Assinatura</h2>
         </div>
-        
-        <div class="menu-list">
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <h4 class="menu-item-name">Crudo de Vieiras</h4>
-              <p class="menu-item-desc">Vieiras canadenses, emulsão de yuzu, ovas de capelin e azeite de dill.</p>
+
+        <div class="menu-categories">
+          <div class="menu-category reveal">
+            <h3>Entradas</h3>
+            <div class="menu-list">
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h4 class="menu-item-name">Crudo de Vieiras</h4>
+                  <p class="menu-item-desc">Vieiras canadenses, emulsão de yuzu, ovas de capelin e azeite de dill.</p>
+                </div>
+                <span class="menu-item-price">R$ 86</span>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h4 class="menu-item-name">Foie Gras Terrine</h4>
+                  <p class="menu-item-desc">Foie gras curado, compota de figos, brioche tostado e redução de vinho do Porto.</p>
+                </div>
+                <span class="menu-item-price">R$ 128</span>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h4 class="menu-item-name">Carpaccio di Polpo</h4>
+                  <p class="menu-item-desc">Polvo grelhado em baixa temperatura, azeite de ervas, flor de sal e limão siciliano.</p>
+                </div>
+                <span class="menu-item-price">R$ 112</span>
+              </div>
             </div>
-            <span class="menu-item-price">86</span>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <h4 class="menu-item-name">Magret de Canard</h4>
-              <p class="menu-item-desc">Peito de pato grelhado, purê de cenoura caramelizada e redução de frutas vermelhas ao vinho do Porto.</p>
-            </div>
-            <span class="menu-item-price">142</span>
           </div>
 
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <h4 class="menu-item-name">Risotto al Tartufo Nero</h4>
-              <p class="menu-item-desc">Arroz Acquerello, trufas negras frescas de Umbria e parmigiano reggiano 36 meses.</p>
+          <div class="menu-category reveal">
+            <h3>Principais</h3>
+            <div class="menu-list">
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h4 class="menu-item-name">Magret de Canard</h4>
+                  <p class="menu-item-desc">Peito de pato grelhado, purê de cenoura caramelizada e redução de frutas vermelhas ao vinho do Porto.</p>
+                </div>
+                <span class="menu-item-price">R$ 142</span>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h4 class="menu-item-name">Risotto al Tartufo Nero</h4>
+                  <p class="menu-item-desc">Arroz Acquerello, trufas negras frescas de Umbria e parmigiano reggiano 36 meses.</p>
+                </div>
+                <span class="menu-item-price">R$ 168</span>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h4 class="menu-item-name">Tournedos Rossini</h4>
+                  <p class="menu-item-desc">Filé mignon ao ponto, foie gras, trufa negra e molho madeira.</p>
+                </div>
+                <span class="menu-item-price">R$ 198</span>
+              </div>
             </div>
-            <span class="menu-item-price">168</span>
           </div>
 
-          <div class="menu-item">
-            <div class="menu-item-info">
-              <h4 class="menu-item-name">Texturas de Chocolate</h4>
-              <p class="menu-item-desc">Cacau amazônico 70%, crumble de amêndoas e sorbet de cupuaçu.</p>
+          <div class="menu-category reveal">
+            <h3>Sobremesas</h3>
+            <div class="menu-list">
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h4 class="menu-item-name">Texturas de Chocolate</h4>
+                  <p class="menu-item-desc">Cacau amazônico 70%, crumble de amêndoas e sorbet de cupuaçu.</p>
+                </div>
+                <span class="menu-item-price">R$ 54</span>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-info">
+                  <h4 class="menu-item-name">Crème Brûlée de Baunilha de Madagascar</h4>
+                  <p class="menu-item-desc">Crosta caramelizada na hora, servida com frutas vermelhas frescas.</p>
+                </div>
+                <span class="menu-item-price">R$ 48</span>
+              </div>
             </div>
-            <span class="menu-item-price">54</span>
           </div>
         </div>
 
-        <div class="menu-cta">
-          <a href="#" class="btn-reserve">Ver Menu Completo</a>
+        <div class="menu-cta reveal">
+          <a href="#reservas" class="btn-reserve">Ver Menu Completo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chef -->
+    <section id="chef" class="chef-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Comando da Cozinha</span>
+          <h2 class="section-title">O Chef</h2>
+        </div>
+
+        <div class="chef-grid">
+          <div class="chef-image reveal">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=1000&q=80"
+              alt="Chef executivo do L'Essence">
+          </div>
+          <div class="chef-info reveal">
+            <h3>Henri Dubois</h3>
+            <p class="chef-role">Chef Executivo</p>
+            <p>Formado pela Le Cordon Bleu Paris, com passagens pelos restaurantes três estrelas da Europa, Henri Dubois traz ao L'Essence uma cozinha autoral que respeita a tradição francesa enquanto explora ingredientes brasileiros de altíssima qualidade.</p>
+            <p>Sua filosofia é simples: cada prato deve contar uma história, despertar memórias e emocionar. Para isso, trabalha diretamente com pequenos produtores e mantém uma horta orgânica própria no interior de São Paulo.</p>
+            <ul class="chef-awards">
+              <li>Estrela Michelin 2023 – Restaurante L'Essence</li>
+              <li>Chef do Ano pela Associação Brasileira de Gastronomia</li>
+              <li>Finalista do Latin America's 50 Best Restaurants</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="galeria-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Momentos</span>
+          <h2 class="section-title">Galeria de Experiências</h2>
+        </div>
+
+        <div class="galeria-grid">
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80" alt="Mesa posta no salão principal">
+            <span>Salão Principal</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" alt="Prato principal com carne e legumes">
+            <span>Assinatura do Chef</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80" alt="Sobremesa sofisticada">
+            <span>Alta Confeitaria</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=800&q=80" alt="Coquetel autoral do bar">
+            <span>Bar &amp; Coquetéis</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80" alt="Evento privado em sala reservada">
+            <span>Eventos Privados</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1560512823-829485b8bf24?w=800&q=80" alt="Adega de vinhos">
+            <span>Adega Exclusiva</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="Tartare de atum">
+            <span>Entradas Frias</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=80" alt="Salmão grelhado">
+            <span>Pescados</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eventos -->
+    <section id="eventos" class="eventos-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Experiências Exclusivas</span>
+          <h2 class="section-title">Eventos &amp; Privados</h2>
+        </div>
+
+        <div class="eventos-grid">
+          <div class="eventos-text reveal">
+            <h3>Celebre com <em>grandeza</em>.</h3>
+            <p>O L'Essence oferece salas privativas para jantares de negócios, aniversários e ocasiões especiais, com menus personalizados e serviço dedicado. Nossa equipe cuida de cada detalhe, desde a seleção de vinhos até a iluminação e ambientação.</p>
+            <p>Capacidade para até 20 convidados na Sala Cave ou 60 convidados no Salão Principal, com possibilidade de sommelier exclusivo, bar de coquetéis e experiências gastronômicas interativas.</p>
+            <a href="#reservas" class="btn-reserve">Solicitar Proposta</a>
+          </div>
+          <div class="eventos-image reveal">
+            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1200&q=80"
+              alt="Mesa preparada para evento privado">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="depoimentos-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Palavras dos Clientes</span>
+          <h2 class="section-title">Quem Vivenciou</h2>
+        </div>
+
+        <div class="depoimentos-grid">
+          <div class="depoimento reveal">
+            <blockquote>“A experiência mais completa que já tive no Brasil. Cada prato é uma obra de arte, e o serviço é impecável do início ao fim.”</blockquote>
+            <cite><strong>Mariana Costa</strong>Advogada</cite>
+          </div>
+          <div class="depoimento reveal">
+            <blockquote>“Fui surpreendido pela criatividade do chef e pela harmonia dos sabores. A adega é de outro nível. Voltarei sempre.”</blockquote>
+            <cite><strong>Ricardo Almeida</strong>Empresário</cite>
+          </div>
+          <div class="depoimento reveal">
+            <blockquote>“Celebramos nosso aniversário de casamento no L'Essence e foi simplesmente perfeito. Atendimento personalizado e ambiente único.”</blockquote>
+            <cite><strong>Fernanda &amp; Paulo</strong>Casal</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservas -->
+    <section id="reservas" class="reservas-section">
+      <div class="container">
+        <div class="reservas-box reveal">
+          <span class="section-eyebrow">Reservas</span>
+          <h3>Garanta seu lugar</h3>
+          <p>Recomendamos reserva antecipada, especialmente para fins de semana. Nosso time está à disposição para atender preferências alimentares e ocasiões especiais.</p>
+          <a href="https://wa.me/5512992191018?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20L'Essence."
+            target="_blank" rel="noopener noreferrer" class="btn-reserve btn-reserve--solid">Reservar pelo WhatsApp</a>
         </div>
       </div>
     </section>
@@ -566,5 +1164,41 @@
       <p class="copyright">&copy; 2026 Plena Informática. Modelo demonstrativo de Site Premium para Restaurantes.</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Reveal animation
+      var els = document.querySelectorAll('.reveal');
+      if (reduced || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        els.forEach(function (el) { io.observe(el); });
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          var target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
 </body>
+
 </html>

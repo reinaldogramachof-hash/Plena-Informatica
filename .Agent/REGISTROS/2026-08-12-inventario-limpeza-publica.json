@@ -1,0 +1,1704 @@
+{
+  "generatedAt": "2026-08-12T23:34:17.625Z",
+  "counts": {
+    "files": 890,
+    "refs": 721,
+    "brokenRefs": 306,
+    "rootFiles": 38,
+    "rootAssetRefs": 48
+  },
+  "byTop": {
+    "Sistemas_Gestao/": 181,
+    "[root files]": 38,
+    "blog/": 1,
+    "docs/": 7,
+    "produtos/": 6,
+    "servicos/": 274,
+    "tecnologia/": 382,
+    "tests/": 1
+  },
+  "rootFiles": [
+    {
+      "rel": "__local-site-server.mjs",
+      "size": 1506,
+      "ext": ".mjs"
+    },
+    {
+      "rel": "_run_servers.bat",
+      "size": 278,
+      "ext": ".bat"
+    },
+    {
+      "rel": ".gitattributes",
+      "size": 113,
+      "ext": ""
+    },
+    {
+      "rel": ".gitignore",
+      "size": 548,
+      "ext": ""
+    },
+    {
+      "rel": ".htaccess",
+      "size": 920,
+      "ext": ""
+    },
+    {
+      "rel": "AGENTS.md",
+      "size": 559,
+      "ext": ".md"
+    },
+    {
+      "rel": "AUDITORIA-PAINEL-ADMIN-GESTAO-PLENA.md",
+      "size": 16243,
+      "ext": ".md"
+    },
+    {
+      "rel": "auditoria-ux-pagina-tecnologia.md",
+      "size": 9413,
+      "ext": ".md"
+    },
+    {
+      "rel": "capaartigo.png",
+      "size": 780885,
+      "ext": ".png"
+    },
+    {
+      "rel": "deploy-plena-atualizado-2026-07-31.zip",
+      "size": 24481884,
+      "ext": ".zip"
+    },
+    {
+      "rel": "HANDOFF_ANTIGRAVITY.md",
+      "size": 6511,
+      "ext": ".md"
+    },
+    {
+      "rel": "heroadvocacia.png",
+      "size": 849415,
+      "ext": ".png"
+    },
+    {
+      "rel": "heroassistencia.png",
+      "size": 1736151,
+      "ext": ".png"
+    },
+    {
+      "rel": "herobarbearia.png",
+      "size": 1761309,
+      "ext": ".png"
+    },
+    {
+      "rel": "herobeleza.png",
+      "size": 1940910,
+      "ext": ".png"
+    },
+    {
+      "rel": "heroecommerce.png",
+      "size": 513064,
+      "ext": ".png"
+    },
+    {
+      "rel": "herogastro.png",
+      "size": 2022496,
+      "ext": ".png"
+    },
+    {
+      "rel": "herooferta.png",
+      "size": 529955,
+      "ext": ".png"
+    },
+    {
+      "rel": "heroprojconsult.png",
+      "size": 521762,
+      "ext": ".png"
+    },
+    {
+      "rel": "index.html",
+      "size": 61133,
+      "ext": ".html"
+    },
+    {
+      "rel": "limpar-cache.html",
+      "size": 3634,
+      "ext": ".html"
+    },
+    {
+      "rel": "logoplena.svg",
+      "size": 4741772,
+      "ext": ".svg"
+    },
+    {
+      "rel": "officebiblioteca.png",
+      "size": 916704,
+      "ext": ".png"
+    },
+    {
+      "rel": "officeconferencia.png",
+      "size": 800647,
+      "ext": ".png"
+    },
+    {
+      "rel": "officediretoria.png",
+      "size": 827579,
+      "ext": ".png"
+    },
+    {
+      "rel": "officelounge.png",
+      "size": 879268,
+      "ext": ".png"
+    },
+    {
+      "rel": "officereuniao.png",
+      "size": 840831,
+      "ext": ".png"
+    },
+    {
+      "rel": "PLANO-EVOLUCAO-PLENA.md",
+      "size": 7046,
+      "ext": ".md"
+    },
+    {
+      "rel": "plena.jpg",
+      "size": 602451,
+      "ext": ".jpg"
+    },
+    {
+      "rel": "README.md",
+      "size": 1409,
+      "ext": ".md"
+    },
+    {
+      "rel": "robots.txt",
+      "size": 77,
+      "ext": ".txt"
+    },
+    {
+      "rel": "script.js",
+      "size": 7818,
+      "ext": ".js"
+    },
+    {
+      "rel": "sitemap.xml",
+      "size": 2996,
+      "ext": ".xml"
+    },
+    {
+      "rel": "sociocecilia.png",
+      "size": 710184,
+      "ext": ".png"
+    },
+    {
+      "rel": "socioheitor.png",
+      "size": 732306,
+      "ext": ".png"
+    },
+    {
+      "rel": "sociorafael.png",
+      "size": 720899,
+      "ext": ".png"
+    },
+    {
+      "rel": "style.css",
+      "size": 5082,
+      "ext": ".css"
+    },
+    {
+      "rel": "TABELA-DE-PRECOS-E-FERRAMENTAS.md",
+      "size": 11176,
+      "ext": ".md"
+    }
+  ],
+  "brokenRefs": [
+    {
+      "from": "produtos/assistencia-pro.html",
+      "raw": "%23g",
+      "target": "produtos/%23g",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`+i+`",
+      "target": "servicos/ferramentas/qr-code/assets/`+i+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`+It(e)+`",
+      "target": "servicos/ferramentas/qr-code/assets/`+It(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`+It(e)+`",
+      "target": "servicos/ferramentas/qr-code/assets/`+It(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`+It(e)+`",
+      "target": "servicos/ferramentas/qr-code/assets/`+It(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`+It(e)+`",
+      "target": "servicos/ferramentas/qr-code/assets/`+It(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,t",
+      "target": "servicos/ferramentas/qr-code/assets/e,t",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "${t}",
+      "target": "servicos/ferramentas/qr-code/assets/${t}",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "i,r",
+      "target": "servicos/ferramentas/qr-code/assets/i,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "window.location.href",
+      "target": "servicos/ferramentas/qr-code/assets/window.location.href",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e.protocol+n",
+      "target": "servicos/ferramentas/qr-code/assets/e.protocol+n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n",
+      "target": "servicos/ferramentas/qr-code/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,typeof window>`u`",
+      "target": "servicos/ferramentas/qr-code/assets/e,typeof window>`u`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "i.pathname+i.search+i.hash,window.origin",
+      "target": "servicos/ferramentas/qr-code/assets/i.pathname+i.search+i.hash,window.origin",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,window.origin",
+      "target": "servicos/ferramentas/qr-code/assets/e,window.origin",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`logo-plena-ZEPN7Did.png`,import.meta.url",
+      "target": "servicos/ferramentas/qr-code/assets/`logo-plena-ZEPN7Did.png`,import.meta.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`${this.url}/${e}`",
+      "target": "servicos/ferramentas/qr-code/assets/`${this.url}/${e}`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "this.url.toString(",
+      "target": "servicos/ferramentas/qr-code/assets/this.url.toString(",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`${this.url}/${e}`",
+      "target": "servicos/ferramentas/qr-code/assets/`${this.url}/${e}`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`${this.url}/rpc/${e}`",
+      "target": "servicos/ferramentas/qr-code/assets/`${this.url}/rpc/${e}`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "this.broadcastEndpointURL",
+      "target": "servicos/ferramentas/qr-code/assets/this.broadcastEndpointURL",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "this.workerUrl",
+      "target": "servicos/ferramentas/qr-code/assets/this.workerUrl",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "t,e",
+      "target": "servicos/ferramentas/qr-code/assets/t,e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,t,n,r",
+      "target": "servicos/ferramentas/qr-code/assets/e,t,n,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "i.url+`/object/upload/sign/${o}`",
+      "target": "servicos/ferramentas/qr-code/assets/i.url+`/object/upload/sign/${o}`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,t",
+      "target": "servicos/ferramentas/qr-code/assets/e,t",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n.url+a.url",
+      "target": "servicos/ferramentas/qr-code/assets/n.url+a.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,t,n",
+      "target": "servicos/ferramentas/qr-code/assets/e,t,n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,t",
+      "target": "servicos/ferramentas/qr-code/assets/e,t",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,t",
+      "target": "servicos/ferramentas/qr-code/assets/e,t",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "o",
+      "target": "servicos/ferramentas/qr-code/assets/o",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "o",
+      "target": "servicos/ferramentas/qr-code/assets/o",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e,t",
+      "target": "servicos/ferramentas/qr-code/assets/e,t",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "window.location.href",
+      "target": "servicos/ferramentas/qr-code/assets/window.location.href",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "new URL(window.location.href",
+      "target": "servicos/ferramentas/qr-code/assets/new URL(window.location.href",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "Sc(t",
+      "target": "servicos/ferramentas/qr-code/assets/Sc(t",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`realtime/v1`,r",
+      "target": "servicos/ferramentas/qr-code/assets/`realtime/v1`,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`auth/v1`,r",
+      "target": "servicos/ferramentas/qr-code/assets/`auth/v1`,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`storage/v1`,r",
+      "target": "servicos/ferramentas/qr-code/assets/`storage/v1`,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`functions/v1`,r",
+      "target": "servicos/ferramentas/qr-code/assets/`functions/v1`,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`rest/v1`,r",
+      "target": "servicos/ferramentas/qr-code/assets/`rest/v1`,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`http://[${n.value}]`",
+      "target": "servicos/ferramentas/qr-code/assets/`http:/[${n.value}]`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`http://[${e}]`",
+      "target": "servicos/ferramentas/qr-code/assets/`http:/[${e}]`",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "i",
+      "target": "servicos/ferramentas/qr-code/assets/i",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n",
+      "target": "servicos/ferramentas/qr-code/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e.previewUrl",
+      "target": "servicos/ferramentas/qr-code/assets/e.previewUrl",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n.previewUrl",
+      "target": "servicos/ferramentas/qr-code/assets/n.previewUrl",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "i",
+      "target": "servicos/ferramentas/qr-code/assets/i",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n",
+      "target": "servicos/ferramentas/qr-code/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n",
+      "target": "servicos/ferramentas/qr-code/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "t",
+      "target": "servicos/ferramentas/qr-code/assets/t",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n",
+      "target": "servicos/ferramentas/qr-code/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n",
+      "target": "servicos/ferramentas/qr-code/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n",
+      "target": "servicos/ferramentas/qr-code/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "_",
+      "target": "servicos/ferramentas/qr-code/assets/_",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "i",
+      "target": "servicos/ferramentas/qr-code/assets/i",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "_",
+      "target": "servicos/ferramentas/qr-code/assets/_",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "_",
+      "target": "servicos/ferramentas/qr-code/assets/_",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "n",
+      "target": "servicos/ferramentas/qr-code/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "e",
+      "target": "servicos/ferramentas/qr-code/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "t.url",
+      "target": "servicos/ferramentas/qr-code/assets/t.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "o,s.quality",
+      "target": "servicos/ferramentas/qr-code/assets/o,s.quality",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`LiberationSans-Regular-BMLF__tr.ttf`,import.meta.url",
+      "target": "servicos/ferramentas/qr-code/assets/`LiberationSans-Regular-BMLF__tr.ttf`,import.meta.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "`LiberationSans-Bold-D7ZE4CAh.ttf`,import.meta.url",
+      "target": "servicos/ferramentas/qr-code/assets/`LiberationSans-Bold-D7ZE4CAh.ttf`,import.meta.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "r",
+      "target": "servicos/ferramentas/qr-code/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js",
+      "raw": "i",
+      "target": "servicos/ferramentas/qr-code/assets/i",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "`+i+`",
+      "target": "servicos/hub/dist/assets/`+i+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "`+qt(e)+`",
+      "target": "servicos/hub/dist/assets/`+qt(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "`+qt(e)+`",
+      "target": "servicos/hub/dist/assets/`+qt(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "`+qt(e)+`",
+      "target": "servicos/hub/dist/assets/`+qt(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "`+qt(e)+`",
+      "target": "servicos/hub/dist/assets/`+qt(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "e,t",
+      "target": "servicos/hub/dist/assets/e,t",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "${t}",
+      "target": "servicos/hub/dist/assets/${t}",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "i,r",
+      "target": "servicos/hub/dist/assets/i,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "window.location.href",
+      "target": "servicos/hub/dist/assets/window.location.href",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "e.protocol+n",
+      "target": "servicos/hub/dist/assets/e.protocol+n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "n",
+      "target": "servicos/hub/dist/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "e,typeof window>`u`",
+      "target": "servicos/hub/dist/assets/e,typeof window>`u`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "i.pathname+i.search+i.hash,window.origin",
+      "target": "servicos/hub/dist/assets/i.pathname+i.search+i.hash,window.origin",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "e,window.origin",
+      "target": "servicos/hub/dist/assets/e,window.origin",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "r",
+      "target": "servicos/hub/dist/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "`http://[${n.value}]`",
+      "target": "servicos/hub/dist/assets/`http:/[${n.value}]`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "`http://[${e}]`",
+      "target": "servicos/hub/dist/assets/`http:/[${e}]`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "e",
+      "target": "servicos/hub/dist/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "t.url",
+      "target": "servicos/hub/dist/assets/t.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub/dist/assets/index-MGLwxfb7.js",
+      "raw": "o,s.quality",
+      "target": "servicos/hub/dist/assets/o,s.quality",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/BusinessCardCreatorTool-BkiftvcC.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/BusinessCardCreatorTool-BkiftvcC.js",
+      "raw": "i",
+      "target": "servicos/hub-app/assets/i",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/DeclarationBuilderTool-Cf2q84G2.js",
+      "raw": "n",
+      "target": "servicos/hub-app/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/DeclarationBuilderTool-Cf2q84G2.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ImagesToPdfTool-nl-N3CIG.js",
+      "raw": "e",
+      "target": "servicos/hub-app/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ImagesToPdfTool-nl-N3CIG.js",
+      "raw": "e.previewUrl",
+      "target": "servicos/hub-app/assets/e.previewUrl",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ImagesToPdfTool-nl-N3CIG.js",
+      "raw": "n.previewUrl",
+      "target": "servicos/hub-app/assets/n.previewUrl",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ImagesToPdfTool-nl-N3CIG.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ImagesToPdfTool-nl-N3CIG.js",
+      "raw": "i",
+      "target": "servicos/hub-app/assets/i",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "`+i+`",
+      "target": "servicos/hub-app/assets/`+i+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "`+qt(e)+`",
+      "target": "servicos/hub-app/assets/`+qt(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "`+qt(e)+`",
+      "target": "servicos/hub-app/assets/`+qt(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "`+qt(e)+`",
+      "target": "servicos/hub-app/assets/`+qt(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "`+qt(e)+`",
+      "target": "servicos/hub-app/assets/`+qt(e)+`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "e,t",
+      "target": "servicos/hub-app/assets/e,t",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "${t}",
+      "target": "servicos/hub-app/assets/${t}",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "i,r",
+      "target": "servicos/hub-app/assets/i,r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "window.location.href",
+      "target": "servicos/hub-app/assets/window.location.href",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "e.protocol+n",
+      "target": "servicos/hub-app/assets/e.protocol+n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "n",
+      "target": "servicos/hub-app/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "e,typeof window>`u`",
+      "target": "servicos/hub-app/assets/e,typeof window>`u`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "i.pathname+i.search+i.hash,window.origin",
+      "target": "servicos/hub-app/assets/i.pathname+i.search+i.hash,window.origin",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "e,window.origin",
+      "target": "servicos/hub-app/assets/e,window.origin",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "`logo-plena-ZEPN7Did.png`,import.meta.url",
+      "target": "servicos/hub-app/assets/`logo-plena-ZEPN7Did.png`,import.meta.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/index-CXwHdGy6.js",
+      "raw": "`/servicos/servicos.html`,e.origin",
+      "target": "servicos/hub-app/assets/`/servicos/servicos.html`,e.origin",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/LabelGeneratorTool-DRswSAZS.js",
+      "raw": "n",
+      "target": "servicos/hub-app/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/LabelGeneratorTool-DRswSAZS.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MeiDasGuideTool-Cs8GdK6r.js",
+      "raw": "n",
+      "target": "servicos/hub-app/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MeiDasGuideTool-Cs8GdK6r.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MeiIrpfChecklistTool-B2Vfd5k9.js",
+      "raw": "t",
+      "target": "servicos/hub-app/assets/t",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MeiIrpfChecklistTool-B2Vfd5k9.js",
+      "raw": "n",
+      "target": "servicos/hub-app/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MenuBuilderTool-X6n_1sCI.js",
+      "raw": "n",
+      "target": "servicos/hub-app/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MenuBuilderTool-X6n_1sCI.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MenuBuilderTool-X6n_1sCI.js",
+      "raw": "y",
+      "target": "servicos/hub-app/assets/y",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MenuBuilderTool-X6n_1sCI.js",
+      "raw": "i",
+      "target": "servicos/hub-app/assets/i",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MenuBuilderTool-X6n_1sCI.js",
+      "raw": "y",
+      "target": "servicos/hub-app/assets/y",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MenuBuilderTool-X6n_1sCI.js",
+      "raw": "y",
+      "target": "servicos/hub-app/assets/y",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MergePdfTool-RKPHMipo.js",
+      "raw": "n",
+      "target": "servicos/hub-app/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/MergePdfTool-RKPHMipo.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/PrintCostEstimatorTool-D8EN8MV7.js",
+      "raw": "n",
+      "target": "servicos/hub-app/assets/n",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/PrintCostEstimatorTool-D8EN8MV7.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/QrCodeTool-BWDyYog6.js",
+      "raw": "e",
+      "target": "servicos/hub-app/assets/e",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/QrCodeTool-BWDyYog6.js",
+      "raw": "t.url",
+      "target": "servicos/hub-app/assets/t.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/QrCodeTool-BWDyYog6.js",
+      "raw": "o,s.quality",
+      "target": "servicos/hub-app/assets/o,s.quality",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ResumeBuilderTool-D4ZSH8Dx.js",
+      "raw": "`LiberationSans-Regular-BMLF__tr.ttf`,import.meta.url",
+      "target": "servicos/hub-app/assets/`LiberationSans-Regular-BMLF__tr.ttf`,import.meta.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ResumeBuilderTool-D4ZSH8Dx.js",
+      "raw": "`LiberationSans-Bold-D7ZE4CAh.ttf`,import.meta.url",
+      "target": "servicos/hub-app/assets/`LiberationSans-Bold-D7ZE4CAh.ttf`,import.meta.url",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ResumeBuilderTool-D4ZSH8Dx.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/ResumeBuilderTool-D4ZSH8Dx.js",
+      "raw": "i",
+      "target": "servicos/hub-app/assets/i",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/schemas-Db8ROgeA.js",
+      "raw": "r",
+      "target": "servicos/hub-app/assets/r",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/schemas-Db8ROgeA.js",
+      "raw": "`http://[${n.value}]`",
+      "target": "servicos/hub-app/assets/`http:/[${n.value}]`",
+      "exists": false
+    },
+    {
+      "from": "servicos/hub-app/assets/schemas-Db8ROgeA.js",
+      "raw": "`http://[${e}]`",
+      "target": "servicos/hub-app/assets/`http:/[${e}]`",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-artesanato/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-artesanato/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-artesanato/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-artesanato/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-card/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-card/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-card/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-card/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-controle/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-controle/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-controle/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-controle/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-driver/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-driver/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-driver/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-driver/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-entregas/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-entregas/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-entregas/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-entregas/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-feirante/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-feirante/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-feirante/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-feirante/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-financas/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-financas/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-financas/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-financas/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-hamburgueria/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-hamburgueria/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-hamburgueria/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-hamburgueria/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-motorista/index.html",
+      "raw": "${dataUrl}",
+      "target": "Sistemas_Gestao/gestao-motorista/${dataUrl}",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-motorista/index.html",
+      "raw": "file",
+      "target": "Sistemas_Gestao/gestao-motorista/file",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-motorista/index.html",
+      "raw": "${prof.photo}",
+      "target": "Sistemas_Gestao/gestao-motorista/${prof.photo}",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-motorista/index.html",
+      "raw": "${prof.photo}",
+      "target": "Sistemas_Gestao/gestao-motorista/${prof.photo}",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-obras/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-obras/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-obras/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-obras/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-orcamentos/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-orcamentos/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-orcamentos/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-orcamentos/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-orcamentos/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-orcamentos/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-orcamentos/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-orcamentos/url",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-pdv/index.html",
+      "raw": "blob",
+      "target": "Sistemas_Gestao/gestao-pdv/blob",
+      "exists": false
+    },
+    {
+      "from": "Sistemas_Gestao/gestao-pdv/index.html",
+      "raw": "url",
+      "target": "Sistemas_Gestao/gestao-pdv/url",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/js/db.js",
+      "raw": "blob",
+      "target": "tecnologia/demos/gestao-assistencia/assets/js/blob",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/js/db.js",
+      "raw": "url",
+      "target": "tecnologia/demos/gestao-assistencia/assets/js/url",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/js/modules/clients.js",
+      "raw": "${waLink}",
+      "target": "tecnologia/demos/gestao-assistencia/assets/js/modules/${waLink}",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/js/modules/inventory.js",
+      "raw": "blob",
+      "target": "tecnologia/demos/gestao-assistencia/assets/js/modules/blob",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/js/modules/inventory.js",
+      "raw": "url",
+      "target": "tecnologia/demos/gestao-assistencia/assets/js/modules/url",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/js/modules/orders.js",
+      "raw": "blob",
+      "target": "tecnologia/demos/gestao-assistencia/assets/js/modules/blob",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/js/modules/orders.js",
+      "raw": "url",
+      "target": "tecnologia/demos/gestao-assistencia/assets/js/modules/url",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/libs/tailwindcss.js",
+      "raw": "a.source,this.map.consumer(",
+      "target": "tecnologia/demos/gestao-assistencia/assets/libs/a.source,this.map.consumer(",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/libs/tailwindcss.js",
+      "raw": "r",
+      "target": "tecnologia/demos/gestao-assistencia/assets/libs/r",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-assistencia/assets/libs/tailwindcss.js",
+      "raw": "$1",
+      "target": "tecnologia/demos/gestao-assistencia/assets/libs/$1",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-barbearia/assets/libs/tailwindcss.js",
+      "raw": "a.source,this.map.consumer(",
+      "target": "tecnologia/demos/gestao-barbearia/assets/libs/a.source,this.map.consumer(",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-barbearia/assets/libs/tailwindcss.js",
+      "raw": "r",
+      "target": "tecnologia/demos/gestao-barbearia/assets/libs/r",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-barbearia/assets/libs/tailwindcss.js",
+      "raw": "$1",
+      "target": "tecnologia/demos/gestao-barbearia/assets/libs/$1",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-barbearia/js/app_core.js",
+      "raw": "${waLink}",
+      "target": "tecnologia/demos/gestao-barbearia/js/${waLink}",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-barbearia/js/app_core.js",
+      "raw": "${waLink}",
+      "target": "tecnologia/demos/gestao-barbearia/js/${waLink}",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-barbearia/sw.js",
+      "raw": "event.request.url",
+      "target": "tecnologia/demos/gestao-barbearia/event.request.url",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-beleza/js/app_core.js",
+      "raw": "${waLink}",
+      "target": "tecnologia/demos/gestao-beleza/js/${waLink}",
+      "exists": false
+    },
+    {
+      "from": "tecnologia/demos/gestao-beleza/js/app_core.js",
+      "raw": "${waLink}",
+      "target": "tecnologia/demos/gestao-beleza/js/${waLink}",
+      "exists": false
+    }
+  ],
+  "rootAssetRefs": [
+    {
+      "from": "blog/index.html",
+      "raw": "../style.css",
+      "target": "style.css",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../script.js",
+      "target": "script.js",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../logoplena.svg",
+      "target": "logoplena.svg",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "blog/index.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "index.html",
+      "raw": "style.css",
+      "target": "style.css",
+      "exists": true
+    },
+    {
+      "from": "index.html",
+      "raw": "script.js",
+      "target": "script.js",
+      "exists": true
+    },
+    {
+      "from": "index.html",
+      "raw": "index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "index.html",
+      "raw": "logoplena.svg",
+      "target": "logoplena.svg",
+      "exists": true
+    },
+    {
+      "from": "index.html",
+      "raw": "plena.jpg",
+      "target": "plena.jpg",
+      "exists": true
+    },
+    {
+      "from": "limpar-cache.html",
+      "raw": "/index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "produtos/assets/produtos.css",
+      "raw": "../../heroassistencia.png",
+      "target": "heroassistencia.png",
+      "exists": true
+    },
+    {
+      "from": "produtos/assets/produtos.css",
+      "raw": "../../herobarbearia.png",
+      "target": "herobarbearia.png",
+      "exists": true
+    },
+    {
+      "from": "produtos/assets/produtos.css",
+      "raw": "../../herobeleza.png",
+      "target": "herobeleza.png",
+      "exists": true
+    },
+    {
+      "from": "produtos/assets/produtos.css",
+      "raw": "../../herogastro.png",
+      "target": "herogastro.png",
+      "exists": true
+    },
+    {
+      "from": "produtos/assets/produtos.css",
+      "raw": "../../heroassistencia.png",
+      "target": "heroassistencia.png",
+      "exists": true
+    },
+    {
+      "from": "servicos/servicos.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "servicos/servicos.html",
+      "raw": "../logoplena.svg",
+      "target": "logoplena.svg",
+      "exists": true
+    },
+    {
+      "from": "servicos/servicos.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "servicos/servicos.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/ecommerce/index.html",
+      "raw": "../../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../capaartigo.png",
+      "target": "capaartigo.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../heroadvocacia.png",
+      "target": "heroadvocacia.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../officereuniao.png",
+      "target": "officereuniao.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../officebiblioteca.png",
+      "target": "officebiblioteca.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../officeconferencia.png",
+      "target": "officeconferencia.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../officelounge.png",
+      "target": "officelounge.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../officediretoria.png",
+      "target": "officediretoria.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../socioheitor.png",
+      "target": "socioheitor.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../sociocecilia.png",
+      "target": "sociocecilia.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/sites-premium/advocacia/index.html",
+      "raw": "../../../sociorafael.png",
+      "target": "sociorafael.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../index.html",
+      "target": "index.html",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../logoplena.svg",
+      "target": "logoplena.svg",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../heroassistencia.png",
+      "target": "heroassistencia.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../herobarbearia.png",
+      "target": "herobarbearia.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../herogastro.png",
+      "target": "herogastro.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../herobeleza.png",
+      "target": "herobeleza.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../herooferta.png",
+      "target": "herooferta.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../heroprojconsult.png",
+      "target": "heroprojconsult.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../heroecommerce.png",
+      "target": "heroecommerce.png",
+      "exists": true
+    },
+    {
+      "from": "tecnologia/tecnologia.html",
+      "raw": "../logoplena.svg",
+      "target": "logoplena.svg",
+      "exists": true
+    }
+  ]
+}

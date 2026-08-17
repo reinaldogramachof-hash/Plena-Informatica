@@ -60,7 +60,7 @@ const solutionCatalog = [
   { categoria: 'landing-pages', nome: 'Landing Pages', setor: 'Campanhas e captação', preco: 'Sob consulta', status: 'Demo disponível', demoUrl: 'landing-pages/lp-01-lancamento.html', ctaLabel: 'Solicitar página', whatsappMessage: commercialMessages.landing }
 ];
 
-// ── Rastreamento de intenção ──────────────────────────────────
+// Rastreamento de intenção
 // Mantém o histórico em memória e, se o GA4 estiver configurado
 // (snippet comentado no <head>), envia o evento para o gtag.
 
@@ -76,7 +76,7 @@ function trackIntent(action, offer, category) {
   }
 }
 
-// ── WhatsApp ──────────────────────────────────────────────────
+// WhatsApp
 
 function openWhatsApp(message, meta = {}) {
   const text = encodeURIComponent(message || commercialMessages.diagnóstico);
@@ -101,7 +101,7 @@ document.querySelectorAll('button[data-action="whatsapp"][data-offer]').forEach(
   };
 });
 
-// ── Abas do catálogo ──────────────────────────────────────────
+// Abas do catálogo
 
 function activateTab(btn) {
   // Desativa todas as abas
@@ -168,7 +168,7 @@ document.querySelector('.tab-track')?.addEventListener('keydown', e => {
 
 const desktopQuery = window.matchMedia('(min-width: 768px)');
 
-// ── Filtros de nicho ──────────────────────────────────────────
+// Filtros de nicho
 
 const NICHE_FILTERS = {};
 
@@ -284,7 +284,7 @@ function applyNicheFilter(tabId, value) {
   });
 }
 
-// ── Efeito de profundidade nos cards (desktop, sem movimento reduzido) ──
+// Efeito de profundidade nos cards (desktop, sem movimento reduzido)
 
 if (!REDUCED_MOTION) {
   document.querySelectorAll('.tech-showcase article[data-offer]').forEach(card => {
@@ -308,7 +308,7 @@ if (!REDUCED_MOTION) {
   });
 }
 
-// ── Modal de demonstração ─────────────────────────────────────
+// Modal de demonstração
 
 let currentDemoOffer = 'demo';
 let currentDemoUrl = '';
@@ -414,7 +414,7 @@ function closeDemoModal() {
   }, 300);
 }
 
-// ── Menu mobile ───────────────────────────────────────────────
+// Menu mobile
 
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
@@ -431,6 +431,6 @@ function toggleMobileMenu() {
   }
 }
 
-// ── Init ──────────────────────────────────────────────────────
+// Inicialização (Init)
 
 injectNicheFilters();

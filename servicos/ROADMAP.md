@@ -6,7 +6,7 @@ Atualizado em: 11 de junho de 2026.
 
 Concluir o Hub de Soluções Digitais da Plena com ferramentas realmente
 funcionais, seguras, responsivas e integradas aos serviços presenciais descritos
-em `TABELA-DE-PRECOS-E-FERRAMENTAS.md`.
+em `../docs/comercial/TABELA-DE-PRECOS-E-FERRAMENTAS.md`.
 
 Este documento é a fonte de verdade para:
 

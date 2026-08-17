@@ -12,8 +12,7 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23A3B19B'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -24,6 +23,7 @@
       --accent-sage: #A3B19B;
       --accent-sand: #EADCC8;
       --border-color: rgba(44, 61, 48, 0.1);
+      --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.05);
     }
 
     * {
@@ -40,7 +40,11 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4, .serif {
+    h1,
+    h2,
+    h3,
+    h4,
+    .serif {
       font-family: 'Marcellus', serif;
       font-weight: 400;
       letter-spacing: 0.05em;
@@ -52,7 +56,7 @@
       padding: 0 24px;
     }
 
-    /* ── Barra do modelo demonstrativo ─────────────────── */
+    /* Barra do modelo demonstrativo */
     .demo-bar {
       position: fixed;
       bottom: 0;
@@ -99,7 +103,7 @@
       background: transparent;
     }
 
-    /* ── Header ────────────────────────────────────────── */
+    /* Header */
     header {
       position: fixed;
       top: 0;
@@ -110,7 +114,6 @@
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
-      transition: all 0.4s ease;
     }
 
     .nav {
@@ -170,6 +173,7 @@
       border-radius: 40px;
       transition: all 0.3s ease;
       border: 1px solid var(--text-dark);
+      display: inline-block;
     }
 
     .btn-reserve:hover {
@@ -177,7 +181,18 @@
       color: var(--text-dark);
     }
 
-    /* ── Hero ──────────────────────────────────────────── */
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--text-dark);
+      color: var(--text-dark);
+    }
+
+    .btn-outline:hover {
+      background: var(--text-dark);
+      color: var(--bg-white);
+    }
+
+    /* Hero */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -200,7 +215,7 @@
       height: 70vh;
       border-radius: 200px 200px 0 0;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+      box-shadow: var(--shadow-soft);
       animation: fadeUp 1.2s ease forwards;
     }
 
@@ -234,6 +249,31 @@
       color: var(--text-dark);
     }
 
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 1px solid rgba(163, 177, 155, 0.35);
+    }
+
+    .hero-features span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: .02em;
+    }
+
     .hero-desc {
       font-size: 16px;
       color: var(--text-muted);
@@ -243,7 +283,7 @@
       line-height: 1.8;
     }
 
-    /* ── Seções ────────────────────────────────────────── */
+    /* Seções */
     section {
       padding: 120px 0;
     }
@@ -270,17 +310,92 @@
       color: var(--text-dark);
       margin-bottom: 24px;
     }
-    
-    #tratamentos {
-      background: var(--bg-white);
-    }
-    
+
     .section-desc {
       color: var(--text-muted);
       font-weight: 300;
     }
 
-    /* ── Serviços ──────────────────────────────────────── */
+    #tratamentos {
+      background: var(--bg-white);
+    }
+
+    /* Sobre / Clínica */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sobre-image {
+      position: relative;
+    }
+
+    .sobre-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 200px 200px 0 0;
+    }
+
+    .sobre-text h3 {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .sobre-text p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .pilares {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 80px;
+    }
+
+    .pilar {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .pilar:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .pilar-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--accent-sage);
+      border-radius: 50%;
+      color: var(--text-dark);
+    }
+
+    .pilar h4 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .pilar p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* Serviços */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -288,17 +403,17 @@
     }
 
     .service-card {
-      background: var(--bg-white);
+      background: var(--bg-light);
       padding: 50px 40px;
       text-align: center;
       border-radius: 8px;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
-      border: 1px solid rgba(0,0,0,0.03);
+      border: 1px solid rgba(0, 0, 0, 0.03);
     }
 
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+      box-shadow: var(--shadow-soft);
     }
 
     .service-icon {
@@ -335,9 +450,179 @@
       font-weight: 500;
       letter-spacing: 0.05em;
       text-transform: uppercase;
+      transition: color 0.3s ease;
     }
 
-    /* ── Rodapé ────────────────────────────────────────── */
+    .service-link:hover {
+      color: var(--text-dark);
+    }
+
+    /* Equipe */
+    .equipe-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .membro {
+      text-align: center;
+    }
+
+    .membro-foto {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border: 3px solid var(--accent-sage);
+    }
+
+    .membro-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .membro h3 {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .membro .cargo {
+      display: block;
+      font-size: 13px;
+      color: var(--accent-sage);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .membro p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* Galeria */
+    #galeria {
+      background: var(--bg-white);
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .galeria-item {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.3s ease;
+    }
+
+    .galeria-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .galeria-item span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .galeria-item:hover span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Depoimentos */
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .depoimento {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .depoimento blockquote {
+      font-family: 'Marcellus', serif;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+    }
+
+    .depoimento cite {
+      font-style: normal;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .depoimento cite strong {
+      display: block;
+      color: var(--accent-sage);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* Agendamento / CTA */
+    #agendamento {
+      background: var(--bg-light);
+    }
+
+    .agendamento-box {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      padding: 60px 40px;
+      background: var(--bg-white);
+    }
+
+    .agendamento-box h3 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .agendamento-box p {
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .agendamento-box .btn-reserve {
+      font-size: 14px;
+      padding: 14px 36px;
+    }
+
+    /* Footer */
     footer {
       background: var(--text-dark);
       color: var(--bg-light);
@@ -361,6 +646,7 @@
       margin-bottom: 60px;
       font-weight: 300;
       font-size: 15px;
+      flex-wrap: wrap;
     }
 
     .footer-info div strong {
@@ -386,116 +672,369 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    @media (max-width: 900px) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 960px) {
+
+      .sobre-grid,
       .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
       }
+
       .hero-content {
         padding-right: 0;
         order: -1;
       }
+
       .hero-desc {
         margin: 0 auto 40px;
       }
-      .services-grid {
+
+      .hero-img-wrapper {
+        height: 50vh;
+      }
+
+      .services-grid,
+      .equipe-grid,
+      .depoimentos-grid {
         grid-template-columns: 1fr;
       }
+
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pilares {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 80px 0;
+      }
+
       .nav-links {
         display: none;
       }
+
       .footer-info {
         flex-direction: column;
         gap: 40px;
+      }
+
+      .galeria-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="demo-bar">
-    <span>Aura — Estética Premium</span>
-    <a href="../../tecnologia.html#sites-premium" class="voltar">Voltar para tecnologia</a>
-    <a href="#">Agendar Avaliação</a>
+  <div class="demo-bar" role="note" aria-label="Aviso de modelo demonstrativo">
+    <span>Você está navegando em um <strong>modelo demonstrativo</strong> da Plena Informática.</span>
+    <a class="voltar" href="../index.html#modelos">Voltar ao portal</a>
+    <a href="https://wa.me/5512992191018?text=Ol%C3%A1!%20Naveguei%20no%20modelo%20de%20site%20premium%20para%20Est%C3%A9tica%20da%20Plena%20e%20quero%20um%20or%C3%A7amento."
+      target="_blank" rel="noopener noreferrer">Quero um site assim</a>
   </div>
 
   <header>
     <div class="container nav">
       <a href="#" class="logo">Aura</a>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#sobre">A Clínica</a>
         <a href="#tratamentos">Tratamentos</a>
-        <a href="#clinica">A Clínica</a>
-        <a href="#equipe">Nossa Equipe</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#depoimentos">Depoimentos</a>
       </nav>
       <a href="#agendamento" class="btn-reserve">Agendar Consulta</a>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero container">
       <div class="hero-container">
         <div class="hero-content">
-          <span class="hero-subtitle">Estética Avançada</span>
+          <span class="hero-subtitle">Aura • Estética Avançada &amp; Spa</span>
           <h1 class="hero-title">Beleza que transcende, <br>cuidado que acolhe.</h1>
-          <p class="hero-desc">Um espaço de bem-estar onde ciência, tecnologia e rituais de cuidado se encontram para revelar a sua melhor versão em um ambiente de absoluta serenidade.</p>
-          <a href="#agendamento" class="btn-reserve">Conheça nossos protocolos</a>
+          <p class="hero-desc">Um espaço de bem-estar onde ciência, tecnologia de ponta e rituais de cuidado se encontram para revelar a sua melhor versão em um ambiente de absoluta serenidade.</p>
+          <div class="hero-actions">
+            <a href="#tratamentos" class="btn-reserve">Conheça nossos protocolos</a>
+            <a href="#agendamento" class="btn-reserve btn-outline">Agendar avaliação</a>
+          </div>
+          <div class="hero-features">
+            <span>✨ Protocolos Exclusivos</span>
+            <span>🌿 Rituais de Cuidado</span>
+            <span>🔬 Tecnologia de Ponta</span>
+          </div>
         </div>
         <div class="hero-img-wrapper">
-          <img src="../assets/estetica-hero.png" alt="Ambiente sereno da clínica de estética" class="hero-img">
+          <img src="assets/estetica-hero.png"
+            alt="Ambiente sereno da clínica de estética" class="hero-img">
         </div>
       </div>
     </section>
 
+    <!-- Sobre -->
+    <section id="sobre">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">A Clínica</span>
+          <h2 class="section-title">Um refúgio de serenidade e ciência</h2>
+          <p class="section-desc">A Aura nasceu da união entre a estética avançada e o cuidado humanizado, em um espaço
+            projetado para proporcionar experiências transformadoras.</p>
+        </div>
+
+        <div class="sobre-grid">
+          <div class="sobre-image reveal">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1000&q=80"
+              alt="Tratamento facial na clínica Aura">
+          </div>
+          <div class="sobre-text reveal">
+            <h3>Um novo padrão<br><em>em beleza e bem-estar</em></h3>
+            <p>Nossa clínica foi desenhada para ser um santuário de tranquilidade no coração da cidade. Cada detalhe,
+              desde a iluminação até os aromas, foi pensado para acalmar os sentidos e preparar você para uma
+              experiência única.</p>
+            <p>Utilizamos as tecnologias mais avançadas do mercado, operadas por profissionais altamente qualificados,
+              para garantir resultados naturais e seguros, respeitando a individualidade de cada pessoa.</p>
+          </div>
+        </div>
+
+        <div class="pilares">
+          <div class="pilar reveal">
+            <div class="pilar-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+            </div>
+            <h4>Tecnologia de Ponta</h4>
+            <p>Equipamentos de última geração para tratamentos seguros e eficazes.</p>
+          </div>
+          <div class="pilar reveal">
+            <div class="pilar-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 21s-7-5.1-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.9-7 11-7 11z"></path>
+              </svg>
+            </div>
+            <h4>Atendimento Personalizado</h4>
+            <p>Protocolos exclusivos desenvolvidos para atender às suas necessidades.</p>
+          </div>
+          <div class="pilar reveal">
+            <div class="pilar-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h4>Segurança e Confiança</h4>
+            <p>Equipe especializada e materiais certificados para sua tranquilidade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tratamentos -->
     <section id="tratamentos">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="section-eyebrow">Nossos Protocolos</span>
           <h2 class="section-title">Alta tecnologia aliada ao bem-estar</h2>
-          <p class="section-desc">Procedimentos minimamente invasivos e protocolos exclusivos desenhados para resultados naturais e duradouros.</p>
+          <p class="section-desc">Procedimentos minimamente invasivos e protocolos exclusivos desenhados para resultados
+            naturais e duradouros.</p>
         </div>
-        
+
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card reveal">
             <div class="service-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
             </div>
             <h3 class="service-title">Rejuvenescimento</h3>
-            <p class="service-desc">Toxina botulínica, bioestimuladores de colágeno e preenchimentos com ácido hialurônico focados na harmonia facial.</p>
-            <a href="#" class="service-link">Saber mais &rarr;</a>
+            <p class="service-desc">Toxina botulínica, bioestimuladores de colágeno e preenchimentos com ácido
+              hialurônico focados na harmonia facial.</p>
+            <a href="#agendamento" class="service-link">Saber mais</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card reveal">
             <div class="service-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
                 <path d="M2 12h20"></path>
               </svg>
             </div>
             <h3 class="service-title">Laser & Tecnologias</h3>
-            <p class="service-desc">Ultraformer MPT, Lavieen e tratamentos a laser de última geração para flacidez, manchas e textura da pele.</p>
-            <a href="#" class="service-link">Saber mais &rarr;</a>
+            <p class="service-desc">Ultraformer MPT, Lavieen e tratamentos a laser de última geração para flacidez,
+              manchas e textura da pele.</p>
+            <a href="#agendamento" class="service-link">Saber mais</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card reveal">
             <div class="service-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2v20"></path>
                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
               </svg>
             </div>
             <h3 class="service-title">Spa & Bem-Estar</h3>
-            <p class="service-desc">Massagens relaxantes, drenagem linfática método Renata França e terapias faciais exclusivas.</p>
-            <a href="#" class="service-link">Saber mais &rarr;</a>
+            <p class="service-desc">Massagens relaxantes, drenagem linfática método Renata França e terapias faciais
+              exclusivas.</p>
+            <a href="#agendamento" class="service-link">Saber mais</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipe -->
+    <section id="equipe">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Nossa Equipe</span>
+          <h2 class="section-title">Especialistas que cuidam de você</h2>
+          <p class="section-desc">Profissionais altamente capacitados e apaixonados pelo que fazem, prontos para
+            oferecer o melhor cuidado.</p>
+        </div>
+
+        <div class="equipe-grid">
+          <div class="membro reveal">
+            <div class="membro-foto">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Dra. Helena Martins">
+            </div>
+            <h3>Dra. Helena Martins</h3>
+            <span class="cargo">Médica Esteta</span>
+            <p>Especialista em harmonização facial e rejuvenescimento, com mais de 15 anos de experiência.</p>
+          </div>
+          <div class="membro reveal">
+            <div class="membro-foto">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80"
+                alt="Dra. Paula Cardoso">
+            </div>
+            <h3>Dra. Paula Cardoso</h3>
+            <span class="cargo">Dermatologista</span>
+            <p>Foco em tratamentos a laser e tecnologias para saúde e beleza da pele.</p>
+          </div>
+          <div class="membro reveal">
+            <div class="membro-foto">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80"
+                alt="Dra. Renata Lopes">
+            </div>
+            <h3>Dra. Renata Lopes</h3>
+            <span class="cargo">Fisioterapeuta</span>
+            <p>Especialista em bem-estar, massagens terapêuticas e protocolos de relaxamento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Nossos Espaços</span>
+          <h2 class="section-title">Conheça a Aura</h2>
+        </div>
+
+        <div class="galeria-grid">
+          <div class="galeria-item reveal">
+            <img src="assets/estetica-hero.png"
+              alt="Sala de espera da clínica">
+            <span>Recepção</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&q=80" alt="Sala de tratamento">
+            <span>Sala de Tratamento</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80"
+              alt="Procedimento facial">
+            <span>Procedimentos Faciais</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Massagem relaxante">
+            <span>Massagens</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&q=80"
+              alt="Equipamento de laser">
+            <span>Laser &amp; Tecnologia</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&q=80" alt="Produtos de skincare">
+            <span>Skin Care</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=800&q=80" alt="Espaço zen">
+            <span>Espaço Zen</span>
+          </div>
+          <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1512699355324-f07e3106dae5?w=800&q=80" alt="Bebidas detox">
+            <span>Área de Bem-Estar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Depoimentos</span>
+          <h2 class="section-title">O que nossos clientes dizem</h2>
+        </div>
+
+        <div class="depoimentos-grid">
+          <div class="depoimento reveal">
+            <blockquote>“A experiência na Aura foi simplesmente transformadora. Desde a recepção até o tratamento, tudo
+              foi perfeito. Saí me sentindo renovada e muito confiante.”</blockquote>
+            <cite><strong>Mariana S.</strong>Cliente há 2 anos</cite>
+          </div>
+          <div class="depoimento reveal">
+            <blockquote>“Profissionais extremamente atenciosos e resultados visíveis. O ambiente é lindo e relaxante, me
+              sinto em um spa de verdade.”</blockquote>
+            <cite><strong>Fernanda L.</strong>Cliente há 1 ano</cite>
+          </div>
+          <div class="depoimento reveal">
+            <blockquote>“A Dra. Helena é incrível! Fez um trabalho maravilhoso na minha pele com o laser. Já recomendei
+              para todas as minhas amigas.”</blockquote>
+            <cite><strong>Beatriz A.</strong>Cliente há 3 anos</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agendamento -->
+    <section id="agendamento">
+      <div class="container">
+        <div class="agendamento-box reveal">
+          <span class="section-eyebrow">Agendamento</span>
+          <h3>Agende sua avaliação</h3>
+          <p>Dê o primeiro passo para realçar a sua beleza e bem-estar. Nossa equipe está pronta para receber você.</p>
+          <a href="https://wa.me/5512992191018?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Aura%20Est%C3%A9tica."
+            target="_blank" rel="noopener noreferrer" class="btn-reserve">Agendar pelo WhatsApp</a>
         </div>
       </div>
     </section>
@@ -518,8 +1057,44 @@
           <p>contato@auraclinica.com.br<br>+55 11 98888-0000</p>
         </div>
       </div>
-      <p class="copyright">&copy; 2026 Plena Informática. Modelo demonstrativo de Site Premium para Clínicas de Estética.</p>
+      <p class="copyright">&copy; 2026 Plena Informática. Modelo demonstrativo de Site Premium para Clínicas de
+        Estética.</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Reveal animation
+      var els = document.querySelectorAll('.reveal');
+      if (reduced || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        els.forEach(function (el) { io.observe(el); });
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          var target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

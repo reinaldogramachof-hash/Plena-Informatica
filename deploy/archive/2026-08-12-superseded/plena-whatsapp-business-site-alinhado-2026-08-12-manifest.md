@@ -1,0 +1,69 @@
+﻿# Pacote complementar - WhatsApp Business alinhado ao site
+
+- Data: 2026-08-12
+- Arquivo: deploy/plena-whatsapp-business-site-alinhado-2026-08-12.zip
+- Tamanho: 1.38 MB
+- Total de arquivos: 57
+- Número final: +55 12 99219-1018 / 5512992191018
+- Resíduos de números antigos no pacote: 
+NÃO
+
+## Conteúdo
+
+- blog/index.html
+- index.html
+- produtos/assets/produtos.js
+- produtos/gestao-gastro.html
+- script.js
+- servicos/ferramentas/qr-code/assets/index-B7C3D4IU.js
+- servicos/hub-app/assets/BusinessCardCreatorTool-BkiftvcC.js
+- servicos/hub-app/assets/BusinessCardCreatorTool-DHu5URTi.css
+- servicos/hub-app/assets/DeclarationBuilderTool-Cf2q84G2.js
+- servicos/hub-app/assets/DeclarationBuilderTool-CFBqTC19.css
+- servicos/hub-app/assets/es-DwVNUOQR.js
+- servicos/hub-app/assets/ImagesToPdfTool-C3Qx_0pE.css
+- servicos/hub-app/assets/ImagesToPdfTool-nl-N3CIG.js
+- servicos/hub-app/assets/index-CDeghWaN.css
+- servicos/hub-app/assets/index-CXwHdGy6.js
+- servicos/hub-app/assets/LabelGeneratorTool-DrPNKHHB.css
+- servicos/hub-app/assets/LabelGeneratorTool-DRswSAZS.js
+- servicos/hub-app/assets/LiberationSans-Bold-D7ZE4CAh.ttf
+- servicos/hub-app/assets/LiberationSans-Regular-BMLF__tr.ttf
+- servicos/hub-app/assets/logo-plena-ZEPN7Did.png
+- servicos/hub-app/assets/MeiDasGuideTool-Cs8GdK6r.js
+- servicos/hub-app/assets/MeiDasGuideTool-HYVUoltl.css
+- servicos/hub-app/assets/MeiIrpfChecklistTool-B2Vfd5k9.js
+- servicos/hub-app/assets/MeiIrpfChecklistTool-DZsNthLL.css
+- servicos/hub-app/assets/MenuBuilderTool-D0Bx0ywr.css
+- servicos/hub-app/assets/MenuBuilderTool-X6n_1sCI.js
+- servicos/hub-app/assets/MergePdfTool-CUlq_Ohr.css
+- servicos/hub-app/assets/MergePdfTool-RKPHMipo.js
+- servicos/hub-app/assets/PrintCostEstimatorTool-D8EN8MV7.js
+- servicos/hub-app/assets/PrintCostEstimatorTool-ZN9Cp0pq.css
+- servicos/hub-app/assets/QrCodeTool-BWDyYog6.js
+- servicos/hub-app/assets/ResumeBuilderTool-CTJ5pcju.css
+- servicos/hub-app/assets/ResumeBuilderTool-D4ZSH8Dx.js
+- servicos/hub-app/assets/schemas-Db8ROgeA.js
+- servicos/hub-app/assets/use-local-storage-C5SNzZU7.js
+- servicos/hub-app/index.html
+- servicos/script.js
+- servicos/servicos.html
+- tecnologia/demos/gestao-assistencia/demo-bypass.js
+- tecnologia/demos/gestao-barbearia/demo-bypass.js
+- tecnologia/demos/gestao-barbearia/index.html
+- tecnologia/demos/gestao-beleza/demo-bypass.js
+- tecnologia/demos/gestao-beleza/index.html
+- tecnologia/demos/gestao-restaurantes/demo-bypass.js
+- tecnologia/ecommerce/index.html
+- tecnologia/landing-pages/index.html
+- tecnologia/modelos/landing-pages/captura-leads/assets/script.js
+- tecnologia/modelos/landing-pages/captura-leads/index.html
+- tecnologia/modelos/landing-pages/diagnostico-whatsapp/assets/script.js
+- tecnologia/modelos/landing-pages/diagnostico-whatsapp/index.html
+- tecnologia/projetos-sob-consulta/index.html
+- tecnologia/script.js
+- tecnologia/sites-premium/advocacia/index.html
+- tecnologia/sites-premium/arquitetura/index.html
+- tecnologia/sites-premium/imobiliaria/index.html
+- tecnologia/sites-premium/portal.js
+- tecnologia/tecnologia.html

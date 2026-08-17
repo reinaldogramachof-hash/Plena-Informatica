@@ -1,16 +1,19 @@
-# Plena Informatica
+﻿# Plena Informatica
 
 Repositorio oficial do site institucional e dos produtos digitais da Plena
 Informatica.
 
 ## Estrutura atual
 
-- `index/`: pagina inicial institucional.
+- `index.html`: pagina inicial institucional.
+- `assets/images/`: imagens publicas compartilhadas entre as paginas.
 - `tecnologia/`: apresentacao das solucoes de tecnologia.
-- `personalizados/`: catalogo de produtos personalizados.
 - `produtos/`: paginas dos sistemas e produtos digitais.
-- `Sistemas_Gestão/`: demonstracoes de sistemas por segmento.
+- `Sistemas_Gestao/`: demonstracoes de sistemas por segmento.
 - `servicos/`: pagina de Servicos Digitais e novo Hub de ferramentas.
+- `docs/`: documentacao, auditorias, estrategia, material comercial e arquivo historico.
+- `tools/`: scripts locais e ferramentas de manutencao.
+- `deploy/`: pacotes de publicacao e arquivos de deploy.
 
 ## Hub de Solucoes Digitais
 
@@ -53,4 +56,4 @@ npm.cmd audit
 ## Contato
 
 - Site: <https://plenainformatica.com.br>
-- WhatsApp: +55 (12) 98148-8505
+- WhatsApp: +55 (12) 99219-1018

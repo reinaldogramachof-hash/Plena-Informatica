@@ -1,0 +1,20 @@
+Options -Indexes
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.plenainformatica\.com\.br$ [NC]
+RewriteRule ^tecnologia\.html$ https://plenainformatica.com.br/tecnologia/tecnologia.html [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.plenainformatica\.com\.br$ [NC]
+RewriteRule ^(.*)$ https://plenainformatica.com.br/$1 [R=301,L]
+
+RewriteRule ^tecnologia\.html$ https://plenainformatica.com.br/tecnologia/tecnologia.html [R=301,L]
+
+RedirectMatch 301 ^/servicos/?$ https://plenainformatica.com.br/servicos/servicos.html
+RedirectMatch 301 ^/tecnologia/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html
+RedirectMatch 301 ^/produtos/assistencia-pro/?$ https://plenainformatica.com.br/produtos/assistencia-pro.html
+RedirectMatch 301 ^/produtos/barbearia-premium/?$ https://plenainformatica.com.br/produtos/barbearia-premium.html
+RedirectMatch 301 ^/produtos/gestao-gastro/?$ https://plenainformatica.com.br/produtos/gestao-gastro.html
+RedirectMatch 301 ^/produtos/beleza-spa/?$ https://plenainformatica.com.br/produtos/beleza-spa.html
+RedirectMatch 301 ^/modelos/landing-pages/captura-leads/?$ https://plenainformatica.com.br/tecnologia/modelos/landing-pages/captura-leads/
+RedirectMatch 301 ^/modelos/landing-pages/diagnostico-whatsapp/?$ https://plenainformatica.com.br/tecnologia/modelos/landing-pages/diagnostico-whatsapp/

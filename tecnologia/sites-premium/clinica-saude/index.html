@@ -287,10 +287,34 @@
       display: flex;
       align-items: center;
       gap: 9px;
-      margin: 24px 0 0;
+      margin: 20px 0 0;
       color: #52635e;
       font-size: 12px;
       font-weight: 600
+    }
+
+    .hero-trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(12, 121, 104, 0.15);
+    }
+
+    .hero-trust-strip span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #2c594e;
+    }
+
+    .hero-trust-strip i {
+      width: 15px;
+      height: 15px;
+      color: var(--green);
     }
 
     .hero-media {
@@ -1424,14 +1448,20 @@
   </header>
   <main id="conteudo">
     <section id="inicio" class="hero">
-      <div class="hero-content reveal from-left"><span class="eyebrow">Clínica multidisciplinar</span>
+      <div class="hero-content reveal from-left">
+        <span class="eyebrow">Clínica Multidisciplinar • Medicina Integrada</span>
         <h1 class="display">Cuidado que começa na <em>primeira conversa.</em></h1>
-        <p class="lead">Ambiente acolhedor, especialistas integrados e orientações claras para cada etapa do seu
-          cuidado.</p>
-        <div class="actions"><a class="button button--gold btn-agendar" href="javascript:void(0)">Agendar avaliação</a><a class="button alt"
-            href="#especialidades">Conhecer especialidades</a></div>
-        <p class="hero-note"><i data-lucide="message-circle" aria-hidden="true"></i> Atendimento por canais digitais e
-          telefone</p>
+        <p class="lead">Ambiente acolhedor, especialistas integrados e orientações claras para cada etapa da sua saúde e bem-estar.</p>
+        <div class="actions">
+          <a class="button button--gold btn-agendar" href="javascript:void(0)">Agendar avaliação</a>
+          <a class="button alt" href="#especialidades">Conhecer especialidades</a>
+        </div>
+        <p class="hero-note"><i data-lucide="message-circle" aria-hidden="true"></i> Atendimento ágil por WhatsApp, canais digitais e telefone</p>
+        <div class="hero-trust-strip">
+          <span><i data-lucide="check-circle-2"></i> Equipe Multidisciplinar</span>
+          <span><i data-lucide="calendar"></i> Agendamento Ágil</span>
+          <span><i data-lucide="shield-check"></i> Cuidado Humanizado</span>
+        </div>
       </div>
       <figure class="hero-media reveal"><img src="assets/hero-clinica-vitalis.png"
           alt="Ambiente interno sereno e contemporâneo de uma clínica">

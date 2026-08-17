@@ -15,7 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Skip link ─────────────────────────────────────────────── */
+/* Skip link */
 .skip-link {
   position: fixed;
   top: -100%;
@@ -67,8 +67,8 @@ footer {
 
 .glass-nav {
   background: rgba(5, 8, 15, 0.82);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -82,8 +82,8 @@ footer {
   background: var(--surface-glass);
   border: 1px solid var(--border-light);
   border-radius: 1.25rem;
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, background 0.35s ease;
   padding: 2rem;
   display: flex;
@@ -311,8 +311,8 @@ button:focus-visible,
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.68);
   box-shadow: 0 24px 70px -48px rgba(15, 23, 42, 0.35);
-  backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
 }
 
 .tech-showcase .tab-btn {
@@ -841,7 +841,7 @@ button:focus-visible,
 .tech-hero-copy > p { max-width: 39rem; }
 .tech-hero-proof { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.85rem; }
 .tech-hero-proof span { padding: .52rem .72rem; border-left: 2px solid rgba(212, 175, 55, .72); background: rgba(255, 255, 255, .035); color: #D4D4D8; font-size: .73rem; font-weight: 700; }
-.tech-delivery-panel { padding: 1.45rem; border: 1px solid rgba(255, 255, 255, .12); border-radius: 1.45rem; background: linear-gradient(150deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .025)); box-shadow: 0 30px 85px -52px rgba(0, 0, 0, .92); backdrop-filter: blur(16px); }
+.tech-delivery-panel { padding: 1.45rem; border: 1px solid rgba(255, 255, 255, .12); border-radius: 1.45rem; background: linear-gradient(150deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .025)); box-shadow: 0 30px 85px -52px rgba(0, 0, 0, .92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .tech-delivery-panel__top { display: flex; align-items: center; justify-content: space-between; color: #D4AF37; font-size: .66rem; font-weight: 900; letter-spacing: .16em; }
 .tech-delivery-panel__top i { font-size: 1.3rem; }
 .tech-delivery-panel h2 { max-width: 18rem; margin: 1.4rem 0 1.35rem; color: #fff; font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 800; letter-spacing: -.045em; line-height: 1.13; }

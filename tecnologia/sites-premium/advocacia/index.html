@@ -116,6 +116,7 @@
       right: 0;
       z-index: 80;
       background: rgba(11, 29, 51, .84);
+      -webkit-backdrop-filter: blur(18px);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(200, 167, 106, .12);
     }
@@ -359,6 +360,7 @@
         linear-gradient(var(--linha) 1px, transparent 1px);
       background-size: auto, auto, 100% 88px;
       transform: translate3d(0, calc(var(--par, 0) * 0.12px), 0);
+      -webkit-mask-image: radial-gradient(75% 65% at 50% 40%, #000 30%, transparent 80%);
       mask-image: radial-gradient(75% 65% at 50% 40%, #000 30%, transparent 80%);
     }
 
@@ -373,6 +375,7 @@
       background:
         linear-gradient(90deg, transparent, rgba(246, 246, 246, .035)),
         repeating-linear-gradient(90deg, rgba(246, 246, 246, .08) 0 2px, transparent 2px 18px);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%);
       mask-image: linear-gradient(90deg, transparent, #000 25%);
       pointer-events: none;
     }
@@ -461,8 +464,49 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: linear-gradient(90deg, var(--navy) 0%, rgba(11, 29, 51, 0.4) 60%, transparent 100%);
+      background: linear-gradient(90deg, var(--navy) 0%, rgba(11, 29, 51, 0.55) 60%, transparent 100%);
       pointer-events: none;
+    }
+
+    .hero-trust-card {
+      background: rgba(11, 29, 51, 0.76);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(200, 167, 106, 0.25);
+      border-radius: 14px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .trust-item .num-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--marfim);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      letter-spacing: .02em;
+    }
+
+    .trust-item small {
+      color: var(--cinza);
+      font-size: 12.5px;
+      line-height: 1.45;
+      display: block;
     }
 
     /* ── Números ───────────────────────────────────────── */
@@ -636,6 +680,7 @@
       opacity: 0.025;
       line-height: 1;
       pointer-events: none;
+      -webkit-user-select: none;
       user-select: none;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s;
       z-index: 0;
@@ -691,9 +736,6 @@
       z-index: 2;
     }
 
-    .area:hover class .area-cta {
-      /* fallback se necessário, mas .area:hover .area-cta é a regra real */
-    }
 
     .area:hover .area-cta {
       opacity: 1;
@@ -980,7 +1022,7 @@
 
       .esc-txt {
         padding: 80px 0;
-        min-height: auto;
+        min-height: 0;
       }
 
       .esc-stack-wrapper {
@@ -1197,7 +1239,7 @@
       min-height: 380px;
       background:
         linear-gradient(to right, #040d1a 40%, rgba(4, 13, 26, 0.6) 100%),
-        url('../../../capaartigo.png') no-repeat right center / cover;
+        url('../../../assets/images/capaartigo.png') no-repeat right center / cover;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -1238,6 +1280,7 @@
       border-radius: 999px;
       margin-bottom: 20px;
       background: rgba(11, 29, 51, 0.6);
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
     }
 
@@ -1390,6 +1433,7 @@
       text-decoration: none;
       color: var(--marfim);
       background: rgba(11, 29, 51, 0.5);
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
       transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     }
@@ -1677,7 +1721,7 @@
 
       .hero {
         padding: 130px 0 70px;
-        min-height: auto;
+        min-height: 0;
       }
 
       .nav-links {
@@ -1824,6 +1868,7 @@
       border: 1px solid rgba(200, 167, 106, .14);
       border-radius: 6px;
       background: rgba(11, 29, 51, .4);
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -1935,6 +1980,7 @@
       font-weight: 500;
       cursor: pointer;
       transition: all .3s cubic-bezier(0.25, 1, 0.5, 1);
+      -webkit-user-select: none;
       user-select: none;
     }
 
@@ -2063,10 +2109,10 @@
 
     <section class="hero" aria-label="Apresentação">
       <div class="hero-image-bg reveal" style="transition-delay: 200ms;">
-        <img src="../../../heroadvocacia.png" alt="Recepção moderna e elegante do escritório Vasconcelos e Prado Advogados Associados">
+        <img src="../../../assets/images/heroadvocacia.png" alt="Recepção moderna e elegante do escritório Vasconcelos e Prado Advogados Associados">
       </div>
       <div class="container hero-grid">
-        <div>
+        <div class="reveal">
           <span class="eyebrow">Rigor Técnico, Estratégia &amp; Discrição</span>
           <h1>Solidez jurídica para guiar suas <em>decisões mais complexas</em>.</h1>
           <p class="lead">Atuamos na assessoria jurídica de empresas e patrimônios familiares, aliando rigor acadêmico a uma visão estratégica para mitigar riscos e consolidar a segurança dos seus ativos.</p>
@@ -2076,49 +2122,52 @@
           </div>
           <p class="hero-note">Atendimento privativo sob agendamento. Presencial e digital.</p>
         </div>
+        <div class="hero-trust-card reveal" style="transition-delay: 300ms;">
+          <div class="trust-item">
+            <svg class="num-icon" viewBox="0 0 64 64" fill="none" stroke="var(--ouro)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="32" cy="32" r="28" stroke="rgba(200, 167, 106, 0.15)" stroke-dasharray="4 4" stroke-width="1"></circle>
+              <line x1="32" y1="12" x2="32" y2="52"></line>
+              <line x1="16" y1="22" x2="48" y2="22"></line>
+              <path d="M16 22 L10 38 H22 Z"></path>
+              <line x1="16" y1="38" x2="16" y2="44"></line>
+              <path d="M48 22 L42 38 H54 Z"></path>
+              <line x1="48" y1="38" x2="48" y2="44"></line>
+              <path d="M24 52 H40"></path>
+            </svg>
+            <div>
+              <strong>Rigor Ético</strong>
+              <small>Compromisso incondicional com a retidão e as diretrizes institucionais da Ordem.</small>
+            </div>
+          </div>
+          <div class="trust-item">
+            <svg class="num-icon" viewBox="0 0 64 64" fill="none" stroke="var(--ouro)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 48 A20 20 0 0 1 46 48" stroke="rgba(200, 167, 106, 0.15)" stroke-dasharray="3 3" stroke-width="1"></path>
+              <circle cx="32" cy="32" r="28" stroke="rgba(200, 167, 106, 0.1)" stroke-width="0.8"></circle>
+              <line x1="32" y1="16" x2="18" y2="48"></line>
+              <line x1="32" y1="16" x2="46" y2="48"></line>
+              <circle cx="32" cy="16" r="3" fill="var(--navy)" stroke="var(--ouro)" stroke-width="1.2"></circle>
+              <line x1="24" y1="36" x2="40" y2="36" stroke-dasharray="1 2"></line>
+            </svg>
+            <div>
+              <strong>Método Claro</strong>
+              <small>Rigor processual que assegura previsibilidade e clareza em cada etapa consultiva.</small>
+            </div>
+          </div>
+          <div class="trust-item">
+            <svg class="num-icon" viewBox="0 0 64 64" fill="none" stroke="var(--ouro)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="32" cy="32" r="28" stroke="rgba(200, 167, 106, 0.15)" stroke-dasharray="4 4" stroke-width="1"></circle>
+              <path d="M32 12 C32 12 48 16 48 28 C48 40 32 48 32 48 C32 48 16 40 16 28 C16 16 32 12 32 12 Z"></path>
+              <path d="M32 16 C32 16 44 19 44 28 C44 37 32 44 32 44 C32 44 20 37 20 28 C20 19 32 16 32 16 Z" stroke="rgba(200, 167, 106, 0.3)" stroke-width="0.8"></path>
+              <polygon points="32,24 36,28 32,32 28,28" fill="var(--ouro)" opacity="0.8"></polygon>
+            </svg>
+            <div>
+              <strong>Sigilo Absoluto</strong>
+              <small>Confidencialidade estrita e proteção integral de todas as informações.</small>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
-    <div class="numeros" aria-label="Destaques do modelo">
-      <div class="container num-grid">
-        <div class="num reveal">
-          <svg class="num-icon" viewBox="0 0 64 64" fill="none" stroke="var(--ouro)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="32" cy="32" r="28" stroke="rgba(200, 167, 106, 0.15)" stroke-dasharray="4 4" stroke-width="1"></circle>
-            <line x1="32" y1="12" x2="32" y2="52"></line>
-            <line x1="16" y1="22" x2="48" y2="22"></line>
-            <path d="M16 22 L10 38 H22 Z"></path>
-            <line x1="16" y1="38" x2="16" y2="44"></line>
-            <path d="M48 22 L42 38 H54 Z"></path>
-            <line x1="48" y1="38" x2="48" y2="44"></line>
-            <path d="M24 52 H40"></path>
-          </svg>
-          <strong>Rigor Ético</strong>
-          <small>Compromisso incondicional com a retidão e as diretrizes da Ordem.</small>
-        </div>
-        <div class="num reveal">
-          <svg class="num-icon" viewBox="0 0 64 64" fill="none" stroke="var(--ouro)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 48 A20 20 0 0 1 46 48" stroke="rgba(200, 167, 106, 0.15)" stroke-dasharray="3 3" stroke-width="1"></path>
-            <circle cx="32" cy="32" r="28" stroke="rgba(200, 167, 106, 0.1)" stroke-width="0.8"></circle>
-            <line x1="32" y1="16" x2="18" y2="48"></line>
-            <line x1="32" y1="16" x2="46" y2="48"></line>
-            <circle cx="32" cy="16" r="3" fill="var(--navy)" stroke="var(--ouro)" stroke-width="1.2"></circle>
-            <line x1="24" y1="36" x2="40" y2="36" stroke-dasharray="1 2"></line>
-          </svg>
-          <strong>Método Claro</strong>
-          <small>Rigor processual que assegura previsibilidade e clareza em cada etapa.</small>
-        </div>
-        <div class="num reveal">
-          <svg class="num-icon" viewBox="0 0 64 64" fill="none" stroke="var(--ouro)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="32" cy="32" r="28" stroke="rgba(200, 167, 106, 0.15)" stroke-dasharray="4 4" stroke-width="1"></circle>
-            <path d="M32 12 C32 12 48 16 48 28 C48 40 32 48 32 48 C32 48 16 40 16 28 C16 16 32 12 32 12 Z"></path>
-            <path d="M32 16 C32 16 44 19 44 28 C44 37 32 44 32 44 C32 44 20 37 20 28 C20 19 32 16 32 16 Z" stroke="rgba(200, 167, 106, 0.3)" stroke-width="0.8"></path>
-            <polygon points="32,24 36,28 32,32 28,28" fill="var(--ouro)" opacity="0.8"></polygon>
-          </svg>
-          <strong>Sigilo Absoluto</strong>
-          <small>Confidencialidade estrita e proteção total das informações confidenciadas.</small>
-        </div>
-      </div>
-    </div>
 
     <section id="areas" aria-label="Áreas de atuação">
       <div class="container">
@@ -2227,31 +2276,31 @@
         <div class="esc-stack" id="officeStackContainer">
           <!-- Card 1 -->
           <div class="stack-card c-active" data-index="0">
-            <img src="../../../officereuniao.png" alt="Sala de Reuniões Privativa">
+            <img src="../../../assets/images/officereuniao.png" alt="Sala de Reuniões Privativa">
             <div class="card-label">Sala de Reuniões</div>
           </div>
 
           <!-- Card 2 -->
           <div class="stack-card c-next" data-index="1">
-            <img src="../../../officebiblioteca.png" alt="Biblioteca Jurídica e Acervo">
+            <img src="../../../assets/images/officebiblioteca.png" alt="Biblioteca Jurídica e Acervo">
             <div class="card-label">Biblioteca &amp; Acervo</div>
           </div>
 
           <!-- Card 3 -->
           <div class="stack-card c-last" data-index="2">
-            <img src="../../../officeconferencia.png" alt="Sala de Conferências Virtuais">
+            <img src="../../../assets/images/officeconferencia.png" alt="Sala de Conferências Virtuais">
             <div class="card-label">Sustentações Virtuais</div>
           </div>
 
           <!-- Card 4 -->
           <div class="stack-card c-back-1" data-index="3">
-            <img src="../../../officelounge.png" alt="Lounge VIP e Café Executivo">
+            <img src="../../../assets/images/officelounge.png" alt="Lounge VIP e Café Executivo">
             <div class="card-label">Lounge Privativo</div>
           </div>
 
           <!-- Card 5 -->
           <div class="stack-card c-back-2" data-index="4">
-            <img src="../../../officediretoria.png" alt="Gabinete Executivo e Presidência">
+            <img src="../../../assets/images/officediretoria.png" alt="Gabinete Executivo e Presidência">
             <div class="card-label">Gabinete Executivo</div>
           </div>
         </div>
@@ -2275,7 +2324,7 @@
                 </div>
                 <!-- Verso: Foto do Profissional -->
                 <div class="socio-foto-back">
-                  <img src="../../../socioheitor.png" alt="Heitor Vasconcelos">
+                  <img src="../../../assets/images/socioheitor.png" alt="Heitor Vasconcelos">
                 </div>
               </div>
             </div>
@@ -2294,7 +2343,7 @@
                 </div>
                 <!-- Verso: Foto do Profissional -->
                 <div class="socio-foto-back">
-                  <img src="../../../sociocecilia.png" alt="Cecília Prado">
+                  <img src="../../../assets/images/sociocecilia.png" alt="Cecília Prado">
                 </div>
               </div>
             </div>
@@ -2313,7 +2362,7 @@
                 </div>
                 <!-- Verso: Foto do Profissional -->
                 <div class="socio-foto-back">
-                  <img src="../../../sociorafael.png" alt="Rafael Meireles">
+                  <img src="../../../assets/images/sociorafael.png" alt="Rafael Meireles">
                 </div>
               </div>
             </div>

@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão Gastro | Plataforma para Restaurantes e Bares</title>
+  <meta name="description" content="Sistema de gestão para restaurantes, bares e delivery com PDV, mesas, cozinha, estoque, caixa e relatórios integrados.">
+  <link rel="canonical" href="https://plenainformatica.com.br/produtos/gestao-gastro.html">
+  <meta property="og:title" content="Gestão Gastro | Plena Informática">
+  <meta property="og:description" content="Gestão integrada de pedidos, cozinha, salão, caixa e estoque para operações gastronômicas.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://plenainformatica.com.br/assets/images/plena.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Gestão Gastro Pro",
+    "alternateName": "Gestão Gastro",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Sistema de gestão para restaurantes, bares e delivery com PDV, mesas, cozinha, estoque, caixa, relatórios e operação integrada.",
+    "url": "https://plenainformatica.com.br/produtos/gestao-gastro.html",
+    "image": "https://plenainformatica.com.br/assets/images/plena.jpg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Plena Informática",
+      "url": "https://plenainformatica.com.br/",
+      "logo": "https://plenainformatica.com.br/assets/images/logoplena.svg"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://plenainformatica.com.br/produtos/gestao-gastro.html",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "BRL"
+    },
+    "featureList": [
+      "PDV para restaurantes e bares",
+      "Mesas, comandas e pedidos",
+      "Painel de cozinha",
+      "Estoque e caixa",
+      "Relatórios de operação"
+    ]
+  }
+  </script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/produtos.css">
+  <style>
+    /* ── Animações Globais ── */
+    @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(224,123,74, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(224,123,74, 0); } 100% { box-shadow: 0 0 0 0 rgba(224,123,74, 0); } }
+    @keyframes dataUpdate { 0%, 100% { color: #4ade80; } 50% { color: #fff; } }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── Mockup animado ── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes blink  { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+    .mockup-shell {
+      background:#0e0e10; border:1px solid rgba(255,255,255,.08);
+      border-radius:14px; overflow:hidden; font-family:Inter,sans-serif;
+      animation:fadeUp .6s ease both;
+    }
+    .mkbar {
+      background:rgba(22,22,26,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      padding:9px 14px; display:flex; align-items:center; gap:7px;
+    }
+    .mkdot { width:9px;height:9px;border-radius:50%; }
+    .mktitle { font-size:10px;color:#9CA3AF;letter-spacing:.07em;margin-left:4px;flex:1 }
+    .mkbadge { font-size:9px;padding:2px 7px;border-radius:3px;background:rgba(224,123,74,.12);color:#E07B4A;border:1px solid rgba(224,123,74,.25); }
+    .mkbody  { display:flex;height:230px; }
+    .mksidebar {
+      width:44px;background:#111113;border-right:1px solid rgba(255,255,255,.05);
+      display:flex;flex-direction:column;align-items:center;padding-top:10px;gap:12px;
+    }
+    .mksidebar i { font-size:16px;color:#444; }
+    .mksidebar i.on { color:#E07B4A; }
+    .mkcontent { flex:1;padding:12px;overflow:hidden; }
+    .mkgrid { display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px; }
+    .mkkpi {
+      background:#1a1a1d;border:1px solid rgba(255,255,255,.06);border-radius:7px;
+      padding:7px 9px;animation:fadeUp .5s ease both;
+    }
+    .mkkpi:nth-child(2){animation-delay:.08s}.mkkpi:nth-child(3){animation-delay:.16s}
+    .mkkpi-l { font-size:8px;color:#9CA3AF;text-transform:uppercase;letter-spacing:.05em; }
+    .mkkpi-v { font-size:14px;font-weight:700;color:#fff;margin-top:1px; }
+    .mkkpi-v.g{color:#4ade80; animation: dataUpdate 3s ease infinite;}
+    .mkkpi-v.a{color:#E07B4A}
+    .mklabel { font-size:9px;color:#9CA3AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px; }
+    .mktables { display:grid;grid-template-columns:repeat(5,1fr);gap:4px; }
+    .mkt {
+      aspect-ratio:1;border-radius:5px;border:1px solid rgba(255,255,255,.06);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      font-size:8px;font-weight:600;animation:fadeUp .4s ease both;
+    }
+    .mkt.livre { background:#1c1c1f;color:#9CA3AF; }
+    .mkt.ocupada { background:rgba(224,123,74,.12);border-color:rgba(224,123,74,.3);color:#E07B4A; }
+    .mkt .dot { width:4px;height:4px;border-radius:50%;background:currentColor;margin-bottom:2px;animation:blink 2s ease infinite; }
+    .mkt.livre .dot { animation:none; }
+
+    /* ── Módulos ── */
+    .mod-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px; }
+    .mod-item {
+      display:flex;align-items:flex-start;gap:9px;
+      background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+      border-radius:9px;padding:13px;transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    .mod-item:hover { border-color:rgba(224,123,74,.35); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(224, 123, 74, 0.12); }
+    .mod-item i { font-size:20px;color:#E07B4A;flex-shrink:0;margin-top:1px; }
+    .mod-item h4 { font-size:12px;font-weight:600;color:#fff;margin-bottom:2px; }
+    .mod-item p  { font-size:11px;color:#9CA3AF;line-height:1.4; }
+
+    /* ── Planos ── */
+    .plan-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px; max-width: 1000px; margin: 0 auto; }
+    @media (max-width: 800px) { .plan-grid { grid-template-columns: 1fr; } }
+    .plan-card {
+      background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:4px;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    .plan-card:hover { border-color:rgba(224,123,74,.3); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(224, 123, 74, 0.15); }
+    .plan-card.destaque { background:rgba(224,123,74,.07);border-color:rgba(224,123,74,.3); position: relative; }
+    .plan-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:#E07B4A; color:#fff; font-size:10px; font-weight:700; text-transform:uppercase; padding:4px 12px; border-radius:20px; letter-spacing:0.05em; box-shadow:0 4px 12px rgba(224,123,74,0.3); }
+    .plan-name { font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#E07B4A; }
+    .plan-price { font-size:36px;font-weight:800;color:#fff;line-height:1;margin:6px 0 2px; }
+    .plan-period { font-size:12px;color:#9CA3AF;margin-bottom:12px; }
+    .plan-list { list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px; }
+    .plan-list li { display:flex;align-items:flex-start;gap:7px;font-size:12px;color:#D1D5DB; }
+    .plan-list li i { color:#4ade80;font-size:13px;flex-shrink:0;margin-top:1px; }
+
+    /* ── Demo Modal ── */
+    #demo-modal {
+      display:none;position:fixed;inset:0;z-index:9999;
+      background:rgba(0,0,0,.88);align-items:center;justify-content:center;
+    }
+    #demo-modal.open { display:flex; }
+    #demo-modal .mbox {
+      background:#111113;border:1px solid rgba(255,255,255,.1);border-radius:14px;
+      overflow:hidden;width:min(980px,95vw);height:min(700px,92vh);
+      display:flex;flex-direction:column;
+    }
+    #demo-modal .mhead {
+      display:flex;align-items:center;padding:11px 15px;
+      border-bottom:1px solid rgba(255,255,255,.07);gap:9px;
+    }
+    #demo-modal .mhead span { font-size:12px;color:#bbb;flex:1; }
+    #demo-modal .mclose {
+      background:none;border:none;cursor:pointer;color:#777;
+      font-size:18px;padding:3px 7px;border-radius:5px;transition:background .15s,color .15s;
+    }
+    #demo-modal .mclose:hover { background:rgba(255,255,255,.08);color:#fff; }
+    #demo-modal iframe { flex:1;border:none;width:100%; }
+
+    /* Global CTA pulse */
+    .btn.primary { animation: pulseGlow 2s infinite; }
+  </style>
+</head>
+<body id="topo" class="assistencia-product-page gastro-product-page" data-demo-fullscreen="true"
+  data-demo-url="../tecnologia/demos/gestao-restaurantes/index.html"
+  data-demo-title="Gestão Gastro"
+  data-demo-mobile-message="Olá! Quero ver a demo do Gestão Gastro mas estou pelo celular - pode me mostrar por aqui?">
+
+<!-- HEADER -->
+<header class="header">
+  <nav class="nav">
+    <a class="assistencia-nav-brand gastro-nav-brand" href="#topo" aria-label="Gestão Gastro Pro — voltar ao topo da página">
+      <span class="assistencia-nav-brand__icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 11v18M25 11v18M18 21h7M25 29v24M41 11v20c0 6 4 10 10 10V11M51 41v12" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 53h39" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></svg>
+      </span>
+      <span class="assistencia-nav-brand__copy"><strong>Gestão Gastro</strong><small>Pro</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#recursos">Recursos</a>
+      <a href="#beneficios">Benefícios</a>
+      <a href="#planos">Planos</a>
+      <a href="#faq">FAQ</a>
+      <a href="../tecnologia/tecnologia.html">Tecnologia</a>
+      <button type="button" class="btn light"
+        onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Gastro e vim pelo site. Gostaria de agendar uma demonstração.', 'Gestão Gastro')">
+        <i class="ph-light ph-whatsapp-logo"></i><span class="sr-only">WhatsApp</span>
+      </button>
+    </div>
+    <div class="nav-mobile-actions">
+      <button type="button" class="btn light mobile-header-whatsapp"
+        onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Gastro e vim pelo site. Gostaria de agendar uma demonstração.', 'Gestão Gastro')">
+        <i class="ph-light ph-whatsapp-logo"></i><span class="sr-only">WhatsApp</span>
+      </button>
+      <button class="mobile-menu-toggle" type="button" onclick="toggleProductMobileMenu()" aria-label="Abrir menu">
+        <i class="ph-light ph-list"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<div id="product-mobile-menu" class="product-mobile-menu" aria-hidden="true">
+  <div class="product-mobile-menu__backdrop" data-mobile-menu-close></div>
+  <aside class="product-mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Menu móvel Gestão Gastro">
+    <div class="product-mobile-menu__header">
+      <div class="product-mobile-menu__title">
+        <span class="product-mobile-menu__eyebrow">Navegação</span>
+        <strong>Gestão Gastro</strong>
+      </div>
+      <button class="mobile-menu-panel__close" type="button" onclick="toggleProductMobileMenu(false)" aria-label="Fechar menu">
+        <i class="ph-light ph-x"></i>
+      </button>
+    </div>
+    <nav class="product-mobile-menu__links">
+      <a href="#recursos" data-mobile-menu-close><span>Recursos</span><span>→</span></a>
+      <a href="#beneficios" data-mobile-menu-close><span>Benefícios</span><span>→</span></a>
+      <a href="#planos" data-mobile-menu-close><span>Planos</span><span>→</span></a>
+      <a href="#faq" data-mobile-menu-close><span>FAQ</span><span>→</span></a>
+      <a href="../tecnologia/tecnologia.html" data-mobile-menu-close><span>Tecnologia</span><span>→</span></a>
+    </nav>
+    <button type="button" class="btn light"
+      onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Tenho interesse no Gestão Gastro e vim pelo site. Gostaria de agendar uma demonstração.', 'Gestão Gastro')">
+      <i class="ph-light ph-whatsapp-logo"></i>
+      WhatsApp
+    </button>
+  </aside>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero assistencia-hero gastro-hero">
+  <div class="container hero-grid assistencia-hero-content">
+    <div>
+      <span class="eyebrow">Sistema para restaurantes, bares e operações de delivery</span>
+      <h1>Gestão Gastro <span class="assistencia-hero__pro">Pro</span></h1>
+      <p class="lead">Pedidos, cozinha, salão, caixa e estoque conectados para a operação ganhar ritmo sem perder o controle.</p>
+      <div class="actions">
+        <button class="btn primary" onclick="openDemoModal()"><i class="ph-light ph-monitor-up"></i> Abrir Demo do Sistema</button>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Gastro Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Gestão Gastro')"><i class="ph-light ph-rocket-launch"></i> Solicitar teste gratuito de 7 dias</button>
+      </div>
+      <p class="assistencia-hero-note"><i class="ph-light ph-whatsapp-logo"></i> Teste orientado pelo WhatsApp, sem cartão nesta página.</p>
+    </div>
+
+    <!-- Mockup -->
+    <div class="mockup-shell" aria-hidden="true">
+      <div class="mkbar">
+        <span class="mkdot" style="background:#ff5f56"></span>
+        <span class="mkdot" style="background:#ffbd2e"></span>
+        <span class="mkdot" style="background:#27c93f"></span>
+        <span class="mktitle">Plena Gastro Manager — Dashboard</span>
+        <span class="mkbadge">● ao vivo</span>
+      </div>
+      <div class="mkbody">
+        <div class="mksidebar">
+          <i class="ph-light ph-squares-four on"></i>
+          <i class="ph-light ph-storefront"></i>
+          <i class="ph-light ph-table"></i>
+          <i class="ph-light ph-cooking-pot"></i>
+          <i class="ph-light ph-chart-bar"></i>
+          <i class="ph-light ph-package"></i>
+          <i class="ph-light ph-brain"></i>
+        </div>
+        <div class="mkcontent">
+          <div class="mkgrid">
+            <div class="mkkpi"><div class="mkkpi-l">Faturamento hoje</div><div class="mkkpi-v g">R$ 5.280</div></div>
+            <div class="mkkpi"><div class="mkkpi-l">Mesas abertas</div><div class="mkkpi-v a">7 / 20</div></div>
+            <div class="mkkpi"><div class="mkkpi-l">Pedidos cozinha</div><div class="mkkpi-v">18</div></div>
+          </div>
+          <div class="mklabel">Mapa de mesas</div>
+          <div class="mktables">
+            <div class="mkt livre"><div class="dot"></div>01</div>
+            <div class="mkt ocupada"><div class="dot"></div>02</div>
+            <div class="mkt livre"><div class="dot"></div>03</div>
+            <div class="mkt ocupada" style="animation-delay:.05s"><div class="dot"></div>04</div>
+            <div class="mkt ocupada" style="animation-delay:.1s"><div class="dot"></div>05</div>
+            <div class="mkt livre"><div class="dot"></div>06</div>
+            <div class="mkt ocupada" style="animation-delay:.12s"><div class="dot"></div>07</div>
+            <div class="mkt livre"><div class="dot"></div>08</div>
+            <div class="mkt livre"><div class="dot"></div>09</div>
+            <div class="mkt livre"><div class="dot"></div>10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÓDULOS -->
+<section id="recursos" class="section assistencia-section gastro-resources-section">
+  <div class="container">
+    <span class="eyebrow">Módulos do sistema</span>
+    <h2>Do salão à cozinha, o fluxo da operação no mesmo sistema.</h2>
+    <p style="color:#888;max-width:560px;margin-bottom:28px">
+      O pedido registrado no salão segue para a cozinha, atualiza o estoque e chega ao caixa no mesmo fluxo,
+      reduzindo reentradas e controles paralelos.
+    </p>
+    <div class="mod-grid">
+      <div class="mod-item"><i class="ph-light ph-squares-four"></i><div><h4>Dashboard</h4><p>KPIs de faturamento, mesas e pedidos em tempo real.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-brain"></i><div><h4>Inteligência</h4><p>Análises avançadas, tendências e insights de operação.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-storefront"></i><div><h4>PDV Touch</h4><p>Ponto de venda rápido para balcão, mesa e fechamento.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-table"></i><div><h4>Mesas e Comandas</h4><p>Mapa visual, transferência, fusão e reserva de mesas.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-cooking-pot"></i><div><h4>Painel de Cozinha</h4><p>KDS para controle de pedidos por status e tempo de preparo.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-motorcycle"></i><div><h4>Delivery</h4><p>Gestão de entregas com rastreamento e status em tempo real.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-device-mobile"></i><div><h4>Pedidos Online</h4><p>Receba e gerencie pedidos digitais direto no sistema.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-qr-code"></i><div><h4>Cardápio Digital</h4><p>Menu por QR code para o cliente acessar pelo celular.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-chart-line-up"></i><div><h4>Central de Vendas</h4><p>Promoções, combos e controle de metas de venda.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-package"></i><div><h4>Estoque</h4><p>Insumos com ficha técnica, alertas de mínimo e movimentações.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-cash-register"></i><div><h4>Caixa</h4><p>Abertura, sangria, fechamento e histórico completo de sessões.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-chart-bar"></i><div><h4>Relatórios</h4><p>Faturamento, ticket médio, produto mais vendido e mais.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-hamburger"></i><div><h4>Cardápio / Produtos</h4><p>Categorias, preços, receitas e vínculos com estoque.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-users"></i><div><h4>Clientes</h4><p>Cadastro, histórico de visitas e programa de fidelidade.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-identification-badge"></i><div><h4>Colaboradores</h4><p>Equipe com perfis, permissões e ranking de vendas.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-notebook"></i><div><h4>Diário de Bordo</h4><p>Registros operacionais diários para gestão e auditoria.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-truck"></i><div><h4>Fornecedores</h4><p>Cadastro, desempenho de entrega e avaliação de parceiros.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-shield-check"></i><div><h4>Segurança</h4><p>Logs de auditoria, permissões por função e controle de acesso.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-gear"></i><div><h4>Configurações</h4><p>Dados do estabelecimento, impressora térmica e preferências.</p></div></div>
+      <div class="mod-item"><i class="ph-light ph-headset"></i><div><h4>Suporte</h4><p>Canal integrado de atendimento e abertura de chamados.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="beneficios" class="section assistencia-benefits-section gastro-benefits-section">
+  <div class="container">
+    <div class="assistencia-benefits-intro">
+      <span class="eyebrow">Benefícios para a operação</span>
+      <h2>Menos pedido perdido, menos controle paralelo e mais clareza em cada turno.</h2>
+      <p>O Gestão Gastro organiza o fluxo que começa no atendimento e termina no fechamento, sem separar a visão da equipe da visão de quem gere o negócio.</p>
+    </div>
+    <div class="assistencia-benefits-layout">
+      <div class="assistencia-benefits-grid">
+        <article class="assistencia-benefit-card"><i class="ph-light ph-table"></i><h3>Salão com contexto</h3><p>Mesas, comandas e pedidos ficam visíveis para o atendimento avançar com menos ruído em horários de pico.</p></article>
+        <article class="assistencia-benefit-card"><i class="ph-light ph-cooking-pot"></i><h3>Cozinha no ritmo certo</h3><p>O painel de cozinha ajuda a acompanhar status e tempo de preparo para que cada pedido avance com mais previsibilidade.</p></article>
+        <article class="assistencia-benefit-card"><i class="ph-light ph-package"></i><h3>Estoque ligado à venda</h3><p>Fichas técnicas e movimentações aproximam o consumo real das decisões de compra e reposição.</p></article>
+        <article class="assistencia-benefit-card"><i class="ph-light ph-chart-bar"></i><h3>Fechamento que informa</h3><p>Caixa, faturamento e relatórios ficam no mesmo fluxo para a gestão enxergar o resultado sem planilhas paralelas.</p></article>
+      </div>
+      <aside class="assistencia-test-card gastro-test-card" aria-label="Teste gratuito de 7 dias">
+        <span>Teste gratuito de 7 dias</span>
+        <h3>Veja a operação do seu estabelecimento em um fluxo mais claro.</h3>
+        <p>Solicite seu período de teste pelo WhatsApp e receba orientação inicial para conhecer PDV, cozinha, mesas e estoque.</p>
+        <button class="btn primary" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Gastro Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Gestão Gastro')"><i class="ph-light ph-whatsapp-logo"></i> Solicitar teste gratuito</button>
+        <small>Sem cartão ou cadastro nesta página.</small>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos" class="section assistencia-plan gastro-plan">
+  <div class="container">
+    <div class="assistencia-pricing-intro">
+      <span class="eyebrow" style="justify-content:center;">Planos e preços</span>
+      <h2 style="margin-left:auto; margin-right:auto;">Planos para acompanhar o porte da sua operação.</h2>
+      <p style="color:#9CA3AF;">Compare o escopo de cada plano com clareza e escolha a estrutura que faz sentido para o seu momento.</p>
+    </div>
+    <div class="plan-grid assistencia-pricing-grid">
+      <article class="plan-card card assistencia-price-card gastro-plan-card">
+        <div class="plan-name assistencia-price-card__eyebrow">Essencial</div>
+        <div class="plan-price assistencia-price-card__price">R$ 89</div>
+        <div class="plan-period">por mês</div>
+        <p class="gastro-plan-card__summary">Para estruturar o atendimento, as mesas e a cozinha em uma única rotina.</p>
+        <p class="gastro-plan-card__fit"><strong>Indicado para:</strong> operações iniciando a organização digital.</p>
+        <ul class="plan-list clean">
+          <li><i class="ph-bold ph-check-circle"></i> PDV, mesas, comandas e painel de cozinha.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Caixa, relatórios e gestão de produtos.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Cardápio digital para a operação começar organizada.</li>
+        </ul>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Quero conhecer o plano Essencial do Gestão Gastro Pro por R$ 89/mês.', 'Gestão Gastro')">Falar sobre o plano essencial</button>
+      </article>
+      <article class="plan-card destaque card assistencia-price-card assistencia-price-card--featured gastro-plan-card">
+        <span class="gastro-plan-card__label">Mais escolhido</span>
+        <div class="plan-name assistencia-price-card__eyebrow">Profissional</div>
+        <div class="plan-price assistencia-price-card__price">R$ 189</div>
+        <div class="plan-period">por mês</div>
+        <p class="gastro-plan-card__summary">Mais controle para conectar estoque, clientes, delivery e equipe ao dia a dia.</p>
+        <p class="gastro-plan-card__fit"><strong>Indicado para:</strong> casas em crescimento e com mais canais de venda.</p>
+        <ul class="plan-list clean">
+          <li><i class="ph-bold ph-check-circle"></i> Tudo do Essencial, com estoque e ficha técnica.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Clientes, fidelidade, fornecedores e colaboradores.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Delivery, pedidos on-line e central de vendas.</li>
+        </ul>
+        <button class="btn primary" onclick="openProductWhatsApp('Olá! Quero conhecer o plano Profissional do Gestão Gastro Pro por R$ 189/mês.', 'Gestão Gastro')">Quero o plano profissional</button>
+      </article>
+      <article class="plan-card card assistencia-price-card gastro-plan-card">
+        <div class="plan-name assistencia-price-card__eyebrow">Gestão</div>
+        <div class="plan-price assistencia-price-card__price">R$ 329</div>
+        <div class="plan-period">por mês</div>
+        <p class="gastro-plan-card__summary">Visão gerencial para decisões de operação, acompanhamento e segurança.</p>
+        <p class="gastro-plan-card__fit"><strong>Indicado para:</strong> gestores que precisam acompanhar resultado e rotina.</p>
+        <ul class="plan-list clean">
+          <li><i class="ph-bold ph-check-circle"></i> Tudo do Profissional, com dashboard analítico.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Inteligência, diário de bordo, auditoria e segurança.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Suporte prioritário e manual integrado.</li>
+        </ul>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Quero entender o plano Gestão do Gestão Gastro Pro por R$ 329/mês.', 'Gestão Gastro')">Falar sobre o plano gestão</button>
+      </article>
+      <article class="plan-card card assistencia-price-card assistencia-price-card--custom gastro-plan-card">
+        <div class="plan-name assistencia-price-card__eyebrow">Projeto personalizado</div>
+        <div class="plan-price assistencia-price-card__price">R$ 4.999,90</div>
+        <div class="plan-period">implantação inicial</div>
+        <p class="gastro-plan-card__summary">Projeto preparado para a identidade, os fluxos e as prioridades da sua operação.</p>
+        <p class="gastro-plan-card__fit"><strong>Indicado para:</strong> negócios com processo, marca ou escopo próprios.</p>
+        <ul class="plan-list clean">
+          <li><i class="ph-bold ph-check-circle"></i> Sistema completo preparado com a identidade da sua marca.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Configuração orientada dos fluxos e módulos contratados.</li>
+          <li><i class="ph-bold ph-check-circle"></i> Hospedagem e domínio cobrados à parte, com renovação anual.</li>
+        </ul>
+        <button class="btn light" onclick="openProductWhatsApp('Olá! Quero solicitar uma proposta para o Gestão Gastro Pro personalizado com minha marca, a partir de R$ 4.999,90.', 'Gestão Gastro')">Solicitar proposta personalizada</button>
+        <small class="gastro-plan-card__footnote">Escopo, prazo e integrações são definidos em proposta.</small>
+      </article>
+    </div>
+    <p class="assistencia-pricing-note"><i class="ph-light ph-info"></i> Recursos avançados, implantação e escopo personalizado são alinhados com a rotina do estabelecimento antes da contratação.</p>
+  </div>
+</section>
+
+<!-- CENÁRIOS QUE RESOLVEMOS -->
+<section class="section proof-section gastro-proof-section">
+  <div class="container gastro-proof-section__content">
+    <span class="eyebrow">Onde faz diferença</span>
+    <h2 class="gastro-proof-section__title">Uma operação integrada, do pedido ao fechamento.</h2>
+    <p class="gastro-proof-section__text">Para restaurantes, hamburguerias, pizzarias, bares e food trucks que precisam reduzir controles paralelos entre salão, cozinha, caixa e entrega.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section faq assistencia-section assistencia-faq gastro-faq">
+  <div class="container" style="max-width:760px;">
+    <div class="assistencia-faq__list">
+      <details>
+        <summary><span><b>01</b> Posso testar antes de contratar?</span></summary>
+        <p>Sim. Abra a demo completa no desktop ou solicite o teste gratuito de 7 dias pelo WhatsApp para conhecer a rotina antes de decidir.</p>
+      </details>
+      <details>
+        <summary><span><b>02</b> Funciona para restaurantes, bares e delivery?</span></summary>
+        <p>Sim. O sistema organiza operações com salão, balcão, cozinha e entrega — incluindo restaurantes, hamburguerias, pizzarias, bares e food trucks.</p>
+      </details>
+      <details>
+        <summary><span><b>03</b> Mesas, pedidos e cozinha ficam conectados?</span></summary>
+        <p>Sim. O pedido pode nascer no PDV ou na mesa, seguir para a cozinha e voltar ao caixa com o histórico da operação no mesmo fluxo.</p>
+      </details>
+      <details>
+        <summary><span><b>04</b> O estoque baixa com as vendas?</span></summary>
+        <p>Sim. As fichas técnicas vinculam produtos e insumos para apoiar a baixa e o acompanhamento de reposição conforme as vendas são registradas.</p>
+      </details>
+      <details>
+        <summary><span><b>05</b> A demo abre no celular?</span></summary>
+        <p>A demonstração foi planejada para tela ampla. No celular, recomendamos solicitar a apresentação ou o teste guiado pelo WhatsApp.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section assistencia-final-cta gastro-final-cta">
+  <div class="container">
+    <span class="eyebrow">Próximo passo</span>
+    <h2>Deixe a gestão acompanhar o ritmo do seu salão, da sua cozinha e do seu caixa.</h2>
+    <p>Abra a demo no desktop ou solicite seu teste gratuito de 7 dias para conhecer o Gestão Gastro Pro com orientação.</p>
+    <div class="actions">
+      <button class="btn primary" onclick="openDemoModal()">
+        <i class="ph-light ph-play-circle"></i> Abrir demo real
+      </button>
+      <button class="btn"
+        onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Gastro Pro e quero solicitar meu período de teste gratuito de 7 dias.', 'Gestão Gastro')">
+        Solicitar teste gratuito
+      </button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+    <footer id="contact" class="legacy-gastro-footer bg-gray-950 text-white pt-16 pb-8 border-t border-white/5">
+        <div class="container mx-auto px-6">
+
+            <div class="grid md:grid-cols-3 gap-12 pb-12 border-b border-white/5 text-left">
+
+                <div>
+                    <div class="flex items-center gap-2.5 mb-5 justify-start">
+                        <div class="w-9 h-9 bg-[#F26A1B] rounded-lg flex items-center justify-center">
+                            <span class="text-white font-black text-lg font-accent leading-none">P</span>
+                        </div>
+                        <span class="font-accent font-bold text-xl text-white">Plena <span
+                                class="text-[#F26A1B]/80">Informática</span></span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                        Há 20 anos transformando ideias em realidade. Tecnologia e serviços digitais em
+                        São José dos
+                        Campos.
+                    </p>
+                    <div
+                        class="mt-6 inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium py-1.5 px-3 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        Site Seguro
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Nossas Áreas</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="../servicos/servicos.html"
+                                class="text-gray-500 hover:text-[#F26A1B]/80 transition-colors flex items-center gap-2 group">
+                                <span
+                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#F26A1B]/80 transition-colors"></span>Serviços
+                                Digitais
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../tecnologia/tecnologia.html"
+                                class="text-gray-500 hover:text-[#D6A23A] transition-colors flex items-center gap-2 group">
+                                <span
+                                    class="w-1 h-1 rounded-full bg-gray-700 group-hover:bg-[#D6A23A] transition-colors"></span>Tecnologia
+                                Web
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-accent font-bold text-white mb-5 text-sm uppercase tracking-wider">Contato</h3>
+                    <ul class="space-y-4 text-sm text-left">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-4 h-4 text-[#F26A1B] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="text-gray-500">São José dos Campos, SP</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-[#F26A1B] flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <a href="https://api.whatsapp.com/send?phone=5512992191018&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Plena%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Gest%C3%A3o%20Gastro." class="text-gray-500 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">(12) 99219-1018</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-[#F26A1B] flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <a href="mailto:tecnologia@plenainformatica.com.br"
+                                class="text-gray-500 hover:text-white transition-colors">tecnologia@plenainformatica.com.br</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-4 h-4 text-[#F26A1B] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="text-gray-500">Seg–Sex: 13h–18h.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <p class="text-xs italic text-gray-600 mb-1">"Tudo posso naquele que me fortalece."</p>
+                    <p class="text-xs text-gray-600">
+                        &copy; 2026 Plena Informática. CNPJ: 14.549.923/0001-35. Todos os direitos reservados.
+                    </p>
+                </div>
+                <div class="flex gap-6 text-xs text-gray-600">
+                    <button type="button" class="open-modal hover:text-gray-400 transition-colors"
+                        data-modal="terms">Termos de Uso</button>
+                    <button type="button" class="open-modal hover:text-gray-400 transition-colors"
+                        data-modal="privacy">Política de Privacidade</button>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+  <footer class="footer">Plena Informática — Gestão Gastro Pro</footer>
+
+  <!-- ══════════════════════════════════════════
+       MODALS DE TERMOS E PRIVACIDADE
+    ══════════════════════════════════════════ -->
+    <div id="terms-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="terms-title">
+        <div class="modal-content">
+            <button type="button"
+                class="modal-close absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl leading-none transition-colors"
+                aria-label="Fechar">&times;</button>
+            <h2 id="terms-title" class="font-accent text-2xl font-bold mb-4">Termos de Uso</h2>
+            <div class="text-gray-600 space-y-3 text-sm leading-relaxed text-left">
+                <p><strong>1. Aceitação.</strong> Ao utilizar os serviços da Plena Informática, você declara ter lido e
+                    concordado integralmente com estes Termos de Uso e com nossa Política de Privacidade.</p>
+                <p><strong>2. Serviços.</strong> Nossos serviços digitais (currículo, declaração de IR, suporte MEI,
+                    impressão
+                    de documentos) são executados com base nas informações fornecidas pelo
+                    cliente. A
+                    veracidade dos dados é de inteira responsabilidade do solicitante.</p>
+                <p><strong>3. Prazos e Valores.</strong> Prazos de entrega e valores são confirmados via WhatsApp antes
+                    do
+                    membro. Uma vez aprovado o orçamento, o cancelamento fica sujeito às condições
+                    informadas no
+                    momento da contratação.</p>
+                <p><strong>4. Propriedade Intelectual.</strong> Todo o conteúdo deste site — textos, imagens, logotipos
+                    e design
+                    — é propriedade intelectual da Plena Informática e não pode ser reproduzido, copiado ou distribuído
+                    sem
+                    autorização prévia por escrito.</p>
+                <p><strong>5. Limitação de Responsabilidade.</strong> A Plena Informática não se responsabiliza por
+                    informações
+                    incorretas fornecidas pelo cliente, nem por atrasos decorrentes de fatores alheios ao nosso
+                    controle.</p>
+                <p><strong>6. Recusa de Serviço.</strong> Reservamo-nos o direito de recusar serviços que violem a
+                    legislação
+                    vigente ou que sejam incompatíveis com nossos valores.</p>
+                <p><strong>7. Alterações.</strong> Estes termos podem ser atualizados a qualquer momento. A versão
+                    vigente
+                    estará sempre disponível nesta página.</p>
+                <p class="text-xs text-gray-400 pt-2">Última atualização: março de 2026.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacy-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="privacy-title">
+        <div class="modal-content">
+            <button type="button"
+                class="modal-close absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl leading-none transition-colors"
+                aria-label="Fechar">&times;</button>
+            <h2 id="privacy-title" class="font-accent text-2xl font-bold mb-4">Política de Privacidade</h2>
+            <div class="text-gray-600 space-y-3 text-sm leading-relaxed text-left">
+                <p><strong>1. Compromisso.</strong> A Plena Informática respeita sua privacidade e está comprometida com
+                    a
+                    proteção dos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei
+                    nº
+                    13.709/2018).</p>
+                <p><strong>2. Dados Coletados.</strong> Coletamos apenas dados fornecidos voluntariamente por você
+                    (nome,
+                    e-mail, telefone, documentos para serviços contratados) e dados técnicos de navegação (cookies
+                    essenciais).
+                </p>
+                <p><strong>3. Finalidade.</strong> Seus dados pessoais são utilizados exclusivamente para: (a) executar
+                    o
+                    serviço contratado; (b) comunicação sobre andamento e conclusão dos serviços; (c) melhoria da
+                    experiência de
+                    navegação.</p>
+                <p><strong>4. Documentos Sigilosos.</strong> Dados sensíveis fornecidos para serviços específicos (CPF,
+                    renda,
+                    senhas de portais governamentais para Declaração de IR) são utilizados estritamente para a
+                    finalidade
+                    contratada e <strong>não são armazenados</strong> após a conclusão do serviço.</p>
+                <p><strong>5. Compartilhamento.</strong> Não compartilhamos, vendemos ou cedemos seus dados a terceiros
+                    sem seu
+                    consentimento explícito.</p>
+                <p><strong>6. Cookies.</strong> Utilizamos apenas cookies essenciais para o funcionamento básico do site
+                    e para
+                    lembrar suas preferências (ex: consentimento de cookies). Não utilizamos cookies de rastreamento ou
+                    publicidade.</p>
+                <p><strong>7. Seus Direitos.</strong> Você pode, a qualquer momento, solicitar acesso, correção ou
+                    exclusão dos
+                    seus dados pessoais pelo e-mail <a href="mailto:tecnologia@plenainformatica.com.br"
+                        class="text-[#F26A1B] underline">tecnologia@plenainformatica.com.br</a>.</p>
+                <p><strong>8. Alterações.</strong> Esta política pode ser atualizada periodicamente. A versão vigente
+                    estará
+                    sempre disponível nesta página.</p>
+                <p class="text-xs text-gray-400 pt-2">Última atualização: março de 2026.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estilos de Modal Reutilizáveis (para páginas sem style.css da raiz) -->
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .6);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        max-width: 540px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        color: #1e293b;
+      }
+    </style>
+
+    <!-- Controle de Modais via JS -->
+    <script>
+      (function() {
+        const modals = {
+          terms: document.getElementById('terms-modal'),
+          privacy: document.getElementById('privacy-modal')
+        };
+        function closeAll() {
+          Object.values(modals).forEach(m => {
+            if (!m) return;
+            m.style.display = 'none';
+            m.setAttribute('aria-hidden', 'true');
+          });
+          document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.open-modal').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const m = modals[btn.dataset.modal];
+            if (!m) return;
+            closeAll();
+            m.style.display = 'flex';
+            m.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+        document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeAll(); }));
+        document.querySelectorAll('.modal-close').forEach(b => b.addEventListener('click', closeAll));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+      })();
+    </script>
+
+<!-- MODAL DEMO -->
+<div id="demo-modal" role="dialog" aria-modal="true" aria-label="Demo Gestão Gastro">
+  <div class="mbox">
+    <div class="mhead">
+      <i class="ph-light ph-hamburger" style="color:#E07B4A;font-size:16px"></i>
+      <span>Plena Gestão Gastro - Demo interativa (plano Gestão completo)</span>
+      <button class="mclose" onclick="closeDemoModal()" aria-label="Fechar">×</button>
+    </div>
+    <div class="demo-frame-stage">
+      <button class="demo-fullscreen-close" type="button" onclick="closeDemoModal()" aria-label="Fechar demonstração"><i class="ph-light ph-x"></i></button>
+      <div class="demo-frame-loader" aria-live="polite"><span class="demo-frame-loader__spinner" aria-hidden="true"></span><strong>Preparando sua demonstração</strong><p>Estamos carregando o sistema para você explorar em tela cheia.</p></div>
+      <iframe id="demo-frame" src="" title="Demo Gestão Gastro" allow="fullscreen"></iframe>
+    </div>
+  </div>
+</div>
+
+<script src="assets/produtos.js"></script>
+</body>
+</html>

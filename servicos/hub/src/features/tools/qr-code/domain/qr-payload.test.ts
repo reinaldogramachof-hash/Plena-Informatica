@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+﻿import { describe, expect, it } from 'vitest'
 
 import { buildQrPayload } from './qr-payload'
 
@@ -26,16 +26,16 @@ describe('buildQrPayload', () => {
     expect(
       buildQrPayload({
         mode: 'whatsapp',
-        phone: '+55 (12) 98148-8505',
+        phone: '+55 (12) 99219-1018',
         message: 'Ola, Plena!',
       }),
-    ).toBe('https://wa.me/5512981488505?text=Ola%2C%20Plena!')
+    ).toBe('https://wa.me/5512992191018?text=Ola%2C%20Plena!')
   })
 
   it('builds an international telephone payload', () => {
     expect(
-      buildQrPayload({ mode: 'phone', phone: '+55 (12) 98148-8505' }),
-    ).toBe('tel:+5512981488505')
+      buildQrPayload({ mode: 'phone', phone: '+55 (12) 99219-1018' }),
+    ).toBe('tel:+5512992191018')
   })
 
   it('escapes reserved Wi-Fi characters', () => {

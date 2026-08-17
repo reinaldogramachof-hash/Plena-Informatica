@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plenainformatica.com.br/sitemap.xml

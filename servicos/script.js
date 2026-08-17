@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const phone = '5512981488505';
+  const phone = '5512992191018';
 
   window.openWhatsApp = function openWhatsApp(message) {
     const text =
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const professional = document.createElement('a');
       professional.className = 'tool-professional';
       professional.href =
-        'https://api.whatsapp.com/send?phone=5512981144676&text=' +
+        'https://api.whatsapp.com/send?phone=5512992191018&text=' +
         encodeURIComponent(data.service[2]);
       professional.target = '_blank';
       professional.rel = 'noopener noreferrer';
