@@ -1,0 +1,65 @@
+/* Janelas operacionais amplas; telas de senha e confirmações mantêm seu formato. */
+@media screen{
+ .therapy-overlay:has(>.therapy-dialog.therapy-work-dialog){padding:16px;align-items:stretch;overflow:hidden}
+ .therapy-dialog.therapy-work-dialog{width:100%;max-width:none;height:100%;max-height:none;min-width:0;box-sizing:border-box;overscroll-behavior:contain;scrollbar-gutter:stable}
+ .therapy-dialog.therapy-work-dialog>h2{position:sticky;top:0;z-index:4;padding:0 0 14px;background:var(--color-surface);border-bottom:1px solid var(--color-border)}
+ .therapy-dialog.therapy-work-dialog>form>.therapy-actions,.therapy-dialog.therapy-work-dialog>.therapy-actions{position:sticky;bottom:0;z-index:5;padding:14px 0;margin-top:18px;border-top:1px solid var(--color-border);background:var(--color-surface)}
+ .agenda-config-dialog .therapy-form-grid>label{min-width:0}
+ .agenda-config-dialog input,.agenda-config-dialog select{min-width:0;box-sizing:border-box}
+}
+@media screen and (min-width:1280px){
+ #agenda-settings-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+ #agenda-settings-form>p,#agenda-settings-form>details:last-of-type,#agenda-settings-form>.therapy-actions{grid-column:1/-1}
+ #agenda-settings-form>details{min-width:0;padding:16px;border:1px solid var(--color-border);border-radius:8px;background:var(--color-surface)}
+ #agenda-settings-form .agenda-working-days{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+ #agenda-settings-form .agenda-period-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media screen and (max-width:767px){
+ .therapy-overlay:has(>.therapy-dialog.therapy-work-dialog){padding:8px}
+ .therapy-dialog.therapy-work-dialog{padding:16px;border-radius:10px}
+}
+
+/* Padrão compartilhado dos sete formulários principais do sistema. */
+@media screen{
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work{padding:16px;align-items:stretch;overflow:hidden}
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work>div:first-child{display:flex;flex-direction:column;min-width:0;min-height:0;width:100%;max-width:none;height:100%;max-height:none;padding:24px;overflow:hidden;box-sizing:border-box;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface)}
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work>div:first-child>div:first-child{flex-shrink:0;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--color-border);background:var(--color-surface)}
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work>div:first-child>form{flex:1;min-width:0;min-height:0;max-height:none;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:12px 10px 20px 8px;box-sizing:border-box}
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work>div:first-child>form>:last-child:has(button[type=submit]){position:sticky;bottom:0;z-index:5;padding:14px 0;margin-top:18px;border-top:1px solid var(--color-border);background:var(--color-surface)}
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work form :is(.grid,.therapy-form-grid,.management-form-grid,.assessments-form-grid,.orientations-form-grid,.treatments-form-grid)>*{min-width:0}
+ .therapy-dialog.therapy-work-dialog>.orientation-preview-actions{position:sticky;bottom:0;z-index:5;padding:14px 0;border-top:1px solid var(--color-border);background:var(--color-surface)}
+ .therapy-dialog.therapy-work-dialog>form{padding:12px 10px 20px 8px;box-sizing:border-box}
+}
+@media screen and (max-width:767px){
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work{padding:8px}
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work>div:first-child{padding:16px;border-radius:10px}
+ .app-theme :is(#patientModal,#appointmentModal,#sessionNotesModal,#assessmentModal,#prescriptionModal,#financialModal,#treatmentModal).therapy-modal-work>div:first-child>form{padding:8px 6px 14px 4px}
+}
+
+/* Enquadramento, respiro e foco de alta definição para caixas de entrada de todos os modais */
+.app-theme :is(.therapy-modal-work,.therapy-work-dialog,.modal-backdrop) label{
+ display:block!important;
+ margin-bottom:7px!important;
+ font-size:0.75rem!important;
+ font-weight:600!important;
+ line-height:1.4!important;
+ letter-spacing:0.02em;
+}
+.app-theme :is(.therapy-modal-work,.therapy-work-dialog,.modal-backdrop) :is(input,select,textarea){
+ box-sizing:border-box!important;
+ margin-top:3px!important;
+ scroll-margin-top:24px!important;
+ scroll-margin-bottom:24px!important;
+ transition:border-color .15s ease,box-shadow .15s ease;
+}
+.app-theme :is(.therapy-modal-work,.therapy-work-dialog,.modal-backdrop) :is(input:not([type=checkbox]):not([type=radio]),select,textarea):focus,
+.app-theme :is(.therapy-modal-work,.therapy-work-dialog,.modal-backdrop) :is(input:not([type=checkbox]):not([type=radio]),select,textarea):focus-visible{
+ outline:none!important;
+ border-color:var(--color-accent)!important;
+ box-shadow:0 0 0 3px var(--color-accent-soft),0 0 0 1px var(--color-accent)!important;
+}
+
+/* Indicações e foco visível para operação pelo teclado. */
+.therapy-keyboard-hint{display:inline-block;margin-left:20px;font-size:.625rem;font-weight:400;line-height:1.5;color:var(--color-muted);vertical-align:middle;white-space:normal}
+body.app-theme :is(button,a[href],summary,[tabindex]):focus-visible{outline:2px solid var(--color-accent-text);outline-offset:3px}
+@media(max-width:767px){.therapy-keyboard-hint{display:none}}

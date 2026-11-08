@@ -1,0 +1,145 @@
+body.app-theme{background-image:none}
+.therapy-overlay{position:fixed;inset:0;z-index:12000;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--color-app-base);overflow:auto}
+.therapy-dialog{width:100%;max-width:520px;padding:24px;background:var(--color-surface);color:var(--color-text);border:1px solid var(--color-border);border-radius:12px;max-height:90dvh;overflow:auto}
+.therapy-dialog h2{font-size:1.25rem;font-weight:600;margin:0 0 14px}
+.therapy-dialog p{font-size:0.8125rem;line-height:1.6;color:var(--color-muted);margin:10px 0}
+.therapy-dialog label{display:block;font-size:0.8125rem;margin-top:14px}
+.therapy-dialog input,.therapy-dialog select{display:block;width:100%;padding:10px 12px;margin:6px 0 14px}
+.therapy-dialog button{padding:10px 14px;border-radius:6px;border:1px solid var(--color-border);background:var(--color-accent);color:white;min-height:40px;font-size:0.8125rem;font-weight:500}
+.therapy-dialog button[type=button],.therapy-secondary{background:var(--color-elevated);color:var(--color-text);border:1px solid var(--color-border);padding:8px 12px;border-radius:6px;font-size:0.8125rem}
+.therapy-dialog button:disabled{opacity:.6}
+.therapy-dialog [role=alert]{color:var(--color-danger)}
+.therapy-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.therapy-notice{position:fixed;z-index:15000;bottom:20px;right:20px;max-width:min(480px,calc(100vw - 40px));padding:14px 18px;background:var(--color-surface);color:var(--color-text);border:1px solid var(--color-border);border-left:3px solid var(--color-accent);border-radius:8px;font-size:0.8125rem;box-shadow:var(--shadow-elevated)}
+.therapy-notice[data-type=error]{border-left-color:var(--color-danger)}
+.therapy-panel{padding:18px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:8px;margin-top:18px}
+.therapy-panel h3{font-size:0.875rem;font-weight:600;margin-bottom:10px}
+.therapy-panel p{font-size:0.8125rem;color:var(--color-muted);line-height:1.6;margin-bottom:12px}
+.therapy-panel label{display:block;font-size:0.8125rem}
+.therapy-panel input,.therapy-panel select,.therapy-panel textarea{padding:9px 12px;width:100%;margin:6px 0 12px}
+.therapy-panel input[type=checkbox]{width:auto;margin-right:6px}
+.therapy-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.therapy-status{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;background:var(--color-elevated);color:var(--color-muted);border-radius:6px;font-size:0.75rem}
+@media(max-width:767px){.therapy-form-grid{grid-template-columns:1fr}.therapy-dialog{padding:18px}.therapy-overlay{align-items:flex-start;padding-top:30px}}
+/* Escala visual compartilhada, com detalhes em azul. */
+.app-theme .sidebar{background:var(--color-surface)!important;background-image:none!important}
+.app-theme .sidebar>div:first-child{height:56px;padding:12px 18px;background:var(--color-surface)!important;border-bottom:1px solid var(--color-border)}
+.app-theme .sidebar>div:first-child h1{font-size:0.875rem;font-weight:600;line-height:1.3}
+.app-theme .sidebar>div:first-child p{font-size:0.625rem;color:var(--color-muted)!important}
+.app-theme .sidebar>div:first-child svg{width:24px;height:24px;flex-shrink:0;color:var(--color-accent-text)}
+.app-theme .sidebar .text-white{color:var(--color-text)!important}
+.app-theme .sidebar nav{padding:12px;overflow-y:auto}
+.app-theme .sidebar .nav-item{margin:0 0 3px;font-size:0.8125rem;line-height:1.4;min-height:36px;border-radius:6px;padding:8px 12px;gap:10px;color:var(--color-muted)!important}
+.app-theme .sidebar .nav-item svg{width:18px;height:18px}
+.app-theme .sidebar .nav-item.bg-white\/10{background:var(--color-accent-soft)!important;color:var(--color-accent-text)!important;border-left:0;box-shadow:inset 2px 0 0 var(--color-accent)}
+.app-theme .sidebar>div:last-child{padding:12px;border-top:1px solid var(--color-border)}
+.app-theme .sidebar>div:last-child>div{background:var(--color-elevated);border:1px solid var(--color-border);border-radius:6px}
+.app-theme .sidebar>div:last-child span,.app-theme .sidebar>div:last-child svg{color:var(--color-muted)!important}
+.app-header{background:var(--color-app-base)!important;backdrop-filter:none;height:56px}
+.app-theme .app-header{height:56px;min-height:56px}
+.app-theme .therapy-view .dark\:bg-slate-800,.app-theme .modal-backdrop .dark\:bg-slate-800{background:var(--color-surface)!important}
+.app-theme .therapy-view .dark\:bg-slate-900{background:var(--color-elevated)!important}
+.app-theme #view-dashboard .therapy-stats h3{color:var(--color-text)!important}
+.app-theme #view-dashboard .therapy-stats .w-12{background:var(--color-accent-soft)!important;width:36px;height:36px}
+.app-theme #view-dashboard .therapy-stats .w-12 svg{color:var(--color-accent-text)!important;width:18px;height:18px}
+.app-theme #view-dashboard button:not(.therapy-primary){background:var(--color-elevated)!important;color:var(--color-text)!important;border:1px solid var(--color-border);min-height:40px}
+.app-theme #view-dashboard button svg{color:var(--color-muted)!important;width:18px;height:18px}
+.app-theme #view-dashboard button span,.app-theme #view-dashboard button div{color:var(--color-text)!important}
+.app-theme #view-financial .bg-green-50,.app-theme #view-financial .bg-red-50,.app-theme #view-financial .bg-blue-50{background:var(--color-surface)!important}
+.app-theme #finance-income,.app-theme #finance-expense,.app-theme #finance-balance{color:var(--color-text)!important}
+.app-theme .glass,.app-theme .glass-effect,.app-theme [class*="backdrop-blur"]{backdrop-filter:none}
+.app-theme #nav-prescriptions{font-size:0.75rem}
+.app-theme .app-header>div:last-child>button:last-child{background:var(--color-accent)!important;color:white;border-radius:6px;box-shadow:none}
+.app-theme .app-header #page-title{display:block;font-size:0.875rem}
+.app-theme .app-header button svg{width:16px;height:16px}
+.app-theme .main-content>div{padding:24px}
+.therapy-view{min-width:0}
+.therapy-heading{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}
+.therapy-heading h2{font-size:1.375rem;font-weight:600;line-height:1.4;color:var(--color-text)}
+.therapy-heading p{font-size:0.8125rem;color:var(--color-muted);margin-top:4px}
+.therapy-view h3{font-weight:600;font-size:0.9375rem}
+.therapy-view .text-2xl,.therapy-view .text-3xl{font-size:1.5625rem;font-weight:600}
+.therapy-view .card-hover:hover{border-color:var(--color-border)}
+.therapy-view .shadow-lg,.therapy-view .shadow-xl,.therapy-view .shadow-2xl{box-shadow:none}
+.app-theme .therapy-view .rounded-full{border-radius:6px}
+.therapy-view .p-6{padding:18px}
+.therapy-view .gap-6{gap:18px}
+.therapy-view .mb-8{margin-bottom:22px}
+.therapy-view .mb-6{margin-bottom:18px}
+.therapy-view .w-14,.therapy-view .w-16{width:36px;height:36px;background:var(--color-elevated)!important}
+.therapy-view .w-14 svg,.therapy-view .w-16 svg{width:20px;height:20px;color:var(--color-muted)!important}
+.app-theme .bg-purple-50,.app-theme .bg-purple-100,.app-theme .bg-indigo-50,.app-theme .bg-indigo-100{background:var(--color-accent-soft)!important}
+.app-theme .text-purple-400,.app-theme .text-purple-500,.app-theme .text-purple-600,.app-theme .text-purple-700,.app-theme .text-indigo-500,.app-theme .text-indigo-600{color:var(--color-accent-text)!important}
+.app-theme .bg-purple-500,.app-theme .bg-purple-600{background:var(--color-accent)!important;color:white!important}
+.app-theme .view-section h3>svg{color:var(--color-muted)!important;width:18px;height:18px}
+.app-theme table{font-size:0.8125rem}
+.app-theme th{font-size:0.75rem;font-weight:500;text-transform:none;letter-spacing:0;white-space:nowrap;padding:11px 14px}
+.app-theme td{padding:12px 14px;line-height:1.5;vertical-align:middle}
+.app-theme td:last-child{white-space:nowrap}
+.app-theme label{font-size:0.75rem;font-weight:500;text-transform:none;letter-spacing:0;line-height:1.5}
+.app-theme .modal-backdrop label{display:block;margin-bottom:6px}
+.app-theme .modal-backdrop input:not([type=checkbox]):not([type=radio]),.app-theme .modal-backdrop select,.app-theme .modal-backdrop textarea{font-size:0.8125rem;min-height:38px;padding:9px 12px}
+.app-theme .modal-backdrop form{max-height:72dvh;overflow-y:auto}
+.app-theme .modal-backdrop h3{font-size:1.0625rem;font-weight:600}
+.app-theme .modal-backdrop>div{max-height:92dvh;overflow-y:auto}
+.app-theme .modal-backdrop button{font-size:0.8125rem;font-weight:500;box-shadow:none}
+.therapy-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.therapy-primary{background:var(--color-accent)!important;color:white!important;padding:9px 14px;border-radius:6px;font-size:0.8125rem;min-height:38px}
+.therapy-view button{font-weight:500;font-size:0.8125rem}
+#view-manual>div>div:first-child{background:var(--color-surface)!important;color:var(--color-text);border:1px solid var(--color-border);padding:20px;border-radius:8px}
+#view-manual>div>div:first-child .text-white,#view-manual>div>div:first-child .text-white\/90{color:var(--color-text)!important}
+#view-manual>div>div:first-child .text-4xl{font-size:1.375rem;line-height:1.4}
+#view-manual>div>div:first-child .hidden.md\:flex{display:none}
+#view-manual>div>div:first-child .grid{grid-template-columns:1fr}
+#manual-progress-bar{background:var(--color-accent)}
+#view-about .bg-gradient-to-r{background:var(--color-surface)!important;color:var(--color-text)}
+#view-about .text-white{color:var(--color-text)!important}
+#view-login form{backdrop-filter:none}
+#view-login button{background:var(--color-accent)!important;background-image:none!important;color:white}
+#view-login .text-emerald-400{color:var(--color-accent-text)}
+.therapy-dialog input[type=checkbox]{display:inline-block;width:auto;margin:0 6px 0 0}
+/* Oculta somente as barras; roda do mouse, toque e teclado continuam disponíveis. */
+html,body.app-theme,body.app-theme *{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body.app-theme::-webkit-scrollbar,body.app-theme *::-webkit-scrollbar{display:none;width:0;height:0}
+body.app-theme{overflow:hidden}
+.app-theme .sidebar,.app-theme .main-content{min-height:0}
+.app-theme .main-content{height:100dvh;overflow:hidden}
+.app-theme .app-header{flex-shrink:0}
+.app-theme .sidebar nav,#therapy-workspace-scroll{min-height:0;overscroll-behavior:contain}
+.app-theme .sidebar .nav-item:hover{background:var(--color-accent-soft);color:var(--color-accent-text)!important}
+.app-theme .therapy-view h2::before{content:'';display:inline-block;width:3px;height:.85em;margin-right:9px;border-radius:2px;background:var(--color-accent-text)}
+.therapy-dashboard-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.therapy-dashboard-heading h2{font-size:1.375rem;font-weight:600}
+.therapy-dashboard-heading p{font-size:0.8125rem;color:var(--color-muted);margin-top:5px}
+.therapy-dashboard-heading time{font-size:0.75rem;color:var(--color-muted)}
+.therapy-dashboard-heading button{display:inline-flex;align-items:center;gap:8px}
+.app-theme #view-dashboard .therapy-stats>div{border-top:2px solid var(--color-accent-soft)}
+.therapy-day-summary{color:var(--color-muted);font-size:0.75rem;margin-top:6px}
+.therapy-next{padding:16px 18px;border:1px solid var(--color-border);border-left:3px solid var(--color-accent);border-radius:8px;background:var(--color-surface);margin-bottom:18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.therapy-next h3{font-size:0.875rem;margin:4px 0}
+.therapy-next p{font-size:0.75rem;color:var(--color-muted)}
+.therapy-eyebrow{color:var(--color-accent-text);font-size:0.6875rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.therapy-schedule-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--color-border)}
+.therapy-schedule-row:last-child{border-bottom:0}
+.therapy-schedule-detail{display:flex;align-items:center;gap:12px;min-width:0}
+.therapy-schedule-detail time{color:var(--color-accent-text);font-size:0.875rem;font-weight:600;flex-shrink:0;min-width:44px}
+.therapy-schedule-detail strong{display:block;font-size:0.8125rem;font-weight:500;overflow-wrap:anywhere}
+.therapy-schedule-detail small{color:var(--color-muted);font-size:0.75rem}
+.therapy-schedule-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.app-theme #view-dashboard .therapy-state{font-size:0.6875rem;padding:4px 7px;border-radius:6px;background:var(--color-accent-soft);color:var(--color-accent-text);white-space:nowrap}
+.app-theme #view-dashboard .therapy-state[data-status=completed]{background:var(--color-success-soft);color:var(--color-success)}
+.app-theme #view-dashboard .therapy-state[data-status=in_progress]{background:var(--color-warning-soft);color:var(--color-warning)}
+.app-theme #view-dashboard .therapy-state[data-status=cancelled],.app-theme #view-dashboard .therapy-state[data-status=no_show]{background:var(--color-elevated);color:var(--color-muted)}
+.therapy-empty{padding:24px 10px;text-align:center;color:var(--color-muted);font-size:0.8125rem;line-height:1.6}
+.therapy-empty button{margin-top:12px}
+.therapy-quick-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.app-theme #view-dashboard .therapy-quick-actions button{display:flex;align-items:center;gap:9px;text-align:left;padding:12px;line-height:1.4}
+.app-theme #view-dashboard .therapy-quick-actions button:hover{border-color:var(--color-accent);background:var(--color-accent-soft)!important}
+.app-theme #view-dashboard .therapy-quick-actions button svg{color:var(--color-accent-text)!important;flex-shrink:0}
+.app-theme #view-dashboard button.therapy-primary svg{color:white!important}
+@media(min-width:768px) and (max-width:1199px){.therapy-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:767px){.therapy-dashboard-heading{align-items:flex-start;flex-direction:column}.therapy-dashboard-heading h2{font-size:1.25rem}.therapy-next{align-items:flex-start;flex-direction:column}.therapy-schedule-row{align-items:flex-start;flex-direction:column;gap:10px}.therapy-schedule-actions{align-self:flex-end;flex-wrap:wrap}.therapy-quick-actions{grid-template-columns:1fr}.therapy-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}.therapy-stats>div{padding:12px!important}.therapy-stats .w-12{display:none}.therapy-stats p{font-size:0.6875rem}.therapy-stats h3{font-size:1.3125rem!important}}
+@media print{body.app-theme{overflow:visible}.app-theme .main-content{height:auto;overflow:visible}.app-theme #therapy-workspace-scroll{overflow:visible}}
+@media(max-width:1024px){.app-theme .main-content>div{padding:16px}.app-theme .sidebar .nav-item{min-height:44px}}
+@media(max-width:767px){.therapy-heading{align-items:flex-start;flex-direction:column}.therapy-heading h2{font-size:1.25rem}.app-theme .app-header{padding:0 12px}.app-theme .app-header .therapy-secondary{padding:7px 9px}.app-theme .app-header #page-title{font-size:0.8125rem;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.therapy-view table{min-width:640px}.therapy-card-grid{grid-template-columns:1fr}.therapy-view .text-2xl,.therapy-view .text-3xl{font-size:1.375rem}}
+@media print{body:has(#therapy-report)>*:not(#therapy-dialog){display:none!important}body:has(#therapy-report) #therapy-dialog{position:static;background:white;color:black;display:block;padding:0}body:has(#therapy-report) .therapy-dialog{border:0;max-width:none;max-height:none;background:white;color:black}body:has(#therapy-report) .therapy-actions{display:none}body:has(#therapy-report) p{color:black}}

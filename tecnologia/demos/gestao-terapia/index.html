@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+
+<head>
+    <script src="assets/js/theme.js?v=5"></script>
+    <script src="assets/js/typography.js?v=16"></script>
+    <script defer src="assets/js/header-clock.js?v=17"></script>
+    <script src="lock.js?v=5"></script>
+    <script src="assets/js/coverage-rules.js?v=42"></script>
+    <script src="assets/js/data.js?v=69"></script>
+    <script src="assets/js/agenda-rules.js?v=7"></script>
+    <script src="assets/js/external-rules.js?v=64"></script>
+    <script src="assets/js/patient-rules.js?v=8"></script>
+    <script src="assets/js/session-rules.js?v=59"></script>
+    <script src="assets/js/treatment-rules.js?v=59"></script>
+    <script src="assets/js/assessment-rules.js?v=59"></script>
+    <script src="assets/js/guidance-rules.js?v=59"></script>
+    <script src="assets/js/care-rules.js?v=59"></script>
+    <script src="assets/js/management-rules.js?v=42"></script>
+    <script src="assets/js/report-rules.js?v=42"></script>
+    <script src="assets/js/system-rules.js?v=59"></script>
+    <script src="assets/js/support-rules.js?v=55"></script>
+    <script src="assets/js/assistant-rules.js?v=59"></script>
+    <script src="assets/js/document-rules.js?v=69"></script>
+    <script src="assets/js/document-files.js?v=69"></script>
+    <script defer src="assets/js/documents.js?v=69"></script>
+    <link rel="stylesheet" href="assets/css/documents.css?v=69">
+    <script src="assets/js/vault.js?v=69"></script>
+    <script src="assets/js/demo-seed.js"></script>
+    <script src="demo-bypass.js"></script>
+    <script defer src="assets/js/sidebar.js?v=41"></script>
+    <script defer src="assets/js/external-ui.js?v=64"></script>
+    <script defer src="assets/js/workflows.js?v=64"></script>
+    <script defer src="assets/js/coverage-ui.js?v=52"></script>
+    <script defer src="assets/js/management-ui.js?v=14"></script>
+    <script defer src="assets/js/finance.js?v=42"></script>
+    <script defer src="assets/js/packages.js?v=14"></script>
+    <script defer src="assets/js/reports.js?v=14"></script>
+    <script defer src="assets/js/dashboard.js?v=61"></script>
+    <script defer src="assets/js/dashboard-search.js?v=32"></script>
+    <script defer src="assets/js/strategy-rules.js?v=61"></script>
+    <script defer src="assets/js/strategy-ui.js?v=61"></script>
+    <script defer src="assets/js/agenda.js?v=64"></script>
+    <script defer src="assets/js/agenda-settings.js?v=52"></script>
+    <script defer src="assets/js/orientations.js?v=59"></script>
+    <script defer src="assets/js/orientation-form.js?v=59"></script>
+    <script defer src="assets/js/patient-panels.js?v=69"></script>
+    <script defer src="assets/js/patient-forms.js?v=42"></script>
+    <script defer src="assets/js/patients.js?v=69"></script>
+    <script defer src="assets/js/sessions.js?v=63"></script>
+    <script defer src="assets/js/session-form.js?v=59"></script>
+    <script defer src="assets/js/treatments.js?v=59"></script>
+    <script defer src="assets/js/assessments.js?v=59"></script>
+    <script defer src="assets/js/assessment-form.js?v=59"></script>
+    <script defer src="assets/js/system.js?v=69"></script>
+    <script defer src="assets/js/support.js?v=55"></script>
+    <script defer src="assets/js/settings-hub.js?v=50"></script>
+    <script defer src="assets/js/assistant.js?v=62"></script>
+    <script defer src="assets/js/clinical-data.js?v=48"></script>
+    <script defer src="assets/js/manual-data.js?v=69"></script>
+    <script defer src="assets/js/manual.js?v=62"></script>
+    <script defer src="assets/js/emergency.js?v=39"></script>
+    <script defer src="assets/js/ux.js?v=69"></script>
+    <script defer src="assets/js/keyboard.js?v=28"></script>
+    <script defer src="assets/js/help.js?v=50"></script>
+    <script defer src="assets/js/tour-data.js?v=69"></script>
+    <script defer src="assets/js/tour-rules.js?v=47"></script>
+    <script defer src="assets/js/tours.js?v=50"></script>
+    <script defer src="assets/js/clinical-references.js?v=65"></script>
+    <script defer src="assets/js/care-workspace.js?v=63"></script>
+    <link rel="stylesheet" href="assets/css/care-workspace.css?v=59">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão Terapia | Sistema Premium</title>
+
+    <meta name="theme-color" content="#1D4ED8">
+    <meta name="msapplication-TileColor" content="#1D4ED8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gestão Terapia">
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Tailwind CSS -->
+    <script src="assets/libs/tailwindcss.js?v=2"></script>
+    <script src="assets/libs/lucide.js?v=2"></script>
+
+    <!-- Bibliotecas e fonte disponíveis localmente. -->
+    <!-- Premium Assets -->
+    <script src="assets/js/tailwind_config.js?v=3"></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v=16">
+    <link rel="stylesheet" href="assets/css/theme.css?v=16">
+    <link rel="stylesheet" href="assets/css/therapy.css?v=16">
+    <link rel="stylesheet" href="assets/css/sidebar.css?v=20">
+    <link rel="stylesheet" href="assets/css/dashboard.css?v=32">
+    <link rel="stylesheet" href="assets/css/strategy.css?v=61">
+    <link rel="stylesheet" href="assets/css/agenda.css?v=25">
+    <link rel="stylesheet" href="assets/css/coverage.css?v=42">
+    <link rel="stylesheet" href="assets/css/settings.css?v=53">
+    <link rel="stylesheet" href="assets/css/patients.css?v=65">
+    <link rel="stylesheet" href="assets/css/sessions.css?v=50">
+    <link rel="stylesheet" href="assets/css/treatments.css?v=16">
+    <link rel="stylesheet" href="assets/css/assessments.css?v=16">
+    <link rel="stylesheet" href="assets/css/orientations.css?v=16">
+    <link rel="stylesheet" href="assets/css/management.css?v=19">
+    <link rel="stylesheet" href="assets/css/system.css?v=62">
+    <link rel="stylesheet" href="assets/css/support.css?v=55">
+    <link rel="stylesheet" href="assets/css/manual.css?v=43">
+    <link rel="stylesheet" href="assets/css/clinical-references.css?v=48">
+    <link rel="stylesheet" href="assets/css/tours.css?v=47">
+    <link rel="stylesheet" href="assets/css/header-clock.css?v=17">
+    <link rel="stylesheet" href="assets/css/dialogs.css?v=34">
+    <link rel="stylesheet" href="assets/css/help.css?v=43">
+    <link rel="stylesheet" href="assets/css/assistant.css?v=34">
+</head>
+
+<body class="app-theme text-gray-800 dark:text-gray-100 antialiased">
+
+    <!-- TELA DE ATIVAÇÃO (Airlock) -->
+    <section id="view-login"
+        class="hide fixed inset-0 z-[9999] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-6">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-8">
+                <div
+                    class="inline-flex items-center justify-center p-4 bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-2xl mb-4 shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z" />
+                        <path d="M15 3v4a2 2 0 0 0 2 2h4" />
+                        <path d="m9 15 2 2 4-4" />
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-black text-white tracking-tight">Gestão <span
+                        class="text-emerald-400">Terapia</span></h1>
+                <p class="text-slate-400 text-sm mt-2">Sistema Premium</p>
+            </div>
+            <form id="activation-form" onsubmit="activateLicense(event)"
+                class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl space-y-5">
+                <h3 class="text-lg font-bold text-white text-center mb-2">Ativação de Licença</h3>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Chave de
+                        Licença</label>
+                    <input type="text" id="license-key" required placeholder="XXXX-XXXX-XXXX-XXXX"
+                        class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white placeholder-slate-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all text-center tracking-widest font-mono text-lg uppercase">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">E-mail do
+                        Comprador</label>
+                    <input type="email" id="license-email" required placeholder="seu@email.com"
+                        class="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white placeholder-slate-500 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all">
+                </div>
+                <button type="submit" id="btn-activate"
+                    class="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-emerald-900/30 transition-all transform hover:scale-[1.02] active:scale-95">
+                    Ativar Sistema
+                </button>
+                <p id="activation-error" class="text-red-400 text-sm text-center hidden"></p>
+                <p class="text-slate-400 text-xs leading-relaxed">A licença libera o aplicativo. A senha local, criada depois da ativação, protege seus registros. Após abrir a base, use Guia desta tela para conhecer os módulos e seguir tarefas. Os guias nunca pedem sua senha.</p>
+            </form>
+            <p class="text-center text-slate-500 text-xs mt-6">Licença Vitalícia • Uso Offline</p>
+        </div>
+    </section>
+
+    <!-- Overlay para sidebar mobile -->
+    <div id="overlay" class="fixed inset-0 modal-backdrop hidden z-40 transition-opacity" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar therapy-sidebar flex flex-col" aria-label="Navegação do consultório">
+        <div class="therapy-sidebar-brand">
+            <span class="therapy-sidebar-mark"><img id="therapy-clinic-logo" alt="Logo do consultório" hidden><i data-lucide="brain" aria-hidden="true"></i></span>
+            <div class="therapy-sidebar-identity"><h1>Gestão Terapia</h1><p>Organize seu consultório</p></div>
+            <button type="button" id="therapy-menu-close" class="therapy-sidebar-icon" onclick="TherapySidebar.close()" aria-label="Fechar menu"><i data-lucide="x" aria-hidden="true"></i></button>
+        </div>
+        <nav id="therapy-sidebar-nav" tabindex="0" aria-label="Módulos do consultório">
+            <section class="therapy-nav-group" data-section="rotina" aria-labelledby="therapy-group-rotina">
+                <h2 id="therapy-group-rotina" class="therapy-nav-heading">Rotina</h2>
+                <div id="therapy-links-rotina" class="therapy-nav-links">
+                <button type="button" id="nav-dashboard" class="nav-item therapy-nav-item" onclick="router('dashboard')" title="Visão geral" aria-label="Visão geral">
+                    <i data-lucide="layout-dashboard" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Visão geral</span></span>
+                </button>
+                <button type="button" id="nav-schedule" class="nav-item therapy-nav-item" onclick="router('schedule')" title="Agenda" aria-label="Agenda">
+                    <i data-lucide="calendar" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Agenda</span></span>
+                </button>
+                <button type="button" id="nav-patients" class="nav-item therapy-nav-item" onclick="router('patients')" title="Pacientes" aria-label="Pacientes">
+                    <i data-lucide="users" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Pacientes</span></span>
+                </button>
+                </div>
+            </section>
+            <section class="therapy-nav-group" data-section="acompanhamento" aria-labelledby="therapy-group-acompanhamento">
+                <h2 id="therapy-group-acompanhamento" class="therapy-nav-heading">Acompanhamento</h2>
+                <div id="therapy-links-acompanhamento" class="therapy-nav-links">
+                <button type="button" id="nav-sessions" class="nav-item therapy-nav-item" onclick="router('sessions')" title="Sessões" aria-label="Sessões">
+                    <i data-lucide="notebook" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Sessões</span></span>
+                </button>
+                <button type="button" id="nav-treatments" class="nav-item therapy-nav-item" onclick="router('treatments')" title="Planos terapêuticos" aria-label="Planos terapêuticos">
+                    <i data-lucide="heart-pulse" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Planos terapêuticos</span></span>
+                </button>
+                <button type="button" id="nav-assessments" class="nav-item therapy-nav-item" onclick="router('assessments')" title="Avaliações" aria-label="Avaliações">
+                    <i data-lucide="clipboard-check" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Avaliações</span></span>
+                </button>
+                <button type="button" id="nav-documents" class="nav-item therapy-nav-item" onclick="router('documents')" title="Documentos" aria-label="Documentos"><i data-lucide="files" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Documentos</span></span></button>
+                <button type="button" id="nav-prescriptions" class="nav-item therapy-nav-item" onclick="router('prescriptions')" title="Orientações" aria-label="Orientações">
+                    <i data-lucide="file-text" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Orientações</span></span>
+                </button>
+                </div>
+            </section>
+            <section class="therapy-nav-group" data-section="gestao" aria-labelledby="therapy-group-gestao">
+                <h2 id="therapy-group-gestao" class="therapy-nav-heading">Gestão</h2>
+                <div id="therapy-links-gestao" class="therapy-nav-links">
+                <button type="button" id="nav-financial" class="nav-item therapy-nav-item" onclick="router('financial')" title="Financeiro" aria-label="Financeiro">
+                    <i data-lucide="wallet" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Financeiro</span></span>
+                </button>
+                <button type="button" id="nav-packages" class="nav-item therapy-nav-item" onclick="router('packages')" title="Pacotes de sessões" aria-label="Pacotes de sessões">
+                    <i data-lucide="layers" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Pacotes de sessões</span></span>
+                </button>
+                <button type="button" id="nav-reports" class="nav-item therapy-nav-item" onclick="router('reports')" title="Relatórios" aria-label="Relatórios">
+                    <i data-lucide="bar-chart-3" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Relatórios</span></span>
+                </button>
+                </div>
+            </section>
+            <section class="therapy-nav-group" data-section="sistema" aria-labelledby="therapy-group-sistema">
+                <h2 id="therapy-group-sistema" class="therapy-nav-heading">Sistema</h2>
+                <div id="therapy-links-sistema" class="therapy-nav-links">
+                <button type="button" id="nav-settings" class="nav-item therapy-nav-item" onclick="router('settings')" title="Configurações" aria-label="Configurações">
+                    <i data-lucide="settings" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Configurações</span></span>
+                </button>
+                <button type="button" id="nav-manual" class="nav-item therapy-nav-item" onclick="router('manual')" title="Manual de uso" aria-label="Manual de uso">
+                    <i data-lucide="book-open" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Manual de uso</span></span>
+                </button>
+                <button type="button" id="nav-about" class="nav-item therapy-nav-item" onclick="router('about')" title="Sobre o sistema" aria-label="Sobre o sistema">
+                    <i data-lucide="shield-check" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Sobre o sistema</span></span>
+                </button>
+                <button type="button" id="nav-support" class="nav-item therapy-nav-item" onclick="router('support')" title="Suporte e Atendimento" aria-label="Suporte e Atendimento">
+                    <i data-lucide="life-buoy" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Suporte</span></span>
+                    <span id="support-unread-badge" class="hidden ml-auto px-1.5 py-0.5 text-[10px] font-bold bg-amber-500 text-white rounded-full"></span>
+                </button>
+                </div>
+            </section>
+            <button id="nav-instructions" class="hide" onclick="router('manual')"></button>
+        </nav>
+        <footer class="therapy-sidebar-footer">
+                <button type="button" id="nav-emergency" class="nav-item therapy-nav-item therapy-nav-emergency" onclick="router('emergency')" title="Emergência" aria-label="Emergência">
+                    <i data-lucide="alert-triangle" aria-hidden="true"></i><span class="therapy-nav-copy"><span class="therapy-nav-label">Emergência</span></span>
+                </button>
+            <div class="therapy-sidebar-license"><i data-lucide="shield-check" aria-hidden="true"></i><span>Licença vitalícia <small>Dados neste dispositivo</small></span></div>
+        </footer>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content min-h-screen flex flex-col">
+        <!-- Header -->
+        <header
+            class="glass h-20 flex items-center justify-between px-4 lg:px-8 sticky top-0 z-30 shadow-sm border-b border-white/5">
+            <div class="therapy-header-title flex items-center gap-4">
+                <button type="button" id="therapy-menu-toggle" onclick="toggleSidebar()" aria-label="Abrir menu" aria-controls="sidebar" aria-expanded="false"
+                    class="therapy-menu-toggle" title="Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+                <h2 id="page-title" class="text-xl font-bold text-gray-800 dark:text-white hidden sm:block">Dashboard
+                </h2>
+            </div>
+
+            <div class="therapy-header-clock" role="group" aria-label="Data e hora local do dispositivo" title="Horário local do dispositivo">
+                <time id="therapy-header-date"></time>
+                <time id="therapy-header-time"></time>
+            </div>
+            <div class="therapy-header-actions flex items-center gap-2 sm:gap-3">
+                <button onclick="openAppointmentModal()"
+                    class="relative flex items-center px-4 py-2.5 bg-gradient-to-r from-brand-primary to-brand-primary text-white rounded-lg text-sm font-bold hover:opacity-90 transition-all shadow-lg shadow-purple-200 active:scale-95">
+                    <i data-lucide="plus" class="w-5 h-5 sm:mr-2"></i>
+                    <span class="hidden sm:inline">Nova Sessão</span>
+                    <span class="sm:hidden">Nova</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div id="therapy-workspace-scroll" class="p-4 lg:p-8 flex-1 overflow-y-auto" tabindex="0" role="region" aria-label="Área de trabalho: use as setas para rolar">
+            <!-- Dashboard View -->
+            <section id="view-dashboard" class="therapy-view view-section fade-in">
+                <div class="therapy-dashboard-heading">
+                    <div><h2>Visão geral do consultório</h2><p><span id="therapy-dashboard-clinic"></span> · <time id="therapy-dashboard-date"></time></p></div>
+                    <div class="therapy-dashboard-tools">
+                        <div id="dashboard-search" class="dashboard-search" role="search" aria-label="Busca de pacientes">
+                            <label for="dashboard-search-input" class="sr-only">Buscar paciente por nome, telefone ou e-mail</label>
+                            <div class="dashboard-search-field">
+                                <i data-lucide="search" aria-hidden="true"></i>
+                                <input id="dashboard-search-input" type="search" maxlength="200" placeholder="Buscar paciente…" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="dashboard-search-results" aria-describedby="dashboard-search-hint">
+                                <button type="button" id="dashboard-search-clear" aria-label="Limpar busca de pacientes" hidden>×</button>
+                            </div>
+                            <span id="dashboard-search-hint" class="sr-only">Busque por nome, telefone ou e-mail. Use as setas para selecionar, Enter para abrir a ficha e Esc para fechar.</span>
+                            <div id="dashboard-search-popup" class="dashboard-search-popup" hidden>
+                                <div class="dashboard-search-options"><label><input id="dashboard-search-archived" type="checkbox">Incluir arquivados</label><span>↑ ↓ selecionar · Enter abrir</span></div>
+                                <p id="dashboard-search-status" role="status" aria-live="polite"></p>
+                                <div id="dashboard-search-results" role="listbox" aria-label="Pacientes encontrados"></div>
+                                <div id="dashboard-search-actions" hidden>
+                                    <p id="dashboard-search-selected"></p>
+                                    <div><button type="button" data-search-action="overview">Abrir ficha</button><button type="button" data-search-action="timeline">Histórico</button><button type="button" data-search-action="schedule">Agendar</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <span id="therapy-dashboard-updated" class="therapy-dashboard-updated"></span>
+                    </div>
+                </div>
+
+                <!-- Abas da Visão Geral: Operacional (rotina diária) vs Estratégica (múltiplos gráficos e projeções) -->
+                <div class="therapy-dashboard-tabs" role="tablist" aria-label="Modo de visualização da Visão Geral">
+                    <button type="button" role="tab" id="tab-dashboard-operational" class="therapy-dashboard-tab active" aria-selected="true" aria-controls="dashboard-panel-operational" onclick="switchDashboardTab('operational')">
+                        <i data-lucide="activity" aria-hidden="true"></i>
+                        <span>Visão Operacional</span>
+                    </button>
+                    <button type="button" role="tab" id="tab-dashboard-strategic" tabindex="-1" class="therapy-dashboard-tab" aria-selected="false" aria-controls="dashboard-panel-strategic" onclick="switchDashboardTab('strategic')">
+                        <i data-lucide="trending-up" aria-hidden="true"></i>
+                        <span>Visão Estratégica (Indicadores & Gráficos)</span>
+                    </button>
+                </div>
+
+                <!-- Painel 1: Visão Operacional -->
+                <div id="dashboard-panel-operational" role="tabpanel" aria-labelledby="tab-dashboard-operational">
+                    <div class="therapy-stats">
+                        <button type="button" class="therapy-stat-card" onclick="therapyOpenToday()" aria-label="Sessões do dia: abrir registros relacionados">
+                            <span class="therapy-stat-main"><span class="therapy-stat-label">Sessões do dia</span><strong id="dash-today">0</strong><span class="therapy-stat-caption">Sem cancelamentos e faltas</span></span>
+                            <span class="therapy-stat-icon"><i data-lucide="calendar" aria-hidden="true"></i></span>
+                        </button>
+                        <button type="button" class="therapy-stat-card" onclick="therapyOpenDashboardPatients()" aria-label="Cadastros ativos: abrir registros relacionados">
+                            <span class="therapy-stat-main"><span class="therapy-stat-label">Cadastros ativos</span><strong id="dash-patients">0</strong><span class="therapy-stat-caption">Pacientes não arquivados</span></span>
+                            <span class="therapy-stat-icon"><i data-lucide="users" aria-hidden="true"></i></span>
+                        </button>
+                        <button type="button" class="therapy-stat-card" onclick="router('financial')" aria-label="Recebido no mês: abrir registros relacionados">
+                            <span class="therapy-stat-main"><span class="therapy-stat-label">Recebido no mês</span><strong id="dash-revenue">R$ 0,00</strong><span class="therapy-stat-caption">Bruto, sem deduzir devoluções</span></span>
+                            <span class="therapy-stat-icon"><i data-lucide="wallet" aria-hidden="true"></i></span>
+                        </button>
+                        <button type="button" class="therapy-stat-card" onclick="therapyOpenDashboardPatients(true)" aria-label="Cadastros sinalizados: abrir registros relacionados">
+                            <span class="therapy-stat-main"><span class="therapy-stat-label">Cadastros sinalizados</span><strong id="dash-alerts">0</strong><span class="therapy-stat-caption">Marcações do profissional</span></span>
+                            <span class="therapy-stat-icon"><i data-lucide="alert-circle" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                    <div class="therapy-dashboard-shortcuts">
+                        <div id="therapy-next-session" class="therapy-next"></div>
+                        <section class="therapy-dashboard-panel therapy-dashboard-quick" aria-labelledby="therapy-quick-title">
+                            <h3 id="therapy-quick-title">Ações rápidas</h3>
+                            <div class="therapy-quick-actions">
+                                <button type="button" onclick="openPatientModal()"><i data-lucide="user-plus" aria-hidden="true"></i><span>Novo paciente</span></button>
+                                <button type="button" onclick="openSessionNotesModal()"><i data-lucide="notebook" aria-hidden="true"></i><span>Anotação avulsa</span></button>
+                                <button type="button" onclick="openAssessmentModal()"><i data-lucide="clipboard-check" aria-hidden="true"></i><span>Nova avaliação</span></button>
+                                <button type="button" onclick="openPrescriptionModal()"><i data-lucide="file-text" aria-hidden="true"></i><span>Nova orientação</span></button>
+                                <button type="button" id="therapy-assistant-open" onclick="TherapyAssistant.show()" aria-label="Assistente da rotina: abrir pendências e lembretes"><span>Pendências e lembretes</span><span id="therapy-assistant-count">0</span></button>
+                            </div>
+                        </section>
+                    </div>
+                    <div id="therapy-pending-sessions" class="therapy-pending-panel" hidden></div>
+                    <div class="therapy-dashboard-layout">
+                        <div class="therapy-dashboard-agenda therapy-dashboard-panel">
+                            <div class="therapy-dashboard-panel-heading">
+                                <div><h3>Agenda de hoje</h3><p id="therapy-day-summary" class="therapy-day-summary"></p></div>
+                                <button type="button" class="therapy-secondary" onclick="therapyOpenToday()">Ver agenda</button>
+                            </div>
+                            <div id="today-schedule"></div>
+                        </div>
+                        <aside class="therapy-dashboard-side" aria-label="Sinalizações de pacientes">
+                            <section id="therapy-dashboard-alerts" class="therapy-dashboard-panel" data-level="none">
+                                <h3><i data-lucide="flag" aria-hidden="true"></i>Cadastros sinalizados</h3>
+                                <p id="therapy-alert-summary" class="therapy-day-summary"></p>
+                                <div id="patient-alerts"></div>
+                            </section>
+                        </aside>
+                    </div>
+                </div>
+
+                <!-- Painel 2: Visão Estratégica (Renderizado dinamicamente via TherapyStrategyUI) -->
+                <div id="dashboard-panel-strategic" role="tabpanel" aria-labelledby="tab-dashboard-strategic" hidden></div>
+            </section>
+
+            <!-- Schedule View -->
+            <section id="view-schedule" class="therapy-view view-section hide fade-in">
+                <div class="agenda-heading"><div><h2>Agenda do consultório</h2><p id="agenda-policy-summary">Brasil · horários e atendimentos</p></div><div class="agenda-heading-actions"><button type="button" class="therapy-primary" onclick="TherapyAgenda.create()">Nova sessão nesta data</button><button type="button" class="therapy-secondary" onclick="openTherapyAgendaDates()">Feriados e datas</button><button type="button" class="therapy-secondary" onclick="openTherapyAgendaBlocks()">Bloquear período</button><button type="button" class="therapy-secondary" onclick="openTherapyAgendaSettings()"><i data-lucide="settings-2" aria-hidden="true"></i>Configurar agenda</button></div></div>
+                <div class="agenda-toolbar">
+                    <div class="agenda-navigation"><button type="button" class="therapy-secondary" aria-label="Período anterior" onclick="TherapyAgenda.navigate(-1)"><i data-lucide="chevron-left" aria-hidden="true"></i></button><button type="button" class="therapy-secondary" onclick="TherapyAgenda.select(TherapyData.dateKey())">Hoje</button><button type="button" class="therapy-secondary" aria-label="Próximo período" onclick="TherapyAgenda.navigate(1)"><i data-lucide="chevron-right" aria-hidden="true"></i></button><label class="agenda-date-picker">Ir para data<input id="schedule-date" type="date" onchange="TherapyAgenda.select(this.value)"></label></div>
+                    <div class="agenda-toolbar-filters"><label><span class="sr-only">Buscar paciente</span><input id="agenda-search" type="search" placeholder="Nome do paciente" oninput="renderSchedule()"></label><label><span class="sr-only">Situação</span><select id="agenda-status-filter" onchange="renderSchedule()"><option value="all">Todas as marcações</option><option value="active">A concluir</option><option value="scheduled">Agendadas</option><option value="confirmed">Confirmadas</option><option value="in_progress">Em atendimento</option><option value="completed">Concluídas</option><option value="cancelled">Canceladas</option><option value="no_show">Faltas</option></select></label></div>
+                    <div class="agenda-view-options" role="group" aria-label="Visualização da Agenda"><button type="button" data-agenda-view="day" aria-pressed="false" onclick="TherapyAgenda.view('day')">Dia</button><button type="button" data-agenda-view="week" aria-pressed="false" onclick="TherapyAgenda.view('week')">Semana</button><button type="button" data-agenda-view="month" aria-pressed="false" onclick="TherapyAgenda.view('month')">Mês</button><button type="button" data-agenda-view="list" aria-pressed="false" onclick="TherapyAgenda.view('list')">Lista</button></div>
+                </div>
+                <div class="agenda-layout">
+                    <aside class="agenda-side" aria-label="Calendário e ações da Agenda">
+                        <button type="button" id="agenda-panels-expand" class="agenda-panels-expand" onclick="TherapyAgenda.togglePanels()" aria-label="Expandir calendário e legendas" title="Expandir calendário e legendas" aria-expanded="false" aria-controls="agenda-mini agenda-legend" hidden><span aria-hidden="true">›</span></button>
+                        <div id="agenda-mini" class="agenda-mini"></div>
+
+                        <div id="agenda-legend" class="agenda-legend"><div class="agenda-panel-heading"><h3>Legenda</h3><button type="button" class="agenda-panel-toggle" onclick="TherapyAgenda.togglePanels()" aria-label="Recolher calendário e legendas" title="Recolher calendário e legendas" aria-expanded="true" aria-controls="agenda-mini agenda-legend"><span aria-hidden="true">‹</span></button></div><span><i class="agenda-dot"></i>Sessão agendada</span><span><i class="agenda-dot is-completed"></i>Atendimento concluído</span><span><i class="agenda-dot is-holiday"></i>Feriado nacional ou local</span><span><i class="agenda-dot is-reference"></i>Data de referência</span><span><i class="agenda-dot is-block"></i>Período bloqueado</span></div>
+                    </aside>
+                    <div class="agenda-main"><div class="agenda-period-heading"><h3 id="schedule-period-label" tabindex="-1"></h3><span id="agenda-period-count"></span></div><div id="schedule-timeline"></div></div>
+                </div>
+            </section>
+
+            <!-- Patients View -->
+            <section id="view-patients" class="therapy-view view-section hide fade-in">
+                <div id="crm-directory">
+                    <div class="therapy-heading"><div><h2>Pacientes e acompanhamento</h2><p>Ficha central, relacionamento e histórico do consultório.</p></div><div class="patients-heading-actions"><button type="button" class="therapy-primary" onclick="openPatientModal()">Novo paciente</button></div></div>
+                    <div id="crm-metrics" class="crm-metrics" aria-label="Indicadores dos pacientes"></div>
+                    <div class="crm-filters therapy-patient-filters"><label>Buscar paciente<input type="search" id="search-patients" placeholder="Nome, telefone, e-mail ou etiqueta" oninput="renderPatients()"></label><label>Etapa<select id="crm-stage-filter" onchange="renderPatients()"></select></label><label>Acompanhamento<select id="crm-focus-filter" onchange="renderPatients()"><option value="all">Todos</option><option value="no_next">Sem próximo horário</option><option value="overdue">Retornos em atraso</option></select></label><label>Ordenar<select id="crm-sort" onchange="renderPatients()"><option value="name">Nome</option><option value="next">Próximo horário</option><option value="followup">Prazo de retorno</option></select></label><div class="crm-filter-checks"><label><input id="therapy-show-archived" type="checkbox" onchange="renderPatients()">Incluir arquivados</label><label><input id="therapy-show-alerts" type="checkbox" onchange="renderPatients()">Somente sinalizados</label><button type="button" class="therapy-secondary" onclick="TherapyPatients.clearFilters()">Limpar filtros</button></div></div>
+                    <p id="crm-result-count" class="crm-result-count" role="status"></p>
+                    <div id="patients-list" class="crm-patient-list"></div>
+                </div>
+                <div id="crm-profile" hidden>
+                    <button type="button" class="crm-back" onclick="TherapyPatients.back()">← Voltar aos pacientes</button>
+                    <div id="crm-profile-heading" class="crm-profile-heading"></div>
+                    <div id="crm-tabs" class="crm-tabs" role="tablist" aria-label="Painéis da ficha do paciente"></div>
+                    <div id="crm-panel" class="crm-panel" role="tabpanel" tabindex="0"></div>
+                </div>
+            </section>
+
+            <!-- Treatments View -->
+            <section id="view-treatments" class="therapy-view view-section hide fade-in">
+                <div class="therapy-heading"><div><h2>Planos terapêuticos</h2><p>Planejamento, objetivos e revisão do acompanhamento.</p></div><button type="button" class="therapy-primary" onclick="openTreatmentModal()">Novo plano</button></div>
+                <div id="treatments-metrics" class="treatments-metrics" aria-label="Planos por situação, considerando o paciente selecionado"></div>
+                <div class="treatments-filters">
+                    <label>Buscar paciente ou plano<input id="treatments-search" type="search" placeholder="Nome, título ou abordagem" oninput="renderTreatments()"></label>
+                    <label>Paciente<select id="treatments-patient-filter" onchange="renderTreatments()"><option value="">Todos os pacientes</option></select></label>
+                    <label>Situação<select id="treatments-status-filter" onchange="renderTreatments()"><option value="all">Todos, exceto arquivados</option><option value="active">Ativos</option><option value="paused">Pausados</option><option value="completed">Concluídos</option><option value="archived">Arquivados</option></select></label>
+                    <label>Ordenar<select id="treatments-sort" onchange="renderTreatments()"><option value="updated">Atualizados recentemente</option><option value="review">Próxima revisão</option><option value="patient">Paciente</option></select></label>
+                    <div class="treatments-filter-actions"><label><input type="checkbox" id="treatments-due-filter" onchange="renderTreatments()">Revisão prevista até hoje</label><label><input type="checkbox" id="treatments-clinical-filter" onchange="renderTreatments()">Buscar também no conteúdo do plano</label><button type="button" class="therapy-secondary" onclick="TherapyTreatments.clear()">Limpar filtros</button></div>
+                </div>
+                <p id="treatments-count" class="treatments-list-heading" role="status" aria-live="polite"></p>
+                <div id="treatments-list" class="treatments-list"></div>
+                <button id="treatments-more" type="button" class="therapy-secondary" onclick="TherapyTreatments.more()" hidden>Carregar mais planos</button>
+            </section>
+
+            <!-- Sessions View -->
+            <section id="view-sessions" class="therapy-view view-section hide fade-in">
+                <div class="therapy-heading"><div><h2>Sessões e evolução</h2><p>Atendimentos, anotações e continuidade do acompanhamento.</p></div><button type="button" class="therapy-primary" onclick="openSessionNotesModal()">Anotação avulsa</button></div>
+                <div id="sessions-metrics" class="sessions-metrics" aria-label="Indicadores de sessões"></div>
+                <div class="sessions-filters"><label>Buscar paciente<input id="sessions-search" type="search" placeholder="Nome do paciente" oninput="renderSessions()"></label><label>Paciente<select id="sessions-filter-patient" onchange="renderSessions()"><option value="">Todos os pacientes</option></select></label><label>Período<select id="sessions-period" onchange="renderSessions()"><option value="all">Todo o histórico</option><option value="today">Hoje</option><option value="week">Esta semana</option><option value="month">Este mês</option><option value="custom">Personalizado</option></select></label><label>Ordenar<select id="sessions-sort" onchange="renderSessions()"><option value="newest">Mais recentes</option><option value="oldest">Mais antigos</option><option value="patient">Paciente</option></select></label><div id="sessions-custom-dates" class="sessions-custom-dates" hidden><label>De<input id="sessions-start" type="date" onchange="renderSessions()"></label><label>Até<input id="sessions-end" type="date" onchange="renderSessions()"></label></div><div class="sessions-filter-actions"><label><input id="sessions-search-content" type="checkbox" onchange="renderSessions()">Buscar também no conteúdo das anotações</label><button type="button" class="therapy-secondary" onclick="TherapySessions.clear()">Limpar filtros</button></div></div>
+                <p id="sessions-filter-message" class="sessions-filter-message" role="alert"></p>
+                <div id="sessions-tabs" class="sessions-tabs" role="tablist" aria-label="Áreas de sessões"><button id="sessions-tab-records" type="button" data-sessions-tab="records" role="tab" aria-controls="sessions-panel" aria-selected="true" onclick="TherapySessions.tab('records')">Registros</button><button id="sessions-tab-pending" type="button" data-sessions-tab="pending" role="tab" aria-controls="sessions-panel" aria-selected="false" tabindex="-1" onclick="TherapySessions.tab('pending')">A registrar</button><button id="sessions-tab-drafts" type="button" data-sessions-tab="drafts" role="tab" aria-controls="sessions-panel" aria-selected="false" tabindex="-1" onclick="TherapySessions.tab('drafts')">Rascunhos</button><button id="sessions-tab-archived" type="button" data-sessions-tab="archived" role="tab" aria-controls="sessions-panel" aria-selected="false" tabindex="-1" onclick="TherapySessions.tab('archived')">Arquivados</button></div>
+                <div id="sessions-panel" role="tabpanel" aria-labelledby="sessions-tab-records"><div class="sessions-list-heading"><strong id="sessions-count" role="status"></strong><p id="sessions-tab-help"></p></div><div id="sessions-list"></div><button id="sessions-more" type="button" class="therapy-secondary" onclick="TherapySessions.more()" hidden>Carregar mais registros</button></div>
+            </section>
+
+            <!-- Assessments View -->
+            <section id="view-assessments" class="therapy-view view-section hide fade-in">
+                <div class="therapy-heading"><div><h2>Avaliações e instrumentos</h2><p>Aplicações, registros profissionais e acompanhamento por paciente.</p></div><button type="button" class="therapy-primary" onclick="openAssessmentModal()">Nova avaliação</button></div>
+                <div id="assessments-metrics" class="assessments-metrics" aria-label="Indicadores nos filtros selecionados"></div>
+                <div class="assessments-filters">
+                    <label>Buscar paciente ou instrumento<input type="search" id="assessments-search" placeholder="Nome ou instrumento" oninput="renderAssessments()"></label>
+                    <label>Paciente<select id="assessments-filter-patient" onchange="renderAssessments()"><option value="">Todos os pacientes</option></select></label>
+                    <label>Instrumento<select id="assessments-filter-scale" onchange="renderAssessments()"><option value="">Todos os instrumentos</option></select></label>
+                    <label>Data inicial<input id="assessments-start" type="date" onchange="renderAssessments()"></label>
+                    <label>Data final<input id="assessments-end" type="date" onchange="renderAssessments()"></label>
+                    <div class="assessments-filter-actions"><label><input id="assessments-search-content" type="checkbox" onchange="renderAssessments()">Buscar também nas observações e análises</label><button type="button" class="therapy-secondary" onclick="TherapyAssessments.clear()">Limpar filtros</button></div>
+                </div>
+                <p id="assessments-message" class="assessments-message" role="alert"></p>
+                <div id="assessments-tabs" class="assessments-tabs" role="tablist" aria-label="Áreas das avaliações">
+                    <button type="button" id="assessments-tab-records" role="tab" aria-selected="true" aria-controls="assessments-panel" data-assessments-tab="records" onclick="TherapyAssessments.tab('records')">Registros</button>
+                    <button type="button" id="assessments-tab-drafts" role="tab" aria-selected="false" aria-controls="assessments-panel" tabindex="-1" data-assessments-tab="drafts" onclick="TherapyAssessments.tab('drafts')">Rascunhos</button>
+                    <button type="button" id="assessments-tab-followup" role="tab" aria-selected="false" aria-controls="assessments-panel" tabindex="-1" data-assessments-tab="followup" onclick="TherapyAssessments.tab('followup')">Acompanhamento</button>
+                    <button type="button" id="assessments-tab-archived" role="tab" aria-selected="false" aria-controls="assessments-panel" tabindex="-1" data-assessments-tab="archived" onclick="TherapyAssessments.tab('archived')">Arquivados</button>
+                </div>
+                <p id="assessments-count" class="assessments-count" role="status" aria-live="polite"></p>
+                <div id="assessments-panel" role="tabpanel" aria-labelledby="assessments-tab-records"><div id="assessments-list" class="assessments-list"></div><div id="assessments-followup" hidden></div><button id="assessments-more" type="button" class="therapy-secondary" onclick="TherapyAssessments.more()" hidden>Carregar mais registros</button></div>
+            </section>
+
+            <!-- Prescriptions View -->
+            <section id="view-prescriptions" class="therapy-view view-section hide fade-in">
+                <div class="therapy-heading"><div><h2>Orientações e encaminhamentos</h2><p>Registros do profissional, destinatários e acompanhamento de retorno.</p></div><button type="button" class="therapy-primary" onclick="openPrescriptionModal()">Novo registro</button></div>
+                <div id="orientations-metrics" class="orientations-metrics" aria-label="Indicadores nos filtros selecionados"></div>
+                <div class="orientations-filters">
+                    <label>Buscar paciente, título ou destino<input type="search" id="orientations-search" placeholder="Nome, título, destinatário ou serviço" oninput="renderPrescriptions()"></label>
+                    <label>Paciente<select id="orientations-filter-patient" onchange="renderPrescriptions()"><option value="">Todos os pacientes</option></select></label>
+                    <label>Tipo<select id="orientations-filter-kind" onchange="renderPrescriptions()"><option value="">Todos os tipos</option><option value="orientation">Orientações</option><option value="referral">Encaminhamentos</option><option value="legacy">Registros anteriores</option></select></label>
+                    <label>Data inicial do registro<input id="orientations-start" type="date" onchange="renderPrescriptions()"></label>
+                    <label>Data final do registro<input id="orientations-end" type="date" onchange="renderPrescriptions()"></label>
+                    <div class="orientations-filter-actions"><label><input type="checkbox" id="orientations-due-only" onchange="renderPrescriptions()">Prazos previstos até hoje</label><label><input type="checkbox" id="orientations-search-content" onchange="renderPrescriptions()">Buscar também no conteúdo e notas</label><button type="button" class="therapy-secondary" onclick="TherapyOrientations.clear()">Limpar filtros</button></div>
+                </div>
+                <p id="orientations-message" class="orientations-message" role="alert"></p>
+                <div id="orientations-tabs" class="orientations-tabs" role="tablist" aria-label="Áreas das orientações e encaminhamentos">
+                    <button id="orientations-tab-records" type="button" role="tab" aria-selected="true" aria-controls="orientations-panel" data-orientations-tab="records" onclick="TherapyOrientations.tab('records')">Registros</button>
+                    <button id="orientations-tab-drafts" type="button" role="tab" aria-selected="false" aria-controls="orientations-panel" tabindex="-1" data-orientations-tab="drafts" onclick="TherapyOrientations.tab('drafts')">Rascunhos</button>
+                    <button id="orientations-tab-followup" type="button" role="tab" aria-selected="false" aria-controls="orientations-panel" tabindex="-1" data-orientations-tab="followup" onclick="TherapyOrientations.tab('followup')">Acompanhamento</button>
+                    <button id="orientations-tab-archived" type="button" role="tab" aria-selected="false" aria-controls="orientations-panel" tabindex="-1" data-orientations-tab="archived" onclick="TherapyOrientations.tab('archived')">Arquivados</button>
+                </div>
+                <p id="orientations-count" class="orientations-count" role="status" aria-live="polite"></p>
+                <div id="orientations-panel" role="tabpanel" aria-labelledby="orientations-tab-records"><div id="orientations-list" class="orientations-list"></div><button type="button" id="orientations-more" class="therapy-secondary" onclick="TherapyOrientations.more()" hidden>Carregar mais registros</button></div>
+            </section>
+
+            <!-- Financial View -->
+<section id="view-financial" class="therapy-view view-section hide management-view"><div class="therapy-heading"><div><h2>Financeiro</h2><p>Recebimentos, pagamentos, pendências e devoluções.</p></div><div class="assistant-finance-actions"><button type="button" class="therapy-secondary" onclick="TherapySettings.open('financial')">Configurar recorrências</button><button type="button" class="therapy-secondary" onclick="TherapyAssistant.recurring()">Despesas do mês</button><button type="button" class="therapy-primary" onclick="openFinancialModal()">Novo lançamento</button></div></div><div class="management-metrics"><article><span>Entradas recebidas</span><strong id="finance-income">R$ 0,00</strong></article><article><span>Saídas pagas e devoluções</span><strong id="finance-expense">R$ 0,00</strong></article><article><span>Saldo realizado</span><strong id="finance-balance">R$ 0,00</strong></article><article><span>A receber</span><strong id="finance-pending">R$ 0,00</strong></article><article><span>A pagar</span><strong id="finance-payable">R$ 0,00</strong></article></div>
+<div class="management-filters" onchange="TherapyFinance.render()"><label>Buscar descrição, categoria ou paciente<input id="finance-search" type="search" maxlength="300" oninput="TherapyFinance.render()"></label><label>Paciente<select id="finance-patient"></select></label><label>Tipo<select id="finance-type"><option value="">Receitas e despesas</option><option value="income">Receitas</option><option value="expense">Despesas</option></select></label><label>Origem<select id="finance-source"><option value="">Todas as origens</option><option value="manual">Manual</option><option value="session">Sessão avulsa</option><option value="package">Pacote</option><option value="reversal">Devolução</option><option value="legacy">Registro anterior</option></select></label><label>De<input type="date" id="finance-start"></label><label>Até<input type="date" id="finance-end"></label><label>Data considerada<select id="finance-basis"><option value="cash">Pagamento / vencimento</option><option value="record">Data original do lançamento</option></select></label><label class="management-check"><input type="checkbox" id="finance-overdue">Somente pendências vencidas</label><div class="management-filter-actions"><button type="button" onclick="TherapyManagementUI.range('finance','month')">Mês atual</button><button type="button" onclick="TherapyManagementUI.range('finance','today')">Hoje</button><button type="button" onclick="TherapyFinance.clear()">Limpar filtros</button></div></div><p class="management-help">Caixa considera pagamentos realizados; pendências ficam separadas. Sem vencimento ou pagamento informado, a data original é usada e identificada na conferência.</p><p id="finance-message" class="management-message" role="alert"></p><div id="finance-tabs" class="management-tabs" role="tablist" aria-label="Áreas do módulo"><button type="button" role="tab" id="finance-tab-all" data-finance-tab="all" aria-controls="finance-panel" aria-selected="false" onclick="TherapyFinance.tab('all')">Todos</button><button type="button" role="tab" id="finance-tab-cash" data-finance-tab="cash" aria-controls="finance-panel" aria-selected="false" onclick="TherapyFinance.tab('cash')">Recebidos e pagos</button><button type="button" role="tab" id="finance-tab-receivable" data-finance-tab="receivable" aria-controls="finance-panel" aria-selected="false" onclick="TherapyFinance.tab('receivable')">A receber</button><button type="button" role="tab" id="finance-tab-payable" data-finance-tab="payable" aria-controls="finance-panel" aria-selected="false" onclick="TherapyFinance.tab('payable')">A pagar</button><button type="button" role="tab" id="finance-tab-cancelled" data-finance-tab="cancelled" aria-controls="finance-panel" aria-selected="false" onclick="TherapyFinance.tab('cancelled')">Cancelados</button></div><div id="finance-panel" role="tabpanel" aria-labelledby="finance-tab-all"><p id="finance-count" class="management-count" aria-live="polite"></p><div class="management-table-wrap" tabindex="0" role="region" aria-label="Lançamentos financeiros"><table><thead><tr><th>Data</th><th>Descrição / origem</th><th>Paciente</th><th>Tipo e situação</th><th>Valor</th><th>Ações</th></tr></thead><tbody id="finance-table-body"></tbody></table></div><button type="button" id="finance-more" class="therapy-secondary management-more" hidden onclick="TherapyFinance.more()">Mostrar mais</button></div></section>
+<section id="view-packages" class="therapy-view view-section hide management-view"><div class="therapy-heading"><div><h2>Pacotes de sessões</h2><p>Vendas, validade, consumos e cobranças por paciente.</p></div><button type="button" class="therapy-primary" onclick="openTherapyPackage()">Novo pacote</button></div><div id="packages-metrics" class="management-metrics"></div><div class="management-filters" onchange="TherapyPackages.render()"><label>Buscar pacote ou paciente<input id="packages-search" type="search" maxlength="300" oninput="TherapyPackages.render()"></label><label>Paciente<select id="packages-patient"></select></label><div class="management-filter-actions"><button type="button" onclick="TherapyPackages.clear()">Limpar filtros</button></div></div><div id="packages-tabs" class="management-tabs" role="tablist" aria-label="Áreas do módulo"><button type="button" role="tab" id="packages-tab-active" data-packages-tab="active" aria-controls="packages-panel" aria-selected="false" onclick="TherapyPackages.tab('active')">Com saldo válido</button><button type="button" role="tab" id="packages-tab-expired" data-packages-tab="expired" aria-controls="packages-panel" aria-selected="false" onclick="TherapyPackages.tab('expired')">Vencidos</button><button type="button" role="tab" id="packages-tab-exhausted" data-packages-tab="exhausted" aria-controls="packages-panel" aria-selected="false" onclick="TherapyPackages.tab('exhausted')">Esgotados</button><button type="button" role="tab" id="packages-tab-voided" data-packages-tab="voided" aria-controls="packages-panel" aria-selected="false" onclick="TherapyPackages.tab('voided')">Cancelados</button><button type="button" role="tab" id="packages-tab-all" data-packages-tab="all" aria-controls="packages-panel" aria-selected="false" onclick="TherapyPackages.tab('all')">Todos</button></div><div id="packages-panel" role="tabpanel" aria-labelledby="packages-tab-active"><p id="packages-count" class="management-count" aria-live="polite"></p><div id="therapy-packages-list" class="management-package-list"></div><button type="button" id="packages-more" class="therapy-secondary management-more" hidden onclick="TherapyPackages.more()">Mostrar mais</button></div></section>
+<section id="view-reports" class="therapy-view view-section hide management-view"><div class="therapy-heading"><div><h2>Relatórios</h2><p>Conferência por período e paciente, com impressão e exportação.</p></div></div><div class="management-filters" onchange="TherapyReports.render()"><label>Relatório<select id="reports-type"></select></label><label>Paciente<select id="reports-patient"></select></label><label>De<input type="date" id="reports-start"></label><label>Até<input type="date" id="reports-end"></label><label class="management-check"><input id="reports-archived" type="checkbox">Incluir registros arquivados do acompanhamento</label><div class="management-filter-actions"><button type="button" onclick="TherapyManagementUI.range('reports','month')">Mês atual</button><button type="button" onclick="TherapyManagementUI.range('reports','today')">Hoje</button><button type="button" onclick="TherapyManagementUI.range('reports','all')">Todo o histórico</button></div></div><p id="reports-message" class="management-message" role="alert"></p><p id="reports-context" class="management-count" aria-live="polite"></p><div id="reports-metrics" class="management-metrics"></div><div class="management-report-callout"><div><h3>Conferir antes de exportar</h3><p>A prévia identifica o período, os critérios e os registros incluídos. As exportações não incluem anotações, respostas ou notas internas.</p></div><button type="button" class="therapy-primary" onclick="generateReport()">Gerar prévia</button></div></section>
+
+            <!-- Emergency View -->
+            <section id="view-emergency" class="therapy-view view-section hide fade-in">
+                <!-- Emergency Alert -->
+                <div class="crisis-alert rounded-2xl p-6 mb-8">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center">
+                            <i data-lucide="alert-triangle" class="w-8 h-8 text-red-600"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-red-800">Protocolo de Emergência</h2>
+                            <p class="text-red-700">Registro rápido de crises e intervenções</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Emergency Form -->
+                    <div
+                        class="glass dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-white/40 dark:border-white/5">
+                        <h3 class="font-bold text-gray-800 mb-4">Registro de Emergência</h3>
+                        <form id="emergency-form" onsubmit="submitEmergency(event)" class="space-y-4">
+                            <div>
+                                <label class="text-xs font-bold text-gray-500 uppercase">Paciente *</label>
+                                <select id="emergency-patient" required
+                                    class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-red-500 outline-none bg-white">
+                                    <option value="">Selecione um paciente</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-gray-500 uppercase">Tipo de Crise *</label>
+                                <select id="emergency-type" required
+                                    class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-red-500 outline-none bg-white">
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="suicidio">Risco de Suicídio</option>
+                                    <option value="autoagressao">Autoagressão</option>
+                                    <option value="crise_ansiedade">Crise de Ansiedade</option>
+                                    <option value="crise_panico">Crise de Pânico</option>
+                                    <option value="psicose">Episódio Psicótico</option>
+                                    <option value="mania">Episódio Maníaco</option>
+                                    <option value="depressao">Crise Depressiva</option>
+                                    <option value="agressao">Agressão a Outros</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-gray-500 uppercase">Nível de Risco *</label>
+                                <div class="grid grid-cols-3 gap-2 mt-1">
+                                    <label class="cursor-pointer text-center">
+                                        <input type="radio" name="risk-level" value="baixo" class="peer hidden">
+                                        <div
+                                            class="py-2 text-sm font-bold rounded-lg border border-green-200 text-gray-500 peer-checked:bg-green-50 peer-checked:text-green-700 peer-checked:border-green-500">
+                                            Baixo
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer text-center">
+                                        <input type="radio" name="risk-level" value="medio" class="peer hidden">
+                                        <div
+                                            class="py-2 text-sm font-bold rounded-lg border border-amber-200 text-gray-500 peer-checked:bg-amber-50 peer-checked:text-amber-700 peer-checked:border-amber-500">
+                                            Médio
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer text-center">
+                                        <input type="radio" name="risk-level" value="alto" class="peer hidden" checked>
+                                        <div
+                                            class="py-2 text-sm font-bold rounded-lg border border-red-200 text-gray-500 peer-checked:bg-red-50 peer-checked:text-red-700 peer-checked:border-red-500">
+                                            Alto
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-gray-500 uppercase">Intervenção Realizada *</label>
+                                <textarea id="emergency-intervention" rows="3" required
+                                    class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-red-500 outline-none"></textarea>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-gray-500 uppercase">Encaminhamentos</label>
+                                <textarea id="emergency-referrals" rows="2"
+                                    class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-red-500 outline-none"></textarea>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-xs font-bold text-gray-500 uppercase">Data *</label>
+                                    <input type="datetime-local" id="emergency-date" required
+                                        class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-red-500 outline-none">
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold text-gray-500 uppercase">Duração (min)</label>
+                                    <input type="number" id="emergency-duration"
+                                        class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-red-500 outline-none">
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-red-600 text-white py-3 rounded-xl font-bold hover:bg-red-700 transition-all mt-4">
+                                <i data-lucide="alert-triangle" class="w-5 h-5 inline mr-2"></i>
+                                Registrar Emergência
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Emergency Contacts & Procedures -->
+                    <div class="space-y-6">
+                        <!-- Emergency Contacts -->
+                        <div
+                            class="glass dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-white/40 dark:border-white/5">
+                            <h3 class="font-bold text-gray-800 mb-4">Contatos de Emergência</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                                    <div>
+                                        <p class="font-bold text-red-700">CVV - Centro de Valorização da Vida</p>
+                                        <p class="text-sm text-red-600">188 (Ligue 188)</p>
+                                    </div>
+                                    <button onclick="callEmergency('188')"
+                                        class="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-red-700">
+                                        <i data-lucide="phone" class="w-4 h-4 inline mr-1"></i>
+                                        Ligar
+                                    </button>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                                    <div>
+                                        <p class="font-bold text-blue-700">SAMU</p>
+                                        <p class="text-sm text-blue-600">192</p>
+                                    </div>
+                                    <button onclick="callEmergency('192')"
+                                        class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700">
+                                        <i data-lucide="phone" class="w-4 h-4 inline mr-1"></i>
+                                        Ligar
+                                    </button>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-amber-50 rounded-lg">
+                                    <div>
+                                        <p class="font-bold text-amber-700">Polícia Militar</p>
+                                        <p class="text-sm text-amber-600">190</p>
+                                    </div>
+                                    <button onclick="callEmergency('190')"
+                                        class="bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-amber-700">
+                                        <i data-lucide="phone" class="w-4 h-4 inline mr-1"></i>
+                                        Ligar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Emergencies -->
+                        <div
+                            class="glass dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-white/40 dark:border-white/5">
+                            <h3 class="font-bold text-gray-800 mb-4">Últimas Emergências</h3>
+                            <div id="recent-emergencies" class="space-y-3">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings View -->
+<section id="view-documents" class="therapy-view view-section hide">
+<div class="doc-toolbar"><div><h2 class="text-2xl font-bold">Central de documentos</h2><p>Prepare, revise e acompanhe cada versão por paciente.</p></div><button type="button" class="therapy-secondary" onclick="TherapyDocuments.new()">Novo documento</button></div>
+<p class="crm-notice">Primeira etapa para validação local: declarações, cópias de orientações/encaminhamentos, termos e contrato. Conteúdo e adequação são revisados pelo profissional. Os modelos ainda passarão pela revisão técnica e jurídica combinada.</p>
+<details class="doc-section"><summary>Como preparar e entregar com segurança</summary><p>Selecione o paciente, informe solicitante, destinatário e finalidade. Revise os fatos e o texto antes de concluir. Depois imprima/salve o PDF, assine pelo meio adequado e registre a entrega desta versão. Concluir não assina, e informar envio não confirma recebimento.</p><p>Correções geram nova versão. O histórico e os PDFs originais são preservados. Backups novos incluem anexos protegidos; confira e exercite a restauração em outro navegador. Limites: 5 MB por PDF, 12 arquivos por documento, 70 MB em anexos por backup, arquivo de backup até 100 MB.</p><p>Laudo, atestado, relatório e parecer serão acrescentados após revisão específica. Não há prescrição de medicamentos ou emissão fiscal nesta central.</p><a href="https://site.cfp.org.br/wp-content/uploads/2019/09/Resolu%C3%A7%C3%A3o-CFP-n-06-2019-comentada.pdf" target="_blank" rel="noopener noreferrer">Referência: Resolução CFP 06/2019 comentada</a></details>
+<div id="documents-filters" class="doc-filters"><label>Buscar paciente/título/destinatário<input type="search" id="documents-search" oninput="TherapyDocuments.render()"></label><label>Conteúdo<select id="documents-status" onchange="TherapyDocuments.render()"><option value="">Todos</option><option value="draft">Rascunho</option><option value="completed">Concluído</option><option value="cancelled">Cancelado</option></select></label><label>Modalidade<select id="documents-kind" onchange="TherapyDocuments.render()"></select></label><label>Assinatura<select id="documents-signature" onchange="TherapyDocuments.render()"></select></label><label>Entrega<select id="documents-delivery" onchange="TherapyDocuments.render()"></select></label><label>Emissão a partir de<input type="date" id="documents-start" oninput="TherapyDocuments.render()"></label><label>Emissão até<input type="date" id="documents-end" oninput="TherapyDocuments.render()"></label></div><div id="documents-workspace"></div></section>
+<section id="view-settings" class="therapy-view view-section hide system-view"><div class="therapy-heading"><div><h2>Configurações</h2><p>Consultório, preferências e proteção dos registros.</p></div><button type="button" id="system-export-backup" class="therapy-primary" onclick="downloadBackup()">Baixar backup protegido</button></div><div class="system-workspace"><div class="system-tabs" id="system-tabs" aria-orientation="horizontal" role="tablist" aria-label="Áreas de configurações"><button type="button" role="tab" aria-label="Consultório" id="system-tab-clinic" data-system-tab="clinic" aria-controls="system-panel-clinic" aria-selected="false" onclick="TherapySystem.select('clinic')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="building-2"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Consultório</span><span class="settings-tab-description" aria-hidden="true">Identificação e contatos</span></span></button><button type="button" role="tab" aria-label="Atendimento" id="system-tab-routine" data-system-tab="routine" aria-controls="system-panel-routine" aria-selected="false" onclick="TherapySystem.select('routine')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="clock-3"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Atendimento</span><span class="settings-tab-description" aria-hidden="true">Duração e valor padrão</span></span></button><button type="button" role="tab" aria-label="Agenda e disponibilidade" id="system-tab-agenda" data-system-tab="agenda" aria-controls="system-panel-agenda" aria-selected="false" tabindex="-1" onclick="TherapySystem.select('agenda')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="calendar-days"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Agenda e disponibilidade</span><span class="settings-tab-description" aria-hidden="true">Expediente e calendário</span></span></button><button type="button" role="tab" aria-label="Convênios" id="system-tab-coverage" data-system-tab="coverage" aria-controls="system-panel-coverage" aria-selected="false" tabindex="-1" onclick="TherapySystem.select('coverage')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="badge-check"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Convênios</span><span class="settings-tab-description" aria-hidden="true">Origens e cores da agenda</span></span></button><button type="button" role="tab" aria-label="Financeiro" id="system-tab-financial" data-system-tab="financial" aria-controls="system-panel-financial" aria-selected="false" tabindex="-1" onclick="TherapySystem.select('financial')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="wallet"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Financeiro</span><span class="settings-tab-description" aria-hidden="true">Despesas mensais recorrentes</span></span></button><button type="button" role="tab" aria-label="Aparência e identidade" id="system-tab-appearance" data-system-tab="appearance" aria-controls="system-panel-appearance" aria-selected="false" onclick="TherapySystem.select('appearance')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="palette"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Aparência e identidade</span><span class="settings-tab-description" aria-hidden="true">Logo, cores e leitura</span></span></button><button type="button" role="tab" aria-label="Assistente e mensagens" id="system-tab-assistant" data-system-tab="assistant" aria-controls="system-panel-assistant" aria-selected="false" onclick="TherapySystem.select('assistant')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="messages-square"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Assistente e mensagens</span><span class="settings-tab-description" aria-hidden="true">Modelos e prazos dos avisos</span></span></button><button type="button" role="tab" aria-label="Segurança e backup" id="system-tab-security" data-system-tab="security" aria-controls="system-panel-security" aria-selected="false" onclick="TherapySystem.select('security')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="shield-check"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Segurança e backup</span><span class="settings-tab-description" aria-hidden="true">Proteção e cópias dos registros</span></span></button><button type="button" role="tab" aria-label="Manutenção" id="system-tab-maintenance" data-system-tab="maintenance" aria-controls="system-panel-maintenance" aria-selected="false" onclick="TherapySystem.select('maintenance')"><span class="settings-tab-icon" aria-hidden="true"><i data-lucide="wrench"></i></span><span class="settings-tab-copy"><span class="settings-tab-title">Manutenção</span><span class="settings-tab-description" aria-hidden="true">Limpeza e reinício da base</span></span></button></div>
+<div class="system-panels"><p id="system-return" class="system-help" hidden><button type="button" class="therapy-secondary" onclick="TherapySettings.back()">Voltar à tela de origem</button></p><section id="system-panel-clinic" class="system-card" role="tabpanel" aria-labelledby="system-tab-clinic"><div class="settings-area-heading"><h3>Identificação e contatos de referência</h3><p>Organize a identificação profissional e os contatos usados na rotina do consultório.</p></div><form id="system-clinic-form" oninput="TherapySystem.changed()" onsubmit="saveSettings(event,'clinic')"><div class="settings-form-sections"><fieldset class="settings-group"><legend>Identificação profissional</legend><label>Nome do consultório<input id="clinic-name" maxlength="200" required></label><label>Nome do profissional (opcional)<input id="professional-name" maxlength="200" placeholder="Usado nas novas orientações e encaminhamentos"></label><label>Registro profissional (opcional)<input id="therapist-license" maxlength="100" placeholder="Identificação informada pelo profissional"></label></fieldset><fieldset class="settings-group"><legend>Contatos e referências</legend><label>Telefone do consultório<input id="clinic-phone" type="tel" maxlength="60"></label><label>Contato de referência para intercorrências<input id="emergency-contact" maxlength="100"></label><label>Serviço ou hospital de referência<input id="hospital-reference" maxlength="300"></label></fieldset></div><p class="system-help">Contatos são preenchidos pelo responsável. Não há validação externa nem acionamento automático.</p><p id="system-clinic-message" class="system-form-message" aria-live="polite"></p><div class="therapy-actions"><button type="submit">Salvar consultório</button></div></form></section>
+<section id="system-panel-routine" class="system-card" role="tabpanel" aria-labelledby="system-tab-routine" hidden><div class="settings-area-heading"><h3>Padrões para novos atendimentos</h3><p>Defina o tempo e o valor sugeridos ao iniciar um novo atendimento.</p></div><form id="system-routine-form" oninput="TherapySystem.changed()" onsubmit="saveSettings(event,'routine')"><div class="settings-form-sections"><fieldset class="settings-group"><legend>Tempo de atendimento</legend><label>Duração padrão da sessão (min)<input id="session-duration" type="number" min="10" max="240" step="1" required></label><p class="system-help">Utilizada ao preparar novas marcações na Agenda.</p></fieldset><fieldset class="settings-group"><legend>Valor da sessão</legend><label>Valor padrão da sessão avulsa (R$)<input id="therapy-default-fee" type="number" min="0" max="999999999.99" step="0.01" required></label><p class="system-help">Valor sugerido para novos atendimentos avulsos.</p></fieldset></div><p class="system-help">Padrões são usados em novos formulários. Marcações, cobranças e consumos existentes são preservados. O sistema não envia lembretes automáticos por WhatsApp.</p><p id="system-routine-message" class="system-form-message" aria-live="polite"></p><div class="therapy-actions"><button type="submit">Salvar padrões</button><button type="button" class="therapy-secondary" onclick="TherapySettings.open('agenda')">Agenda e disponibilidade</button></div></form></section>
+<section id="system-panel-agenda" class="system-card" role="tabpanel" aria-labelledby="system-tab-agenda" hidden><div id="system-editor-agenda"></div></section><section id="system-panel-coverage" class="system-card" role="tabpanel" aria-labelledby="system-tab-coverage" hidden><div id="system-editor-coverage"></div></section><section id="system-panel-financial" class="system-card" role="tabpanel" aria-labelledby="system-tab-financial" hidden><div id="system-editor-financial"></div></section><section id="system-panel-appearance" class="system-card" role="tabpanel" aria-labelledby="system-tab-appearance" hidden><div class="settings-area-heading"><h3>Aparência e identidade</h3><p class="system-help">Tema e tamanho de leitura ficam neste navegador. A cor de destaque e o logo ficam no cofre e acompanham o backup protegido.</p></div><div class="settings-appearance-grid"><fieldset class="system-appearance-group"><legend>Tema do sistema</legend><div class="therapy-actions"><button type="button" id="system-theme-light" class="therapy-secondary" onclick="TherapySystem.theme('light')">Tema claro</button><button type="button" id="system-theme-dark" class="therapy-secondary" onclick="TherapySystem.theme('dark')">Tema escuro</button></div></fieldset><fieldset class="system-appearance-group"><legend>Tamanho da fonte</legend><p class="system-help" id="system-font-help">Ajuste os textos dos menus, telas e formulários entre 90% e 130%. O padrão é 100%.</p><div class="system-font-controls" aria-describedby="system-font-help"><button type="button" id="system-font-decrease" class="therapy-secondary" aria-label="Diminuir tamanho da fonte" onclick="TherapyTypography.adjust(-10)">A− <span>Diminuir</span></button><output id="system-font-value" aria-label="Tamanho atual da fonte">100%</output><button type="button" id="system-font-increase" class="therapy-secondary" aria-label="Aumentar tamanho da fonte" onclick="TherapyTypography.adjust(10)">A+ <span>Aumentar</span></button><button type="button" id="system-font-reset" class="therapy-secondary" onclick="TherapyTypography.reset()">Tamanho padrão</button></div><p id="system-font-status" class="system-help" role="status" aria-live="polite"></p><div class="system-font-preview"><h4>Prévia de leitura</h4><p>Confira pacientes, horários e registros com o tamanho de texto que funciona melhor para você.</p><small>Os dados e o conteúdo dos registros permanecem iguais.</small></div></fieldset><fieldset class="system-appearance-group settings-appearance-wide"><legend>Cor de destaque (psicologia e bem-estar)</legend><p class="system-help">Escolha a cor que melhor reflete a atmosfera e a identidade do seu consultório. A cor é aplicada aos detalhes, botões e marcações.</p><div id="system-appearance-palettes" class="system-palette-grid" role="radiogroup" aria-label="Cores de destaque disponíveis"></div></fieldset><div id="system-identity-content" class="system-subsection"></div></div></section>
+<section id="system-panel-assistant" role="tabpanel" aria-labelledby="system-tab-assistant" hidden><div class="settings-area-heading"><h3>Assistente e mensagens</h3><p>Personalize a assinatura, os prazos dos avisos e os textos que você revisa antes de compartilhar.</p></div><div id="assistant-settings-content"></div></section>
+<section id="system-panel-security" role="tabpanel" aria-labelledby="system-tab-security" hidden><div class="settings-area-heading"><h3>Segurança e backup</h3><p>Configure o bloqueio e mantenha suas cópias protegidas. Baixar uma cópia e restaurar a base são ações distintas.</p></div><div class="system-grid"><article class="system-card"><h3>Bloqueio dos registros</h3><form id="system-security-form" oninput="TherapySystem.changed()" onsubmit="saveSettings(event,'security')"><label>Bloquear após inatividade<select id="system-auto-lock"><option value="5">5 minutos</option><option value="15">15 minutos</option><option value="30">30 minutos</option><option value="60">60 minutos</option></select></label><p class="system-help">O bloqueio fecha o acesso aos registros nesta aba. A senha é exigida para reabrir. Você também pode usar Bloquear no topo da tela.</p><p id="system-security-message" class="system-form-message" aria-live="polite"></p><div class="therapy-actions"><button type="submit">Salvar proteção</button><button type="button" class="therapy-secondary" onclick="TherapySystem.password()">Alterar senha</button></div></form></article><article class="system-card"><h3>Baixar backup protegido</h3><p>Guarde uma cópia fora deste navegador e confira o arquivo baixado. Somente os registros já salvos são incluídos.</p><p id="system-backup-status" class="system-help"></p><div class="therapy-actions"><button type="button" onclick="TherapySystem.backup()">Baixar backup protegido</button></div></article><article class="system-card"><h3>Conferir backup sem restaurar</h3><p>Depois de baixar, selecione o arquivo guardado e informe a senha daquele backup. A conferência valida o conteúdo sem substituir a base atual.</p><label class="system-file-label">Escolher arquivo para conferência<input id="system-verify-file" type="file" accept=".json" onchange="TherapyVault.verify(this)"></label><p id="system-backup-verified-status" class="system-help" aria-live="polite"></p><p class="system-help">Guarde outra cópia em um local seguro fora deste dispositivo. A senha da cópia pode ser diferente da senha atual.</p></article><article class="system-card settings-restore-card"><h3>Conferir e restaurar backup</h3><p>A restauração substitui a base após a conferência. Backups antigos podem usar outra senha.</p><label class="system-file-label">Escolher backup para conferir e restaurar<input id="system-restore-file" type="file" onchange="restoreBackup(this)" accept=".json"></label><p class="system-help">Escolha o arquivo para abrir a conferência. A substituição depende da senha e da confirmação no próximo passo.</p></article><article class="system-card"><h3>Cópia anterior neste navegador</h3><p id="system-previous-status" class="system-help"></p><div class="therapy-actions"><button type="button" class="therapy-secondary" onclick="TherapyVault.previous().catch(e=>therapyNotice(e.message,'error'))">Baixar cópia anterior</button></div><p class="system-help">Baixar não restaura. Para conferir ou recuperar, escolha o arquivo na restauração. Limpar dados do navegador também pode remover esta cópia.</p></article></div></section>
+<section id="system-panel-maintenance" role="tabpanel" aria-labelledby="system-tab-maintenance" hidden><div class="settings-area-heading"><h3>Manutenção da base</h3><p>Ações que substituem registros. Confira o alcance de cada opção e prepare seu backup antes de continuar.</p></div><div class="system-card system-caution"><h3>Preparar a manutenção</h3><p>Baixe e confira seu backup antes de limpar ou reiniciar a base. Cada ação exige a senha atual e uma confirmação digitada. A cópia anterior deste navegador será substituída pela base atual.</p><div class="therapy-actions"><button type="button" class="therapy-secondary" onclick="TherapySystem.backup()">Baixar backup protegido</button></div></div><div class="system-grid settings-maintenance-grid"><article class="system-card"><h3>Limpar registros operacionais</h3><p>Remove pacientes, atendimentos, anotações, planos, avaliações, orientações, intercorrências e movimentos financeiros desta base. Mantém as configurações do consultório.</p><button type="button" class="therapy-secondary" onclick="clearAllData()">Conferir limpeza de registros</button></article><article class="system-card"><h3>Reiniciar base e configurações</h3><p>Limpa os registros operacionais e volta as configurações ao padrão. A senha e a licença local permanecem. Preferências do navegador são independentes da base.</p><button type="button" class="therapy-secondary" onclick="factoryReset()">Conferir reinício da base</button></article></div></section></div></div></section>
+
+<section id="view-manual" class="therapy-view view-section hide system-view"><div class="therapy-heading"><div><h2>Manual de uso</h2><p>Implantação guiada, fluxos da rotina, guia por módulo e soluções rápidas sem depender de suporte.</p></div><div class="manual-heading-actions"><button type="button" class="therapy-secondary" onclick="TherapyManual.printGuide()">Imprimir guia de bolso</button></div></div><section class="system-card manual-control-card" aria-label="Busca e progresso de leitura"><div class="manual-filters-grid"><label>Buscar no Manual<input type="search" id="manual-search" maxlength="200" placeholder="Ex.: backup, pacote, rascunho, convênio, outro computador" oninput="TherapyManual.onFilterChange('search')"></label><label>Grupo<select id="manual-group" onchange="TherapyManual.onFilterChange('group')"><option value="">Todos os grupos</option><option>Começar</option><option>Rotina</option><option>Acompanhamento</option><option>Gestão</option><option>Sistema</option></select></label><label>Leitura<select id="manual-read-filter" onchange="TherapyManual.onFilterChange('read')"><option value="">Todos os tópicos</option><option value="unread">Não lidos</option><option value="read">Marcados como lidos</option></select></label><button type="button" class="therapy-secondary" onclick="TherapyManual.clear()">Limpar busca</button></div><div id="manual-quick-chips" class="manual-quick-chips" role="group" aria-label="Temas frequentes para busca rápida"></div><div class="manual-progress-wrap"><p id="manual-progress-text" class="system-help"></p><div id="manual-progress" class="system-progress" role="progressbar" aria-label="Tópicos marcados como lidos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="manual-progress-bar"></div></div><p class="system-help">Marcações de leitura ficam neste navegador e não alteram os registros do consultório.</p></div></section><div class="system-tabs manual-tabs" id="manual-tabs" role="tablist" aria-label="Camadas do Manual de uso"><button type="button" role="tab" id="manual-tab-topics" data-manual-tab="topics" aria-controls="manual-panel-topics" aria-selected="true" onclick="TherapyManual.selectTab('topics')">Guia por módulo</button><button type="button" role="tab" id="manual-tab-onboarding" data-manual-tab="onboarding" aria-controls="manual-panel-onboarding" aria-selected="false" tabindex="-1" onclick="TherapyManual.selectTab('onboarding')">Primeiros passos</button><button type="button" role="tab" id="manual-tab-flows" data-manual-tab="flows" aria-controls="manual-panel-flows" aria-selected="false" tabindex="-1" onclick="TherapyManual.selectTab('flows')">Fluxos da rotina</button><button type="button" role="tab" id="manual-tab-troubleshooting" data-manual-tab="troubleshooting" aria-controls="manual-panel-troubleshooting" aria-selected="false" tabindex="-1" onclick="TherapyManual.selectTab('troubleshooting')">Resolva rápido</button></div><section id="manual-panel-topics" role="tabpanel" aria-labelledby="manual-tab-topics"><div id="manual-onboarding-banner" class="manual-onboarding-banner" hidden></div><div class="manual-results-bar"><p id="manual-count" class="system-help" aria-live="polite"></p><div id="manual-expand-controls" class="manual-expand-controls"><button type="button" class="manual-text-btn" onclick="TherapyManual.toggleAll(true)">Expandir todos</button><button type="button" class="manual-text-btn" onclick="TherapyManual.toggleAll(false)">Recolher todos</button></div></div><div id="manual-topics"></div><div id="manual-search-extras" hidden></div><button type="button" class="therapy-secondary system-manual-reset" onclick="resetManualProgress()">Reiniciar marcações de leitura</button></section><section id="manual-panel-onboarding" role="tabpanel" aria-labelledby="manual-tab-onboarding" hidden><div id="manual-onboarding-list"></div></section><section id="manual-panel-flows" role="tabpanel" aria-labelledby="manual-tab-flows" hidden><div id="manual-flows-list"></div></section><section id="manual-panel-troubleshooting" role="tabpanel" aria-labelledby="manual-tab-troubleshooting" hidden><div id="manual-troubleshooting-list"></div></section><section id="manual-print-sheet" class="manual-print-only" aria-hidden="true"></section></section>
+
+<section id="view-about" class="therapy-view view-section hide system-view"><div class="therapy-heading"><div><h2>Sobre o sistema</h2><p>Produto, armazenamento, licença e suporte.</p></div></div><div class="system-grid"><article class="system-card"><h3>Gestão Terapia · licença vitalícia</h3><p>Organização local de agenda, pacientes, registros e gestão do consultório. Versão disponível neste dispositivo: <strong id="system-build"></strong>.</p><p>Este software é licenciado de forma vitalícia e pessoal. A redistribuição, revenda ou transferência não autorizada é proibida.</p><p class="system-help">Condições resumidas do produto. Consulte também as condições fornecidas no canal da sua compra.</p></article><article class="system-card"><h3>Armazenamento e privacidade</h3><p>Os registros operacionais são guardados em um cofre protegido neste navegador. A senha abre essa base e seus backups correspondentes. Não há sincronização automática dos registros entre dispositivos.</p><p>Ativação e conferência da licença podem consultar o serviço de licenciamento. Impressão, exportação e compartilhamento de arquivos dependem das ações do usuário.</p><p class="system-help">A proteção local não substitui o cuidado com o dispositivo, os arquivos exportados e as responsabilidades do profissional. O aplicativo não certifica conformidade legal ou documental.</p></article><article class="system-card"><h3>Conferência local</h3><dl id="system-diagnostics" class="system-info"></dl><div class="therapy-actions"><button type="button" class="therapy-secondary" onclick="TherapySystem.about()">Atualizar conferência</button></div></article><article class="system-card"><h3>Ajuda e suporte</h3><p>Use o canal da sua compra para atendimento. Antes de compartilhar arquivos, confira seu conteúdo. Não é necessário enviar prontuários, senhas ou a base de pacientes para relatar uma falha visual.</p><p class="system-help">O diagnóstico local inclui somente a versão e as condições técnicas mostradas na conferência; não contém pacientes, contatos, senha ou chave da licença.</p><div class="therapy-actions"><button type="button" onclick="TherapySystem.diagnostic()">Baixar diagnóstico local</button><button type="button" class="therapy-secondary" onclick="router('manual')">Abrir Manual</button></div></article></div></section>
+
+<section id="view-support" class="therapy-view view-section hide system-view">
+    <div class="therapy-heading">
+        <div>
+            <h2>Suporte e Atendimento</h2>
+            <p>Comunicação direta com nossa equipe para tirar dúvidas ou relatar dificuldades técnicas.</p>
+        </div>
+    </div>
+
+    <!-- Aviso de Sigilo Profissional e LGPD -->
+    <div class="support-notice-privacy" role="note">
+        <i data-lucide="shield-alert" class="w-5 h-5 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5"></i>
+        <div>
+            <strong class="font-bold block mb-0.5">Privacidade e sigilo</strong>
+            <span>Este canal é destinado exclusivamente ao suporte técnico do aplicativo. Nunca informe nomes de pacientes, relatos de sessões, dados de saúde ou senhas de acesso. Prontuários não são anexados. O texto que você enviar fica no servidor de suporte.</span>
+        </div>
+    </div>
+
+    <p id="support-network-state" class="system-help" role="status" aria-live="polite"></p>
+    <p id="support-queue-state" class="system-help" role="status" aria-live="polite"></p>
+    <button id="support-retry-btn" type="button" class="therapy-secondary" onclick="TherapySupport.retry()" hidden>Tentar envios pendentes</button>
+    <p class="system-help">Enviamos somente os textos revisados por você, a versão do aplicativo, o tema e a identificação geral do navegador, além da licença e do dispositivo. Não há anexos nem envio automático de prontuários. Prazo de atendimento não definido.</p>
+    <!-- Sub-tela 1: Lista de Chamados -->
+    <div id="support-view-list" class="space-y-4">
+        <div class="support-actions-bar">
+            <div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Histórico de chamados desta licença:</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="therapy-secondary" onclick="TherapySupport.refresh()">
+                    <i data-lucide="refresh-cw" class="w-4 h-4 inline mr-1"></i> Atualizar
+                </button>
+                <button type="button" class="therapy-primary" onclick="TherapySupport.showNewForm()">
+                    <i data-lucide="plus" class="w-4 h-4 inline mr-1"></i> Novo Chamado
+                </button>
+            </div>
+        </div>
+
+        <div id="support-tickets-list" class="support-tickets-grid">
+            <!-- Dynamic -->
+        </div>
+    </div>
+
+    <!-- Sub-tela 2: Formulário de Novo Chamado -->
+    <div id="support-view-new" class="hidden space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">Abrir Novo Chamado de Suporte</h3>
+            <button type="button" class="therapy-secondary" onclick="TherapySupport.showList()">Voltar à Lista</button>
+        </div>
+
+        <form id="support-new-form" onsubmit="TherapySupport.submitNewTicket(event)" class="system-card space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="md:col-span-2">
+                    <label for="support-input-subject" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Assunto do Chamado *</label>
+                    <input type="text" id="support-input-subject" required maxlength="160" placeholder="Ex.: Dúvida sobre restauração de backup"
+                        class="w-full border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+                </div>
+                <div>
+                    <label for="support-input-category" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Categoria *</label>
+                    <select id="support-input-category" class="w-full border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-sm outline-none focus:border-blue-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+                        <option value="duvida">Dúvida de Uso</option>
+                        <option value="problema">Problema / Erro Técnico</option>
+                        <option value="sugestao">Sugestão de Melhoria</option>
+                        <option value="outro">Outro Assunto</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label for="support-input-message" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Descrição Detalhada *</label>
+                <textarea id="support-input-message" rows="5" required maxlength="4000"
+                    placeholder="Descreva a sua dúvida ou o que aconteceu com o sistema. Lembre-se: não envie informações clínicas ou nomes de pacientes."
+                    class="w-full border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-sm outline-none focus:border-blue-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100"></textarea>
+                <small class="text-xs text-slate-400">Rascunhos e envios pendentes ficam somente nesta aba aberta. Fechar, recarregar ou bloquear descarta os textos locais. Confira seus chamados antes de reenviar após reabrir.</small>
+            </div>
+
+            <div class="therapy-actions pt-2">
+                <button type="submit" id="support-submit-btn" class="therapy-primary">Enviar Chamado</button>
+                <button type="button" class="therapy-secondary" onclick="TherapySupport.showList()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Sub-tela 3: Detalhe e Conversa do Chamado -->
+    <div id="support-view-detail" class="hidden space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2">
+                <button type="button" class="therapy-secondary text-xs" onclick="TherapySupport.showList()">
+                    <i data-lucide="arrow-left" class="w-4 h-4 inline mr-1"></i> Voltar
+                </button>
+                <span id="support-detail-id" class="font-mono text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg"></span>
+                <span id="support-detail-status"></span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" id="support-close-ticket-btn" class="therapy-secondary text-xs" onclick="TherapySupport.closeCurrentTicket()">
+                    <i data-lucide="check-circle" class="w-4 h-4 inline mr-1"></i> Encerrar Chamado
+                </button>
+            </div>
+        </div>
+
+        <h3 id="support-detail-subject" class="text-lg font-bold text-slate-900 dark:text-slate-100"></h3>
+
+        <!-- Chat Container -->
+        <div class="support-chat-container">
+            <div id="support-chat-messages" class="support-chat-messages">
+                <!-- Dynamic Chat Bubbles -->
+            </div>
+
+            <!-- Resposta -->
+            <div id="support-reply-box" class="p-4 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
+                <div class="flex gap-2">
+                    <textarea id="support-reply-input" rows="2" placeholder="Digite uma resposta para a equipe de suporte..."
+                        class="flex-1 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 text-sm outline-none focus:border-blue-500 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100"></textarea>
+                    <button type="button" id="support-send-reply-btn" onclick="TherapySupport.sendReply()"
+                        class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs flex items-center justify-center shrink-0 self-end shadow-md transition-all">
+                        <i data-lucide="send" class="w-4 h-4 mr-1"></i> Enviar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</div>
+    <button type="button" id="agenda-back-to-top" class="agenda-back-to-top" onclick="TherapyAgenda.backToTop()" aria-label="Voltar ao topo da Agenda" hidden><span aria-hidden="true">↑</span> Voltar ao topo</button>
+    </main>
+
+    <!-- MODALS -->
+    <!-- Patient Modal -->
+    <div id="patientModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4 therapy-modal-work">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-2xl transform transition-all p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-900" id="patient-modal-title">Novo Paciente</h3>
+                <button onclick="closeModal('patientModal')"
+                    class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full text-gray-500 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="patient-form" onsubmit="submitPatient(event)" class="space-y-4">
+                <input type="hidden" id="patient-id">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Nome Completo *</label>
+                        <input type="text" id="patient-name" required
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Data Nascimento</label>
+                        <input type="date" id="patient-birth"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">WhatsApp *</label>
+                        <input type="text" id="patient-phone" required
+                            class="mask-phone w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">E-mail</label>
+                        <input type="email" id="patient-email"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Profissão</label>
+                        <input type="text" id="patient-occupation"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Queixa Principal</label>
+                        <textarea id="patient-complaint" rows="2"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Histórico Psiquiátrico/Familiar</label>
+                        <textarea id="patient-history" rows="3"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Alerta/Risco</label>
+                        <div class="grid grid-cols-3 gap-2 mt-1">
+                            <label class="cursor-pointer text-center">
+                                <input type="radio" name="patient-risk" value="nenhum" class="peer hidden" checked>
+                                <div
+                                    class="py-2 text-sm font-bold rounded-lg border border-gray-200 text-gray-500 peer-checked:bg-gray-100 peer-checked:text-gray-700">
+                                    Sem sinalização registrada
+                                </div>
+                            </label>
+                            <label class="cursor-pointer text-center">
+                                <input type="radio" name="patient-risk" value="atenção" class="peer hidden">
+                                <div
+                                    class="py-2 text-sm font-bold rounded-lg border border-amber-200 text-gray-500 peer-checked:bg-amber-50 peer-checked:text-amber-700">
+                                    Atenção
+                                </div>
+                            </label>
+                            <label class="cursor-pointer text-center">
+                                <input type="radio" name="patient-risk" value="risco" class="peer hidden">
+                                <div
+                                    class="py-2 text-sm font-bold rounded-lg border border-red-200 text-gray-500 peer-checked:bg-red-50 peer-checked:text-red-700">
+                                    Risco
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-2 pt-4">
+                    <button type="button" onclick="deletePatient()" id="btn-delete-patient"
+                        class="hidden px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl font-bold border border-red-200">
+                        Excluir Paciente
+                    </button>
+                    <button type="submit"
+                        class="flex-1 bg-brand-primary text-white py-3 rounded-xl font-bold shadow-lg shadow-purple-200 hover:bg-brand-dark transition-all">
+                        Salvar Paciente
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Appointment Modal -->
+    <div id="appointmentModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4 therapy-modal-work">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-2xl transform transition-all p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-900" id="appointment-modal-title">Nova Sessão</h3>
+                <button onclick="closeModal('appointmentModal')"
+                    class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full text-gray-500 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="appointment-form" onsubmit="submitAppointment(event)" class="space-y-4">
+                <input type="hidden" id="appointment-id">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Paciente *</label>
+                        <select id="appointment-patient" required
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none bg-white">
+                            <option value="">Selecione um paciente</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Tipo de Sessão *</label>
+                        <select id="appointment-type" required
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none bg-white">
+                            <option value="">Selecione o tipo</option>
+                            <option value="avaliacao">Avaliação Inicial</option>
+                            <option value="acompanhamento">Acompanhamento</option>
+                            <option value="retorno">Retorno</option>
+                            <option value="emergencia">Emergência</option>
+                            <option value="grupo">Grupo</option>
+                            <option value="familiar">Familiar</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Data *</label>
+                        <input type="date" id="appointment-date" required
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Hora *</label>
+                        <input type="time" id="appointment-time" required
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Duração (min)</label>
+                        <input type="number" id="appointment-duration-input" value="50"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Observações</label>
+                        <textarea id="appointment-notes" rows="3"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none"></textarea>
+                    </div>
+                </div>
+                <div class="flex gap-2 pt-4">
+                    <button type="button" onclick="deleteAppointment()" id="btn-delete-appointment"
+                        class="hidden px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl font-bold border border-red-200">
+                        Cancelar Sessão
+                    </button>
+                    <button type="submit"
+                        class="flex-1 bg-brand-primary text-white py-3 rounded-xl font-bold shadow-lg shadow-purple-200 hover:bg-brand-dark transition-all">
+                        Salvar Sessão
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Session Notes Modal -->
+    <div id="sessionNotesModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4 therapy-modal-work">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-2xl transform transition-all p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-900" id="session-modal-title">Registro de Sessão</h3>
+                <button onclick="closeModal('sessionNotesModal')"
+                    class="bg-gray-100 hover:bg-gray-200 p-2 rounded-full text-gray-500 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="session-form" onsubmit="submitSessionNotes(event)" class="space-y-4">
+                <input type="hidden" id="session-id">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Paciente *</label>
+                        <select id="session-patient" required
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none bg-white">
+                            <option value="">Selecione um paciente</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Data da Sessão *</label>
+                        <input type="date" id="session-date" required
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Conteúdo da Sessão *</label>
+                        <textarea id="session-content" required rows="4"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Intervenções Realizadas</label>
+                        <textarea id="session-interventions" rows="3"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-gray-500 uppercase">Plano para Próxima Sessão</label>
+                        <textarea id="session-next-plan" rows="2"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Humor do Paciente</label>
+                        <select id="session-mood"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none bg-white">
+                            <option value="">Não avaliado</option>
+                            <option value="positivo">Positivo</option>
+                            <option value="estavel">Estável</option>
+                            <option value="ansioso">Ansioso</option>
+                            <option value="deprimido">Deprimido</option>
+                            <option value="irritado">Irritado</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-500 uppercase">Adesão ao Tratamento</label>
+                        <select id="session-adherence"
+                            class="w-full border border-gray-300 p-3 rounded-xl text-sm mt-1 focus:ring-2 focus:ring-brand-primary outline-none bg-white">
+                            <option value="">Não avaliado</option>
+                            <option value="total">Total</option>
+                            <option value="parcial">Parcial</option>
+                            <option value="baixa">Baixa</option>
+                            <option value="nenhuma">Nenhuma</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex gap-2 pt-4">
+                    <button type="button" onclick="deleteSessionNotes()" id="btn-delete-session"
+                        class="hidden px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl font-bold border border-red-200">
+                        Excluir Registro
+                    </button>
+                    <button type="submit"
+                        class="flex-1 bg-brand-primary text-white py-3 rounded-xl font-bold shadow-lg shadow-purple-200 hover:bg-brand-dark transition-all">
+                        Salvar Registro
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assessment Modal -->
+    <div id="assessmentModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4 therapy-modal-work">
+        <div class="assessments-editor bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full transform transition-all p-6">
+            <div class="flex justify-between items-center mb-6"><h3 id="assessment-modal-title">Nova avaliação</h3><button type="button" class="therapy-secondary" onclick="closeModal('assessmentModal')" aria-label="Fechar avaliação">Fechar</button></div>
+            <form id="assessment-form" onsubmit="submitAssessment(event)">
+                <input type="hidden" id="assessment-id"><p id="assessment-form-context"></p>
+                <div class="assessments-form-grid">
+                    <label>Paciente *<select id="assessment-patient" required></select></label>
+                    <label>Data da aplicação *<input id="assessment-date" type="date" required></label>
+                    <label>Instrumento / tipo de registro *<select id="assessment-scale" required onchange="TherapyAssessmentForm.changeScale(this.value)"><option value="">Selecione</option><option value="phq9">PHQ-9 · rastreio</option><option value="gad7">GAD-7 · rastreio</option><option value="manual">Registro livre / instrumento externo</option></select></label>
+                    <label>Reavaliação prevista (opcional)<input id="assessment-review-date" type="date"></label>
+                </div>
+                <div id="assessment-manual-fields" hidden><label>Nome do instrumento ou tipo de registro *<input id="assessment-instrument-name" maxlength="300" placeholder="Informe o instrumento aplicado ou descreva o registro livre"></label></div>
+                <p id="assessment-live" role="status" aria-live="polite"></p>
+                <div id="assessment-questions"></div>
+                <p id="assessment-item-review" class="assessments-review" hidden>Há resposta diferente de zero ao item 9. Confira a resposta e registre a avaliação clínica no contexto do atendimento.</p>
+                <button type="button" id="assessment-revise-answers" class="therapy-secondary" onclick="TherapyAssessmentForm.reviseResponses()" hidden>Revisar respostas desta aplicação</button>
+                <section class="assessments-form-section"><div class="assessments-form-grid">
+                    <label>Dificuldade funcional registrada<select id="assessment-impact"><option value="">Não registrado</option><option value="none">Nenhuma dificuldade</option><option value="some">Alguma dificuldade</option><option value="very">Muita dificuldade</option><option value="extreme">Extrema dificuldade</option></select></label>
+                    <label>Contexto da aplicação (opcional)<textarea id="assessment-context" rows="2" maxlength="5000"></textarea></label>
+                </div></section>
+                <section class="assessments-form-section"><label>Observações do profissional<textarea id="assessment-notes" rows="3" maxlength="100000"></textarea></label><label>Análise / conclusão registrada pelo profissional<textarea id="assessment-conclusion" rows="3" maxlength="100000"></textarea></label></section>
+                <p class="assessments-help">PHQ-9 e GAD-7 são instrumentos de rastreio. A soma não estabelece diagnóstico nem determina conduta. A avaliação e o registro da interpretação são do profissional.</p>
+                <label id="assessment-reason-field" hidden>Observação da revisão (opcional)<textarea id="assessment-reason" rows="2" maxlength="1000"></textarea></label>
+                <div class="assessments-form-actions"><button type="button" class="therapy-secondary" id="btn-delete-assessment" onclick="deleteAssessment()" hidden>Arquivar registro</button><button type="button" class="therapy-secondary" id="assessment-save-draft" onclick="saveTherapyAssessmentDraft()">Salvar rascunho</button><button type="button" class="therapy-secondary" onclick="closeModal('assessmentModal')">Voltar</button><button type="submit" id="assessment-submit" class="therapy-primary">Confirmar avaliação</button></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Prescription Modal -->
+    <div id="prescriptionModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4 therapy-modal-work">
+        <div class="orientations-editor bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full transform transition-all p-6">
+            <div class="flex justify-between items-center mb-6"><h3 id="prescription-modal-title">Nova orientação ou encaminhamento</h3><button type="button" class="therapy-secondary" onclick="closeModal('prescriptionModal')" aria-label="Fechar registro">Fechar</button></div>
+            <form id="prescription-form" onsubmit="submitPrescription(event)">
+                <input id="prescription-id" type="hidden"><p id="orientation-form-context"></p>
+                <section class="orientations-form-section"><h4>Identificação do registro</h4><div class="orientations-form-grid">
+                    <label>Paciente *<select id="prescription-patient" required></select></label>
+                    <label>Tipo<select id="therapy-orientation-type" onchange="TherapyCare.orientationKind()"><option value="orientation">Orientação</option><option value="referral">Encaminhamento</option></select></label>
+                    <label>Data do registro *<input id="prescription-start" type="date" required></label>
+                    <label>Título para organização (opcional)<input id="orientation-title" maxlength="500"></label>
+                </div></section>
+                <details id="orientation-destination" class="orientations-form-section"><summary>Destinatário e finalidade</summary><div class="orientations-form-grid">
+                    <label>Destinatário (opcional)<input id="orientation-recipient" maxlength="500" placeholder="Paciente, responsável ou profissional de destino"></label>
+                    <label>Serviço / especialidade (opcional)<input id="orientation-service" maxlength="500"></label>
+                    <label>Contato do destino · uso interno<input id="orientation-contact" maxlength="500"></label>
+                </div><label>Finalidade destinada ao destinatário (opcional)<textarea id="orientation-purpose" rows="2" maxlength="5000"></textarea></label></details>
+                <section class="orientations-form-section"><h4>Conteúdo do profissional</h4><label>Orientação / encaminhamento<textarea id="therapy-orientation-content" rows="6" maxlength="100000"></textarea></label><p class="orientations-help">Escreva o conteúdo destinado ao paciente ou destinatário. Notas de uso interno têm um campo separado.</p><div class="orientations-form-grid">
+                    <label>Nome do profissional responsável (opcional)<input id="orientation-professional-name" maxlength="500"></label>
+                    <label>Identificação profissional (opcional)<input id="orientation-professional-id" maxlength="500"></label>
+                </div></section>
+                <details id="orientation-followup-section" class="orientations-form-section"><summary>Acompanhamento manual</summary><div class="orientations-form-grid">
+                    <label>Situação do acompanhamento<select id="orientation-followup-status"></select></label>
+                    <label>Prazo previsto (opcional)<input id="orientation-followup-date" type="date" onchange="TherapyOrientationForm.dateChanged()"></label>
+                </div><p class="orientations-help">As datas organizam o acompanhamento. Este registro não envia mensagens nem confirma atendimento em outro serviço.</p></details>
+                <details class="orientations-form-section"><summary>Notas internas · não entram na cópia de impressão</summary><label>Notas de acompanhamento<textarea id="orientation-internal-notes" rows="4" maxlength="100000"></textarea></label></details>
+                <label id="orientation-revision-field" hidden>Observação da revisão (opcional)<textarea id="orientation-revision-reason" rows="2" maxlength="1000"></textarea></label>
+                <div class="orientations-form-actions"><button type="button" id="orientation-archive-form" class="therapy-secondary" onclick="deletePrescription()" hidden>Arquivar registro</button><button type="button" id="orientation-save-draft" class="therapy-secondary" onclick="saveTherapyOrientationDraft()">Salvar rascunho</button><button type="button" class="therapy-secondary" onclick="closeModal('prescriptionModal')">Voltar</button><button type="submit" id="orientation-submit" class="therapy-primary">Confirmar registro</button></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Financial Modal -->
+<div id="financialModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4 therapy-modal-work"><div class="management-finance-editor bg-white dark:bg-slate-800 rounded-2xl w-full p-6"><div class="management-form-heading"><h3>Novo lançamento</h3><button type="button" class="therapy-secondary" onclick="closeModal('financialModal')">Fechar</button></div><form id="financial-form" onsubmit="submitFinancial(event)"><input type="hidden" id="financial-id"><fieldset class="management-type"><legend>Tipo do lançamento</legend><label><input type="radio" name="financial-type" value="income" checked>Receita</label><label><input type="radio" name="financial-type" value="expense">Despesa</label></fieldset><div class="management-form-grid"><label>Valor (R$)<input type="text" inputmode="decimal" id="financial-amount" class="mask-currency" required></label><label>Data do lançamento<input type="date" id="financial-date" required></label></div><label>Descrição administrativa<input type="text" id="financial-description" maxlength="300" required></label><div class="management-form-grid"><label>Categoria<select id="financial-category"><option value="">Geral</option><option value="consulta">Consulta / Sessão</option><option value="avaliacao">Avaliação</option><option value="grupo">Grupo terapêutico</option><option value="material">Material</option><option value="aluguel">Aluguel</option><option value="salario">Salário</option><option value="outros">Outros</option></select></label><label>Paciente (opcional)<select id="therapy-financial-patient"></select></label><label>Situação do pagamento<select id="therapy-financial-status"><option value="paid">Já recebido / pago</option><option value="pending">Pendente</option></select></label><label>Vencimento (opcional)<input id="financial-due" type="date"></label><label>Forma de pagamento<select id="financial-method"></select></label></div><p class="management-help">Para pagamentos realizados, a data do lançamento será usada como data do pagamento. Valores e vínculos são preservados após salvar; correções são registradas pela conferência do lançamento.</p><div class="therapy-actions"><button type="button" class="therapy-secondary" onclick="closeModal('financialModal')">Voltar</button><button type="submit">Salvar lançamento</button></div></form></div></div>
+
+    <!-- Treatment Modal -->
+    <div id="treatmentModal" class="fixed inset-0 modal-backdrop hidden z-50 flex items-center justify-center p-4 therapy-modal-work">
+        <div class="treatments-editor bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full transform transition-all p-6">
+            <div class="flex justify-between items-center mb-6"><h3 id="treatment-modal-title">Novo plano terapêutico</h3><button type="button" class="therapy-secondary" onclick="closeModal('treatmentModal')" aria-label="Fechar plano">Fechar</button></div>
+            <form id="treatment-form" onsubmit="submitTreatment(event)">
+                <input type="hidden" id="treatment-id">
+                <p class="treatments-help">O plano reúne as definições do profissional. Agenda, sessões, pacotes e cobranças permanecem em seus módulos.</p>
+                <section class="treatments-form-section"><h4>Identificação e situação</h4><div class="treatments-form-grid">
+                    <label>Paciente *<select id="treatment-patient" required></select></label>
+                    <label>Título do plano (opcional)<input id="treatment-title" maxlength="300" placeholder="Identificação breve para organizar o acompanhamento"></label>
+                    <label>Situação<select id="treatment-status"></select></label>
+                    <label>Abordagem terapêutica *<select id="treatment-approach" required></select></label>
+                </div></section>
+                <section class="treatments-form-section"><h4>Planejamento e revisão</h4><div class="treatments-form-grid">
+                    <label>Início registrado<input id="treatment-start-date" type="date"></label>
+                    <label>Próxima revisão<input id="treatment-review-date" type="date"></label>
+                    <label>Encerramento registrado (opcional)<input id="treatment-end-date" type="date"></label>
+                    <label>Frequência prevista<select id="treatment-frequency"></select></label>
+                    <label>Meta de sessões (opcional)<input id="treatment-sessions-goal" type="number" min="1" max="1000" step="1" placeholder="Sem meta definida"></label>
+                </div><p class="treatments-help">A meta acompanha somente sessões vinculadas ao plano. Não indica melhora clínica nem conclui o tratamento automaticamente.</p></section>
+                <section class="treatments-form-section"><h4>Definições do profissional</h4>
+                    <label>Síntese do planejamento *<textarea id="treatment-goals" required rows="4" maxlength="100000"></textarea></label>
+                    <label>Síntese do acompanhamento (opcional)<textarea id="treatment-summary" rows="3" maxlength="100000"></textarea></label>
+                    <details class="treatments-form-section"><summary>Diagnóstico / hipótese registrado pelo profissional (opcional)</summary><label>Registro profissional<input id="treatment-diagnosis" maxlength="100000"></label></details>
+                </section>
+                <label id="treatment-reason-field">Observação da revisão (opcional)<textarea id="treatment-reason" rows="2" maxlength="1000"></textarea></label>
+                <div class="treatments-form-actions"><button type="button" class="therapy-secondary" onclick="deleteTreatment()" id="btn-delete-treatment" hidden>Arquivar plano</button><button type="button" class="therapy-secondary" onclick="closeModal('treatmentModal')">Voltar</button><button type="submit" class="therapy-primary">Salvar plano</button></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 🔒 DADOS DA LICENÇA
+        const LICENSE_DATA = {
+            active: false,
+            ownerName: "",
+            ownerDoc: ""
+        };
+
+        // ESTADO GLOBAL
+        const DB_KEY = 'gestao_terapia_v1';
+        const defaultDB = {
+            patients: [],
+            appointments: [],
+            treatments: [],
+            sessions: [],
+            sessionDrafts: [],
+            assessments: [],
+            prescriptions: [],
+            documents: [],
+            emergencies: [],
+            financial: [],
+            settings: {
+                clinicName: 'Consultório Psicológico',
+                therapistLicense: '',
+                clinicPhone: '',
+                sessionDuration: 50,
+                reminderHours: 24,
+                emergencyContact: '',
+                hospitalReference: '',
+                ownerName: '',
+                ownerDoc: ''
+            }
+        };
+
+        let db = JSON.parse(JSON.stringify(defaultDB));
+        let therapySaveRevision=0;
+        const save = async () => {
+            try { await TherapyVault.save(db); therapySaveRevision++; }
+            catch(error) { const previous=TherapyVault.rollback(); if(previous)db=previous; throw error; }
+        };
+
+        const fmtMoney = (v) => {
+            return v.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        };
+
+        const fmtDate = (d) => {
+            const date = typeof d==='string' && /^\d{4}-\d{2}-\d{2}$/.test(d) ? new Date(d+'T12:00:00') : new Date(d);
+            return date.toLocaleDateString('pt-BR');
+        };
+
+        const fmtDateTime = (d, t) => {
+            const date = new Date(d + 'T' + t);
+            return date.toLocaleString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        };
+
+        const getID = () => {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+        };
+
+        const sanitizeHTML = (str) => {
+            if (str === null || typeof str === 'undefined') return '';
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return str.toString().replace(/[&<>"']/g, (m) => map[m]);
+        };
+
+        const maskCurrency = (value) => {
+            if (!value) return '';
+            value = value.replace(/\D/g, "");
+            value = (Number(value) / 100).toFixed(2) + "";
+            value = value.replace(".", ",");
+            value = value.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+            return "R$ " + value;
+        };
+
+        const parseCurrency = (value) => {
+            if (!value) return 0;
+            if (typeof value === 'number') return value;
+            return parseFloat(value.replace(/[^0-9,-]+/g, "").replace(",", ".")) || 0;
+        };
+
+        const maskPhone = (v) => {
+            if (!v) return '';
+            v = v.replace(/\D/g, "");
+            v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+            v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+            return v;
+        };
+
+        const setupInputMasks = () => {
+            document.querySelectorAll('.mask-currency').forEach(input => {
+                input.addEventListener('input', (e) => {
+                    e.target.value = maskCurrency(e.target.value);
+                });
+            });
+            document.querySelectorAll('.mask-phone').forEach(input => {
+                input.addEventListener('input', (e) => {
+                    e.target.maxLength = 15;
+                    e.target.value = maskPhone(e.target.value);
+                });
+            });
+        };
+
+        // INICIALIZAÇÃO
+        async function init() {
+            try {
+                if (window.lucide) lucide.createIcons();
+                setupInputMasks();
+
+                // Configurar datas padrão
+                const today = TherapyData.dateKey();
+                document.getElementById('schedule-date').value = today;
+                document.getElementById('appointment-date').value = today;
+                document.getElementById('financial-date').value = today;
+                document.getElementById('emergency-date').value = TherapyData.dateTimeLocal();
+                document.getElementById('session-date').value = today;
+                document.getElementById('prescription-start').value = today;
+
+                // Aplicar licença se ativa
+                if (typeof LICENSE_DATA !== 'undefined' && LICENSE_DATA.active) {
+                    db.settings.ownerName = LICENSE_DATA.ownerName;
+                    db.settings.ownerDoc = LICENSE_DATA.ownerDoc;
+                    await save();
+                }
+
+                TherapySystem.fill();
+
+                // Renderizar dashboard inicial
+                renderDashboard();
+
+            } catch (error) {
+                console.error('Erro na inicialização:', error);
+                alert('Ocorreu um erro ao iniciar o aplicativo: ' + error.message);
+            }
+        }
+
+        // ROTEAMENTO
+        function router(view) {
+            if(!TherapySystem.beforeNavigate(view))return false;
+            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hide'));
+            TherapySidebar.activate(view);
+
+            const viewElement = document.getElementById(`view-${view}`);
+            if (viewElement) {
+                viewElement.classList.remove('hide');
+                viewElement.classList.add('fade-in');
+            }
+
+            const titles = {
+                dashboard: 'Visão geral',
+                schedule: 'Agenda',
+                patients: 'Pacientes',
+                treatments: 'Planos terapêuticos',
+                sessions: 'Sessões',
+                assessments: 'Avaliações',
+                prescriptions: 'Orientações e encaminhamentos',
+                documents: 'Central de documentos',
+                financial: 'Financeiro',
+                reports: 'Relatórios',
+                emergency: 'Emergência',
+                settings: 'Configurações',
+                manual: 'Manual de uso',
+                about: 'Sobre o sistema',
+                support: 'Suporte'
+            };
+
+            document.getElementById('page-title').innerText = titles[view] || 'Gestão Terapia';
+
+            // Renderizar dados específicos
+            if (view === 'dashboard') renderDashboard();
+            else if (view === 'patients') renderPatients();
+            else if (view === 'schedule') renderSchedule();
+            else if (view === 'treatments') renderTreatments();
+            else if (view === 'sessions') renderSessions();
+            else if (view === 'assessments') renderAssessments();
+            else if (view === 'prescriptions') renderPrescriptions();
+            else if (view === 'documents') TherapyDocuments.render();
+            else if (view === 'financial') renderFinancial();
+            else if (view === 'emergency') renderEmergency();
+            else if (view === 'manual') initManual();
+            else if (view === 'settings') TherapySystem.render();
+            else if (view === 'about') {TherapySystem.status();TherapySystem.about();}
+            else if (view === 'support') TherapySupport.render();
+        }
+
+        function toggleSidebar() {
+            TherapySidebar.toggle();
+        }
+
+        // DASHBOARD
+        function renderDashboard() {
+            if (typeof currentDashboardTab !== 'undefined' && currentDashboardTab === 'strategic' && typeof TherapyStrategyUI !== 'undefined') {
+                return TherapyStrategyUI.render();
+            }
+            return renderTherapyDashboard();
+        }
+
+        function getPatientName(id) {
+            const patient = db.patients.find(p => p.id === id);
+            return patient ? sanitizeHTML(patient.name) : 'Paciente não encontrado';
+        }
+
+        function getStatusColor(status) {
+            const colors = {
+                'scheduled': 'bg-blue-100 text-blue-700',
+                'confirmed': 'bg-green-100 text-green-700',
+                'in_progress': 'bg-amber-100 text-amber-700',
+                'completed': 'bg-purple-100 text-purple-700',
+                'cancelled': 'bg-red-100 text-red-700',
+                'no_show': 'bg-gray-100 text-gray-700'
+            };
+            return colors[status] || 'bg-gray-100 text-gray-700';
+        }
+
+        function getStatusText(status) {
+            const texts = {
+                'scheduled': 'Agendado',
+                'confirmed': 'Confirmado',
+                'in_progress': 'Em andamento',
+                'completed': 'Concluído',
+                'cancelled': 'Cancelado',
+                'no_show': 'Falta'
+            };
+            return texts[status] || 'Agendado';
+        }
+
+        // MODAL FUNCTIONS
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                const opener = document.activeElement;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                modal.dispatchEvent(new CustomEvent('therapy-modal-opening', {bubbles:true, detail:{opener}}));
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // PACIENTES
+        function openPatientModal(id = null) {
+            if (id) {
+                const patient = db.patients.find(p => p.id === id);
+                if (patient) {
+                    document.getElementById('patient-modal-title').textContent = 'Editar Paciente';
+                    document.getElementById('patient-id').value = patient.id;
+                    document.getElementById('patient-name').value = patient.name;
+                    document.getElementById('patient-birth').value = patient.birth || '';
+                    document.getElementById('patient-phone').value = patient.phone || '';
+                    document.getElementById('patient-email').value = patient.email || '';
+                    document.getElementById('patient-occupation').value = patient.occupation || '';
+                    document.getElementById('patient-complaint').value = patient.complaint || '';
+                    document.getElementById('patient-history').value = patient.history || '';
+
+                    // Set risk level
+                    const riskInput=[...document.querySelectorAll('input[name="patient-risk"]')].find(input=>input.value===patient.risk)||document.querySelector('input[name="patient-risk"][value="nenhum"]');
+                    riskInput.checked=true;
+
+                    document.getElementById('btn-delete-patient').classList.remove('hidden');
+                }
+            } else {
+                document.getElementById('patient-modal-title').textContent = 'Novo Paciente';
+                document.getElementById('patient-form').reset();
+                document.getElementById('patient-id').value = '';
+                document.getElementById('btn-delete-patient').classList.add('hidden');
+            }
+            openModal('patientModal');
+        }
+
+        // Cadastro e operações do CRM: patient-forms.js e patients.js.
+
+        // AGENDAMENTOS/SESSÕES
+        function openAppointmentModal(id = null, patientId = null) {
+            // Popular select de pacientes
+            const patientSelect = document.getElementById('appointment-patient');
+            patientSelect.innerHTML = '<option value="">Selecione um paciente</option>' +
+                db.patients.filter(p => !p.archived).map(p => `<option value="${p.id}">${sanitizeHTML(p.name)}</option>`).join('');
+
+            if (id) {
+                const appointment = db.appointments.find(a => a.id === id);
+                if (appointment) {
+                    document.getElementById('appointment-modal-title').textContent = 'Editar Sessão';
+                    document.getElementById('appointment-id').value = appointment.id;
+                    document.getElementById('appointment-patient').value = appointment.patientId;
+                    document.getElementById('appointment-type').value = appointment.type;
+                    document.getElementById('appointment-date').value = appointment.date;
+                    document.getElementById('appointment-time').value = appointment.time;
+                    document.getElementById('appointment-duration-input').value = appointment.duration || 50;
+                    document.getElementById('appointment-notes').value = appointment.notes || '';
+                    document.getElementById('btn-delete-appointment').classList.remove('hidden');
+                }
+            } else {
+                document.getElementById('appointment-modal-title').textContent = 'Nova Sessão';
+                document.getElementById('appointment-form').reset();
+                document.getElementById('appointment-id').value = '';
+                document.getElementById('appointment-duration-input').value = db.settings.sessionDuration || 50;
+                if (patientId) document.getElementById('appointment-patient').value = patientId;
+                document.getElementById('btn-delete-appointment').classList.add('hidden');
+            }
+            openModal('appointmentModal');
+        }
+
+        async function submitAppointment(e) {
+            e.preventDefault();
+            const id = document.getElementById('appointment-id').value;
+            const appointment = {
+                id: id || getID(),
+                patientId: document.getElementById('appointment-patient').value,
+                type: document.getElementById('appointment-type').value,
+                date: document.getElementById('appointment-date').value,
+                time: document.getElementById('appointment-time').value,
+                duration: parseInt(document.getElementById('appointment-duration-input').value) || 50,
+                notes: document.getElementById('appointment-notes').value,
+                status: 'scheduled',
+                createdAt: new Date().toISOString()
+            };
+
+            if (id) {
+                const index = db.appointments.findIndex(a => a.id === id);
+                if (index !== -1) db.appointments[index] = appointment;
+            } else {
+                db.appointments.push(appointment);
+            }
+
+            await save();
+            closeModal('appointmentModal');
+            renderSchedule();
+            if (document.getElementById('view-dashboard').classList.contains('hide') === false) {
+                renderDashboard();
+            }
+            showNotification('Sessão salva com sucesso!', 'success');
+        }
+
+        async function deleteAppointment() {
+            const id = document.getElementById('appointment-id').value;
+            if (confirm('Tem certeza que deseja excluir ou cancelar esta sessão?')) {
+                db.appointments = db.appointments.filter(a => a.id !== id);
+                await save();
+                closeModal('appointmentModal');
+                renderSchedule();
+                renderDashboard();
+                showNotification('Sessão excluída com sucesso!', 'success');
+            }
+        }
+
+        function renderSchedule() {
+            return TherapyAgenda.render();
+        }
+
+        async function changeAppointmentStatus(id) {
+            const appointment = db.appointments.find(a => a.id === id);
+            if (!appointment) return;
+
+            const statuses = ['scheduled', 'confirmed', 'in_progress', 'completed', 'cancelled', 'no_show'];
+            const currentIndex = statuses.indexOf(appointment.status || 'scheduled');
+            const nextIndex = (currentIndex + 1) % statuses.length;
+            appointment.status = statuses[nextIndex];
+
+            await save();
+            renderSchedule();
+            if (document.getElementById('view-dashboard').classList.contains('hide') === false) {
+                renderDashboard();
+            }
+
+            showNotification(`Status alterado para: ${getStatusText(appointment.status)}`, 'success');
+        }
+
+        // REGISTRO DE SESSÕES
+        function openSessionNotesModal(id = null) {
+            // Popular select de pacientes
+            const patientSelect = document.getElementById('session-patient');
+            patientSelect.innerHTML = '<option value="">Selecione um paciente</option>' +
+                db.patients.filter(p => !p.archived).map(p => `<option value="${p.id}">${sanitizeHTML(p.name)}</option>`).join('');
+
+            if (id) {
+                const session = db.sessions.find(s => s.id === id);
+                if (session) {
+                    document.getElementById('session-modal-title').textContent = 'Editar Registro de Sessão';
+                    document.getElementById('session-id').value = session.id;
+                    document.getElementById('session-patient').value = session.patientId;
+                    document.getElementById('session-date').value = session.date;
+                    document.getElementById('session-content').value = session.content || '';
+                    document.getElementById('session-interventions').value = session.interventions || '';
+                    document.getElementById('session-next-plan').value = session.nextPlan || '';
+                    document.getElementById('session-mood').value = session.mood || '';
+                    document.getElementById('session-adherence').value = session.adherence || '';
+                    document.getElementById('btn-delete-session').classList.remove('hidden');
+                }
+            } else {
+                document.getElementById('session-modal-title').textContent = 'Novo Registro de Sessão';
+                document.getElementById('session-form').reset();
+                document.getElementById('session-id').value = '';
+                document.getElementById('btn-delete-session').classList.add('hidden');
+            }
+            openModal('sessionNotesModal');
+        }
+
+        // Operações de sessão: session-form.js e sessions.js.
+
+        // TRATAMENTOS
+        // AVALIAÇÕES PSICOLÓGICAS
+        // PRESCRIÇÕES
+        // Financeiro: assets/js/finance.js.
+
+        // EMERGÊNCIA
+        async function submitEmergency(e) {
+            e.preventDefault();
+
+            // Coletar dados do formulário
+            const emergency = {
+                id: getID(),
+                patientId: document.getElementById('emergency-patient').value,
+                type: document.getElementById('emergency-type').value,
+                riskLevel: document.querySelector('input[name="risk-level"]:checked').value,
+                intervention: document.getElementById('emergency-intervention').value,
+                referrals: document.getElementById('emergency-referrals').value,
+                date: document.getElementById('emergency-date').value,
+                duration: parseInt(document.getElementById('emergency-duration').value) || 0,
+                createdAt: new Date().toISOString()
+            };
+
+            db.emergencies.push(emergency);
+            await save();
+
+            // Limpar formulário
+            document.getElementById('emergency-form').reset();
+            document.getElementById('emergency-date').value = TherapyData.dateTimeLocal();
+
+            // Atualizar lista de emergências
+            renderRecentEmergencies();
+
+            showNotification('Emergência registrada com sucesso!', 'success');
+        }
+
+        function callEmergency(number) {
+            if (confirm(`Ligar para ${number}?`)) {
+                window.location.href = `tel:${number}`;
+            }
+        }
+
+        function renderEmergency() {
+            // Popular select de pacientes
+            const patientSelect = document.getElementById('emergency-patient');
+            patientSelect.innerHTML = '<option value="">Selecione um paciente</option>' +
+                db.patients.filter(p => !p.archived).map(p => `<option value="${p.id}">${sanitizeHTML(p.name)}</option>`).join('');
+
+            // Renderizar emergências recentes
+            renderRecentEmergencies();
+        }
+
+        function renderRecentEmergencies() {
+            const container = document.getElementById('recent-emergencies');
+
+            if (db.emergencies.length === 0) {
+                container.innerHTML = '<p class="text-gray-400 text-center py-4">Nenhuma emergência registrada</p>';
+                return;
+            }
+
+            // Ordenar por data (mais recente primeiro)
+            const sortedEmergencies = [...db.emergencies].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            container.innerHTML = sortedEmergencies.slice(0, 5).map(emergency => {
+                const riskColors = {
+                    'alto': 'bg-red-100 text-red-700 border-red-200',
+                    'medio': 'bg-amber-100 text-amber-700 border-amber-200',
+                    'baixo': 'bg-green-100 text-green-700 border-green-200'
+                };
+
+                const typeNames = {
+                    'suicidio': 'Risco de Suicídio',
+                    'autoagressao': 'Autoagressão',
+                    'crise_ansiedade': 'Crise de Ansiedade',
+                    'crise_panico': 'Crise de Pânico',
+                    'psicose': 'Episódio Psicótico',
+                    'mania': 'Episódio Maníaco',
+                    'depressao': 'Crise Depressiva',
+                    'agressao': 'Agressão a Outros'
+                };
+
+                return `
+                <div class="p-3 rounded-lg border ${riskColors[emergency.riskLevel]}">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <p class="font-bold text-sm">${sanitizeHTML(getPatientName(emergency.patientId))}</p>
+                            <p class="text-xs">${sanitizeHTML(typeNames[emergency.type] || emergency.type)}</p>
+                        </div>
+                        <span class="text-xs px-2 py-1 rounded-full font-bold ${riskColors[emergency.riskLevel]}">
+                            ${sanitizeHTML(emergency.riskLevel.toUpperCase())}
+                        </span>
+                    </div>
+                    <p class="text-xs text-gray-600 mb-2 truncate">${sanitizeHTML(emergency.intervention.substring(0, 60))}${emergency.intervention.length > 60 ? '...' : ''}</p>
+                    <div class="flex justify-between text-xs text-gray-500">
+                        <span>${new Date(emergency.date).toLocaleDateString('pt-BR')}</span>
+                        ${emergency.duration ? `<span>${emergency.duration} min</span>` : ''}
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Relatórios: assets/js/reports.js.
+
+        // Configurações, backup e Manual: system.js, vault.js e manual.js.
+        function showNotification(message,type='info'){therapyNotice(message,type);}
+
+        // INICIALIZAR APLICATIVO
+        document.addEventListener('DOMContentLoaded', () => { if(window.therapyLicenseReady)bootTherapy(); });
+        document.addEventListener('therapy-license-unlocked', () => bootTherapy());
+    </script>
+
+    <!-- ðŸ”’ MASTER PASSWORD & ACTIVATION LOGIC (INJECTED) -->
+    <script>
+        function markSectionComplete(el) {
+            var sec = el.closest('[data-tutorial-section]');
+            if (sec) {
+                sec.classList.toggle('tutorial-section-done');
+                el.textContent = sec.classList.contains('tutorial-section-done') ? 'Concluido' : 'Marcar como concluido';
+            }
+            updateTutorialProgress();
+        }
+        function scrollToSection(id) {
+            var el = document.getElementById(id);
+            if (el) el.scrollIntoView({behavior: 'smooth'});
+        }
+        function updateTutorialProgress() {
+            var done = document.querySelectorAll('.tutorial-section-done').length;
+            var total = document.querySelectorAll('[data-tutorial-section]').length || 5;
+            var bar = document.getElementById('tutorial-progress');
+            var txt = document.getElementById('tutorial-progress-text');
+            if (bar) bar.style.width = Math.round((done/total)*100) + '%';
+            if (txt) txt.textContent = done + ' / ' + total + ' secoes';
+        }
+    </script>
+
+
+            <!-- Padrao Ouro compat alias -->
+            <section id="view-instructions" class="therapy-view view-section hide fade-in"></section>
+
+    <!-- MODAL DE CONFIRMAÇÃO DE ENTREGA (RECIBO DIGITAL - ML COMPRA GARANTIDA) -->
+    <div id="welcome-receipt-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/90 backdrop-blur-sm transition-opacity"></div>
+        <!-- Modal Panel -->
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-2xl bg-white dark:bg-[#1E293B] text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-slate-200 dark:border-white/10">
+                    <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30 sm:mx-0 sm:h-10 sm:w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-lg font-bold leading-6 text-slate-900 dark:text-white" id="modal-title">
+                                    Confirmação de Acesso
+                                </h3>
+                                <div class="mt-2">
+                                    <p class="text-sm text-slate-500 dark:text-slate-300">
+                                        Para liberar seu acesso completo ao sistema, precisamos que confirme o recebimento do produto digital.
+                                    </p>
+                                    <div class="mt-4 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-white/5 text-xs text-justify text-slate-600 dark:text-slate-400 italic">
+                                        "Declaro que recebi o acesso ao software conforme a oferta da minha compra, testei seu funcionamento inicial e confirmo a entrega do produto digital."
+                                    </div>
+                                    <p class="mt-4 text-xs text-slate-400">
+                                        Esta confirmação registra o recebimento do acesso ao software.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-800/80 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" id="btn-confirm-receipt" onclick="confirmReceipt()"
+                            class="inline-flex w-full justify-center rounded-lg bg-emerald-600 px-3 py-2 text-sm font-bold text-white shadow-sm hover:bg-emerald-500 sm:ml-3 sm:w-auto transition-colors items-center">
+                            Confirmar Recebimento e Acesso
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔒 SISTEMA DE ATIVAÇÃO E RECIBO DIGITAL V12.1 -->
+    <script>
+        // ==========================================
+        // ATIVAÇÃO DE LICENÇA (COM CAPTAÇÃO DE EMAIL)
+        // ==========================================
+        window.activateLicense = async function (e) {
+            if (e) e.preventDefault();
+
+            const keyInput = document.getElementById('license-key');
+            const emailInput = document.getElementById('license-email');
+            const btn = document.getElementById('btn-activate');
+
+            if (!keyInput || !emailInput) return;
+
+            const key = keyInput.value.trim();
+            const email = emailInput.value.trim();
+
+            if (!key || !email) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // ðŸ”‘ MASTER KEYS (Testes / Admin)
+            // 🌍 FLUXO PADRÃO (API)
+            if (btn) {
+                btn.innerText = 'Verificando...';
+                btn.disabled = true;
+            }
+
+            try {
+                const output = document.getElementById('activation-error');
+                if (output) output.classList.add('hidden');
+
+                // Gerar device_id único se não existir
+                let deviceId = localStorage.getItem('terapia_device');
+                if (!deviceId) {
+                    deviceId = 'dev_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
+                    localStorage.setItem('terapia_device', deviceId);
+                }
+
+                const response = await fetch(window.THERAPY_LICENSE_API_URL + '?action=activate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        license_key: key,
+                        email: email,           // ✅ CAPTAÇÃO DE EMAIL
+                        device_id: deviceId,
+                        system_id: 'gestao-terapia'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    // âœ… Salva credenciais localmente
+                    localStorage.setItem('terapia_license', key);
+                    localStorage.setItem('terapia_email', email);
+                    localStorage.removeItem('terapia_master_mode');
+
+                    // Exibe modal de recibo ANTES de liberar o app
+                    if (!localStorage.getItem('terapia_receipt_confirmed')) {
+                        const loginView = document.getElementById('view-login');
+                        if (loginView) {
+                            loginView.classList.add('hide');
+                            loginView.style.display = 'none';
+                        }
+                        const receiptModal = document.getElementById('welcome-receipt-modal');
+                        if (receiptModal) receiptModal.classList.remove('hidden');
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+                    } else {
+                        alert('Licença Ativada com Sucesso!');
+                        window.location.reload();
+                    }
+                } else {
+                    if (data.status === 'expired') {
+                        const _waMsg = encodeURIComponent('Ola! Meu periodo de teste expirou e gostaria de adquirir a versao vitalicia do sistema. Pode me ajudar?');
+                        const _waLink = 'https://wa.me/5512992191018?text=' + _waMsg;
+                        const output = document.getElementById('activation-error');
+                        if (output) {
+                            output.innerHTML = '<div style="text-align:center;padding:10px 0"><p style="font-weight:bold;color:#dc2626;margin-bottom:6px">Periodo de teste encerrado!</p><p style="font-size:0.8125rem;color:#475569;margin-bottom:12px">Para liberar a versao vitalicia com todos os seus dados, entre em contato:</p><a href="' + _waLink + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#16a34a;color:white;font-weight:bold;padding:10px 20px;border-radius:8px;text-decoration:none;font-size:0.875rem">Quero a Versao Vitalicia</a></div>';
+                            output.classList.remove('hidden');
+                        } else {
+                            window.open(_waLink, '_blank');
+                        }
+                    } else {
+                        const msg = data.message || 'Chave inválida ou erro no servidor.';
+                        const output = document.getElementById('activation-error');
+                        if (output) {
+                            output.textContent = msg;
+                            output.classList.remove('hidden');
+                        } else {
+                            alert('Erro: ' + msg);
+                        }
+                    }
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Erro de conexão com o servidor de validação.');
+            } finally {
+                if (btn) {
+                    btn.innerText = 'Ativar Licença';
+                    btn.disabled = false;
+                }
+            }
+        };
+
+        // ==========================================
+        // CONFIRMAÇÃO DE RECIBO (COM CAPTAÇÃO DE EMAIL)
+        // ==========================================
+        window.confirmReceipt = async function () {
+            const btn = document.getElementById('btn-confirm-receipt');
+            if (btn) {
+                btn.innerText = "Registrando...";
+                btn.disabled = true;
+            }
+
+            const key = localStorage.getItem('terapia_license');
+            const email = localStorage.getItem('terapia_email') || '';
+
+            try {
+                const response = await fetch(window.THERAPY_LICENSE_API_URL + '?action=confirm_receipt', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        license_key: key,
+                        email: email,           // ✅ DUPLA CAPTAÇÃO DE EMAIL (garante o registro)
+                        legal_agree: true
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    localStorage.setItem('terapia_receipt_confirmed', 'true');
+                    const modal = document.getElementById('welcome-receipt-modal');
+                    if (modal) modal.classList.add('hidden');
+                    alert("Recebimento Confirmado! Bem-vindo ao sistema.");
+                    window.location.reload();
+                } else {
+                    console.error("Erro Recibo:", data);
+                    alert("Atenção: Não foi possível registrar o recibo.\nErro: " + (data.message || "Falha de comunicação."));
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.innerText = "Tentar Novamente";
+                    }
+                }
+            } catch (e) {
+                alert("Erro de conexão. Tente novamente.");
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerText = "Confirmar Recebimento e Acesso";
+                }
+            }
+        };
+    </script>
+
+</body>

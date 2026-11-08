@@ -1,0 +1,10 @@
+.coverage-badge{display:inline-flex;align-items:center;gap:6px;max-width:100%;font-size:.6875rem;line-height:1.5;color:var(--color-text);overflow-wrap:anywhere}
+.coverage-badge i{display:inline-block;flex:0 0 9px;width:9px;height:9px;border-radius:50%;background:var(--coverage-color);outline:1px solid var(--color-border);outline-offset:1px}
+.coverage-help{font-size:.6875rem!important;line-height:1.6;color:var(--color-muted);margin:8px 0}
+.coverage-legend{border-top:1px solid var(--color-border);padding-top:12px;margin-top:12px;display:grid;gap:8px;min-width:0;width:100%}.coverage-legend h3{margin:0!important;padding:0!important;border:0!important}.coverage-legend p{margin:0}
+.agenda-event.coverage-appointment{background:var(--color-surface);color:var(--color-text);border-color:var(--color-border);border-left:4px solid var(--coverage-color)}
+.agenda-event.coverage-appointment[data-status=completed]{background:var(--color-elevated);color:var(--color-text)}
+.agenda-event.coverage-appointment small{display:block;font-size:.5625rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.agenda-event .coverage-badge{font-size:.5625rem}
+.agenda-list-item.coverage-appointment,.agenda-month-event.coverage-appointment{border-left:4px solid var(--coverage-color)}.agenda-month-event .coverage-badge{display:flex;font-size:.5rem}.agenda-month-event .coverage-badge i{flex-basis:5px;width:5px;height:5px}
+.coverage-config{max-width:680px!important}.coverage-config form{padding:12px 0}.coverage-config h3{margin-bottom:10px}.coverage-config input[type=color]{width:100%;height:42px;padding:4px}.coverage-check{display:flex!important;align-items:center;gap:8px}.coverage-check input{width:auto!important;margin:0!important}.coverage-plan-list>div{display:flex;align-items:center;gap:12px;border-top:1px solid var(--color-border);padding:10px 0}.coverage-plan-list .coverage-badge{flex:1}.coverage-plan-list>div>span{font-size:.6875rem;color:var(--color-muted)}
+@media(max-width:767px){.coverage-legend{grid-column:1/-1}.coverage-plan-list>div{flex-wrap:wrap}.coverage-config{width:100%}.agenda-month-event .coverage-badge{white-space:normal;line-height:1.3}}

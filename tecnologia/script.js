@@ -4,6 +4,8 @@ const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').mat
 const commercialMessages = {
   diagnóstico: 'Olá! Vim pelo site da Plena, na página de tecnologia, e gostaria de um diagnóstico para meu projeto.',
   assistencia: 'Olá! Vim pelo site da Plena e tenho interesse no sistema Assistência Pro. Gostaria de entender os planos e testar a solução.',
+  terapia: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Terapia Pro. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
+  odonto: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Odonto Pro. Gostaria de conhecer a licença vitalícia e tirar dúvidas.',
   gastro: 'Olá! Vim pelo site da Plena e tenho interesse no sistema Gestão Gastro. Gostaria de agendar uma demonstração.',
   landing: 'Olá! Vim pelo site da Plena e gostaria de criar uma landing page para captar leads ou vender melhor.',
   siteCorporativo: 'Olá! Vim pelo site da Plena e gostaria de consultar sobre um site corporativo.',
@@ -22,6 +24,8 @@ const OFFER_MESSAGES = {
   'gestão-gastro': commercialMessages.gastro,
   'barbearia-premium': 'Olá! Vim pelo site da Plena e tenho interesse no sistema Barbearia Premium. Gostaria de entender os planos.',
   'beleza-spa': 'Olá! Vim pelo site da Plena e tenho interesse no sistema Beleza & Spa. Gostaria de entender os planos.',
+  'gestao-terapia': commercialMessages.terapia,
+  'gestao-odonto': commercialMessages.odonto,
   'landing-infoproduto': commercialMessages.landing,
   'captura-leads': commercialMessages.landing,
   'eventos-ingressos': commercialMessages.landing,
@@ -56,6 +60,8 @@ const OFFER_MESSAGES = {
 const solutionCatalog = [
   { categoria: 'sistemas', nome: 'Assistência Pro', setor: 'Assistências técnicas', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/assistencia-pro.html', demoUrl: 'demos/gestao-assistencia/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.assistencia },
   { categoria: 'sistemas', nome: 'Barbearia Premium', setor: 'Barbearias', preco: 'R$ 79/mês', status: 'Demo disponível', landingUrl: '../produtos/barbearia-premium.html', demoUrl: 'demos/gestao-barbearia/', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['barbearia-premium'] },
+  { categoria: 'sistemas', nome: 'Gestão Terapia Pro', setor: 'Psicologia e terapia', preco: 'R$ 499,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-terapia.html', demoUrl: 'demos/gestao-terapia/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.terapia },
+  { categoria: 'sistemas', nome: 'Gestão Odonto Pro', setor: 'Odontologia e clínicas', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-odonto.html', demoUrl: 'demos/gestao-odonto/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.odonto },
   { categoria: 'sistemas', nome: 'Beleza & Spa', setor: 'Beleza e estética', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/beleza-spa.html', demoUrl: 'demos/gestao-beleza/', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['beleza-spa'] },
   { categoria: 'landing-pages', nome: 'Landing Pages', setor: 'Campanhas e captação', preco: 'Sob consulta', status: 'Demo disponível', demoUrl: 'landing-pages/lp-01-lancamento.html', ctaLabel: 'Solicitar página', whatsappMessage: commercialMessages.landing }
 ];
@@ -177,6 +183,8 @@ const NICHE_MAP = {
   'assistencia-pro': 'demo',
   'barbearia-premium': 'demo',
   'beleza-spa': 'demo',
+  'gestao-terapia': 'demo',
+  'gestao-odonto': 'demo',
   'gestão-gastro': 'breve',
   'landing-infoproduto': 'lancamento',
   'captura-leads': 'captacao',

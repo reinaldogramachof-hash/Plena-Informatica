@@ -1,0 +1,27 @@
+.assistant-toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin:12px 0}
+.assistant-toolbar>label{flex:1;min-width:180px}
+.assistant-list{display:grid;gap:12px;margin:14px 0}
+.assistant-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border:1px solid var(--color-border);border-radius:8px;background:var(--color-surface);min-width:0}
+.assistant-item>div:first-child{min-width:0;overflow-wrap:anywhere}
+.assistant-item h3,.assistant-item h4{font-size:.875rem;font-weight:600;margin:4px 0}
+.assistant-item p,.assistant-item small,.assistant-help{font-size:.75rem;line-height:1.7;color:var(--color-muted)}
+.assistant-item small{display:block;margin-top:5px}
+.assistant-category{font-size:.625rem;text-transform:uppercase;letter-spacing:.04em;color:var(--color-accent-text)}
+.assistant-item-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;flex-shrink:0}
+.assistant-check{display:flex!important;align-items:center;gap:8px}
+.therapy-dialog .assistant-check input{display:inline-block;width:auto;margin:0;accent-color:var(--color-accent)}
+.therapy-dialog #assistant-message{width:100%;padding:12px;margin-top:8px;line-height:1.7;min-height:160px;resize:vertical}
+.assistant-template-section{margin-top:20px}
+.assistant-template-section textarea{width:100%;min-height:110px;padding:10px;line-height:1.65;resize:vertical}
+.assistant-logo-preview{width:96px;height:96px;object-fit:contain;border:1px solid var(--color-border);border-radius:8px;margin:12px 0;background:var(--color-elevated)}
+.therapy-sidebar-mark>img{width:28px;height:28px;object-fit:contain;border-radius:5px}
+.therapy-sidebar-identity p{text-overflow:ellipsis;overflow:hidden}
+.assistant-recurring{border:1px solid var(--color-border);border-radius:8px;padding:18px;margin-top:18px}
+.assistant-recurring>h3{font-size:1rem;font-weight:600;margin-bottom:12px}
+#therapy-assistant-open{grid-column:1/-1;justify-content:space-between!important}
+#therapy-assistant-count{min-width:26px;text-align:center;padding:2px 7px;border-radius:20px;background:var(--color-accent-soft);color:var(--color-accent-text)!important;font-weight:600}
+#system-panel-assistant button:disabled{opacity:.45}
+.assistant-finance-actions{display:flex;gap:8px;flex-wrap:wrap}
+@media(min-width:1280px){#assistant-recurring-form .therapy-form-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:767px){.assistant-item{align-items:flex-start;flex-direction:column;padding:14px}.assistant-item-actions{justify-content:flex-start;flex-shrink:1}.assistant-recurring{padding:14px}.assistant-toolbar{align-items:stretch;flex-direction:column}.assistant-toolbar>label{min-width:0}}
+@media print{#therapy-assistant-open{display:none!important}}

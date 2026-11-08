@@ -1,0 +1,11 @@
+.app-theme .app-header>.therapy-header-title{flex:1;min-width:0}
+.therapy-header-clock{display:grid;gap:2px;flex-shrink:0;margin:0 20px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;line-height:1.25}
+.therapy-header-clock time:first-child{font-size:.6875rem;color:var(--color-muted)}
+.therapy-header-clock time:last-child{font-size:.875rem;font-weight:600;color:var(--color-text)}
+@media(max-width:767px){
+    .app-theme .app-header{height:auto;min-height:56px;flex-wrap:wrap;column-gap:8px;row-gap:6px;padding-top:8px;padding-bottom:8px}
+    .app-theme .app-header>.therapy-header-title{gap:6px}
+    .app-theme .app-header>.therapy-header-actions{gap:6px}
+    .app-theme .app-header>.therapy-header-actions>button:last-child{padding:8px 10px}
+    .app-theme .app-header>.therapy-header-clock{order:3;flex:1 0 100%;display:flex;align-items:center;justify-content:space-between;margin:0;padding-top:6px;border-top:1px solid var(--color-border)}
+}

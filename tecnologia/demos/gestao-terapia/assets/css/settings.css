@@ -1,0 +1,118 @@
+/* Organização exclusiva de Configurações; não altera os demais módulos. */
+#view-settings{container:therapy-settings / inline-size;max-width:1440px;margin-inline:auto;color:var(--color-text)}
+#view-settings>.therapy-heading{align-items:center;gap:20px;margin-bottom:26px}
+#view-settings>.therapy-heading p{max-width:64ch}
+#view-settings .system-workspace{margin-top:0;gap:24px}
+#view-settings #system-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:0;border:0;background:transparent}
+#view-settings #system-tabs button{display:flex;align-items:center;gap:12px;min-height:76px;padding:14px 16px;text-align:left;white-space:normal;overflow-wrap:anywhere;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface);color:var(--color-text);box-shadow:none;transition:background .15s,border-color .15s}
+#view-settings #system-tabs button:hover{border-color:var(--color-accent);background:var(--color-elevated)}
+#view-settings #system-tabs button[aria-selected=true]{border-color:var(--color-accent);box-shadow:inset 3px 0 var(--color-accent);background:var(--color-accent-soft)!important}
+#view-settings .settings-tab-icon{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:10px;background:var(--color-elevated);color:var(--color-muted)}
+#view-settings .settings-tab-icon svg{width:19px;height:19px}
+#view-settings [aria-selected=true] .settings-tab-icon{background:var(--color-accent);color:white}
+#view-settings .settings-tab-copy{display:grid;gap:4px;min-width:0}
+#view-settings .settings-tab-title{font-size:.8125rem;font-weight:600;line-height:1.45}
+#view-settings .settings-tab-description{font-size:.6875rem;font-weight:400;color:var(--color-muted);line-height:1.5}
+#view-settings .system-panels{min-width:0}
+#view-settings .system-card{padding:26px;border-radius:14px}
+#view-settings .system-card h3{font-size:1rem;line-height:1.5;margin-bottom:12px}
+#view-settings .settings-area-heading{padding-bottom:20px;margin-bottom:22px;border-bottom:1px solid var(--color-border)}
+#view-settings .settings-area-heading h3{margin-bottom:6px}
+#view-settings .settings-area-heading p{color:var(--color-muted);margin:0;max-width:80ch}
+#view-settings .settings-form-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+#view-settings .settings-group{min-width:0;padding:20px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface)}
+#view-settings fieldset.settings-group{padding-top:14px}
+#view-settings .settings-group legend{padding:0 7px;font-size:.8125rem;font-weight:600;color:var(--color-text)}
+#view-settings .settings-group label+label{margin-top:18px}
+#view-settings .settings-group .therapy-form-grid label+label{margin-top:0}
+#view-settings label{font-weight:500;line-height:1.65;color:var(--color-text)}
+#view-settings input:not([type=checkbox]):not([type=hidden]),#view-settings select{min-height:44px;border-radius:8px;margin-top:8px}
+#view-settings textarea{padding:12px;min-height:124px;line-height:1.7;border-radius:8px;resize:vertical;margin-top:8px}
+#view-settings input[type=color]{padding:5px;cursor:pointer}
+#view-settings .system-help,#view-settings .assistant-help,#view-settings .coverage-help{line-height:1.75}
+#view-settings form>.system-help{padding:14px 16px;border-radius:8px;background:var(--color-elevated)}
+#view-settings .therapy-actions{gap:10px;align-items:center}
+#view-settings form>.therapy-actions{padding-top:18px;margin-top:22px;border-top:1px solid var(--color-border)}
+#view-settings .system-card button{min-height:42px}
+#view-settings .system-form-message{padding-top:4px}
+#view-settings .system-editor-nav{padding:5px;gap:6px;display:inline-flex;max-width:100%;border:1px solid var(--color-border);border-radius:10px;background:var(--color-elevated);margin-bottom:24px}
+#view-settings .system-editor-nav button{flex:1 1 auto;white-space:normal;border:1px solid transparent;background:transparent!important;color:var(--color-muted)!important}
+#view-settings .system-editor-nav button[aria-pressed=true]{background:var(--color-surface)!important;color:var(--color-accent-text)!important;border-color:var(--color-border)!important}
+#view-settings #agenda-settings-form{display:block}
+#view-settings #agenda-settings-form>p:first-child{margin-bottom:20px;color:var(--color-muted)}
+#view-settings #agenda-settings-form>details,#view-settings #coverage-colors-form details{padding:18px 20px;border:1px solid var(--color-border);border-radius:10px;margin-top:16px}
+#view-settings summary{font-size:.8125rem;font-weight:600}
+#view-settings details[open]>summary{margin-bottom:20px}
+#view-settings .agenda-check,#view-settings .coverage-check{display:flex;align-items:flex-start;gap:9px;margin-top:16px;font-weight:400}
+#view-settings .agenda-check input,#view-settings .coverage-check input{flex:0 0 auto;margin-top:5px;accent-color:var(--color-accent)}
+#view-settings #agenda-settings-form details>p{color:var(--color-muted);margin:10px 0 16px}
+#view-settings .agenda-working-days{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px;align-items:start}
+#view-settings .agenda-working-days fieldset{padding:12px 14px 16px;border-radius:10px;background:var(--color-elevated)}
+#view-settings .agenda-working-days legend .agenda-check{font-weight:600;margin:0}
+#view-settings .agenda-period-inputs{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#view-settings .agenda-period-inputs label{font-size:.6875rem}
+#view-settings .agenda-period-inputs input{padding:8px;min-width:0}
+#view-settings #agenda-date-form{padding:20px;border:1px solid var(--color-border);border-radius:10px;margin:20px 0}
+#view-settings #agenda-date-form>label{margin-top:16px}
+#view-settings #system-editor-agenda hr{margin:24px 0;border-color:var(--color-border)}
+#view-settings #agenda-holiday-year{max-width:180px}
+#view-settings .agenda-managed-row{padding:14px 0;gap:16px}
+#view-settings #system-editor-coverage{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:24px;row-gap:18px;align-items:start}
+#view-settings #system-editor-coverage>h3,#view-settings #system-editor-coverage>p,#view-settings #coverage-colors-form{grid-column:1/-1;margin:0}
+#view-settings #coverage-colors-form details{margin:0;background:var(--color-elevated)}
+#view-settings #coverage-plan-form,#view-settings .settings-coverage-list{margin:0;padding:20px;border:1px solid var(--color-border);border-radius:10px}
+#view-settings #coverage-plan-form .therapy-form-grid{grid-template-columns:minmax(0,1fr) 96px}
+#view-settings .coverage-plan-list>div{padding:14px 0;gap:12px}
+#view-settings .coverage-plan-list>div>span{overflow-wrap:anywhere;min-width:0}
+#view-settings #system-editor-financial{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+#view-settings #system-editor-financial>h3,#view-settings #system-editor-financial>p{grid-column:1/-1;margin:0}
+#view-settings .assistant-recurring{padding:20px;margin:0;border-radius:10px;background:var(--color-surface)}
+#view-settings #assistant-recurring-form .therapy-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#view-settings .assistant-item{gap:16px;align-items:flex-start}
+#view-settings .settings-appearance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+#view-settings .system-appearance-group{margin:0;padding:20px;border:1px solid var(--color-border);border-radius:10px}
+#view-settings .system-appearance-group legend{padding:0 6px;font-size:.8125rem}
+#view-settings .settings-appearance-wide,#view-settings #system-identity-content{grid-column:1/-1}
+#view-settings #system-identity-content{padding:22px;margin:0;border:1px solid var(--color-border);border-radius:10px}
+#view-settings .system-palette-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+#view-settings .system-palette-btn{padding:12px;gap:9px}
+#view-settings .system-palette-label{font-size:.75rem}
+#view-settings .system-palette-swatch{width:18px;height:18px}
+#view-settings #assistant-settings-form>.therapy-actions{padding:20px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface)}
+#view-settings #assistant-settings-form .system-card>label+label{margin-top:18px}
+#view-settings .assistant-template-section{margin-top:20px}
+#view-settings .assistant-template-section .system-form-grid{margin-top:20px}
+#view-settings .assistant-template-section label{padding:16px;border:1px solid var(--color-border);border-radius:10px}
+#view-settings .settings-restore-card{border-top:3px solid var(--color-warning)}
+#view-settings .settings-restore-card .system-file-label{padding:16px;border-radius:10px;background:var(--color-elevated)}
+#view-settings .settings-maintenance-grid{align-items:stretch}
+#view-settings .settings-maintenance-grid .system-card{display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--color-danger)}
+#view-settings .settings-maintenance-grid .system-card>button{align-self:flex-start;margin-top:auto;color:var(--color-danger)!important}
+#view-settings .settings-maintenance-grid .system-card>p{margin-bottom:18px}
+#view-settings .system-caution{background:var(--color-warning-soft);margin-bottom:20px}
+@container therapy-settings (max-width:1000px){
+ #view-settings .system-palette-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #view-settings .agenda-working-days{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@container therapy-settings (max-width:760px){
+ #view-settings #system-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #view-settings .settings-form-sections,#view-settings .settings-appearance-grid,#view-settings .system-grid,#view-settings #system-editor-coverage,#view-settings #system-editor-financial{grid-template-columns:minmax(0,1fr)}
+ #view-settings .system-wide{grid-column:auto}
+ #view-settings .settings-tab-description{font-size:.6875rem}
+}
+@container therapy-settings (max-width:480px){
+ #view-settings #system-tabs{gap:8px}
+ #view-settings #system-tabs button{padding:12px 10px;gap:8px;min-height:70px}
+ #view-settings .settings-tab-icon{flex-basis:26px;width:26px;height:30px;border-radius:7px}
+ #view-settings .settings-tab-icon svg{width:16px;height:16px}
+ #view-settings .settings-tab-title{font-size:.75rem}
+ #view-settings .settings-tab-description{display:none}
+ #view-settings .system-card{padding:18px}
+ #view-settings .settings-group,#view-settings .system-appearance-group,#view-settings .assistant-recurring,#view-settings #coverage-plan-form,#view-settings .settings-coverage-list,#view-settings #agenda-settings-form>details{padding:16px}
+ #view-settings .agenda-working-days,#view-settings .system-form-grid,#view-settings .therapy-form-grid,#view-settings #assistant-recurring-form .therapy-form-grid{grid-template-columns:minmax(0,1fr)}
+ #view-settings .agenda-period-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #view-settings .system-palette-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #view-settings #coverage-plan-form .therapy-form-grid{grid-template-columns:minmax(0,1fr)}
+ #view-settings .system-workspace{gap:20px}
+ #view-settings .system-editor-nav{display:flex}
+}

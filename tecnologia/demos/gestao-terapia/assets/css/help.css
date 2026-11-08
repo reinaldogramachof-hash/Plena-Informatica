@@ -1,0 +1,28 @@
+/* Ícones discretos e cards de ajuda compartilhados, inclusive em telas de toque. */
+body.app-theme button.therapy-help-trigger{
+ display:inline-flex!important;align-items:center;justify-content:center;vertical-align:middle;
+ width:26px!important;height:26px!important;min-height:26px!important;min-width:26px!important;flex:0 0 26px;
+ padding:0!important;margin:0 0 0 6px!important;border:1px solid var(--color-border)!important;border-radius:50%!important;
+ background:var(--color-accent-soft)!important;color:var(--color-accent-text)!important;
+ font:600 .75rem/1 Georgia,serif!important;letter-spacing:0;text-transform:none;cursor:help;box-shadow:none!important;
+}
+body.app-theme button.therapy-help-trigger:hover{border-color:var(--color-accent-text)!important}
+.therapy-help-field{position:relative;min-width:0}
+.therapy-help-field>.therapy-help-label{margin-block-start:0!important}
+.therapy-help-field>.therapy-help-trigger{position:absolute;inset-inline-end:0;top:0}
+.therapy-help-caption{display:block;padding-inline-end:34px;min-height:26px}
+.therapy-help-check>.therapy-help-label{padding-inline-end:34px;min-height:26px}
+.therapy-help-popup{
+ position:fixed;inset:auto;margin:0;z-index:16000;box-sizing:border-box;width:max-content;max-width:min(340px,calc(100vw - 24px));
+ padding:14px 16px;border:1px solid var(--color-border);border-radius:10px;
+ background:var(--color-surface);color:var(--color-text);box-shadow:var(--shadow-elevated,0 8px 28px #0002);
+ font-family:Inter,system-ui,sans-serif;font-size:.8125rem;line-height:1.65;overflow-wrap:anywhere;text-align:start;overflow:auto;
+}
+.therapy-help-popup strong{display:block;font-size:.875rem;font-weight:600;margin:0 0 6px;color:var(--color-text)}
+.therapy-help-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 6px}
+.therapy-help-head strong{margin:0}
+body.app-theme button.therapy-help-manual{flex:0 0 auto;min-height:0!important;padding:2px 8px!important;margin:0!important;border:1px solid var(--color-border)!important;border-radius:6px!important;background:var(--color-accent-soft)!important;color:var(--color-accent-text)!important;font:600 .6875rem/1.35 Inter,system-ui,sans-serif!important;letter-spacing:0;text-transform:none;cursor:pointer;box-shadow:none!important}
+body.app-theme button.therapy-help-manual:hover{border-color:var(--color-accent-text)!important}
+body.app-theme .therapy-help-popup p{font-size:.8125rem;line-height:1.65;margin:0;color:var(--color-muted)}
+.therapy-help-popup::backdrop{background:transparent;pointer-events:none}
+@media print{body.app-theme button.therapy-help-trigger,.therapy-help-popup{display:none!important}}
