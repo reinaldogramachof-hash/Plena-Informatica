@@ -2731,6 +2731,92 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   }
 }
 
+/* Gestão Fit: identidade atlética, saúde, alta performance com verde esmeralda e precisão de treinos. */
+.assistencia-product-page.fit-product-page {
+  --bg: #070D08;
+  --surface: rgba(15, 23, 17, .78);
+  --surface-strong: rgba(18, 32, 22, .92);
+  --muted: #94A3B8;
+  --text: #F8FAFC;
+  --line: rgba(34, 197, 94, .22);
+  --brand-primary: #16A34A;
+  --brand-dark: #15803D;
+  --brand-accent: #22C55E;
+  --brand-soft: rgba(22, 163, 74, .16);
+}
+
+.fit-product-page .assistencia-nav-brand__icon {
+  background: linear-gradient(135deg, rgba(22, 163, 74, .25), rgba(34, 197, 94, .08));
+  border: 1px solid rgba(34, 197, 94, .45);
+  color: #4ADE80;
+}
+
+.fit-product-page .assistencia-nav-brand__copy small {
+  color: #22C55E;
+  letter-spacing: .12em;
+}
+
+.fit-product-page .fit-hero {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(22, 163, 74, .18), transparent 32rem),
+    radial-gradient(circle at 15% 75%, rgba(21, 128, 61, .1), transparent 22rem),
+    linear-gradient(180deg, #070D08 0%, #0E1810 50%, #070D08 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.fit-product-page .fit-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, .04) 1px, transparent 1.5px),
+    linear-gradient(rgba(255, 255, 255, .015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+}
+
+.fit-product-page .fit-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 64px);
+  position: relative;
+  z-index: 1;
+}
+
+.fit-hero-preview {
+  background: rgba(15, 23, 17, .84);
+  border: 1px solid rgba(34, 197, 94, .32);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, .8), 0 0 40px -15px rgba(22, 163, 74, .25);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.fit-cluster-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: #22C55E;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 767px) {
+  .fit-product-page .fit-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 /* Lapidação de contraste e componentes escuros para Terapia e Odonto */
 .therapy-product-page ul.clean li,
 .odonto-product-page ul.clean li {
@@ -2856,6 +2942,13 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
     #F8FAFC;
 }
 
+.fit-product-page .clinical-light-section {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(22, 163, 74, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 90% 85%, rgba(34, 197, 94, 0.03) 0%, transparent 45%),
+    #F8FAFC;
+}
+
 .clinical-light-section h2,
 .clinical-light-section h3,
 .clinical-light-section h4 {
@@ -2890,6 +2983,12 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   background: rgba(8, 145, 178, 0.08);
   border: 1px solid rgba(8, 145, 178, 0.22);
   color: #0E7490;
+}
+
+.fit-product-page .clinical-light-section .eyebrow {
+  background: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(22, 163, 74, 0.22);
+  color: #15803D;
 }
 
 /* Trust Strip */
@@ -2929,6 +3028,11 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 .odonto-product-page .clinical-trust-icon {
   background: rgba(8, 145, 178, 0.1);
   color: #0891B2;
+}
+
+.fit-product-page .clinical-trust-icon {
+  background: rgba(22, 163, 74, 0.1);
+  color: #16A34A;
 }
 
 .clinical-trust-icon svg {
@@ -2975,6 +3079,12 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   box-shadow: 0 18px 36px -14px rgba(8, 145, 178, 0.14);
 }
 
+.fit-product-page .clinical-white-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(22, 163, 74, 0.35);
+  box-shadow: 0 18px 36px -14px rgba(22, 163, 74, 0.14);
+}
+
 .clinical-white-card h3 {
   display: flex;
   align-items: center;
@@ -2990,6 +3100,10 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 
 .odonto-product-page .clinical-white-card h3 svg {
   color: #0891B2;
+}
+
+.fit-product-page .clinical-white-card h3 svg {
+  color: #16A34A;
 }
 
 .clinical-white-card p {
@@ -3041,6 +3155,12 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   border: 1px solid rgba(8, 145, 178, 0.2);
 }
 
+.fit-product-page .clinical-routine-number {
+  background: rgba(22, 163, 74, 0.1);
+  color: #16A34A;
+  border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
 .clinical-routine-card h3 {
   font-size: 16px;
   margin: 0 0 8px;
@@ -3075,6 +3195,10 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 
 .odonto-product-page .clinical-cluster-header {
   color: #0E7490;
+}
+
+.fit-product-page .clinical-cluster-header {
+  color: #15803D;
 }
 
 /* Guardrails de Ética e Limites */
@@ -3151,6 +3275,11 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
   box-shadow: 0 22px 50px -18px rgba(8, 145, 178, 0.22);
 }
 
+.fit-product-page .clinical-price-card-clean--featured {
+  border-color: #16A34A;
+  box-shadow: 0 22px 50px -18px rgba(22, 163, 74, 0.22);
+}
+
 .clinical-price-card-clean .price-badge {
   display: inline-flex;
   align-items: center;
@@ -3173,6 +3302,11 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 .odonto-product-page .clinical-price-card-clean .price-badge {
   background: rgba(8, 145, 178, 0.1);
   color: #0E7490;
+}
+
+.fit-product-page .clinical-price-card-clean .price-badge {
+  background: rgba(22, 163, 74, 0.1);
+  color: #15803D;
 }
 
 .clinical-price-val {
@@ -3276,6 +3410,11 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 .odonto-product-page .clinical-faq-idx {
   background: rgba(8, 145, 178, 0.1);
   color: #0891B2;
+}
+
+.fit-product-page .clinical-faq-idx {
+  background: rgba(22, 163, 74, 0.1);
+  color: #16A34A;
 }
 
 .clinical-faq-chevron {

@@ -1,0 +1,3 @@
+#fit-app-header{height:auto;min-height:56px;gap:12px;padding-top:10px;padding-bottom:10px}.fit-app-clock{display:flex;flex-direction:column;align-items:flex-end;gap:2px;margin-left:auto;margin-right:8px;white-space:nowrap;font-variant-numeric:tabular-nums}.fit-app-clock span{color:var(--color-muted);font-size:11px}.fit-app-clock strong{font-size:15px;font-weight:650;letter-spacing:.03em}
+@media(max-width:700px){#fit-app-header{flex-wrap:wrap}.fit-app-clock{order:3;flex:1 0 100%;flex-direction:row;align-items:center;justify-content:center;gap:12px;margin:0;padding-top:8px;border-top:1px solid var(--color-border)}.fit-app-clock strong{font-size:13px}}
+@media print{.fit-app-clock{display:none}}

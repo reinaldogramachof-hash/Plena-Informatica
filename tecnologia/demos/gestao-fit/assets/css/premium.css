@@ -1,0 +1,18 @@
+.fit-money-filters,.fit-presentation-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
+.fit-help-checklist{list-style:decimal;padding-left:22px;display:grid;gap:12px;margin:18px 0;line-height:1.75}
+.fit-money-filters label,.fit-presentation-form label{display:flex;flex-direction:column;gap:7px;min-width:0;font-size:12px;font-weight:600}
+.fit-money-filters input,.fit-money-filters select,.fit-presentation-form input,.fit-presentation-form select,.fit-presentation-form textarea{width:100%;min-width:0;padding:10px 12px;color:var(--color-text);background:var(--color-elevated);border:1px solid var(--color-border);border-radius:9px;font:inherit;font-weight:400}
+.fit-money-filters label:has(input[type=checkbox]){flex-direction:row;align-items:center;font-weight:400}.fit-money-filters input[type=checkbox]{width:16px;min-height:16px;accent-color:var(--color-accent)}
+.fit-money-card{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 22px;margin:14px 0;border:1px solid var(--color-border);border-radius:14px;background:var(--color-surface);font-size:13px;line-height:1.75}
+.fit-money-card>div{min-width:0;overflow-wrap:anywhere}.fit-money-card p{font-size:12px;color:var(--color-muted)}.fit-money-card small{font-size:11px;color:var(--color-muted)}.fit-money-card>button{flex-shrink:0}
+.fit-money-section-title{font-size:16px;font-weight:650;margin:20px 0 12px}.fit-money-card details{margin-top:10px}
+.fit-presentation-form>label:has(textarea),.fit-presentation-form>p{grid-column:1/-1}.fit-brand-preview{max-width:180px;max-height:100px;object-fit:contain;border:1px solid var(--color-border);border-radius:8px;padding:8px;background:var(--color-surface)}
+.fit-sidebar-logo{width:36px;height:36px;object-fit:contain;margin-right:10px;flex-shrink:0}.fit-print-logo{max-width:180px;max-height:80px;object-fit:contain;margin-bottom:18px}
+.fit-sidebar-logo:not([hidden])+i,.fit-sidebar-logo:not([hidden])+svg{display:none}
+#view-finance .fit-kpis article,#view-assistant .fit-panel,#view-reports .fit-panel{line-height:1.7}#fit-finance-list{margin:18px 0}.fit-money-card .fit-row-actions{justify-content:flex-end}
+#fit-report-preview .fit-training-document{margin:20px 0}#fit-report-preview .fit-log-table{min-width:700px}#fit-report-preview .fit-log-table td{width:auto}
+.fit-operational-dialog #fit-assistant-form>label:has(textarea){grid-column:1/-1}.fit-operational-dialog #fit-money-form label:has(input[type=checkbox]),.fit-operational-dialog #fit-assistant-form label:has(input[type=checkbox]){display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.fit-operational-dialog #fit-money-form input[type=checkbox],.fit-operational-dialog #fit-assistant-form input[type=checkbox]{margin-top:2px}
+@media(min-width:1100px){.fit-money-filters{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.fit-money-filters,.fit-presentation-form{grid-template-columns:minmax(0,1fr)}.fit-money-card{align-items:flex-start;flex-direction:column;padding:18px}.fit-money-card>.fit-row-actions,.fit-money-card>button{width:100%}.fit-money-card .fit-row-actions{justify-content:flex-start}.fit-presentation-form button{width:100%}}
+@media print{#fit-training-print .fit-log-table{min-width:0;width:100%;table-layout:auto;font-size:9px}#fit-training-print .fit-log-table td{width:auto}#fit-training-print .fit-print-logo{max-width:150px;max-height:65px}#fit-training-print h2{font-size:20px}#fit-training-print h3{font-size:14px}#fit-training-print .fit-table-scroll{overflow:visible}#fit-training-print article>p{font-size:10px}#fit-training-print .fit-log-table tr{break-inside:avoid}}

@@ -1,0 +1,418 @@
+/* ==========================================
+   Gestão Fit — Padrão Visual Ecossistema v2.0
+   Régua de Referência: Gestão Gastro
+   ========================================== */
+
+/* Fonte Local Inter (§5) */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url('../fonts/inter.woff2') format('woff2');
+}
+
+/* Tokens de Superfície e Semânticos (§2 e §4) */
+:root {
+    --color-base: #F5F5F7;
+    --color-surface: #FFFFFF;
+    --color-elevated: #F0F0F2;
+    --color-border: #E4E4E7;
+    --color-border-hover: #D4D4D8;
+    --color-text: #18181B;
+    --color-muted: #71717A;
+    --color-accent: #16A34A;
+    --color-accent-hover: #15803D;
+
+    /* Variáveis legadas remapeadas */
+    --brand-primary: var(--color-accent);
+    --brand-dark: var(--color-accent-hover);
+    --brand-black: #0F0F11;
+    --glass-border: var(--color-border);
+    --glass-bg: var(--color-surface);
+    --body-bg: var(--color-base);
+    --text-main: var(--color-text);
+    --card-bg: var(--color-surface);
+}
+
+.dark {
+    --color-base: #0F0F11;
+    --color-surface: #1A1A1E;
+    --color-elevated: #242428;
+    --color-border: #2E2E32;
+    --color-border-hover: #3E3E44;
+    --color-text: #FAFAFA;
+    --color-muted: #A1A1AA;
+    --color-accent: #16A34A;
+    --color-accent-hover: #15803D;
+
+    /* Variáveis legadas remapeadas */
+    --brand-primary: var(--color-accent);
+    --brand-dark: var(--color-accent-hover);
+    --brand-black: #0F0F11;
+    --glass-border: var(--color-border);
+    --glass-bg: var(--color-surface);
+    --body-bg: var(--color-base);
+    --text-main: var(--color-text);
+    --card-bg: var(--color-surface);
+}
+
+/* Transição global e tipografia */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--color-base);
+    color: var(--color-text);
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+    transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1), color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Superfícies Neutras — Substituição de Glassmorphism (§1.1 Proibição 3) */
+.glass {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.18);
+}
+
+.glass-dark {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
+/* Interações Sóbrias */
+.card-hover {
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.card-hover:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+}
+
+.nav-item {
+    transition: background-color 150ms ease, color 150ms ease;
+    border-radius: 6px;
+}
+
+.nav-item:hover {
+    background-color: var(--color-elevated);
+}
+
+.active-nav {
+    background-color: var(--color-elevated) !important;
+    border-left: 3px solid var(--color-accent) !important;
+    color: var(--color-text) !important;
+    font-weight: 500;
+}
+
+/* â”€â”€ Animations â”€â”€ */
+.hide {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Modal e Overlays (§6 - sem blur decorativo) */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.65);
+    animation: fadeIn 0.2s ease;
+}
+
+/* Sidebar & Layout Estrutural (§3) */
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 50;
+        height: 100vh;
+        width: 256px;
+        background-color: var(--color-surface);
+        border-right: 1px solid var(--color-border);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 1025px) {
+    .sidebar {
+        width: 256px;
+        position: fixed;
+        height: 100vh;
+        background-color: var(--color-surface);
+        border-right: 1px solid var(--color-border);
+    }
+
+    .main-content {
+        margin-left: 256px;
+    }
+}
+
+/* Chart Container */
+.chart-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 180px;
+    gap: 2%;
+}
+
+.bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    position: relative;
+}
+
+.bar-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2px;
+    height: 100%;
+    width: 100%;
+}
+
+.bar {
+    width: 45%;
+    border-radius: 4px 4px 0 0;
+    transition: height 0.3s ease;
+    min-height: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.bar:hover::after {
+    content: attr(data-value);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: #FAFAFA;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.x-label {
+    font-size: 10px;
+    color: var(--color-muted);
+    text-align: center;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* Badges com 12–15% de opacidade (§6) */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.badge-success {
+    background-color: rgba(22, 163, 74, 0.14);
+    color: #16A34A;
+    border: 1px solid rgba(22, 163, 74, 0.25);
+}
+
+.badge-warning {
+    background-color: rgba(245, 158, 11, 0.14);
+    color: #F59E0B;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.badge-danger {
+    background-color: rgba(239, 68, 68, 0.14);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+/* Progress Bar (§6) */
+.progress-bar {
+    height: 6px;
+    background: var(--color-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+/* Custom Scrollbar (§3) */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.25);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.45);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: rgba(51, 65, 85, 0.4);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(71, 85, 105, 0.7);
+}
+
+/* Seção de Manual / Passos */
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: var(--color-accent);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.checklist-item {
+    transition: background-color 0.15s ease;
+}
+
+.checklist-item.completed {
+    opacity: 0.65;
+    text-decoration: line-through;
+}
+
+/* Utilitários sem blur (§1.1 Proibição 3) */
+.blur-bg {
+    background-color: var(--color-surface);
+}
+
+.glass-effect {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
+.code-block {
+    background: #111113;
+    color: #FAFAFA;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 8px 0;
+}
+
+/* Loading Spinner (§6) */
+.spinner {
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    border-top: 2px solid var(--color-accent);
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* â”€â”€ Print Styles â”€â”€ */
+@media print {
+
+    .sidebar,
+    #overlay,
+    button,
+    .header-buttons,
+    .no-print,
+    header,
+    #month-selector,
+    .view-section.hide {
+        display: none !important;
+    }
+
+    .main-content {
+        margin: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    body {
+        background: white !important;
+    }
+
+    #receipt-print,
+    #receipt-print * {
+        visibility: visible;
+    }
+
+    #receipt-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80mm;
+        font-size: 12px;
+        line-height: 1.2;
+        font-family: 'Courier New', monospace;
+    }
+}
