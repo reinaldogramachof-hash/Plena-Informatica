@@ -1941,25 +1941,25 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 }
 .demo-fullscreen-close {
   position: absolute;
-  z-index: 9999999;
-  top: 5px;
-  right: 14px;
+  z-index: 3;
+  top: 16px;
+  right: 16px;
   display: none;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 42px;
+  height: 42px;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, .25);
+  border: 1px solid rgba(255, 255, 255, .22);
   border-radius: 50%;
-  background: rgba(15, 23, 42, .88);
+  background: rgba(2, 6, 23, .72);
   color: #FFFFFF;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, .4);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, .22);
+  backdrop-filter: blur(10px);
 }
 .demo-fullscreen-close:hover { background: #2563EB; border-color: #2563EB; }
 .demo-fullscreen-close:focus-visible { outline: 3px solid #93C5FD; outline-offset: 3px; }
-.demo-fullscreen-close svg { width: 14px; height: 14px; }
+.demo-fullscreen-close svg { width: 20px; height: 20px; }
 .assistencia-product-page #demo-modal.demo-modal--fullscreen .demo-fullscreen-close { display: grid; }
 #demo-modal.is-loading .demo-frame-loader { display: grid; }
 .demo-frame-loader__spinner {
