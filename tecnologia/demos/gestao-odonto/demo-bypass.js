@@ -294,6 +294,44 @@
     }
 
     function injectDemoLayer() {
+        if (!document.getElementById('plena-demo-scale-style')) {
+            var style = document.createElement('style');
+            style.id = 'plena-demo-scale-style';
+            style.textContent = [
+                '/* Modo Demonstração Plena: Escala o sistema no desktop para visão integral */',
+                '@media (min-width: 1024px) {',
+                '    html {',
+                '        zoom: 0.88;',
+                '    }',
+                '    #plena-demo-banner {',
+                '        position: fixed !important;',
+                '        top: 0 !important;',
+                '        left: 0 !important;',
+                '        right: 0 !important;',
+                '        width: 100% !important;',
+                '        box-sizing: border-box !important;',
+                '        z-index: 999999 !important;',
+                '    }',
+                '    #sidebar, .sidebar, .therapy-sidebar {',
+                '        top: 38px !important;',
+                '        height: calc(100vh - 38px) !important;',
+                '    }',
+                '}',
+                '@media (min-width: 1024px) and (max-height: 720px) {',
+                '    html {',
+                '        zoom: 0.82;',
+                '    }',
+                '}',
+                '#plena-demo-guide {',
+                '    max-width: 270px !important;',
+                '    padding: 10px 14px !important;',
+                '    font-size: 11px !important;',
+                '    box-shadow: 0 10px 30px rgba(0, 0, 0, .5) !important;',
+                '}'
+            ].join('\n');
+            document.head.appendChild(style);
+        }
+
         if (!document.getElementById('plena-demo-banner')) {
             var banner = document.createElement('div');
             banner.id = 'plena-demo-banner';
