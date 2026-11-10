@@ -90,6 +90,22 @@
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#F26A1B',
+              navy: '#061A35',
+              gold: '#D6A23A',
+              green: '#22A33A'
+            }
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,100 +127,90 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <a href="#soluções" class="skip-link">Ir ao conteúdo principal</a>
-  <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
-    <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-2.5 group flex-shrink-0" aria-label="Plena Informática — página inicial">
-        <img src="../assets/images/logoplena.svg" alt="Plena Informática" class="h-20 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300">
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
-        <a href="#inicio" class="text-[var(--text-muted)] hover:text-white transition-colors">Início</a>
-        <a href="#soluções" class="text-white">Soluções</a>
-        <a href="#processo" class="text-[var(--text-muted)] hover:text-white transition-colors">Como funciona</a>
-        <a href="../servicos/servicos.html"
-          class="text-[var(--text-muted)] hover:text-white transition-colors">Serviços</a>
-        <button type="button"
-          class="whatsapp-btn px-6 py-2.5 rounded-full bg-white text-black hover:bg-gray-200 transition-colors font-bold"
-          data-offer="diagnóstico" data-category="nav" data-action="whatsapp"
-          onclick="openWhatsAppByKey('diagnóstico')">Diagnóstico gratuito</button>
-      </div>
-      <button type="button"
-        class="whatsapp-btn mobile-whatsapp px-4 py-2 rounded-full bg-[#D4AF37] text-[#080809] text-sm font-black"
-        data-offer="diagnóstico" data-category="mobile-nav" data-action="whatsapp"
-        onclick="openWhatsAppByKey('diagnóstico')">WhatsApp</button>
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <div class="bg-white/80 backdrop-blur-xl border-b border-gray-100/60 shadow-sm transition-all duration-300">
+      <nav class="container mx-auto px-6 h-20 flex items-center justify-between">
 
-      <!-- Mobile Menu Button -->
-      <button type="button" class="md:hidden p-2 text-white hover:text-[#D4AF37] transition-colors ml-2"
-        onclick="toggleMobileMenu()" aria-label="Abrir menu" title="Abrir menu">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-    </nav>
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2.5 group flex-shrink-0"
+          aria-label="Plena Informática — página inicial">
+          <img src="../assets/images/logoplena.svg" alt="Plena Informática"
+            class="h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+        </a>
+
+        <!-- Nav Desktop -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#soluções" aria-current="true"
+            class="text-sm font-semibold text-gray-900 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-orange after:transition-all after:duration-300">Catálogo</a>
+          <a href="#processo"
+            class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Como funciona</a>
+          <a href="#faq"
+            class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Dúvidas
+            rápidas</a>
+          <a href="../servicos/servicos.html"
+            class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Serviços</a>
+        </div>
+
+        <!-- CTA Desktop -->
+        <button type="button"
+          class="whatsapp-btn hidden md:inline-flex items-center gap-2 bg-brand-orange hover:bg-[#d55b1a] text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-orange/25 hover:shadow-brand-orange/40 hover:scale-105 transition-all duration-300"
+          data-offer="diagnóstico" data-category="nav" data-action="whatsapp"
+          onclick="openWhatsAppByKey('diagnóstico')">
+          <i class="ph-fill ph-whatsapp-logo text-lg" aria-hidden="true"></i>
+          Diagnóstico gratuito
+        </button>
+
+        <!-- Burger Mobile -->
+        <button id="menu-btn" type="button"
+          class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Menu"
+          aria-expanded="false" onclick="toggleMobileMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path id="icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+            <path id="icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+      </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-xl">
+      <div class="container mx-auto px-6 py-4 flex flex-col gap-1">
+        <a href="#soluções"
+          class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Catálogo</a>
+        <a href="#processo"
+          class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Como
+          funciona</a>
+        <a href="#faq"
+          class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Dúvidas
+          rápidas</a>
+        <a href="../servicos/servicos.html"
+          class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Serviços</a>
+
+        <button type="button"
+          class="whatsapp-btn mt-2 w-full py-3 px-4 bg-brand-orange text-white font-bold rounded-xl hover:bg-[#d55b1a] transition-colors"
+          data-offer="diagnóstico" data-category="mobile-menu" data-action="whatsapp"
+          onclick="openWhatsAppByKey('diagnóstico')">Diagnóstico gratuito via WhatsApp</button>
+      </div>
+    </div>
   </header>
 
   <main id="inicio">
-    <section
-      class="tech-hero w-full min-h-[78vh] md:min-h-[82vh] flex flex-col items-center justify-center pt-32 md:pt-40 pb-16 md:pb-20 px-5 text-center relative overflow-hidden">
-      <div
-        class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[min(46rem,92vw)] h-[28rem] bg-[#D4AF37] opacity-[0.055] blur-[105px] rounded-full pointer-events-none">
-      </div>
-      <div
-        class="absolute bottom-0 right-[-10rem] w-[24rem] h-[24rem] bg-emerald-500/5 blur-[95px] rounded-full pointer-events-none">
-      </div>
-
-      <div class="tech-hero-layout max-w-7xl mx-auto w-full">
-        <div class="tech-hero-copy">
-          <div class="hero-kicker inline-flex items-center gap-3 mb-7 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm max-w-full">
-            <span class="text-[#D4AF37] text-[0.7rem] md:text-xs font-black uppercase tracking-[0.18em]">Tecnologia prática para vender e organizar melhor</span>
-          </div>
-
-          <h1 class="hero-title text-5xl md:text-7xl lg:text-[5.4rem] font-black text-white mb-7 leading-[1.02] tracking-tight">
-            Sistemas e sites para <span class="text-gradient-gold">negócios reais.</span>
-          </h1>
-
-          <p class="text-base md:text-xl text-[var(--text-muted)] font-light leading-relaxed mb-9">
-            Sistemas de gestão, páginas comerciais e projetos sob medida construídos a partir da rotina da sua operação.
-            Você vê a solução, entende o fluxo e decide com mais clareza.
-          </p>
-
-          <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-            <a href="#soluções" class="premium-link primary !mt-0" data-offer="catalogo" data-category="hero" data-action="anchor">
-              Ver demos e soluções <i class="ph-light ph-arrow-down text-xl"></i>
-            </a>
-            <button type="button" class="whatsapp-btn premium-btn light !mt-0" data-offer="diagnóstico" data-category="hero" data-action="whatsapp" onclick="openWhatsAppByKey('diagnóstico')">
-              Solicitar diagnóstico <i class="ph-fill ph-whatsapp-logo text-xl"></i>
-            </button>
-          </div>
-
-          <div class="tech-hero-proof" aria-label="Diferenciais da Plena">
-            <span>20 anos de experiência em SJC</span>
-            <span>Demos prontas para testar</span>
-            <span>Atendimento humano</span>
-          </div>
-        </div>
-
-        <aside class="tech-delivery-panel" aria-label="Como a Plena estrutura sua solução">
-          <div class="tech-delivery-panel__top"><span>VISÃO DA ENTREGA</span><i class="ph-light ph-cpu"></i></div>
-          <h2>Da necessidade ao uso com uma rota definida.</h2>
-          <div class="tech-delivery-panel__items">
-            <div><i class="ph-light ph-squares-four"></i><span><strong>Sistemas de gestão</strong><small>Rotinas, pessoas e indicadores conectados.</small></span></div>
-            <div><i class="ph-light ph-layout"></i><span><strong>Páginas comerciais</strong><small>Oferta clara, CTA visível e caminho de conversão.</small></span></div>
-            <div><i class="ph-light ph-sliders-horizontal"></i><span><strong>Projetos sob medida</strong><small>Escopo alinhado ao processo que precisa evoluir.</small></span></div>
-          </div>
-          <p><span class="tech-delivery-panel__signal"></span> Demonstrações e diagnóstico antes da decisão.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section id="soluções" class="tech-showcase w-full py-20 md:py-24 px-5 relative z-10">
+    <section id="soluções" class="tech-showcase w-full pt-28 md:pt-36 pb-20 md:pb-24 px-5 relative z-10">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-12 md:mb-16">
-          <span class="text-[#D4AF37] text-xs font-black uppercase tracking-[0.22em]">Catálogo comercial</span>
-          <h2 class="text-3xl md:text-5xl font-black text-white mt-3 mb-4 tracking-tight">Escolha pelo problema que
-            precisa resolver</h2>
-          <p class="text-[var(--text-muted)] font-light max-w-3xl mx-auto leading-relaxed">Sistemas para operação
-            diária, páginas para captar clientes e soluções para estruturar o seu negócio.</p>
-        </div>
+        <header class="catalog-head">
+          <span class="catalog-badge"><span class="catalog-badge__dot" aria-hidden="true"></span> Catálogo comercial</span>
+          <h1 class="catalog-title">Catálogo Plena: sistemas, sites e automações.</h1>
+          <p class="catalog-lead">Escolha pelo problema que precisa resolver: sistemas para a operação diária, páginas
+            para captar clientes e projetos sob medida. As demos abrem aqui mesmo, sem instalar nada.</p>
+          <ul class="catalog-proof" aria-label="Diferenciais da Plena">
+            <li>20 anos de experiência em SJC</li>
+            <li>Demos prontas para testar</li>
+            <li>Atendimento humano</li>
+          </ul>
+        </header>
 
         <div
           class="tab-track flex gap-3 mb-10 overflow-x-auto pb-4 scrollbar-none justify-start md:justify-center w-full border-b border-white/5"
@@ -419,167 +425,789 @@
                     class="ph-light ph-arrow-right"></i></a>
               </div>
             </article>
+
+            <article class="bento-card system-sample-card" data-offer="gestao-lavarapido" data-category="sistemas">
+              <figure class="system-card-media">
+                <img src="../assets/images/herolavarapido.png" alt="Tela do sistema Gestão Lava-Rápido">
+              </figure>
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-car text-3xl"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Gestão Lava-Rápido</h3>
+                    <span class="system-card-meta">Licença vitalícia · Demo disponível</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Fila de pátio em tempo real, comissões por lavador e frente de caixa.</h4>
+                <p class="system-card-description">Check-in ágil por placa com registro de avarias, etapas operacionais Kanban, cálculo de comissões da equipe e controle de insumos 100% offline.</p>
+                <div class="system-card-price">Licença vitalícia R$ 299,90</div>
+              </div>
+              <div class="system-card-actions">
+                <button type="button" onclick="openDemoModal('demos/gestao-lavarapido/index.html', 'gestao-lavarapido', 'compact')"
+                  class="premium-btn primary !mt-0" data-offer="gestao-lavarapido" data-category="sistemas"
+                  data-action="demo"><span>Ver demo</span></button>
+                <a href="../produtos/gestao-lavarapido.html" class="premium-link" data-offer="gestao-lavarapido"
+                  data-category="sistemas" data-action="landing"><span>Ver sistema completo</span> <i
+                    class="ph-light ph-arrow-right"></i></a>
+              </div>
+            </article>
           </div>
 
           <div id="tab-premium"
-            class="tab-pane showcase-rail grid-cols-1 md:grid-cols-2 gap-6"
+            class="tab-pane showcase-rail grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
             role="tabpanel" aria-labelledby="tbtn-premium" tabindex="0" hidden>
-            <article class="category-portal-card bento-card md:col-span-2" data-offer="sites-premium-portal" data-category="sites-premium">
-              <div class="category-portal-info">
-                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white max-w-max">Presença digital de alto nível</div>
-                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Sites Premium para marcas que querem crescer</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">Explore referências por segmento, entenda como construímos e inicie um diagnóstico com a Plena.</p>
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <a href="sites-premium/index.html" class="premium-btn primary !mt-0 text-center" data-offer="sites-premium-portal" data-category="sites-premium" data-action="landing"><span>Entrar no portal</span> <i class="ph-light ph-arrow-right"></i></a>
-                  <button type="button" onclick="openWhatsAppForOffer('site-premium-outro')" class="whatsapp-btn premium-btn !mt-0" data-offer="site-premium-outro" data-category="sites-premium" data-action="whatsapp">Planejar meu site</button>
+            <article class="bento-card segment-card" data-offer="site-premium-clinica" data-category="sites-premium">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-heartbeat text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Clínica &amp; Saúde</h3>
+                    <span class="system-card-meta">Modelo navegável</span>
+                  </div>
                 </div>
+                <h4 class="system-card-summary">Presença acolhedora para clínicas e consultórios.</h4>
+                <p class="system-card-description">Especialidades médicas, rotas de cuidado e agendamento de consultas
+                  em uma experiência humanizada.</p>
               </div>
-              <div class="category-portal-preview-wrapper hidden lg:flex !p-0 overflow-hidden">
-                <img src="sites-premium/assets/portal-hero.png" alt="Portal visual de Sites Premium" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
-              </div>
-            </article>
-          </div>
-          <div id="tab-landing" class="tab-pane showcase-rail grid-cols-1 gap-6" role="tabpanel"
-            aria-labelledby="tbtn-landing" tabindex="0" hidden>
-            <article class="category-portal-card bento-card" data-offer="landing-pages-portal" data-category="landing-pages">
-              <div class="category-portal-info">
-                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white max-w-max">
-                  Captação, Campanhas e Vendas
-                </div>
-                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Páginas Comerciais e Landing Pages Premium</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">
-                  Apresente sua oferta de forma clara, objetiva e profissional. Estruturas ideais para campanhas de tráfego pago, lançamentos de produtos e captação direta de clientes qualificados.
-                </p>
-
-                <div class="category-portal-metrics" aria-label="Diferenciais técnicos das landing pages">
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-lightning"></i> Carregamento otimizado</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-code"></i> Código limpo sem construtores lentos</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-magnifying-glass"></i> Otimização técnica para SEO nativo</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-device-mobile"></i> Responsividade mobile homologada</span>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <a href="landing-pages/index.html" class="premium-btn primary !mt-0 text-center"
-                    data-offer="landing-pages-portal" data-category="landing-pages"
-                    data-action="landing"><span>Ver catálogo de landing pages</span> <i class="ph-light ph-arrow-right"></i></a>
-                  <button type="button" onclick="openWhatsAppByKey('landing')" class="whatsapp-btn premium-btn !mt-0"
-                    data-offer="landing-pages-portal" data-category="landing-pages" data-action="whatsapp">Solicitar página</button>
-                </div>
-
-                <div class="category-portal-tags">
-                  <span class="category-portal-tags-title">Formatos inclusos no catálogo:</span>
-                  <span class="category-portal-tag">Captura de Leads</span>
-                  <span class="category-portal-tag">Diagnóstico WhatsApp</span>
-                  <span class="category-portal-tag">Agendamento & Orçamento</span>
-                  <span class="category-portal-tag">Lançamento / SaaS</span>
-                  <span class="category-portal-tag">Material Rico</span>
-                  <span class="category-portal-tag">Evento / Webinar</span>
-                  <span class="category-portal-tag">Case de Sucesso</span>
-                  <span class="category-portal-tag">Comparativo de Mercado</span>
-                  <span class="category-portal-tag">Release Notes</span>
-                  <span class="category-portal-tag">Lista de Espera (VIP)</span>
-                  <span class="category-portal-tag">Oferta Relâmpago</span>
-                  <span class="category-portal-tag">Link na Bio</span>
-                </div>
-              </div>
-
-              <div class="category-portal-preview-wrapper hidden lg:flex !p-0 overflow-hidden">
-                <img src="../assets/images/herooferta.png" alt="Modelo de Landing Page Oferta Relâmpago" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              <div class="system-card-actions">
+                <a href="sites-premium/clinica-saude/index.html" class="premium-btn primary !mt-0"
+                  data-offer="site-premium-clinica" data-category="sites-premium" data-action="demo"><span>Navegar no
+                    modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="site-premium-clinica"
+                  data-category="sites-premium" data-action="whatsapp">Consultar</button>
               </div>
             </article>
-          </div>
 
-          <div id="tab-sites" class="tab-pane showcase-rail grid-cols-1 gap-6" role="tabpanel"
-            aria-labelledby="tbtn-sites" tabindex="0" hidden>
-            <article class="category-portal-card bento-card" data-offer="projetos-consulta-portal" data-category="projetos-consulta">
-              <div class="category-portal-info">
-                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white max-w-max">
-                  Sistemas e Soluções Customizadas
+            <article class="bento-card segment-card" data-offer="site-premium-arquitetura" data-category="sites-premium">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-buildings text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Arquitetura &amp; Engenharia</h3>
+                    <span class="system-card-meta">Modelo navegável</span>
+                  </div>
                 </div>
-                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Sistemas Web e Softwares sob Medida</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">
-                  Desenvolvemos ERPs, CRMs, portais corporativos e dashboards de inteligência integrados à sua operação real. Foco na autonomia total do código e na eficiência dos seus processos, reduzindo dependência de licenças recorrentes quando o escopo permitir.
-                </p>
-
-                <div class="category-portal-metrics" aria-label="Diferenciais de projetos sob consulta">
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-key"></i> Autonomia de dados e código</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-plugs"></i> Integrações nativas de pagamento e APIs</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-shield-check"></i> Segurança e escalabilidade B2B</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-cloud-arrow-up"></i> Hospedagem em nuvem própria</span>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <a href="projetos-sob-consulta/index.html" class="premium-btn primary !mt-0 text-center"
-                    data-offer="projetos-consulta-portal" data-category="projetos-consulta"
-                    data-action="landing"><span>Ver catálogo de projetos</span> <i class="ph-light ph-arrow-right"></i></a>
-                  <button type="button" onclick="openWhatsAppForOffer('erps-custom')" class="whatsapp-btn premium-btn !mt-0"
-                    data-offer="projetos-consulta-portal" data-category="projetos-consulta" data-action="whatsapp">Consultar especialista</button>
-                </div>
-
-                <div class="category-portal-tags">
-                  <span class="category-portal-tags-title">Segmentos inclusos no catálogo:</span>
-                  <span class="category-portal-tag">Dashboards & B.I.</span>
-                  <span class="category-portal-tag">ERPs Corporativos</span>
-                  <span class="category-portal-tag">CRMs sob Medida</span>
-                  <span class="category-portal-tag">Sites Premium</span>
-                  <span class="category-portal-tag">Portais de Clientes</span>
-                  <span class="category-portal-tag">Intranet</span>
-                </div>
+                <h4 class="system-card-summary">Portfólio editorial para ateliers e escritórios.</h4>
+                <p class="system-card-description">Partidos de projeto, método construtivo, evolução da obra e
+                  apresentação em 3D.</p>
               </div>
-
-              <div class="category-portal-preview-wrapper hidden lg:flex !p-0 overflow-hidden">
-                <img src="../assets/images/heroprojconsult.png" alt="Modelo de Dashboard Corporativo sob Consulta" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              <div class="system-card-actions">
+                <a href="sites-premium/arquitetura/index.html" class="premium-btn primary !mt-0"
+                  data-offer="site-premium-arquitetura" data-category="sites-premium" data-action="demo"><span>Navegar
+                    no modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="site-premium-arquitetura"
+                  data-category="sites-premium" data-action="whatsapp">Consultar</button>
               </div>
             </article>
+
+            <article class="bento-card segment-card" data-offer="site-premium-advocacia" data-category="sites-premium">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-scales text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Advocacia</h3>
+                    <span class="system-card-meta">Modelo navegável</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Direção sóbria para escritórios de advocacia.</h4>
+                <p class="system-card-description">Solidez jurídica, confidencialidade e captação de causas de alta
+                  complexidade.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="sites-premium/advocacia/index.html" class="premium-btn primary !mt-0"
+                  data-offer="site-premium-advocacia" data-category="sites-premium" data-action="demo"><span>Navegar no
+                    modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="site-premium-advocacia"
+                  data-category="sites-premium" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="site-premium-imobiliaria" data-category="sites-premium">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-house-line text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Imobiliária</h3>
+                    <span class="system-card-meta">Modelo navegável</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Vitrine de alto padrão para imobiliárias.</h4>
+                <p class="system-card-description">Busca por tipo e localização, fichas completas e contato qualificado
+                  em poucos cliques.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="sites-premium/imobiliaria/index.html" class="premium-btn primary !mt-0"
+                  data-offer="site-premium-imobiliaria" data-category="sites-premium" data-action="demo"><span>Navegar
+                    no modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="site-premium-imobiliaria"
+                  data-category="sites-premium" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="site-premium-gastronomia" data-category="sites-premium">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-fork-knife text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Restaurante &amp; Gastronomia</h3>
+                    <span class="system-card-meta">Modelo navegável</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Atmosfera imersiva para alta gastronomia.</h4>
+                <p class="system-card-description">Menu degustação, carta de vinhos e direcionamento fluido para reservas
+                  de mesa.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="sites-premium/gastronomia/index.html" class="premium-btn primary !mt-0"
+                  data-offer="site-premium-gastronomia" data-category="sites-premium" data-action="demo"><span>Navegar
+                    no modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="site-premium-gastronomia"
+                  data-category="sites-premium" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="site-premium-estetica" data-category="sites-premium">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-flower-lotus text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Clínica de Estética &amp; Spa</h3>
+                    <span class="system-card-meta">Modelo navegável</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Refúgio digital para estética e spa.</h4>
+                <p class="system-card-description">Rituais de cuidado, protocolos VIP e agendamento de avaliações
+                  exclusivas.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="sites-premium/estetica/index.html" class="premium-btn primary !mt-0"
+                  data-offer="site-premium-estetica" data-category="sites-premium" data-action="demo"><span>Navegar no
+                    modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="site-premium-estetica"
+                  data-category="sites-premium" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <p class="segment-pane__foot">
+              <a href="sites-premium/index.html" class="premium-link" data-offer="sites-premium-portal"
+                data-category="sites-premium" data-action="landing"><span>Ver o portal de Sites Premium</span> <i
+                  class="ph-light ph-arrow-right"></i></a>
+            </p>
+          </div>
+          <div id="tab-landing" class="tab-pane showcase-rail grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
+            role="tabpanel" aria-labelledby="tbtn-landing" tabindex="0" hidden>
+            <article class="bento-card segment-card" data-offer="captura-leads" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-funnel text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Captura de Leads</h3>
+                    <span class="system-card-meta">Modelo pronto para adaptar</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Isca digital em troca de contatos qualificados.</h4>
+                <p class="system-card-description">Checklist, e-book ou cupom com formulário simples para nutrir novos
+                  leads.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="modelos/landing-pages/captura-leads/index.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="captura-leads" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="captura-leads" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="captura-leads" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-whatsapp-logo text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Diagnóstico via WhatsApp</h3>
+                    <span class="system-card-meta">Modelo pronto para adaptar</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Tráfego de anúncios direto para conversa qualificada.</h4>
+                <p class="system-card-description">Página enxuta que leva o visitante ao WhatsApp oficial com o
+                  contexto da oferta.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="modelos/landing-pages/diagnostico-whatsapp/index.html" target="_blank"
+                  rel="noopener noreferrer" class="premium-btn primary !mt-0" data-offer="captura-leads"
+                  data-category="landing-pages" data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="captura-leads" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="agendamento" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-calendar-check text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Agendamento &amp; Orçamento</h3>
+                    <span class="system-card-meta">Estrutura sob diagnóstico</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Reuniões e briefings captados com antecedência.</h4>
+                <p class="system-card-description">Agenda integrada e formulário de escopo para serviços que exigem
+                  conversa antes da proposta.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-06-agendamento.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="agendamento" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="agendamento" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="landing-infoproduto" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-rocket-launch text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Lançamento / SaaS</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Recursos e planos explicados com clareza.</h4>
+                <p class="system-card-description">Estrutura para venda direta de produtos digitais e clubes de
+                  assinatura.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-01-lancamento.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="landing-infoproduto" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="landing-infoproduto"
+                  data-category="landing-pages" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="captura-leads" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-file-text text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Material Rico / Opt-in</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Conversão rápida com entrega automática.</h4>
+                <p class="system-card-description">Formulário curto para captação de topo e meio de funil em tráfego
+                  pago.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-02-material-rico.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="captura-leads" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="captura-leads" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="eventos-ingressos" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-megaphone text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Evento / Webinar</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Inscrições com cronograma e contagem regressiva.</h4>
+                <p class="system-card-description">Página para eventos, transmissões ao vivo e workshops
+                  corporativos.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-03-webinar.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="eventos-ingressos" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="eventos-ingressos"
+                  data-category="landing-pages" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="case-sucesso" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-trophy text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Case de Sucesso</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Resultados contados como narrativa editorial.</h4>
+                <p class="system-card-description">Fundo de funil para fechar contratos de maior ticket com prova
+                  concreta.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-04-case.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="case-sucesso" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="case-sucesso" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="comparativo" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-chart-bar text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Comparativo de Mercado</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Recursos e escopos colocados lado a lado.</h4>
+                <p class="system-card-description">Ajuda o cliente a decidir quando pesquisa concorrentes diretos.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-05-comparativo.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="comparativo" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="comparativo" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="feature" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-list-checks text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Release Notes / Changelog</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Evoluções do produto comunicadas com clareza.</h4>
+                <p class="system-card-description">Retenção de usuários ativos e demonstração de maturidade técnica do
+                  time.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-07-feature.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="feature" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="feature" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="waitlist" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-hourglass text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Lista de Espera (VIP)</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Antecipação de lotes e lançamentos.</h4>
+                <p class="system-card-description">Usada antes da abertura oficial de turmas, eventos ou novos
+                  serviços.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-08-waitlist.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="waitlist" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="waitlist" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="oferta" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-lightning text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Oferta Relâmpago</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Venda rápida com escassez explícita.</h4>
+                <p class="system-card-description">Promoções de 24 horas, datas sazonais ou bônus de curtíssimo
+                  prazo.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-09-oferta.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="oferta" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="oferta" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="link-bio" data-category="landing-pages">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-link text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Link na Bio</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Página mobile centralizando todos os CTAs.</h4>
+                <p class="system-card-description">Link de perfil para Instagram e TikTok com caminho curto até o
+                  WhatsApp.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="landing-pages/lp-10-bio.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="link-bio" data-category="landing-pages"
+                  data-action="demo"><span>Ver modelo</span></a>
+                <button type="button" class="premium-btn" data-offer="link-bio" data-category="landing-pages"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <p class="segment-pane__foot">
+              <a href="landing-pages/index.html" class="premium-link" data-offer="landing-pages"
+                data-category="landing-pages" data-action="landing"><span>Ver a página completa de landing
+                  pages</span> <i class="ph-light ph-arrow-right"></i></a>
+            </p>
           </div>
 
-          <div id="tab-ecom" class="tab-pane showcase-rail grid-cols-1 gap-6"
+          <div id="tab-sites" class="tab-pane showcase-rail grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
+            role="tabpanel" aria-labelledby="tbtn-sites" tabindex="0" hidden>
+            <article class="bento-card segment-card" data-offer="dashboards-bi" data-category="projetos-consulta">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-chart-line-up text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Dashboards &amp; B.I.</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Dados dispersos em um painel executivo.</h4>
+                <p class="system-card-description">Financeiro, vendas e marketing consolidados, substituindo planilhas
+                  lentas.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/projetos-b2b/demo-dashboard.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="dashboards-bi" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="dashboards-bi" data-category="projetos-consulta"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="erps-custom" data-category="projetos-consulta">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-factory text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">ERP Sob Medida</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Estoque, faturamento e ordens no seu fluxo.</h4>
+                <p class="system-card-description">Para operações que não cabem em sistemas genéricos de mercado.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/projetos-b2b/demo-erp.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="erps-custom" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="erps-custom" data-category="projetos-consulta"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="crms" data-category="projetos-consulta">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-users-three text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">CRM B2B</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Funil corporativo com histórico e propostas.</h4>
+                <p class="system-card-description">Follow-up organizado para times que vendem em ciclos longos.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/projetos-b2b/demo-crm.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="crms" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="crms" data-category="projetos-consulta"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="site-corporativo" data-category="projetos-consulta">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-globe text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Sites Premium</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Marca institucional com design premium e SEO.</h4>
+                <p class="system-card-description">Para substituir sites lentos que passam imagem amadora no
+                  celular.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/projetos-b2b/demo-site-premium.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="site-corporativo" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="site-corporativo"
+                  data-category="projetos-consulta" data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="portais" data-category="projetos-consulta">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-lock-key text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Portais &amp; Intranet</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Áreas restritas para clientes e colaboradores.</h4>
+                <p class="system-card-description">Arquivos de suporte, relatórios e fluxos internos em ambiente
+                  seguro.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/projetos-b2b/demo-portal.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="portais" data-category="projetos-consulta"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="portais" data-category="projetos-consulta"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <p class="segment-pane__foot">
+              <a href="projetos-sob-consulta/index.html" class="premium-link" data-offer="projetos-consulta-portal"
+                data-category="projetos-consulta" data-action="landing"><span>Ver a página completa de projetos sob
+                  consulta</span> <i class="ph-light ph-arrow-right"></i></a>
+            </p>
+          </div>
+
+          <div id="tab-ecom" class="tab-pane showcase-rail grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
             role="tabpanel" aria-labelledby="tbtn-ecom" tabindex="0" hidden>
-            <article class="category-portal-card bento-card" data-offer="ecommerce-portal" data-category="ecommerce">
-              <div class="category-portal-info">
-                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white max-w-max">
-                  Lojas Virtuais e Catálogos Online
+            <article class="bento-card segment-card" data-offer="ecom-moda" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-t-shirt text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Moda &amp; Vestuário</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
                 </div>
-                <h3 class="text-3xl md:text-4xl font-black text-white mb-4">E-commerce sob Diagnóstico</h3>
-                <p class="text-[var(--text-muted)] font-light leading-relaxed mb-6">
-                  Antes de falar em loja virtual, entendemos catálogo, estoque, formas de pagamento, logística de entrega e rotina comercial.
-                  O projeto nasce desse diagnóstico — sem prometer resultados que dependem de fatores fora do código.
-                </p>
-
-                <div class="category-portal-metrics" aria-label="Diferenciais do e-commerce Plena">
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-storefront"></i> Projeto sob diagnóstico</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-plugs"></i> Integrações avaliadas por escopo</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-device-mobile"></i> Responsivo e otimizado</span>
-                  <span class="category-portal-metric-tag"><i class="ph-bold ph-magnifying-glass"></i> SEO técnico nativo</span>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <a href="ecommerce/index.html" class="premium-btn primary !mt-0 text-center"
-                    data-offer="ecommerce-portal" data-category="ecommerce"
-                    data-action="landing"><span>Ver catálogo de e-commerce</span> <i class="ph-light ph-arrow-right"></i></a>
-                  <button type="button" onclick="openWhatsAppByKey('ecommerce')" class="whatsapp-btn premium-btn !mt-0"
-                    data-offer="ecommerce-portal" data-category="ecommerce" data-action="whatsapp">Solicitar diagnóstico de loja</button>
-                </div>
-
-                <div class="category-portal-tags">
-                  <span class="category-portal-tags-title">Segmentos no catálogo:</span>
-                  <span class="category-portal-tag">Moda &amp; Vestuário</span>
-                  <span class="category-portal-tag">Eletrônicos &amp; Tech</span>
-                  <span class="category-portal-tag">Supermercado / Delivery</span>
-                  <span class="category-portal-tag">B2B / Atacado</span>
-                  <span class="category-portal-tag">Infoprodutos &amp; Cursos</span>
-                  <span class="category-portal-tag">Assinaturas &amp; Clubes</span>
-                  <span class="category-portal-tag">Peças Automotivas</span>
-                  <span class="category-portal-tag">Saúde &amp; Farmácia</span>
-                  <span class="category-portal-tag">Móveis &amp; Decoração</span>
-                  <span class="category-portal-tag">Cosméticos &amp; Beleza</span>
-                </div>
+                <h4 class="system-card-summary">Lookbook e variações fáceis de escolher.</h4>
+                <p class="system-card-description">Grandes imagens, galeria e seleção de cor e tamanho para catálogo de
+                  moda.</p>
               </div>
-
-              <div class="category-portal-preview-wrapper hidden lg:flex !p-0 overflow-hidden">
-                <img src="../assets/images/heroecommerce.png" alt="Modelo de E-commerce sob Diagnóstico" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-moda.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-moda" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-moda" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
               </div>
             </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-eletronicos" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-desktop-tower text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Eletrônicos &amp; Tech</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Ficha técnica densa e comparativos.</h4>
+                <p class="system-card-description">Estrutura para catálogos técnicos com muitas variações e
+                  cross-sell.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-eletronicos.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-eletronicos" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-eletronicos" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-supermercado" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-shopping-cart text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Supermercado / Delivery</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Compra ágil com muitos SKUs.</h4>
+                <p class="system-card-description">Busca robusta e adição rápida sem sair da listagem, para pedidos
+                  frequentes.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-supermercado.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-supermercado" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-supermercado" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-b2b" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-buildings text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">B2B / Atacado</h3>
+                    <span class="system-card-meta">Estrutura sob diagnóstico</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Preço por volume e aprovação de crédito.</h4>
+                <p class="system-card-description">Tabelas por volume, pedido mínimo e restrição de preço
+                  pré-login.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-atacado-b2b.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-b2b" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-b2b" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-infoproduto" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-monitor-play text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Infoprodutos &amp; Cursos</h3>
+                    <span class="system-card-meta">Modelo visual adaptável</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Apresentação, ementa e prova social.</h4>
+                <p class="system-card-description">Checkout em poucos passos para cursos e ofertas digitais.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-infoproduto.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-infoproduto" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-infoproduto" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-assinaturas" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-arrows-clockwise text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Assinaturas &amp; Clubes</h3>
+                    <span class="system-card-meta">Estrutura sob diagnóstico</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Cobrança recorrente e controle de benefícios.</h4>
+                <p class="system-card-description">Gestão da assinatura pelo próprio cliente, por plano e por
+                  tier.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-assinaturas.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-assinaturas" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-assinaturas" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-autopecas" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-car text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Peças Automotivas</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Busca por marca, ano e modelo.</h4>
+                <p class="system-card-description">Tabela de compatibilidade e catálogo técnico alimentado pela base do
+                  cliente.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-autopecas.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-autopecas" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-autopecas" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-farmacia" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-first-aid text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Saúde &amp; Farmácia</h3>
+                    <span class="system-card-meta">Modelo visual adaptável</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Recompra rápida e envio de receita.</h4>
+                <p class="system-card-description">Navegação por categoria ou sintoma, com regras regulatórias
+                  avaliadas por escopo.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-farmacia.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-farmacia" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-farmacia" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-moveis" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-armchair text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Móveis &amp; Decoração</h3>
+                    <span class="system-card-meta">Demo conceitual</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Ambientação e frete para itens volumosos.</h4>
+                <p class="system-card-description">Galeria em alta resolução e jornada visual por cômodo.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-moveis.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-moveis" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-moveis" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <article class="bento-card segment-card" data-offer="ecom-cosmeticos" data-category="ecommerce">
+              <div class="system-card-content">
+                <div class="system-card-header">
+                  <div class="card-icon"><i class="ph-light ph-sparkle text-3xl" aria-hidden="true"></i></div>
+                  <div>
+                    <h3 class="system-card-title">Cosméticos &amp; Beleza</h3>
+                    <span class="system-card-meta">Modelo visual adaptável</span>
+                  </div>
+                </div>
+                <h4 class="system-card-summary">Identidade sofisticada e filtros por tipo de pele.</h4>
+                <p class="system-card-description">Estrutura para marcas de beleza com catálogo organizado por
+                  linha.</p>
+              </div>
+              <div class="system-card-actions">
+                <a href="demos/ecommerce/demo-cosmeticos.html" target="_blank" rel="noopener noreferrer"
+                  class="premium-btn primary !mt-0" data-offer="ecom-cosmeticos" data-category="ecommerce"
+                  data-action="demo"><span>Ver demo</span></a>
+                <button type="button" class="premium-btn" data-offer="ecom-cosmeticos" data-category="ecommerce"
+                  data-action="whatsapp">Consultar</button>
+              </div>
+            </article>
+
+            <p class="segment-pane__foot">
+              <a href="ecommerce/index.html" class="premium-link" data-offer="ecommerce-portal"
+                data-category="ecommerce" data-action="landing"><span>Ver a página completa de e-commerce</span> <i
+                  class="ph-light ph-arrow-right"></i></a>
+            </p>
           </div>
 
           <!-- placeholder: cards de segmento movidos para tecnologia/ecommerce/index.html em 2026-07-30 -->
@@ -1007,40 +1635,6 @@
     </div>
   </div>
 
-  <!-- Mobile Sidebar Menu -->
-  <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
-    <!-- Backdrop -->
-    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
-    <!-- Drawer -->
-    <div
-      class="absolute top-0 right-0 w-72 h-full bg-[#080809] border-l border-white/10 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300"
-      id="mobile-drawer">
-      <div class="p-6 flex items-center justify-between border-b border-white/5">
-        <img src="../assets/images/logoplena.svg" alt="Plena" class="h-10 w-auto object-contain brightness-0 invert">
-        <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-[#D4AF37] p-2" aria-label="Fechar menu"
-          title="Fechar menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <div class="flex flex-col p-6 gap-6 text-sm font-semibold tracking-wide overflow-y-auto">
-        <a href="#inicio" class="text-gray-400 hover:text-white transition-colors" onclick="toggleMobileMenu()">Início</a>
-        <a href="#soluções" class="text-white hover:text-[#D4AF37] transition-colors"
-          onclick="toggleMobileMenu()">Soluções</a>
-        <a href="#processo" class="text-gray-400 hover:text-white transition-colors" onclick="toggleMobileMenu()">Como
-          funciona</a>
-        <a href="#faq" class="text-gray-400 hover:text-white transition-colors" onclick="toggleMobileMenu()">Dúvidas
-          rápidas</a>
-        <a href="../servicos/servicos.html" class="text-gray-400 hover:text-white transition-colors"
-          onclick="toggleMobileMenu()">Serviços</a>
-        <button type="button"
-          class="w-full mt-4 px-6 py-3 rounded-full bg-[#D4AF37] text-[#080809] text-sm font-black hover:bg-white transition-colors"
-          data-offer="diagnóstico" data-category="mobile-menu" data-action="whatsapp"
-          onclick="toggleMobileMenu(); openWhatsAppByKey('diagnóstico')">Diagnóstico gratuito</button>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>

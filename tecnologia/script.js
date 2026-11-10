@@ -7,6 +7,7 @@ const commercialMessages = {
   terapia: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Terapia Pro. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
   odonto: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Odonto Pro. Gostaria de conhecer a licença vitalícia e tirar dúvidas.',
   fit: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Fit Pro. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
+  lavarapido: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Lava-Rápido. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
   gastro: 'Olá! Vim pelo site da Plena e tenho interesse no sistema Gestão Gastro. Gostaria de agendar uma demonstração.',
   landing: 'Olá! Vim pelo site da Plena e gostaria de criar uma landing page para captar leads ou vender melhor.',
   siteCorporativo: 'Olá! Vim pelo site da Plena e gostaria de consultar sobre um site corporativo.',
@@ -28,6 +29,7 @@ const OFFER_MESSAGES = {
   'gestao-terapia': commercialMessages.terapia,
   'gestao-odonto': commercialMessages.odonto,
   'gestao-fit': commercialMessages.fit,
+  'gestao-lavarapido': commercialMessages.lavarapido,
   'landing-infoproduto': commercialMessages.landing,
   'captura-leads': commercialMessages.landing,
   'eventos-ingressos': commercialMessages.landing,
@@ -56,6 +58,8 @@ const OFFER_MESSAGES = {
   'site-premium-arquitetura': 'Olá! Vim pela página de tecnologia da Plena, naveguei no modelo de site premium para Arquitetura & Engenharia e gostaria de um orçamento para o meu escritório.',
   'site-premium-advocacia': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no site premium para Advocacia. Gostaria de um orçamento.',
   'site-premium-imobiliaria': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no site premium para Imobiliária. Gostaria de um orçamento.',
+  'site-premium-gastronomia': 'Olá! Vim pela página de tecnologia da Plena, naveguei no modelo de site premium para Restaurante & Gastronomia e gostaria de um orçamento para o meu negócio.',
+  'site-premium-estetica': 'Olá! Vim pela página de tecnologia da Plena, naveguei no modelo de site premium para Clínica de Estética & Spa e gostaria de um orçamento para o meu negócio.',
   'site-premium-outro': 'Olá! Vim pela página de tecnologia da Plena, vi a vitrine de Sites Premium e gostaria de um modelo para o meu segmento.'
 };
 
@@ -65,6 +69,7 @@ const solutionCatalog = [
   { categoria: 'sistemas', nome: 'Gestão Terapia Pro', setor: 'Psicologia e terapia', preco: 'R$ 499,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-terapia.html', demoUrl: 'demos/gestao-terapia/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.terapia },
   { categoria: 'sistemas', nome: 'Gestão Odonto Pro', setor: 'Odontologia e clínicas', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-odonto.html', demoUrl: 'demos/gestao-odonto/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.odonto },
   { categoria: 'sistemas', nome: 'Gestão Fit Pro', setor: 'Personal trainers e fitness', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-fit.html', demoUrl: 'demos/gestao-fit/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.fit },
+  { categoria: 'sistemas', nome: 'Gestão Lava-Rápido', setor: 'Lava-rápidos e estética automotiva', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-lavarapido.html', demoUrl: 'demos/gestao-lavarapido/index.html', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.lavarapido },
   { categoria: 'sistemas', nome: 'Beleza & Spa', setor: 'Beleza e estética', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/beleza-spa.html', demoUrl: 'demos/gestao-beleza/', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['beleza-spa'] },
   { categoria: 'landing-pages', nome: 'Landing Pages', setor: 'Campanhas e captação', preco: 'Sob consulta', status: 'Demo disponível', demoUrl: 'landing-pages/lp-01-lancamento.html', ctaLabel: 'Solicitar página', whatsappMessage: commercialMessages.landing }
 ];
@@ -189,6 +194,7 @@ const NICHE_MAP = {
   'gestao-terapia': 'demo',
   'gestao-odonto': 'demo',
   'gestao-fit': 'demo',
+  'gestao-lavarapido': 'demo',
   'gestão-gastro': 'breve',
   'landing-infoproduto': 'lancamento',
   'captura-leads': 'captacao',
@@ -426,22 +432,27 @@ function closeDemoModal() {
   }, 300);
 }
 
-// Menu mobile
+// Menu mobile (mesmo padrão de dropdown da página inicial)
 
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
-  const drawer = document.getElementById('mobile-drawer');
-  if (menu.classList.contains('hidden')) {
-    menu.classList.remove('hidden');
-    void menu.offsetWidth; // força reflow para a transição
-    drawer.classList.remove('translate-x-full');
-    document.body.style.overflow = 'hidden';
-  } else {
-    drawer.classList.add('translate-x-full');
-    document.body.style.overflow = '';
-    setTimeout(() => menu.classList.add('hidden'), 300);
-  }
+  const btn = document.getElementById('menu-btn');
+  if (!menu) return;
+
+  const willOpen = menu.classList.contains('hidden');
+  menu.classList.toggle('hidden', !willOpen);
+
+  if (btn) btn.setAttribute('aria-expanded', String(willOpen));
+  document.getElementById('icon-open')?.classList.toggle('hidden', !willOpen);
+  document.getElementById('icon-close')?.classList.toggle('hidden', willOpen);
 }
+
+document.querySelectorAll('#mobile-menu .mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    if (menu && !menu.classList.contains('hidden')) toggleMobileMenu();
+  });
+});
 
 // Inicialização (Init)
 

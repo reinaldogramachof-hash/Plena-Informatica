@@ -3474,3 +3474,118 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
     padding: 0 18px 18px;
   }
 }
+
+/* Gestão Lava-Rápido: identidade visual automotiva com azul elétrico, navy profundo e alto contraste */
+.assistencia-product-page.lavarapido-product-page {
+  --bg: #070C18;
+  --surface: rgba(15, 23, 42, .76);
+  --surface-strong: rgba(18, 30, 49, .92);
+  --muted: #94A3B8;
+  --text: #F8FAFC;
+  --brand: #0284C7;
+  --brand-light: #38BDF8;
+  --brand-dark: #0369A1;
+  --brand-accent: #0284C7;
+  --brand-soft: rgba(2, 132, 199, .15);
+}
+
+.lavarapido-product-page .assistencia-nav-brand__icon {
+  background: linear-gradient(135deg, rgba(2, 132, 199, .25), rgba(56, 189, 248, .08));
+  border: 1px solid rgba(2, 132, 199, .45);
+  color: #38BDF8;
+}
+
+.lavarapido-product-page .assistencia-nav-brand__copy small {
+  color: #38BDF8;
+  letter-spacing: .12em;
+}
+
+.lavarapido-product-page .lavarapido-hero {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(2, 132, 199, .18), transparent 32rem),
+    radial-gradient(circle at 15% 75%, rgba(3, 105, 161, .1), transparent 22rem),
+    linear-gradient(180deg, #070C18 0%, #0B192E 50%, #070C18 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.lavarapido-product-page .lavarapido-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, .03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, .03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+}
+
+.lavarapido-product-page .lavarapido-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 64px);
+  position: relative;
+  z-index: 2;
+}
+
+.lavarapido-product-page .lavarapido-hero-preview {
+  background: rgba(11, 19, 35, .92);
+  border: 1px solid rgba(2, 132, 199, .35);
+  border-radius: 20px;
+  padding: clamp(20px, 2.5vw, 26px);
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, .55),
+    0 0 0 1px rgba(255, 255, 255, .05) inset;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.lavarapido-product-page .clinical-trust-icon {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284C7;
+}
+
+.lavarapido-product-page .clinical-white-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 18px 36px -14px rgba(2, 132, 199, 0.14);
+}
+
+.lavarapido-product-page .clinical-white-card h3 svg {
+  color: #0284C7;
+}
+
+.lavarapido-product-page .clinical-routine-number {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284C7;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+}
+
+.lavarapido-product-page .clinical-cluster-header {
+  color: #0284C7;
+}
+
+.lavarapido-product-page .clinical-price-card-clean--featured {
+  border-color: #0284C7;
+  box-shadow: 0 22px 50px -18px rgba(2, 132, 199, 0.22);
+}
+
+.lavarapido-product-page .clinical-price-card-clean .price-badge {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284C7;
+}
+
+.lavarapido-product-page .clinical-faq-idx {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284C7;
+}
+
+@media (max-width: 767px) {
+  .lavarapido-product-page .lavarapido-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
