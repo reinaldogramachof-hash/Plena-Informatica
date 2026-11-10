@@ -30,11 +30,13 @@
       "logo": "https://plenainformatica.com.br/assets/images/logoplena.svg"
     },
     "offers": {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       "url": "https://plenainformatica.com.br/produtos/gestao-terapia.html",
       "availability": "https://schema.org/InStock",
-      "price": "499.90",
-      "priceCurrency": "BRL"
+      "priceCurrency": "BRL",
+      "lowPrice": "129.90",
+      "highPrice": "499.90",
+      "offerCount": 3
     },
     "featureList": [
       "Cofre local criptografado por senha (AES-GCM)",
@@ -53,6 +55,154 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/produtos.css">
+  <style>
+    /* Grade dos tres modelos de oferta do Gestao Terapia Pro */
+    .therapy-plans {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .therapy-plans .clinical-price-card-clean {
+      padding: 34px 26px;
+    }
+
+    .therapy-plan__name {
+      font-size: 21px;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .therapy-plan__desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #64748B;
+      margin: 0 0 18px;
+      min-height: 66px;
+    }
+
+    .therapy-plan__price {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+      color: #0F172A;
+      margin: 0 0 4px;
+      letter-spacing: -0.03em;
+    }
+
+    .therapy-plan__price small {
+      display: block;
+      margin-top: 7px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #64748B;
+      letter-spacing: 0;
+    }
+
+    .therapy-plan__plus {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1D4ED8;
+    }
+
+    .therapy-plans .clinical-features-checklist {
+      margin-top: 20px;
+      margin-bottom: 22px;
+      flex: 1;
+    }
+
+    .therapy-plan__flag {
+      position: absolute;
+      top: -13px;
+      left: 26px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #2563EB;
+      color: #FFFFFF;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .therapy-plan__footnote {
+      margin: 14px 0 0;
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: #94A3B8;
+    }
+
+    .therapy-implant {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: 1180px;
+      margin: 20px auto 0;
+      padding: 20px 24px;
+      border: 1px dashed #CBD5E1;
+      border-radius: 18px;
+      background: #F8FAFC;
+    }
+
+    .therapy-implant__copy {
+      flex: 1 1 320px;
+      min-width: 0;
+    }
+
+    .therapy-implant__copy strong {
+      display: block;
+      font-size: 15px;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+
+    .therapy-implant__copy span {
+      font-size: 13px;
+      line-height: 1.55;
+      color: #64748B;
+    }
+
+    @media (max-width: 1080px) {
+      .therapy-plans {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 740px) {
+      .therapy-plans {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      .therapy-plans .clinical-price-card-clean {
+        padding: 28px 22px;
+      }
+
+      .therapy-plan__desc {
+        min-height: 0;
+      }
+
+      .therapy-plan__price {
+        font-size: 28px;
+      }
+
+      .therapy-implant {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 
 <body id="topo"
@@ -82,7 +232,7 @@
         <a href="#rotina">Rotina</a>
         <a href="#modulos">Módulos</a>
         <a href="#privacidade">Privacidade</a>
-        <a href="#plano">Licença Vitalícia</a>
+        <a href="#plano">Planos</a>
         <a href="#faq">Dúvidas</a>
         <a href="../tecnologia/tecnologia.html">Tecnologia</a>
         <button class="btn primary" type="button" style="min-height:38px; padding:8px 16px; font-size:13px;" onclick="openDemoModal()">
@@ -123,7 +273,7 @@
         <a href="#rotina" data-mobile-menu-close><span>Rotina Clínica</span><span>→</span></a>
         <a href="#modulos" data-mobile-menu-close><span>Módulos do Sistema</span><span>→</span></a>
         <a href="#privacidade" data-mobile-menu-close><span>Privacidade e Ética</span><span>→</span></a>
-        <a href="#plano" data-mobile-menu-close><span>Licença Vitalícia</span><span>→</span></a>
+        <a href="#plano" data-mobile-menu-close><span>Planos</span><span>→</span></a>
         <a href="#faq" data-mobile-menu-close><span>Perguntas Frequentes</span><span>→</span></a>
         <a href="../tecnologia/tecnologia.html" data-mobile-menu-close><span>Tecnologia Plena</span><span>→</span></a>
       </nav>
@@ -145,20 +295,20 @@
     <section class="hero assistencia-hero therapy-hero">
       <div class="container therapy-hero-grid">
         <div class="product-hero-copy">
-          <span class="eyebrow"><i data-lucide="shield-check"></i> Consultório Autônomo · Licença Vitalícia</span>
+          <span class="eyebrow"><i data-lucide="shield-check"></i> Consultório Autônomo · 3 modelos de oferta</span>
           <h1>Seu consultório organizado. <span class="assistencia-hero__pro">Sob sua senha.</span></h1>
-          <p class="lead">Agenda clínica de sessões, prontuário seguro em 10 painéis, rascunho de evolução protegido, escalas PHQ-9 e GAD-7 e fluxo de caixa. Tudo no seu computador, com total privacidade e sem mensalidades.</p>
+          <p class="lead">Agenda clínica de sessões, prontuário seguro em 10 painéis, rascunho de evolução protegido, escalas PHQ-9 e GAD-7 e fluxo de caixa. Tudo no seu computador, com total privacidade — e a licença é sua. Agenda online e nuvem são opcionais.</p>
           <div class="actions">
             <button class="btn primary" onclick="openDemoModal()">
               <i data-lucide="monitor-up"></i>
               Abrir Demonstração Real
             </button>
-            <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Terapia Pro e tenho interesse na licença vitalícia para meu consultório.', 'Gestão Terapia')">
-              <i data-lucide="message-circle"></i>
-              Falar com Especialista
-            </button>
+            <a class="btn light" href="#plano">
+              <i data-lucide="layers"></i>
+              Ver os 3 modelos
+            </a>
           </div>
-          <p class="assistencia-hero-note"><i data-lucide="lock"></i> Seus dados ficam protegidos em cofre criptografado AES-GCM local. Sem prontuários expostos em nuvens de terceiros.</p>
+          <p class="assistencia-hero-note"><i data-lucide="lock"></i> No modelo de licença, seus dados ficam em cofre criptografado AES-GCM no seu computador — sem prontuários em nuvens de terceiros.</p>
         </div>
 
         <aside class="therapy-hero-preview" aria-label="Amostra da rotina Clínica Horizonte">
@@ -236,8 +386,8 @@
               <i data-lucide="check-circle"></i>
             </div>
             <div>
-              <strong>Licença Vitalícia</strong>
-              <small>Pagamento único de R$ 499,90. Livre de mensalidades ou aluguel de software.</small>
+              <strong>A partir de R$ 499,90</strong>
+              <small>Licença vitalícia que não expira, ou modelos em nuvem — você escolhe.</small>
             </div>
           </div>
 
@@ -430,7 +580,7 @@
               </li>
               <li>
                 <i data-lucide="x-circle"></i>
-                <span><strong>Sem mensalidades forçadas:</strong> O sistema não bloqueia seu acesso caso você decida não pagar mensalidades recorrentes.</span>
+                <span><strong>Sem bloqueio por assinatura:</strong> no modelo de licença, o sistema nunca deixa de abrir por falta de pagamento. Agenda online e nuvem são opcionais.</span>
               </li>
             </ul>
           </div>
@@ -438,71 +588,105 @@
       </div>
     </section>
 
-    <!-- BLOCO CLEAN: INVESTIMENTO & LICENÇA VITALÍCIA -->
+        <!-- BLOCOS CLEAN: TRES MODELOS DE OFERTA -->
     <section id="plano" class="clinical-light-section" style="background:#FFFFFF; border-top:none;">
       <div class="container">
-        <div style="max-width:760px; margin:0 auto 44px; text-align:center;">
-          <span class="eyebrow"><i data-lucide="tag"></i> Investimento Único</span>
-          <h2>Tenha um consultório moderno sem o peso de mensalidades fixas.</h2>
-          <p class="lead">Sistemas tradicionais de nuvem chegam a cobrar de R$ 150 a R$ 280 todo mês. No Gestão Terapia Pro, você investe uma única vez e o software é seu.</p>
+        <div style="max-width:780px; margin:0 auto 44px; text-align:center;">
+          <span class="eyebrow"><i data-lucide="layers"></i> Três formas de usar</span>
+          <h2>O sistema é seu. A nuvem e a agenda online são opcionais.</h2>
+          <p class="lead">A licença vitalícia não expira e não exige renovação. Se você quer que o paciente marque horário sozinho, ou prefere acessar de qualquer computador, existem dois modelos recorrentes — sempre como escolha sua. O sistema clínico é o mesmo nos três.</p>
         </div>
 
-        <div style="max-width:880px; margin:0 auto; display:grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 24px; align-items: stretch;">
-          <!-- CARD DESTAQUE: LICENÇA VITALÍCIA -->
-          <article class="clinical-price-card-clean clinical-price-card-clean--featured">
-            <span class="price-badge"><i data-lucide="award"></i> Licença Vitalícia · Pagamento Único</span>
-            <h3 style="font-size:24px; margin:0 0 4px; color:#0F172A;">Gestão Terapia Pro</h3>
-            <p style="font-size:14px; color:#64748B; margin:0 0 12px;">Software completo para 1 profissional autônomo instalar e usar sem limites.</p>
-            
-            <div class="clinical-price-val">
+        <div class="therapy-plans">
+          <!-- MODELO 1: ESSENCIAL -->
+          <article class="clinical-price-card-clean">
+            <span class="price-badge"><i data-lucide="hard-drive"></i> Licença Vitalícia</span>
+            <h3 class="therapy-plan__name">Essencial</h3>
+            <p class="therapy-plan__desc">O sistema completo instalado no seu computador. Você compra uma vez e usa sem prazo.</p>
+
+            <div class="therapy-plan__price">
               R$ 499,90
-              <small>Pagamento único à vista ou parcelado no cartão</small>
+              <small>Pagamento único · à vista ou parcelado no cartão</small>
             </div>
 
             <ul class="clinical-features-checklist">
-              <li><i data-lucide="check"></i> <span>Acesso vitalício sem cobrança de mensalidade</span></li>
-              <li><i data-lucide="check"></i> <span>Cofre criptografado local protegido por senha</span></li>
-              <li><i data-lucide="check"></i> <span>Agenda completa (Dia, Semana, Mês, Lista)</span></li>
-              <li><i data-lucide="check"></i> <span>Prontuário de pacientes em 10 painéis</span></li>
-              <li><i data-lucide="check"></i> <span>Evoluções de sessão com salvamento de rascunho</span></li>
-              <li><i data-lucide="check"></i> <span>Escalas científicas PHQ-9 e GAD-7 integradas</span></li>
-              <li><i data-lucide="check"></i> <span>Controle de pacotes, recibos e fluxo de caixa</span></li>
-              <li><i data-lucide="check"></i> <span>Backup em 1 clique e funcionamento 100% offline</span></li>
+              <li><i data-lucide="check"></i> <span>Sistema clínico completo, sem prazo de uso</span></li>
+              <li><i data-lucide="check"></i> <span>Cofre criptografado AES-GCM no seu computador</span></li>
+              <li><i data-lucide="check"></i> <span>Agenda em dia, semana, mês e lista</span></li>
+              <li><i data-lucide="check"></i> <span>Prontuário em 10 painéis e rascunho de evolução</span></li>
+              <li><i data-lucide="check"></i> <span>Escalas PHQ-9 e GAD-7 integradas</span></li>
+              <li><i data-lucide="check"></i> <span>Pacotes, recibos e fluxo de caixa</span></li>
+              <li><i data-lucide="check"></i> <span>Backup em 1 clique · funciona offline</span></li>
             </ul>
 
-            <button class="btn primary" style="width:100%; justify-content:center; padding:15px;" onclick="openProductWhatsApp('Olá! Gostaria de adquirir a Licença Vitalícia do Gestão Terapia Pro por R$ 499,90.', 'Gestão Terapia')">
-              <i data-lucide="check-circle-2"></i> Adquirir Licença Vitalícia
+            <button class="btn light" style="width:100%; justify-content:center; padding:14px;" onclick="openProductWhatsApp('Olá! Quero adquirir o modelo Essencial (licença vitalícia de R$ 499,90) do Gestão Terapia Pro.', 'Gestão Terapia')">
+              <i data-lucide="arrow-right"></i> Adquirir a licença
             </button>
           </article>
 
-          <!-- CARD SECUNDÁRIO: APOIO DE IMPLANTAÇÃO -->
-          <article class="clinical-price-card-clean" style="justify-content:space-between;">
-            <div>
-              <span class="price-badge" style="background:#F1F5F9; color:#475569;"><i data-lucide="wrench"></i> Suporte Especializado</span>
-              <h3 style="font-size:20px; margin:0 0 4px; color:#0F172A;">Implantação Orientada</h3>
-              <p style="font-size:13px; color:#64748B; margin:0 0 16px;">Para quem prefere acompanhamento passo a passo da nossa equipe técnica.</p>
+          <!-- MODELO 2: LICENCA + AGENDA ONLINE -->
+          <article class="clinical-price-card-clean clinical-price-card-clean--featured">
+            <span class="therapy-plan__flag">Mais escolhido</span>
+            <span class="price-badge"><i data-lucide="calendar"></i> Licença + Agenda Online</span>
+            <h3 class="therapy-plan__name">Essencial + Agenda Online</h3>
+            <p class="therapy-plan__desc">Tudo do Essencial, mais uma página de agendamento para o paciente escolher o horário sozinho.</p>
 
-              <div style="font-size:24px; font-weight:800; color:#0F172A; margin-bottom:18px;">
-                Sob Consulta
-                <small style="display:block; font-size:12px; font-weight:500; color:#64748B;">Acompanhamento individualizado</small>
-              </div>
+            <div class="therapy-plan__price">
+              R$ 499,90
+              <small>Licença vitalícia, paga uma única vez</small>
+            </div>
+            <span class="therapy-plan__plus"><i data-lucide="plus"></i> R$ 49,90/mês pela agenda online</span>
 
-              <ul class="clinical-features-checklist" style="margin-bottom:24px;">
-                <li><i data-lucide="check" style="color:#2563EB;"></i> <span>Sessão remota individual de boas-vindas</span></li>
-                <li><i data-lucide="check" style="color:#2563EB;"></i> <span>Configuração de dados do consultório e expediente</span></li>
-                <li><i data-lucide="check" style="color:#2563EB;"></i> <span>Orientação detalhada sobre rotina de backups</span></li>
-                <li><i data-lucide="check" style="color:#2563EB;"></i> <span>Canal de suporte humanizado via WhatsApp</span></li>
-              </ul>
+            <ul class="clinical-features-checklist">
+              <li><i data-lucide="check"></i> <span>Tudo o que está no Essencial</span></li>
+              <li><i data-lucide="check"></i> <span>Página de agendamento online do consultório</span></li>
+              <li><i data-lucide="check"></i> <span>Link próprio para enviar ao paciente</span></li>
+              <li><i data-lucide="check"></i> <span>O horário marcado entra direto na sua agenda</span></li>
+              <li><i data-lucide="check"></i> <span>O paciente não instala nada</span></li>
+            </ul>
+
+            <button class="btn primary" style="width:100%; justify-content:center; padding:14px;" onclick="openProductWhatsApp('Olá! Quero o Gestão Terapia Pro com Agenda Online (licença de R$ 499,90 + R$ 49,90/mês).', 'Gestão Terapia')">
+              <i data-lucide="calendar"></i> Quero com agenda online
+            </button>
+          </article>
+
+          <!-- MODELO 3: NUVEM COMPLETA -->
+          <article class="clinical-price-card-clean">
+            <span class="price-badge"><i data-lucide="cloud"></i> Sistema em nuvem</span>
+            <h3 class="therapy-plan__name">Nuvem Completa</h3>
+            <p class="therapy-plan__desc">O sistema completo hospedado por nós. Acesse de qualquer computador, sem instalar nada.</p>
+
+            <div class="therapy-plan__price">
+              R$ 129,90
+              <small>Por mês · cobrança recorrente, sem licença inicial</small>
             </div>
 
-            <button class="btn light" style="width:100%; justify-content:center;" onclick="openProductWhatsApp('Olá! Quero saber mais sobre a Implantação Orientada do Gestão Terapia Pro.', 'Gestão Terapia')">
-              <i data-lucide="message-circle"></i> Falar com Especialista
+            <ul class="clinical-features-checklist">
+              <li><i data-lucide="check"></i> <span>Sistema clínico completo, hospedado em nuvem</span></li>
+              <li><i data-lucide="check"></i> <span>Acesso de qualquer computador</span></li>
+              <li><i data-lucide="check"></i> <span>Sem instalação no seu equipamento</span></li>
+              <li><i data-lucide="check"></i> <span>Inclui agenda online para pacientes</span></li>
+              <li><i data-lucide="check"></i> <span>Suporte humano pelo WhatsApp</span></li>
+            </ul>
+
+            <button class="btn light" style="width:100%; justify-content:center; padding:14px;" onclick="openProductWhatsApp('Olá! Quero conhecer o modelo Nuvem Completa do Gestão Terapia Pro (R$ 129,90/mês).', 'Gestão Terapia')">
+              <i data-lucide="cloud"></i> Quero o sistema em nuvem
             </button>
           </article>
         </div>
 
+        <div class="therapy-implant">
+          <div class="therapy-implant__copy">
+            <strong>Implantação orientada (opcional)</strong>
+            <span>Sessão remota de boas-vindas, configuração do consultório e do expediente, orientação de backup e canal direto de suporte. Valor sob consulta.</span>
+          </div>
+          <button class="btn light" onclick="openProductWhatsApp('Olá! Quero saber mais sobre a Implantação Orientada do Gestão Terapia Pro.', 'Gestão Terapia')">
+            <i data-lucide="wrench"></i> Falar sobre implantação
+          </button>
+        </div>
+
         <p style="text-align:center; font-size:13px; color:#64748B; margin-top:24px;">
-          <i data-lucide="lock" style="width:14px; height:14px; display:inline; vertical-align:-2px;"></i> Transação segura e garantia de 7 dias com reembolso integral caso o sistema não atenda sua rotina.
+          <i data-lucide="lock" style="width:14px; height:14px; display:inline; vertical-align:-2px;"></i> Garantia de 7 dias com reembolso integral no modelo de licença. Nos modelos recorrentes, as condições são confirmadas no atendimento.
         </p>
       </div>
     </section>
@@ -546,12 +730,12 @@
             <summary class="clinical-faq-summary">
               <span class="clinical-faq-summary-left">
                 <span class="clinical-faq-idx">03</span>
-                <span>Existe alguma mensalidade ou taxa de manutenção oculta?</span>
+                <span>Preciso pagar mensalidade para usar o sistema?</span>
               </span>
               <i data-lucide="chevron-down" class="clinical-faq-chevron"></i>
             </summary>
             <p class="clinical-faq-answer">
-              Absolutamente nenhuma. O valor de R$ 499,90 é pagamento único com licença vitalícia permanente. O software é seu para utilizar sem mensalidades, assinaturas recorrentes ou cobranças surpresa.
+              Não no modelo de licença. Você paga R$ 499,90 uma vez e o sistema é seu, sem renovação nem taxa de manutenção. A cobrança mensal existe apenas em dois casos opcionais: agenda online para pacientes (R$ 49,90/mês, somada à licença) e sistema completo em nuvem (R$ 129,90/mês, sem licença inicial).
             </p>
           </details>
 
@@ -589,16 +773,16 @@
       <div class="container" style="max-width:720px; text-align:center;">
         <span class="eyebrow" style="justify-content:center; background:rgba(37,99,235,0.12); color:#60A5FA; border-color:rgba(59,130,246,0.3);"><i data-lucide="sparkles"></i> Experimente Agora</span>
         <h2 style="color:#F8FAFC;">Organize seu consultório com a segurança de saber exatamente onde seus dados estão.</h2>
-        <p style="color:#94A3B8; font-size:16px;">Abra a demonstração do sistema agora mesmo ou fale conosco no WhatsApp para tirar dúvidas antes de garantir sua licença vitalícia.</p>
+        <p style="color:#94A3B8; font-size:16px;">Abra a demonstração do sistema agora mesmo ou fale conosco no WhatsApp para tirar dúvidas antes de escolher o modelo que faz sentido para o seu consultório.</p>
         <div class="actions" style="justify-content:center;">
           <button class="btn primary" onclick="openDemoModal()">
             <i data-lucide="monitor-up"></i>
             Abrir Demonstração Real
           </button>
-          <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão Terapia Pro e gostaria de tirar dúvidas sobre a licença.', 'Gestão Terapia')">
-            <i data-lucide="message-circle"></i>
-            Conversar no WhatsApp
-          </button>
+          <a class="btn light" href="#plano">
+            <i data-lucide="layers"></i>
+            Comparar os 3 modelos
+          </a>
         </div>
       </div>
     </section>
