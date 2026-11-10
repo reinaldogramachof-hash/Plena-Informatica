@@ -1,0 +1,323 @@
+/* ==========================================================
+   Gestão Salas — Fundação visual v2 (Padrão Visual do Ecossistema v2.0)
+   Carregado DEPOIS de styles.css. Remova o <link> para reverter.
+   ========================================================== */
+@font-face{font-family:'Inter';src:url('../fonts/inter.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+
+:root{
+  --font-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --color-app-base:#F5F5F7; --color-surface:#FFFFFF; --color-elevated:#F0F0F2;
+  --color-border:#E4E4E7; --color-text:#18181B; --color-muted:#71717A;
+  --color-accent:#0D9488; --color-accent-hover:#0F766E;
+  --color-success:#22C55E; --color-warning:#F59E0B; --color-danger:#EF4444;
+  --radius-control:6px; --radius-panel:8px; --radius-section:12px;
+  --shadow-elevated:0 4px 16px rgba(0,0,0,.18);
+  /* variáveis legadas apontando para os tokens */
+  --body-bg:var(--color-app-base); --card-bg:var(--color-surface); --text-main:var(--color-text);
+  --border-light:var(--color-border); --surface-muted:var(--color-elevated);
+  --glass-bg:var(--color-surface); --glass-border:var(--color-border);
+  --brand-primary:var(--color-accent); --brand-dark:var(--color-accent-hover);
+}
+.dark{
+  --color-app-base:#0F0F11; --color-surface:#1A1A1E; --color-elevated:#242428;
+  --color-border:#2E2E32; --color-text:#FAFAFA; --color-muted:#A1A1AA;
+  --body-bg:var(--color-app-base); --card-bg:var(--color-surface); --text-main:var(--color-text);
+  --glass-bg:var(--color-surface); --glass-border:var(--color-border);
+  color-scheme:dark;
+}
+
+/* Base tipográfica */
+html{font-family:var(--font-sans)}
+body{font-family:var(--font-sans);font-size:14px;font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+.font-black,.font-extrabold{font-weight:700 !important}
+.tracking-tight{letter-spacing:0 !important}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-thumb{background:rgba(113,113,122,.4);border-radius:6px}
+::-webkit-scrollbar-track{background:transparent}
+
+/* Raios: controles 6 / painéis 8 / seções 12 */
+.rounded-lg{border-radius:var(--radius-control) !important}
+.rounded-xl,.rounded-2xl{border-radius:var(--radius-panel) !important}
+.rounded-3xl{border-radius:var(--radius-section) !important}
+
+/* Sombras: só funcional (modais/dropdowns) */
+.shadow,.shadow-sm,.shadow-md{box-shadow:none !important}
+.shadow-lg,.shadow-xl,.shadow-2xl{box-shadow:var(--shadow-elevated) !important}
+button.shadow-lg,a.shadow-lg,button.shadow-xl,.premium-panel,.glass,.card-hover:hover,.pdv-product-card:hover,.active-nav{box-shadow:none !important}
+
+/* Superfícies Tailwind dark: -> tokens (3 níveis) */
+.dark .dark\:bg-slate-800,.dark .dark\:bg-slate-800\/80,.dark .dark\:bg-slate-800\/50,.dark .dark\:bg-\[\#1E293B\]{background-color:var(--color-surface) !important}
+.dark .dark\:bg-slate-900\/80{background-color:var(--color-app-base) !important}
+.dark .dark\:bg-slate-700,.dark .dark\:bg-slate-700\/50{background-color:var(--color-elevated) !important}
+.dark .dark\:border-white\/10,.dark .dark\:border-white\/5,.dark .dark\:border-slate-700,.dark .dark\:border-slate-700\/60,.dark .dark\:border-slate-600{border-color:var(--color-border) !important}
+.dark .dark\:divide-slate-700\/60>:not([hidden])~:not([hidden]){border-color:var(--color-border) !important}
+
+/* Foco visível com acento */
+:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
+
+/* ==========================================================
+   Etapa 2 — Shell (sidebar, header, navegação inferior)
+   ========================================================== */
+.app-sidebar{background:var(--color-surface);color:var(--color-text);border-right:1px solid var(--color-border);box-shadow:none}
+@media (min-width:1025px){
+  .sidebar{width:256px}
+  .main-content{margin-left:256px}
+  body.sidebar-collapsed .sidebar{width:80px}
+  body.sidebar-collapsed .main-content{margin-left:80px}
+  body.sidebar-collapsed .sidebar .nav-text,
+  body.sidebar-collapsed .sidebar .brand-text,
+  body.sidebar-collapsed .sidebar .sidebar-copy,
+  body.sidebar-collapsed .sidebar .license-watermark{display:none}
+  body.sidebar-collapsed .sidebar .sidebar-brand{justify-content:center;padding:0}
+  body.sidebar-collapsed .sidebar .nav-item{justify-content:center;padding:10px}
+  body.sidebar-collapsed .sidebar .sidebar-group-title{height:1px;font-size:0;padding:0;margin:10px 10px;background:var(--color-border)}
+  body.sidebar-collapsed .sidebar .license-pill{padding:6px}
+  body.sidebar-collapsed .sidebar .sidebar-status{justify-content:center}
+}
+.sidebar-brand{height:56px;display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid var(--color-border);flex-shrink:0}
+.brand-mark{width:32px;height:32px;border-radius:var(--radius-panel);background:var(--color-accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-text h1{font-size:14px;font-weight:600;line-height:1.2;margin:0;color:var(--color-text)}
+.brand-text p{font-size:11px;line-height:1.2;margin:2px 0 0;color:var(--color-muted)}
+.sidebar-nav{padding:4px 12px 12px}
+.sidebar .sidebar-group-title{padding:16px 12px 6px;margin:0;font-size:10px;font-weight:600;letter-spacing:.08em;line-height:1;text-transform:uppercase;color:var(--color-muted) !important}
+.nav-item{display:flex;align-items:center;gap:10px;width:100%;min-height:36px;margin:2px 0;padding:8px 12px;border:0;border-radius:var(--radius-control);background:transparent;color:var(--color-muted);font-size:13px;font-weight:500;text-align:left;cursor:pointer;transition:background-color .16s ease,color .16s ease}
+.nav-item:hover{background:var(--color-elevated);color:var(--color-text)}
+.nav-icon{width:18px;height:18px;flex-shrink:0;stroke-width:1.75}
+.nav-item.active-nav{background:rgba(13,148,136,.10) !important;color:#0D9488 !important;border-left:0 !important;box-shadow:inset 2px 0 0 var(--color-accent) !important}
+.dark .nav-item.active-nav{background:rgba(13,148,136,.18) !important;color:#2DD4BF !important}
+.sidebar-foot{padding:12px 16px;border-top:1px solid var(--color-border);display:grid;gap:8px;flex-shrink:0}
+.sidebar-status{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--color-muted)}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--color-success);flex-shrink:0}
+.license-pill{display:inline-flex;align-items:center;gap:6px;width:fit-content;padding:4px 8px;border-radius:var(--radius-control);background:var(--color-elevated);border:1px solid var(--color-border);font-size:11px;font-weight:500;color:var(--color-muted)}
+.sidebar-copy{margin:0;font-size:10px;color:var(--color-muted)}
+.license-watermark{margin:0;padding-top:8px;border-top:1px solid var(--color-border);font-size:10px;line-height:1.5;color:var(--color-muted)}
+.license-watermark strong{color:var(--color-text);font-weight:600}
+
+.app-header{height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 16px;background:var(--color-app-base);border-bottom:1px solid var(--color-border)}
+@media (min-width:1024px){.app-header{padding:0 24px}}
+.header-left,.header-right{display:flex;align-items:center;gap:8px;min-width:0}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;border-radius:var(--radius-control);background:transparent;color:var(--color-muted);cursor:pointer;transition:background-color .16s ease,color .16s ease}
+.icon-btn:hover{background:var(--color-elevated);color:var(--color-text)}
+.breadcrumb{display:flex;align-items:center;gap:8px;min-width:0;font-size:13px;color:var(--color-muted)}
+.breadcrumb h2{margin:0;font-size:13px;font-weight:500;color:var(--color-text);white-space:nowrap}
+@media (max-width:639px){.breadcrumb h2{font-size:16px;font-weight:600}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:0 14px;border:1px solid transparent;border-radius:var(--radius-control);font-size:13px;font-weight:500;white-space:nowrap;cursor:pointer;transition:background-color .16s ease,border-color .16s ease}
+.btn-primary{background:var(--color-accent);color:#fff}
+.btn-primary:hover{background:var(--color-accent-hover)}
+.btn-secondary{background:var(--color-elevated);border-color:var(--color-border);color:var(--color-text)}
+.btn-secondary:hover{border-color:var(--color-muted)}
+
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;z-index:35;display:flex;background:var(--color-surface);border-top:1px solid var(--color-border);padding-bottom:env(safe-area-inset-bottom,0px)}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:60px;border:0;background:transparent;color:var(--color-muted);font-size:11px;font-weight:500;cursor:pointer}
+.bn-item.active{color:#0D9488}
+.dark .bn-item.active{color:#2DD4BF}
+@media (max-width:1023px){
+  .icon-btn{width:44px;height:44px}
+  .btn{min-height:44px}
+  main.main-content{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  body.has-cart-bar main.main-content{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))}
+}
+@media print{.bottom-nav{display:none !important}}
+.header-left{flex:1 1 auto}
+.breadcrumb{flex:1 1 auto;overflow:hidden}
+.breadcrumb h2{overflow:hidden;text-overflow:ellipsis}
+.header-right{flex:0 0 auto}
+@media (max-width:639px){.header-right{gap:4px}.icon-btn{width:40px;height:40px}}
+
+/* ==========================================================
+   Etapa 3 — Conteúdo: títulos, cards, botões, formulários, modais
+   ========================================================== */
+/* Cabeçalho de página */
+.view-section h2{font-size:20px !important;font-weight:600 !important;line-height:1.3;letter-spacing:0;color:var(--color-text)}
+.view-section h2 + p{font-size:13px;color:var(--color-muted) !important}
+.view-section > div:first-child .text-gray-500, .view-section > div:first-child .text-gray-600{color:var(--color-muted)}
+.view-section h3{letter-spacing:0}
+.view-section .gap-6{gap:16px}
+.view-section .mb-8{margin-bottom:24px}
+
+/* Cards: painel 8px, borda fina, padding 20px */
+.view-section .rounded-2xl.border,.view-section .rounded-xl.border{border-color:var(--color-border)}
+.view-section .p-6.rounded-2xl,.view-section .p-6.rounded-xl{padding:20px}
+.card-hover{transition:border-color .16s ease}
+.card-hover:hover{border-color:var(--color-muted) !important}
+
+/* Stat cards: rótulo muted sem caixa-alta, valor 24/600, ícone em quadrado elevated */
+.view-section p.uppercase,.view-section th.uppercase,.view-section label.uppercase,.view-section span.uppercase{text-transform:none !important;letter-spacing:0 !important;font-weight:500 !important}
+.view-section p.uppercase{font-size:12px !important;color:var(--color-muted) !important}
+#dash-balance,#dash-income,#dash-expense{font-size:24px !important;font-weight:600 !important;line-height:1.2}
+.view-section .w-12.h-12.rounded-full{width:36px !important;height:36px !important;border-radius:var(--radius-control) !important;background:var(--color-elevated) !important}
+.view-section .w-12.h-12.rounded-full > svg{width:18px !important;height:18px !important}
+
+/* Botões de página: tudo que era preto/pastel vira secundário (acento só no primário) */
+button.px-4.py-2.bg-gray-800,button.px-4.py-2.bg-gray-900,button.px-3.py-2.bg-gray-100,button.px-4.py-2.bg-gray-100,button.px-4.py-2.bg-green-100,button.px-4.py-2.bg-blue-100,button.px-4.py-2.bg-gray-200{
+  background:var(--color-elevated) !important;color:var(--color-text) !important;border:1px solid var(--color-border) !important;font-weight:500 !important;border-radius:var(--radius-control) !important}
+button.px-4.py-2.bg-gray-800:hover,button.px-4.py-2.bg-gray-900:hover,button.px-3.py-2.bg-gray-100:hover,button.px-4.py-2.bg-gray-100:hover,button.px-4.py-2.bg-green-100:hover,button.px-4.py-2.bg-blue-100:hover,button.px-4.py-2.bg-gray-200:hover{border-color:var(--color-muted) !important}
+button.font-bold{font-weight:600}
+
+/* Badges/avisos claros: tinta semântica a ~14% */
+html:not(.dark) .bg-green-100{background-color:rgba(34,197,94,.14)}
+html:not(.dark) .bg-red-100{background-color:rgba(239,68,68,.12)}
+html:not(.dark) .bg-yellow-100,html:not(.dark) .bg-amber-100{background-color:rgba(245,158,11,.16)}
+html:not(.dark) .bg-blue-100{background-color:rgba(13,148,136,.12)}
+html:not(.dark) .bg-purple-100{background-color:rgba(124,58,237,.12)}
+
+/* Formulários */
+input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not([type=color]):not([class*="bg-transparent"]),select,textarea{
+  background-color:var(--color-elevated) !important;border:1px solid var(--color-border) !important;color:var(--color-text) !important;border-radius:var(--radius-control) !important}
+input::placeholder,textarea::placeholder{color:var(--color-muted) !important;opacity:.8}
+input:focus:not([type=checkbox]):not([type=radio]),select:focus,textarea:focus{border-color:var(--color-accent) !important;outline:none;box-shadow:0 0 0 1px var(--color-accent)}
+label{color:var(--color-muted)}
+#view-login input,#view-login label{color:inherit}
+
+/* Modais: 12px, sombra funcional, overlay 50% sem blur */
+.modal-backdrop{background:rgba(0,0,0,.5) !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
+.modal-backdrop > div{border-radius:var(--radius-section) !important;box-shadow:var(--shadow-elevated) !important;border:1px solid var(--color-border)}
+
+/* Classes utilitárias do padrão do ecossistema */
+.bg-surface{background-color:var(--color-surface) !important}
+.bg-elevated{background-color:var(--color-elevated) !important}
+.bg-app-base{background-color:var(--color-app-base) !important}
+.border-border{border-color:var(--color-border) !important}
+.text-muted{color:var(--color-muted) !important}
+.text-main{color:var(--color-text) !important}
+.text-accent{color:var(--color-accent) !important}
+.border-accent{border-color:var(--color-accent) !important}
+.bg-accent{background-color:var(--color-accent) !important}
+.bg-accent-soft{background-color:rgba(13,148,136,.12) !important}
+.divide-border>:not([hidden])~:not([hidden]){border-color:var(--color-border) !important}
+
+/* Tabelas */
+table th{font-size:12px;font-weight:500;text-transform:none;letter-spacing:0;color:var(--color-muted)}
+table td{font-variant-numeric:tabular-nums}
+
+/* ==========================================================
+   Etapa 4 — Tela de PDV
+   ========================================================== */
+.pdv-note{display:flex;align-items:center;gap:8px;margin-bottom:16px;padding:8px 12px;border:1px solid var(--color-border);border-radius:var(--radius-control);background:var(--color-surface);color:var(--color-muted);font-size:12px}
+.pdv-note b{color:var(--color-text);font-weight:500}
+.pdv-note svg{flex-shrink:0}
+
+.pdv-search{position:relative;display:flex;align-items:center;width:100%;max-width:420px}
+.pdv-search > svg{position:absolute;left:12px;color:var(--color-muted);pointer-events:none}
+.pdv-search input{width:100%;padding:10px 40px 10px 38px;font-size:14px;font-weight:500}
+.pdv-search .pdv-kbd{position:absolute;right:10px}
+.pdv-kbd{display:inline-block;border:1px solid var(--color-border) !important;border-radius:4px !important;padding:1px 6px !important;font-size:11px !important;font-weight:500 !important;line-height:1.5;color:var(--color-muted) !important;background:var(--color-elevated) !important}
+.pdv-kbd-inv{margin-left:6px;padding:0 6px;border:1px solid rgba(255,255,255,.4);border-radius:4px;font-size:11px;font-weight:500;opacity:.85}
+
+.pdv-grid{grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:10px}
+.pdv-product-card{display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:96px;padding:12px;border-radius:var(--radius-panel);background:var(--color-surface);border:1px solid var(--color-border);box-shadow:none;position:relative}
+.pdv-product-card:hover{border-color:var(--color-accent);box-shadow:none !important;transform:none}
+.pdv-product-card:active{transform:none;background:var(--color-elevated)}
+.pdv-card-name{margin:0;font-size:13px;font-weight:500;line-height:1.35;color:var(--color-text)}
+.pdv-card-foot{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.pdv-card-price{margin:0;font-size:15px;font-weight:600;color:var(--color-text)}
+.pdv-card-stock{margin:0;font-size:11px;color:var(--color-muted)}
+.pdv-product-card .chip{align-self:flex-start}
+.pdv-product-card--empty{opacity:.6}
+.pdv-empty{padding:32px 8px;text-align:center;font-size:13px;color:var(--color-muted)}
+
+.chip{display:inline-flex;align-items:center;padding:2px 8px;border-radius:var(--radius-control);font-size:11px;font-weight:500;line-height:1.5}
+.chip-warn{background:rgba(245,158,11,.14);color:#B45309}
+.chip-danger{background:rgba(239,68,68,.12);color:#DC2626}
+.dark .chip-warn{color:#FBBF24}
+.dark .chip-danger{color:#F87171}
+
+/* Carrinho: painel fixo no desktop */
+@media (min-width:1024px){
+  .pdv-cart-panel{position:sticky;top:72px;align-self:start;max-height:calc(100vh - 96px)}
+  .pdv-cart-panel #pdv-cart-items{min-height:120px}
+}
+.cart-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--color-border)}
+.cart-row:last-child{border-bottom:0}
+.cart-name{margin:0;font-size:13px;font-weight:500;color:var(--color-text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cart-sub{margin:2px 0 0;display:flex;gap:8px;align-items:baseline;font-size:12px;color:var(--color-muted)}
+.cart-line{font-weight:600;color:var(--color-text)}
+.cart-stepper{display:inline-flex;align-items:center;border:1px solid var(--color-border);border-radius:var(--radius-control);background:var(--color-elevated);flex-shrink:0}
+.cart-stepper button{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--color-text);background:transparent;border:0;cursor:pointer}
+.cart-stepper button:hover{background:var(--color-border)}
+.cart-stepper span{min-width:28px;text-align:center;font-size:13px;font-weight:500}
+@media (pointer:fine){.cart-stepper button{width:32px;height:32px}}
+.pdv-total-box{border-top:1px solid var(--color-border);padding-top:16px;margin-top:8px}
+.pdv-total{font-size:28px;font-weight:600;line-height:1.1;color:var(--color-text);font-variant-numeric:tabular-nums}
+.pdv-checkout{min-height:48px;font-size:14px;font-weight:600}
+@media (pointer:coarse){.pdv-kbd-inv,.pdv-search .pdv-kbd{display:none}}
+
+/* Gráfico do dashboard: barras discretas */
+.bar-wrapper{max-width:72px;margin:0 auto}
+.bar{width:42%;border-radius:3px 3px 0 0}
+@media (max-width:479px){.pdv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.pdv-product-card{padding:10px}}
+
+/* ==========================================================
+   E2 — Checkout com pagamento dividido
+   ========================================================== */
+.pay-summary{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px;margin-bottom:20px;padding:12px;border:1px solid var(--color-border);border-radius:var(--radius-panel);background:var(--color-elevated)}
+.pay-summary p{margin:0 0 2px;font-size:12px;color:var(--color-muted)}
+.pay-summary strong{font-size:18px;font-weight:600;color:var(--color-text);font-variant-numeric:tabular-nums}
+.pay-summary > div:first-child strong{font-size:22px}
+.pay-remaining{color:#B45309 !important}
+.dark .pay-remaining{color:#FBBF24 !important}
+.pay-remaining.is-done{color:var(--color-success) !important}
+.pdv-pay-btn{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border:1px solid var(--color-border);border-radius:var(--radius-control);background:var(--color-elevated);color:var(--color-text);font-size:13px;font-weight:500;cursor:pointer;transition:border-color .16s ease,background-color .16s ease}
+.pdv-pay-btn:hover{border-color:var(--color-muted)}
+.pdv-pay-btn.active{border-color:var(--color-accent);background:rgba(13,148,136,.12);color:var(--color-accent)}
+.dark .pdv-pay-btn.active{color:#2DD4BF}
+.pdv-pay-btn .pdv-kbd{font-size:10px !important;padding:0 5px !important}
+.pay-lines{border:1px solid var(--color-border);border-radius:var(--radius-control);overflow:hidden}
+.pay-line{display:flex;align-items:center;gap:12px;padding:8px 12px;font-size:13px;border-bottom:1px solid var(--color-border)}
+.pay-line:last-child{border-bottom:0}
+.pay-line span{flex:1;color:var(--color-text)}
+.pay-line small{color:var(--color-muted)}
+.pay-line strong{font-weight:600}
+.pay-line button{width:28px;height:28px;border:0;border-radius:var(--radius-control);background:transparent;color:var(--color-muted);font-size:18px;line-height:1;cursor:pointer}
+.pay-line button:hover{background:var(--color-border);color:var(--color-text)}
+
+/* E3 — Caixa */
+.cash-report{padding:12px 14px;border:1px solid var(--color-border);border-radius:var(--radius-panel);background:var(--color-elevated)}
+.cash-row{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:13px;color:var(--color-muted)}
+.cash-row b{font-weight:600;color:var(--color-text);font-variant-numeric:tabular-nums}
+.cash-row-strong{margin-top:6px;padding-top:10px;border-top:1px solid var(--color-border);font-size:14px;color:var(--color-text)}
+.cash-row-muted{margin-top:4px;border-top:1px dashed var(--color-border)}
+.cash-sub-title{margin:12px 0 4px;font-size:12px;font-weight:500;color:var(--color-muted)}
+#cash-difference.cash-diff-ok{color:var(--color-success) !important}
+#cash-difference.cash-diff-bad{color:var(--color-danger) !important}
+
+/* ===== E4: desconto manual no checkout ===== */
+.pay-discount{margin:12px 0;padding:10px 12px;border:1px solid var(--color-border);border-radius:var(--radius-control)}
+.pay-discount-head{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--color-muted)}
+.pay-discount-head b{color:var(--color-text)}
+.pay-discount .btn-link{background:none;border:0;padding:0;font-size:13px;font-weight:600;color:var(--color-accent);cursor:pointer}
+.pay-discount .btn-link:hover{text-decoration:underline}
+.pay-discount-form{margin-top:10px}
+#pdv-discount-applied{margin-top:8px;border:1px solid var(--color-border);border-radius:var(--radius-control)}
+#pdv-discount-applied span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#pdv-discount-applied strong{color:var(--color-danger, #DC2626)}
+#pdv-discount-applied button{background:none;border:0;cursor:pointer;font-size:18px;line-height:1;color:inherit}
+
+/* ===== E5: categorias e item avulso ===== */
+.pdv-cats{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;scrollbar-width:thin}
+.pdv-cat{flex:0 0 auto;padding:5px 12px;border:1px solid var(--color-border);border-radius:999px;background:transparent;color:var(--color-muted);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap}
+.pdv-cat:hover{color:var(--color-text)}
+.pdv-cat.active{border-color:var(--color-accent);background:rgba(13,148,136,.12);color:var(--color-accent)}
+.dark .pdv-cat.active{color:#2DD4BF}
+
+/* ===== E6: operadores e auditoria ===== */
+.op-row{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--color-border);border-radius:var(--radius-control);font-size:13px;color:var(--color-text)}
+.op-row.is-off{opacity:.6}
+.op-row .btn-link{background:none;border:0;padding:0;font-size:12px;font-weight:600;color:var(--color-accent);cursor:pointer;white-space:nowrap}
+.op-row .btn-link:hover{text-decoration:underline}
+.audit-row{display:grid;grid-template-columns:78px 1fr auto;gap:8px;padding:6px 0;border-bottom:1px solid var(--color-border);font-size:12px;color:var(--color-text)}
+.audit-row:last-child{border-bottom:0}
+.audit-when{color:var(--color-muted)}
+.audit-what small{display:block;color:var(--color-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.audit-amount{font-weight:600;white-space:nowrap}
+
+/* ===== E7: clientes e fiado ===== */
+.op-row small.block{display:block;color:var(--color-muted)}
+.op-row small{color:var(--color-muted)}
+#fiado-receive .pay-line{flex-wrap:wrap}
+#fiadoModal .btn-link{background:none;border:0;padding:0;font-size:12px;font-weight:600;color:var(--color-accent);cursor:pointer;white-space:nowrap}
+#fiadoModal .btn-link:hover{text-decoration:underline}
+#pdv-fiado-box .btn-link{background:none;border:0;padding:0;font-size:12px;font-weight:600;color:var(--color-accent);cursor:pointer}
+.pay-line .btn-link{width:auto;height:auto;padding:0 2px;border-radius:0;font-size:12px}
+.pay-line .btn-link:hover{background:transparent}

@@ -3819,3 +3819,118 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
     gap: 24px;
   }
 }
+
+/* Gestão Salas Pro: identidade visual índigo executivo, contraste limpo e foco em ocupação */
+.assistencia-product-page.salas-product-page {
+  --bg: #080C18;
+  --surface: rgba(15, 23, 42, .76);
+  --surface-strong: rgba(20, 30, 50, .92);
+  --muted: #94A3B8;
+  --text: #F8FAFC;
+  --brand: #6366F1;
+  --brand-light: #818CF8;
+  --brand-dark: #4F46E5;
+  --brand-accent: #6366F1;
+  --brand-soft: rgba(99, 102, 241, .15);
+}
+
+.salas-product-page .assistencia-nav-brand__icon {
+  background: linear-gradient(135deg, rgba(99, 102, 241, .25), rgba(129, 140, 248, .08));
+  border: 1px solid rgba(99, 102, 241, .45);
+  color: #818CF8;
+}
+
+.salas-product-page .assistencia-nav-brand__copy small {
+  color: #818CF8;
+  letter-spacing: .12em;
+}
+
+.salas-product-page .salas-hero {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(99, 102, 241, .18), transparent 32rem),
+    radial-gradient(circle at 15% 75%, rgba(79, 70, 229, .1), transparent 22rem),
+    linear-gradient(180deg, #080C18 0%, #11162B 50%, #080C18 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.salas-product-page .salas-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, .03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, .03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+}
+
+.salas-product-page .salas-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 64px);
+  position: relative;
+  z-index: 2;
+}
+
+.salas-product-page .salas-hero-preview {
+  background: rgba(15, 23, 42, .92);
+  border: 1px solid rgba(99, 102, 241, .35);
+  border-radius: 20px;
+  padding: clamp(20px, 2.5vw, 26px);
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, .55),
+    0 0 0 1px rgba(255, 255, 255, .05) inset;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.salas-product-page .clinical-trust-icon {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366F1;
+}
+
+.salas-product-page .clinical-white-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 18px 36px -14px rgba(99, 102, 241, 0.14);
+}
+
+.salas-product-page .clinical-white-card h3 svg {
+  color: #6366F1;
+}
+
+.salas-product-page .clinical-routine-number {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366F1;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.salas-product-page .clinical-cluster-header {
+  color: #6366F1;
+}
+
+.salas-product-page .clinical-price-card-clean--featured {
+  border-color: #6366F1;
+  box-shadow: 0 22px 50px -18px rgba(99, 102, 241, 0.22);
+}
+
+.salas-product-page .clinical-price-card-clean .price-badge {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366F1;
+}
+
+.salas-product-page .clinical-faq-idx {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366F1;
+}
+
+@media (max-width: 767px) {
+  .salas-product-page .salas-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
