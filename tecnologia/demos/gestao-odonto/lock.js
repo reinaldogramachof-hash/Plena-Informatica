@@ -31,64 +31,8 @@
     }
 
     async function checkStatus() {
-        // --- MASTER PASSWORD BYPASS ---
-        if (localStorage.getItem(MASTER_KEY) === 'true') {
-            unlockSystem();
-            console.log('Master Mode Enabled - API Check Skipped');
-            return;
-        }
-
-        const key = getLocalLicense();
-
-        if (!key) {
-            redirectToLogin("Ative sua licença para continuar.");
-            return;
-        }
-
-        try {
-            const res = await fetch(API_URL + '?action=verify', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                // device_id: sem ele o travamento por aparelho nao funciona.
-                // system_id: o servidor recusa chave emitida para outro sistema.
-                body: JSON.stringify({
-                    license_key: key,
-                    email: localStorage.getItem(EMAIL_KEY) || '',
-                    device_id: getOrCreateDeviceId(),
-                    system_id: SYSTEM_ID
-                })
-            });
-            const data = await res.json();
-
-            if (data.status === 'success') {
-                if (data.license_status === 'expired') {
-                    blockSystem("Período de teste encerrado.", "Para continuar usando o sistema sem perder seus dados locais, solicite a licença vitalícia pelo mesmo canal onde iniciou seu teste ou realizou a compra.");
-                } else if (data.license_status === 'blocked') {
-                    blockSystem("Licença Bloqueada", "Entre em contato com o suporte.");
-                } else {
-                    // ATIVO ou TRIAL VÁLIDO
-                    if (!localStorage.getItem(RECEIPT_KEY) && localStorage.getItem(MASTER_KEY) !== 'true') {
-                        hideApp();
-                        const login = document.getElementById('view-login');
-                        if (login) login.style.display = 'none';
-                        const receiptModal = document.getElementById('welcome-receipt-modal');
-                        if (receiptModal) receiptModal.classList.remove('hidden');
-                    } else {
-                        unlockSystem();
-                        if (data.is_trial && data.expiration_date) {
-                            showTrialBanner(data.expiration_date);
-                        }
-                    }
-                }
-            } else {
-                redirectToLogin("Licença inválida ou não encontrada.");
-            }
-
-        } catch (e) {
-            console.warn("Erro ao verificar licença (offline?):", e);
-            // Fail-open se já tem chave local (evita bloquear usuários offline)
-            if (key) unlockSystem();
-        }
+        unlockSystem();
+        return;
     }
 
     // --- UI HELPERS ---
@@ -135,7 +79,13 @@
     function unlockSystem() {
         const login = document.getElementById('view-login');
         if (login) {
-            login.classList.add('hide');
+            login.classList.add('hide', 'hidden');
+            login.style.display = 'none';
+        }
+        const receipt = document.getElementById('welcome-receipt-modal');
+        if (receipt) {
+            receipt.classList.add('hide', 'hidden');
+            receipt.style.display = 'none';
         }
         const sidebar = document.getElementById('sidebar');
         const main = document.querySelector('main');

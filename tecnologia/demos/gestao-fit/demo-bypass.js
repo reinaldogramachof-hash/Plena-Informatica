@@ -10,6 +10,94 @@
     var WHATSAPP_MESSAGE = 'Olá! Vim pelo site da Plena e testei a demonstração do Gestão Fit Pro. Gostaria de saber mais sobre a licença vitalícia e implantação.';
     var DB_KEY = 'gestao_fit_v1';
 
+    // 1. Assegurar credenciais no localStorage síncrono
+    try {
+        localStorage.setItem('fit_license', 'DEMO-PLENA-VITALICIA');
+        localStorage.setItem('fit_verified_license', 'DEMO-PLENA-VITALICIA');
+        localStorage.setItem('fit_receipt_confirmed', 'DEMO-PLENA-VITALICIA');
+        localStorage.setItem('fit_email', 'demo@plenainformatica.com.br');
+        localStorage.removeItem('fit_license_blocked');
+        localStorage.removeItem('fit_is_trial');
+    } catch (e) {}
+
+    window.fitLicenseReady = true;
+
+    // 2. Interceptar FitVaultStore para que o cofre nunca exija senha na demo
+    function patchFitVault() {
+        if (typeof FitVaultStore === 'undefined') return;
+        if (FitVaultStore._plenaPatched) return;
+        FitVaultStore._plenaPatched = true;
+
+        var origCreate = FitVaultStore.create;
+        FitVaultStore.create = function (options) {
+            var rawSeed = window.PLENA_DEMO_FIT_SEED || (options && options.defaults) || {};
+            var currentData = JSON.parse(JSON.stringify(rawSeed));
+
+            if (typeof FitData !== 'undefined' && typeof FitData.normalize === 'function' && options && options.defaults) {
+                try {
+                    currentData = FitData.normalize(currentData, options.defaults, true);
+                } catch (e) {}
+            }
+
+            return {
+                load: function () {
+                    return { protected: true, legacy: false };
+                },
+                unlock: async function () {
+                    return JSON.parse(JSON.stringify(currentData));
+                },
+                resume: async function () {
+                    return JSON.parse(JSON.stringify(currentData));
+                },
+                save: async function (data) {
+                    currentData = data;
+                    if (typeof window.db !== 'undefined') window.db = data;
+                    return JSON.parse(JSON.stringify(data));
+                },
+                prepare: function () {
+                    return {};
+                },
+                restore: async function (preview) {
+                    if (preview && preview.data) currentData = preview.data;
+                    return JSON.parse(JSON.stringify(currentData));
+                },
+                recover: async function () {
+                    return JSON.parse(JSON.stringify(currentData));
+                },
+                originalFromRecovery: async function () {
+                    return '';
+                },
+                backup: async function () {
+                    return JSON.stringify(currentData);
+                },
+                changePassword: async function () {},
+                verifyPassword: async function () {
+                    return true;
+                },
+                lock: function () {
+                    if (typeof showNotification === 'function') {
+                        showNotification('O bloqueio por senha está desativado no modo demonstração.', 'info');
+                    }
+                },
+                activity: function () {},
+                snapshot: function () {
+                    return JSON.parse(JSON.stringify(currentData));
+                },
+                status: function () {
+                    return { open: true, busy: false, previous: false };
+                },
+                previous: function () {
+                    return null;
+                },
+                raw: function () {
+                    return JSON.stringify(currentData);
+                }
+            };
+        };
+    }
+
+    patchFitVault();
+
     var DEMO_GUIDES = {
         dashboard: {
             label: 'Meu Dia',
@@ -108,15 +196,7 @@
     }
 
     function unlockUI() {
-        try {
-            localStorage.setItem('fit_license', 'DEMO-PLENA-VITALICIA');
-            localStorage.setItem('fit_verified_license', 'DEMO-PLENA-VITALICIA');
-            localStorage.setItem('fit_receipt_confirmed', 'DEMO-PLENA-VITALICIA');
-            localStorage.setItem('fit_email', 'demo@plenainformatica.com.br');
-            localStorage.removeItem('fit_license_blocked');
-        } catch (e) {}
-
-        window.fitLicenseReady = true;
+        patchFitVault();
 
         var loginModal = document.getElementById('view-login');
         if (loginModal) {
@@ -130,13 +210,32 @@
             receiptModal.style.display = 'none';
         }
 
+        // Remove overlay de cofre
+        document.querySelectorAll('.fit-security-overlay, #fit-security-dialog').forEach(function (el) {
+            el.remove();
+        });
+
         document.body.classList.remove('fit-data-locked');
+        document.body.style.overflow = '';
+
+        var sidebar = document.getElementById('sidebar');
+        var main = document.querySelector('main');
+        var header = document.querySelector('header');
+        if (sidebar) sidebar.style.display = '';
+        if (main) main.style.display = '';
+        if (header) header.style.display = '';
 
         // Se o objeto global db estiver vazio, carrega o seed
         if (typeof window.db !== 'undefined' && window.PLENA_DEMO_FIT_SEED) {
             if (!window.db.clients || window.db.clients.length === 0) {
                 window.db = JSON.parse(JSON.stringify(window.PLENA_DEMO_FIT_SEED));
             }
+        }
+
+        if (typeof router === 'function') {
+            try {
+                router('dashboard');
+            } catch (e) {}
         }
     }
 
@@ -210,6 +309,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        patchFitVault();
         seedFitData();
         unlockUI();
         injectDemoLayer();
@@ -223,6 +323,7 @@
     });
 
     window.addEventListener('load', function () {
+        patchFitVault();
         unlockUI();
     });
 })();

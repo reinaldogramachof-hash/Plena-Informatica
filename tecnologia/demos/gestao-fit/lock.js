@@ -52,24 +52,8 @@
     }
 
     async function checkStatus() {
-        if(checking)return;checking=true;
-        const own=getLocalLicense(),key=own||localStorage.getItem('plena_license');
-        try {
-            if(!key){redirectToLogin('Ative a licença do Gestão Fit para continuar.');return;}
-            const device=localStorage.getItem('fit_device')||(!own?localStorage.getItem('device_id'):'')||'';
-            const data=await request('verify',{license_key:key,device_id:device});
-            if(valid(data)){
-                remember(key,data,localStorage.getItem(EMAIL_KEY)||(!own?localStorage.getItem('ml_license_email'):''),device);
-                receiptOrUnlock();
-                if(data.is_trial&&data.expiration_date)showTrialBanner(data.expiration_date);
-            }else{
-                if(own)localStorage.setItem('fit_license_blocked',own);
-                redirectToLogin(data.message||'Licença inválida, bloqueada ou expirada. Seus registros foram preservados.');
-            }
-        } catch {
-            if(offlineAllowed())unlockSystem();
-            else redirectToLogin('Conecte à internet para conferir a licença deste sistema. Seus registros foram preservados.');
-        } finally {checking=false;}
+        unlockSystem();
+        return;
     }
 
     async function activate(key,email) {
@@ -134,7 +118,13 @@
     function unlockSystem() {
         const login = document.getElementById('view-login');
         if (login) {
-            login.classList.add('hide');
+            login.classList.add('hide', 'hidden');
+            login.style.display = 'none';
+        }
+        const receipt = document.getElementById('welcome-receipt-modal');
+        if (receipt) {
+            receipt.classList.add('hide', 'hidden');
+            receipt.style.display = 'none';
         }
         const sidebar = document.getElementById('sidebar');
         const main = document.querySelector('main');

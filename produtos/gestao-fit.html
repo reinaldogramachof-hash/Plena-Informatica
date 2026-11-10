@@ -84,12 +84,20 @@
         <a href="#plano">Licença Vitalícia</a>
         <a href="#faq">Dúvidas</a>
         <a href="../tecnologia/tecnologia.html">Tecnologia</a>
+        <button class="btn primary" type="button" style="min-height:38px; padding:8px 16px; font-size:13px; background:#16A34A; border-color:#16A34A;" onclick="openDemoModal()">
+          <i data-lucide="monitor-up"></i>
+          Testar Demo
+        </button>
         <button class="btn light assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Fit Pro e vim pelo site. Gostaria de entender a licença e a implantação.', 'Gestão Fit')">
           <i data-lucide="message-circle"></i>
         </button>
       </div>
 
       <div class="nav-mobile-actions">
+        <button class="btn primary" type="button" style="min-height:36px; padding:6px 12px; font-size:12px; background:#16A34A; border-color:#16A34A;" onclick="openDemoModal()" aria-label="Testar Demonstração">
+          <i data-lucide="monitor-up"></i>
+          Demo
+        </button>
         <button class="btn light mobile-header-whatsapp assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Fit Pro e vim pelo site. Gostaria de entender a licença e a implantação.', 'Gestão Fit')">
           <i data-lucide="message-circle"></i>
         </button>
@@ -118,10 +126,16 @@
         <a href="#faq" data-mobile-menu-close><span>Perguntas Frequentes</span><span>→</span></a>
         <a href="../tecnologia/tecnologia.html" data-mobile-menu-close><span>Tecnologia Plena</span><span>→</span></a>
       </nav>
-      <button class="btn light" onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Tenho interesse no Gestão Fit Pro e vim pelo site. Gostaria de entender a licença e a implantação.', 'Gestão Fit')">
-        <i data-lucide="message-circle"></i>
-        Falar no WhatsApp
-      </button>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+        <button class="btn primary" style="background:#16A34A; border-color:#16A34A;" onclick="toggleProductMobileMenu(false); openDemoModal()">
+          <i data-lucide="monitor-up"></i>
+          Testar Demonstração Real
+        </button>
+        <button class="btn light" onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Tenho interesse no Gestão Fit Pro e vim pelo site. Gostaria de entender a licença e a implantação.', 'Gestão Fit')">
+          <i data-lucide="message-circle"></i>
+          Falar no WhatsApp
+        </button>
+      </div>
     </aside>
   </div>
 
