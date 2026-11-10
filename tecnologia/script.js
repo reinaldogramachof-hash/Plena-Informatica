@@ -8,6 +8,9 @@ const commercialMessages = {
   odonto: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Odonto Pro. Gostaria de conhecer a licença vitalícia e tirar dúvidas.',
   fit: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Fit Pro. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
   lavarapido: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Lava-Rápido. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
+  sorveteria: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Sorveteria & Açaí Pro. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
+  pdv: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão PDV Pro. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
+  salas: 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no sistema Gestão Salas Pro. Gostaria de conhecer a licença vitalícia e testar a demonstração.',
   gastro: 'Olá! Vim pelo site da Plena e tenho interesse no sistema Gestão Gastro. Gostaria de agendar uma demonstração.',
   landing: 'Olá! Vim pelo site da Plena e gostaria de criar uma landing page para captar leads ou vender melhor.',
   siteCorporativo: 'Olá! Vim pelo site da Plena e gostaria de consultar sobre um site corporativo.',
@@ -30,6 +33,9 @@ const OFFER_MESSAGES = {
   'gestao-odonto': commercialMessages.odonto,
   'gestao-fit': commercialMessages.fit,
   'gestao-lavarapido': commercialMessages.lavarapido,
+  'gestao-sorveteria': commercialMessages.sorveteria,
+  'gestao-pdv': commercialMessages.pdv,
+  'gestao-salas': commercialMessages.salas,
   'landing-infoproduto': commercialMessages.landing,
   'captura-leads': commercialMessages.landing,
   'eventos-ingressos': commercialMessages.landing,
@@ -60,7 +66,13 @@ const OFFER_MESSAGES = {
   'site-premium-imobiliaria': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse no site premium para Imobiliária. Gostaria de um orçamento.',
   'site-premium-gastronomia': 'Olá! Vim pela página de tecnologia da Plena, naveguei no modelo de site premium para Restaurante & Gastronomia e gostaria de um orçamento para o meu negócio.',
   'site-premium-estetica': 'Olá! Vim pela página de tecnologia da Plena, naveguei no modelo de site premium para Clínica de Estética & Spa e gostaria de um orçamento para o meu negócio.',
-  'site-premium-outro': 'Olá! Vim pela página de tecnologia da Plena, vi a vitrine de Sites Premium e gostaria de um modelo para o meu segmento.'
+  'site-premium-outro': 'Olá! Vim pela página de tecnologia da Plena, vi a vitrine de Sites Premium e gostaria de um modelo para o meu segmento.',
+  'automacoes-ia': 'Olá! Vim pela página de tecnologia da Plena e quero entender o que dá para automatizar na minha operação. Gostaria de um diagnóstico.',
+  'automacao-whatsapp': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em automação de atendimento no WhatsApp. Gostaria de um diagnóstico.',
+  'automacao-leads': 'Olá! Vim pela página de tecnologia da Plena e quero organizar a captação e o encaminhamento de leads. Gostaria de um diagnóstico.',
+  'automacao-integracoes': 'Olá! Vim pela página de tecnologia da Plena e preciso integrar meus sistemas (catálogo, estoque, pagamento, nota fiscal ou CRM). Gostaria de um diagnóstico.',
+  'automacao-rotinas': 'Olá! Vim pela página de tecnologia da Plena e quero automatizar lembretes e rotinas do meu negócio. Gostaria de um diagnóstico.',
+  'automacao-ia': 'Olá! Vim pela página de tecnologia da Plena e tenho interesse em um assistente de IA com o conteúdo do meu negócio. Gostaria de entender o escopo.'
 };
 
 const solutionCatalog = [
@@ -70,6 +82,9 @@ const solutionCatalog = [
   { categoria: 'sistemas', nome: 'Gestão Odonto Pro', setor: 'Odontologia e clínicas', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-odonto.html', demoUrl: 'demos/gestao-odonto/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.odonto },
   { categoria: 'sistemas', nome: 'Gestão Fit Pro', setor: 'Personal trainers e fitness', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-fit.html', demoUrl: 'demos/gestao-fit/', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.fit },
   { categoria: 'sistemas', nome: 'Gestão Lava-Rápido', setor: 'Lava-rápidos e estética automotiva', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-lavarapido.html', demoUrl: 'demos/gestao-lavarapido/index.html', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.lavarapido },
+  { categoria: 'sistemas', nome: 'Sorveteria & Açaí Pro', setor: 'Sorveterias e açaí', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-sorveteria.html', demoUrl: 'demos/gestao-sorveteria/index.html', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.sorveteria },
+  { categoria: 'sistemas', nome: 'Gestão PDV Pro', setor: 'Comércio, varejo e mercadinhos', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-pdv.html', demoUrl: 'demos/gestao-pdv/index.html', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.pdv },
+  { categoria: 'sistemas', nome: 'Gestão Salas Pro', setor: 'Coworking e locação de salas', preco: 'R$ 299,90 vitalício', status: 'Demo disponível', landingUrl: '../produtos/gestao-salas.html', demoUrl: 'demos/gestao-salas/index.html', ctaLabel: 'Conhecer página', whatsappMessage: commercialMessages.salas },
   { categoria: 'sistemas', nome: 'Beleza & Spa', setor: 'Beleza e estética', preco: 'R$ 97/mês', status: 'Demo disponível', landingUrl: '../produtos/beleza-spa.html', demoUrl: 'demos/gestao-beleza/', ctaLabel: 'Conhecer página', whatsappMessage: OFFER_MESSAGES['beleza-spa'] },
   { categoria: 'landing-pages', nome: 'Landing Pages', setor: 'Campanhas e captação', preco: 'Sob consulta', status: 'Demo disponível', demoUrl: 'landing-pages/lp-01-lancamento.html', ctaLabel: 'Solicitar página', whatsappMessage: commercialMessages.landing }
 ];
@@ -150,10 +165,19 @@ function activateTabByTarget(targetId) {
   if (btn) activateTab(btn);
 }
 
-// Deep link: tecnologia.html#sites-premium abre o catálogo já na aba Sites Premium
-// (usado pelos links "Voltar à vitrine" dos modelos premium e por links de divulgação).
-if (window.location.hash === '#sites-premium') {
-  activateTabByTarget('tab-premium');
+// Deep links do catálogo: abre a aba certa e rola até o catálogo.
+// Usado pelos modelos premium, pelos 301 das páginas de portal aposentadas e por links de divulgação.
+const DEEP_LINK_TABS = {
+  '#sites-premium': 'tab-premium',
+  '#landing-pages': 'tab-landing',
+  '#ecommerce': 'tab-ecom',
+  '#automacoes': 'tab-automacao',
+  '#projetos-consulta': 'tab-sites',
+};
+
+const deepLinkTab = DEEP_LINK_TABS[window.location.hash];
+if (deepLinkTab) {
+  activateTabByTarget(deepLinkTab);
   document.getElementById('soluções')?.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
 }
 
@@ -195,6 +219,9 @@ const NICHE_MAP = {
   'gestao-odonto': 'demo',
   'gestao-fit': 'demo',
   'gestao-lavarapido': 'demo',
+  'gestao-sorveteria': 'demo',
+  'gestao-pdv': 'demo',
+  'gestao-salas': 'demo',
   'gestão-gastro': 'breve',
   'landing-infoproduto': 'lancamento',
   'captura-leads': 'captacao',
@@ -457,3 +484,187 @@ document.querySelectorAll('#mobile-menu .mobile-link').forEach(link => {
 // Inicialização (Init)
 
 injectNicheFilters();
+
+// Briefing guiado da aba Projetos sob Consulta
+// Quatro perguntas montam o resumo do pedido, sugerem um caminho no catálogo
+// e preparam a mensagem do WhatsApp. Nada é enviado antes do clique.
+
+const briefingForm = document.getElementById('briefing-form');
+
+if (briefingForm) {
+  const BRIEFING_QUESTIONS = [
+    { name: 'negocio', prefix: 'Meu negócio é' },
+    { name: 'necessidade', prefix: 'Preciso de' },
+    { name: 'situacao', prefix: 'Hoje isso funciona com' },
+    { name: 'prioridade', prefix: 'O que mais pesa é' },
+  ];
+
+  // Cada necessidade aponta para um destino real: uma aba do catálogo ou uma demo.
+  const BRIEFING_ROUTES = {
+    'um sistema de gestão para o meu segmento': { kind: 'tab', tab: 'tab-gestão', label: 'Ver os sistemas de gestão' },
+    'um dashboard, relatório ou B.I.': { kind: 'demo', url: 'demos/projetos-b2b/demo-dashboard.html', offer: 'dashboards-bi', label: 'Abrir a demo de dashboard' },
+    'um ERP ou sistema interno': { kind: 'demo', url: 'demos/projetos-b2b/demo-erp.html', offer: 'erps-custom', label: 'Abrir a demo de ERP' },
+    'um CRM ou funil de vendas': { kind: 'demo', url: 'demos/projetos-b2b/demo-crm.html', offer: 'crms', label: 'Abrir a demo de CRM' },
+    'um portal ou área do cliente': { kind: 'demo', url: 'demos/projetos-b2b/demo-portal.html', offer: 'portais', label: 'Abrir a demo de portal' },
+    'um site institucional ou premium': { kind: 'tab', tab: 'tab-premium', label: 'Ver os modelos de Sites Premium' },
+    'uma página de campanha': { kind: 'tab', tab: 'tab-landing', label: 'Ver os modelos de landing page' },
+    'uma loja virtual': { kind: 'tab', tab: 'tab-ecom', label: 'Ver os modelos de e-commerce' },
+    'uma automação ou integração': { kind: 'tab', tab: 'tab-automacao', label: 'Ver as automações e IA' },
+  };
+
+  // Negócio informado -> card do sistema correspondente na aba Sistemas de Gestão.
+  const BRIEFING_SEGMENT_CARDS = {
+    'uma assistência técnica': { offer: 'assistencia-pro', name: 'Assistência Pro' },
+    'uma barbearia ou salão': { offer: 'barbearia-premium', name: 'Barbearia Premium' },
+    'um restaurante ou delivery': { offer: 'gestao-gastro', name: 'Gestão Gastro' },
+    'um espaço de beleza e estética': { offer: 'beleza-spa', name: 'Beleza & Spa' },
+    'uma clínica de terapia': { offer: 'gestao-terapia', name: 'Gestão Terapia Pro' },
+    'uma clínica odontológica': { offer: 'gestao-odonto', name: 'Gestão Odonto Pro' },
+    'uma academia ou personal trainer': { offer: 'gestao-fit', name: 'Gestão Fit Pro' },
+    'um lava-rápido ou estética automotiva': { offer: 'gestao-lavarapido', name: 'Gestão Lava-Rápido' },
+    'uma sorveteria ou açaí': { offer: 'gestao-sorveteria', name: 'Sorveteria & Açaí Pro' },
+    'um comércio, mercado ou PDV': { offer: 'gestao-pdv', name: 'Gestão PDV Pro' },
+    'um espaço coworking ou locação de salas': { offer: 'gestao-salas', name: 'Gestão Salas Pro' },
+  };
+
+  const summaryEl = document.getElementById('briefing-summary');
+  const routeWrap = document.getElementById('briefing-route-wrap');
+  const routeBtn = document.getElementById('briefing-route');
+  const noteEl = document.getElementById('briefing-nota');
+  const submitBtn = briefingForm.querySelector('button[type="submit"]');
+  const resetBtn = briefingForm.querySelector('.briefing-reset');
+
+  let currentRoute = null;
+
+  function briefingAnswers() {
+    return BRIEFING_QUESTIONS.map(question => {
+      const checked = briefingForm.querySelector(`input[name="${question.name}"]:checked`);
+      return checked ? checked.value : null;
+    });
+  }
+
+  function briefingSentences() {
+    const answers = briefingAnswers();
+    const sentences = [];
+    answers.forEach((value, index) => {
+      if (value) sentences.push(`${BRIEFING_QUESTIONS[index].prefix} ${value}.`);
+    });
+    const note = (noteEl && noteEl.value ? noteEl.value : '').trim();
+    if (note) sentences.push(`Observação: ${note}`);
+    return sentences;
+  }
+
+  function briefingMessage() {
+    return [
+      'Olá! Vim pela página de tecnologia da Plena, na aba Projetos sob Consulta.',
+      '',
+      briefingSentences().join('\n'),
+      '',
+      'Gostaria de um diagnóstico.',
+    ].join('\n');
+  }
+
+  // Quando a necessidade é um sistema de gestão, o negócio define o card exato.
+  function resolveRoute() {
+    const answers = briefingAnswers();
+    const need = answers[1];
+    const route = need ? BRIEFING_ROUTES[need] : null;
+    if (!route) return null;
+
+    if (route.kind === 'tab' && route.tab === 'tab-gestão') {
+      const segmentCard = BRIEFING_SEGMENT_CARDS[answers[0]];
+      if (segmentCard) {
+        return {
+          kind: 'tab',
+          tab: route.tab,
+          offer: segmentCard.offer,
+          label: `Ver ${segmentCard.name} no catálogo`,
+        };
+      }
+    }
+
+    return route;
+  }
+
+  function goToTab(tab, offer) {
+    activateTabByTarget(tab);
+
+    const card = offer
+      ? document.querySelector(`.tech-showcase article[data-offer="${offer}"]`)
+      : null;
+
+    if (card) {
+      window.setTimeout(() => {
+        card.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'center' });
+        card.classList.add('is-briefing-focus');
+        window.setTimeout(() => card.classList.remove('is-briefing-focus'), 3200);
+      }, 80);
+      return;
+    }
+
+    document.getElementById('soluções')?.scrollIntoView({
+      behavior: REDUCED_MOTION ? 'auto' : 'smooth',
+    });
+  }
+
+  function refreshBriefing() {
+    const answers = briefingAnswers();
+    const filled = answers.filter(Boolean).length;
+    const complete = filled === BRIEFING_QUESTIONS.length;
+
+    if (submitBtn) submitBtn.disabled = !complete;
+
+    if (summaryEl) {
+      summaryEl.textContent = complete
+        ? briefingSentences().join(' ')
+        : `Responda as ${BRIEFING_QUESTIONS.length} perguntas para montar o resumo (${filled} de ${BRIEFING_QUESTIONS.length}).`;
+    }
+
+    currentRoute = complete ? resolveRoute() : null;
+
+    if (routeWrap && routeBtn) {
+      if (currentRoute) {
+        routeBtn.textContent = currentRoute.label;
+        routeWrap.hidden = false;
+      } else {
+        routeWrap.hidden = true;
+      }
+    }
+  }
+
+  briefingForm.addEventListener('change', refreshBriefing);
+  briefingForm.addEventListener('input', event => {
+    if (event.target === noteEl) refreshBriefing();
+  });
+
+  briefingForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!briefingAnswers().every(Boolean)) return;
+    openWhatsApp(briefingMessage(), { offer: 'projetos-consulta', category: 'briefing' });
+  });
+
+  if (routeBtn) {
+    routeBtn.addEventListener('click', () => {
+      if (!currentRoute) return;
+      trackIntent('briefing-route', currentRoute.offer || currentRoute.tab, 'briefing');
+
+      if (currentRoute.kind === 'demo') {
+        window.open(currentRoute.url, '_blank', 'noopener,noreferrer');
+        return;
+      }
+
+      goToTab(currentRoute.tab, currentRoute.offer);
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      briefingForm.querySelectorAll('input[type="radio"]').forEach(input => { input.checked = false; });
+      if (noteEl) noteEl.value = '';
+      refreshBriefing();
+      briefingForm.querySelector('input[type="radio"]')?.focus();
+    });
+  }
+
+  refreshBriefing();
+}
