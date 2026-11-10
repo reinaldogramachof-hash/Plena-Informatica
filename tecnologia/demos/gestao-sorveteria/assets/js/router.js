@@ -77,6 +77,7 @@ function router(view) {
         notifications: () => { if (typeof renderNotifications === 'function') renderNotifications(); },
     };
     if (renderMap[view]) renderMap[view]();
+    if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') lucide.createIcons();
     if (viewElement && previousView !== viewElement.id) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 }
 

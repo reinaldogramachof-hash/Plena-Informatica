@@ -146,6 +146,27 @@
         }
     }
 
+    // Reidratação automática de ícones Lucide em alterações dinâmicas do DOM
+    if (typeof MutationObserver !== 'undefined') {
+        var _iconObserverTimer = null;
+        var _iconObserver = new MutationObserver(function () {
+            if (_iconObserverTimer) return;
+            _iconObserverTimer = setTimeout(function () {
+                _iconObserverTimer = null;
+                if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+                    if (document.querySelector('i[data-lucide], span[data-lucide]')) {
+                        try { lucide.createIcons(); } catch (e) {}
+                    }
+                }
+            }, 35);
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            if (document.body) {
+                _iconObserver.observe(document.body, { childList: true, subtree: true });
+            }
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         unlock();
         var tries = 0; var guard = setInterval(function () { unlock(); if (++tries >= 20) clearInterval(guard); }, 100);

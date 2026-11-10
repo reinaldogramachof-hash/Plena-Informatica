@@ -1,4 +1,4 @@
-﻿/**
+/**
  * demo-bypass.js — Plena MicroSaaS • Gestão Barbearia
  * Libera o app em modo demonstração e adiciona uma camada comercial guiada.
  */
@@ -217,6 +217,27 @@
             guide.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:999998;max-width:288px;background:rgba(2,6,23,.94);color:#e5e7eb;border:1px solid rgba(147,197,253,.22);border-radius:16px;padding:14px 16px;box-shadow:0 14px 38px rgba(0,0,0,.28);font-family:Inter,system-ui,sans-serif';
             document.body.appendChild(guide);
         }
+    }
+
+    // Reidratação automática de ícones Lucide em alterações dinâmicas do DOM
+    if (typeof MutationObserver !== 'undefined') {
+        var _iconObserverTimer = null;
+        var _iconObserver = new MutationObserver(function () {
+            if (_iconObserverTimer) return;
+            _iconObserverTimer = setTimeout(function () {
+                _iconObserverTimer = null;
+                if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+                    if (document.querySelector('i[data-lucide], span[data-lucide]')) {
+                        try { lucide.createIcons(); } catch (e) {}
+                    }
+                }
+            }, 35);
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            if (document.body) {
+                _iconObserver.observe(document.body, { childList: true, subtree: true });
+            }
+        });
     }
 
     document.addEventListener('DOMContentLoaded', function () {
