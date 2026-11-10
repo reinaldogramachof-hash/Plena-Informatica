@@ -10,7 +10,10 @@ RewriteRule ^(.*)$ https://plenainformatica.com.br/$1 [R=301,L]
 
 RewriteRule ^tecnologia\.html$ https://plenainformatica.com.br/tecnologia/tecnologia.html [R=301,L]
 
-RedirectMatch 301 ^/servicos/?$ https://plenainformatica.com.br/servicos/servicos.html
+# Página de Serviços retirada da navegação em 2026-11-10. Os arquivos foram mantidos
+# em servicos/ para reverter com facilidade; o Hub de ferramentas segue ativo por URL direta.
+RedirectMatch 301 ^/servicos/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html
+RedirectMatch 301 ^/servicos/servicos\.html$ https://plenainformatica.com.br/tecnologia/tecnologia.html
 RedirectMatch 301 ^/tecnologia/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html
 RedirectMatch 301 ^/produtos/assistencia-pro/?$ https://plenainformatica.com.br/produtos/assistencia-pro.html
 RedirectMatch 301 ^/produtos/barbearia-premium/?$ https://plenainformatica.com.br/produtos/barbearia-premium.html
@@ -18,3 +21,9 @@ RedirectMatch 301 ^/produtos/gestao-gastro/?$ https://plenainformatica.com.br/pr
 RedirectMatch 301 ^/produtos/beleza-spa/?$ https://plenainformatica.com.br/produtos/beleza-spa.html
 RedirectMatch 301 ^/modelos/landing-pages/captura-leads/?$ https://plenainformatica.com.br/tecnologia/modelos/landing-pages/captura-leads/
 RedirectMatch 301 ^/modelos/landing-pages/diagnostico-whatsapp/?$ https://plenainformatica.com.br/tecnologia/modelos/landing-pages/diagnostico-whatsapp/
+
+# Páginas de portal aposentadas em 2026-11-10: o catálogo abre direto no modelo.
+# Os modelos individuais (lp-*.html, demos/*) continuam ativos.
+RedirectMatch 301 ^/tecnologia/landing-pages(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#landing-pages
+RedirectMatch 301 ^/tecnologia/ecommerce(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#ecommerce
+RedirectMatch 301 ^/tecnologia/projetos-sob-consulta(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#projetos-consulta

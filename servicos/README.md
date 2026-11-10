@@ -3,9 +3,15 @@
 Esta pasta contem a pagina publica atual de Servicos Digitais e a base da
 aplicacao modular que passara a executar ferramentas no navegador.
 
+> **Estado em 2026-11-10:** a pagina `servicos.html` foi retirada da navegacao
+> publica. Todo o site aponta agora para `tecnologia/tecnologia.html`, e o
+> cliente navega apenas pela pagina inicial e pela pagina de Tecnologia. Os
+> arquivos foram mantidos de proposito para reversao facil; `hub-app/` continua
+> publicado, porem sem link no site. Nao trate a ausencia de links como defeito.
+
 ## Estrutura
 
-- `servicos.html`, `style.css`, `script.js`: pagina publica atualmente ativa.
+- `servicos.html`, `style.css`, `script.js`: pagina publica mantida para reversao, hoje sem link no site.
 - `hub/`: aplicacao React + TypeScript das ferramentas.
 - `docs/`: arquitetura, seguranca, dados, Supabase e operacao.
 - `supabase/`: artefatos versionados de banco e Edge Functions.
