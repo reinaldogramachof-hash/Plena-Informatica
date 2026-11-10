@@ -19,8 +19,18 @@ RedirectMatch 301 ^/produtos/assistencia-pro/?$ https://plenainformatica.com.br/
 RedirectMatch 301 ^/produtos/barbearia-premium/?$ https://plenainformatica.com.br/produtos/barbearia-premium.html
 RedirectMatch 301 ^/produtos/gestao-gastro/?$ https://plenainformatica.com.br/produtos/gestao-gastro.html
 RedirectMatch 301 ^/produtos/beleza-spa/?$ https://plenainformatica.com.br/produtos/beleza-spa.html
+RedirectMatch 301 ^/produtos/gestao-terapia/?$ https://plenainformatica.com.br/produtos/gestao-terapia.html
+RedirectMatch 301 ^/produtos/gestao-odonto/?$ https://plenainformatica.com.br/produtos/gestao-odonto.html
+RedirectMatch 301 ^/produtos/gestao-fit/?$ https://plenainformatica.com.br/produtos/gestao-fit.html
+RedirectMatch 301 ^/produtos/gestao-lavarapido/?$ https://plenainformatica.com.br/produtos/gestao-lavarapido.html
+RedirectMatch 301 ^/produtos/gestao-sorveteria/?$ https://plenainformatica.com.br/produtos/gestao-sorveteria.html
+RedirectMatch 301 ^/produtos/gestao-pdv/?$ https://plenainformatica.com.br/produtos/gestao-pdv.html
+RedirectMatch 301 ^/produtos/gestao-salas/?$ https://plenainformatica.com.br/produtos/gestao-salas.html
 RedirectMatch 301 ^/modelos/landing-pages/captura-leads/?$ https://plenainformatica.com.br/tecnologia/modelos/landing-pages/captura-leads/
 RedirectMatch 301 ^/modelos/landing-pages/diagnostico-whatsapp/?$ https://plenainformatica.com.br/tecnologia/modelos/landing-pages/diagnostico-whatsapp/
+
+# Blog retirado do site em 2026-11-10: sem artigos publicados, saiu da navegacao.
+RedirectMatch 301 ^/blog(/.*)?$ https://plenainformatica.com.br/
 
 # Páginas de portal aposentadas em 2026-11-10: o catálogo abre direto no modelo.
 # Os modelos individuais (lp-*.html, demos/*) continuam ativos.

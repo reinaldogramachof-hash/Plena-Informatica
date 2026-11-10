@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = process.cwd();
-const roots = ['index.html', 'limpar-cache.html', 'blog', 'produtos', 'servicos', 'tecnologia', 'README.md'];
+const roots = ['index.html', 'limpar-cache.html', 'produtos', 'servicos', 'tecnologia', 'README.md'];
 const textExts = new Set(['.html', '.css', '.js', '.md', '.xml', '.txt']);
 const skipSegments = new Set(['hub-app/assets']);
 const skipDirNames = new Set(['hub', 'node_modules', 'assets']);

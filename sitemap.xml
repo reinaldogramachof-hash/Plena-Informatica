@@ -37,6 +37,48 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://plenainformatica.com.br/produtos/gestao-terapia.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plenainformatica.com.br/produtos/gestao-odonto.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plenainformatica.com.br/produtos/gestao-fit.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plenainformatica.com.br/produtos/gestao-lavarapido.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plenainformatica.com.br/produtos/gestao-sorveteria.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plenainformatica.com.br/produtos/gestao-pdv.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://plenainformatica.com.br/produtos/gestao-salas.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://plenainformatica.com.br/tecnologia/sites-premium/</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
@@ -52,12 +94,6 @@
     <loc>https://plenainformatica.com.br/tecnologia/modelos/landing-pages/diagnostico-whatsapp/</loc>
     <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://plenainformatica.com.br/blog/</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>

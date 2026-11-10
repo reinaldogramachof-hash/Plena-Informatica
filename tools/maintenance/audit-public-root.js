@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = process.cwd();
-const publicRoots = ['index.html', 'limpar-cache.html', 'blog', 'produtos', 'servicos', 'tecnologia', 'Sistemas_Gestao'];
+const publicRoots = ['index.html', 'limpar-cache.html', 'produtos', 'servicos', 'tecnologia', 'Sistemas_Gestao'];
 const textExts = new Set(['.html', '.css', '.js', '.xml']);
 const imageNames = [
   'logoplena.svg',
