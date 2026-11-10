@@ -1,4 +1,4 @@
-const CACHE = 'lava-rapido-v20';
+const CACHE = 'lava-rapido-v21';
 const FILES = ['./', './index.html', './style.css', './checkin.css', './app.js', './operational-store.js', './lock.js', './online.js', './operational-ui.js', './lucide.min.js', './manifest.json', './icon.svg', './inter.woff2'];
 const STATIC_PATHS = new Set(FILES.map(file => new URL(file, self.registration.scope).pathname));
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)).then(() => self.skipWaiting())));

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gestao-fit-cache-v22';
+const CACHE_NAME = 'gestao-fit-cache-v23';
 const ASSETS = [
   './','./index.html','./lock.js','./manifest.json',
   './assets/css/styles.css','./assets/css/security.css?v=3','./assets/css/routine.css?v=1','./assets/css/students.css?v=1','./assets/css/crm.css?v=2','./assets/css/student-overview.css?v=1','./assets/css/filters.css?v=1','./assets/css/clock.css?v=1','./assets/css/commerce.css?v=1','./assets/css/schedule.css?v=5','./assets/css/training.css?v=2','./assets/css/premium.css?v=2','./assets/css/navigation.css?v=2','./assets/css/day.css?v=3',

@@ -1,11 +1,11 @@
-const CACHE_NAME = 'gestão-beleza-v3';
+const CACHE_NAME = 'gestao-beleza-v4';
 const ASSETS_TO_CACHE = [
     './index.html',
     './css/styles.css',
     './js/app_core.js',
     './manifest.json',
-    'https://unpkg.com/lucide@latest',
-    'https://cdn.tailwindcss.com'
+    './assets/libs/lucide.js',
+    './assets/libs/tailwindcss.js'
 ];
 
 // Install Event

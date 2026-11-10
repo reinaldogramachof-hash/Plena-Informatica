@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gestao-sorveteria-cache-v11';
+const CACHE_NAME = 'gestao-sorveteria-cache-v12';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -13,7 +13,7 @@ const ASSETS_TO_CACHE = [
   './assets/js/app.js?v=11',
   './assets/js/db.js?v=11',
   './assets/js/operations.js?v=11',
-  './assets/js/router.js?v=11',
+  './assets/js/router.js?v=12',
   './assets/js/tailwind_config.js?v=11',
   './assets/js/modules/dashboard.js?v=11',
   './assets/js/modules/inventory.js?v=11',

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gestão-assistencia-cache-v7';
+const CACHE_NAME = 'gestao-assistencia-cache-v8';
 const urlsToCache = [
   './',
   './index.html',
@@ -27,6 +27,20 @@ self.addEventListener('install', event => {
   );
 });
 
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
@@ -38,4 +52,3 @@ self.addEventListener('fetch', event => {
       })
   );
 });
-

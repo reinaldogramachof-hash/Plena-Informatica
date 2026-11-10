@@ -1,4 +1,4 @@
-const CACHE_NAME='gestao-terapia-cache-v69';
+const CACHE_NAME='gestao-terapia-cache-v70';
 const ASSETS=[
   "./assets/js/document-rules.js?v=69",
   "./assets/js/document-files.js?v=69",
