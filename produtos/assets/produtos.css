@@ -3704,3 +3704,118 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
     gap: 24px;
   }
 }
+
+/* Gestão PDV Pro: identidade visual verde esmeralda / petróleo comercial, foco em agilidade e legibilidade */
+.assistencia-product-page.pdv-product-page {
+  --bg: #051613;
+  --surface: rgba(8, 35, 30, .76);
+  --surface-strong: rgba(13, 51, 44, .92);
+  --muted: #94A3B8;
+  --text: #F8FAFC;
+  --brand: #10B981;
+  --brand-light: #34D399;
+  --brand-dark: #059669;
+  --brand-accent: #10B981;
+  --brand-soft: rgba(16, 185, 129, .15);
+}
+
+.pdv-product-page .assistencia-nav-brand__icon {
+  background: linear-gradient(135deg, rgba(16, 185, 129, .25), rgba(52, 211, 153, .08));
+  border: 1px solid rgba(16, 185, 129, .45);
+  color: #34D399;
+}
+
+.pdv-product-page .assistencia-nav-brand__copy small {
+  color: #34D399;
+  letter-spacing: .12em;
+}
+
+.pdv-product-page .pdv-hero {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, .18), transparent 32rem),
+    radial-gradient(circle at 15% 75%, rgba(5, 150, 105, .1), transparent 22rem),
+    linear-gradient(180deg, #051613 0%, #0A2922 50%, #051613 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.pdv-product-page .pdv-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, .03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, .03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+}
+
+.pdv-product-page .pdv-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 64px);
+  position: relative;
+  z-index: 2;
+}
+
+.pdv-product-page .pdv-hero-preview {
+  background: rgba(8, 35, 30, .92);
+  border: 1px solid rgba(16, 185, 129, .35);
+  border-radius: 20px;
+  padding: clamp(20px, 2.5vw, 26px);
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, .55),
+    0 0 0 1px rgba(255, 255, 255, .05) inset;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.pdv-product-page .clinical-trust-icon {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+.pdv-product-page .clinical-white-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 18px 36px -14px rgba(16, 185, 129, 0.14);
+}
+
+.pdv-product-page .clinical-white-card h3 svg {
+  color: #10B981;
+}
+
+.pdv-product-page .clinical-routine-number {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.pdv-product-page .clinical-cluster-header {
+  color: #10B981;
+}
+
+.pdv-product-page .clinical-price-card-clean--featured {
+  border-color: #10B981;
+  box-shadow: 0 22px 50px -18px rgba(16, 185, 129, 0.22);
+}
+
+.pdv-product-page .clinical-price-card-clean .price-badge {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+.pdv-product-page .clinical-faq-idx {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+@media (max-width: 767px) {
+  .pdv-product-page .pdv-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
