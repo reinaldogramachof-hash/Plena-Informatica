@@ -3589,3 +3589,118 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
     gap: 24px;
   }
 }
+
+/* Gestão Sorveteria: identidade visual framboesa artesanal, contraste limpo e foco em balcão */
+.assistencia-product-page.sorveteria-product-page {
+  --bg: #090D18;
+  --surface: rgba(17, 24, 39, .76);
+  --surface-strong: rgba(22, 32, 51, .92);
+  --muted: #94A3B8;
+  --text: #F8FAFC;
+  --brand: #F43F5E;
+  --brand-light: #FB7185;
+  --brand-dark: #E11D48;
+  --brand-accent: #F43F5E;
+  --brand-soft: rgba(244, 63, 94, .15);
+}
+
+.sorveteria-product-page .assistencia-nav-brand__icon {
+  background: linear-gradient(135deg, rgba(244, 63, 94, .25), rgba(251, 113, 133, .08));
+  border: 1px solid rgba(244, 63, 94, .45);
+  color: #FB7185;
+}
+
+.sorveteria-product-page .assistencia-nav-brand__copy small {
+  color: #FB7185;
+  letter-spacing: .12em;
+}
+
+.sorveteria-product-page .sorveteria-hero {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(244, 63, 94, .18), transparent 32rem),
+    radial-gradient(circle at 15% 75%, rgba(225, 29, 72, .1), transparent 22rem),
+    linear-gradient(180deg, #090D18 0%, #170E1C 50%, #090D18 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sorveteria-product-page .sorveteria-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, .03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, .03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+  mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%);
+}
+
+.sorveteria-product-page .sorveteria-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  align-items: center;
+  gap: clamp(28px, 4.5vw, 64px);
+  position: relative;
+  z-index: 2;
+}
+
+.sorveteria-product-page .sorveteria-hero-preview {
+  background: rgba(17, 24, 39, .92);
+  border: 1px solid rgba(244, 63, 94, .35);
+  border-radius: 20px;
+  padding: clamp(20px, 2.5vw, 26px);
+  box-shadow:
+    0 24px 60px -12px rgba(0, 0, 0, .55),
+    0 0 0 1px rgba(255, 255, 255, .05) inset;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.sorveteria-product-page .clinical-trust-icon {
+  background: rgba(244, 63, 94, 0.1);
+  color: #F43F5E;
+}
+
+.sorveteria-product-page .clinical-white-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(244, 63, 94, 0.35);
+  box-shadow: 0 18px 36px -14px rgba(244, 63, 94, 0.14);
+}
+
+.sorveteria-product-page .clinical-white-card h3 svg {
+  color: #F43F5E;
+}
+
+.sorveteria-product-page .clinical-routine-number {
+  background: rgba(244, 63, 94, 0.1);
+  color: #F43F5E;
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.sorveteria-product-page .clinical-cluster-header {
+  color: #F43F5E;
+}
+
+.sorveteria-product-page .clinical-price-card-clean--featured {
+  border-color: #F43F5E;
+  box-shadow: 0 22px 50px -18px rgba(244, 63, 94, 0.22);
+}
+
+.sorveteria-product-page .clinical-price-card-clean .price-badge {
+  background: rgba(244, 63, 94, 0.1);
+  color: #F43F5E;
+}
+
+.sorveteria-product-page .clinical-faq-idx {
+  background: rgba(244, 63, 94, 0.1);
+  color: #F43F5E;
+}
+
+@media (max-width: 767px) {
+  .sorveteria-product-page .sorveteria-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
