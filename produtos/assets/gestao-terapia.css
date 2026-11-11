@@ -353,6 +353,67 @@
   .therapy-product-page .therapy-feature::after { background: linear-gradient(180deg, #f8f6ef 30%, #f8f6eff5 51%, #f8f6ef4d 73%, transparent 90%); }
   .therapy-product-page .therapy-feature--reverse::after { background: linear-gradient(180deg, #e9ede3 30%, #e9ede3f5 51%, #e9ede34d 73%, transparent 90%); }
 }
+.therapy-product-page .therapy-demo-desktop { display: inline-flex; align-items: center; gap: 7px; }
+.therapy-product-page .therapy-demo-mobile { display: none; }
+@media (max-width: 767px) {
+  .therapy-product-page .therapy-demo-desktop { display: none; }
+  .therapy-product-page .therapy-demo-mobile { display: inline; }
+  .therapy-product-page .therapy-opening [data-therapy-demo-entry], .therapy-product-page .therapy-closing [data-therapy-demo-entry] { display: none; }
+  .therapy-product-page .nav-mobile-actions > [data-therapy-demo-entry] { font-size: 11px !important; padding-inline: 8px !important; }
+}
+.therapy-product-page .therapy-opening .therapy-actions { display: grid; grid-template-columns: max-content max-content; justify-content: start; }
+.therapy-product-page .therapy-opening .therapy-trial-cta { grid-column: 1 / -1; width: 100%; max-width: 400px; }
+@media (max-width: 1100px) {
+  .therapy-product-page .therapy-opening .therapy-actions .btn { min-width: 0; }
+}
+@media (max-width: 600px) {
+  .therapy-product-page .therapy-opening .therapy-actions { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
+}
+.therapy-product-page .therapy-trial-banner { display: flex; align-items: center; justify-content: space-between; gap: 36px; padding: 28px 32px; margin-bottom: 36px; border: 1px solid #b5c4ac; border-radius: 12px; background: #e4e8db; }
+.therapy-product-page .therapy-trial-banner .therapy-kicker { font-size: 11px; margin-bottom: 10px; color: #326956; }
+.therapy-product-page .therapy-trial-banner h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; line-height: 1.2; margin: 0 0 12px; }
+.therapy-product-page .therapy-trial-banner p { font-size: 15px; color: #4d6154; line-height: 1.75; margin: 0; max-width: 620px; }
+.therapy-product-page .therapy-trial-banner > .btn { flex-shrink: 0; max-width: 310px; text-align: center; }
+@media (max-width: 900px) {
+  .therapy-product-page .therapy-trial-banner { flex-direction: column; align-items: flex-start; padding: 24px; gap: 24px; }
+}
+@media (max-width: 600px) {
+  .therapy-product-page .therapy-trial-banner { padding: 24px 20px; }
+  .therapy-product-page .therapy-trial-banner > .btn { width: 100%; max-width: none; }
+}
+.therapy-product-page .therapy-presence { background: #e9ede3; border-block: 1px solid #dce1d4; }
+.therapy-product-page .therapy-presence-heading { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; margin-bottom: 40px; }
+.therapy-product-page .therapy-presence-heading .therapy-section-heading { margin: 0; }
+.therapy-product-page .therapy-presence-heading > p { color: #4d6154; font-size: 17px; line-height: 1.8; margin: 0; }
+.therapy-product-page .therapy-presence-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.therapy-product-page .therapy-presence-card { display: flex; flex-direction: column; padding: 28px; border: 1px solid #d2d9ca; border-radius: 12px; background: #f8f6ef; }
+.therapy-product-page .therapy-presence-card--featured { border-color: #849a80; background: #fffdf8; }
+.therapy-product-page .therapy-presence-label { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #526e59; line-height: 1.5; }
+.therapy-product-page .therapy-presence-label svg { width: 18px; height: 18px; }
+.therapy-product-page .therapy-presence-card h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 29px; font-weight: 400; line-height: 1.2; letter-spacing: -.02em; margin: 24px 0 16px; }
+.therapy-product-page .therapy-presence-card > p { color: #4d6154; font-size: 15px; line-height: 1.75; margin: 0; }
+.therapy-product-page .therapy-presence-investment { padding: 24px 0; margin: 24px 0 18px; border-block: 1px solid #dcded0; }
+.therapy-product-page .therapy-presence-investment > strong { display: block; font-size: clamp(28px, 2.5vw, 36px); font-weight: 600; line-height: 1.25; letter-spacing: -.035em; }
+.therapy-product-page .therapy-presence-investment > span { display: block; font-size: 13px; color: #59675d; line-height: 1.6; margin-top: 8px; }
+.therapy-product-page .therapy-presence-card > .therapy-presence-detail { font-size: 13px; margin-bottom: 24px; }
+.therapy-product-page .therapy-presence-card .therapy-text-link { margin-top: auto; text-align: left; line-height: 1.6; }
+.therapy-product-page .therapy-presence-terms { display: flex; gap: 14px; margin-top: 28px; color: #4d6154; }
+.therapy-product-page .therapy-presence-terms > svg { width: 20px; height: 20px; margin-top: 3px; }
+.therapy-product-page .therapy-presence-terms p { font-size: 13px; line-height: 1.8; margin: 0; }
+.therapy-product-page .therapy-presence-terms p + p { margin-top: 10px; }
+@media (min-width: 1001px) {
+  .therapy-product-page .therapy-presence-card > p:not(.therapy-presence-detail) { min-height: 105px; }
+}
+@media (max-width: 1000px) {
+  .therapy-product-page .therapy-presence-heading { grid-template-columns: 1fr; gap: 20px; }
+  .therapy-product-page .therapy-presence-options { grid-template-columns: 1fr; }
+  .therapy-product-page .therapy-presence-card h3 { margin-top: 18px; }
+}
+@media (max-width: 600px) {
+  .therapy-product-page .therapy-presence-heading > p { font-size: 16px; }
+  .therapy-product-page .therapy-presence-card { padding: 24px 20px; }
+  .therapy-product-page .therapy-presence-card h3 { font-size: 27px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .therapy-product-page *, .therapy-product-page *::before, .therapy-product-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

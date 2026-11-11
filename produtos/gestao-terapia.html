@@ -83,20 +83,16 @@
         <a href="#plano">Planos</a>
         <a href="#faq">Dúvidas</a>
         <a href="../tecnologia/tecnologia.html">Tecnologia</a>
-        <button class="btn primary" type="button" style="min-height:38px; padding:8px 16px; font-size:13px;" onclick="openDemoModal()">
-          <i data-lucide="monitor-up"></i>
-          Testar Demo
-        </button>
+        <button class="btn primary" type="button" style="min-height:38px; padding:8px 16px; font-size:13px;" onclick="openDemoModal()" data-therapy-demo-entry><span class="therapy-demo-desktop"><i data-lucide="monitor-up"></i>
+          Testar Demo</span><span class="therapy-demo-mobile">Solicitar 7 dias gratuitos</span></button>
         <button class="btn light assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Terapia Pro e vim pelo site. Gostaria de entender a licença e a implantação.', 'Gestão Terapia')">
           <i data-lucide="message-circle"></i>
         </button>
       </div>
 
       <div class="nav-mobile-actions">
-        <button class="btn primary" type="button" style="min-height:36px; padding:6px 12px; font-size:12px;" onclick="openDemoModal()" aria-label="Testar Demonstração">
-          <i data-lucide="monitor-up"></i>
-          Demo
-        </button>
+        <button class="btn primary" type="button" style="min-height:36px; padding:6px 12px; font-size:12px;" onclick="openDemoModal()" data-therapy-demo-entry><span class="therapy-demo-desktop"><i data-lucide="monitor-up"></i>
+          Demo</span><span class="therapy-demo-mobile">7 dias</span></button>
         <button class="btn light mobile-header-whatsapp assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Tenho interesse no Gestão Terapia Pro e vim pelo site. Gostaria de entender a licença e a implantação.', 'Gestão Terapia')">
           <i data-lucide="message-circle"></i>
         </button>
@@ -126,10 +122,8 @@
         <a href="../tecnologia/tecnologia.html" data-mobile-menu-close><span>Tecnologia Plena</span><span>→</span></a>
       </nav>
       <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
-        <button class="btn primary" onclick="toggleProductMobileMenu(false); openDemoModal()">
-          <i data-lucide="monitor-up"></i>
-          Testar Demonstração Real
-        </button>
+        <button class="btn primary" onclick="toggleProductMobileMenu(false); openDemoModal()" data-therapy-demo-entry><span class="therapy-demo-desktop"><i data-lucide="monitor-up"></i>
+          Testar Demonstração Real</span><span class="therapy-demo-mobile">Solicitar 7 dias gratuitos</span></button>
         <button class="btn light" onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Tenho interesse no Gestão Terapia Pro e vim pelo site. Gostaria de entender a licença e a implantação.', 'Gestão Terapia')">
           <i data-lucide="message-circle"></i>
           Falar no WhatsApp
@@ -146,7 +140,8 @@
           <h1 id="therapy-title">Seu cuidado merece uma rotina <em>bem organizada.</em></h1>
           <p class="therapy-opening__lead">Entre uma sessão e outra, tudo encontra seu lugar. Agenda, prontuários e financeiro em um sistema que acompanha a sua prática.</p>
           <div class="therapy-actions">
-            <button class="btn primary" type="button" onclick="openDemoModal()">Conhecer o sistema <i data-lucide="arrow-up-right"></i></button>
+            <button class="btn primary therapy-trial-cta" type="button" onclick="openProductWhatsApp('Olá! Quero solicitar meu período de 7 dias gratuitos do Gestão Terapia para experimentar o sistema na rotina do meu consultório. Como faço para começar?', 'Gestão Terapia')">Solicite seu período de 7 dias gratuitos <i data-lucide="arrow-up-right"></i></button>
+            <button class="btn light" type="button" onclick="openDemoModal()" data-therapy-demo-entry><span class="therapy-demo-desktop">Conhecer o sistema <i data-lucide="play"></i></span><span class="therapy-demo-mobile">Solicitar 7 dias gratuitos</span></button>
             <a class="btn light" href="#plano">Comparar planos</a>
           </div>
           <p class="therapy-opening__choice">No seu computador, com agenda online opcional,<br>ou em nuvem. Você escolhe como trabalhar.</p>
@@ -171,19 +166,19 @@
       <article id="agenda" class="therapy-feature" aria-labelledby="agenda-title">
         <figure class="therapy-screen"><img src="../assets/images/terapia/agenda-demo.jpg?v=2" width="1440" height="960" alt="Tela real da agenda semanal do Gestão Terapia, com calendário e horários de pacientes fictícios" loading="lazy" decoding="async"></figure>
         <div class="container therapy-feature__grid">
-          <div class="therapy-feature__copy"><span class="therapy-chapter">01 <span>/ Antes da sessão</span></span><h2 id="agenda-title">Um dia que começa<br>com clareza.</h2><p>Veja quem chega, encontre um horário e organize os intervalos. Sua agenda acompanha o ritmo do consultório.</p><ul><li>Visualizações por dia, semana, mês e lista</li><li>Disponibilidade, bloqueios e intervalos</li><li>Confirmações e registro de faltas</li></ul><button class="therapy-text-link" type="button" onclick="openDemoModal({view: 'schedule'})">Explorar a demonstração <i data-lucide="arrow-up-right"></i></button></div>
+          <div class="therapy-feature__copy"><span class="therapy-chapter">01 <span>/ Antes da sessão</span></span><h2 id="agenda-title">Um dia que começa<br>com clareza.</h2><p>Veja quem chega, encontre um horário e organize os intervalos. Sua agenda acompanha o ritmo do consultório.</p><ul><li>Visualizações por dia, semana, mês e lista</li><li>Disponibilidade, bloqueios e intervalos</li><li>Confirmações e registro de faltas</li></ul><button class="therapy-text-link" type="button" onclick="openDemoModal({view: 'schedule'})" data-therapy-demo-entry><span class="therapy-demo-desktop">Explorar a demonstração <i data-lucide="arrow-up-right"></i></span><span class="therapy-demo-mobile">Solicitar 7 dias gratuitos</span></button></div>
         </div>
       </article>
       <article id="acompanhamento" class="therapy-feature therapy-feature--sage therapy-feature--reverse" aria-labelledby="patient-title">
         <figure class="therapy-screen"><img src="../assets/images/terapia/acompanhamento-demo.jpg?v=2" width="1440" height="960" alt="Tela real da ficha de uma paciente fictícia, com resumo, sessões, agenda e linha do tempo" loading="lazy" decoding="async"></figure>
         <div class="container therapy-feature__grid therapy-feature__grid--reverse">
-          <div class="therapy-feature__copy"><span class="therapy-chapter">02 <span>/ Ao longo do cuidado</span></span><h2 id="patient-title">Cada história,<br>com seu contexto.</h2><p>Retome o acompanhamento sem reunir anotações espalhadas. A ficha do paciente conecta a trajetória clínica aos próximos passos.</p><ul><li>Prontuário, histórico e planos terapêuticos</li><li>Sessões com rascunho protegido</li><li>Escalas PHQ-9 e GAD-7 e documentos</li></ul><p class="therapy-feature__note">A avaliação e as decisões clínicas continuam com o profissional.</p><button class="therapy-text-link" type="button" onclick="openDemoModal({view: 'patients'})">Conhecer as telas do sistema <i data-lucide="arrow-up-right"></i></button></div>
+          <div class="therapy-feature__copy"><span class="therapy-chapter">02 <span>/ Ao longo do cuidado</span></span><h2 id="patient-title">Cada história,<br>com seu contexto.</h2><p>Retome o acompanhamento sem reunir anotações espalhadas. A ficha do paciente conecta a trajetória clínica aos próximos passos.</p><ul><li>Prontuário, histórico e planos terapêuticos</li><li>Sessões com rascunho protegido</li><li>Escalas PHQ-9 e GAD-7 e documentos</li></ul><p class="therapy-feature__note">A avaliação e as decisões clínicas continuam com o profissional.</p><button class="therapy-text-link" type="button" onclick="openDemoModal({view: 'patients'})" data-therapy-demo-entry><span class="therapy-demo-desktop">Conhecer as telas do sistema <i data-lucide="arrow-up-right"></i></span><span class="therapy-demo-mobile">Solicitar 7 dias gratuitos</span></button></div>
         </div>
       </article>
       <article id="financeiro" class="therapy-feature" aria-labelledby="finance-title">
         <figure class="therapy-screen"><img src="../assets/images/terapia/financeiro-demo.jpg?v=2" width="1440" height="960" alt="Tela real do financeiro com entradas, saídas, saldo e lançamentos fictícios do consultório" loading="lazy" decoding="async"></figure>
         <div class="container therapy-feature__grid">
-          <div class="therapy-feature__copy"><span class="therapy-chapter">03 <span>/ Nos bastidores do consultório</span></span><h2 id="finance-title">Cuidar da gestão<br>também faz parte.</h2><p>Recebimentos, despesas e pacotes ficam visíveis para você conferir os números com o mesmo cuidado dedicado à sua prática.</p><ul><li>Pacotes e saldo de sessões</li><li>Entradas, despesas e valores a receber</li><li>Recibos e relatórios para conferência</li></ul><button class="therapy-text-link" type="button" onclick="openDemoModal({view: 'financial'})">Ver o sistema em funcionamento <i data-lucide="arrow-up-right"></i></button></div>
+          <div class="therapy-feature__copy"><span class="therapy-chapter">03 <span>/ Nos bastidores do consultório</span></span><h2 id="finance-title">Cuidar da gestão<br>também faz parte.</h2><p>Recebimentos, despesas e pacotes ficam visíveis para você conferir os números com o mesmo cuidado dedicado à sua prática.</p><ul><li>Pacotes e saldo de sessões</li><li>Entradas, despesas e valores a receber</li><li>Recibos e relatórios para conferência</li></ul><button class="therapy-text-link" type="button" onclick="openDemoModal({view: 'financial'})" data-therapy-demo-entry><span class="therapy-demo-desktop">Ver o sistema em funcionamento <i data-lucide="arrow-up-right"></i></span><span class="therapy-demo-mobile">Solicitar 7 dias gratuitos</span></button></div>
         </div>
       </article>
     </section>
@@ -202,6 +197,7 @@
     <section id="plano" class="therapy-block therapy-pricing" aria-labelledby="plans-title">
       <div class="container">
         <div class="therapy-section-heading therapy-section-heading--center"><span class="therapy-kicker">Três formas de usar</span><h2 id="plans-title">Um formato que combina<br>com o seu consultório.</h2><p>Licença local, agendamento online ou acesso em nuvem. Compare o investimento e o que muda em cada opção.</p></div>
+        <div class="therapy-trial-banner"><div><span class="therapy-kicker">Teste gratuito · 7 dias</span><h3>Conheça o sistema na sua rotina.</h3><p>Experimente o Gestão Terapia no dia a dia do seu consultório antes de escolher seu plano. Solicite o período gratuito pelo WhatsApp e receba as orientações para começar.</p></div><button class="btn primary" type="button" onclick="openProductWhatsApp('Olá! Quero solicitar meu período de 7 dias gratuitos do Gestão Terapia para experimentar o sistema na rotina do meu consultório. Como faço para começar?', 'Gestão Terapia')">Solicite seu período de 7 dias gratuitos <i data-lucide="arrow-up-right"></i></button></div>
         <div class="therapy-plans">
           <article class="therapy-plan"><div class="therapy-plan-intro"><span class="therapy-plan-type"><i data-lucide="hard-drive"></i> No seu computador</span><h3>Essencial</h3><p>Para quem prefere manter o sistema e os prontuários no próprio computador.</p></div><div class="therapy-plan-investment"><span class="therapy-plan-price">R$ 499,90</span><span class="therapy-plan-period">Pagamento único · licença vitalícia</span><span class="therapy-plan-extra">Sem mensalidade para o uso local.</span></div><ul><li>Sistema clínico completo</li><li>Cofre local criptografado por senha</li><li>Agenda, prontuário e escalas</li><li>Pacotes, recibos e financeiro</li><li>Backup protegido e uso offline</li></ul><button class="btn light" type="button" onclick="openProductWhatsApp('Olá! Quero adquirir o modelo Essencial (licença vitalícia de R$ 499,90) do Gestão Terapia Pro.', 'Gestão Terapia')">Escolher Essencial <i data-lucide="arrow-right"></i></button></article>
           <article class="therapy-plan therapy-plan--featured"><span class="therapy-plan-flag">Com agenda online</span><div class="therapy-plan-intro"><span class="therapy-plan-type"><i data-lucide="calendar-days"></i> Local + agendamento online</span><h3>Essencial +<br>Agenda Online</h3><p>Para quem quer oferecer ao paciente um link para escolher o horário.</p></div><div class="therapy-plan-investment"><span class="therapy-plan-price">R$ 499,90</span><span class="therapy-plan-period">Pagamento único pela licença</span><span class="therapy-plan-recurring">+ R$ 49,90<span>/mês</span></span><span class="therapy-plan-extra">Pela agenda online do consultório.</span></div><ul><li>Todos os recursos do Essencial</li><li>Página de agendamento para pacientes</li><li>Link próprio para compartilhar</li><li>Horários integrados à agenda</li><li>Paciente acessa pelo navegador</li></ul><button class="btn primary" type="button" onclick="openProductWhatsApp('Olá! Quero o Gestão Terapia Pro com Agenda Online (licença de R$ 499,90 + R$ 49,90/mês).', 'Gestão Terapia')">Escolher com agenda <i data-lucide="arrow-right"></i></button></article>
@@ -213,18 +209,56 @@
       </div>
     </section>
 
+    <section id="presenca-online" class="therapy-block therapy-presence" aria-labelledby="presence-title">
+      <div class="container">
+        <div class="therapy-presence-heading">
+          <div class="therapy-section-heading"><span class="therapy-kicker">Além da gestão · Serviço opcional</span><h2 id="presence-title">Seu consultório organizado.<br>Sua presença profissional também.</h2></div>
+          <p>Um espaço para apresentar seu trabalho e facilitar o primeiro contato. Criamos sua landing page profissional ou adicionamos o acesso à agenda online ao site que você já tem.</p>
+        </div>
+        <div class="therapy-presence-options">
+          <article class="therapy-presence-card">
+            <span class="therapy-presence-label"><i data-lucide="layout-template"></i> Para quem ainda não tem site</span>
+            <h3>Sua landing page profissional</h3>
+            <p>Uma página com sua apresentação, serviços, informações profissionais e botão de contato pelo WhatsApp.</p>
+            <div class="therapy-presence-investment"><strong>R$ 399,90</strong><span>Pagamento único pelo desenvolvimento</span></div>
+            <p class="therapy-presence-detail">Pode ser contratada separadamente, sem adquirir o sistema.</p>
+            <button class="therapy-text-link" type="button" onclick="openProductWhatsApp('Olá! Quero contratar a landing page profissional avulsa por R$ 399,90, com botão de WhatsApp. Entendo que domínio e hospedagem do site são por minha conta. Podemos conversar sobre o escopo?', 'Gestão Terapia')">Quero minha landing page <i data-lucide="arrow-up-right"></i></button>
+          </article>
+          <article class="therapy-presence-card therapy-presence-card--featured">
+            <span class="therapy-presence-label"><i data-lucide="panels-top-left"></i> Junto com qualquer plano</span>
+            <h3>Seu sistema e sua presença online</h3>
+            <p>Ao contratar o Gestão Terapia, acrescente a mesma landing page profissional, com apresentação dos serviços e botão de WhatsApp.</p>
+            <div class="therapy-presence-investment"><strong>+ R$ 199,90</strong><span>Pagamento único adicional ao plano escolhido</span></div>
+            <p class="therapy-presence-detail">Válido para os três planos. Essencial + landing page: <strong>R$ 699,80</strong> em pagamento único. Nos planos com mensalidade, a recorrência do sistema permanece conforme a oferta.</p>
+            <button class="therapy-text-link" type="button" onclick="openProductWhatsApp('Olá! Quero contratar o Gestão Terapia e acrescentar a landing page profissional por mais R$ 199,90 em pagamento único. Entendo que domínio e hospedagem do site são por minha conta. Pode me ajudar a escolher o plano?', 'Gestão Terapia')">Quero sistema e landing page <i data-lucide="arrow-up-right"></i></button>
+          </article>
+          <article class="therapy-presence-card">
+            <span class="therapy-presence-label"><i data-lucide="calendar-check"></i> Para quem já tem site</span>
+            <h3>O agendamento a um clique</h3>
+            <p>Nos planos Essencial + Agenda Online e Nuvem Completa, adicionamos um botão ou link de agendamento ao seu site ou landing page existente.</p>
+            <div class="therapy-presence-investment"><strong>Incluído</strong><span>Aplicação simples do link, sem custo adicional</span></div>
+            <p class="therapy-presence-detail">Depende do acesso de edição e das possibilidades da plataforma do seu site. A aplicação do link não inclui reformulação do site.</p>
+            <button class="therapy-text-link" type="button" onclick="openProductWhatsApp('Olá! Já tenho um site e quero adicionar o link de agendamento incluído nos planos Essencial + Agenda Online ou Nuvem Completa. Podemos verificar a plataforma do meu site?', 'Gestão Terapia')">Quero conectar minha agenda <i data-lucide="arrow-up-right"></i></button>
+          </article>
+        </div>
+        <div class="therapy-presence-terms"><i data-lucide="info"></i><div><p><strong>Domínio e hospedagem do site são contratados e pagos por você.</strong> Esses custos não estão incluídos no desenvolvimento da landing page nem se confundem com a hospedagem do sistema no plano Nuvem Completa.</p><p>O desenvolvimento contempla uma landing page de página única. Sites com várias páginas ou funcionalidades adicionais têm orçamento próprio. Prazo, revisões e condições de manutenção são definidos no atendimento, antes da contratação. A landing page não acrescenta agenda online ao plano Essencial.</p></div></div>
+      </div>
+    </section>
+
     <section id="faq" class="therapy-block therapy-faq" aria-labelledby="faq-title">
       <div class="container therapy-faq-grid"><div class="therapy-section-heading"><span class="therapy-kicker">Antes de escolher</span><h2 id="faq-title">Dúvidas que merecem uma resposta clara.</h2><p>Se precisar de ajuda para comparar os formatos, converse com a Plena.</p><button class="therapy-text-link" type="button" onclick="openProductWhatsApp('Olá! Tenho dúvidas sobre os modelos do Gestão Terapia Pro. Pode me orientar?', 'Gestão Terapia')">Tirar uma dúvida <i data-lucide="arrow-up-right"></i></button></div><div class="therapy-faq-list">
-          <details><summary>Posso experimentar antes de escolher?<i data-lucide="plus"></i></summary><p>Sim. A demonstração interativa permite conhecer as telas com dados fictícios, sem preencher dados de pacientes. Use o botão de demonstração nesta página.</p></details>
+          <details><summary>Posso experimentar antes de escolher?<i data-lucide="plus"></i></summary><p>Sim. Você pode solicitar pelo WhatsApp um período gratuito de 7 dias para experimentar o Gestão Terapia na rotina do seu consultório. Nossa equipe orienta como começar. Para conhecer as telas primeiro, acesse a demonstração interativa pelo computador, com dados fictícios. No celular, solicite seu teste gratuito pelo WhatsApp.</p></details>
           <details><summary>Funciona sem internet?<i data-lucide="plus"></i></summary><p>O sistema da licença local funciona offline. A agenda online precisa de conexão para receber agendamentos; o acesso ao sistema em nuvem é feito pela internet.</p></details>
           <details><summary>Onde ficam os prontuários?<i data-lucide="plus"></i></summary><p>Na licença local, ficam no cofre criptografado do seu computador. Na Nuvem Completa, o sistema é hospedado pela Plena. Confirme as condições de armazenamento, backup e acesso ao contratar essa modalidade.</p></details>
           <details><summary>Em quais opções existe mensalidade?<i data-lucide="plus"></i></summary><p>O Essencial custa R$ 499,90 uma única vez. A agenda online opcional acrescenta R$ 49,90/mês à licença. A Nuvem Completa custa R$ 129,90/mês, sem compra inicial da licença.</p></details>
+          <details><summary>Preciso contratar o sistema para ter uma landing page?<i data-lucide="plus"></i></summary><p>Não. O desenvolvimento da landing page profissional custa R$ 399,90 avulso ou mais R$ 199,90 ao contratar qualquer um dos três planos do Gestão Terapia. É uma página única com apresentação, serviços, informações profissionais e botão de WhatsApp. Domínio e hospedagem do site são pagos pelo cliente; prazo, revisões e manutenção são definidos antes da contratação.</p></details>
+          <details><summary>Já tenho site. Vocês adicionam o link da agenda?<i data-lucide="plus"></i></summary><p>Sim. A aplicação simples de um botão ou link de agendamento ao site existente está incluída, sem custo adicional, ao contratar Essencial + Agenda Online ou Nuvem Completa. Precisamos de acesso de edição e de uma plataforma que permita essa alteração. Isso não inclui reformulação do site, domínio ou hospedagem. O plano Essencial sem agenda online não oferece esse recurso.</p></details>
           <details><summary>Como transfiro a base local para outro computador?<i data-lucide="plus"></i></summary><p>Exporte um backup protegido no computador de origem e restaure o arquivo no novo equipamento. Guarde a senha e mantenha cópias atualizadas da sua base.</p></details>
           <details><summary>O sistema atende diferentes abordagens terapêuticas?<i data-lucide="plus"></i></summary><p>Os registros de evolução e planos terapêuticos podem ser organizados conforme a sua prática. As decisões e a avaliação clínica permanecem com o profissional.</p></details>
         </div></div>
     </section>
 
-    <section class="therapy-closing" aria-labelledby="closing-title"><div class="container"><span class="therapy-kicker">Seu próximo passo</span><h2 id="closing-title">Mais presença no cuidado.<br><em>Mais clareza na rotina.</em></h2><p>Explore a demonstração e veja como o Gestão Terapia pode fazer parte da sua rotina.</p><div class="therapy-actions"><button class="btn primary" type="button" onclick="openDemoModal()"><i data-lucide="play"></i> Experimentar demonstração</button><button class="btn light" type="button" onclick="openProductWhatsApp('Olá! Quero ajuda para escolher o modelo do Gestão Terapia Pro para o meu consultório.', 'Gestão Terapia')">Conversar sobre os planos <i data-lucide="arrow-up-right"></i></button></div></div></section>
+    <section class="therapy-closing" aria-labelledby="closing-title"><div class="container"><span class="therapy-kicker">Seu próximo passo · 7 dias gratuitos</span><h2 id="closing-title">Mais presença no cuidado.<br><em>Mais clareza na rotina.</em></h2><p>Experimente o Gestão Terapia no dia a dia do seu consultório. Solicite seu teste gratuito pelo WhatsApp e receba as orientações para começar.</p><div class="therapy-actions"><button class="btn primary" type="button" onclick="openProductWhatsApp('Olá! Quero solicitar meu período de 7 dias gratuitos do Gestão Terapia para experimentar o sistema na rotina do meu consultório. Como faço para começar?', 'Gestão Terapia')">Solicite seu período de 7 dias gratuitos <i data-lucide="arrow-up-right"></i></button><button class="btn light" type="button" onclick="openDemoModal()" data-therapy-demo-entry><span class="therapy-demo-desktop"><i data-lucide="play"></i> Conhecer a demonstração</span><span class="therapy-demo-mobile">Solicitar 7 dias gratuitos</span></button></div></div></section>
   </main>
 
   <!-- RODAPÉ -->
@@ -255,6 +289,7 @@
 
   <script src="../tecnologia/demos/gestao-terapia/assets/libs/lucide.js"></script>
   <script src="assets/produtos.js?v=2"></script>
+  <script src="assets/gestao-terapia-demo-access.js"></script>
   <script src="assets/gestao-terapia.js"></script>
   <script>
     if (window.lucide) {
