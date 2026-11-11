@@ -51,7 +51,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/produtos.css">
   <link rel="stylesheet" href="assets/gestao-salas.css">
   <meta property="og:url" content="https://plenainformatica.com.br/produtos/gestao-salas.html">
@@ -70,13 +70,13 @@
   data-demo-fullscreen="true"
   data-demo-url="../tecnologia/demos/gestao-salas/index.html"
   data-demo-title="Gestão Salas"
-  data-demo-mobile-message="Olá! Quero ver a demonstração do Gestão Salas Pro no celular — pode me apresentar por aqui?" data-commercial-offer="gestao-salas">
+  data-demo-mobile-message="Olá! Quero ver a demonstração do Gestão Salas Pro no celular. Pode me apresentar por aqui?" data-commercial-offer="gestao-salas">
 
   <a class="salas-skip" href="#conteudo">Ir para o conteúdo</a>
   <!-- CABEÇALHO / NAVBAR -->
   <header class="header">
     <nav class="nav">
-      <a class="assistencia-nav-brand" href="#topo" aria-label="Gestão Salas Pro — voltar ao topo da página">
+      <a class="assistencia-nav-brand" href="#topo" aria-label="Gestão Salas Pro: voltar ao topo da página">
         <span class="assistencia-nav-brand__icon" aria-hidden="true">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="52">
             <path d="M16 24h32M16 40h32M24 16v32M40 16v32" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
@@ -154,8 +154,8 @@
     <section class="salas-opening" aria-labelledby="salas-title">
       <div class="salas-opening__grid">
         <div class="salas-opening__copy">
-          <span class="salas-kicker">Gestão Salas Pro · Para coworkings e salas compartilhadas</span>
-          <h1 id="salas-title">Seu espaço compartilhado <em>com agenda sob controle.</em></h1>
+          <span class="salas-kicker">Gestão para espaços compartilhados</span>
+          <h1 id="salas-title">Cada espaço.<br>Cada horário.<br><em>Tudo no lugar.</em></h1>
           <p class="salas-opening__lead">Salas, turnos, sinais e vistorias no mesmo lugar. Um sistema que acompanha a rotina de quem aluga por hora.</p>
           <div class="salas-actions">
             <button class="btn primary" type="button" onclick="openDemoModal()">Conhecer o sistema <i data-lucide="arrow-up-right"></i></button>
@@ -168,7 +168,7 @@
           <figcaption>Cada sala no seu horário.<br><span>A operação inteira visível.</span></figcaption>
         </figure>
       </div>
-      <div class="container salas-opening__signature"><span>A ocupação tem o seu ritmo.</span><p>O controle também pode ter.</p><a href="#rotina" aria-label="Conhecer a rotina do sistema"><i data-lucide="arrow-down"></i></a></div>
+      <div class="container salas-opening__signature"><span>Salas. Turnos. Reservas.</span><p>Uma visão da operação inteira.</p><a href="#rotina" aria-label="Conhecer a rotina do sistema"><i data-lucide="arrow-down"></i></a></div>
     </section>
 
     <!-- INTRODUÇÃO -->
@@ -185,19 +185,19 @@
       <article id="agenda" class="salas-feature" aria-labelledby="agenda-title">
         <figure class="salas-screen"><img src="../assets/images/salas/agenda-demo.jpg" width="1440" height="960" alt="Tela real da agenda simultânea do Gestão Salas com grade horária das salas e reservas fictícias" loading="lazy" decoding="async"></figure>
         <div class="container salas-feature__grid">
-          <div class="salas-feature__copy"><span class="salas-chapter">01 <span>/ Antes da reserva</span></span><h2 id="agenda-title">Agenda que não se cruza.</h2><p>Consulte todos os espaços lado a lado por hora, turno ou dia. O sistema bloqueia choques de horário e mantém a recepção segura.</p><ul><li>Visualizações por hora, turno e dia</li><li>Bloqueio automático de conflitos</li><li>Salas, auditórios e estúdios no mesmo quadro</li></ul><button class="salas-text-link" type="button" onclick="openDemoModal({view: 'bookings'})">Explorar a demonstração <i data-lucide="arrow-up-right"></i></button></div>
+          <div class="salas-feature__copy"><span class="salas-chapter">01 <span>Antes da reserva</span></span><h2 id="agenda-title">Agenda que não se cruza.</h2><p>Consulte todos os espaços lado a lado por hora, turno ou dia. O sistema bloqueia choques de horário e mantém a recepção segura.</p><ul><li>Visualizações por hora, turno e dia</li><li>Bloqueio automático de conflitos</li><li>Salas, auditórios e estúdios no mesmo quadro</li></ul><button class="salas-text-link" type="button" onclick="openDemoModal({view: 'bookings'})">Explorar a demonstração <i data-lucide="arrow-up-right"></i></button></div>
         </div>
       </article>
       <article id="vistoria" class="salas-feature salas-feature--sage salas-feature--reverse" aria-labelledby="vistoria-title">
         <figure class="salas-screen"><img src="../assets/images/salas/vistoria-demo.jpg" width="1440" height="960" alt="Tela real da ficha de reserva no Gestão Salas com checklist de vistoria conferido e emissão de QR Code" loading="lazy" decoding="async"></figure>
         <div class="container salas-feature__grid">
-          <div class="salas-feature__copy"><span class="salas-chapter">02 <span>/ Na entrega da chave</span></span><h2 id="vistoria-title">Vistoria registrada,<br>sem discussão depois.</h2><p>O locatário lê o QR Code na porta da sala, confere o estado dos itens e assina no próprio celular. O termo fica guardado com a reserva.</p><ul><li>Vistoria digital assinada no celular</li><li>Check-in e check-out por QR Code</li><li>Histórico do termo em cada reserva</li></ul><p class="salas-feature__note">Sem papel, sem planilha paralela e sem contestação no dia seguinte.</p><button class="salas-text-link" type="button" onclick="openDemoModal({view: 'vistoria'})">Conhecer as telas do sistema <i data-lucide="arrow-up-right"></i></button></div>
+          <div class="salas-feature__copy"><span class="salas-chapter">02 <span>Na entrega da chave</span></span><h2 id="vistoria-title">Da entrega da chave<br>ao registro da vistoria.</h2><p>O locatário lê o QR Code na porta da sala, confere o estado dos itens e assina no próprio celular. O termo fica guardado com a reserva.</p><ul><li>Vistoria digital assinada no celular</li><li>Check-in e check-out por QR Code</li><li>Histórico do termo em cada reserva</li></ul><p class="salas-feature__note">Itens conferidos e observações vinculados ao histórico da reserva.</p><button class="salas-text-link" type="button" onclick="openDemoModal({view: 'vistoria'})">Conhecer as telas do sistema <i data-lucide="arrow-up-right"></i></button></div>
         </div>
       </article>
       <article id="financeiro" class="salas-feature" aria-labelledby="financeiro-title">
         <figure class="salas-screen"><img src="../assets/images/salas/financeiro-demo.jpg" width="1440" height="960" alt="Tela real do financeiro do Gestão Salas com sinais recebidos, saldos pendentes e prestação de contas" loading="lazy" decoding="async"></figure>
         <div class="container salas-feature__grid">
-          <div class="salas-feature__copy"><span class="salas-chapter">03 <span>/ No fechamento</span></span><h2 id="financeiro-title">Sinal, saldo e limpeza<br>no mesmo caixa.</h2><p>Garanta a reserva com o sinal, acompanhe o saldo e acrescente as taxas do dia em um clique. A conta fecha com o que foi combinado.</p><ul><li>Sinal de 50% e saldo pendente</li><li>Taxa de limpeza, consumo e hora extra</li><li>Prestação de contas ao locatário</li></ul><button class="salas-text-link" type="button" onclick="openDemoModal({view: 'finances'})">Ver o sistema em funcionamento <i data-lucide="arrow-up-right"></i></button></div>
+          <div class="salas-feature__copy"><span class="salas-chapter">03 <span>No fechamento</span></span><h2 id="financeiro-title">Sinal, saldo e limpeza<br>no mesmo caixa.</h2><p>Garanta a reserva com o sinal, acompanhe o saldo e acrescente as taxas do dia em um clique. A conta fecha com o que foi combinado.</p><ul><li>Sinal de 50% e saldo pendente</li><li>Taxa de limpeza, consumo e hora extra</li><li>Prestação de contas ao locatário</li></ul><button class="salas-text-link" type="button" onclick="openDemoModal({view: 'finances'})">Ver o sistema em funcionamento <i data-lucide="arrow-up-right"></i></button></div>
         </div>
       </article>
     </section>
@@ -241,13 +241,13 @@
           <details><summary>É possível controlar o pagamento de sinal e saldo?<i data-lucide="plus"></i></summary><p>Sim. O sistema registra o sinal recebido no ato da reserva e gera o saldo pendente para ser quitado no dia do uso da sala. O contrato mostra o valor combinado, o que já foi pago e o que falta.</p></details>
           <details><summary>O sistema funciona sem internet?<i data-lucide="plus"></i></summary><p>Funciona. A agenda, o cadastro de locatários, as reservas e a prestação de contas rodam no navegador da recepção mesmo sem conexão.</p></details>
           <details><summary>Onde ficam os dados dos contratos e dos locatários?<i data-lucide="plus"></i></summary><p>Na sua máquina, sob a sua guarda. Os valores cobrados, os contratos e os contatos ficam no ambiente local do sistema, sem depender de uma plataforma de terceiros.</p></details>
-          <details><summary>Como transfiro a base para outro computador?<i data-lucide="plus"></i></summary><p>O sistema gera um arquivo de backup em 1 clique, protegido e íntegro. Basta salvar em pendrive ou pasta pessoal e restaurar no novo computador, sem suporte técnico.</p></details>
+          <details><summary>Como transfiro a base para outro computador?<i data-lucide="plus"></i></summary><p>O sistema gera um arquivo de backup. Basta salvar em pendrive ou pasta pessoal e restaurar no novo computador, sem suporte técnico.</p></details>
         </div>
       </div>
     </section>
 
     <!-- ENCERRAMENTO -->
-    <section class="salas-closing" aria-labelledby="closing-title"><div class="container"><span class="salas-kicker">Seu próximo passo</span><h2 id="closing-title">Mais ocupação no espaço.<br><em>Mais clareza na rotina.</em></h2><p>Explore a demonstração e veja como o Gestão Salas pode fazer parte da sua operação.</p><div class="salas-actions"><button class="btn primary" type="button" onclick="openDemoModal()"><i data-lucide="play"></i> Experimentar demonstração</button><button class="btn light" type="button" onclick="openProductWhatsApp('Olá! Quero conversar sobre a Licença Vitalícia do Gestão Salas Pro para o meu espaço.', 'Gestão Salas')">Falar sobre o plano <i data-lucide="arrow-up-right"></i></button></div></div></section>
+    <section class="salas-closing" aria-labelledby="closing-title"><div class="container"><span class="salas-kicker">Seu próximo passo</span><h2 id="closing-title">Seu espaço bem organizado.<br><em>Do horário ao fechamento.</em></h2><p>Explore a demonstração e veja como o Gestão Salas pode fazer parte da sua operação.</p><div class="salas-actions"><button class="btn primary" type="button" onclick="openDemoModal()"><i data-lucide="play"></i> Experimentar demonstração</button><button class="btn light" type="button" onclick="openProductWhatsApp('Olá! Quero conversar sobre a Licença Vitalícia do Gestão Salas Pro para o meu espaço.', 'Gestão Salas')">Falar sobre o plano <i data-lucide="arrow-up-right"></i></button></div></div></section>
   <aside class="plena-discovery plena-discovery--related" aria-label="Outras soluções da Plena"><div class="plena-discovery__shell"><span class="plena-discovery__eyebrow">Encontre outras soluções</span><nav><a href="../tecnologia/tecnologia.html#segmentos" data-plena-kind="segment">Sistemas para outros segmentos</a><a href="../tecnologia/sites-premium/" data-plena-kind="service">Sites profissionais para seu negócio</a><a href="../tecnologia/automacoes.html" data-plena-kind="service">Automações e integrações</a></nav></div></aside>
 </main>
 
@@ -259,7 +259,7 @@
     <div class="mbox">
       <div class="mhead">
         <i data-lucide="monitor-up" style="color:#326956;width:16px;height:16px;"></i>
-        <span>Plena Gestão Salas Pro — Demonstração do espaço</span>
+        <span>Plena Gestão Salas Pro: Demonstração do espaço</span>
         <button class="mclose" onclick="closeDemoModal()" aria-label="Fechar">×</button>
       </div>
       <div class="demo-frame-stage">

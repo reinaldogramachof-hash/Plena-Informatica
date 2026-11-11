@@ -12,7 +12,6 @@
 }
 .salas-product-page .container { width: 100%; max-width: 1248px; padding-inline: 24px; }
 .salas-product-page main { padding-top: 80px; }
-.salas-product-page section[id], .salas-product-page .salas-feature[id], .salas-product-page #conteudo { scroll-margin-top: 104px; }
 .salas-product-page :focus-visible { outline: 3px solid #8f7948; outline-offset: 5px; }
 .salas-product-page button, .salas-product-page a { -webkit-tap-highlight-color: transparent; }
 .salas-product-page button { font-family: inherit; }
@@ -42,7 +41,7 @@
 .salas-product-page .salas-text-link, .salas-product-page .salas-footer button { display: inline-flex; align-items: center; justify-content: flex-start; gap: 7px; background: none; border: none; padding: 8px 0; min-height: 44px; color: #326956; font-size: 13px; font-weight: 650; cursor: pointer; }
 .salas-product-page .salas-block { padding: 80px 0; }
 .salas-product-page .salas-section-heading { max-width: 620px; margin-bottom: 40px; }
-.salas-product-page .salas-section-heading h2, .salas-product-page .salas-closing h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: #203d34; margin: 0 0 22px; }
+.salas-product-page .salas-section-heading h2, .salas-product-page .salas-closing h2 { font-family: 'Space Grotesk', Inter, sans-serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: #203d34; margin: 0 0 22px; }
 .salas-product-page .salas-section-heading p { font-size: 16px; color: #657168; line-height: 1.7; margin: 0; }
 .salas-product-page .salas-section-heading--center { margin-inline: auto; text-align: center; max-width: 700px; }
 .salas-product-page .salas-plan ul { padding: 0; margin: 0; list-style: none; display: grid; gap: 12px; }
@@ -76,7 +75,7 @@
 .salas-product-page .salas-plan-recurring { display: block; color: #326956; font-weight: 650; font-size: 24px; letter-spacing: -.03em; margin-top: 12px; }
 .salas-product-page .salas-plan-recurring span { font-size: 14px; }
 .salas-product-page .salas-plan ul { padding-block: 26px; margin-bottom: auto; }
-.salas-product-page .salas-plan li::before { content: '✓'; position: absolute; left: 0; color: #326956; font-size: 13px; font-weight: 700; }
+.salas-product-page .salas-plan li::before { content: ''; width: 5px; height: 5px; top: 9px; background: #326956; position: absolute; left: 0; color: #326956; font-size: 13px; font-weight: 700; }
 .salas-product-page .salas-plan .btn { width: 100%; margin-top: 8px; font-size: 13px; padding-inline: 10px; }
 .salas-product-page .salas-comparison { overflow-x: auto; border: 1px solid #dcded0; background: #fff; border-radius: 12px; margin-top: 32px; }
 .salas-product-page .salas-comparison table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; line-height: 1.6; }
@@ -185,46 +184,6 @@
 .salas-product-page .assistencia-nav-brand__icon { background: #e7eade; border: 1px solid #d3dac9; color: #326956; box-shadow: none; }
 .salas-product-page .mobile-menu-toggle { background: #e9ece1; border-color: #d3dac9; color: #203d34; }
 .salas-product-page .nav .btn.light { background: transparent; }
-.salas-product-page .salas-opening { background: #f8f6ef; }
-.salas-product-page .salas-opening__grid { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr; min-height: max(650px, 42.424vw); }
-.salas-product-page .salas-opening__copy { position: relative; z-index: 2; width: 54%; max-width: 830px; display: flex; flex-direction: column; justify-content: center; padding: 64px 40px 64px max(24px, calc((100vw - 1200px) / 2)); }
-.salas-product-page .salas-opening .salas-kicker { color: #526e59; font-size: 10px; letter-spacing: .13em; line-height: 1.7; max-width: 400px; margin: 0 0 24px; }
-.salas-product-page .salas-opening h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(44px, 4.5vw, 66px); font-weight: 400; line-height: 1.06; letter-spacing: -.025em; color: #203d34; margin: 0 0 26px; max-width: 530px; }
-.salas-product-page .salas-opening h1 em { color: #547659; font-weight: 400; }
-.salas-product-page .salas-opening__lead { font-size: 16px; line-height: 1.8; color: #59675d; max-width: 440px; margin: 0 0 30px; }
-.salas-product-page .salas-opening .salas-actions { gap: 10px; }
-.salas-product-page .salas-opening .btn { font-size: 13px; }
-.salas-product-page .salas-opening .btn.light { background: transparent; border-color: #90a18c; }
-.salas-product-page .salas-opening__choice { color: #69756a; font-size: 12px; line-height: 1.75; margin: 22px 0 0; }
-.salas-product-page .salas-room { position: absolute; inset: 0; z-index: 0; margin: 0; min-width: 0; overflow: hidden; }
-.salas-product-page .salas-room img { display: block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: auto; object-fit: contain; object-position: center; -webkit-mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); }
-.salas-product-page .salas-room::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #f8f6effa 0%, #f8f6eff0 23%, #f8f6efcf 37%, #f8f6ef66 52%, #f8f6ef0d 70%, transparent 85%); pointer-events: none; }
-.salas-product-page .salas-room figcaption { position: absolute; right: 36px; bottom: max(24px, calc(50% - 21.212vw + 24px)); z-index: 1; text-align: right; font-family: 'DM Serif Display', Georgia, serif; font-size: 27px; font-weight: 400; line-height: 1.2; color: #fffdf7; text-shadow: 0 2px 18px rgba(16, 28, 22, 0.78), 0 1px 4px rgba(16, 28, 22, 0.65); }
-.salas-product-page .salas-room figcaption span { font-style: italic; }
-.salas-product-page .salas-opening__signature { display: flex; align-items: center; gap: 10px; padding-block: 26px; border-bottom: 1px solid #dcded0; }
-.salas-product-page .salas-opening__signature > span { color: #203d34; font-family: 'DM Serif Display', Georgia, serif; font-size: 23px; }
-.salas-product-page .salas-opening__signature > p { color: #69756a; font-size: 13px; margin: 0; }
-.salas-product-page .salas-opening__signature > a { width: 44px; height: 44px; border: 1px solid #dcded0; margin-left: auto; display: grid; place-items: center; border-radius: 50%; color: #326956; }
-.salas-product-page .salas-opening__signature svg { width: 18px; height: 18px; }
-.salas-product-page .salas-introduction { display: grid; grid-template-columns: 1fr 1fr; column-gap: 100px; }
-.salas-product-page .salas-introduction .salas-kicker { grid-column: 1 / -1; color: #657168; font-size: 10px; margin-bottom: 20px; }
-.salas-product-page .salas-introduction h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.4vw, 48px); font-weight: 400; line-height: 1.13; letter-spacing: -.02em; margin: 0; }
-.salas-product-page .salas-introduction__detail p { color: #657168; font-size: 15px; line-height: 1.8; margin: 0 0 14px; }
-.salas-product-page .salas-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 6px; }
-.salas-product-page .salas-introduction__detail a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; min-height: 44px; color: #326956; border-bottom: 1px solid #bcc8b2; }
-.salas-product-page .salas-introduction__detail svg { width: 14px; height: 14px; }
-.salas-product-page .salas-editorial { display: grid; gap: 32px; padding: 12px clamp(16px, 3vw, 48px) 64px; }
-.salas-product-page .salas-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; min-height: 700px; background: #f8f6ef; border: 1px solid #dce1d4; border-radius: 18px; }
-.salas-product-page .salas-feature--sage { background: #e9ede3; }
-.salas-product-page .salas-chapter { display: flex; align-items: center; gap: 10px; color: #6b775f; font-size: 13px; font-weight: 500; margin-bottom: 24px; }
-.salas-product-page .salas-chapter > span { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: #657168; }
-.salas-product-page .salas-feature h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(38px, 3.4vw, 50px); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 20px; }
-.salas-product-page .salas-feature__copy > p { color: #465b50; font-size: 18px; line-height: 1.75; margin: 0 0 24px; }
-.salas-product-page .salas-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.salas-product-page .salas-feature li { padding-left: 19px; position: relative; color: #3e574a; font-size: 16px; line-height: 1.65; }
-.salas-product-page .salas-feature li::before { content: ''; position: absolute; top: 10px; left: 0; width: 5px; height: 5px; border: 1px solid #839578; border-radius: 50%; }
-.salas-product-page .salas-feature__copy > .salas-feature__note { font-size: 14px; margin: 18px 0 0; color: #657168; }
-.salas-product-page .salas-feature .salas-text-link { font-size: 16px; margin-top: 18px; border-bottom: 1px solid #c7cdbb; }
 .salas-product-page .salas-privacy { background: #244236; color: #fffdf7; padding-block: 88px; }
 .salas-product-page .salas-privacy .salas-kicker { color: #c5d0b9; font-size: 10px; }
 .salas-product-page .salas-privacy .salas-section-heading h2 { color: #fffdf7; }
@@ -248,111 +207,97 @@
 .salas-product-page .salas-closing h2 em { color: #547659; }
 .salas-product-page .salas-closing p { color: #59675d; }
 .salas-product-page .salas-footer { background: #f8f6ef; border-color: #dcded0; color: #203d34; }
-.salas-product-page .salas-footer-brand { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; }
+.salas-product-page .salas-footer-brand { font-family: 'Space Grotesk', Inter, sans-serif; font-weight: 400; font-size: 22px; }
 .salas-product-page .salas-footer-brand span, .salas-product-page .salas-footer p { color: #69756a; font-family: Inter, sans-serif; }
 .salas-product-page .salas-footer button { color: #326956; }
 .salas-product-page .product-mobile-menu__panel { background: #f8f6ef; color: #203d34; }
 .salas-product-page .product-mobile-menu__links a { color: #203d34; background: transparent; border-color: #dcded0; }
 .salas-product-page .product-mobile-menu__close { border-color: #bdc6b6; color: #203d34; }
-
-@media (min-width: 1600px) {
-  .salas-product-page .salas-opening__grid { min-height: max(720px, 42.424vw); }
-}
-@media (max-width: 1100px) {
-  .salas-product-page .salas-opening__copy { padding-right: 32px; }
-  .salas-product-page .salas-opening__grid { min-height: 620px; }
-  .salas-product-page .salas-opening h1 { font-size: 52px; }
-  .salas-product-page .salas-opening .salas-actions { flex-direction: column; align-items: flex-start; }
-  .salas-product-page .salas-opening .salas-actions .btn { min-width: 210px; }
-  .salas-product-page .salas-introduction { gap: 40px; }
-}
-@media (max-width: 900px) {
-  .salas-product-page .salas-opening__grid { grid-template-columns: 1fr; min-height: 610px; }
-  .salas-product-page .salas-opening__copy { width: 59%; padding: 48px 28px 48px 24px; }
-  .salas-product-page .salas-opening h1 { font-size: 44px; }
-  .salas-product-page .salas-opening__lead { font-size: 14px; }
-  .salas-product-page .salas-room figcaption { font-size: 21px; right: 24px; }
-  .salas-product-page .salas-opening__signature { gap: 6px; }
-  .salas-product-page .salas-opening__signature > span { font-size: 21px; }
-  .salas-product-page .salas-opening__signature > p { font-size: 12px; }
-  .salas-product-page .salas-feature__copy { max-width: 580px; }
-  .salas-product-page .salas-chapter { margin-bottom: 16px; }
-}
 @media (max-width: 600px) {
-  .salas-product-page .salas-opening__grid { display: flex; flex-direction: column; min-height: 0; }
-  .salas-product-page .salas-opening__copy { width: 100%; padding: 38px 20px 24px; }
-  .salas-product-page .salas-opening .salas-kicker { font-size: 9px; margin-bottom: 20px; }
-  .salas-product-page .salas-opening h1 { font-size: 42px; line-height: 1.08; margin-bottom: 22px; }
-  .salas-product-page .salas-opening__lead { font-size: 15px; margin-bottom: 24px; }
-  .salas-product-page .salas-opening .salas-actions { align-items: stretch; }
-  .salas-product-page .salas-opening .salas-actions .btn { min-width: 0; }
-  .salas-product-page .salas-opening__choice { font-size: 11px; margin-top: 18px; }
-  .salas-product-page .salas-room { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1376 / 768; }
-  .salas-product-page .salas-room img { position: static; transform: none; height: auto; object-position: center; -webkit-mask-image: none; mask-image: none; }
-  .salas-product-page .salas-room::after { background: linear-gradient(180deg, #f8f6ef 0%, #f8f6ef55 18%, transparent 45%); }
-  .salas-product-page .salas-room figcaption { display: none; }
-  .salas-product-page .salas-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 0 10px; padding-block: 20px; }
-  .salas-product-page .salas-opening__signature > span { font-size: 21px; }
-  .salas-product-page .salas-opening__signature > p { grid-column: 1; }
-  .salas-product-page .salas-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
-  .salas-product-page .salas-introduction { grid-template-columns: 1fr; gap: 20px; }
-  .salas-product-page .salas-introduction .salas-kicker { margin-bottom: 0; }
-  .salas-product-page .salas-introduction h2 { font-size: 34px; }
-  .salas-product-page .salas-introduction__detail p { font-size: 14px; }
-  .salas-product-page .salas-introduction__detail nav { gap: 14px; }
-  .salas-product-page .salas-introduction__detail a { font-size: 11px; }
-  .salas-product-page .salas-feature { padding: 0; }
-  .salas-product-page .salas-feature h2 { font-size: 36px; }
-  .salas-product-page .salas-feature__copy > p { font-size: 16px; }
   .salas-product-page .salas-privacy, .salas-product-page .salas-pricing { padding-block: 48px; }
   .salas-product-page .salas-section-heading h2 { font-size: 34px; }
   .salas-product-page .salas-closing { padding-block: 48px; }
 }
 /* Fundos de interface em perspectiva; a borda distante do texto avança no espaço. */
-.salas-product-page .salas-feature::after { content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 18%, #f8f6ef1a 35%, #f8f6ef6b 49%, #f8f6efa3 59%, #f8f6efbf 78%); }
-.salas-product-page .salas-feature--reverse::after { background: linear-gradient(270deg, transparent 18%, #e9ede31a 35%, #e9ede36b 49%, #e9ede3a3 59%, #e9ede3bf 78%); }
-.salas-product-page .salas-feature__grid { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; min-height: 700px; padding: 88px clamp(28px, 4vw, 64px); pointer-events: none; }
-.salas-product-page .salas-feature__copy { position: relative; isolation: isolate; width: 48%; max-width: 560px; padding: clamp(24px, 2.5vw, 36px); pointer-events: auto; }
-.salas-product-page .salas-feature__copy::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: 16px; background: #f8f6ef; pointer-events: none; }
-.salas-product-page .salas-feature--sage .salas-feature__copy::before { background: #e9ede3; }
-.salas-product-page .salas-feature--reverse .salas-feature__grid { justify-content: flex-start; }
-.salas-product-page .salas-screen { position: absolute; z-index: 0; left: 2.5%; top: 50%; width: 76%; margin: 0; padding: 0; border: 0; background: transparent; border-radius: 0; transform: translateY(-50%) perspective(1600px) rotateY(9deg) rotateZ(-.5deg); transform-origin: center; box-shadow: 0 24px 55px -30px #24423626; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); pointer-events: none; }
-.salas-product-page .salas-screen img { display: block; width: 100%; height: auto; border: 0; border-radius: 3px; }
-.salas-product-page .salas-feature--reverse .salas-screen { left: auto; right: 2.5%; transform: translateY(-50%) perspective(1600px) rotateY(-9deg) rotateZ(.5deg); }
-@media (min-width: 901px) {
-  .salas-product-page .salas-editorial { padding-inline: 24px; }
-  .salas-product-page .salas-feature__grid { max-width: 1200px; padding-inline: 0; }
-  .salas-product-page .salas-feature__copy { padding: 0; }
-  .salas-product-page .salas-feature__copy::before { inset: -24px; }
-  .salas-product-page .salas-feature:not(.salas-feature--reverse) .salas-feature__copy { text-align: right; }
-  .salas-product-page .salas-feature:not(.salas-feature--reverse) .salas-chapter { justify-content: flex-end; }
-  .salas-product-page .salas-feature:not(.salas-feature--reverse) li { padding-left: 0; padding-right: 19px; }
-  .salas-product-page .salas-feature:not(.salas-feature--reverse) li::before { left: auto; right: 0; }
-  .salas-product-page .salas-feature:not(.salas-feature--reverse) .salas-text-link { display: flex; width: fit-content; margin-left: auto; }
+
+/* Composição arquitetônica: espaços definidos e interfaces integralmente legíveis. */
+.salas-product-page .salas-opening { border-bottom: 1px solid #d9dccf; }
+.salas-product-page .salas-opening__grid { max-width: 1248px; margin: auto; padding: 56px 24px 44px; display: grid; grid-template-columns: .95fr 1.05fr; gap: 64px; align-items: center; }
+.salas-product-page .salas-opening__copy { padding-block: 16px; }
+.salas-product-page .salas-opening .salas-kicker { font-size: 11px; letter-spacing: .1em; }
+.salas-product-page .salas-opening h1 { color: #203d34; font-family: 'Space Grotesk', Inter, sans-serif; font-size: clamp(40px, 4.5vw, 64px); line-height: 1.06; font-weight: 500; letter-spacing: -.06em; margin: 0 0 26px; }
+.salas-product-page .salas-opening h1 em { font-style: normal; color: #626b36; }
+.salas-product-page .salas-opening__lead { max-width: 440px; font-size: 17px; color: #596157; line-height: 1.75; margin: 0 0 28px; }
+.salas-product-page .salas-opening__choice { margin: 24px 0 0; font-size: 13px; color: #596157; }
+.salas-product-page .salas-room { margin: 0; align-self: stretch; display: flex; flex-direction: column; border: 1px solid #cdd1c0; padding: 12px; background: #eeeee4; }
+.salas-product-page .salas-room img { width: 100%; height: 440px; object-fit: cover; object-position: 56% center; display: block; }
+.salas-product-page .salas-room figcaption { display: flex; justify-content: space-between; gap: 18px; padding: 18px 6px 6px; font-size: 13px; font-weight: 600; }
+.salas-product-page .salas-room figcaption br { display: none; }
+.salas-product-page .salas-room figcaption span { color: #596157; font-weight: 400; }
+.salas-product-page .salas-opening__signature { display: flex; align-items: center; gap: 20px; padding-block: 24px; border-top: 1px solid #d9dccf; }
+.salas-product-page .salas-opening__signature > span { font-family: 'Space Grotesk', Inter, sans-serif; font-size: 22px; font-weight: 500; }
+.salas-product-page .salas-opening__signature p { margin: 0; font-size: 14px; color: #596157; }
+.salas-product-page .salas-opening__signature a { margin-left: auto; display: grid; place-items: center; min-width: 44px; min-height: 44px; border: 1px solid #cdd1c0; color: #326956; }
+.salas-product-page .salas-opening__signature svg { width: 18px; }
+.salas-product-page .salas-introduction { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 80px; }
+.salas-product-page .salas-introduction > .salas-kicker { grid-column: 1 / -1; }
+.salas-product-page .salas-introduction h2 { font-family: 'Space Grotesk', Inter, sans-serif; font-size: clamp(32px, 3vw, 44px); font-weight: 500; line-height: 1.15; letter-spacing: -.04em; margin: 0; }
+.salas-product-page .salas-introduction__detail p { margin: 0 0 16px; color: #596157; line-height: 1.8; }
+.salas-product-page .salas-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 22px; }
+.salas-product-page .salas-introduction__detail a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; border-bottom: 1px solid #b5bda6; font-size: 13px; }
+.salas-product-page .salas-introduction__detail svg { width: 15px; }
+.salas-product-page .salas-editorial { max-width: 1248px; padding: 0 24px 80px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.salas-product-page .salas-feature { min-width: 0; display: flex; flex-direction: column; border: 1px solid #d0d5c5; background: #efeee5; }
+.salas-product-page .salas-feature:first-child { grid-column: 1 / -1; background: #e5e9da; }
+.salas-product-page .salas-feature__grid.container { max-width: none; padding: 32px; order: -1; }
+.salas-product-page .salas-feature:first-child .salas-feature__copy { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; }
+.salas-product-page .salas-feature:first-child .salas-chapter { grid-column: 1 / -1; }
+.salas-product-page .salas-feature:first-child h2 { grid-column: 1; grid-row: 2 / span 3; max-width: 400px; font-size: clamp(34px, 3.5vw, 48px); }
+.salas-product-page .salas-chapter { display: flex; gap: 14px; align-items: center; color: #626b36; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+.salas-product-page .salas-chapter span { text-transform: uppercase; letter-spacing: .1em; font-size: 10px; }
+.salas-product-page .salas-feature h2 { margin: 0 0 20px; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 32px; font-weight: 500; line-height: 1.15; letter-spacing: -.04em; }
+.salas-product-page .salas-feature__copy > p { color: #4d5a4c; font-size: 16px; line-height: 1.75; margin: 0 0 20px; }
+.salas-product-page .salas-feature ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.salas-product-page .salas-feature li { padding-left: 16px; position: relative; font-size: 14px; color: #4d5a4c; }
+.salas-product-page .salas-feature li::before { content: ''; width: 5px; height: 5px; background: #798351; position: absolute; left: 0; top: 9px; }
+.salas-product-page .salas-feature__copy > .salas-feature__note { margin: 20px 0 0; font-size: 13px; }
+.salas-product-page .salas-feature .salas-text-link { width: fit-content; border-bottom: 1px solid #9da98a; margin-top: 20px; text-align: left; }
+.salas-product-page .salas-screen { margin: auto 20px 20px; padding: 7px; border: 1px solid #c6cdbb; background: #fff; box-shadow: 0 14px 24px -20px #203d3455; }
+.salas-product-page .salas-screen img { display: block; width: 100%; height: auto; }
+.salas-product-page .salas-feature:first-child .salas-screen { margin-inline: 32px; margin-bottom: 32px; }
+.salas-product-page .salas-feature--sage { background: #f2f0e9; }
+.salas-product-page .salas-section-heading h2, .salas-product-page .salas-closing h2 { font-weight: 500; }
+.salas-product-page .salas-closing h2 em { font-style: normal; }
+.salas-product-page .btn, .salas-product-page .salas-plan, .salas-product-page .salas-plan--featured, .salas-product-page .salas-comparison { border-radius: 2px; }
+.salas-product-page .salas-privacy { background: #303b2d; }
+.salas-product-page .salas-footer-brand { font-family: 'Space Grotesk', Inter, sans-serif; font-weight: 500; }
+@media (max-width: 1000px) {
+.salas-product-page .salas-opening__grid { gap: 32px; }
+.salas-product-page .salas-room img { height: 410px; }
+.salas-product-page .salas-room figcaption { flex-direction: column; gap: 4px; }
+.salas-product-page .salas-opening .salas-actions { flex-direction: column; align-items: stretch; }
+.salas-product-page .salas-feature:first-child .salas-feature__copy { column-gap: 32px; }
+.salas-product-page .salas-feature__grid.container { padding: 24px; }
 }
-@media (max-width: 1100px) {
-  .salas-product-page .salas-feature, .salas-product-page .salas-feature__grid { min-height: 660px; }
-  .salas-product-page .salas-feature__copy { width: 50%; }
-  .salas-product-page .salas-screen { width: 78%; }
+@media (max-width: 700px) {
+.salas-product-page .salas-opening__grid { grid-template-columns: 1fr; padding: 32px 20px; gap: 28px; }
+.salas-product-page .salas-opening h1 { font-size: clamp(40px, 9vw, 56px); }
+.salas-product-page .salas-opening__copy { padding: 0; }
+.salas-product-page .salas-room img { height: auto; aspect-ratio: 1.5; }
+.salas-product-page .salas-room figcaption { flex-direction: row; font-size: 11px; }
+.salas-product-page .salas-opening__signature { flex-wrap: wrap; gap: 4px 12px; }
+.salas-product-page .salas-opening__signature span { font-size: 18px; }
+.salas-product-page .salas-opening__signature p { font-size: 12px; }
+.salas-product-page .salas-opening__signature a { display: none; }
+.salas-product-page .salas-introduction { grid-template-columns: 1fr; gap: 20px; }
+.salas-product-page .salas-introduction .salas-kicker { margin: 0; }
+.salas-product-page .salas-editorial { grid-template-columns: 1fr; padding: 0 20px 48px; }
+.salas-product-page .salas-feature:first-child .salas-feature__copy { display: block; }
+.salas-product-page .salas-feature h2, .salas-product-page .salas-feature:first-child h2 { font-size: 30px; }
+.salas-product-page .salas-feature__grid.container { padding: 24px 20px; }
+.salas-product-page .salas-screen, .salas-product-page .salas-feature:first-child .salas-screen { margin: auto 12px 12px; padding: 4px; }
 }
-@media (max-width: 900px) {
-  .salas-product-page .salas-feature__grid, .salas-product-page .salas-feature--reverse .salas-feature__grid { align-items: flex-start; justify-content: flex-start; min-height: 800px; padding: 48px 32px 360px; }
-  .salas-product-page .salas-feature__copy { width: 100%; max-width: 600px; }
-  .salas-product-page .salas-screen, .salas-product-page .salas-feature--reverse .salas-screen { width: 94%; left: 3%; right: auto; top: auto; bottom: 18px; transform: perspective(1200px) rotateY(7deg) rotateX(4deg); }
-  .salas-product-page .salas-feature::after { background: linear-gradient(180deg, #f8f6ef 25%, #f8f6eff5 43%, #f8f6ef80 60%, transparent 82%); }
-  .salas-product-page .salas-feature--reverse::after { background: linear-gradient(180deg, #e9ede3 25%, #e9ede3f5 43%, #e9ede380 60%, transparent 82%); }
-}
-@media (max-width: 600px) {
-  .salas-product-page .salas-editorial { padding: 0 12px 40px; gap: 20px; }
-  .salas-product-page .salas-feature { border-radius: 12px; }
-  .salas-product-page .salas-feature__copy { padding: 24px 18px; }
-  .salas-product-page .salas-feature li { font-size: 15px; }
-  .salas-product-page .salas-feature .salas-text-link { font-size: 15px; }
-  .salas-product-page .salas-feature__grid, .salas-product-page .salas-feature--reverse .salas-feature__grid { min-height: 680px; padding: 24px 12px 235px; }
-  .salas-product-page .salas-screen, .salas-product-page .salas-feature--reverse .salas-screen { width: 100%; left: 0; bottom: 22px; transform: perspective(800px) rotateY(7deg) rotateX(3deg); }
-  .salas-product-page .salas-feature::after { background: linear-gradient(180deg, #f8f6ef 30%, #f8f6eff5 51%, #f8f6ef4d 73%, transparent 90%); }
-  .salas-product-page .salas-feature--reverse::after { background: linear-gradient(180deg, #e9ede3 30%, #e9ede3f5 51%, #e9ede34d 73%, transparent 90%); }
-}
+
 @media (prefers-reduced-motion: reduce) {
   .salas-product-page *, .salas-product-page *::before, .salas-product-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

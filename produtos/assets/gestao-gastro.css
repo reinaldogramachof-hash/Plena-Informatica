@@ -2,8 +2,8 @@
 .assistencia-product-page.gastro-editorial-page {
   --gastro-ink: #2c1810;
   --gastro-muted: #694c3e;
-  --gastro-accent: #b45309;
-  --gastro-accent-hover: #92400e;
+  --gastro-accent: #a13f25;
+  --gastro-accent-hover: #80311b;
   --gastro-em: #c2410c;
   --gastro-paper: #faf5ee;
   --gastro-mist: #f2e4d8;
@@ -60,78 +60,9 @@
 .assistencia-product-page.gastro-editorial-page .gastro-block { padding: 80px 0; }
 .assistencia-product-page.gastro-editorial-page .gastro-section-heading { max-width: 620px; margin-bottom: 40px; }
 .assistencia-product-page.gastro-editorial-page .gastro-section-heading h2,
-.assistencia-product-page.gastro-editorial-page .gastro-closing h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: var(--gastro-ink); margin: 0 0 22px; }
+.assistencia-product-page.gastro-editorial-page .gastro-closing h2 { font-family: Manrope, sans-serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: var(--gastro-ink); margin: 0 0 22px; }
 .assistencia-product-page.gastro-editorial-page .gastro-section-heading p { font-size: 16px; color: var(--gastro-muted); line-height: 1.7; margin: 0; }
 .assistencia-product-page.gastro-editorial-page .gastro-section-heading--center { margin-inline: auto; text-align: center; max-width: 720px; }
-
-/* Abertura hero */
-.assistencia-product-page.gastro-editorial-page .gastro-opening { background: var(--gastro-paper); }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__grid { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr; min-height: max(650px, 42.424vw); }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__copy { position: relative; z-index: 2; width: 54%; max-width: 830px; display: flex; flex-direction: column; justify-content: center; padding: 64px 40px 64px max(24px, calc((100vw - 1200px) / 2)); }
-.assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-kicker { color: var(--gastro-accent); font-size: 10px; letter-spacing: .13em; line-height: 1.7; max-width: 440px; margin: 0 0 24px; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(44px, 4.4vw, 64px); font-weight: 400; line-height: 1.06; letter-spacing: -.025em; color: var(--gastro-ink); margin: 0 0 26px; max-width: 560px; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening h1 em { color: var(--gastro-em); font-weight: 400; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__lead { font-size: 16px; line-height: 1.8; color: var(--gastro-muted); max-width: 470px; margin: 0 0 30px; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-actions { display: grid; grid-template-columns: max-content max-content; justify-content: start; gap: 10px; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening .btn { font-size: 13px; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening .btn.light { background: #ffffffeb; border-color: #decab6; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__choice { color: var(--gastro-muted); font-size: 12px; line-height: 1.75; margin: 22px 0 0; }
-.assistencia-product-page.gastro-editorial-page .gastro-room { position: absolute; inset: 0; z-index: 0; margin: 0; min-width: 0; overflow: hidden; }
-.assistencia-product-page.gastro-editorial-page .gastro-room img { display: block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: auto; object-fit: contain; object-position: center; -webkit-mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); }
-.assistencia-product-page.gastro-editorial-page .gastro-room::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #faf5eefa 0%, #faf5eef2 27%, #faf5eedc 43%, #faf5ee78 58%, #faf5ee14 75%, transparent 90%), radial-gradient(circle at 90% 90%, rgba(44, 24, 16, 0.36) 0%, transparent 32%); pointer-events: none; }
-.assistencia-product-page.gastro-editorial-page .gastro-room figcaption { position: absolute; right: 36px; bottom: max(24px, calc(50% - 21.212vw + 24px)); z-index: 1; text-align: right; font-family: 'DM Serif Display', Georgia, serif; font-size: 27px; font-weight: 400; line-height: 1.2; color: #fff; text-shadow: 0 2px 18px rgba(44, 24, 16, 0.9), 0 1px 4px rgba(44, 24, 16, 0.78); }
-.assistencia-product-page.gastro-editorial-page .gastro-room figcaption span { font-style: italic; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__signature { display: flex; align-items: center; gap: 10px; padding-block: 26px; border-bottom: 1px solid var(--gastro-line); }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > span { color: var(--gastro-ink); font-family: 'DM Serif Display', Georgia, serif; font-size: 23px; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > p { color: var(--gastro-muted); font-size: 13px; margin: 0; }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > a { width: 44px; height: 44px; border: 1px solid var(--gastro-line); margin-left: auto; display: grid; place-items: center; border-radius: 50%; color: var(--gastro-accent); }
-.assistencia-product-page.gastro-editorial-page .gastro-opening__signature svg { width: 18px; height: 18px; }
-
-/* Introdução de rotina */
-.assistencia-product-page.gastro-editorial-page .gastro-introduction { display: grid; grid-template-columns: 1fr 1fr; column-gap: 100px; }
-.assistencia-product-page.gastro-editorial-page .gastro-introduction .gastro-kicker { grid-column: 1 / -1; color: var(--gastro-muted); font-size: 10px; margin-bottom: 20px; }
-.assistencia-product-page.gastro-editorial-page .gastro-introduction h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.4vw, 48px); font-weight: 400; line-height: 1.13; letter-spacing: -.02em; margin: 0; color: var(--gastro-ink); }
-.assistencia-product-page.gastro-editorial-page .gastro-introduction__detail p { color: var(--gastro-muted); font-size: 15px; line-height: 1.8; margin: 0 0 14px; }
-.assistencia-product-page.gastro-editorial-page .gastro-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 6px; }
-.assistencia-product-page.gastro-editorial-page .gastro-introduction__detail a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; min-height: 44px; color: var(--gastro-accent); border-bottom: 1px solid #e1b894; }
-.assistencia-product-page.gastro-editorial-page .gastro-introduction__detail svg { width: 14px; height: 14px; }
-
-/* Módulos com telas reais em perspectiva */
-.assistencia-product-page.gastro-editorial-page .gastro-editorial { display: grid; gap: 32px; padding: 12px clamp(16px, 3vw, 48px) 64px; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; min-height: 700px; background: var(--gastro-paper); border: 1px solid var(--gastro-line); border-radius: 18px; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature--mist { background: var(--gastro-mist); }
-.assistencia-product-page.gastro-editorial-page .gastro-chapter { display: flex; align-items: center; gap: 10px; color: var(--gastro-accent); font-size: 13px; font-weight: 500; margin-bottom: 24px; }
-.assistencia-product-page.gastro-editorial-page .gastro-chapter > span { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--gastro-muted); }
-.assistencia-product-page.gastro-editorial-page .gastro-feature h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(38px, 3.4vw, 50px); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 20px; color: var(--gastro-ink); }
-.assistencia-product-page.gastro-editorial-page .gastro-feature__copy > p { color: #472e21; font-size: 18px; line-height: 1.75; margin: 0 0 24px; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature li { padding-left: 19px; position: relative; color: var(--gastro-ink); font-size: 16px; line-height: 1.65; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature li::before { content: ''; position: absolute; top: 10px; left: 0; width: 5px; height: 5px; border: 1px solid var(--gastro-em); border-radius: 50%; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature__copy > .gastro-feature__note { font-size: 14px; margin: 18px 0 0; color: var(--gastro-muted); }
-.assistencia-product-page.gastro-editorial-page .gastro-feature .gastro-text-link { font-size: 16px; margin-top: 18px; border-bottom: 1px solid #e1b894; }
-
-.assistencia-product-page.gastro-editorial-page .gastro-feature::after { content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 18%, #faf5ee1a 35%, #faf5ee6b 49%, #faf5eea3 59%, #faf5eebf 78%); }
-.assistencia-product-page.gastro-editorial-page .gastro-feature--reverse::after { background: linear-gradient(270deg, transparent 18%, #f2e4d81a 35%, #f2e4d86b 49%, #f2e4d8a3 59%, #f2e4d8bf 78%); }
-.assistencia-product-page.gastro-editorial-page .gastro-feature__grid { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; min-height: 700px; padding: 88px clamp(28px, 4vw, 64px); pointer-events: none; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature__copy { position: relative; isolation: isolate; width: 48%; max-width: 560px; padding: clamp(24px, 2.5vw, 36px); pointer-events: auto; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature__copy::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: 16px; background: var(--gastro-paper); pointer-events: none; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature--mist .gastro-feature__copy::before { background: var(--gastro-mist); }
-.assistencia-product-page.gastro-editorial-page .gastro-feature--reverse .gastro-feature__grid { justify-content: flex-start; }
-.assistencia-product-page.gastro-editorial-page .gastro-screen { position: absolute; z-index: 0; left: 2.5%; top: 50%; width: 76%; margin: 0; padding: 0; border: 0; background: transparent; border-radius: 0; transform: translateY(-50%) perspective(1600px) rotateY(9deg) rotateZ(-.5deg); transform-origin: center; box-shadow: 0 24px 55px -30px #2c181040; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); pointer-events: none; }
-.assistencia-product-page.gastro-editorial-page .gastro-screen img { display: block; width: 100%; height: auto; border: 0; border-radius: 3px; }
-.assistencia-product-page.gastro-editorial-page .gastro-feature--reverse .gastro-screen { left: auto; right: 2.5%; transform: translateY(-50%) perspective(1600px) rotateY(-9deg) rotateZ(.5deg); }
-
-@media (min-width: 901px) {
-  .assistencia-product-page.gastro-editorial-page .gastro-editorial { padding-inline: 24px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__grid { max-width: 1200px; padding-inline: 0; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__copy { padding: 0; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__copy::before { inset: -24px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature:not(.gastro-feature--reverse) .gastro-feature__copy { text-align: right; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature:not(.gastro-feature--reverse) .gastro-chapter { justify-content: flex-end; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature:not(.gastro-feature--reverse) li { padding-left: 0; padding-right: 19px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature:not(.gastro-feature--reverse) li::before { left: auto; right: 0; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature:not(.gastro-feature--reverse) .gastro-text-link { display: flex; width: fit-content; margin-left: auto; }
-}
 
 /* Ecossistema completo (KDS, Delivery e Gestão) */
 .assistencia-product-page.gastro-editorial-page .gastro-privacy { background: #22120b; color: var(--gastro-paper); padding-block: 88px; }
@@ -154,7 +85,7 @@
 .assistencia-product-page.gastro-editorial-page .gastro-pricing { background: var(--gastro-mist); padding-block: 88px; }
 .assistencia-product-page.gastro-editorial-page .gastro-trial-banner { display: flex; align-items: center; justify-content: space-between; gap: 36px; padding: 28px 32px; margin-bottom: 36px; border: 1px solid #dfc4ab; border-radius: 12px; background: #fdf9f5; }
 .assistencia-product-page.gastro-editorial-page .gastro-trial-banner .gastro-kicker { font-size: 11px; margin-bottom: 10px; color: var(--gastro-accent); }
-.assistencia-product-page.gastro-editorial-page .gastro-trial-banner h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; line-height: 1.2; margin: 0 0 12px; color: var(--gastro-ink); }
+.assistencia-product-page.gastro-editorial-page .gastro-trial-banner h3 { font-family: Manrope, sans-serif; font-size: 30px; font-weight: 400; line-height: 1.2; margin: 0 0 12px; color: var(--gastro-ink); }
 .assistencia-product-page.gastro-editorial-page .gastro-trial-banner p { font-size: 15px; color: var(--gastro-muted); line-height: 1.75; margin: 0; max-width: 640px; }
 .assistencia-product-page.gastro-editorial-page .gastro-trial-banner > .btn { flex-shrink: 0; max-width: 310px; text-align: center; }
 
@@ -175,7 +106,7 @@
 .assistencia-product-page.gastro-editorial-page .gastro-plan-period { display: block; font-size: 12px; color: var(--gastro-muted); margin-top: 6px; }
 .assistencia-product-page.gastro-editorial-page .gastro-plan ul { padding: 20px 0; margin: 0; margin-bottom: auto; list-style: none; display: grid; gap: 11px; }
 .assistencia-product-page.gastro-editorial-page .gastro-plan li { position: relative; padding-left: 19px; font-size: 13.5px; line-height: 1.55; color: #472e21; }
-.assistencia-product-page.gastro-editorial-page .gastro-plan li::before { content: '✓'; position: absolute; left: 0; color: var(--gastro-accent); font-size: 12px; font-weight: 700; }
+.assistencia-product-page.gastro-editorial-page .gastro-plan li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; background: var(--gastro-accent); border-radius: 50%; }
 .assistencia-product-page.gastro-editorial-page .gastro-plan .btn { width: 100%; margin-top: 8px; font-size: 13px; padding-inline: 10px; }
 .assistencia-product-page.gastro-editorial-page .gastro-plan-footnote { display: block; margin-top: 12px; font-size: 12px; line-height: 1.5; color: var(--gastro-muted); }
 .assistencia-product-page.gastro-editorial-page .gastro-pricing-note { display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; font-size: 12px; color: var(--gastro-muted); margin: 24px 0 0; }
@@ -204,7 +135,7 @@
 
 .assistencia-product-page.gastro-editorial-page .gastro-footer { background: var(--gastro-paper); color: var(--gastro-ink); border-top: 1px solid var(--gastro-line); padding: 34px 0 28px; }
 .assistencia-product-page.gastro-editorial-page .gastro-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.assistencia-product-page.gastro-editorial-page .gastro-footer-brand { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; line-height: 1.5; }
+.assistencia-product-page.gastro-editorial-page .gastro-footer-brand { font-family: Manrope, sans-serif; font-weight: 400; font-size: 22px; line-height: 1.5; }
 .assistencia-product-page.gastro-editorial-page .gastro-footer-brand span { display: block; color: var(--gastro-muted); font-family: Inter, sans-serif; font-size: 12px; font-weight: 400; }
 .assistencia-product-page.gastro-editorial-page .gastro-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; font-size: 13px; }
 .assistencia-product-page.gastro-editorial-page .gastro-footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
@@ -218,10 +149,6 @@
 .assistencia-product-page.gastro-editorial-page .product-mobile-menu__links a { color: var(--gastro-ink); background: transparent; border-color: var(--gastro-line); }
 .assistencia-product-page.gastro-editorial-page .product-mobile-menu__actions { display: grid; gap: 10px; }
 .assistencia-product-page.gastro-editorial-page .product-mobile-menu__close { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #decab6; border-radius: 8px; background: transparent; color: var(--gastro-ink); cursor: pointer; }
-
-@media (min-width: 1600px) {
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__grid { min-height: max(720px, 42.424vw); }
-}
 @media (max-width: 1160px) {
   .assistencia-product-page.gastro-editorial-page .gastro-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 860px; margin-inline: auto; }
   .assistencia-product-page.gastro-editorial-page .gastro-plan-intro,
@@ -229,37 +156,12 @@
 }
 @media (max-width: 1100px) {
   .assistencia-product-page.gastro-editorial-page .nav-links { gap: 16px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__copy { padding-right: 32px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__grid { min-height: 620px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening h1 { font-size: 52px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-actions { grid-template-columns: max-content; justify-content: start; }
-  .assistencia-product-page.gastro-editorial-page .gastro-introduction { gap: 40px; }
   .assistencia-product-page.gastro-editorial-page .gastro-privacy-grid,
   .assistencia-product-page.gastro-editorial-page .gastro-faq-grid { gap: 40px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature,
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__grid { min-height: 660px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__copy { width: 50%; }
-  .assistencia-product-page.gastro-editorial-page .gastro-screen { width: 78%; }
 }
 @media (max-width: 900px) {
   .assistencia-product-page.gastro-editorial-page .nav-links { display: none; }
   .assistencia-product-page.gastro-editorial-page .nav-mobile-actions { display: flex; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__grid { grid-template-columns: 1fr; min-height: 610px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__copy { width: 59%; padding: 48px 28px 48px 24px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening h1 { font-size: 44px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__lead { font-size: 14px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-room figcaption { font-size: 21px; right: 24px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__signature { gap: 6px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__signature > span { font-size: 21px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__signature > p { font-size: 12px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__grid,
-  .assistencia-product-page.gastro-editorial-page .gastro-feature--reverse .gastro-feature__grid { align-items: flex-start; justify-content: flex-start; min-height: 800px; padding: 48px 32px 360px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__copy { width: 100%; max-width: 600px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-chapter { margin-bottom: 16px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-screen,
-  .assistencia-product-page.gastro-editorial-page .gastro-feature--reverse .gastro-screen { width: 94%; left: 3%; right: auto; top: auto; bottom: 18px; transform: perspective(1200px) rotateY(7deg) rotateX(4deg); }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature::after { background: linear-gradient(180deg, #faf5ee 25%, #faf5eef5 43%, #faf5ee80 60%, transparent 82%); }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature--reverse::after { background: linear-gradient(180deg, #f2e4d8 25%, #f2e4d8f5 43%, #f2e4d880 60%, transparent 82%); }
   .assistencia-product-page.gastro-editorial-page .gastro-trial-banner { flex-direction: column; align-items: flex-start; padding: 24px; gap: 24px; }
 }
 @media (max-width: 640px) {
@@ -281,41 +183,6 @@
   .assistencia-product-page.gastro-editorial-page .nav-mobile-actions > .mobile-header-whatsapp { display: none; }
   .assistencia-product-page.gastro-editorial-page .nav-mobile-actions > .btn { padding-inline: 11px !important; }
   .assistencia-product-page.gastro-editorial-page .nav-mobile-actions > .btn svg { display: none; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__grid { display: flex; flex-direction: column; min-height: 0; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__copy { width: 100%; padding: 38px 20px 24px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-kicker { font-size: 9px; margin-bottom: 20px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening h1 { font-size: 40px; line-height: 1.08; margin-bottom: 22px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__lead { font-size: 15px; margin-bottom: 24px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-actions { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-actions .btn { min-width: 0; width: 100%; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__choice { font-size: 11px; margin-top: 18px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-room { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1376 / 768; }
-  .assistencia-product-page.gastro-editorial-page .gastro-room img { position: static; transform: none; height: auto; object-position: center; -webkit-mask-image: none; mask-image: none; }
-  .assistencia-product-page.gastro-editorial-page .gastro-room::after { background: linear-gradient(180deg, #faf5ee 0%, #faf5ee55 18%, transparent 45%); }
-  .assistencia-product-page.gastro-editorial-page .gastro-room figcaption { display: none; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 0 10px; padding-block: 20px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__signature > span { font-size: 21px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__signature > p { grid-column: 1; }
-  .assistencia-product-page.gastro-editorial-page .gastro-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
-  .assistencia-product-page.gastro-editorial-page .gastro-introduction { grid-template-columns: 1fr; gap: 20px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-introduction .gastro-kicker { margin-bottom: 0; }
-  .assistencia-product-page.gastro-editorial-page .gastro-introduction h2 { font-size: 34px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-introduction__detail p { font-size: 14px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-introduction__detail nav { gap: 14px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-introduction__detail a { font-size: 11px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-editorial { padding: 0 12px 40px; gap: 20px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature { padding: 0; border-radius: 12px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__copy { padding: 24px 18px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature h2 { font-size: 36px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__copy > p { font-size: 16px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature li { font-size: 15px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature .gastro-text-link { font-size: 15px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature__grid,
-  .assistencia-product-page.gastro-editorial-page .gastro-feature--reverse .gastro-feature__grid { min-height: 680px; padding: 24px 12px 235px; }
-  .assistencia-product-page.gastro-editorial-page .gastro-screen,
-  .assistencia-product-page.gastro-editorial-page .gastro-feature--reverse .gastro-screen { width: 100%; left: 0; bottom: 22px; transform: perspective(800px) rotateY(7deg) rotateX(3deg); }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature::after { background: linear-gradient(180deg, #faf5ee 30%, #faf5eef5 51%, #faf5ee4d 73%, transparent 90%); }
-  .assistencia-product-page.gastro-editorial-page .gastro-feature--reverse::after { background: linear-gradient(180deg, #f2e4d8 30%, #f2e4d8f5 51%, #f2e4d84d 73%, transparent 90%); }
   .assistencia-product-page.gastro-editorial-page .gastro-block,
   .assistencia-product-page.gastro-editorial-page .gastro-privacy,
   .assistencia-product-page.gastro-editorial-page .gastro-pricing,
@@ -338,6 +205,112 @@
   .assistencia-product-page.gastro-editorial-page .gastro-footer-top { align-items: flex-start; flex-direction: column; gap: 18px; }
   .assistencia-product-page.gastro-editorial-page .gastro-footer nav { gap: 20px; }
 }
+
+/* Terracota, verde de ervas e módulos orientados ao serviço da casa. */
+.assistencia-product-page.gastro-editorial-page .btn { border-radius: 8px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening { background: #a13f25; color: #fff8ee; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening :focus-visible,
+.assistencia-product-page.gastro-editorial-page .gastro-privacy :focus-visible { outline-color: #fff8ee; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__grid { max-width: 1248px; margin: auto; padding: 56px 24px 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__copy { text-align: center; max-width: 850px; margin: 0 auto 36px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-kicker { color: #ffe0b9; font-size: 10px; letter-spacing: .12em; margin-bottom: 20px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening h1 { font-family: Manrope,sans-serif; font-weight: 800; font-size: clamp(40px,4.5vw,64px); line-height: 1.08; letter-spacing: -.05em; color: #fff8ee; margin: 0 0 24px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening h1 em { font-style: normal; color: #ffe0b9; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__lead { font-size: 16px; line-height: 1.8; color: #ffece1; margin: 0 auto 26px; max-width: 680px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .btn { font-size: 13px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .btn.primary { background: #fff8ee; color: #82311d; border-color: #fff8ee; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .btn.primary:hover { background: #ffe6c5; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .btn.light { background: transparent; color: #fff8ee; border-color: #eab7a6; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .btn.light:hover { background: #ffffff14; border-color: #fff8ee; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__choice { font-size: 11px; line-height: 1.8; color: #f3d6cb; margin: 18px auto 0; max-width: 600px; }
+.assistencia-product-page.gastro-editorial-page .gastro-room { position: relative; margin: 0; border-radius: 12px 12px 0 0; overflow: hidden; background: #f6e8d0; }
+.assistencia-product-page.gastro-editorial-page .gastro-room img { display: block; width: 100%; height: 300px; object-fit: cover; object-position: center 56%; }
+.assistencia-product-page.gastro-editorial-page .gastro-room figcaption { position: absolute; left: 32px; top: 50%; transform: translateY(-50%); font-family: Manrope,sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -.035em; line-height: 1.3; color: #324637; }
+.assistencia-product-page.gastro-editorial-page .gastro-room figcaption span { display: block; font-family: Inter,sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0; margin-top: 12px; max-width: 280px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening > .container { max-width: none; background: #263f32; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature { max-width: 1200px; margin: auto; padding-block: 22px; display: flex; align-items: center; gap: 28px; color: #fff8ee; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > span { font-family: Manrope,sans-serif; font-size: 17px; font-weight: 700; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > p { color: #cfdccf; font-size: 13px; margin: 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > a { margin-left: auto; width: 44px; height: 44px; border: 1px solid #8a9c8d; border-radius: 8px; display: grid; place-items: center; color: #e9ddc2; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature svg { width: 18px; height: 18px; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction .gastro-kicker { grid-column: 1 / -1; font-size: 10px; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction h2 { font-family: Manrope,sans-serif; font-weight: 800; font-size: clamp(30px,3vw,42px); line-height: 1.17; letter-spacing: -.04em; margin: 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction__detail p { font-size: 15px; line-height: 1.8; color: var(--gastro-muted); margin: 0 0 22px; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction__detail nav { display: grid; border-top: 1px solid var(--gastro-line); }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction__detail a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; min-height: 44px; border-bottom: 1px solid var(--gastro-line); font-size: 13px; font-weight: 600; color: var(--gastro-accent); }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction__detail svg { width: 15px; height: 15px; }
+.assistencia-product-page.gastro-editorial-page .gastro-editorial { max-width: 1248px; margin: auto; padding: 0 24px 80px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature { display: grid; grid-template-columns: .85fr 1.3fr; align-items: center; gap: 56px; padding: 56px 0; border-top: 1px solid var(--gastro-line); min-width: 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature:last-child { padding-bottom: 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature__grid.container { padding: 0; width: auto; min-width: 0; margin: 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature__copy { min-width: 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-chapter { display: flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 600; color: #49604e; margin-bottom: 20px; }
+.assistencia-product-page.gastro-editorial-page .gastro-chapter__number { width: 32px; height: 32px; display: grid; place-items: center; background: #e5e9db; color: #324637; border-radius: 50%; font-size: 12px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature h2 { font-family: Manrope,sans-serif; font-weight: 800; font-size: clamp(28px,2.7vw,38px); line-height: 1.16; letter-spacing: -.04em; margin: 0 0 20px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature__copy > p { font-size: 15px; line-height: 1.8; color: var(--gastro-muted); margin: 0 0 22px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature li { position: relative; padding-left: 16px; font-size: 14px; line-height: 1.7; color: #513d30; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature li::before { content: ''; width: 5px; height: 5px; background: var(--gastro-accent); position: absolute; left: 0; top: 10px; border-radius: 50%; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature .gastro-text-link { font-size: 13px; text-align: left; margin-top: 20px; border-bottom: 1px solid #c89c7e; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature__copy > .gastro-feature__note { font-size: 11px; margin: 16px 0 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-screen { order: 2; min-width: 0; margin: 0; padding: 10px; border: 1px solid #ddcfbc; border-radius: 10px; background: #fffdf7; box-shadow: 0 20px 38px -28px #513d3059; }
+.assistencia-product-page.gastro-editorial-page .gastro-screen img { width: 100%; height: auto; display: block; border-radius: 4px; }
+.assistencia-product-page.gastro-editorial-page .gastro-section-heading h2, .assistencia-product-page.gastro-editorial-page .gastro-closing h2 { font-weight: 800; font-size: clamp(30px,3vw,42px); letter-spacing: -.04em; line-height: 1.2; }
+.assistencia-product-page.gastro-editorial-page .gastro-trial-banner { border-left: 4px solid #a13f25; border-radius: 8px; }
+.assistencia-product-page.gastro-editorial-page .gastro-trial-banner h3 { font-weight: 700; font-size: 25px; letter-spacing: -.03em; }
+.assistencia-product-page.gastro-editorial-page .gastro-privacy { background: #263f32; }
+.assistencia-product-page.gastro-editorial-page .gastro-privacy .gastro-kicker, .assistencia-product-page.gastro-editorial-page .gastro-privacy-content > article > svg, .assistencia-product-page.gastro-editorial-page .gastro-professional-note svg { color: #e8c69f; }
+.assistencia-product-page.gastro-editorial-page .gastro-privacy .gastro-section-heading p, .assistencia-product-page.gastro-editorial-page .gastro-privacy-content p { color: #dce4d9; }
+.assistencia-product-page.gastro-editorial-page .gastro-privacy .gastro-text-link { color: #f4d6b1; }
+.assistencia-product-page.gastro-editorial-page .gastro-footer-brand { font-weight: 700; font-size: 20px; }
+@media (max-width: 1100px) {
+.assistencia-product-page.gastro-editorial-page .gastro-feature { gap: 36px; grid-template-columns: 1fr 1.2fr; } }
+@media (max-width: 900px) {
+.assistencia-product-page.gastro-editorial-page .gastro-opening__grid { padding-top: 44px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening h1 { font-size: 50px; }
+.assistencia-product-page.gastro-editorial-page .gastro-room img { height: 270px; }
+.assistencia-product-page.gastro-editorial-page .gastro-room figcaption { left: 24px; font-size: 23px; max-width: 270px; }
+.assistencia-product-page.gastro-editorial-page .gastro-room figcaption span { max-width: 240px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature { gap: 18px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > p { max-width: 290px; font-size: 12px; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction { gap: 0 36px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature { grid-template-columns: 1fr; gap: 28px; padding-block: 40px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature h2 { font-size: 34px; } }
+@media (max-width: 600px) {
+.assistencia-product-page.gastro-editorial-page .gastro-opening__grid { padding: 36px 20px 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__copy { text-align: left; margin-bottom: 28px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-kicker { font-size: 9px; letter-spacing: .08em; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening h1 { font-size: clamp(34px,9.5vw,46px); letter-spacing: -.045em; line-height: 1.12; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__lead { font-size: 15px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening .gastro-actions { display: grid; grid-template-columns: minmax(0,1fr); }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__choice { font-size: 11px; }
+.assistencia-product-page.gastro-editorial-page .gastro-room img { height: auto; object-fit: contain; }
+.assistencia-product-page.gastro-editorial-page .gastro-room figcaption { position: static; transform: none; padding: 18px; background: #f5e9d5; font-size: 20px; max-width: none; }
+.assistencia-product-page.gastro-editorial-page .gastro-room figcaption span { font-size: 12px; max-width: none; margin-top: 7px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 5px 12px; padding-block: 20px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > span { font-size: 16px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > p { grid-column: 1; font-size: 11px; }
+.assistencia-product-page.gastro-editorial-page .gastro-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction { grid-template-columns: 1fr; gap: 18px; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction .gastro-kicker { margin-bottom: 0; }
+.assistencia-product-page.gastro-editorial-page .gastro-introduction h2 { font-size: 30px; }
+.assistencia-product-page.gastro-editorial-page .gastro-editorial { padding: 0 20px 48px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature { padding-block: 32px; }
+.assistencia-product-page.gastro-editorial-page .gastro-feature h2 { font-size: 29px; }
+.assistencia-product-page.gastro-editorial-page .gastro-screen { padding: 5px; border-radius: 6px; }
+.assistencia-product-page.gastro-editorial-page .gastro-section-heading h2 { font-size: 30px; }
+.assistencia-product-page.gastro-editorial-page .gastro-closing h2 { font-size: 32px; }
+.assistencia-product-page.gastro-editorial-page .gastro-trial-banner h3 { font-size: 24px; } }
+@media (max-width: 360px) {
+.assistencia-product-page.gastro-editorial-page .nav { padding-inline: 12px; gap: 10px; }
+.assistencia-product-page.gastro-editorial-page .assistencia-nav-brand { gap: 6px; }
+.assistencia-product-page.gastro-editorial-page .assistencia-nav-brand__icon { width: 28px; height: 28px; flex-basis: 28px; }
+.assistencia-product-page.gastro-editorial-page .assistencia-nav-brand__copy strong { font-size: 11px; white-space: nowrap; }
+.assistencia-product-page.gastro-editorial-page .assistencia-nav-brand__copy small { font-size: 7px; white-space: nowrap; }
+.assistencia-product-page.gastro-editorial-page .nav-mobile-actions { gap: 6px; } }
+
 @media (prefers-reduced-motion: reduce) {
   .assistencia-product-page.gastro-editorial-page *,
   .assistencia-product-page.gastro-editorial-page *::before,

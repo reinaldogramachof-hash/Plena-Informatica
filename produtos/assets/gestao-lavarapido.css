@@ -46,78 +46,9 @@
 .lavarapido-product-page .lavarapido-text-link svg { width: 16px; height: 16px; }
 .lavarapido-product-page .lavarapido-block { padding: 80px 0; }
 .lavarapido-product-page .lavarapido-section-heading { max-width: 620px; margin-bottom: 40px; }
-.lavarapido-product-page .lavarapido-section-heading h2, .lavarapido-product-page .lavarapido-closing h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: #0f253d; margin: 0 0 22px; }
+.lavarapido-product-page .lavarapido-section-heading h2, .lavarapido-product-page .lavarapido-closing h2 { font-family: Rajdhani, sans-serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: #0f253d; margin: 0 0 22px; }
 .lavarapido-product-page .lavarapido-section-heading p { font-size: 16px; color: #415972; line-height: 1.7; margin: 0; }
 .lavarapido-product-page .lavarapido-section-heading--center { margin-inline: auto; text-align: center; max-width: 700px; }
-
-/* Abertura hero */
-.lavarapido-product-page .lavarapido-opening { background: #f5f8fb; }
-.lavarapido-product-page .lavarapido-opening__grid { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr; min-height: max(650px, 42.424vw); }
-.lavarapido-product-page .lavarapido-opening__copy { position: relative; z-index: 2; width: 54%; max-width: 830px; display: flex; flex-direction: column; justify-content: center; padding: 64px 40px 64px max(24px, calc((100vw - 1200px) / 2)); }
-.lavarapido-product-page .lavarapido-opening .lavarapido-kicker { color: #0369a1; font-size: 10px; letter-spacing: .13em; line-height: 1.7; max-width: 430px; margin: 0 0 24px; }
-.lavarapido-product-page .lavarapido-opening h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(44px, 4.4vw, 64px); font-weight: 400; line-height: 1.06; letter-spacing: -.025em; color: #0f253d; margin: 0 0 26px; max-width: 540px; }
-.lavarapido-product-page .lavarapido-opening h1 em { color: #0284c7; font-weight: 400; }
-.lavarapido-product-page .lavarapido-opening__lead { font-size: 16px; line-height: 1.8; color: #415972; max-width: 460px; margin: 0 0 30px; }
-.lavarapido-product-page .lavarapido-opening .lavarapido-actions { display: grid; grid-template-columns: max-content max-content; justify-content: start; gap: 10px; }
-.lavarapido-product-page .lavarapido-opening .btn { font-size: 13px; }
-.lavarapido-product-page .lavarapido-opening .btn.light { background: transparent; border-color: #93b5cf; }
-.lavarapido-product-page .lavarapido-opening__choice { color: #526d88; font-size: 12px; line-height: 1.75; margin: 22px 0 0; }
-.lavarapido-product-page .lavarapido-bay { position: absolute; inset: 0; z-index: 0; margin: 0; min-width: 0; overflow: hidden; }
-.lavarapido-product-page .lavarapido-bay img { display: block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: auto; object-fit: contain; object-position: center; -webkit-mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); }
-.lavarapido-product-page .lavarapido-bay::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #f5f8fbfa 0%, #f5f8fbf2 24%, #f5f8fad6 39%, #f5f8fa75 53%, #f5f8fa14 70%, transparent 86%); pointer-events: none; }
-.lavarapido-product-page .lavarapido-bay figcaption { position: absolute; right: 36px; bottom: max(24px, calc(50% - 21.212vw + 24px)); z-index: 1; text-align: right; font-family: 'DM Serif Display', Georgia, serif; font-size: 27px; font-weight: 400; line-height: 1.2; color: #fff; text-shadow: 0 2px 18px rgba(10, 26, 44, 0.85), 0 1px 4px rgba(10, 26, 44, 0.72); }
-.lavarapido-product-page .lavarapido-bay figcaption span { font-style: italic; }
-.lavarapido-product-page .lavarapido-opening__signature { display: flex; align-items: center; gap: 10px; padding-block: 26px; border-bottom: 1px solid #c9dae8; }
-.lavarapido-product-page .lavarapido-opening__signature > span { color: #0f253d; font-family: 'DM Serif Display', Georgia, serif; font-size: 23px; }
-.lavarapido-product-page .lavarapido-opening__signature > p { color: #526d88; font-size: 13px; margin: 0; }
-.lavarapido-product-page .lavarapido-opening__signature > a { width: 44px; height: 44px; border: 1px solid #c9dae8; margin-left: auto; display: grid; place-items: center; border-radius: 50%; color: #0284c7; }
-.lavarapido-product-page .lavarapido-opening__signature svg { width: 18px; height: 18px; }
-
-/* Introdução de rotina */
-.lavarapido-product-page .lavarapido-introduction { display: grid; grid-template-columns: 1fr 1fr; column-gap: 100px; }
-.lavarapido-product-page .lavarapido-introduction .lavarapido-kicker { grid-column: 1 / -1; color: #415972; font-size: 10px; margin-bottom: 20px; }
-.lavarapido-product-page .lavarapido-introduction h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.4vw, 48px); font-weight: 400; line-height: 1.13; letter-spacing: -.02em; margin: 0; color: #0f253d; }
-.lavarapido-product-page .lavarapido-introduction__detail p { color: #415972; font-size: 15px; line-height: 1.8; margin: 0 0 14px; }
-.lavarapido-product-page .lavarapido-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 6px; }
-.lavarapido-product-page .lavarapido-introduction__detail a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; min-height: 44px; color: #0369a1; border-bottom: 1px solid #a8cadf; }
-.lavarapido-product-page .lavarapido-introduction__detail svg { width: 14px; height: 14px; }
-
-/* Módulos com telas reais em perspectiva */
-.lavarapido-product-page .lavarapido-editorial { display: grid; gap: 32px; padding: 12px clamp(16px, 3vw, 48px) 64px; }
-.lavarapido-product-page .lavarapido-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; min-height: 700px; background: #f5f8fb; border: 1px solid #cddde9; border-radius: 18px; }
-.lavarapido-product-page .lavarapido-feature--ice { background: #e8f0f7; }
-.lavarapido-product-page .lavarapido-chapter { display: flex; align-items: center; gap: 10px; color: #0369a1; font-size: 13px; font-weight: 500; margin-bottom: 24px; }
-.lavarapido-product-page .lavarapido-chapter > span { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: #415972; }
-.lavarapido-product-page .lavarapido-feature h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(38px, 3.4vw, 50px); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 20px; color: #0f253d; }
-.lavarapido-product-page .lavarapido-feature__copy > p { color: #364e66; font-size: 18px; line-height: 1.75; margin: 0 0 24px; }
-.lavarapido-product-page .lavarapido-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.lavarapido-product-page .lavarapido-feature li { padding-left: 19px; position: relative; color: #274059; font-size: 16px; line-height: 1.65; }
-.lavarapido-product-page .lavarapido-feature li::before { content: ''; position: absolute; top: 10px; left: 0; width: 5px; height: 5px; border: 1px solid #0284c7; border-radius: 50%; }
-.lavarapido-product-page .lavarapido-feature__copy > .lavarapido-feature__note { font-size: 14px; margin: 18px 0 0; color: #415972; }
-.lavarapido-product-page .lavarapido-feature .lavarapido-text-link { font-size: 16px; margin-top: 18px; border-bottom: 1px solid #b3cfe3; }
-
-.lavarapido-product-page .lavarapido-feature::after { content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 18%, #f5f8fb1a 35%, #f5f8fb6b 49%, #f5f8fba3 59%, #f5f8fbbf 78%); }
-.lavarapido-product-page .lavarapido-feature--reverse::after { background: linear-gradient(270deg, transparent 18%, #e8f0f71a 35%, #e8f0f76b 49%, #e8f0f7a3 59%, #e8f0f7bf 78%); }
-.lavarapido-product-page .lavarapido-feature__grid { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; min-height: 700px; padding: 88px clamp(28px, 4vw, 64px); pointer-events: none; }
-.lavarapido-product-page .lavarapido-feature__copy { position: relative; isolation: isolate; width: 48%; max-width: 560px; padding: clamp(24px, 2.5vw, 36px); pointer-events: auto; }
-.lavarapido-product-page .lavarapido-feature__copy::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: 16px; background: #f5f8fb; pointer-events: none; }
-.lavarapido-product-page .lavarapido-feature--ice .lavarapido-feature__copy::before { background: #e8f0f7; }
-.lavarapido-product-page .lavarapido-feature--reverse .lavarapido-feature__grid { justify-content: flex-start; }
-.lavarapido-product-page .lavarapido-screen { position: absolute; z-index: 0; left: 2.5%; top: 50%; width: 76%; margin: 0; padding: 0; border: 0; background: transparent; border-radius: 0; transform: translateY(-50%) perspective(1600px) rotateY(9deg) rotateZ(-.5deg); transform-origin: center; box-shadow: 0 24px 55px -30px #0f253d2e; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); pointer-events: none; }
-.lavarapido-product-page .lavarapido-screen img { display: block; width: 100%; height: auto; border: 0; border-radius: 3px; }
-.lavarapido-product-page .lavarapido-feature--reverse .lavarapido-screen { left: auto; right: 2.5%; transform: translateY(-50%) perspective(1600px) rotateY(-9deg) rotateZ(.5deg); }
-
-@media (min-width: 901px) {
-  .lavarapido-product-page .lavarapido-editorial { padding-inline: 24px; }
-  .lavarapido-product-page .lavarapido-feature__grid { max-width: 1200px; padding-inline: 0; }
-  .lavarapido-product-page .lavarapido-feature__copy { padding: 0; }
-  .lavarapido-product-page .lavarapido-feature__copy::before { inset: -24px; }
-  .lavarapido-product-page .lavarapido-feature:not(.lavarapido-feature--reverse) .lavarapido-feature__copy { text-align: right; }
-  .lavarapido-product-page .lavarapido-feature:not(.lavarapido-feature--reverse) .lavarapido-chapter { justify-content: flex-end; }
-  .lavarapido-product-page .lavarapido-feature:not(.lavarapido-feature--reverse) li { padding-left: 0; padding-right: 19px; }
-  .lavarapido-product-page .lavarapido-feature:not(.lavarapido-feature--reverse) li::before { left: auto; right: 0; }
-  .lavarapido-product-page .lavarapido-feature:not(.lavarapido-feature--reverse) .lavarapido-text-link { display: flex; width: fit-content; margin-left: auto; }
-}
 
 /* Operação local e confiabilidade */
 .lavarapido-product-page .lavarapido-privacy { background: #0f253d; color: #f5f8fb; padding-block: 88px; }
@@ -149,7 +80,7 @@
 .lavarapido-product-page .lavarapido-plan-period { display: block; font-size: 13px; color: #415972; margin-top: 6px; }
 .lavarapido-product-page .lavarapido-plan ul { padding: 26px 0; margin: 0; list-style: none; display: grid; gap: 12px; }
 .lavarapido-product-page .lavarapido-plan li { position: relative; padding-left: 20px; font-size: 14px; line-height: 1.55; color: #274059; }
-.lavarapido-product-page .lavarapido-plan li::before { content: '✓'; position: absolute; left: 0; color: #0284c7; font-size: 13px; font-weight: 700; }
+.lavarapido-product-page .lavarapido-plan li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; background: #0284c7; }
 .lavarapido-product-page .lavarapido-plan-actions { display: grid; gap: 10px; }
 .lavarapido-product-page .lavarapido-plan .btn { width: 100%; font-size: 13px; }
 .lavarapido-product-page .lavarapido-pricing-note { display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; font-size: 12px; color: #415972; margin: 24px 0 0; }
@@ -178,7 +109,7 @@
 
 .lavarapido-product-page .lavarapido-footer { background: #f5f8fb; color: #0f253d; border-top: 1px solid #c9dae8; padding: 34px 0 28px; }
 .lavarapido-product-page .lavarapido-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.lavarapido-product-page .lavarapido-footer-brand { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; line-height: 1.5; }
+.lavarapido-product-page .lavarapido-footer-brand { font-family: Rajdhani, sans-serif; font-weight: 400; font-size: 22px; line-height: 1.5; }
 .lavarapido-product-page .lavarapido-footer-brand span { display: block; color: #526d88; font-family: Inter, sans-serif; font-size: 12px; font-weight: 400; }
 .lavarapido-product-page .lavarapido-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; font-size: 13px; }
 .lavarapido-product-page .lavarapido-footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
@@ -192,39 +123,13 @@
 .lavarapido-product-page .product-mobile-menu__links a { color: #0f253d; background: transparent; border-color: #c9dae8; }
 .lavarapido-product-page .product-mobile-menu__actions { display: grid; gap: 10px; }
 .lavarapido-product-page .product-mobile-menu__close { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #a8cadf; border-radius: 8px; background: transparent; color: #0f253d; cursor: pointer; }
-
-@media (min-width: 1600px) {
-  .lavarapido-product-page .lavarapido-opening__grid { min-height: max(720px, 42.424vw); }
-}
 @media (max-width: 1100px) {
   .lavarapido-product-page .nav-links { gap: 16px; }
-  .lavarapido-product-page .lavarapido-opening__copy { padding-right: 32px; }
-  .lavarapido-product-page .lavarapido-opening__grid { min-height: 620px; }
-  .lavarapido-product-page .lavarapido-opening h1 { font-size: 52px; }
-  .lavarapido-product-page .lavarapido-opening .lavarapido-actions { grid-template-columns: max-content; justify-content: start; }
-  .lavarapido-product-page .lavarapido-introduction { gap: 40px; }
   .lavarapido-product-page .lavarapido-privacy-grid, .lavarapido-product-page .lavarapido-faq-grid { gap: 40px; }
-  .lavarapido-product-page .lavarapido-feature, .lavarapido-product-page .lavarapido-feature__grid { min-height: 660px; }
-  .lavarapido-product-page .lavarapido-feature__copy { width: 50%; }
-  .lavarapido-product-page .lavarapido-screen { width: 78%; }
 }
 @media (max-width: 900px) {
   .lavarapido-product-page .nav-links { display: none; }
   .lavarapido-product-page .nav-mobile-actions { display: flex; }
-  .lavarapido-product-page .lavarapido-opening__grid { grid-template-columns: 1fr; min-height: 610px; }
-  .lavarapido-product-page .lavarapido-opening__copy { width: 59%; padding: 48px 28px 48px 24px; }
-  .lavarapido-product-page .lavarapido-opening h1 { font-size: 44px; }
-  .lavarapido-product-page .lavarapido-opening__lead { font-size: 14px; }
-  .lavarapido-product-page .lavarapido-bay figcaption { font-size: 21px; right: 24px; }
-  .lavarapido-product-page .lavarapido-opening__signature { gap: 6px; }
-  .lavarapido-product-page .lavarapido-opening__signature > span { font-size: 21px; }
-  .lavarapido-product-page .lavarapido-opening__signature > p { font-size: 12px; }
-  .lavarapido-product-page .lavarapido-feature__grid, .lavarapido-product-page .lavarapido-feature--reverse .lavarapido-feature__grid { align-items: flex-start; justify-content: flex-start; min-height: 800px; padding: 48px 32px 360px; }
-  .lavarapido-product-page .lavarapido-feature__copy { width: 100%; max-width: 600px; }
-  .lavarapido-product-page .lavarapido-chapter { margin-bottom: 16px; }
-  .lavarapido-product-page .lavarapido-screen, .lavarapido-product-page .lavarapido-feature--reverse .lavarapido-screen { width: 94%; left: 3%; right: auto; top: auto; bottom: 18px; transform: perspective(1200px) rotateY(7deg) rotateX(4deg); }
-  .lavarapido-product-page .lavarapido-feature::after { background: linear-gradient(180deg, #f5f8fb 25%, #f5f8fbf5 43%, #f5f8fb80 60%, transparent 82%); }
-  .lavarapido-product-page .lavarapido-feature--reverse::after { background: linear-gradient(180deg, #e8f0f7 25%, #e8f0f7f5 43%, #e8f0f780 60%, transparent 82%); }
 }
 @media (max-width: 600px) {
   .lavarapido-product-page .container { padding-inline: 20px; }
@@ -238,39 +143,6 @@
   .lavarapido-product-page .nav-mobile-actions > .mobile-header-whatsapp { display: none; }
   .lavarapido-product-page .nav-mobile-actions > .btn { padding-inline: 11px !important; }
   .lavarapido-product-page .nav-mobile-actions > .btn svg { display: none; }
-  .lavarapido-product-page .lavarapido-opening__grid { display: flex; flex-direction: column; min-height: 0; }
-  .lavarapido-product-page .lavarapido-opening__copy { width: 100%; padding: 38px 20px 24px; }
-  .lavarapido-product-page .lavarapido-opening .lavarapido-kicker { font-size: 9px; margin-bottom: 20px; }
-  .lavarapido-product-page .lavarapido-opening h1 { font-size: 42px; line-height: 1.08; margin-bottom: 22px; }
-  .lavarapido-product-page .lavarapido-opening__lead { font-size: 15px; margin-bottom: 24px; }
-  .lavarapido-product-page .lavarapido-opening .lavarapido-actions { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
-  .lavarapido-product-page .lavarapido-opening .lavarapido-actions .btn { min-width: 0; width: 100%; }
-  .lavarapido-product-page .lavarapido-opening__choice { font-size: 11px; margin-top: 18px; }
-  .lavarapido-product-page .lavarapido-bay { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1376 / 768; }
-  .lavarapido-product-page .lavarapido-bay img { position: static; transform: none; height: auto; object-position: center; -webkit-mask-image: none; mask-image: none; }
-  .lavarapido-product-page .lavarapido-bay::after { background: linear-gradient(180deg, #f5f8fb 0%, #f5f8fb55 18%, transparent 45%); }
-  .lavarapido-product-page .lavarapido-bay figcaption { display: none; }
-  .lavarapido-product-page .lavarapido-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 0 10px; padding-block: 20px; }
-  .lavarapido-product-page .lavarapido-opening__signature > span { font-size: 21px; }
-  .lavarapido-product-page .lavarapido-opening__signature > p { grid-column: 1; }
-  .lavarapido-product-page .lavarapido-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
-  .lavarapido-product-page .lavarapido-introduction { grid-template-columns: 1fr; gap: 20px; }
-  .lavarapido-product-page .lavarapido-introduction .lavarapido-kicker { margin-bottom: 0; }
-  .lavarapido-product-page .lavarapido-introduction h2 { font-size: 34px; }
-  .lavarapido-product-page .lavarapido-introduction__detail p { font-size: 14px; }
-  .lavarapido-product-page .lavarapido-introduction__detail nav { gap: 14px; }
-  .lavarapido-product-page .lavarapido-introduction__detail a { font-size: 11px; }
-  .lavarapido-product-page .lavarapido-editorial { padding: 0 12px 40px; gap: 20px; }
-  .lavarapido-product-page .lavarapido-feature { padding: 0; border-radius: 12px; }
-  .lavarapido-product-page .lavarapido-feature__copy { padding: 24px 18px; }
-  .lavarapido-product-page .lavarapido-feature h2 { font-size: 36px; }
-  .lavarapido-product-page .lavarapido-feature__copy > p { font-size: 16px; }
-  .lavarapido-product-page .lavarapido-feature li { font-size: 15px; }
-  .lavarapido-product-page .lavarapido-feature .lavarapido-text-link { font-size: 15px; }
-  .lavarapido-product-page .lavarapido-feature__grid, .lavarapido-product-page .lavarapido-feature--reverse .lavarapido-feature__grid { min-height: 680px; padding: 24px 12px 235px; }
-  .lavarapido-product-page .lavarapido-screen, .lavarapido-product-page .lavarapido-feature--reverse .lavarapido-screen { width: 100%; left: 0; bottom: 22px; transform: perspective(800px) rotateY(7deg) rotateX(3deg); }
-  .lavarapido-product-page .lavarapido-feature::after { background: linear-gradient(180deg, #f5f8fb 30%, #f5f8fbf5 51%, #f5f8fb4d 73%, transparent 90%); }
-  .lavarapido-product-page .lavarapido-feature--reverse::after { background: linear-gradient(180deg, #e8f0f7 30%, #e8f0f7f5 51%, #e8f0f74d 73%, transparent 90%); }
   .lavarapido-product-page .lavarapido-block, .lavarapido-product-page .lavarapido-privacy, .lavarapido-product-page .lavarapido-pricing, .lavarapido-product-page .lavarapido-closing { padding-block: 48px; }
   .lavarapido-product-page .lavarapido-section-heading { margin-bottom: 28px; }
   .lavarapido-product-page .lavarapido-section-heading h2 { font-size: 30px; }
@@ -290,6 +162,116 @@
   .lavarapido-product-page .lavarapido-footer-top { align-items: flex-start; flex-direction: column; gap: 18px; }
   .lavarapido-product-page .lavarapido-footer nav { gap: 20px; }
 }
+
+/* Estética automotiva: luz fria, contraste técnico e pátio como módulo principal. */
+.lavarapido-product-page .lavarapido-opening { background: #10263a; color: #f7fbff; }
+.lavarapido-product-page .lavarapido-opening :focus-visible, .lavarapido-product-page .lavarapido-privacy :focus-visible { outline-color: #a2eaff; }
+.lavarapido-product-page .lavarapido-opening__grid { position: relative; isolation: isolate; min-height: 650px; }
+.lavarapido-product-page .lavarapido-opening__copy { position: relative; z-index: 2; width: 58%; padding: 72px 48px 72px max(24px,calc((100vw - 1200px) / 2)); }
+.lavarapido-product-page .lavarapido-opening .lavarapido-kicker { color: #a2eaff; font-size: 10px; letter-spacing: .1em; margin-bottom: 24px; }
+.lavarapido-product-page .lavarapido-opening h1 { font-family: Rajdhani,sans-serif; font-weight: 700; font-size: clamp(52px,5.4vw,78px); line-height: .98; letter-spacing: -.02em; text-transform: uppercase; color: #fff; margin: 0 0 28px; }
+.lavarapido-product-page .lavarapido-opening h1 em { color: #a2eaff; font-style: normal; }
+.lavarapido-product-page .lavarapido-opening__lead { font-size: 16px; line-height: 1.8; color: #d5e5f2; margin: 0 0 28px; max-width: 510px; }
+.lavarapido-product-page .lavarapido-opening .lavarapido-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.lavarapido-product-page .lavarapido-opening .btn { font-size: 13px; border-radius: 4px; }
+.lavarapido-product-page .lavarapido-opening .btn.primary { background: #8de0f5; border-color: #8de0f5; color: #10263a; }
+.lavarapido-product-page .lavarapido-opening .btn.primary:hover { background: #b6eeff; }
+.lavarapido-product-page .lavarapido-opening .btn.light { background: #10263a80; border-color: #88a7bd; color: #fff; }
+.lavarapido-product-page .lavarapido-opening .btn.light:hover { background: #1e3b52; border-color: #b6eeff; }
+.lavarapido-product-page .lavarapido-opening__choice { font-size: 12px; line-height: 1.8; color: #c2d7e7; margin: 22px 0 0; max-width: 490px; }
+.lavarapido-product-page .lavarapido-bay { position: absolute; inset: 0; margin: 0; z-index: 0; overflow: hidden; }
+.lavarapido-product-page .lavarapido-bay img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+.lavarapido-product-page .lavarapido-bay::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#10263afc,#10263af5 28%,#10263ade 44%,#10263a60 65%,#10263a14 85%); }
+.lavarapido-product-page .lavarapido-bay figcaption { position: absolute; z-index: 1; right: max(24px,calc((100vw - 1200px) / 2)); bottom: 28px; text-align: right; color: #fff; padding: 14px 20px; border-right: 3px solid #8de0f5; background: #10263ae8; font-family: Rajdhani,sans-serif; font-size: 26px; font-weight: 600; line-height: 1.2; }
+.lavarapido-product-page .lavarapido-bay figcaption span { color: #c5edff; font-size: 19px; }
+.lavarapido-product-page .lavarapido-opening__signature { display: flex; align-items: center; gap: 24px; padding-block: 22px; border-top: 1px solid #607d91; }
+.lavarapido-product-page .lavarapido-opening__signature > span { font-family: Rajdhani,sans-serif; font-size: 24px; font-weight: 700; text-transform: uppercase; }
+.lavarapido-product-page .lavarapido-opening__signature > p { font-size: 13px; color: #c2d7e7; margin: 0; }
+.lavarapido-product-page .lavarapido-opening__signature > a { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #88a7bd; color: #a2eaff; margin-left: auto; border-radius: 4px; }
+.lavarapido-product-page .lavarapido-opening__signature svg { width: 18px; height: 18px; }
+.lavarapido-product-page .lavarapido-introduction { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; }
+.lavarapido-product-page .lavarapido-introduction .lavarapido-kicker { grid-column: 1 / -1; font-size: 10px; }
+.lavarapido-product-page .lavarapido-introduction h2 { font-family: Rajdhani,sans-serif; font-size: clamp(36px,3.5vw,50px); font-weight: 700; line-height: 1.08; letter-spacing: -.02em; margin: 0; }
+.lavarapido-product-page .lavarapido-introduction__detail p { color: #415972; font-size: 15px; line-height: 1.8; margin: 0 0 22px; }
+.lavarapido-product-page .lavarapido-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 16px; }
+.lavarapido-product-page .lavarapido-introduction__detail a { min-height: 44px; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; color: #03638f; border-bottom: 2px solid #bfd9e8; }
+.lavarapido-product-page .lavarapido-introduction__detail svg { width: 14px; height: 14px; }
+.lavarapido-product-page .lavarapido-editorial { display: grid; gap: 28px; max-width: 1248px; padding: 0 24px 80px; margin: auto; }
+.lavarapido-product-page .lavarapido-feature { display: grid; grid-template-columns: .95fr 1.15fr; align-items: center; gap: 40px; background: #fff; padding: 36px; border: 1px solid #c9dae8; border-radius: 6px; min-width: 0; }
+.lavarapido-product-page .lavarapido-feature:first-child { display: flex; flex-direction: column; gap: 30px; border-top: 4px solid #0284c7; }
+.lavarapido-product-page .lavarapido-feature--ice { background: #e8f1f7; }
+.lavarapido-product-page .lavarapido-feature__grid.container { min-width: 0; padding: 0; width: 100%; margin: 0; }
+.lavarapido-product-page .lavarapido-chapter { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #03638f; margin-bottom: 20px; }
+.lavarapido-product-page .lavarapido-feature h2 { font-family: Rajdhani,sans-serif; font-size: 39px; font-weight: 700; line-height: 1.06; letter-spacing: -.015em; margin: 0 0 20px; }
+.lavarapido-product-page .lavarapido-feature__copy > p { color: #415972; font-size: 15px; line-height: 1.8; margin: 0 0 22px; }
+.lavarapido-product-page .lavarapido-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.lavarapido-product-page .lavarapido-feature li { color: #2c4a61; font-size: 14px; line-height: 1.7; position: relative; padding-left: 15px; }
+.lavarapido-product-page .lavarapido-feature li::before { content: ''; width: 5px; height: 5px; background: #0284c7; position: absolute; left: 0; top: 10px; }
+.lavarapido-product-page .lavarapido-feature .lavarapido-text-link { font-size: 13px; text-align: left; margin-top: 20px; border-bottom: 1px solid #a8cada; }
+.lavarapido-product-page .lavarapido-feature__copy > .lavarapido-feature__note { font-size: 11px; margin: 16px 0 0; }
+.lavarapido-product-page .lavarapido-feature:first-child .lavarapido-feature__copy { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; }
+.lavarapido-product-page .lavarapido-feature:first-child .lavarapido-chapter { grid-column: 1 / -1; }
+.lavarapido-product-page .lavarapido-feature:first-child h2, .lavarapido-product-page .lavarapido-feature:first-child .lavarapido-feature__copy > p, .lavarapido-product-page .lavarapido-feature:first-child .lavarapido-text-link { grid-column: 1; }
+.lavarapido-product-page .lavarapido-feature:first-child ul { grid-column: 2; grid-row: 2 / span 3; align-self: start; padding-top: 4px; }
+.lavarapido-product-page .lavarapido-feature:first-child .lavarapido-text-link { margin-top: 0; width: fit-content; }
+.lavarapido-product-page .lavarapido-screen { min-width: 0; width: 100%; order: 2; margin: 0; padding: 7px; background: #10263a; border-radius: 5px; box-shadow: 0 20px 36px -28px #0f253d66; }
+.lavarapido-product-page .lavarapido-screen img { width: 100%; height: auto; display: block; border-radius: 2px; }
+.lavarapido-product-page .lavarapido-feature--reverse .lavarapido-screen { order: 0; }
+.lavarapido-product-page .lavarapido-section-heading h2, .lavarapido-product-page .lavarapido-closing h2 { font-weight: 700; font-size: clamp(36px,3.5vw,48px); line-height: 1.08; }
+.lavarapido-product-page .lavarapido-footer-brand { font-weight: 700; }
+@media (max-width: 1100px) {
+.lavarapido-product-page .lavarapido-opening__copy { padding: 56px 28px; width: 62%; }
+.lavarapido-product-page .lavarapido-opening h1 { font-size: 64px; }
+.lavarapido-product-page .lavarapido-feature { gap: 28px; padding: 28px; } }
+@media (max-width: 900px) {
+.lavarapido-product-page .lavarapido-opening__grid { min-height: 640px; }
+.lavarapido-product-page .lavarapido-opening__copy { width: 70%; padding: 48px 24px 110px; }
+.lavarapido-product-page .lavarapido-opening h1 { font-size: 56px; }
+.lavarapido-product-page .lavarapido-bay::after { background: linear-gradient(90deg,#10263afc,#10263af0 44%,#10263ab3 65%,#10263a33); }
+.lavarapido-product-page .lavarapido-bay figcaption { right: 24px; bottom: 24px; font-size: 23px; }
+.lavarapido-product-page .lavarapido-opening__signature { gap: 16px; }
+.lavarapido-product-page .lavarapido-opening__signature > p { max-width: 280px; font-size: 12px; }
+.lavarapido-product-page .lavarapido-introduction { gap: 0 36px; }
+.lavarapido-product-page .lavarapido-feature { grid-template-columns: 1fr; }
+.lavarapido-product-page .lavarapido-feature--reverse .lavarapido-screen { order: 2; }
+.lavarapido-product-page .lavarapido-feature:first-child .lavarapido-feature__copy { column-gap: 32px; } }
+@media (max-width: 600px) {
+.lavarapido-product-page .lavarapido-opening__grid { display: flex; flex-direction: column; min-height: 0; }
+.lavarapido-product-page .lavarapido-opening__copy { width: 100%; padding: 36px 20px 28px; }
+.lavarapido-product-page .lavarapido-opening h1 { font-size: clamp(46px,12vw,58px); }
+.lavarapido-product-page .lavarapido-opening .lavarapido-kicker { font-size: 9px; line-height: 1.8; }
+.lavarapido-product-page .lavarapido-opening__lead { font-size: 15px; }
+.lavarapido-product-page .lavarapido-opening .lavarapido-actions { display: grid; grid-template-columns: minmax(0,1fr); }
+.lavarapido-product-page .lavarapido-opening__choice { font-size: 11px; }
+.lavarapido-product-page .lavarapido-bay { position: relative; inset: auto; height: 280px; }
+.lavarapido-product-page .lavarapido-bay img { object-position: 82% center; }
+.lavarapido-product-page .lavarapido-bay::after { background: linear-gradient(transparent 35%,#10263acc); }
+.lavarapido-product-page .lavarapido-bay figcaption { right: 20px; bottom: 18px; font-size: 22px; padding: 10px 16px; }
+.lavarapido-product-page .lavarapido-bay figcaption span { font-size: 17px; }
+.lavarapido-product-page .lavarapido-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 6px 10px; padding-block: 20px; }
+.lavarapido-product-page .lavarapido-opening__signature > span { font-size: 24px; }
+.lavarapido-product-page .lavarapido-opening__signature > p { grid-column: 1; font-size: 11px; }
+.lavarapido-product-page .lavarapido-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
+.lavarapido-product-page .lavarapido-introduction { grid-template-columns: 1fr; gap: 18px; }
+.lavarapido-product-page .lavarapido-introduction .lavarapido-kicker { margin-bottom: 0; }
+.lavarapido-product-page .lavarapido-introduction h2 { font-size: 36px; }
+.lavarapido-product-page .lavarapido-editorial { padding: 0 16px 48px; gap: 24px; }
+.lavarapido-product-page .lavarapido-feature { padding: 28px 20px; }
+.lavarapido-product-page .lavarapido-feature:first-child .lavarapido-feature__copy { display: block; }
+.lavarapido-product-page .lavarapido-feature h2 { font-size: 35px; }
+.lavarapido-product-page .lavarapido-feature:first-child .lavarapido-text-link { margin-top: 20px; }
+.lavarapido-product-page .lavarapido-screen { padding: 4px; }
+.lavarapido-product-page .lavarapido-section-heading h2 { font-size: 36px; }
+.lavarapido-product-page .lavarapido-closing h2 { font-size: 38px; } }
+@media (max-width: 360px) {
+.lavarapido-product-page .lavarapido-opening h1 { font-size: 42px; }
+.lavarapido-product-page .nav { padding-inline: 12px; gap: 10px; }
+.lavarapido-product-page .assistencia-nav-brand { gap: 6px; }
+.lavarapido-product-page .assistencia-nav-brand__icon { width: 28px; height: 28px; flex-basis: 28px; }
+.lavarapido-product-page .assistencia-nav-brand__copy strong { font-size: 11px; white-space: nowrap; }
+.lavarapido-product-page .assistencia-nav-brand__copy small { font-size: 7px; white-space: nowrap; }
+.lavarapido-product-page .nav-mobile-actions { gap: 6px; } }
+
 @media (prefers-reduced-motion: reduce) {
   .lavarapido-product-page *, .lavarapido-product-page *::before, .lavarapido-product-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

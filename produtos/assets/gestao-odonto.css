@@ -46,79 +46,9 @@
 .odonto-product-page .odonto-text-link svg { width: 16px; height: 16px; }
 .odonto-product-page .odonto-block { padding: 80px 0; }
 .odonto-product-page .odonto-section-heading { max-width: 620px; margin-bottom: 40px; }
-.odonto-product-page .odonto-section-heading h2, .odonto-product-page .odonto-closing h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: #102a33; margin: 0 0 22px; }
+.odonto-product-page .odonto-section-heading h2, .odonto-product-page .odonto-closing h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: #102a33; margin: 0 0 22px; }
 .odonto-product-page .odonto-section-heading p { font-size: 16px; color: #4c646d; line-height: 1.7; margin: 0; }
 .odonto-product-page .odonto-section-heading--center { margin-inline: auto; text-align: center; max-width: 700px; }
-
-/* Abertura hero */
-.odonto-product-page .odonto-opening { background: #f5f9fa; }
-.odonto-product-page .odonto-opening__grid { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr; min-height: max(650px, 42.424vw); }
-.odonto-product-page .odonto-opening__copy { position: relative; z-index: 2; width: 54%; max-width: 830px; display: flex; flex-direction: column; justify-content: center; padding: 64px 40px 64px max(24px, calc((100vw - 1200px) / 2)); }
-.odonto-product-page .odonto-opening .odonto-kicker { color: #0e7490; font-size: 10px; letter-spacing: .13em; line-height: 1.7; max-width: 430px; margin: 0 0 24px; }
-.odonto-product-page .odonto-opening h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(44px, 4.4vw, 64px); font-weight: 400; line-height: 1.06; letter-spacing: -.025em; color: #102a33; margin: 0 0 26px; max-width: 540px; }
-.odonto-product-page .odonto-opening h1 em { color: #0e7490; font-weight: 400; }
-.odonto-product-page .odonto-opening__lead { font-size: 16px; line-height: 1.8; color: #4c646d; max-width: 450px; margin: 0 0 30px; }
-.odonto-product-page .odonto-opening .odonto-actions { display: grid; grid-template-columns: max-content max-content; justify-content: start; gap: 10px; }
-.odonto-product-page .odonto-opening .odonto-trial-cta { grid-column: 1 / -1; width: 100%; max-width: 400px; }
-.odonto-product-page .odonto-opening .btn { font-size: 13px; }
-.odonto-product-page .odonto-opening .btn.light { background: transparent; border-color: #88abb7; }
-.odonto-product-page .odonto-opening__choice { color: #546e77; font-size: 12px; line-height: 1.75; margin: 22px 0 0; }
-.odonto-product-page .odonto-room { position: absolute; inset: 0; z-index: 0; margin: 0; min-width: 0; overflow: hidden; }
-.odonto-product-page .odonto-room img { display: block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: auto; object-fit: contain; object-position: center; -webkit-mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); }
-.odonto-product-page .odonto-room::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #f5f9fafa 0%, #f5f9faf2 24%, #f5f9fad6 39%, #f5f9fa75 53%, #f5f9fa14 70%, transparent 86%); pointer-events: none; }
-.odonto-product-page .odonto-room figcaption { position: absolute; right: 36px; bottom: max(24px, calc(50% - 21.212vw + 24px)); z-index: 1; text-align: right; font-family: 'DM Serif Display', Georgia, serif; font-size: 27px; font-weight: 400; line-height: 1.2; color: #fff; text-shadow: 0 2px 18px rgba(10, 34, 42, 0.85), 0 1px 4px rgba(10, 34, 42, 0.72); }
-.odonto-product-page .odonto-room figcaption span { font-style: italic; }
-.odonto-product-page .odonto-opening__signature { display: flex; align-items: center; gap: 10px; padding-block: 26px; border-bottom: 1px solid #cfe0e5; }
-.odonto-product-page .odonto-opening__signature > span { color: #102a33; font-family: 'DM Serif Display', Georgia, serif; font-size: 23px; }
-.odonto-product-page .odonto-opening__signature > p { color: #546e77; font-size: 13px; margin: 0; }
-.odonto-product-page .odonto-opening__signature > a { width: 44px; height: 44px; border: 1px solid #cfe0e5; margin-left: auto; display: grid; place-items: center; border-radius: 50%; color: #0e7490; }
-.odonto-product-page .odonto-opening__signature svg { width: 18px; height: 18px; }
-
-/* Introdução de rotina */
-.odonto-product-page .odonto-introduction { display: grid; grid-template-columns: 1fr 1fr; column-gap: 100px; }
-.odonto-product-page .odonto-introduction .odonto-kicker { grid-column: 1 / -1; color: #4c646d; font-size: 10px; margin-bottom: 20px; }
-.odonto-product-page .odonto-introduction h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.4vw, 48px); font-weight: 400; line-height: 1.13; letter-spacing: -.02em; margin: 0; }
-.odonto-product-page .odonto-introduction__detail p { color: #4c646d; font-size: 15px; line-height: 1.8; margin: 0 0 14px; }
-.odonto-product-page .odonto-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 6px; }
-.odonto-product-page .odonto-introduction__detail a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; min-height: 44px; color: #0e7490; border-bottom: 1px solid #a8cad4; }
-.odonto-product-page .odonto-introduction__detail svg { width: 14px; height: 14px; }
-
-/* Módulos com telas reais em perspectiva */
-.odonto-product-page .odonto-editorial { display: grid; gap: 32px; padding: 12px clamp(16px, 3vw, 48px) 64px; }
-.odonto-product-page .odonto-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; min-height: 700px; background: #f5f9fa; border: 1px solid #d0e0e5; border-radius: 18px; }
-.odonto-product-page .odonto-feature--ice { background: #e7f1f4; }
-.odonto-product-page .odonto-chapter { display: flex; align-items: center; gap: 10px; color: #0e7490; font-size: 13px; font-weight: 500; margin-bottom: 24px; }
-.odonto-product-page .odonto-chapter > span { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: #4c646d; }
-.odonto-product-page .odonto-feature h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(38px, 3.4vw, 50px); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 20px; color: #102a33; }
-.odonto-product-page .odonto-feature__copy > p { color: #365059; font-size: 18px; line-height: 1.75; margin: 0 0 24px; }
-.odonto-product-page .odonto-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.odonto-product-page .odonto-feature li { padding-left: 19px; position: relative; color: #2b4751; font-size: 16px; line-height: 1.65; }
-.odonto-product-page .odonto-feature li::before { content: ''; position: absolute; top: 10px; left: 0; width: 5px; height: 5px; border: 1px solid #0e7490; border-radius: 50%; }
-.odonto-product-page .odonto-feature__copy > .odonto-feature__note { font-size: 14px; margin: 18px 0 0; color: #4c646d; }
-.odonto-product-page .odonto-feature .odonto-text-link { font-size: 16px; margin-top: 18px; border-bottom: 1px solid #b5cfd7; }
-
-.odonto-product-page .odonto-feature::after { content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 18%, #f5f9fa1a 35%, #f5f9fa6b 49%, #f5f9faa3 59%, #f5f9fabf 78%); }
-.odonto-product-page .odonto-feature--reverse::after { background: linear-gradient(270deg, transparent 18%, #e7f1f41a 35%, #e7f1f46b 49%, #e7f1f4a3 59%, #e7f1f4bf 78%); }
-.odonto-product-page .odonto-feature__grid { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; min-height: 700px; padding: 88px clamp(28px, 4vw, 64px); pointer-events: none; }
-.odonto-product-page .odonto-feature__copy { position: relative; isolation: isolate; width: 48%; max-width: 560px; padding: clamp(24px, 2.5vw, 36px); pointer-events: auto; }
-.odonto-product-page .odonto-feature__copy::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: 16px; background: #f5f9fa; pointer-events: none; }
-.odonto-product-page .odonto-feature--ice .odonto-feature__copy::before { background: #e7f1f4; }
-.odonto-product-page .odonto-feature--reverse .odonto-feature__grid { justify-content: flex-start; }
-.odonto-product-page .odonto-screen { position: absolute; z-index: 0; left: 2.5%; top: 50%; width: 76%; margin: 0; padding: 0; border: 0; background: transparent; border-radius: 0; transform: translateY(-50%) perspective(1600px) rotateY(9deg) rotateZ(-.5deg); transform-origin: center; box-shadow: 0 24px 55px -30px #0c2f3b2e; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); pointer-events: none; }
-.odonto-product-page .odonto-screen img { display: block; width: 100%; height: auto; border: 0; border-radius: 3px; }
-.odonto-product-page .odonto-feature--reverse .odonto-screen { left: auto; right: 2.5%; transform: translateY(-50%) perspective(1600px) rotateY(-9deg) rotateZ(.5deg); }
-
-@media (min-width: 901px) {
-  .odonto-product-page .odonto-editorial { padding-inline: 24px; }
-  .odonto-product-page .odonto-feature__grid { max-width: 1200px; padding-inline: 0; }
-  .odonto-product-page .odonto-feature__copy { padding: 0; }
-  .odonto-product-page .odonto-feature__copy::before { inset: -24px; }
-  .odonto-product-page .odonto-feature:not(.odonto-feature--reverse) .odonto-feature__copy { text-align: right; }
-  .odonto-product-page .odonto-feature:not(.odonto-feature--reverse) .odonto-chapter { justify-content: flex-end; }
-  .odonto-product-page .odonto-feature:not(.odonto-feature--reverse) li { padding-left: 0; padding-right: 19px; }
-  .odonto-product-page .odonto-feature:not(.odonto-feature--reverse) li::before { left: auto; right: 0; }
-  .odonto-product-page .odonto-feature:not(.odonto-feature--reverse) .odonto-text-link { display: flex; width: fit-content; margin-left: auto; }
-}
 
 /* Privacidade e soberania clínica */
 .odonto-product-page .odonto-privacy { background: #0c2f3b; color: #f5f9fa; padding-block: 88px; }
@@ -152,7 +82,7 @@
 .odonto-product-page .odonto-plan-period { display: block; font-size: 12px; color: #4c646d; margin-top: 7px; }
 .odonto-product-page .odonto-plan ul { padding: 26px 0; margin: 0 0 auto; list-style: none; display: grid; gap: 12px; }
 .odonto-product-page .odonto-plan li { position: relative; padding-left: 19px; font-size: 14px; line-height: 1.55; color: #3c5761; }
-.odonto-product-page .odonto-plan li::before { content: '✓'; position: absolute; left: 0; color: #0e7490; font-size: 13px; font-weight: 700; }
+.odonto-product-page .odonto-plan li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: #0e7490; }
 .odonto-product-page .odonto-plan .btn { width: 100%; margin-top: 8px; font-size: 13px; padding-inline: 10px; }
 .odonto-product-page .odonto-pricing-note { display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; font-size: 12px; color: #4c646d; margin: 26px 0 0; }
 .odonto-product-page .odonto-pricing-note svg { width: 15px; height: 15px; color: #0e7490; flex-shrink: 0; }
@@ -178,7 +108,7 @@
 
 .odonto-product-page .odonto-footer { background: #f5f9fa; color: #102a33; border-top: 1px solid #cfe0e5; padding: 34px 0 28px; }
 .odonto-product-page .odonto-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.odonto-product-page .odonto-footer-brand { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; line-height: 1.5; }
+.odonto-product-page .odonto-footer-brand { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; font-size: 22px; line-height: 1.5; }
 .odonto-product-page .odonto-footer-brand span { display: block; color: #546e77; font-family: Inter, sans-serif; font-size: 12px; font-weight: 400; }
 .odonto-product-page .odonto-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; font-size: 13px; }
 .odonto-product-page .odonto-footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
@@ -191,44 +121,18 @@
 .odonto-product-page .product-mobile-menu__panel { background: #f5f9fa; color: #102a33; }
 .odonto-product-page .product-mobile-menu__links a { color: #102a33; background: transparent; border-color: #cfe0e5; }
 .odonto-product-page .product-mobile-menu__close { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #a8cad4; border-radius: 8px; background: transparent; color: #102a33; cursor: pointer; }
-
-@media (min-width: 1600px) {
-  .odonto-product-page .odonto-opening__grid { min-height: max(720px, 42.424vw); }
-}
 @media (max-width: 1100px) {
   .odonto-product-page .nav-links { gap: 16px; }
-  .odonto-product-page .odonto-opening__copy { padding-right: 32px; }
-  .odonto-product-page .odonto-opening__grid { min-height: 620px; }
-  .odonto-product-page .odonto-opening h1 { font-size: 52px; }
-  .odonto-product-page .odonto-opening .odonto-actions { flex-direction: column; align-items: flex-start; }
-  .odonto-product-page .odonto-introduction { gap: 40px; }
   .odonto-product-page .odonto-privacy-grid, .odonto-product-page .odonto-faq-grid { gap: 40px; }
-  .odonto-product-page .odonto-feature, .odonto-product-page .odonto-feature__grid { min-height: 660px; }
-  .odonto-product-page .odonto-feature__copy { width: 50%; }
-  .odonto-product-page .odonto-screen { width: 78%; }
 }
 @media (max-width: 900px) {
   .odonto-product-page .nav-links { display: none; }
   .odonto-product-page .nav-mobile-actions { display: flex; }
-  .odonto-product-page .odonto-opening__grid { grid-template-columns: 1fr; min-height: 610px; }
-  .odonto-product-page .odonto-opening__copy { width: 59%; padding: 48px 28px 48px 24px; }
-  .odonto-product-page .odonto-opening h1 { font-size: 44px; }
-  .odonto-product-page .odonto-opening__lead { font-size: 14px; }
-  .odonto-product-page .odonto-room figcaption { font-size: 21px; right: 24px; }
-  .odonto-product-page .odonto-opening__signature { gap: 6px; }
-  .odonto-product-page .odonto-opening__signature > span { font-size: 21px; }
-  .odonto-product-page .odonto-opening__signature > p { font-size: 12px; }
   .odonto-product-page .odonto-plans { grid-template-columns: 1fr; gap: 26px; max-width: 620px; margin-inline: auto; }
   .odonto-product-page .odonto-plan-intro, .odonto-product-page .odonto-plan-investment { min-height: 0; }
   .odonto-product-page .odonto-plan-price { font-size: 36px; }
   .odonto-product-page .odonto-plan { padding: 30px; }
   .odonto-product-page .odonto-plan--featured { padding: 29px; }
-  .odonto-product-page .odonto-feature__grid, .odonto-product-page .odonto-feature--reverse .odonto-feature__grid { align-items: flex-start; justify-content: flex-start; min-height: 800px; padding: 48px 32px 360px; }
-  .odonto-product-page .odonto-feature__copy { width: 100%; max-width: 600px; }
-  .odonto-product-page .odonto-chapter { margin-bottom: 16px; }
-  .odonto-product-page .odonto-screen, .odonto-product-page .odonto-feature--reverse .odonto-screen { width: 94%; left: 3%; right: auto; top: auto; bottom: 18px; transform: perspective(1200px) rotateY(7deg) rotateX(4deg); }
-  .odonto-product-page .odonto-feature::after { background: linear-gradient(180deg, #f5f9fa 25%, #f5f9faf5 43%, #f5f9fa80 60%, transparent 82%); }
-  .odonto-product-page .odonto-feature--reverse::after { background: linear-gradient(180deg, #e7f1f4 25%, #e7f1f4f5 43%, #e7f1f480 60%, transparent 82%); }
 }
 @media (max-width: 600px) {
   .odonto-product-page .container { padding-inline: 20px; }
@@ -242,39 +146,6 @@
   .odonto-product-page .nav-mobile-actions > .mobile-header-whatsapp { display: none; }
   .odonto-product-page .nav-mobile-actions > .btn { padding-inline: 11px !important; }
   .odonto-product-page .nav-mobile-actions > .btn svg { display: none; }
-  .odonto-product-page .odonto-opening__grid { display: flex; flex-direction: column; min-height: 0; }
-  .odonto-product-page .odonto-opening__copy { width: 100%; padding: 38px 20px 24px; }
-  .odonto-product-page .odonto-opening .odonto-kicker { font-size: 9px; margin-bottom: 20px; }
-  .odonto-product-page .odonto-opening h1 { font-size: 42px; line-height: 1.08; margin-bottom: 22px; }
-  .odonto-product-page .odonto-opening__lead { font-size: 15px; margin-bottom: 24px; }
-  .odonto-product-page .odonto-opening .odonto-actions { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
-  .odonto-product-page .odonto-opening .odonto-actions .btn { min-width: 0; width: 100%; }
-  .odonto-product-page .odonto-opening__choice { font-size: 11px; margin-top: 18px; }
-  .odonto-product-page .odonto-room { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1376 / 768; }
-  .odonto-product-page .odonto-room img { position: static; transform: none; height: auto; object-position: center; -webkit-mask-image: none; mask-image: none; }
-  .odonto-product-page .odonto-room::after { background: linear-gradient(180deg, #f5f9fa 0%, #f5f9fa55 18%, transparent 45%); }
-  .odonto-product-page .odonto-room figcaption { display: none; }
-  .odonto-product-page .odonto-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 0 10px; padding-block: 20px; }
-  .odonto-product-page .odonto-opening__signature > span { font-size: 21px; }
-  .odonto-product-page .odonto-opening__signature > p { grid-column: 1; }
-  .odonto-product-page .odonto-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
-  .odonto-product-page .odonto-introduction { grid-template-columns: 1fr; gap: 20px; }
-  .odonto-product-page .odonto-introduction .odonto-kicker { margin-bottom: 0; }
-  .odonto-product-page .odonto-introduction h2 { font-size: 34px; }
-  .odonto-product-page .odonto-introduction__detail p { font-size: 14px; }
-  .odonto-product-page .odonto-introduction__detail nav { gap: 14px; }
-  .odonto-product-page .odonto-introduction__detail a { font-size: 11px; }
-  .odonto-product-page .odonto-editorial { padding: 0 12px 40px; gap: 20px; }
-  .odonto-product-page .odonto-feature { padding: 0; border-radius: 12px; }
-  .odonto-product-page .odonto-feature__copy { padding: 24px 18px; }
-  .odonto-product-page .odonto-feature h2 { font-size: 36px; }
-  .odonto-product-page .odonto-feature__copy > p { font-size: 16px; }
-  .odonto-product-page .odonto-feature li { font-size: 15px; }
-  .odonto-product-page .odonto-feature .odonto-text-link { font-size: 15px; }
-  .odonto-product-page .odonto-feature__grid, .odonto-product-page .odonto-feature--reverse .odonto-feature__grid { min-height: 680px; padding: 24px 12px 235px; }
-  .odonto-product-page .odonto-screen, .odonto-product-page .odonto-feature--reverse .odonto-screen { width: 100%; left: 0; bottom: 22px; transform: perspective(800px) rotateY(7deg) rotateX(3deg); }
-  .odonto-product-page .odonto-feature::after { background: linear-gradient(180deg, #f5f9fa 30%, #f5f9faf5 51%, #f5f9fa4d 73%, transparent 90%); }
-  .odonto-product-page .odonto-feature--reverse::after { background: linear-gradient(180deg, #e7f1f4 30%, #e7f1f4f5 51%, #e7f1f44d 73%, transparent 90%); }
   .odonto-product-page .odonto-block, .odonto-product-page .odonto-privacy, .odonto-product-page .odonto-pricing, .odonto-product-page .odonto-closing { padding-block: 48px; }
   .odonto-product-page .odonto-section-heading { margin-bottom: 28px; }
   .odonto-product-page .odonto-section-heading h2 { font-size: 30px; }
@@ -295,6 +166,104 @@
   .odonto-product-page .odonto-footer-top { align-items: flex-start; flex-direction: column; gap: 18px; }
   .odonto-product-page .odonto-footer nav { gap: 20px; }
 }
+
+/* Consultório claro e prontuário em destaque, com capturas sem sobreposição. */
+.odonto-product-page .header { background: #fffffff5; }
+.odonto-product-page .odonto-opening { background: #fff; }
+.odonto-product-page .odonto-opening__grid { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 56px; max-width: 1248px; padding: 64px 24px 48px; margin: auto; }
+.odonto-product-page .odonto-opening__copy { min-width: 0; }
+.odonto-product-page .odonto-opening .odonto-kicker { font-size: 10px; letter-spacing: .1em; max-width: 410px; margin-bottom: 24px; }
+.odonto-product-page .odonto-opening h1 { font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 600; font-size: clamp(40px,4vw,58px); line-height: 1.13; letter-spacing: -.045em; color: #102a33; margin: 0 0 24px; }
+.odonto-product-page .odonto-opening h1 em { color: #0e7490; font-style: normal; }
+.odonto-product-page .odonto-opening__lead { font-size: 16px; line-height: 1.8; color: #4c646d; max-width: 500px; margin: 0 0 28px; }
+.odonto-product-page .odonto-opening .odonto-actions { display: grid; grid-template-columns: max-content max-content; justify-content: start; gap: 12px; }
+.odonto-product-page .odonto-opening .odonto-trial-cta { grid-column: 1 / -1; width: fit-content; }
+.odonto-product-page .odonto-opening .btn { font-size: 13px; border-radius: 8px; }
+.odonto-product-page .odonto-opening__choice { font-size: 12px; line-height: 1.8; color: #4c646d; margin: 22px 0 0; }
+.odonto-product-page .odonto-room { margin: 0; min-width: 0; overflow: hidden; border: 1px solid #d3e4e8; border-radius: 16px; background: #edf5f6; }
+.odonto-product-page .odonto-room img { display: block; width: 100%; height: 450px; object-fit: cover; object-position: 78% center; }
+.odonto-product-page .odonto-room figcaption { padding: 22px 24px; color: #0c3e4d; font-size: 17px; line-height: 1.5; font-weight: 600; border-top: 1px solid #d3e4e8; }
+.odonto-product-page .odonto-room figcaption span { font-size: 13px; font-weight: 400; color: #4c646d; }
+.odonto-product-page .odonto-opening__signature.container { display: flex; align-items: center; gap: 28px; padding-block: 24px; border-top: 1px solid #d3e4e8; }
+.odonto-product-page .odonto-opening__signature > span { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 15px; font-weight: 700; }
+.odonto-product-page .odonto-opening__signature > p { font-size: 13px; color: #4c646d; margin: 0; }
+.odonto-product-page .odonto-opening__signature > a { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #c2dce4; border-radius: 8px; color: #0e7490; margin-left: auto; }
+.odonto-product-page .odonto-opening__signature svg { width: 18px; height: 18px; }
+.odonto-product-page .odonto-introduction { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; }
+.odonto-product-page .odonto-introduction .odonto-kicker { grid-column: 1 / -1; font-size: 10px; }
+.odonto-product-page .odonto-introduction h2 { font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 600; font-size: clamp(29px,2.8vw,39px); line-height: 1.25; letter-spacing: -.04em; margin: 0; }
+.odonto-product-page .odonto-introduction__detail p { font-size: 15px; line-height: 1.8; color: #4c646d; margin: 0 0 16px; }
+.odonto-product-page .odonto-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.odonto-product-page .odonto-introduction__detail a { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 44px; padding: 10px 14px; border: 1px solid #cfe0e5; background: #fff; border-radius: 6px; color: #0e7490; font-size: 12px; }
+.odonto-product-page .odonto-introduction__detail a:hover { background: #e7f1f4; }
+.odonto-product-page .odonto-introduction__detail svg { width: 14px; height: 14px; }
+.odonto-product-page .odonto-editorial { display: grid; gap: 28px; max-width: 1248px; margin: auto; padding: 0 24px 80px; }
+.odonto-product-page .odonto-feature { display: grid; grid-template-columns: .9fr 1.2fr; align-items: center; gap: 48px; padding: 40px; background: #fff; border: 1px solid #d3e4e8; border-radius: 14px; min-width: 0; }
+.odonto-product-page .odonto-feature__grid.container { width: auto; padding: 0; min-width: 0; margin: 0; }
+.odonto-product-page .odonto-chapter { display: block; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: #0e7490; margin-bottom: 22px; }
+.odonto-product-page .odonto-feature h2 { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 32px; line-height: 1.23; font-weight: 600; letter-spacing: -.04em; color: #102a33; margin: 0 0 20px; }
+.odonto-product-page .odonto-feature__copy > p { font-size: 15px; line-height: 1.8; color: #4c646d; margin: 0 0 22px; }
+.odonto-product-page .odonto-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.odonto-product-page .odonto-feature li { position: relative; padding-left: 16px; font-size: 14px; line-height: 1.7; color: #3b5964; }
+.odonto-product-page .odonto-feature li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #0e7490; position: absolute; top: 10px; left: 0; }
+.odonto-product-page .odonto-feature .odonto-text-link { font-size: 13px; text-align: left; margin-top: 20px; border-bottom: 1px solid #a6cbd7; }
+.odonto-product-page .odonto-feature__copy > .odonto-feature__note { font-size: 12px; margin: 20px 0 0; }
+.odonto-product-page .odonto-screen { order: 2; min-width: 0; margin: 0; padding: 7px; border: 1px solid #d3e4e8; background: #edf5f6; border-radius: 9px; box-shadow: 0 20px 35px -28px #0c3e4d59; }
+.odonto-product-page .odonto-screen img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.odonto-product-page .odonto-feature--ice { background: #123e4b; border-color: #123e4b; padding-block: 48px; }
+.odonto-product-page .odonto-feature--ice .odonto-chapter { color: #a5e3e5; }
+.odonto-product-page .odonto-feature--ice h2 { color: #fff; }
+.odonto-product-page .odonto-feature--ice .odonto-feature__copy > p, .odonto-product-page .odonto-feature--ice li { color: #d1e4e9; }
+.odonto-product-page .odonto-feature--ice li::before { background: #9ddcde; }
+.odonto-product-page .odonto-feature--ice .odonto-text-link { color: #b5f0ef; border-bottom-color: #5a929e; }
+.odonto-product-page .odonto-feature--ice :focus-visible, .odonto-product-page .odonto-privacy :focus-visible { outline-color: #b5f0ef; }
+.odonto-product-page .odonto-section-heading h2, .odonto-product-page .odonto-closing h2 { font-weight: 600; font-size: clamp(29px,2.8vw,40px); line-height: 1.25; letter-spacing: -.04em; }
+.odonto-product-page .odonto-footer-brand { font-weight: 600; font-size: 20px; }
+@media (max-width: 1100px) {
+.odonto-product-page .odonto-opening__grid { gap: 36px; padding-block: 48px; }
+.odonto-product-page .odonto-opening h1 { font-size: 46px; }
+.odonto-product-page .odonto-feature { padding: 32px; gap: 32px; } }
+@media (max-width: 900px) {
+.odonto-product-page .odonto-opening__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+.odonto-product-page .odonto-opening h1 { font-size: 38px; }
+.odonto-product-page .odonto-opening__lead { font-size: 15px; }
+.odonto-product-page .odonto-opening .odonto-actions { grid-template-columns: minmax(0,1fr); }
+.odonto-product-page .odonto-opening .odonto-trial-cta { width: 100%; }
+.odonto-product-page .odonto-room img { height: 430px; }
+.odonto-product-page .odonto-opening__signature.container { gap: 16px; }
+.odonto-product-page .odonto-opening__signature > p { max-width: 280px; font-size: 12px; }
+.odonto-product-page .odonto-introduction { gap: 0 36px; }
+.odonto-product-page .odonto-feature { grid-template-columns: 1fr; gap: 28px; }
+.odonto-product-page .odonto-feature h2 { font-size: 34px; } }
+@media (max-width: 600px) {
+.odonto-product-page .odonto-opening__grid { grid-template-columns: 1fr; padding: 36px 20px 28px; gap: 28px; }
+.odonto-product-page .odonto-opening h1 { font-size: clamp(34px,9.2vw,44px); }
+.odonto-product-page .odonto-opening .odonto-kicker { font-size: 9px; line-height: 1.8; margin-bottom: 20px; }
+.odonto-product-page .odonto-opening__choice { font-size: 11px; }
+.odonto-product-page .odonto-room img { height: 290px; }
+.odonto-product-page .odonto-room figcaption { padding: 18px 20px; font-size: 16px; }
+.odonto-product-page .odonto-opening__signature.container { display: grid; grid-template-columns: 1fr 44px; gap: 6px 10px; padding-block: 20px; }
+.odonto-product-page .odonto-opening__signature > span { font-size: 14px; }
+.odonto-product-page .odonto-opening__signature > p { grid-column: 1; font-size: 11px; }
+.odonto-product-page .odonto-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
+.odonto-product-page .odonto-introduction { grid-template-columns: 1fr; gap: 18px; }
+.odonto-product-page .odonto-introduction .odonto-kicker { margin-bottom: 0; }
+.odonto-product-page .odonto-introduction h2 { font-size: 29px; }
+.odonto-product-page .odonto-editorial { padding: 0 16px 48px; gap: 24px; }
+.odonto-product-page .odonto-feature { padding: 28px 20px; }
+.odonto-product-page .odonto-feature h2 { font-size: 29px; }
+.odonto-product-page .odonto-feature__copy > p { font-size: 15px; }
+.odonto-product-page .odonto-screen { padding: 4px; }
+.odonto-product-page .odonto-section-heading h2 { font-size: 29px; }
+.odonto-product-page .odonto-closing h2 { font-size: 31px; } }
+@media (max-width: 360px) {
+.odonto-product-page .nav { padding-inline: 12px; gap: 10px; }
+.odonto-product-page .assistencia-nav-brand { gap: 6px; }
+.odonto-product-page .assistencia-nav-brand__icon { width: 28px; height: 28px; flex-basis: 28px; }
+.odonto-product-page .assistencia-nav-brand__copy strong { font-size: 11px; white-space: nowrap; }
+.odonto-product-page .assistencia-nav-brand__copy small { font-size: 7px; white-space: nowrap; }
+.odonto-product-page .nav-mobile-actions { gap: 6px; } }
+
 @media (prefers-reduced-motion: reduce) {
   .odonto-product-page *, .odonto-product-page *::before, .odonto-product-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
