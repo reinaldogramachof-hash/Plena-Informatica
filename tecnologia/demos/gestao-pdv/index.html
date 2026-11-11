@@ -5,16 +5,16 @@
 <head>
     <meta name="robots" content="noindex,follow">
     <script src="assets/js/demo-seed.js"></script>
-    <script src="demo-bypass.js"></script>
+    <script src="demo-bypass.js?v=2"></script>
     <script src="lock.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- O app tem tema escuro proprio; impede extensoes (ex.: Dark Reader) de recolorir a pagina por cima -->
+    <!-- O app tem tema claro e escuro; impede extensoes (ex.: Dark Reader) de recolorir a pagina por cima -->
     <meta name="darkreader-lock">
     <title>Gestão Pdv | Sistema Premium</title>
 
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#2563EB">
+    <meta name="theme-color" content="#F5F5F7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="assets/img/icons/icon-192.png">
@@ -30,9 +30,9 @@
         (function () {
             try {
                 var pref = localStorage.getItem('pdv_theme_preference');
-                if (pref === 'dark' || !pref) {
+                if (pref === 'dark') {
                     document.documentElement.classList.add('dark');
-                } else if (pref === 'light') {
+                } else {
                     document.documentElement.classList.remove('dark');
                 }
             } catch (e) {}
@@ -3235,10 +3235,8 @@
 
             if (preference === 'dark') {
                 document.documentElement.classList.add('dark');
-            } else if (preference === 'light') {
-                document.documentElement.classList.remove('dark');
             } else {
-                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('dark');
             }
             updateThemeToggleIcon();
         }
@@ -7050,6 +7048,7 @@
             }
         };
     </script>
+    <script defer src="assets/js/demo-entry.js?v=1"></script>
 
 </body>
 

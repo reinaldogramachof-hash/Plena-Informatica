@@ -1,12 +1,15 @@
-const CACHE_NAME = 'gestao-pdv-cache-v22';
+const CACHE_NAME = 'gestao-pdv-cache-v23';
 const APP_SHELL = [
   './',
   './index.html',
+  './demo-bypass.js',
   './lock.js',
   './manifest.json',
   './assets/css/styles.css',
   './assets/css/theme.css',
   './assets/fonts/inter.woff2',
+  './assets/js/demo-seed.js',
+  './assets/js/demo-entry.js',
   './assets/js/tailwind_config.js',
   './assets/libs/tailwindcss.js',
   './assets/libs/lucide.js',

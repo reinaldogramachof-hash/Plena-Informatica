@@ -1,10 +1,11 @@
 
-const CACHE_NAME = 'app-cache-v4.4';
+const CACHE_NAME = 'app-cache-v4.5';
 const urlsToCache = [
   './',
   './index.html',
   './manifest.json',
   './css/styles.css',
+  './js/demo-entry.js',
   './js/app_core.js',
   './js/tailwind_config.js',
   './assets/libs/tailwindcss.js',

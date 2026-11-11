@@ -21,7 +21,9 @@ test('hero image is rendered and no video is present', () => {
   
   // Verify image exists
   const heroImageTag = getHeroImageTag(html);
-  assert.match(heroImageTag, /src=["']plena\.jpg["']/i, 'hero image should reference ../assets/images/plena.jpg');
+  const imageSource = heroImageTag.match(/src=["']([^"']+)["']/i)?.[1];
+  assert.equal(imageSource, 'assets/images/plena.jpg', 'hero image should reference the institutional photo in assets/images');
+  assert.ok(fs.existsSync(path.join(rootDir, imageSource)), 'hero image must exist in the project');
 
   // Verify video tag is removed
   assert.doesNotMatch(html, /<video\b[^>]*id=["']hero-video["'][^>]*>/i, 'hero video should be removed');

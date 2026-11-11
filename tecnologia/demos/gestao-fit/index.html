@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+<html lang="pt-BR">
 
 <head>
     <meta name="robots" content="noindex,follow">
     <script src="assets/js/demo-seed.js"></script>
-    <script src="demo-bypass.js"></script>
+    <script src="assets/js/demo-entry.js?v=1"></script>
+    <script src="demo-bypass.js?v=2"></script>
     <script src="lock.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,13 +21,8 @@
 
     <script>
         (function() {
-            var saved = localStorage.getItem('theme');
-            if (saved === 'light') {
-                document.documentElement.classList.remove('dark');
-            } else {
-                document.documentElement.classList.add('dark');
-                if (!saved) localStorage.setItem('theme', 'dark');
-            }
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
         })();
     </script>
 

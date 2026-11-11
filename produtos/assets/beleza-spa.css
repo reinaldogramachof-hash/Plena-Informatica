@@ -1,0 +1,343 @@
+/* Identidade editorial para salões, estética e spa em alabastro rosé e borgonha: estilos restritos ao Beleza & Spa. */
+.assistencia-product-page.beauty-editorial-page {
+  --beauty-ink: #381c26;
+  --beauty-muted: #674753;
+  --beauty-accent: #9f1239;
+  --beauty-accent-hover: #881337;
+  --beauty-em: #be123c;
+  --beauty-paper: #fbf6f5;
+  --beauty-mist: #f2e5e4;
+  --beauty-closing: #e9d7d6;
+  --beauty-line: #e2cece;
+  background-color: var(--beauty-paper);
+  background-image: none;
+  color: var(--beauty-ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.assistencia-product-page.beauty-editorial-page .container { width: 100%; max-width: 1248px; padding-inline: 24px; }
+.assistencia-product-page.beauty-editorial-page main { padding-top: 80px; }
+.assistencia-product-page.beauty-editorial-page section[id],
+.assistencia-product-page.beauty-editorial-page .beauty-feature[id],
+.assistencia-product-page.beauty-editorial-page #conteudo { scroll-margin-top: 104px; }
+.assistencia-product-page.beauty-editorial-page :focus-visible { outline: 3px solid var(--beauty-accent); outline-offset: 5px; }
+.assistencia-product-page.beauty-editorial-page button,
+.assistencia-product-page.beauty-editorial-page a { -webkit-tap-highlight-color: transparent; }
+.assistencia-product-page.beauty-editorial-page button { font-family: inherit; }
+.assistencia-product-page.beauty-editorial-page svg { flex-shrink: 0; }
+.assistencia-product-page.beauty-editorial-page .header { height: 80px; background: #fbf6f5f5; border-bottom: 1px solid #381c2618; animation: none; box-shadow: none; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.assistencia-product-page.beauty-editorial-page .nav { max-width: 1248px; height: 80px; padding: 0 24px; }
+.assistencia-product-page.beauty-editorial-page .nav-links { gap: 24px; font-size: 13px; color: var(--beauty-muted); }
+.assistencia-product-page.beauty-editorial-page .nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
+.assistencia-product-page.beauty-editorial-page .nav-links a:hover { color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .assistencia-nav-brand { color: var(--beauty-ink); gap: 10px; }
+.assistencia-product-page.beauty-editorial-page .assistencia-nav-brand__icon { width: 42px; height: 42px; flex-basis: 42px; border-radius: 13px; background: #f6e7e9; border: 1px solid #e6cfd3; color: var(--beauty-accent); box-shadow: none; }
+.assistencia-product-page.beauty-editorial-page .assistencia-nav-brand__icon svg { width: 25px; height: 25px; }
+.assistencia-product-page.beauty-editorial-page .assistencia-nav-brand__copy { color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .assistencia-nav-brand__copy strong { font-size: 16px; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .assistencia-nav-brand__copy small { color: var(--beauty-muted); letter-spacing: .07em; font-size: 10px; }
+.assistencia-product-page.beauty-editorial-page .btn { min-height: 48px; padding: 12px 18px; border-radius: 5px; font-size: 14px; font-weight: 600; line-height: 1.4; gap: 9px; transition: background .18s ease, border-color .18s ease; }
+.assistencia-product-page.beauty-editorial-page .btn:hover { transform: none; }
+.assistencia-product-page.beauty-editorial-page .btn.primary { background: var(--beauty-accent); border-color: var(--beauty-accent); color: #fff; box-shadow: none; }
+.assistencia-product-page.beauty-editorial-page .btn.primary:hover { background: var(--beauty-accent-hover); border-color: var(--beauty-accent-hover); }
+.assistencia-product-page.beauty-editorial-page .btn.light { background: #fff; border-color: #dec7ca; color: var(--beauty-ink); box-shadow: none; }
+.assistencia-product-page.beauty-editorial-page .btn.light:hover { background: var(--beauty-mist); border-color: var(--beauty-accent); }
+.assistencia-product-page.beauty-editorial-page .nav .btn { min-height: 44px !important; }
+.assistencia-product-page.beauty-editorial-page .nav .btn.light { background: transparent; }
+.assistencia-product-page.beauty-editorial-page .nav .assistencia-nav-whatsapp { width: 44px; min-width: 44px; min-height: 44px; height: 44px; padding: 0; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .nav .assistencia-nav-whatsapp:hover,
+.assistencia-product-page.beauty-editorial-page .nav .assistencia-nav-whatsapp:focus-visible { background: var(--beauty-mist); border-color: var(--beauty-accent); color: var(--beauty-accent); box-shadow: none; }
+.assistencia-product-page.beauty-editorial-page .nav-mobile-actions { gap: 8px; }
+.assistencia-product-page.beauty-editorial-page .mobile-menu-toggle { width: 44px; height: 44px; background: var(--beauty-mist); border-color: #dec7ca; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .beauty-skip { position: fixed; left: 20px; top: -100px; z-index: 10001; padding: 12px 20px; background: #fff; color: var(--beauty-ink); border-radius: 8px; }
+.assistencia-product-page.beauty-editorial-page .beauty-skip:focus { top: 12px; }
+.assistencia-product-page.beauty-editorial-page .beauty-kicker { display: block; color: var(--beauty-accent); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
+.assistencia-product-page.beauty-editorial-page .beauty-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.assistencia-product-page.beauty-editorial-page .beauty-text-link,
+.assistencia-product-page.beauty-editorial-page .beauty-footer button { display: inline-flex; align-items: center; justify-content: flex-start; gap: 7px; background: none; border: none; padding: 8px 0; min-height: 44px; color: var(--beauty-accent); font-size: 13px; font-weight: 650; cursor: pointer; }
+.assistencia-product-page.beauty-editorial-page .beauty-text-link { margin-top: 20px; font-size: 14px; }
+.assistencia-product-page.beauty-editorial-page .beauty-text-link svg { width: 16px; height: 16px; }
+.assistencia-product-page.beauty-editorial-page .beauty-block { padding: 80px 0; }
+.assistencia-product-page.beauty-editorial-page .beauty-section-heading { max-width: 620px; margin-bottom: 40px; }
+.assistencia-product-page.beauty-editorial-page .beauty-section-heading h2,
+.assistencia-product-page.beauty-editorial-page .beauty-closing h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: var(--beauty-ink); margin: 0 0 22px; }
+.assistencia-product-page.beauty-editorial-page .beauty-section-heading p { font-size: 16px; color: var(--beauty-muted); line-height: 1.7; margin: 0; }
+.assistencia-product-page.beauty-editorial-page .beauty-section-heading--center { margin-inline: auto; text-align: center; max-width: 720px; }
+
+/* Abertura hero */
+.assistencia-product-page.beauty-editorial-page .beauty-opening { background: var(--beauty-paper); }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__grid { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr; min-height: max(650px, 42.424vw); }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__copy { position: relative; z-index: 2; width: 54%; max-width: 830px; display: flex; flex-direction: column; justify-content: center; padding: 64px 40px 64px max(24px, calc((100vw - 1200px) / 2)); }
+.assistencia-product-page.beauty-editorial-page .beauty-opening .beauty-kicker { color: var(--beauty-accent); font-size: 10px; letter-spacing: .13em; line-height: 1.7; max-width: 440px; margin: 0 0 24px; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(44px, 4.4vw, 64px); font-weight: 400; line-height: 1.06; letter-spacing: -.025em; color: var(--beauty-ink); margin: 0 0 26px; max-width: 560px; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening h1 em { color: var(--beauty-em); font-weight: 400; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__lead { font-size: 16px; line-height: 1.8; color: var(--beauty-muted); max-width: 470px; margin: 0 0 30px; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening .beauty-actions { display: grid; grid-template-columns: max-content max-content; justify-content: start; gap: 10px; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening .btn { font-size: 13px; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening .btn.light { background: #ffffffeb; border-color: #dec7ca; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__choice { color: var(--beauty-muted); font-size: 12px; line-height: 1.75; margin: 22px 0 0; }
+.assistencia-product-page.beauty-editorial-page .beauty-room { position: absolute; inset: 0; z-index: 0; margin: 0; min-width: 0; overflow: hidden; }
+.assistencia-product-page.beauty-editorial-page .beauty-room img { display: block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: auto; object-fit: contain; object-position: center; -webkit-mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); }
+.assistencia-product-page.beauty-editorial-page .beauty-room::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #fbf6f5fa 0%, #fbf6f5f2 27%, #fbf6f5dc 43%, #fbf6f578 58%, #fbf6f514 75%, transparent 90%); pointer-events: none; }
+.assistencia-product-page.beauty-editorial-page .beauty-room figcaption { position: absolute; right: 36px; bottom: max(24px, calc(50% - 21.212vw + 24px)); z-index: 1; text-align: right; font-family: 'DM Serif Display', Georgia, serif; font-size: 27px; font-weight: 400; line-height: 1.2; color: #fff; text-shadow: 0 2px 18px rgba(56, 28, 38, 0.88), 0 1px 4px rgba(56, 28, 38, 0.72); }
+.assistencia-product-page.beauty-editorial-page .beauty-room figcaption span { font-style: italic; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__signature { display: flex; align-items: center; gap: 10px; padding-block: 26px; border-bottom: 1px solid var(--beauty-line); }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__signature > span { color: var(--beauty-ink); font-family: 'DM Serif Display', Georgia, serif; font-size: 23px; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__signature > p { color: var(--beauty-muted); font-size: 13px; margin: 0; }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__signature > a { width: 44px; height: 44px; border: 1px solid var(--beauty-line); margin-left: auto; display: grid; place-items: center; border-radius: 50%; color: var(--beauty-accent); }
+.assistencia-product-page.beauty-editorial-page .beauty-opening__signature svg { width: 18px; height: 18px; }
+
+/* Introdução de rotina */
+.assistencia-product-page.beauty-editorial-page .beauty-introduction { display: grid; grid-template-columns: 1fr 1fr; column-gap: 100px; }
+.assistencia-product-page.beauty-editorial-page .beauty-introduction .beauty-kicker { grid-column: 1 / -1; color: var(--beauty-muted); font-size: 10px; margin-bottom: 20px; }
+.assistencia-product-page.beauty-editorial-page .beauty-introduction h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.4vw, 48px); font-weight: 400; line-height: 1.13; letter-spacing: -.02em; margin: 0; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .beauty-introduction__detail p { color: var(--beauty-muted); font-size: 15px; line-height: 1.8; margin: 0 0 14px; }
+.assistencia-product-page.beauty-editorial-page .beauty-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 6px; }
+.assistencia-product-page.beauty-editorial-page .beauty-introduction__detail a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; min-height: 44px; color: var(--beauty-accent); border-bottom: 1px solid #e1b8bf; }
+.assistencia-product-page.beauty-editorial-page .beauty-introduction__detail svg { width: 14px; height: 14px; }
+
+/* Módulos com telas reais em perspectiva */
+.assistencia-product-page.beauty-editorial-page .beauty-editorial { display: grid; gap: 32px; padding: 12px clamp(16px, 3vw, 48px) 64px; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; min-height: 700px; background: var(--beauty-paper); border: 1px solid var(--beauty-line); border-radius: 18px; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature--mist { background: var(--beauty-mist); }
+.assistencia-product-page.beauty-editorial-page .beauty-chapter { display: flex; align-items: center; gap: 10px; color: var(--beauty-accent); font-size: 13px; font-weight: 500; margin-bottom: 24px; }
+.assistencia-product-page.beauty-editorial-page .beauty-chapter > span { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--beauty-muted); }
+.assistencia-product-page.beauty-editorial-page .beauty-feature h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(38px, 3.4vw, 50px); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 20px; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .beauty-feature__copy > p { color: #4a2a36; font-size: 18px; line-height: 1.75; margin: 0 0 24px; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature li { padding-left: 19px; position: relative; color: var(--beauty-ink); font-size: 16px; line-height: 1.65; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature li::before { content: ''; position: absolute; top: 10px; left: 0; width: 5px; height: 5px; border: 1px solid var(--beauty-em); border-radius: 50%; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature__copy > .beauty-feature__note { font-size: 14px; margin: 18px 0 0; color: var(--beauty-muted); }
+.assistencia-product-page.beauty-editorial-page .beauty-feature .beauty-text-link { font-size: 16px; margin-top: 18px; border-bottom: 1px solid #e1b8bf; }
+
+.assistencia-product-page.beauty-editorial-page .beauty-feature::after { content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 18%, #fbf6f51a 35%, #fbf6f56b 49%, #fbf6f5a3 59%, #fbf6f5bf 78%); }
+.assistencia-product-page.beauty-editorial-page .beauty-feature--reverse::after { background: linear-gradient(270deg, transparent 18%, #f2e5e41a 35%, #f2e5e46b 49%, #f2e5e4a3 59%, #f2e5e4bf 78%); }
+.assistencia-product-page.beauty-editorial-page .beauty-feature__grid { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; min-height: 700px; padding: 88px clamp(28px, 4vw, 64px); pointer-events: none; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature__copy { position: relative; isolation: isolate; width: 48%; max-width: 560px; padding: clamp(24px, 2.5vw, 36px); pointer-events: auto; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature__copy::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: 16px; background: var(--beauty-paper); pointer-events: none; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature--mist .beauty-feature__copy::before { background: var(--beauty-mist); }
+.assistencia-product-page.beauty-editorial-page .beauty-feature--reverse .beauty-feature__grid { justify-content: flex-start; }
+.assistencia-product-page.beauty-editorial-page .beauty-screen { position: absolute; z-index: 0; left: 2.5%; top: 50%; width: 76%; margin: 0; padding: 0; border: 0; background: transparent; border-radius: 0; transform: translateY(-50%) perspective(1600px) rotateY(9deg) rotateZ(-.5deg); transform-origin: center; box-shadow: 0 24px 55px -30px #381c2640; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); pointer-events: none; }
+.assistencia-product-page.beauty-editorial-page .beauty-screen img { display: block; width: 100%; height: auto; border: 0; border-radius: 3px; }
+.assistencia-product-page.beauty-editorial-page .beauty-feature--reverse .beauty-screen { left: auto; right: 2.5%; transform: translateY(-50%) perspective(1600px) rotateY(-9deg) rotateZ(.5deg); }
+
+@media (min-width: 901px) {
+  .assistencia-product-page.beauty-editorial-page .beauty-editorial { padding-inline: 24px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__grid { max-width: 1200px; padding-inline: 0; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__copy { padding: 0; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__copy::before { inset: -24px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature:not(.beauty-feature--reverse) .beauty-feature__copy { text-align: right; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature:not(.beauty-feature--reverse) .beauty-chapter { justify-content: flex-end; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature:not(.beauty-feature--reverse) li { padding-left: 0; padding-right: 19px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature:not(.beauty-feature--reverse) li::before { left: auto; right: 0; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature:not(.beauty-feature--reverse) .beauty-text-link { display: flex; width: fit-content; margin-left: auto; }
+}
+
+/* Operação e confiabilidade */
+.assistencia-product-page.beauty-editorial-page .beauty-privacy { background: #2d151e; color: var(--beauty-paper); padding-block: 88px; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy .beauty-kicker { color: #fda4af; font-size: 10px; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 88px; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy-grid .beauty-section-heading { margin: 0; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy .beauty-section-heading h2 { color: var(--beauty-paper); }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy .beauty-section-heading p,
+.assistencia-product-page.beauty-editorial-page .beauty-privacy-content p { color: #ecdadd; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy .beauty-text-link { color: #fecdd3; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy-content > article { display: flex; align-items: flex-start; gap: 18px; padding-bottom: 26px; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy-content > article > svg { width: 23px; height: 23px; color: #fda4af; margin-top: 3px; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy-content h3 { font-size: 16px; line-height: 1.4; font-weight: 500; margin: 0 0 9px; color: #fff; }
+.assistencia-product-page.beauty-editorial-page .beauty-privacy-content p { font-size: 14px; line-height: 1.75; margin: 0; }
+.assistencia-product-page.beauty-editorial-page .beauty-professional-note { display: flex; gap: 14px; padding: 20px; background: #ffffff0d; border: 1px solid #ffffff24; border-radius: 6px; }
+.assistencia-product-page.beauty-editorial-page .beauty-professional-note svg { color: #fda4af; width: 20px; height: 20px; margin-top: 3px; }
+.assistencia-product-page.beauty-editorial-page .beauty-professional-note strong { display: block; color: var(--beauty-paper); margin-bottom: 4px; }
+
+/* Planos aprovados (4 formatos preservados) */
+.assistencia-product-page.beauty-editorial-page .beauty-pricing { background: var(--beauty-mist); padding-block: 88px; }
+.assistencia-product-page.beauty-editorial-page .beauty-trial-banner { display: flex; align-items: center; justify-content: space-between; gap: 36px; padding: 28px 32px; margin-bottom: 36px; border: 1px solid #dfc5c9; border-radius: 12px; background: #fdf9f9; }
+.assistencia-product-page.beauty-editorial-page .beauty-trial-banner .beauty-kicker { font-size: 11px; margin-bottom: 10px; color: var(--beauty-accent); }
+.assistencia-product-page.beauty-editorial-page .beauty-trial-banner h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; font-weight: 400; line-height: 1.2; margin: 0 0 12px; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .beauty-trial-banner p { font-size: 15px; color: var(--beauty-muted); line-height: 1.75; margin: 0; max-width: 640px; }
+.assistencia-product-page.beauty-editorial-page .beauty-trial-banner > .btn { flex-shrink: 0; max-width: 310px; text-align: center; }
+
+.assistencia-product-page.beauty-editorial-page .beauty-plans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding-top: 12px; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan { display: flex; flex-direction: column; position: relative; padding: 28px 20px 22px; border: 1px solid var(--beauty-line); border-radius: 10px; background: #fffdfd; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan--featured { border: 2px solid var(--beauty-accent); padding: 27px 19px 21px; background: #ffffff; box-shadow: 0 18px 40px -28px rgba(159, 18, 57, .24); }
+.assistencia-product-page.beauty-editorial-page .beauty-plan--custom { background: #faf2f2; border-color: #dec7ca; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-flag { position: absolute; top: -13px; left: 20px; background: var(--beauty-accent); color: #fff; border-radius: 3px; padding: 3px 10px; font-size: 11px; font-weight: 600; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-type { color: var(--beauty-muted); font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 7px; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-type svg { width: 16px; height: 16px; color: var(--beauty-accent); }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-intro { min-height: 148px; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan h3 { font-size: 19px; font-weight: 650; line-height: 1.25; letter-spacing: -.025em; margin: 14px 0 8px; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-intro > p { font-size: 13.5px; line-height: 1.6; margin: 0; color: var(--beauty-muted); }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-investment { min-height: 104px; padding: 18px 0 20px; border-bottom: 1px solid #ead8da; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-price { display: block; font-size: clamp(24px, 2.05vw, 31px); font-weight: 650; line-height: 1.15; letter-spacing: -.035em; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-price > span { font-size: 14px; font-weight: 600; letter-spacing: -.01em; color: var(--beauty-muted); }
+.assistencia-product-page.beauty-editorial-page .beauty-plan-period { display: block; font-size: 12px; color: var(--beauty-muted); margin-top: 6px; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan ul { padding: 22px 0; margin: 0; margin-bottom: auto; list-style: none; display: grid; gap: 11px; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan li { position: relative; padding-left: 19px; font-size: 13.5px; line-height: 1.55; color: #4a2a36; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan li::before { content: '✓'; position: absolute; left: 0; color: var(--beauty-accent); font-size: 12px; font-weight: 700; }
+.assistencia-product-page.beauty-editorial-page .beauty-plan .btn { width: 100%; margin-top: 8px; font-size: 13px; padding-inline: 10px; }
+.assistencia-product-page.beauty-editorial-page .beauty-pricing-note { display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; font-size: 12px; color: var(--beauty-muted); margin: 24px 0 0; }
+.assistencia-product-page.beauty-editorial-page .beauty-pricing-note svg { width: 15px; height: 15px; color: var(--beauty-accent); flex-shrink: 0; }
+
+/* FAQ e encerramento */
+.assistencia-product-page.beauty-editorial-page .beauty-faq { background: var(--beauty-paper); }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 88px; }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-grid .beauty-section-heading { margin: 0; }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-list details { border-bottom: 1px solid var(--beauty-line); padding-block: 3px; }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-list details:first-child { border-top: 1px solid var(--beauty-line); }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 0; font-size: 15px; font-weight: 600; line-height: 1.5; cursor: pointer; list-style: none; }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-list summary::-webkit-details-marker { display: none; }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-list summary svg { width: 18px; height: 18px; color: var(--beauty-muted); transition: transform .2s ease; }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-list [open] summary svg { transform: rotate(45deg); }
+.assistencia-product-page.beauty-editorial-page .beauty-faq-list details p { margin: 0; padding: 0 30px 22px 0; font-size: 14px; line-height: 1.75; color: var(--beauty-muted); }
+
+.assistencia-product-page.beauty-editorial-page .beauty-closing { padding: 80px 0; background: var(--beauty-closing); text-align: center; color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .beauty-closing .beauty-kicker { color: var(--beauty-accent); font-size: 10px; }
+.assistencia-product-page.beauty-editorial-page .beauty-closing h2 { color: var(--beauty-ink); font-size: clamp(36px, 3.8vw, 52px); }
+.assistencia-product-page.beauty-editorial-page .beauty-closing h2 em { color: var(--beauty-em); }
+.assistencia-product-page.beauty-editorial-page .beauty-closing p { max-width: 580px; margin: 0 auto 28px; color: #4a2a36; font-size: 16px; }
+.assistencia-product-page.beauty-editorial-page .beauty-closing .beauty-actions { justify-content: center; }
+
+.assistencia-product-page.beauty-editorial-page .plena-discovery--related { --pd-ink: #381c26; --pd-muted: #674753; --pd-paper: #f6ebe9; --pd-accent: #9f1239; border-top-color: var(--beauty-line); }
+
+.assistencia-product-page.beauty-editorial-page .beauty-footer { background: var(--beauty-paper); color: var(--beauty-ink); border-top: 1px solid var(--beauty-line); padding: 34px 0 28px; }
+.assistencia-product-page.beauty-editorial-page .beauty-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.assistencia-product-page.beauty-editorial-page .beauty-footer-brand { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; line-height: 1.5; }
+.assistencia-product-page.beauty-editorial-page .beauty-footer-brand span { display: block; color: var(--beauty-muted); font-family: Inter, sans-serif; font-size: 12px; font-weight: 400; }
+.assistencia-product-page.beauty-editorial-page .beauty-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; font-size: 13px; }
+.assistencia-product-page.beauty-editorial-page .beauty-footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.assistencia-product-page.beauty-editorial-page .beauty-footer button { color: var(--beauty-accent); font-size: 13px; }
+.assistencia-product-page.beauty-editorial-page .beauty-footer button svg { width: 14px; height: 14px; }
+.assistencia-product-page.beauty-editorial-page .beauty-footer p { color: var(--beauty-muted); font-family: Inter, sans-serif; font-size: 11px; margin: 26px 0 0; }
+
+.assistencia-product-page.beauty-editorial-page #demo-modal.demo-modal--fullscreen .demo-frame-stage { height: 100dvh; }
+.assistencia-product-page.beauty-editorial-page #demo-modal .demo-fullscreen-close { width: 44px; height: 44px; }
+.assistencia-product-page.beauty-editorial-page .product-mobile-menu__panel { background: var(--beauty-paper); color: var(--beauty-ink); }
+.assistencia-product-page.beauty-editorial-page .product-mobile-menu__links a { color: var(--beauty-ink); background: transparent; border-color: var(--beauty-line); }
+.assistencia-product-page.beauty-editorial-page .product-mobile-menu__actions { display: grid; gap: 10px; }
+.assistencia-product-page.beauty-editorial-page .product-mobile-menu__close { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #dec7ca; border-radius: 8px; background: transparent; color: var(--beauty-ink); cursor: pointer; }
+
+@media (min-width: 1600px) {
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__grid { min-height: max(720px, 42.424vw); }
+}
+@media (max-width: 1160px) {
+  .assistencia-product-page.beauty-editorial-page .beauty-plans { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 860px; margin-inline: auto; }
+  .assistencia-product-page.beauty-editorial-page .beauty-plan-intro,
+  .assistencia-product-page.beauty-editorial-page .beauty-plan-investment { min-height: 0; }
+}
+@media (max-width: 1100px) {
+  .assistencia-product-page.beauty-editorial-page .nav-links { gap: 16px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__copy { padding-right: 32px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__grid { min-height: 620px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening h1 { font-size: 52px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening .beauty-actions { grid-template-columns: max-content; justify-content: start; }
+  .assistencia-product-page.beauty-editorial-page .beauty-introduction { gap: 40px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-privacy-grid,
+  .assistencia-product-page.beauty-editorial-page .beauty-faq-grid { gap: 40px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature,
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__grid { min-height: 660px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__copy { width: 50%; }
+  .assistencia-product-page.beauty-editorial-page .beauty-screen { width: 78%; }
+}
+@media (max-width: 900px) {
+  .assistencia-product-page.beauty-editorial-page .nav-links { display: none; }
+  .assistencia-product-page.beauty-editorial-page .nav-mobile-actions { display: flex; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__grid { grid-template-columns: 1fr; min-height: 610px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__copy { width: 59%; padding: 48px 28px 48px 24px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening h1 { font-size: 44px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__lead { font-size: 14px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-room figcaption { font-size: 21px; right: 24px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__signature { gap: 6px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__signature > span { font-size: 21px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__signature > p { font-size: 12px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__grid,
+  .assistencia-product-page.beauty-editorial-page .beauty-feature--reverse .beauty-feature__grid { align-items: flex-start; justify-content: flex-start; min-height: 800px; padding: 48px 32px 360px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__copy { width: 100%; max-width: 600px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-chapter { margin-bottom: 16px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-screen,
+  .assistencia-product-page.beauty-editorial-page .beauty-feature--reverse .beauty-screen { width: 94%; left: 3%; right: auto; top: auto; bottom: 18px; transform: perspective(1200px) rotateY(7deg) rotateX(4deg); }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature::after { background: linear-gradient(180deg, #fbf6f5 25%, #fbf6f5f5 43%, #fbf6f580 60%, transparent 82%); }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature--reverse::after { background: linear-gradient(180deg, #f2e5e4 25%, #f2e5e4f5 43%, #f2e5e480 60%, transparent 82%); }
+  .assistencia-product-page.beauty-editorial-page .beauty-trial-banner { flex-direction: column; align-items: flex-start; padding: 24px; gap: 24px; }
+}
+@media (max-width: 640px) {
+  .assistencia-product-page.beauty-editorial-page .beauty-plans { grid-template-columns: 1fr; gap: 24px; max-width: 560px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-plan { padding: 28px 22px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-plan--featured { padding: 27px 21px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-plan-price { font-size: 32px; }
+}
+@media (max-width: 600px) {
+  .assistencia-product-page.beauty-editorial-page .container { padding-inline: 20px; }
+  .assistencia-product-page.beauty-editorial-page .header,
+  .assistencia-product-page.beauty-editorial-page .nav { height: 72px; }
+  .assistencia-product-page.beauty-editorial-page .nav { padding-inline: 16px; }
+  .assistencia-product-page.beauty-editorial-page main { padding-top: 72px; }
+  .assistencia-product-page.beauty-editorial-page .assistencia-nav-brand { gap: 8px; }
+  .assistencia-product-page.beauty-editorial-page .assistencia-nav-brand__icon { width: 34px; height: 34px; flex-basis: 34px; border-radius: 9px; }
+  .assistencia-product-page.beauty-editorial-page .assistencia-nav-brand__copy strong { font-size: 13px; }
+  .assistencia-product-page.beauty-editorial-page .assistencia-nav-brand__copy small { font-size: 8px; letter-spacing: .04em; }
+  .assistencia-product-page.beauty-editorial-page .nav-mobile-actions > .mobile-header-whatsapp { display: none; }
+  .assistencia-product-page.beauty-editorial-page .nav-mobile-actions > .btn { padding-inline: 11px !important; }
+  .assistencia-product-page.beauty-editorial-page .nav-mobile-actions > .btn svg { display: none; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__grid { display: flex; flex-direction: column; min-height: 0; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__copy { width: 100%; padding: 38px 20px 24px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening .beauty-kicker { font-size: 9px; margin-bottom: 20px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening h1 { font-size: 40px; line-height: 1.08; margin-bottom: 22px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__lead { font-size: 15px; margin-bottom: 24px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening .beauty-actions { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening .beauty-actions .btn { min-width: 0; width: 100%; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__choice { font-size: 11px; margin-top: 18px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-room { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1376 / 768; }
+  .assistencia-product-page.beauty-editorial-page .beauty-room img { position: static; transform: none; height: auto; object-position: center; -webkit-mask-image: none; mask-image: none; }
+  .assistencia-product-page.beauty-editorial-page .beauty-room::after { background: linear-gradient(180deg, #fbf6f5 0%, #fbf6f555 18%, transparent 45%); }
+  .assistencia-product-page.beauty-editorial-page .beauty-room figcaption { display: none; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 0 10px; padding-block: 20px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__signature > span { font-size: 21px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__signature > p { grid-column: 1; }
+  .assistencia-product-page.beauty-editorial-page .beauty-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
+  .assistencia-product-page.beauty-editorial-page .beauty-introduction { grid-template-columns: 1fr; gap: 20px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-introduction .beauty-kicker { margin-bottom: 0; }
+  .assistencia-product-page.beauty-editorial-page .beauty-introduction h2 { font-size: 34px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-introduction__detail p { font-size: 14px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-introduction__detail nav { gap: 14px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-introduction__detail a { font-size: 11px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-editorial { padding: 0 12px 40px; gap: 20px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature { padding: 0; border-radius: 12px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__copy { padding: 24px 18px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature h2 { font-size: 36px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__copy > p { font-size: 16px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature li { font-size: 15px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature .beauty-text-link { font-size: 15px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature__grid,
+  .assistencia-product-page.beauty-editorial-page .beauty-feature--reverse .beauty-feature__grid { min-height: 680px; padding: 24px 12px 235px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-screen,
+  .assistencia-product-page.beauty-editorial-page .beauty-feature--reverse .beauty-screen { width: 100%; left: 0; bottom: 22px; transform: perspective(800px) rotateY(7deg) rotateX(3deg); }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature::after { background: linear-gradient(180deg, #fbf6f5 30%, #fbf6f5f5 51%, #fbf6f54d 73%, transparent 90%); }
+  .assistencia-product-page.beauty-editorial-page .beauty-feature--reverse::after { background: linear-gradient(180deg, #f2e5e4 30%, #f2e5e4f5 51%, #f2e5e44d 73%, transparent 90%); }
+  .assistencia-product-page.beauty-editorial-page .beauty-block,
+  .assistencia-product-page.beauty-editorial-page .beauty-privacy,
+  .assistencia-product-page.beauty-editorial-page .beauty-pricing,
+  .assistencia-product-page.beauty-editorial-page .beauty-closing { padding-block: 48px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-trial-banner { padding: 24px 20px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-trial-banner > .btn { width: 100%; max-width: none; }
+  .assistencia-product-page.beauty-editorial-page .beauty-section-heading { margin-bottom: 28px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-section-heading h2 { font-size: 30px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-section-heading p { font-size: 15px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-privacy-grid,
+  .assistencia-product-page.beauty-editorial-page .beauty-faq-grid { grid-template-columns: 1fr; gap: 28px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-privacy-content > article { gap: 12px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-section-heading--center { text-align: left; }
+  .assistencia-product-page.beauty-editorial-page .beauty-pricing-note { align-items: flex-start; justify-content: flex-start; text-align: left; }
+  .assistencia-product-page.beauty-editorial-page .beauty-faq-list summary { font-size: 14px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-closing { text-align: left; }
+  .assistencia-product-page.beauty-editorial-page .beauty-closing p { font-size: 15px; margin-inline: 0; }
+  .assistencia-product-page.beauty-editorial-page .beauty-actions { flex-direction: column; }
+  .assistencia-product-page.beauty-editorial-page .beauty-actions .btn { width: 100%; }
+  .assistencia-product-page.beauty-editorial-page .beauty-footer-top { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .assistencia-product-page.beauty-editorial-page .beauty-footer nav { gap: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .assistencia-product-page.beauty-editorial-page *,
+  .assistencia-product-page.beauty-editorial-page *::before,
+  .assistencia-product-page.beauty-editorial-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

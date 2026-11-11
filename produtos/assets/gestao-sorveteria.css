@@ -1,0 +1,299 @@
+/* Identidade artesanal de gelateria, açaí e sorveteria: estilos restritos ao Gestão Sorveteria & Açaí Pro. */
+.sorveteria-product-page {
+  --sorv-ink: #381421;
+  --sorv-muted: #64404d;
+  --sorv-accent: #be123c;
+  --sorv-accent-hover: #9f1239;
+  --sorv-em: #e11d48;
+  --sorv-paper: #fcf7f7;
+  --sorv-mist: #f5e8eb;
+  --sorv-closing: #f0dde1;
+  --sorv-line: #e5cdd3;
+  background: var(--sorv-paper);
+  color: var(--sorv-ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.sorveteria-product-page .container { width: 100%; max-width: 1248px; padding-inline: 24px; }
+.sorveteria-product-page main { padding-top: 80px; }
+.sorveteria-product-page section[id], .sorveteria-product-page .sorveteria-feature[id], .sorveteria-product-page #conteudo { scroll-margin-top: 104px; }
+.sorveteria-product-page :focus-visible { outline: 3px solid var(--sorv-accent); outline-offset: 5px; }
+.sorveteria-product-page button, .sorveteria-product-page a { -webkit-tap-highlight-color: transparent; }
+.sorveteria-product-page button { font-family: inherit; }
+.sorveteria-product-page svg { flex-shrink: 0; }
+.sorveteria-product-page .header { height: 80px; background: #fcf7f7f5; border-bottom: 1px solid #38142116; animation: none; box-shadow: none; }
+.sorveteria-product-page .nav { max-width: 1248px; height: 80px; padding: 0 24px; }
+.sorveteria-product-page .nav-links { gap: 24px; font-size: 13px; color: #5b3845; }
+.sorveteria-product-page .nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
+.sorveteria-product-page .nav-links a:hover { color: var(--sorv-ink); }
+.sorveteria-product-page .assistencia-nav-brand { color: var(--sorv-ink); }
+.sorveteria-product-page .assistencia-nav-brand__icon { background: #f9ecef; border: 1px solid #e7c2ca; color: var(--sorv-accent); box-shadow: none; }
+.sorveteria-product-page .assistencia-nav-brand__copy small { color: #6e4856; letter-spacing: .07em; font-size: 10px; }
+.sorveteria-product-page .assistencia-nav-brand__copy strong { font-size: 16px; color: var(--sorv-ink); }
+.sorveteria-product-page .btn { min-height: 48px; padding: 12px 18px; border-radius: 5px; font-size: 14px; font-weight: 600; line-height: 1.4; gap: 9px; transition: background .18s ease, border-color .18s ease; }
+.sorveteria-product-page .btn:hover { transform: none; }
+.sorveteria-product-page .btn.primary { background: var(--sorv-accent); border-color: var(--sorv-accent); color: #fff; box-shadow: none; }
+.sorveteria-product-page .btn.primary:hover { background: var(--sorv-accent-hover); border-color: var(--sorv-accent-hover); }
+.sorveteria-product-page .btn.light { background: #fff; border-color: #dec1c8; color: var(--sorv-ink); box-shadow: none; }
+.sorveteria-product-page .btn.light:hover { background: var(--sorv-mist); border-color: var(--sorv-accent); }
+.sorveteria-product-page .nav .btn { min-height: 44px !important; }
+.sorveteria-product-page .nav .btn.light { background: transparent; }
+.sorveteria-product-page .nav .assistencia-nav-whatsapp { width: 44px; height: 44px; padding: 0; }
+.sorveteria-product-page .nav-mobile-actions { gap: 8px; }
+.sorveteria-product-page .mobile-menu-toggle { width: 44px; height: 44px; background: var(--sorv-mist); border-color: #dec1c8; color: var(--sorv-ink); }
+.sorveteria-product-page .sorveteria-skip { position: fixed; left: 20px; top: -100px; z-index: 10001; padding: 12px 20px; background: #fff; color: var(--sorv-ink); border-radius: 8px; }
+.sorveteria-product-page .sorveteria-skip:focus { top: 12px; }
+.sorveteria-product-page .sorveteria-kicker { display: block; color: var(--sorv-accent); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
+.sorveteria-product-page .sorveteria-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.sorveteria-product-page .sorveteria-text-link, .sorveteria-product-page .sorveteria-footer button { display: inline-flex; align-items: center; justify-content: flex-start; gap: 7px; background: none; border: none; padding: 8px 0; min-height: 44px; color: var(--sorv-accent); font-size: 13px; font-weight: 650; cursor: pointer; }
+.sorveteria-product-page .sorveteria-text-link { margin-top: 20px; font-size: 14px; }
+.sorveteria-product-page .sorveteria-text-link svg { width: 16px; height: 16px; }
+.sorveteria-product-page .sorveteria-block { padding: 80px 0; }
+.sorveteria-product-page .sorveteria-section-heading { max-width: 620px; margin-bottom: 40px; }
+.sorveteria-product-page .sorveteria-section-heading h2, .sorveteria-product-page .sorveteria-closing h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: var(--sorv-ink); margin: 0 0 22px; }
+.sorveteria-product-page .sorveteria-section-heading p { font-size: 16px; color: var(--sorv-muted); line-height: 1.7; margin: 0; }
+.sorveteria-product-page .sorveteria-section-heading--center { margin-inline: auto; text-align: center; max-width: 700px; }
+
+/* Abertura hero */
+.sorveteria-product-page .sorveteria-opening { background: var(--sorv-paper); }
+.sorveteria-product-page .sorveteria-opening__grid { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr; min-height: max(650px, 42.424vw); }
+.sorveteria-product-page .sorveteria-opening__copy { position: relative; z-index: 2; width: 54%; max-width: 830px; display: flex; flex-direction: column; justify-content: center; padding: 64px 40px 64px max(24px, calc((100vw - 1200px) / 2)); }
+.sorveteria-product-page .sorveteria-opening .sorveteria-kicker { color: var(--sorv-accent); font-size: 10px; letter-spacing: .13em; line-height: 1.7; max-width: 440px; margin: 0 0 24px; }
+.sorveteria-product-page .sorveteria-opening h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(44px, 4.4vw, 64px); font-weight: 400; line-height: 1.06; letter-spacing: -.025em; color: var(--sorv-ink); margin: 0 0 26px; max-width: 560px; }
+.sorveteria-product-page .sorveteria-opening h1 em { color: var(--sorv-em); font-weight: 400; }
+.sorveteria-product-page .sorveteria-opening__lead { font-size: 16px; line-height: 1.8; color: var(--sorv-muted); max-width: 470px; margin: 0 0 30px; }
+.sorveteria-product-page .sorveteria-opening .sorveteria-actions { display: grid; grid-template-columns: max-content max-content; justify-content: start; gap: 10px; }
+.sorveteria-product-page .sorveteria-opening .btn { font-size: 13px; }
+.sorveteria-product-page .sorveteria-opening .btn.light { background: transparent; border-color: #d6afb8; }
+.sorveteria-product-page .sorveteria-opening__choice { color: #6e4856; font-size: 12px; line-height: 1.75; margin: 22px 0 0; }
+.sorveteria-product-page .sorveteria-room { position: absolute; inset: 0; z-index: 0; margin: 0; min-width: 0; overflow: hidden; }
+.sorveteria-product-page .sorveteria-room img { display: block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: auto; object-fit: contain; object-position: center; -webkit-mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); }
+.sorveteria-product-page .sorveteria-room::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #fcf7f7fa 0%, #fcf7f7f2 25%, #fcf7f7db 40%, #fcf7f775 54%, #fcf7f712 72%, transparent 88%); pointer-events: none; }
+.sorveteria-product-page .sorveteria-room figcaption { position: absolute; right: 36px; bottom: max(24px, calc(50% - 21.212vw + 24px)); z-index: 1; text-align: right; font-family: 'DM Serif Display', Georgia, serif; font-size: 27px; font-weight: 400; line-height: 1.2; color: #fff; text-shadow: 0 2px 18px rgba(45, 16, 26, 0.88), 0 1px 4px rgba(45, 16, 26, 0.72); }
+.sorveteria-product-page .sorveteria-room figcaption span { font-style: italic; }
+.sorveteria-product-page .sorveteria-opening__signature { display: flex; align-items: center; gap: 10px; padding-block: 26px; border-bottom: 1px solid var(--sorv-line); }
+.sorveteria-product-page .sorveteria-opening__signature > span { color: var(--sorv-ink); font-family: 'DM Serif Display', Georgia, serif; font-size: 23px; }
+.sorveteria-product-page .sorveteria-opening__signature > p { color: #6e4856; font-size: 13px; margin: 0; }
+.sorveteria-product-page .sorveteria-opening__signature > a { width: 44px; height: 44px; border: 1px solid var(--sorv-line); margin-left: auto; display: grid; place-items: center; border-radius: 50%; color: var(--sorv-accent); }
+.sorveteria-product-page .sorveteria-opening__signature svg { width: 18px; height: 18px; }
+
+/* Introdução de rotina */
+.sorveteria-product-page .sorveteria-introduction { display: grid; grid-template-columns: 1fr 1fr; column-gap: 100px; }
+.sorveteria-product-page .sorveteria-introduction .sorveteria-kicker { grid-column: 1 / -1; color: var(--sorv-muted); font-size: 10px; margin-bottom: 20px; }
+.sorveteria-product-page .sorveteria-introduction h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.4vw, 48px); font-weight: 400; line-height: 1.13; letter-spacing: -.02em; margin: 0; color: var(--sorv-ink); }
+.sorveteria-product-page .sorveteria-introduction__detail p { color: var(--sorv-muted); font-size: 15px; line-height: 1.8; margin: 0 0 14px; }
+.sorveteria-product-page .sorveteria-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 6px; }
+.sorveteria-product-page .sorveteria-introduction__detail a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; min-height: 44px; color: var(--sorv-accent); border-bottom: 1px solid #dfbac3; }
+.sorveteria-product-page .sorveteria-introduction__detail svg { width: 14px; height: 14px; }
+
+/* Módulos com telas reais em perspectiva */
+.sorveteria-product-page .sorveteria-editorial { display: grid; gap: 32px; padding: 12px clamp(16px, 3vw, 48px) 64px; }
+.sorveteria-product-page .sorveteria-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; min-height: 700px; background: var(--sorv-paper); border: 1px solid #e6d1d6; border-radius: 18px; }
+.sorveteria-product-page .sorveteria-feature--mist { background: var(--sorv-mist); }
+.sorveteria-product-page .sorveteria-chapter { display: flex; align-items: center; gap: 10px; color: var(--sorv-accent); font-size: 13px; font-weight: 500; margin-bottom: 24px; }
+.sorveteria-product-page .sorveteria-chapter > span { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--sorv-muted); }
+.sorveteria-product-page .sorveteria-feature h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(38px, 3.4vw, 50px); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 20px; color: var(--sorv-ink); }
+.sorveteria-product-page .sorveteria-feature__copy > p { color: #54323f; font-size: 18px; line-height: 1.75; margin: 0 0 24px; }
+.sorveteria-product-page .sorveteria-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.sorveteria-product-page .sorveteria-feature li { padding-left: 19px; position: relative; color: #472532; font-size: 16px; line-height: 1.65; }
+.sorveteria-product-page .sorveteria-feature li::before { content: ''; position: absolute; top: 10px; left: 0; width: 5px; height: 5px; border: 1px solid var(--sorv-em); border-radius: 50%; }
+.sorveteria-product-page .sorveteria-feature__copy > .sorveteria-feature__note { font-size: 14px; margin: 18px 0 0; color: var(--sorv-muted); }
+.sorveteria-product-page .sorveteria-feature .sorveteria-text-link { font-size: 16px; margin-top: 18px; border-bottom: 1px solid #dfbac3; }
+
+.sorveteria-product-page .sorveteria-feature::after { content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 18%, #fcf7f71a 35%, #fcf7f76b 49%, #fcf7f7a3 59%, #fcf7f7bf 78%); }
+.sorveteria-product-page .sorveteria-feature--reverse::after { background: linear-gradient(270deg, transparent 18%, #f5e8eb1a 35%, #f5e8eb6b 49%, #f5e8eba3 59%, #f5e8ebbf 78%); }
+.sorveteria-product-page .sorveteria-feature__grid { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; min-height: 700px; padding: 88px clamp(28px, 4vw, 64px); pointer-events: none; }
+.sorveteria-product-page .sorveteria-feature__copy { position: relative; isolation: isolate; width: 48%; max-width: 560px; padding: clamp(24px, 2.5vw, 36px); pointer-events: auto; }
+.sorveteria-product-page .sorveteria-feature__copy::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: 16px; background: var(--sorv-paper); pointer-events: none; }
+.sorveteria-product-page .sorveteria-feature--mist .sorveteria-feature__copy::before { background: var(--sorv-mist); }
+.sorveteria-product-page .sorveteria-feature--reverse .sorveteria-feature__grid { justify-content: flex-start; }
+.sorveteria-product-page .sorveteria-screen { position: absolute; z-index: 0; left: 2.5%; top: 50%; width: 76%; margin: 0; padding: 0; border: 0; background: transparent; border-radius: 0; transform: translateY(-50%) perspective(1600px) rotateY(9deg) rotateZ(-.5deg); transform-origin: center; box-shadow: 0 24px 55px -30px #3814212e; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); pointer-events: none; }
+.sorveteria-product-page .sorveteria-screen img { display: block; width: 100%; height: auto; border: 0; border-radius: 3px; }
+.sorveteria-product-page .sorveteria-feature--reverse .sorveteria-screen { left: auto; right: 2.5%; transform: translateY(-50%) perspective(1600px) rotateY(-9deg) rotateZ(.5deg); }
+
+@media (min-width: 901px) {
+  .sorveteria-product-page .sorveteria-editorial { padding-inline: 24px; }
+  .sorveteria-product-page .sorveteria-feature__grid { max-width: 1200px; padding-inline: 0; }
+  .sorveteria-product-page .sorveteria-feature__copy { padding: 0; }
+  .sorveteria-product-page .sorveteria-feature__copy::before { inset: -24px; }
+  .sorveteria-product-page .sorveteria-feature:not(.sorveteria-feature--reverse) .sorveteria-feature__copy { text-align: right; }
+  .sorveteria-product-page .sorveteria-feature:not(.sorveteria-feature--reverse) .sorveteria-chapter { justify-content: flex-end; }
+  .sorveteria-product-page .sorveteria-feature:not(.sorveteria-feature--reverse) li { padding-left: 0; padding-right: 19px; }
+  .sorveteria-product-page .sorveteria-feature:not(.sorveteria-feature--reverse) li::before { left: auto; right: 0; }
+  .sorveteria-product-page .sorveteria-feature:not(.sorveteria-feature--reverse) .sorveteria-text-link { display: flex; width: fit-content; margin-left: auto; }
+}
+
+/* Operação local e confiabilidade */
+.sorveteria-product-page .sorveteria-privacy { background: var(--sorv-ink); color: var(--sorv-paper); padding-block: 88px; }
+.sorveteria-product-page .sorveteria-privacy .sorveteria-kicker { color: #fda4af; font-size: 10px; }
+.sorveteria-product-page .sorveteria-privacy-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 88px; }
+.sorveteria-product-page .sorveteria-privacy-grid .sorveteria-section-heading { margin: 0; }
+.sorveteria-product-page .sorveteria-privacy .sorveteria-section-heading h2 { color: var(--sorv-paper); }
+.sorveteria-product-page .sorveteria-privacy .sorveteria-section-heading p, .sorveteria-product-page .sorveteria-privacy-content p { color: #ebd6db; }
+.sorveteria-product-page .sorveteria-privacy .sorveteria-text-link { color: #ffe4e6; }
+.sorveteria-product-page .sorveteria-privacy-content > article { display: flex; align-items: flex-start; gap: 18px; padding-bottom: 26px; }
+.sorveteria-product-page .sorveteria-privacy-content > article > svg { width: 23px; height: 23px; color: #fda4af; margin-top: 3px; }
+.sorveteria-product-page .sorveteria-privacy-content h3 { font-size: 16px; line-height: 1.4; font-weight: 500; margin: 0 0 9px; color: #fff; }
+.sorveteria-product-page .sorveteria-privacy-content p { font-size: 14px; line-height: 1.75; margin: 0; }
+.sorveteria-product-page .sorveteria-professional-note { display: flex; gap: 14px; padding: 20px; background: #ffffff0b; border: 1px solid #ffffff1f; border-radius: 6px; }
+.sorveteria-product-page .sorveteria-professional-note svg { color: #fecdd3; width: 20px; height: 20px; margin-top: 3px; }
+.sorveteria-product-page .sorveteria-professional-note strong { display: block; color: var(--sorv-paper); margin-bottom: 4px; }
+
+/* Plano único aprovado (centralizado e preservando R$ 299,90) */
+.sorveteria-product-page .sorveteria-pricing { background: var(--sorv-mist); padding-block: 88px; }
+.sorveteria-product-page .sorveteria-plans { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 540px; margin-inline: auto; padding-top: 12px; }
+.sorveteria-product-page .sorveteria-plan { display: flex; flex-direction: column; position: relative; padding: 34px 30px 30px; border: 2px solid var(--sorv-accent); border-radius: 10px; background: #fffdfb; box-shadow: 0 18px 44px -28px #38142129; }
+.sorveteria-product-page .sorveteria-plan-flag { position: absolute; top: -13px; left: 26px; background: var(--sorv-accent); color: #fff; border-radius: 3px; padding: 3px 10px; font-size: 11px; font-weight: 500; }
+.sorveteria-product-page .sorveteria-plan-type { color: var(--sorv-muted); font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 7px; }
+.sorveteria-product-page .sorveteria-plan-type svg { width: 17px; height: 17px; color: var(--sorv-accent); }
+.sorveteria-product-page .sorveteria-plan h3 { font-size: 22px; font-weight: 600; line-height: 1.25; letter-spacing: -.03em; margin: 16px 0 10px; color: var(--sorv-ink); }
+.sorveteria-product-page .sorveteria-plan-intro > p { font-size: 14px; line-height: 1.65; margin: 0; color: var(--sorv-muted); }
+.sorveteria-product-page .sorveteria-plan-investment { padding: 22px 0 24px; border-bottom: 1px solid #ecd9de; }
+.sorveteria-product-page .sorveteria-plan-price { display: block; font-size: clamp(32px, 3vw, 40px); font-weight: 650; line-height: 1.15; letter-spacing: -.04em; color: var(--sorv-ink); }
+.sorveteria-product-page .sorveteria-plan-period { display: block; font-size: 13px; color: var(--sorv-muted); margin-top: 6px; }
+.sorveteria-product-page .sorveteria-plan ul { padding: 26px 0; margin: 0; list-style: none; display: grid; gap: 12px; }
+.sorveteria-product-page .sorveteria-plan li { position: relative; padding-left: 20px; font-size: 14px; line-height: 1.55; color: #472532; }
+.sorveteria-product-page .sorveteria-plan li::before { content: '✓'; position: absolute; left: 0; color: var(--sorv-accent); font-size: 13px; font-weight: 700; }
+.sorveteria-product-page .sorveteria-plan-actions { display: grid; gap: 10px; }
+.sorveteria-product-page .sorveteria-plan .btn { width: 100%; font-size: 13px; }
+.sorveteria-product-page .sorveteria-pricing-note { display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; font-size: 12px; color: var(--sorv-muted); margin: 24px 0 0; }
+.sorveteria-product-page .sorveteria-pricing-note svg { width: 15px; height: 15px; color: var(--sorv-accent); flex-shrink: 0; }
+
+/* FAQ e encerramento */
+.sorveteria-product-page .sorveteria-faq { background: var(--sorv-paper); }
+.sorveteria-product-page .sorveteria-faq-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 88px; }
+.sorveteria-product-page .sorveteria-faq-grid .sorveteria-section-heading { margin: 0; }
+.sorveteria-product-page .sorveteria-faq-list details { border-bottom: 1px solid var(--sorv-line); padding-block: 3px; }
+.sorveteria-product-page .sorveteria-faq-list details:first-child { border-top: 1px solid var(--sorv-line); }
+.sorveteria-product-page .sorveteria-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 0; font-size: 15px; font-weight: 600; line-height: 1.5; cursor: pointer; list-style: none; }
+.sorveteria-product-page .sorveteria-faq-list summary::-webkit-details-marker { display: none; }
+.sorveteria-product-page .sorveteria-faq-list summary svg { width: 18px; height: 18px; color: var(--sorv-muted); transition: transform .2s ease; }
+.sorveteria-product-page .sorveteria-faq-list [open] summary svg { transform: rotate(45deg); }
+.sorveteria-product-page .sorveteria-faq-list details p { margin: 0; padding: 0 30px 22px 0; font-size: 14px; line-height: 1.75; color: var(--sorv-muted); }
+
+.sorveteria-product-page .sorveteria-closing { padding: 80px 0; background: var(--sorv-closing); text-align: center; color: var(--sorv-ink); }
+.sorveteria-product-page .sorveteria-closing .sorveteria-kicker { color: var(--sorv-accent); font-size: 10px; }
+.sorveteria-product-page .sorveteria-closing h2 { color: var(--sorv-ink); font-size: clamp(36px, 3.8vw, 52px); }
+.sorveteria-product-page .sorveteria-closing h2 em { color: var(--sorv-em); }
+.sorveteria-product-page .sorveteria-closing p { max-width: 560px; margin: 0 auto 28px; color: #54323f; font-size: 16px; }
+.sorveteria-product-page .sorveteria-closing .sorveteria-actions { justify-content: center; }
+
+.sorveteria-product-page .plena-discovery--related { --pd-ink: #381421; --pd-muted: #64404d; --pd-paper: #faf1f3; --pd-accent: #be123c; border-top-color: var(--sorv-line); }
+
+.sorveteria-product-page .sorveteria-footer { background: var(--sorv-paper); color: var(--sorv-ink); border-top: 1px solid var(--sorv-line); padding: 34px 0 28px; }
+.sorveteria-product-page .sorveteria-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.sorveteria-product-page .sorveteria-footer-brand { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; line-height: 1.5; }
+.sorveteria-product-page .sorveteria-footer-brand span { display: block; color: #6e4856; font-family: Inter, sans-serif; font-size: 12px; font-weight: 400; }
+.sorveteria-product-page .sorveteria-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; font-size: 13px; }
+.sorveteria-product-page .sorveteria-footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.sorveteria-product-page .sorveteria-footer button { color: var(--sorv-accent); font-size: 13px; }
+.sorveteria-product-page .sorveteria-footer button svg { width: 14px; height: 14px; }
+.sorveteria-product-page .sorveteria-footer p { color: #6e4856; font-family: Inter, sans-serif; font-size: 11px; margin: 26px 0 0; }
+
+.sorveteria-product-page #demo-modal.demo-modal--fullscreen .demo-frame-stage { height: 100dvh; }
+.sorveteria-product-page #demo-modal .demo-fullscreen-close { width: 44px; height: 44px; }
+.sorveteria-product-page .product-mobile-menu__panel { background: var(--sorv-paper); color: var(--sorv-ink); }
+.sorveteria-product-page .product-mobile-menu__links a { color: var(--sorv-ink); background: transparent; border-color: var(--sorv-line); }
+.sorveteria-product-page .product-mobile-menu__actions { display: grid; gap: 10px; }
+.sorveteria-product-page .product-mobile-menu__close { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #dfbac3; border-radius: 8px; background: transparent; color: var(--sorv-ink); cursor: pointer; }
+
+@media (min-width: 1600px) {
+  .sorveteria-product-page .sorveteria-opening__grid { min-height: max(720px, 42.424vw); }
+}
+@media (max-width: 1100px) {
+  .sorveteria-product-page .nav-links { gap: 16px; }
+  .sorveteria-product-page .sorveteria-opening__copy { padding-right: 32px; }
+  .sorveteria-product-page .sorveteria-opening__grid { min-height: 620px; }
+  .sorveteria-product-page .sorveteria-opening h1 { font-size: 52px; }
+  .sorveteria-product-page .sorveteria-opening .sorveteria-actions { grid-template-columns: max-content; justify-content: start; }
+  .sorveteria-product-page .sorveteria-introduction { gap: 40px; }
+  .sorveteria-product-page .sorveteria-privacy-grid, .sorveteria-product-page .sorveteria-faq-grid { gap: 40px; }
+  .sorveteria-product-page .sorveteria-feature, .sorveteria-product-page .sorveteria-feature__grid { min-height: 660px; }
+  .sorveteria-product-page .sorveteria-feature__copy { width: 50%; }
+  .sorveteria-product-page .sorveteria-screen { width: 78%; }
+}
+@media (max-width: 900px) {
+  .sorveteria-product-page .nav-links { display: none; }
+  .sorveteria-product-page .nav-mobile-actions { display: flex; }
+  .sorveteria-product-page .sorveteria-opening__grid { grid-template-columns: 1fr; min-height: 610px; }
+  .sorveteria-product-page .sorveteria-opening__copy { width: 59%; padding: 48px 28px 48px 24px; }
+  .sorveteria-product-page .sorveteria-opening h1 { font-size: 44px; }
+  .sorveteria-product-page .sorveteria-opening__lead { font-size: 14px; }
+  .sorveteria-product-page .sorveteria-room figcaption { font-size: 21px; right: 24px; }
+  .sorveteria-product-page .sorveteria-opening__signature { gap: 6px; }
+  .sorveteria-product-page .sorveteria-opening__signature > span { font-size: 21px; }
+  .sorveteria-product-page .sorveteria-opening__signature > p { font-size: 12px; }
+  .sorveteria-product-page .sorveteria-feature__grid, .sorveteria-product-page .sorveteria-feature--reverse .sorveteria-feature__grid { align-items: flex-start; justify-content: flex-start; min-height: 800px; padding: 48px 32px 360px; }
+  .sorveteria-product-page .sorveteria-feature__copy { width: 100%; max-width: 600px; }
+  .sorveteria-product-page .sorveteria-chapter { margin-bottom: 16px; }
+  .sorveteria-product-page .sorveteria-screen, .sorveteria-product-page .sorveteria-feature--reverse .sorveteria-screen { width: 94%; left: 3%; right: auto; top: auto; bottom: 18px; transform: perspective(1200px) rotateY(7deg) rotateX(4deg); }
+  .sorveteria-product-page .sorveteria-feature::after { background: linear-gradient(180deg, #fcf7f7 25%, #fcf7f7f5 43%, #fcf7f780 60%, transparent 82%); }
+  .sorveteria-product-page .sorveteria-feature--reverse::after { background: linear-gradient(180deg, #f5e8eb 25%, #f5e8ebf5 43%, #f5e8eb80 60%, transparent 82%); }
+}
+@media (max-width: 600px) {
+  .sorveteria-product-page .container { padding-inline: 20px; }
+  .sorveteria-product-page .header, .sorveteria-product-page .nav { height: 72px; }
+  .sorveteria-product-page .nav { padding-inline: 16px; }
+  .sorveteria-product-page main { padding-top: 72px; }
+  .sorveteria-product-page .assistencia-nav-brand { gap: 8px; }
+  .sorveteria-product-page .assistencia-nav-brand__icon { width: 34px; height: 34px; border-radius: 9px; }
+  .sorveteria-product-page .assistencia-nav-brand__copy strong { font-size: 13px; }
+  .sorveteria-product-page .assistencia-nav-brand__copy small { font-size: 8px; letter-spacing: .04em; }
+  .sorveteria-product-page .nav-mobile-actions > .mobile-header-whatsapp { display: none; }
+  .sorveteria-product-page .nav-mobile-actions > .btn { padding-inline: 11px !important; }
+  .sorveteria-product-page .nav-mobile-actions > .btn svg { display: none; }
+  .sorveteria-product-page .sorveteria-opening__grid { display: flex; flex-direction: column; min-height: 0; }
+  .sorveteria-product-page .sorveteria-opening__copy { width: 100%; padding: 38px 20px 24px; }
+  .sorveteria-product-page .sorveteria-opening .sorveteria-kicker { font-size: 9px; margin-bottom: 20px; }
+  .sorveteria-product-page .sorveteria-opening h1 { font-size: 42px; line-height: 1.08; margin-bottom: 22px; }
+  .sorveteria-product-page .sorveteria-opening__lead { font-size: 15px; margin-bottom: 24px; }
+  .sorveteria-product-page .sorveteria-opening .sorveteria-actions { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
+  .sorveteria-product-page .sorveteria-opening .sorveteria-actions .btn { min-width: 0; width: 100%; }
+  .sorveteria-product-page .sorveteria-opening__choice { font-size: 11px; margin-top: 18px; }
+  .sorveteria-product-page .sorveteria-room { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1376 / 768; }
+  .sorveteria-product-page .sorveteria-room img { position: static; transform: none; height: auto; object-position: center; -webkit-mask-image: none; mask-image: none; }
+  .sorveteria-product-page .sorveteria-room::after { background: linear-gradient(180deg, #fcf7f7 0%, #fcf7f755 18%, transparent 45%); }
+  .sorveteria-product-page .sorveteria-room figcaption { display: none; }
+  .sorveteria-product-page .sorveteria-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 0 10px; padding-block: 20px; }
+  .sorveteria-product-page .sorveteria-opening__signature > span { font-size: 21px; }
+  .sorveteria-product-page .sorveteria-opening__signature > p { grid-column: 1; }
+  .sorveteria-product-page .sorveteria-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
+  .sorveteria-product-page .sorveteria-introduction { grid-template-columns: 1fr; gap: 20px; }
+  .sorveteria-product-page .sorveteria-introduction .sorveteria-kicker { margin-bottom: 0; }
+  .sorveteria-product-page .sorveteria-introduction h2 { font-size: 34px; }
+  .sorveteria-product-page .sorveteria-introduction__detail p { font-size: 14px; }
+  .sorveteria-product-page .sorveteria-introduction__detail nav { gap: 14px; }
+  .sorveteria-product-page .sorveteria-introduction__detail a { font-size: 11px; }
+  .sorveteria-product-page .sorveteria-editorial { padding: 0 12px 40px; gap: 20px; }
+  .sorveteria-product-page .sorveteria-feature { padding: 0; border-radius: 12px; }
+  .sorveteria-product-page .sorveteria-feature__copy { padding: 24px 18px; }
+  .sorveteria-product-page .sorveteria-feature h2 { font-size: 36px; }
+  .sorveteria-product-page .sorveteria-feature__copy > p { font-size: 16px; }
+  .sorveteria-product-page .sorveteria-feature li { font-size: 15px; }
+  .sorveteria-product-page .sorveteria-feature .sorveteria-text-link { font-size: 15px; }
+  .sorveteria-product-page .sorveteria-feature__grid, .sorveteria-product-page .sorveteria-feature--reverse .sorveteria-feature__grid { min-height: 680px; padding: 24px 12px 235px; }
+  .sorveteria-product-page .sorveteria-screen, .sorveteria-product-page .sorveteria-feature--reverse .sorveteria-screen { width: 100%; left: 0; bottom: 22px; transform: perspective(800px) rotateY(7deg) rotateX(3deg); }
+  .sorveteria-product-page .sorveteria-feature::after { background: linear-gradient(180deg, #fcf7f7 30%, #fcf7f7f5 51%, #fcf7f74d 73%, transparent 90%); }
+  .sorveteria-product-page .sorveteria-feature--reverse::after { background: linear-gradient(180deg, #f5e8eb 30%, #f5e8ebf5 51%, #f5e8eb4d 73%, transparent 90%); }
+  .sorveteria-product-page .sorveteria-block, .sorveteria-product-page .sorveteria-privacy, .sorveteria-product-page .sorveteria-pricing, .sorveteria-product-page .sorveteria-closing { padding-block: 48px; }
+  .sorveteria-product-page .sorveteria-section-heading { margin-bottom: 28px; }
+  .sorveteria-product-page .sorveteria-section-heading h2 { font-size: 30px; }
+  .sorveteria-product-page .sorveteria-section-heading p { font-size: 15px; }
+  .sorveteria-product-page .sorveteria-privacy-grid, .sorveteria-product-page .sorveteria-faq-grid { grid-template-columns: 1fr; gap: 28px; }
+  .sorveteria-product-page .sorveteria-privacy-content > article { gap: 12px; }
+  .sorveteria-product-page .sorveteria-section-heading--center { text-align: left; }
+  .sorveteria-product-page .sorveteria-plan { padding: 28px 22px; }
+  .sorveteria-product-page .sorveteria-plan h3 { font-size: 22px; }
+  .sorveteria-product-page .sorveteria-plan-price { font-size: 34px; }
+  .sorveteria-product-page .sorveteria-pricing-note { align-items: flex-start; justify-content: flex-start; text-align: left; }
+  .sorveteria-product-page .sorveteria-faq-list summary { font-size: 14px; }
+  .sorveteria-product-page .sorveteria-closing { text-align: left; }
+  .sorveteria-product-page .sorveteria-closing p { font-size: 15px; margin-inline: 0; }
+  .sorveteria-product-page .sorveteria-actions { flex-direction: column; }
+  .sorveteria-product-page .sorveteria-actions .btn { width: 100%; }
+  .sorveteria-product-page .sorveteria-footer-top { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .sorveteria-product-page .sorveteria-footer nav { gap: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sorveteria-product-page *, .sorveteria-product-page *::before, .sorveteria-product-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

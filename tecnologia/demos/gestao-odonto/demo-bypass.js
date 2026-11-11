@@ -172,7 +172,17 @@
             }
 
             if (Array.isArray(seed.financial)) {
+                var ym = todayStr.slice(0, 7);
+                var todayDay = parseInt(todayStr.slice(8, 10), 10) || 1;
+                var backOffsets = { fin_7: 9, fin_2: 8, fin_1: 5, fin_6: 4, fin_5: 3, fin_3: 2, fin_4: 1 };
                 seed.financial.forEach(function (f) {
+                    if (Object.prototype.hasOwnProperty.call(backOffsets, f.id)) {
+                        var day = Math.max(1, todayDay - backOffsets[f.id]);
+                        var dStr = ym + '-' + String(day).padStart(2, '0');
+                        f.date = dStr;
+                        if (f.paidAt) f.paidAt = dStr;
+                        return;
+                    }
                     if (f.date) f.date = shiftDateStr(f.date);
                     if (f.paidAt) f.paidAt = shiftDateStr(f.paidAt);
                 });
@@ -203,9 +213,12 @@
         } catch (e) { existing = null; }
 
         var isPopulated = existing && Array.isArray(existing.patients) && existing.patients.length > 0;
-        if (!isPopulated && window.ODONTO_DEMO_SEED) {
+        var demoSeedVersion = 'odonto-v2';
+        var needsRefresh = isPopulated && localStorage.getItem('odonto_license') === 'DEMO-PLENA-ODONTO-2026' && localStorage.getItem('odonto_demo_seed_ver') !== demoSeedVersion;
+        if ((!isPopulated || needsRefresh) && window.ODONTO_DEMO_SEED) {
             var seed = adjustSeedDates(JSON.parse(JSON.stringify(window.ODONTO_DEMO_SEED)));
             localStorage.setItem(DB_KEY, JSON.stringify(seed));
+            localStorage.setItem('odonto_demo_seed_ver', demoSeedVersion);
             if (typeof db !== 'undefined') {
                 for (var k in seed) {
                     db[k] = seed[k];
@@ -270,10 +283,10 @@
         if (!guide) return;
 
         var content = DEMO_GUIDES[view] || DEMO_GUIDES.dashboard;
-        guide.innerHTML = '<button type="button" aria-label="Fechar guia rápido" style="position:absolute;top:8px;right:10px;background:transparent;border:0;color:#94a3b8;font-size:18px;cursor:pointer;line-height:1;" onclick="this.parentElement.remove()">×</button>' +
-            '<span style="display:block;margin-bottom:4px;color:#67e8f9;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;">' + content.label + '</span>' +
-            '<strong style="display:block;color:#fff;margin-bottom:8px;font-size:13px;line-height:1.3;">' + content.title + '</strong>' +
-            '<ol style="margin:0;padding-left:18px;font-size:12px;line-height:1.5;color:#cbd5e1;"><li>' + content.steps[0] + '</li><li>' + content.steps[1] + '</li><li>' + content.steps[2] + '</li></ol>';
+        guide.innerHTML = '<button type="button" aria-label="Fechar guia rápido" style="position:absolute;top:8px;right:10px;background:transparent;border:0;color:#64748b;font-size:18px;cursor:pointer;line-height:1;" onclick="this.parentElement.remove()">×</button>' +
+            '<span style="display:block;margin-bottom:4px;color:#0e7490;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;">' + content.label + '</span>' +
+            '<strong style="display:block;color:#0f172a;margin-bottom:8px;font-size:13px;line-height:1.3;">' + content.title + '</strong>' +
+            '<ol style="margin:0;padding-left:18px;font-size:12px;line-height:1.5;color:#475569;"><li>' + content.steps[0] + '</li><li>' + content.steps[1] + '</li><li>' + content.steps[2] + '</li></ol>';
     }
 
     function initContextualDemoGuide() {
@@ -293,25 +306,40 @@
         }
     }
 
+    function adjustBannerOffset() {
+        var banner = document.getElementById('plena-demo-banner');
+        if (!banner) return;
+        var h = banner.offsetHeight || 38;
+        document.body.style.paddingTop = h + 'px';
+        var sidebar = document.getElementById('sidebar');
+        if (sidebar) {
+            sidebar.style.top = h + 'px';
+            sidebar.style.height = 'calc(100vh - ' + h + 'px)';
+        }
+        var hdr = document.querySelector('main > header');
+        if (hdr) hdr.style.top = h + 'px';
+    }
+
     function injectDemoLayer() {
         if (!document.getElementById('plena-demo-banner')) {
             var banner = document.createElement('div');
             banner.id = 'plena-demo-banner';
-            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:999999;background:#090d16;border-bottom:1px solid rgba(8,145,178,0.35);color:#e2e8f0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;padding:7px 14px;font-size:11px;font-weight:700;box-shadow:0 2px 12px rgba(0,0,0,.5);font-family:Inter,system-ui,sans-serif;';
-            banner.innerHTML = '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:7px;height:7px;border-radius:50%;background:#06b6d4;"></span> Modo demonstração • <strong>' + DEMO_PRODUCT + '</strong> • Clínica OdontoPlena (Dr. Lucas Silveira)</span>' +
-                '<button id="plena-demo-cta" type="button" style="border:0;background:#0891b2;color:#fff;border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer;transition:background 0.2s;">Gostei, falar no WhatsApp</button>' +
-                '<button id="plena-demo-reset" type="button" style="border:1px solid rgba(255,255,255,.2);background:transparent;color:#94a3b8;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;">Resetar dados</button>';
+            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:999999;background:#f4f9fb;border-bottom:1px solid #cfe0e5;color:#0f2933;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;padding:7px 14px;font-size:11px;font-weight:700;box-shadow:0 2px 12px rgba(14,116,144,.08);font-family:Inter,system-ui,sans-serif;';
+            banner.innerHTML = '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:7px;height:7px;border-radius:50%;background:#0e7490;"></span> Modo demonstração • <strong>' + DEMO_PRODUCT + '</strong> • Clínica OdontoPlena (Dr. Lucas Silveira)</span>' +
+                '<button id="plena-demo-cta" type="button" style="border:0;background:#0e7490;color:#fff;border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer;transition:background 0.2s;">Gostei, falar no WhatsApp</button>' +
+                '<button id="plena-demo-reset" type="button" style="border:1px solid #b8cfd6;background:#fff;color:#334155;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;">Resetar dados</button>';
             document.body.prepend(banner);
-            document.body.style.paddingTop = '38px';
 
             document.getElementById('plena-demo-cta').addEventListener('click', openWhatsApp);
             document.getElementById('plena-demo-reset').addEventListener('click', resetDemo);
         }
+        adjustBannerOffset();
+        window.addEventListener('resize', adjustBannerOffset);
 
         if (!document.getElementById('plena-demo-guide')) {
             var guide = document.createElement('div');
             guide.id = 'plena-demo-guide';
-            guide.style.cssText = 'position:fixed;right:18px;bottom:18px;z-index:999998;max-width:300px;background:rgba(11,15,25,.96);color:#e5e7eb;border:1px solid rgba(8,145,178,.4);border-radius:14px;padding:14px 16px;box-shadow:0 14px 40px rgba(0,0,0,.45);font-family:Inter,system-ui,sans-serif;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);';
+            guide.style.cssText = 'position:fixed;right:18px;bottom:18px;z-index:999998;max-width:300px;background:rgba(255,255,255,.97);color:#1e293b;border:1px solid #cbd5e1;border-radius:14px;padding:14px 16px;box-shadow:0 14px 40px rgba(15,23,42,.12);font-family:Inter,system-ui,sans-serif;';
             document.body.appendChild(guide);
         }
     }
@@ -344,14 +372,32 @@
         setTimeout(function () {
             initContextualDemoGuide();
             unlockUI();
-            if (typeof renderDashboard === 'function') {
+            var opened = false;
+            if (window.OdontoDemoEntry) {
+                opened = window.OdontoDemoEntry.open(location.search, {
+                    navigate: function (view) {
+                        if (typeof window.router !== 'function') return false;
+                        window.router(view);
+                        return true;
+                    },
+                    openPatient: function (id) {
+                        if (typeof window.openPatientDetails !== 'function') return false;
+                        window.openPatientDetails(id);
+                        return true;
+                    }
+                });
+            }
+            if (opened) {
+                updateDemoGuide(getActiveDemoView());
+            } else if (typeof renderDashboard === 'function') {
                 renderDashboard();
             }
-        }, 150);
+            adjustBannerOffset();
+            document.documentElement.dataset.plenaDemoReady = '1';
+        }, 30);
     });
 
     window.addEventListener('load', function () {
         unlockUI();
     });
 })();
-

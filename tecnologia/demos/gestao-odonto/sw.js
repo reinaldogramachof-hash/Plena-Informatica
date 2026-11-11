@@ -1,8 +1,11 @@
-const CACHE_NAME = 'gestao-odonto-cache-v4';
+const CACHE_NAME = 'gestao-odonto-cache-v5';
 const urlsToCache = [
   './',
   './index.html',
   './lock.js',
+  './demo-bypass.js',
+  './assets/js/demo-seed.js',
+  './assets/js/demo-entry.js',
   './manifest.json',
   './assets/css/styles.css',
   './assets/js/tailwind_config.js',

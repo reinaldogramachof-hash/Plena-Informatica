@@ -1,7 +1,9 @@
-const CACHE_NAME = 'gestao-salas-cache-v2';
+const CACHE_NAME = 'gestao-salas-cache-v3';
 const APP_SHELL = [
   './',
   './index.html',
+  './demo-bypass.js',
+  './assets/js/demo-entry.js',
   './lock.js',
   './manifest.json',
   './assets/css/styles.css',

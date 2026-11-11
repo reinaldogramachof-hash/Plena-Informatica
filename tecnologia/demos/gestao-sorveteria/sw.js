@@ -1,14 +1,17 @@
-const CACHE_NAME = 'gestao-sorveteria-cache-v12';
+const CACHE_NAME = 'gestao-sorveteria-cache-v14';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './demo-bypass.js',
   './manifest.json',
   './lock.js?v=11',
   './assets/css/styles.css?v=11',
   './assets/css/theme.css?v=11',
   './assets/css/workspace.css?v=11',
   './assets/css/modules.css?v=11',
-  './assets/js/theme.js?v=11',
+  './assets/js/demo-seed.js',
+  './assets/js/demo-entry.js',
+  './assets/js/theme.js?v=12',
   './assets/fonts/inter.woff2?v=11',
   './assets/js/app.js?v=11',
   './assets/js/db.js?v=11',

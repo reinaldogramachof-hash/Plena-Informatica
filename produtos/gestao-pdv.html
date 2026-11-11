@@ -22,7 +22,7 @@
     "operatingSystem": "Web, Windows, macOS",
     "description": "Sistema de ponto de venda (PDV) e frente de caixa para comércio em geral, minimercados, mercearias, empórios e lojas com suporte a leitor de código de barras, impressora térmica, gaveta, controle de estoque com aviso de reposição e controle de caderneta / fiado.",
     "url": "https://plenainformatica.com.br/produtos/gestao-pdv.html",
-    "image": "https://plenainformatica.com.br/assets/images/heropdv.png",
+    "image": "https://plenainformatica.com.br/assets/images/pdv/emporio-caixa.jpg",
     "publisher": {
       "@type": "Organization",
       "name": "Plena Informática",
@@ -51,8 +51,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/produtos.css">
+  <link rel="stylesheet" href="assets/gestao-pdv.css">
   <meta property="og:url" content="https://plenainformatica.com.br/produtos/gestao-pdv.html">
   <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
@@ -61,7 +62,7 @@
   <meta name="twitter:image" content="https://plenainformatica.com.br/assets/images/capas/capa-pdv.webp">
   <link rel="stylesheet" href="../assets/plena-discovery.css">
   <script defer src="../assets/commercial-tracking.js"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://plenainformatica.com.br/"},{"@type":"ListItem","position":2,"name":"Sistemas por segmento","item":"https://plenainformatica.com.br/tecnologia/tecnologia.html"},{"@type":"ListItem","position":3,"name":"Sistema PDV para comércio e varejo","item":"https://plenainformatica.com.br/produtos/gestao-pdv.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://plenainformatica.com.br/"},{"@type":"ListItem","position":2,"name":"Sistemas por segmento","item":"https://plenainformatica.com.br/tecnologia/tecnologia.html"},{"@type":"ListItem","position":3,"name":"Sistema PDV para comércio e varejo","item":"https://plenainformatica.com.br/produtos/gestao-pdv.html"}]}</script>
 </head>
 
 <body id="topo"
@@ -69,7 +70,10 @@
   data-demo-fullscreen="true"
   data-demo-url="../tecnologia/demos/gestao-pdv/index.html"
   data-demo-title="Gestão PDV Pro"
-  data-demo-mobile-message="Olá! Quero ver a demonstração do Gestão PDV Pro no celular — pode me apresentar por aqui?" data-commercial-offer="gestao-pdv">
+  data-demo-mobile-message="Olá! Quero ver a demonstração do Gestão PDV Pro no celular — pode me apresentar por aqui?"
+  data-commercial-offer="gestao-pdv">
+
+  <a class="pdv-skip" href="#conteudo">Ir para o conteúdo</a>
 
   <!-- CABEÇALHO / NAVBAR -->
   <header class="header">
@@ -86,18 +90,17 @@
         </span>
         <span class="assistencia-nav-brand__copy">
           <strong>Gestão PDV Pro</strong>
-          <small>Frente de Caixa & Estoque</small>
+          <small>Frente de Caixa &amp; Estoque</small>
         </span>
       </a>
 
       <div class="nav-links">
         <a href="#rotina">Rotina de Caixa</a>
         <a href="#modulos">Módulos</a>
-        <a href="#caixa-offline">Caixa Offline</a>
         <a href="#plano">Licença Vitalícia</a>
         <a href="#faq">Dúvidas</a>
         <a href="../tecnologia/tecnologia.html">Tecnologia</a>
-        <button class="btn primary" type="button" style="min-height:38px; padding:8px 16px; font-size:13px; background:#10B981; border-color:#10B981; color:#041F1A; font-weight:800;" onclick="openDemoModal()">
+        <button class="btn primary" type="button" style="min-height:38px; padding:8px 16px; font-size:13px;" onclick="openDemoModal()">
           <i data-lucide="monitor-up"></i>
           Testar Demo
         </button>
@@ -107,14 +110,14 @@
       </div>
 
       <div class="nav-mobile-actions">
-        <button class="btn primary" type="button" style="min-height:36px; padding:6px 12px; font-size:12px; background:#10B981; border-color:#10B981; color:#041F1A; font-weight:800;" onclick="openDemoModal()" aria-label="Testar Demonstração">
+        <button class="btn primary" type="button" style="min-height:36px; padding:6px 12px; font-size:12px;" onclick="openDemoModal()" aria-label="Testar Demonstração">
           <i data-lucide="monitor-up"></i>
           Demo
         </button>
         <button class="btn light mobile-header-whatsapp assistencia-nav-whatsapp" type="button" aria-label="Falar pelo WhatsApp" title="Falar pelo WhatsApp" onclick="openProductWhatsApp('Olá! Vim pelo site da Plena e quero saber mais sobre o Gestão PDV Pro.', 'Gestão PDV')">
           <i data-lucide="message-circle"></i>
         </button>
-        <button class="mobile-menu-toggle" type="button" onclick="toggleProductMobileMenu()" aria-label="Abrir menu">
+        <button class="mobile-menu-toggle" aria-controls="product-mobile-menu" aria-expanded="false" type="button" onclick="toggleProductMobileMenu()" aria-label="Abrir menu">
           <i data-lucide="menu"></i>
         </button>
       </div>
@@ -122,7 +125,7 @@
   </header>
 
   <!-- MENU MOBILE -->
-  <div class="product-mobile-menu" id="product-mobile-menu" aria-hidden="true">
+  <div class="product-mobile-menu" id="product-mobile-menu" inert>
     <div class="product-mobile-menu__backdrop" onclick="toggleProductMobileMenu(false)"></div>
     <aside class="product-mobile-menu__panel" aria-label="Navegação mobile">
       <div class="product-mobile-menu__header">
@@ -133,18 +136,18 @@
       </div>
       <div class="product-mobile-menu__links">
         <a href="#rotina" onclick="toggleProductMobileMenu(false)">Rotina de Caixa</a>
-        <a href="#modulos" onclick="toggleProductMobileMenu(false)">Módulos Operacionais</a>
+        <a href="#modulos" onclick="toggleProductMobileMenu(false)">Módulos do Sistema</a>
         <a href="#caixa-offline" onclick="toggleProductMobileMenu(false)">Operação Offline</a>
         <a href="#plano" onclick="toggleProductMobileMenu(false)">Licença Vitalícia</a>
         <a href="#faq" onclick="toggleProductMobileMenu(false)">Dúvidas Frequentes</a>
-        <a href="../tecnologia/tecnologia.html">Catálogo Completo</a>
+        <a href="../tecnologia/tecnologia.html">Catálogo Plena</a>
       </div>
       <div class="product-mobile-menu__actions">
-        <button class="btn primary" style="background:#10B981; border-color:#10B981; color:#041F1A; font-weight:800;" onclick="toggleProductMobileMenu(false); openDemoModal()">
+        <button class="btn primary" type="button" onclick="toggleProductMobileMenu(false); openDemoModal()">
           <i data-lucide="monitor-up"></i>
           Testar Demonstração
         </button>
-        <button class="btn light" onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Vim pelo site da Plena e quero saber mais sobre o Gestão PDV Pro.', 'Gestão PDV')">
+        <button class="btn light" type="button" onclick="toggleProductMobileMenu(false); openProductWhatsApp('Olá! Vim pelo site da Plena e quero saber mais sobre o Gestão PDV Pro.', 'Gestão PDV')">
           <i data-lucide="message-circle"></i>
           Falar no WhatsApp
         </button>
@@ -152,385 +155,281 @@
     </aside>
   </div>
 
-  <main>
-    <!-- HERO SECTION (DUAL-TONE VERDE ESMERALDA & DARK PETRÓLEO) -->
-    <section class="hero assistencia-hero pdv-hero">
-      <div class="container pdv-hero-grid">
-        <div class="product-hero-copy">
-          <span class="eyebrow"><i data-lucide="shield-check"></i> Sistema de Frente de Caixa · Sem Mensalidade</span>
-          <h1>Frente de caixa rápida, código de barras e estoque. <span class="assistencia-hero__pro">Da abertura ao fechamento.</span></h1>
-          <p class="lead">Leitura instantânea de código de barras, controle de estoque com aviso de reposição, fechamento cego de caixa com sangrias, emissão de cupom não fiscal e gestão de caderneta (fiado). Tudo no seu computador, 100% offline e sem mensalidades.</p>
-          <div class="actions">
-            <button class="btn primary" style="background:#10B981; border-color:#10B981; color:#041F1A; font-weight:800;" onclick="openDemoModal()">
-              <i data-lucide="monitor-up"></i>
-              Abrir Demonstração Real
-            </button>
-            <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão PDV Pro e quero tirar dúvidas sobre a licença vitalícia de R$ 299,90.', 'Gestão PDV')">
-              <i data-lucide="message-circle"></i>
-              Comprar Licença Vitalícia
-            </button>
+  <main id="conteudo">
+    <!-- ABERTURA -->
+    <section class="pdv-opening">
+      <div class="pdv-opening__grid">
+        <div class="pdv-opening__copy">
+          <span class="pdv-kicker">Sistema de Frente de Caixa · Sem mensalidade</span>
+          <h1>Frente de caixa ágil, <em>código de barras e estoque.</em></h1>
+          <p class="pdv-opening__lead">Leitura instantânea no balcão, controle de estoque mínimo, fechamento cego com sangrias, cupom não fiscal e caderneta de fiado — direto no computador, 100% offline.</p>
+          <div class="pdv-actions">
+            <button class="btn primary" type="button" onclick="openDemoModal()">Abrir Demonstração Real <i data-lucide="play"></i></button>
+            <a class="btn light" href="#plano">Garantir Licença — R$ 299,90</a>
           </div>
-          <p class="assistencia-hero-note"><i data-lucide="shield"></i> Pagamento único de R$ 299,90, dados salvos no seu computador e funcionamento garantido sem internet.</p>
+          <p class="pdv-opening__choice">Pagamento único de R$ 299,90 · Dados salvos no seu computador</p>
         </div>
 
-        <aside class="pdv-hero-preview" aria-label="Amostra do PDV Mercado & Empório Central">
-          <div class="therapy-preview-top">
-            <div>
-              <strong style="color:#F8FAFC; font-size:15px; display:block;">Mercado & Empório Central</strong>
-              <small style="color:#34D399; font-size:11px;">Caixa #01 · Ana Carolina Operadora</small>
-            </div>
-            <div class="therapy-preview-status">
-              <span class="dot" style="background:#10B981; box-shadow:0 0 10px #10B981;"></span>
-              <span>Caixa Aberto</span>
-            </div>
-          </div>
+        <!-- AMBIENTE DO EMPÓRIO -->
+        <figure class="pdv-room">
+          <img src="../assets/images/pdv/emporio-caixa.jpg" alt="Balcão iluminado de empório e mercado de bairro com leitor sem fio, impressora de cupom, terminal de frente de caixa e prateleiras abastecidas" width="1376" height="768" decoding="async">
+          <figcaption>Da bipagem no balcão<br><span>ao caixa fechado sem filas.</span></figcaption>
+        </figure>
+      </div>
 
-          <div class="therapy-preview-kpis">
-            <div class="therapy-kpi-box">
-              <small>Vendas Hoje</small>
-              <strong>R$ 1.842,50</strong>
-            </div>
-            <div class="therapy-kpi-box">
-              <small>Cupons Emitidos</small>
-              <strong style="color:#34D399;">48 vendas</strong>
-            </div>
-            <div class="therapy-kpi-box">
-              <small>Saldo em Gaveta</small>
-              <strong style="color:#10B981;">R$ 785,40</strong>
-            </div>
-          </div>
-
-          <div class="therapy-preview-list">
-            <div class="therapy-preview-item">
-              <div>
-                <strong>7891000100101 · Café Especial 500g (2 un)</strong>
-                <small style="display:block; color:#94A3B8;">Mercearia · Leitor de Código de Barras</small>
-              </div>
-              <span class="badge badge-done" style="background:rgba(16,185,129,.2); color:#34D399;">R$ 37,80</span>
-            </div>
-            <div class="therapy-preview-item">
-              <div>
-                <strong>7891000100102 · Azeite Extra Virgem 500ml</strong>
-                <small style="display:block; color:#94A3B8;">Mercearia · Código 100102</small>
-              </div>
-              <span class="badge badge-done" style="background:rgba(16,185,129,.2); color:#34D399;">R$ 34,50</span>
-            </div>
-            <div class="therapy-preview-item">
-              <div>
-                <strong>Refrigerante Cola Lata 350ml (4 un)</strong>
-                <small style="display:block; color:#94A3B8;">Bebidas Geladas · Fila Rápida</small>
-              </div>
-              <span class="badge badge-done" style="background:rgba(16,185,129,.2); color:#34D399;">R$ 22,00</span>
-            </div>
-            <div class="therapy-preview-item">
-              <div>
-                <strong>Pão de Queijo Tradicional (0,5 kg)</strong>
-                <small style="display:block; color:#94A3B8;">Padaria · Venda por Peso</small>
-              </div>
-              <span class="badge badge-done" style="background:rgba(16,185,129,.2); color:#34D399;">R$ 16,00</span>
-            </div>
-          </div>
-
-          <div class="therapy-preview-foot">
-            <span><i data-lucide="database"></i> Dados salvos na máquina</span>
-            <span>100% Offline</span>
-          </div>
-        </aside>
+      <div class="container">
+        <div class="pdv-opening__signature">
+          <span>Gestão PDV Pro</span>
+          <p>Uma solução Plena · Operação local para minimercados, empórios, lojas e conveniências</p>
+          <a href="#rotina" aria-label="Descer para conhecer a rotina de caixa"><i data-lucide="arrow-down"></i></a>
+        </div>
       </div>
     </section>
 
-    <!-- SEÇÃO ROTINA DE CAIXA (FLUXO OPERACIONAL LIMPO EM 4 ETAPAS) -->
-    <section class="section clinical-white-section" id="rotina">
+    <!-- INTRODUÇÃO -->
+    <section class="pdv-block" id="rotina">
       <div class="container">
-        <div class="section-title">
-          <span class="badge">FLUXO DE CAIXA</span>
+        <div class="pdv-introduction">
+          <span class="pdv-kicker">Fluxo do balcão</span>
           <h2>Agilidade máxima para atender clientes sem filas travadas</h2>
-          <p>Da bipagem do primeiro produto ao troco exato, cada segundo no balcão é otimizado.</p>
-        </div>
-
-        <div class="clinical-routine-grid">
-          <div class="clinical-white-card">
-            <span class="clinical-routine-number">01</span>
-            <h3><i data-lucide="barcode"></i> Bipagem com Código de Barras</h3>
-            <p>Conecte qualquer leitor USB ou sem fio. Bipou a mercadoria, o produto entra na comanda com valor e baixa imediata de estoque. Também permite busca rápida por nome ou código curto.</p>
-          </div>
-
-          <div class="clinical-white-card">
-            <span class="clinical-routine-number">02</span>
-            <h3><i data-lucide="keyboard"></i> Atalhos Rápidos de Teclado</h3>
-            <p>Opere o caixa inteiramente pelo teclado sem depender do mouse: F2 para consultar estoque, F4 para aplicar desconto autorizado e F8 para finalizar a venda em segundos.</p>
-          </div>
-
-          <div class="clinical-white-card">
-            <span class="clinical-routine-number">03</span>
-            <h3><i data-lucide="banknote"></i> Troco Exato e Múltiplos Pagamentos</h3>
-            <p>Receba em dinheiro com cálculo automático do troco, PIX, débito ou crédito. Permite dividir a mesma compra em duas formas de pagamento diferentes sem complicações.</p>
-          </div>
-
-          <div class="clinical-white-card">
-            <span class="clinical-routine-number">04</span>
-            <h3><i data-lucide="shield-check"></i> Fechamento Cego de Caixa</h3>
-            <p>O operador informa o total que contou na gaveta sem ver o valor do sistema. O sistema compara e aponta sobras ou faltas com precisão para total segurança do proprietário.</p>
+          <div class="pdv-introduction__detail">
+            <p>Da leitura do primeiro código de barras ao troco exato, cada segundo no caixa flui sem depender da internet. Controle a saída das mercadorias, receba em múltiplos meios ou caderneta e feche o turno com conferência clara.</p>
+            <nav aria-label="Módulos principais do sistema">
+              <a href="#pdv">01 · Frente de caixa PDV <i data-lucide="arrow-down"></i></a>
+              <a href="#estoque">02 · Estoque e reposição <i data-lucide="arrow-down"></i></a>
+              <a href="#dashboard">03 · Caixa e financeiro <i data-lucide="arrow-down"></i></a>
+            </nav>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SEÇÃO MÓDULOS ESSENCIAIS (RECURSOS COMPLETOS DO SISTEMA) -->
-    <section class="section" id="modulos" style="background:#051411; border-top:1px solid rgba(16,185,129,0.2); border-bottom:1px solid rgba(16,185,129,0.2);">
-      <div class="container">
-        <div class="section-title">
-          <span class="badge" style="background:rgba(16,185,129,0.14); color:#34D399; border:1px solid rgba(16,185,129,0.3);">MÓDULOS COMPLETOS</span>
-          <h2 style="color:#F8FAFC;">Tudo o que seu comércio precisa em um só sistema</h2>
-          <p style="color:#94A3B8;">Sem módulos pagos à parte. Você adquire a licença vitalícia e tem acesso irrestrito a todas as ferramentas.</p>
-        </div>
+    <!-- MÓDULOS COM TELAS REAIS EM PERSPECTIVA -->
+    <section class="pdv-editorial" id="modulos" aria-label="Telas principais do Gestão PDV Pro">
 
-        <div class="clinical-cluster-grid">
-          <!-- CARD 1: Frente de Caixa PDV -->
-          <div class="clinical-cluster-card">
-            <h3 class="clinical-cluster-header"><i data-lucide="shopping-cart"></i> Frente de Caixa PDV</h3>
-            <ul class="clinical-cluster-list">
-              <li><i data-lucide="check-circle-2"></i> Leitura de códigos de barra EAN-13 e busca instantânea</li>
-              <li><i data-lucide="check-circle-2"></i> Venda avulsa de itens sem cadastro prévio com senha admin</li>
-              <li><i data-lucide="check-circle-2"></i> Cancelamento de item ou venda com justificativa em auditoria</li>
-              <li><i data-lucide="check-circle-2"></i> Impressão de cupom não fiscal e comprovante de saída</li>
+      <article class="pdv-feature" id="pdv">
+        <figure class="pdv-screen">
+          <img src="../assets/images/pdv/pdv-demo.jpg" alt="Tela de Venda Rápida PDV do Gestão PDV Pro com grade de produtos, filtros por categoria, busca por código de barras e carrinho lateral" width="1440" height="960" loading="lazy">
+        </figure>
+        <div class="container pdv-feature__grid">
+          <div class="pdv-feature__copy">
+            <div class="pdv-chapter">01 / 03 <span>Frente de Caixa (PDV)</span></div>
+            <h2>Venda rápida por leitor de barras, atalhos e fiado</h2>
+            <p>Opere o balcão pelo leitor USB ou sem fio com atalhos de teclado, carrinho lateral e acesso rápido ao caixa e à caderneta.</p>
+            <ul>
+              <li>Busca instantânea pelo nome ou leitor EAN-13 com atalho (/)</li>
+              <li>Atalhos F4 para item avulso, F6 para venda em espera e F2 para finalizar</li>
+              <li>Dinheiro com troco, PIX, débito, crédito e pagamento dividido</li>
+              <li>Emissão de cupom não fiscal em bobina térmica de 80mm ou 58mm</li>
             </ul>
-          </div>
-
-          <!-- CARD 2: Estoque & Produtos -->
-          <div class="clinical-cluster-card">
-            <h3 class="clinical-cluster-header"><i data-lucide="boxes"></i> Estoque & Reposição</h3>
-            <ul class="clinical-cluster-list">
-              <li><i data-lucide="check-circle-2"></i> Cadastro com código de barras, preço de custo, margem e venda</li>
-              <li><i data-lucide="check-circle-2"></i> Alerta visual de estoque no limite para compras preventivas</li>
-              <li><i data-lucide="check-circle-2"></i> Registro de perdas, quebras e avarias de mercadoria</li>
-              <li><i data-lucide="check-circle-2"></i> Importação e exportação de catálogo via planilha</li>
-            </ul>
-          </div>
-
-          <!-- CARD 3: Controle de Gaveta & Sangrias -->
-          <div class="clinical-cluster-card">
-            <h3 class="clinical-cluster-header"><i data-lucide="wallet"></i> Caixa, Gaveta & Sangrias</h3>
-            <ul class="clinical-cluster-list">
-              <li><i data-lucide="check-circle-2"></i> Registro de fundo de troco na abertura diária</li>
-              <li><i data-lucide="check-circle-2"></i> Sangria rápida para cofre evitando dinheiro exposto</li>
-              <li><i data-lucide="check-circle-2"></i> Reforço de troco e registro de pequenas despesas da loja</li>
-              <li><i data-lucide="check-circle-2"></i> Histórico completo de fechamentos com diferenças apuradas</li>
-            </ul>
-          </div>
-
-          <!-- CARD 4: Clientes & Fiado -->
-          <div class="clinical-cluster-card">
-            <h3 class="clinical-cluster-header"><i data-lucide="book-open"></i> Caderneta & Fiado Controlado</h3>
-            <ul class="clinical-cluster-list">
-              <li><i data-lucide="check-circle-2"></i> Cadastro de clientes com telefone e limite de crédito</li>
-              <li><i data-lucide="check-circle-2"></i> Venda na modalidade "Fiado" com trava ao atingir o limite</li>
-              <li><i data-lucide="check-circle-2"></i> Extrato de compras pendentes por cliente</li>
-              <li><i data-lucide="check-circle-2"></i> Baixa de pagamentos parciais com emissão de recibo</li>
-            </ul>
+            <button class="pdv-text-link" type="button" onclick="openDemoModal({ view: 'pdv' })">Testar a tela do PDV na demonstração <i data-lucide="arrow-up-right"></i></button>
+            <p class="pdv-feature__note">Abre direto na tela de Venda Rápida do Mercado &amp; Empório Central.</p>
           </div>
         </div>
-      </div>
+      </article>
+
+      <article class="pdv-feature pdv-feature--reverse pdv-feature--mist" id="estoque">
+        <figure class="pdv-screen">
+          <img src="../assets/images/pdv/estoque-demo.jpg" alt="Tela de Controle de Estoque do Gestão PDV Pro com códigos de barras, saldos por unidade, valor em estoque e botões de movimentação" width="1440" height="960" loading="lazy">
+        </figure>
+        <div class="container pdv-feature__grid">
+          <div class="pdv-feature__copy">
+            <div class="pdv-chapter">02 / 03 <span>Estoque &amp; Produtos</span></div>
+            <h2>Saldo por mercadoria e aviso antes de faltar na prateleira</h2>
+            <p>Acompanhe o valor parado em estoque, filtre itens com saldo baixo ou zerado e faça ajustes rápidos diretamente na lista.</p>
+            <ul>
+              <li>Cadastro com código de barras, preço de custo, venda e estoque mínimo</li>
+              <li>Baixa automática a cada venda concluída no balcão</li>
+              <li>Filtros diretos para baixo estoque e mercadorias esgotadas</li>
+              <li>Registro ágil de entradas de fornecedores, perdas ou reposições</li>
+            </ul>
+            <button class="pdv-text-link" type="button" onclick="openDemoModal({ view: 'inventory' })">Explorar o Controle de Estoque na demonstração <i data-lucide="arrow-up-right"></i></button>
+            <p class="pdv-feature__note">Abre a grade de produtos com códigos EAN-13 fictícios da demo.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pdv-feature" id="dashboard">
+        <figure class="pdv-screen">
+          <img src="../assets/images/pdv/dashboard-demo.jpg" alt="Tela de Dashboard e Resumo Financeiro do Gestão PDV Pro com saldo disponível, entradas do mês, gráfico de fluxo de caixa e vendas recentes" width="1440" height="960" loading="lazy">
+        </figure>
+        <div class="container pdv-feature__grid">
+          <div class="pdv-feature__copy">
+            <div class="pdv-chapter">03 / 03 <span>Caixa &amp; Resumo Financeiro</span></div>
+            <h2>Entradas, sangrias e fechamento cego do turno</h2>
+            <p>Acompanhe o faturamento por período, faça sangrias durante o dia e confira os valores da gaveta no encerramento do caixa.</p>
+            <ul>
+              <li>Resumo em tempo real com saldo disponível, entradas e saídas</li>
+              <li>Abertura com fundo de troco, reforços e sangrias para o cofre</li>
+              <li>Fechamento cego com apuração exata de sobras ou diferenças</li>
+              <li>Controle de caderneta (fiado) com limite por cliente e exportação CSV</li>
+            </ul>
+            <button class="pdv-text-link" type="button" onclick="openDemoModal({ view: 'dashboard' })">Abrir o Resumo Financeiro na demonstração <i data-lucide="arrow-up-right"></i></button>
+            <p class="pdv-feature__note">Abre o painel financeiro com o histórico de vendas e transações do mês.</p>
+          </div>
+        </div>
+      </article>
+
     </section>
 
-    <!-- SEÇÃO PRIVACIDADE & CAIXA OFFLINE -->
-    <section class="section clinical-white-section" id="caixa-offline">
+    <!-- OPERAÇÃO OFFLINE E SIGILO -->
+    <section class="pdv-privacy" id="caixa-offline">
       <div class="container">
-        <div class="section-title">
-          <span class="badge">OPERAÇÃO LOCAL</span>
-          <h2>A internet caiu? Seu comércio não para um segundo sequer.</h2>
-          <p>Diferente de sistemas web que congelam a fila quando a rede oscila, o Gestão PDV Pro roda na máquina.</p>
-        </div>
-
-        <div class="clinical-trust-grid">
-          <div class="clinical-white-card">
-            <div class="clinical-trust-icon">
+        <div class="pdv-privacy-grid">
+          <div class="pdv-section-heading">
+            <span class="pdv-kicker">Operação local</span>
+            <h2>A internet caiu? Seu comércio não para um segundo.</h2>
+            <p>Diferente de sistemas web que congelam a fila quando a conexão oscila, toda a operação de caixa e estoque roda na própria máquina.</p>
+            <a class="pdv-text-link" href="#faq">Ver dúvidas sobre leitor, impressoras e fiado <i data-lucide="arrow-right"></i></a>
+          </div>
+          <div class="pdv-privacy-content">
+            <article>
               <i data-lucide="wifi-off"></i>
-            </div>
-            <h3>100% Funcional sem Internet</h3>
-            <p>O caixa, a leitura do código de barras, a impressora de bobina e o controle de estoque continuam operando normalmente sem nenhuma conexão com a rede.</p>
-          </div>
-
-          <div class="clinical-white-card">
-            <div class="clinical-trust-icon">
+              <div>
+                <h3>100% funcional sem internet</h3>
+                <p>O balcão, a leitura de código de barras, a impressora térmica e o saldo de mercadorias continuam operando normalmente mesmo com o modem desligado.</p>
+              </div>
+            </article>
+            <article>
               <i data-lucide="shield-check"></i>
-            </div>
-            <h3>Sigilo Total das suas Vendas</h3>
-            <p>Os dados de faturamento, margens de lucro dos produtos, clientes e crediário ficam armazenados no seu computador. Ninguém de fora tem acesso aos seus números.</p>
-          </div>
-
-          <div class="clinical-white-card">
-            <div class="clinical-trust-icon">
+              <div>
+                <h3>Sigilo total das vendas e margens</h3>
+                <p>Seu faturamento, custo dos produtos, lucro e contas da caderneta permanecem salvos no dispositivo da loja, sem expor dados a servidores externos.</p>
+              </div>
+            </article>
+            <article>
               <i data-lucide="database-backup"></i>
+              <div>
+                <h3>Backup simples em 1 clique</h3>
+                <p>Exporte todos os cadastros, estoques e histórico financeiro em arquivo JSON para guardar em pendrive ao fim do expediente e restaure quando precisar.</p>
+              </div>
+            </article>
+            <div class="pdv-professional-note">
+              <i data-lucide="printer"></i>
+              <div>
+                <strong>Compatível com o balcão real</strong>
+                Suporta qualquer leitor USB/sem fio no padrão HID, além de impressão de cupom não fiscal em bobina térmica de 80mm/58mm ou folha A4 sem plugins pagos.
+              </div>
             </div>
-            <h3>Backup Simples em 1 Clique</h3>
-            <p>Gere cópias de segurança em arquivo JSON para guardar em um pendrive ao fim do dia. Trocou de máquina? Restaure em segundos sem necessidade de suporte técnico.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SEÇÃO PLANO / LICENÇA VITALÍCIA -->
-    <section class="section" id="plano" style="background:#041410; border-top:1px solid rgba(16,185,129,0.2);">
-      <div class="container" style="max-width:960px;">
-        <div class="section-title">
-          <span class="badge" style="background:rgba(16,185,129,0.14); color:#34D399; border:1px solid rgba(16,185,129,0.3);">SEM MENSALIDADE</span>
-          <h2 style="color:#F8FAFC;">Licença vitalícia para o seu comércio com pagamento único</h2>
-          <p style="color:#94A3B8;">Elimine mensalidades que aumentam a cada ano. Um único investimento e o sistema é seu para sempre.</p>
+    <!-- PLANO / LICENÇA VITALÍCIA (APROVADA R$ 299,90 EM CARD ÚNICO CENTRALIZADO) -->
+    <section class="pdv-pricing" id="plano">
+      <div class="container">
+        <div class="pdv-section-heading pdv-section-heading--center">
+          <span class="pdv-kicker">Sem mensalidade</span>
+          <h2>Licença vitalícia para o seu comércio com pagamento único</h2>
+          <p>Elimine mensalidades que aumentam todo ano. Um único investimento e o sistema completo é seu sem taxas de renovação.</p>
         </div>
 
-        <div class="clinical-price-container" style="display:flex; justify-content:center;">
-          <div class="clinical-price-card-clean clinical-price-card-clean--featured" style="max-width:540px; width:100%; border-color:#10B981; box-shadow:0 22px 50px -18px rgba(16,185,129,0.25);">
-            <div class="price-header">
-              <span class="price-badge" style="background:rgba(16,185,129,0.12); color:#10B981;">LICENÇA PERMANENTE</span>
+        <div class="pdv-plans">
+          <div class="pdv-plan">
+            <span class="pdv-plan-flag">Licença Permanente</span>
+            <div class="pdv-plan-intro">
+              <span class="pdv-plan-type"><i data-lucide="shopping-cart"></i> Operação Comercial</span>
               <h3>Gestão PDV Pro Comercial</h3>
               <p>Ideal para minimercados, empórios, conveniências, distribuidoras e comércio em geral.</p>
             </div>
-
-            <div class="price-value" style="color:#10B981;">
-              <small>R$</small>
-              <strong>299,90</strong>
-              <span style="display:block; font-size:13px; color:#64748B; margin-top:4px;">pagamento único · sem mensalidades</span>
+            <div class="pdv-plan-investment">
+              <strong class="pdv-plan-price">R$ 299,90</strong>
+              <span class="pdv-plan-period">pagamento único · sem mensalidades</span>
             </div>
-
-            <ul class="price-features">
-              <li><i data-lucide="check"></i> <strong>Acesso vitalício completo</strong> sem expiração</li>
-              <li><i data-lucide="check"></i> <strong>Frente de caixa rápida com atalhos de teclado</strong></li>
-              <li><i data-lucide="check"></i> <strong>Suporte a leitor de código de barras USB/sem fio</strong></li>
-              <li><i data-lucide="check"></i> <strong>Controle de estoque com alerta de nível mínimo</strong></li>
-              <li><i data-lucide="check"></i> <strong>Fechamento cego de caixa e controle de sangrias</strong></li>
-              <li><i data-lucide="check"></i> <strong>Controle de caderneta / fiado com limites por cliente</strong></li>
-              <li><i data-lucide="check"></i> <strong>Emissão de cupom não fiscal e comprovante de saída</strong></li>
-              <li><i data-lucide="check"></i> <strong>Relatórios de faturamento, vendas e lucro DRE</strong></li>
-              <li><i data-lucide="check"></i> <strong>Garantia incondicional de 7 dias</strong></li>
+            <ul>
+              <li>Acesso vitalício completo sem expiração</li>
+              <li>Frente de caixa rápida com atalhos de teclado</li>
+              <li>Suporte a leitor de código de barras USB/sem fio</li>
+              <li>Controle de estoque com alerta de nível mínimo</li>
+              <li>Fechamento cego de caixa e controle de sangrias</li>
+              <li>Controle de caderneta / fiado com limites por cliente</li>
+              <li>Emissão de cupom não fiscal e comprovante de saída</li>
+              <li>Relatórios de faturamento, vendas e lucro DRE</li>
+              <li>Garantia incondicional de 7 dias</li>
             </ul>
-
-            <div class="price-actions" style="margin-top:28px; display:flex; flex-direction:column; gap:10px;">
-              <button class="btn primary" style="background:#10B981; border-color:#10B981; color:#041F1A; font-weight:800; width:100%; justify-content:center;" onclick="openProductWhatsApp('Olá! Quero adquirir a licença vitalícia do Gestão PDV Pro por R$ 299,90.', 'Gestão PDV')">
-                <i data-lucide="shopping-cart"></i>
-                Garantir Licença Vitalícia
-              </button>
-              <button class="btn light" style="width:100%; justify-content:center;" onclick="openDemoModal()">
-                <i data-lucide="monitor-up"></i>
-                Testar a Demonstração Primeiro
-              </button>
+            <div class="pdv-plan-actions">
+              <button class="btn primary" type="button" onclick="openProductWhatsApp('Olá! Quero adquirir a licença vitalícia do Gestão PDV Pro por R$ 299,90.', 'Gestão PDV')">Garantir Licença Vitalícia</button>
+              <button class="btn light" type="button" onclick="openDemoModal()">Testar a Demonstração Primeiro</button>
             </div>
-            <p style="font-size:12px; color:#64748B; text-align:center; margin-top:14px;"><i data-lucide="lock" style="width:13px; height:13px; display:inline-block; vertical-align:-2px;"></i> Ativação imediata com suporte direto da Plena Informática.</p>
+          </div>
+        </div>
+        <p class="pdv-pricing-note"><i data-lucide="lock"></i> Ativação imediata com suporte direto da Plena Informática.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="pdv-block pdv-faq" id="faq">
+      <div class="container">
+        <div class="pdv-faq-grid">
+          <div class="pdv-section-heading">
+            <span class="pdv-kicker">Dúvidas frequentes</span>
+            <h2>Tudo o que você precisa saber sobre o sistema</h2>
+            <p>Respostas diretas sobre leitor de barras, impressora térmica, fiado e licenciamento.</p>
+          </div>
+          <div class="pdv-faq-list">
+            <details>
+              <summary>Qualquer leitor de código de barras funciona no sistema?<i data-lucide="plus"></i></summary>
+              <p>Sim! Qualquer leitor de código de barras USB ou sem fio que funcione no padrão teclado (emulação HID) é reconhecido instantaneamente sem necessidade de instalar drivers adicionais.</p>
+            </details>
+            <details>
+              <summary>O sistema precisa de internet para passar as vendas?<i data-lucide="plus"></i></summary>
+              <p>Não. Toda a operação de caixa, pesquisa de produtos, baixa de estoque e fechamento roda 100% no navegador do computador da sua loja. Você pode operar mesmo com o modem desligado.</p>
+            </details>
+            <details>
+              <summary>Como funciona o controle de caderneta ou fiado?<i data-lucide="plus"></i></summary>
+              <p>Você cadastra os clientes autorizados e define um limite máximo de débito. No momento da venda, selecione "Fiado" e o saldo devedor do cliente é atualizado na hora. Quando ele vier pagar, você registra a entrada e o limite é liberado.</p>
+            </details>
+            <details>
+              <summary>Posso emitir comprovante em impressora de bobina térmica?<i data-lucide="plus"></i></summary>
+              <p>Sim! O sistema emite cupom não fiscal formatado para bobinas de 80mm e 58mm, além de suportar relatórios em formato A4 tradicional pela janela de impressão do computador.</p>
+            </details>
+            <details>
+              <summary>Existe algum limite de produtos ou vendas cadastradas?<i data-lucide="plus"></i></summary>
+              <p>Nenhum limite. Você pode cadastrar milhares de produtos, códigos de barras e registrar quantas vendas quiser sem nenhuma cobrança adicional ou limite de banco de dados.</p>
+            </details>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SEÇÃO FAQ (DÚVIDAS FREQUENTES DE COMERCIANTES) -->
-    <section class="section clinical-white-section" id="faq">
-      <div class="container" style="max-width:840px;">
-        <div class="section-title">
-          <span class="badge">DÚVIDAS FREQUENTES</span>
-          <h2>Tudo o que você precisa saber sobre o sistema</h2>
-          <p>Respostas diretas sobre leitor, impressoras, fiado e licenciamento.</p>
-        </div>
-
-        <div class="clinical-faq-list">
-          <details class="clinical-faq-item">
-            <summary class="clinical-faq-summary">
-              <span class="clinical-faq-summary-left">
-                <span class="clinical-faq-idx" style="background:rgba(16,185,129,0.1); color:#10B981;">01</span>
-                <span>Qualquer leitor de código de barras funciona no sistema?</span>
-              </span>
-              <i data-lucide="chevron-down" class="clinical-faq-chevron"></i>
-            </summary>
-            <p class="clinical-faq-answer">
-              Sim! Qualquer leitor de código de barras USB ou sem fio que funcione no padrão teclado (emulação HID) é reconhecido instantaneamente sem necessidade de instalar drivers adicionais.
-            </p>
-          </details>
-
-          <details class="clinical-faq-item">
-            <summary class="clinical-faq-summary">
-              <span class="clinical-faq-summary-left">
-                <span class="clinical-faq-idx" style="background:rgba(16,185,129,0.1); color:#10B981;">02</span>
-                <span>O sistema precisa de internet para passar as vendas?</span>
-              </span>
-              <i data-lucide="chevron-down" class="clinical-faq-chevron"></i>
-            </summary>
-            <p class="clinical-faq-answer">
-              Não. Toda a operação de caixa, pesquisa de produtos, baixa de estoque e fechamento roda 100% no navegador do computador da sua loja. Você pode operar mesmo com o modem desligado.
-            </p>
-          </details>
-
-          <details class="clinical-faq-item">
-            <summary class="clinical-faq-summary">
-              <span class="clinical-faq-summary-left">
-                <span class="clinical-faq-idx" style="background:rgba(16,185,129,0.1); color:#10B981;">03</span>
-                <span>Como funciona o controle de caderneta ou fiado?</span>
-              </span>
-              <i data-lucide="chevron-down" class="clinical-faq-chevron"></i>
-            </summary>
-            <p class="clinical-faq-answer">
-              Você cadastra os clientes autorizados e define um limite máximo de débito. No momento da venda, selecione "Fiado" e o saldo devedor do cliente é atualizado na hora. Quando ele vier pagar, você registra a entrada e o limite é liberado.
-            </p>
-          </details>
-
-          <details class="clinical-faq-item">
-            <summary class="clinical-faq-summary">
-              <span class="clinical-faq-summary-left">
-                <span class="clinical-faq-idx" style="background:rgba(16,185,129,0.1); color:#10B981;">04</span>
-                <span>Posso emitir comprovante em impressora de bobina térmica?</span>
-              </span>
-              <i data-lucide="chevron-down" class="clinical-faq-chevron"></i>
-            </summary>
-            <p class="clinical-faq-answer">
-              Sim! O sistema emite cupom não fiscal formatado para bobinas de 80mm e 58mm, além de suportar relatórios em formato A4 tradicional pela janela de impressão do computador.
-            </p>
-          </details>
-
-          <details class="clinical-faq-item">
-            <summary class="clinical-faq-summary">
-              <span class="clinical-faq-summary-left">
-                <span class="clinical-faq-idx" style="background:rgba(16,185,129,0.1); color:#10B981;">05</span>
-                <span>Existe algum limite de produtos ou vendas cadastradas?</span>
-              </span>
-              <i data-lucide="chevron-down" class="clinical-faq-chevron"></i>
-            </summary>
-            <p class="clinical-faq-answer">
-              Nenhum limite. Você pode cadastrar milhares de produtos, códigos de barras e registrar quantas vendas quiser sem nenhuma cobrança adicional ou limite de banco de dados.
-            </p>
-          </details>
+    <!-- FECHAMENTO -->
+    <section class="pdv-closing" aria-labelledby="closing-title">
+      <div class="container">
+        <span class="pdv-kicker">Experimente agora · Demonstração interativa</span>
+        <h2 id="closing-title">Modernize o caixa do seu comércio<br><em>com agilidade e total controle.</em></h2>
+        <p>Abra a demonstração do sistema com os dados fictícios do Mercado &amp; Empório Central ou converse com nossa equipe pelo WhatsApp para tirar dúvidas sobre a licença.</p>
+        <div class="pdv-actions">
+          <button class="btn primary" type="button" onclick="openDemoModal()">Abrir Demonstração Real <i data-lucide="play"></i></button>
+          <button class="btn light" type="button" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão PDV Pro e gostaria de tirar dúvidas sobre a licença.', 'Gestão PDV')">Conversar no WhatsApp <i data-lucide="arrow-up-right"></i></button>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA SECTION -->
-    <section class="section assistencia-final-cta" style="background: radial-gradient(circle at 50% 20%, rgba(16,185,129,0.2) 0%, transparent 60%), #03120f; border-top: 1px solid rgba(16,185,129,0.25);">
-      <div class="container" style="max-width:720px; text-align:center;">
-        <span class="eyebrow" style="justify-content:center; background:rgba(16,185,129,0.14); color:#34D399; border-color:rgba(16,185,129,0.3);"><i data-lucide="sparkles"></i> Experimente Agora</span>
-        <h2 style="color:#F8FAFC;">Modernize o caixa do seu comércio com agilidade e total controle.</h2>
-        <p style="color:#94A3B8; font-size:16px;">Abra a demonstração do sistema agora mesmo ou converse com a equipe da Plena pelo WhatsApp para tirar suas dúvidas.</p>
-        <div class="actions" style="justify-content:center;">
-          <button class="btn primary" style="background:#10B981; border-color:#10B981; color:#041F1A; font-weight:800;" onclick="openDemoModal()">
-            <i data-lucide="monitor-up"></i>
-            Abrir Demonstração Real
-          </button>
-          <button class="btn light" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão PDV Pro e gostaria de tirar dúvidas sobre a licença.', 'Gestão PDV')">
-            <i data-lucide="message-circle"></i>
-            Conversar no WhatsApp
-          </button>
-        </div>
-      </div>
-    </section>
-  <aside class="plena-discovery plena-discovery--related" aria-label="Outras soluções da Plena"><div class="plena-discovery__shell"><span class="plena-discovery__eyebrow">Encontre outras soluções</span><nav><a href="../tecnologia/tecnologia.html#segmentos" data-plena-kind="segment">Sistemas para outros segmentos</a><a href="../tecnologia/sites-premium/" data-plena-kind="service">Sites profissionais para seu negócio</a><a href="../tecnologia/automacoes.html" data-plena-kind="service">Automações e integrações</a></nav></div></aside>
-</main>
+    <aside class="plena-discovery plena-discovery--related" aria-label="Outras soluções da Plena"><div class="plena-discovery__shell"><span class="plena-discovery__eyebrow">Encontre outras soluções</span><nav><a href="../tecnologia/tecnologia.html#segmentos" data-plena-kind="segment">Sistemas para outros segmentos</a><a href="../tecnologia/sites-premium/" data-plena-kind="service">Sites profissionais para seu negócio</a><a href="../tecnologia/automacoes.html" data-plena-kind="service">Automações e integrações</a></nav></div></aside>
+  </main>
 
   <!-- RODAPÉ -->
-  <footer class="footer">
-    Plena Informática · Gestão PDV Pro · CNPJ: 14.549.923/0001-35 · São José dos Campos - SP
+  <footer class="pdv-footer">
+    <div class="container">
+      <div class="pdv-footer-top">
+        <a href="../index.html" class="pdv-footer-brand">Gestão PDV Pro <span>por Plena Informática</span></a>
+        <nav aria-label="Navegação do rodapé">
+          <a href="../index.html">Início</a>
+          <a href="../tecnologia/tecnologia.html">Catálogo Plena</a>
+          <button type="button" onclick="openProductWhatsApp('Olá! Vim pela página do Gestão PDV Pro e gostaria de tirar dúvidas sobre a licença.', 'Gestão PDV')">WhatsApp <i data-lucide="arrow-up-right"></i></button>
+        </nav>
+      </div>
+      <p>Plena Informática · Gestão PDV Pro · CNPJ: 59.779.242/0001-78 · São José dos Campos, SP</p>
+    </div>
   </footer>
 
   <!-- MODAL DE DEMONSTRAÇÃO -->
   <div id="demo-modal" role="dialog" aria-modal="true" aria-label="Demo Gestão PDV">
     <div class="mbox">
       <div class="mhead">
-        <i data-lucide="monitor-up" style="color:#10B981;width:16px;height:16px;"></i>
-        <span>Plena Gestão PDV Pro — Demonstração Operacional Mercado & Empório Central</span>
+        <i data-lucide="monitor-up" style="color:#047857;width:16px;height:16px;"></i>
+        <span>Plena Gestão PDV Pro — Demonstração Operacional Mercado &amp; Empório Central</span>
         <button class="mclose" onclick="closeDemoModal()" aria-label="Fechar">×</button>
       </div>
       <div class="demo-frame-stage">
@@ -540,7 +439,7 @@
         <div class="demo-frame-loader" aria-live="polite">
           <span class="demo-frame-loader__spinner" aria-hidden="true"></span>
           <strong>Carregando Demonstração Operacional</strong>
-          <p>Preparando a base de dados do Mercado & Empório Central para você explorar o sistema.</p>
+          <p>Preparando a base de dados do Mercado &amp; Empório Central para você explorar o sistema.</p>
           <a id="demo-direct-link" href="#" target="_blank" rel="noopener noreferrer">Abrir em nova aba</a>
         </div>
         <iframe id="demo-frame" src="" title="Demo Gestão PDV" allow="fullscreen"></iframe>
@@ -549,7 +448,8 @@
   </div>
 
   <script src="../tecnologia/demos/gestao-pdv/assets/libs/lucide.js"></script>
-  <script src="assets/produtos.js"></script>
+  <script src="assets/produtos.js?v=2"></script>
+  <script src="assets/gestao-pdv.js"></script>
   <script>
     if (window.lucide) {
       window.lucide.createIcons();

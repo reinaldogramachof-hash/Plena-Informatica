@@ -21,8 +21,8 @@ function toggleSorveteriaTheme() {
     applySorveteriaTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark', true);
 }
 function restoreSorveteriaTheme() {
-    let theme = 'dark';
-    try { theme = localStorage.getItem(SORVETERIA_THEME_KEY) || 'dark'; } catch {}
+    let theme = 'light';
+    try { theme = localStorage.getItem(SORVETERIA_THEME_KEY) || 'light'; } catch {}
     applySorveteriaTheme(theme);
 }
 restoreSorveteriaTheme();

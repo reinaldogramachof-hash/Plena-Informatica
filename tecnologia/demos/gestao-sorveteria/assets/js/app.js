@@ -115,7 +115,13 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 // --- DETECÇÃO DE IFRAME ---
 if (window.self !== window.top) {
-    document.body.classList.add('in-iframe');
+    if (document.body) {
+        document.body.classList.add('in-iframe');
+    } else {
+        document.addEventListener('DOMContentLoaded', function () {
+            if (document.body) document.body.classList.add('in-iframe');
+        });
+    }
 }
 
 // --- ATIVAÇÃO DE LICENÇA V12.1 ---

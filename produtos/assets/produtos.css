@@ -1975,7 +1975,6 @@ ul.clean li::before { content: '✓'; position: absolute; left: 0; color: var(--
 .demo-frame-loader a { display: none; margin-top: 4px; color: #FFFFFF; font-size: 13px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
 #demo-modal.is-delayed .demo-frame-loader a { display: inline; }
 @keyframes demo-frame-spin { to { transform: rotate(360deg); } }
-}
 @media (max-width: 1100px) {
   .real-system-page .hero-grid { grid-template-columns: 1fr; }
   .system-app-preview { grid-template-columns: 200px minmax(0, 1fr); }

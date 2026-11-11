@@ -1,6 +1,6 @@
 /**
- * demo-bypass.js — Plena MicroSaaS • Gestão Assistência
- * Libera o app em modo demonstração e adiciona uma camada comercial guiada.
+ * demo-bypass.js — Plena MicroSaaS • Gestão Assistência Pro
+ * Libera o app em modo demonstração, assegura tema claro inicial e ajusta a faixa superior sem cobrir controles.
  */
 (function () {
     'use strict';
@@ -9,64 +9,22 @@
     var WHATSAPP_PHONE = '5512992191018';
     var WHATSAPP_MESSAGE = 'Olá! Vim pelo site da Plena e testei a demonstração do Assistência Pro. Gostaria de saber planos e implantação.';
     var DEMO_DATA_KEY = 'plena_assistencia_demo_seed_v1';
-    var DEMO_GUIDES = {
-        dashboard: {
-            label: 'Visão geral',
-            title: 'Comece pelo panorama',
-            steps: ['Confira os indicadores do mês.', 'Abra a O.S. 1048 em análise.', 'Veja os alertas de estoque baixo.']
-        },
-        orders: {
-            label: 'Ordens de serviço',
-            title: 'Simule um atendimento',
-            steps: ['Abra a O.S. 1048 da Marina.', 'Confira diagnóstico, peças e técnico.', 'Altere o status para acompanhar o fluxo.']
-        },
-        clients: {
-            label: 'Clientes',
-            title: 'Consulte o histórico',
-            steps: ['Pesquise por Marina Duarte.', 'Abra o cadastro e veja os dados.', 'Use o histórico para contextualizar o atendimento.']
-        },
-        pdv: {
-            label: 'PDV - vendas',
-            title: 'Faça uma venda rápida',
-            steps: ['O caixa já está aberto para o teste.', 'Adicione um acessório ao carrinho.', 'Finalize a venda por Pix ou cartão.']
-        },
-        inventory: {
-            label: 'Estoque',
-            title: 'Acompanhe as peças',
-            steps: ['Filtre os itens com estoque baixo.', 'Abra o histórico de um produto.', 'Ajuste quantidade ou preço para testar.']
-        },
-        transactions: {
-            label: 'Fluxo de caixa',
-            title: 'Veja a saúde financeira',
-            steps: ['Compare receitas e despesas.', 'Filtre os lançamentos por período.', 'Cadastre uma entrada ou saída de teste.']
-        },
-        reports: {
-            label: 'Relatórios',
-            title: 'Consolide a operação',
-            steps: ['Escolha o período desejado.', 'Confira os dados de O.S. e vendas.', 'Gere um relatório para análise.']
-        },
-        settings: {
-            label: 'Configurações',
-            title: 'Personalize a operação',
-            steps: ['Confira os dados da empresa.', 'Veja a equipe de técnicos.', 'Ajuste preferências em uma cópia de teste.']
-        },
-        instructions: {
-            label: 'Manual de uso',
-            title: 'Avance no seu ritmo',
-            steps: ['Use os tópicos para entender cada etapa.', 'Retorne ao módulo que quiser testar.', 'Feche este card quando já estiver familiarizado.']
-        },
-        about: {
-            label: 'Informações',
-            title: 'Próximo passo',
-            steps: ['Explore os módulos que mais importam.', 'Use os dados fictícios sem receio.', 'Chame a Plena para conhecer a implantação.']
-        }
-    };
+    var SESSION_BOOT_KEY = 'plena_assistencia_demo_theme_booted';
     window.PLENA_DEMO_WHATSAPP = WHATSAPP_PHONE;
 
-    localStorage.setItem('assistencia_license', 'DEMO-PLENA-2026');
-    localStorage.setItem('assistencia_email', 'demo@plena.app');
+    try {
+        localStorage.setItem('assistencia_license', 'DEMO-PLENA-2026');
+        localStorage.setItem('assistencia_email', 'demo@plena.app');
+        if (!sessionStorage.getItem(SESSION_BOOT_KEY)) {
+            document.documentElement.classList.remove('dark');
+            sessionStorage.setItem(SESSION_BOOT_KEY, '1');
+        }
+    } catch (e) {}
 
-    window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); }, true);
+    window.addEventListener('beforeinstallprompt', function (e) {
+        e.preventDefault();
+        if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+    }, true);
 
     function unlock() {
         var login = document.getElementById('view-login');
@@ -84,7 +42,7 @@
         var receiptModal = document.getElementById('welcome-receipt-modal');
         if (receiptModal) receiptModal.classList.add('hidden');
 
-        ['install-btn', 'pwa-install-btn'].forEach(function (id) {
+        ['install-btn', 'pwa-install-btn', 'install-app-btn'].forEach(function (id) {
             var el = document.getElementById(id);
             if (el) { el.style.display = 'none'; el.classList.add('hidden'); el.classList.remove('flex'); }
         });
@@ -96,7 +54,10 @@
 
     function resetDemo() {
         if (!confirm('Resetar os dados fictícios desta demonstração?')) return;
-        localStorage.clear();
+        try {
+            localStorage.clear();
+            sessionStorage.removeItem(SESSION_BOOT_KEY);
+        } catch (e) {}
         location.reload();
     }
 
@@ -137,9 +98,10 @@
 
         var createdAt = dateOffset(-12, 9).toISOString();
         db.settings = Object.assign({}, db.settings, {
-            companyName: 'Plena Informática',
+            companyName: 'Assistência TechFix',
             companyPhone: '(12) 99219-1018',
             companyAddress: 'São José dos Campos - SP',
+            theme: 'light',
             technicians: ['Carlos Mendes', 'Juliana Rocha', 'Diego Alves']
         });
 
@@ -191,6 +153,9 @@
     }
 
     function refreshDemoViews() {
+        document.querySelectorAll('.company-name-display').forEach(function (el) {
+            el.textContent = (db && db.settings && db.settings.companyName) || 'Assistência TechFix';
+        });
         ['renderDashboard', 'renderOrders', 'renderClients', 'renderInventory', 'renderTransactions', 'renderPDVGrid', 'renderPDVSalesHistory', 'updateCashierUI', 'populatePDVClients'].forEach(function (functionName) {
             if (typeof window[functionName] === 'function') window[functionName]();
         });
@@ -205,55 +170,43 @@
         if (attempt < 20) window.setTimeout(function () { seedDemoWhenReady(attempt + 1); }, 50);
     }
 
-    function getActiveDemoView() {
-        var activeView = document.querySelector('.view-section:not(.hide)');
-        return activeView ? activeView.id.replace('view-', '') : 'dashboard';
-    }
-
-    function updateDemoGuide(view) {
-        var guide = document.getElementById('plena-demo-guide');
-        if (!guide) return;
-
-        var content = DEMO_GUIDES[view] || DEMO_GUIDES.dashboard;
-        guide.innerHTML = '<button type="button" aria-label="Fechar roteiro rápido" style="position:absolute;top:8px;right:10px;background:transparent;border:0;color:#94a3b8;font-size:18px;cursor:pointer" onclick="this.parentElement.remove()">×</button>' +
-            '<span style="display:block;margin-bottom:4px;color:#67e8f9;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase">' + content.label + '</span>' +
-            '<strong style="display:block;color:#fff;margin-bottom:8px;font-size:14px">' + content.title + '</strong>' +
-            '<ol style="margin:0;padding-left:18px;font-size:12px;line-height:1.55;color:#cbd5e1"><li>' + content.steps[0] + '</li><li>' + content.steps[1] + '</li><li>' + content.steps[2] + '</li></ol>';
-    }
-
-    function initContextualDemoGuide() {
-        var currentView = getActiveDemoView();
-        updateDemoGuide(currentView);
-
-        if (typeof window.router === 'function' && !window.router.plenaDemoGuide) {
-            var originalRouter = window.router;
-            var guidedRouter = function (view) {
-                var result = originalRouter.apply(this, arguments);
-                updateDemoGuide(view);
-                return result;
-            };
-            guidedRouter.plenaDemoGuide = true;
-            window.router = guidedRouter;
-        }
+    function syncBannerOffset(banner) {
+        if (!banner) return;
+        var h = Math.max(38, Math.ceil(banner.getBoundingClientRect().height));
+        document.documentElement.style.setProperty('--plena-demo-banner-h', h + 'px');
     }
 
     function injectDemoLayer() {
+        if (!document.getElementById('plena-demo-layout-style')) {
+            var style = document.createElement('style');
+            style.id = 'plena-demo-layout-style';
+            style.textContent = [
+                'body.plena-demo-has-banner { padding-top: var(--plena-demo-banner-h, 40px); }',
+                'body.plena-demo-has-banner #sidebar { top: var(--plena-demo-banner-h, 40px); height: calc(100vh - var(--plena-demo-banner-h, 40px)); }',
+                'body.plena-demo-has-banner #main-header { top: var(--plena-demo-banner-h, 40px); }'
+            ].join('\n');
+            document.head.appendChild(style);
+        }
+
         if (!document.getElementById('plena-demo-banner')) {
             var banner = document.createElement('div');
             banner.id = 'plena-demo-banner';
-            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:999999;background:#0f172a;color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center;padding:7px 12px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 2px 10px rgba(0,0,0,.35)';
-            banner.innerHTML = '<span>Modo demonstração • ' + DEMO_PRODUCT + ' • dados fictícios</span><button id="plena-demo-cta" type="button" style="border:0;background:#22c55e;color:#052e16;border-radius:999px;padding:6px 10px;font-weight:900;cursor:pointer">Gostei, chamar no WhatsApp</button><button id="plena-demo-reset" type="button" style="border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:999px;padding:5px 9px;font-weight:800;cursor:pointer">Resetar demo</button>';
+            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:999999;background:#0f2140;border-bottom:1px solid rgba(96,165,250,0.32);color:#f5f7fb;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;padding:7px 14px;font-size:11px;font-weight:700;box-shadow:0 2px 10px rgba(15,33,64,.25);font-family:Inter,system-ui,sans-serif;';
+            banner.innerHTML = '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;"></span> Modo demonstração • <strong>' + DEMO_PRODUCT + '</strong> • Assistência TechFix</span>' +
+                '<button id="plena-demo-cta" type="button" style="border:0;background:#2563eb;color:#ffffff;border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer;transition:background 0.2s;">Gostei, chamar no WhatsApp</button>' +
+                '<button id="plena-demo-reset" type="button" style="border:1px solid rgba(255,255,255,.28);background:transparent;color:#dbeafe;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;">Resetar demo</button>';
             document.body.prepend(banner);
-            document.body.style.paddingTop = '42px';
+            document.body.classList.add('plena-demo-has-banner');
+            syncBannerOffset(banner);
+
+            if (typeof ResizeObserver === 'function') {
+                new ResizeObserver(function () { syncBannerOffset(banner); }).observe(banner);
+            } else {
+                window.addEventListener('resize', function () { syncBannerOffset(banner); });
+            }
+
             document.getElementById('plena-demo-cta').addEventListener('click', openWhatsApp);
             document.getElementById('plena-demo-reset').addEventListener('click', resetDemo);
-        }
-
-        if (!document.getElementById('plena-demo-guide')) {
-            var guide = document.createElement('div');
-            guide.id = 'plena-demo-guide';
-            guide.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:999998;max-width:288px;background:rgba(2,6,23,.94);color:#e5e7eb;border:1px solid rgba(103,232,249,.22);border-radius:16px;padding:14px 16px;box-shadow:0 14px 38px rgba(0,0,0,.28);font-family:Inter,system-ui,sans-serif';
-            document.body.appendChild(guide);
         }
     }
 
@@ -279,6 +232,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        document.documentElement.classList.remove('dark');
         unlock();
         var tries = 0;
         var guard = setInterval(function () {
@@ -287,10 +241,7 @@
         }, 100);
         injectDemoLayer();
         window.setTimeout(function () {
-            initContextualDemoGuide();
             seedDemoWhenReady(0);
         }, 0);
     });
 })();
-
-

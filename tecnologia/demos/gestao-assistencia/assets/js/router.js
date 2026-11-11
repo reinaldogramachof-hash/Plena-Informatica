@@ -4,7 +4,8 @@
 // ==========================================
 
 function router(view) {
-    console.log("Roteando para: " + view);
+    const normalizedView = view === 'financial' ? 'transactions' : view;
+    console.log("Roteando para: " + normalizedView);
 
     // Ocultar todas as views
     document.querySelectorAll('.view-section').forEach(el => {
@@ -17,19 +18,19 @@ function router(view) {
     });
 
     // Mostrar a view solicitada
-    const viewEl = document.getElementById('view-' + view);
+    const viewEl = document.getElementById('view-' + normalizedView);
     if (viewEl) {
         viewEl.classList.remove('hide');
         // Adiciona fade in animation apenas se não tiver
         viewEl.classList.add('fade-in');
         setTimeout(() => viewEl.classList.remove('fade-in'), 400);
     } else {
-        console.error('View não encontrada:', view);
+        console.error('View não encontrada:', normalizedView);
         return;
     }
 
     // Ativar o link correspondente no menu
-    const navEl = document.getElementById('nav-' + view);
+    const navEl = document.getElementById('nav-' + normalizedView);
     if (navEl) {
         navEl.classList.add('active-nav');
     }
@@ -45,7 +46,7 @@ function router(view) {
     }
 
     // Atualizar título e disparar funções de renderização específicas
-    switch (view) {
+    switch (normalizedView) {
         case 'dashboard':
             document.getElementById('page-title').textContent = 'Visão Geral';
             if (typeof renderDashboard === 'function') renderDashboard();
@@ -68,8 +69,8 @@ function router(view) {
             if (typeof renderPDVSalesHistory === 'function') renderPDVSalesHistory();
             if (typeof updateCashierUI === 'function') updateCashierUI();
             break;
-        case 'financial':
-            document.getElementById('page-title').textContent = 'Financeiro';
+        case 'transactions':
+            document.getElementById('page-title').textContent = 'Fluxo de Caixa';
             if (typeof renderTransactions === 'function') renderTransactions();
             break;
         case 'reports':
