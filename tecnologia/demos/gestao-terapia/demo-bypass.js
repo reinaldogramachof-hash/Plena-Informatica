@@ -245,13 +245,28 @@
                 rawSeed = adjustSeedDates(JSON.parse(JSON.stringify(window.THERAPY_DEMO_SEED)));
             }
 
+            // O padrão da vitrine também vale para bases fictícias de sessões anteriores.
+            if (rawSeed) {
+                rawSeed.settings = rawSeed.settings || {};
+                rawSeed.settings.assistant = Object.assign({}, rawSeed.settings.assistant, { palette: 'emerald' });
+            }
+
             var clean = (typeof TherapyData !== 'undefined' && TherapyData.normalize)
                 ? TherapyData.normalize(rawSeed || base, base, true, true)
                 : (rawSeed || base);
 
             memData = clean;
-            setTimeout(function () {
-                onUnlock(clean);
+            setTimeout(async function () {
+                await onUnlock(clean);
+                if (window.TherapyDemoEntry) {
+                    window.TherapyDemoEntry.open(location.search, {
+                        navigate: function (view) { return window.router(view); },
+                        openPatient: function (id) {
+                            if (clean.patients.some(function (patient) { return patient.id === id; })) TherapyPatients.open(id);
+                        }
+                    });
+                    updateDemoGuide(getActiveDemoView());
+                }
                 unlockUI();
             }, 10);
         };
@@ -315,11 +330,12 @@
         var guide = document.getElementById('plena-demo-guide');
         if (!guide) return;
 
-        var content = DEMO_GUIDES[view] || DEMO_GUIDES.dashboard;
-        guide.innerHTML = '<button type="button" aria-label="Fechar guia rápido" style="position:absolute;top:8px;right:10px;background:transparent;border:0;color:#94a3b8;font-size:18px;cursor:pointer;line-height:1;" onclick="this.parentElement.remove()">×</button>' +
-            '<span style="display:block;margin-bottom:4px;color:#93c5fd;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;">' + content.label + '</span>' +
-            '<strong style="display:block;color:#fff;margin-bottom:8px;font-size:13px;line-height:1.3;">' + content.title + '</strong>' +
-            '<ol style="margin:0;padding-left:18px;font-size:12px;line-height:1.5;color:#cbd5e1;"><li>' + content.steps[0] + '</li><li>' + content.steps[1] + '</li><li>' + content.steps[2] + '</li></ol>';
+        var aliases = { schedule: 'agenda', financial: 'finance', settings: 'system', prescriptions: 'orientations' };
+        var content = DEMO_GUIDES[aliases[view] || view] || DEMO_GUIDES.dashboard;
+        guide.innerHTML = '<button type="button" aria-label="Fechar guia rápido" style="position:absolute;top:8px;right:10px;background:transparent;border:0;color:var(--color-muted);font-size:18px;cursor:pointer;line-height:1;" onclick="this.parentElement.remove()">×</button>' +
+            '<span style="display:block;margin-bottom:4px;color:var(--color-accent-text);font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;">' + content.label + '</span>' +
+            '<strong style="display:block;color:var(--color-text);margin-bottom:8px;font-size:13px;line-height:1.3;">' + content.title + '</strong>' +
+            '<ol style="margin:0;padding-left:18px;font-size:12px;line-height:1.5;color:var(--color-muted);"><li>' + content.steps[0] + '</li><li>' + content.steps[1] + '</li><li>' + content.steps[2] + '</li></ol>';
     }
 
     function initContextualDemoGuide() {
@@ -343,10 +359,10 @@
         if (!document.getElementById('plena-demo-banner')) {
             var banner = document.createElement('div');
             banner.id = 'plena-demo-banner';
-            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:999999;background:#090d16;border-bottom:1px solid rgba(59,130,246,0.3);color:#e2e8f0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;padding:7px 14px;font-size:11px;font-weight:700;box-shadow:0 2px 12px rgba(0,0,0,.5);font-family:Inter,system-ui,sans-serif;';
-            banner.innerHTML = '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:7px;height:7px;border-radius:50%;background:#3b82f6;"></span> Modo demonstração • <strong>' + DEMO_PRODUCT + '</strong> • Clínica Horizonte (Dra. Marina Duarte)</span>' +
-                '<button id="plena-demo-cta" type="button" style="border:0;background:#2563eb;color:#fff;border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer;transition:background 0.2s;">Gostei, falar no WhatsApp</button>' +
-                '<button id="plena-demo-reset" type="button" style="border:1px solid rgba(255,255,255,.2);background:transparent;color:#94a3b8;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;">Resetar dados</button>';
+            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:999999;background:var(--color-surface);border-bottom:1px solid var(--color-border);color:var(--color-text);display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center;padding:7px 14px;font-size:11px;font-weight:700;box-shadow:0 2px 12px rgba(0,0,0,.06);font-family:Inter,system-ui,sans-serif;';
+            banner.innerHTML = '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);"></span> Modo demonstração • <strong>' + DEMO_PRODUCT + '</strong> • Clínica Horizonte (Dra. Marina Duarte)</span>' +
+                '<button id="plena-demo-cta" type="button" style="border:0;background:var(--color-accent);color:#fff;border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer;transition:background 0.2s;">Gostei, falar no WhatsApp</button>' +
+                '<button id="plena-demo-reset" type="button" style="border:1px solid var(--color-border);background:transparent;color:var(--color-muted);border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer;">Resetar dados</button>';
             document.body.prepend(banner);
             document.body.style.paddingTop = '38px';
 
@@ -357,7 +373,7 @@
         if (!document.getElementById('plena-demo-guide')) {
             var guide = document.createElement('div');
             guide.id = 'plena-demo-guide';
-            guide.style.cssText = 'position:fixed;right:18px;bottom:18px;z-index:999998;max-width:300px;background:rgba(11,15,25,.96);color:#e5e7eb;border:1px solid rgba(59,130,246,.35);border-radius:14px;padding:14px 16px;box-shadow:0 14px 40px rgba(0,0,0,.45);font-family:Inter,system-ui,sans-serif;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);';
+            guide.style.cssText = 'position:fixed;right:18px;bottom:18px;z-index:999998;max-width:300px;background:var(--color-surface);color:var(--color-text);border:1px solid var(--color-border);border-radius:14px;padding:14px 16px;box-shadow:0 14px 40px rgba(0,0,0,.12);font-family:Inter,system-ui,sans-serif;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);';
             document.body.appendChild(guide);
         }
     }

@@ -38,3 +38,11 @@
 - Regra operacional: não reverter, sobrescrever ou reorganizar essas mudanças;
   integrar com elas ou escalar conflitos.
 - Alcance: todo o repositório.
+
+## 2026-11-11 — Identificação com o ambiente do cliente
+
+- Origem: responsável pelo projeto.
+- Contexto: evolução da landing do Gestão Terapia com fotografia de consultório e referência do modelo premium Clínica & Saúde.
+- Orientação: construir a linguagem visual em torno do cenário do profissional que vai comprar, com ambiente harmonioso e apresentação dos módulos reais do sistema.
+- Ação adotada: fotografia na abertura, paleta marfim/verde, títulos serifados e blocos editoriais com capturas fictícias da agenda, acompanhamento e financeiro.
+- Áreas afetadas: landing do Gestão Terapia; futuras adaptações por segmento exigem avaliação própria.

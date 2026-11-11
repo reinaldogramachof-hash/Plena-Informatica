@@ -2,6 +2,12 @@
 const THERAPY_THEME_KEY = 'terapia_theme_preference';
 const THERAPY_PALETTE_KEY = 'terapia_accent_palette';
 
+// A apresentação comercial reinicia neste padrão; os controles seguem disponíveis na sessão.
+try {
+    localStorage.setItem(THERAPY_THEME_KEY, 'light');
+    localStorage.setItem(THERAPY_PALETTE_KEY, 'emerald');
+} catch {}
+
 const THERAPY_PALETTES = {
     blue: ['Azul Sereno', '#1D4ED8', '#1E40AF', '#93C5FD', '29,78,216', '59,130,246'],
     indigo: ['Índigo Mente', '#4338CA', '#3730A3', '#A5B4FC', '67,56,202', '165,180,252'],
@@ -20,11 +26,11 @@ function getTherapyPaletteKey() {
         const stored = localStorage.getItem(THERAPY_PALETTE_KEY);
         if (stored && THERAPY_PALETTES[stored]) return stored;
     } catch {}
-    return 'blue';
+    return 'emerald';
 }
 
 function applyTherapyPalette(key, persist = false) {
-    const palette = THERAPY_PALETTES[key] || THERAPY_PALETTES.blue;
+    const palette = THERAPY_PALETTES[key] || THERAPY_PALETTES.emerald;
     const isDark = document.documentElement.classList.contains('dark');
     const variables = ['--color-accent', '--color-accent-hover', '--color-accent-text', '--color-accent-soft'];
     const values = [
@@ -62,8 +68,8 @@ function toggleSorveteriaTheme() {
     if (typeof TherapySystem !== 'undefined') TherapySystem.status();
 }
 function restoreSorveteriaTheme() {
-    let theme = 'dark';
-    try { theme = localStorage.getItem(THERAPY_THEME_KEY) || 'dark'; } catch {}
+    let theme = 'light';
+    try { theme = localStorage.getItem(THERAPY_THEME_KEY) || 'light'; } catch {}
     applySorveteriaTheme(theme);
 }
 restoreSorveteriaTheme();

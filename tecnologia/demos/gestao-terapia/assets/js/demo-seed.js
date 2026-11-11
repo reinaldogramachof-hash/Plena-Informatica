@@ -40,7 +40,7 @@
     "assistant": {
       "confirmationDays": 1,
       "backupDays": 7,
-      "palette": "blue",
+      "palette": "emerald",
       "logo": "",
       "signature": "Clínica Horizonte",
       "templates": {

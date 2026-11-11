@@ -33,3 +33,11 @@
 - Consequência: a primeira etapa futura será o núcleo financeiro com receitas,
   despesas e fechamento diário.
 - Documento: `docs/superpowers/specs/2026-06-11-admin-cash-control-integration-design.md`.
+
+## 2026-11-11 — Identidade de consultório para Gestão Terapia
+
+- Origem: responsável pelo projeto, após avaliação do piloto visual.
+- Decisão: orientar a landing de Terapia pela atmosfera da fotografia de consultório fornecida e pela referência Clínica Vitalis: base clara quente, verde profundo, títulos serifados e composições com telas reais da demo.
+- Alternativa considerada: manter a direção navy/azul do primeiro piloto.
+- Motivo: aproximar a apresentação do contexto de trabalho do terapeuta, mantendo o sistema identificável e demonstrável.
+- Consequência: implementação isolada no Terapia; replicação para outros segmentos depende da aprovação e adaptação de cada identidade.

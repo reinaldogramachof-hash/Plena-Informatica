@@ -73,15 +73,17 @@ function toggleProductMobileMenu(force) {
     modal.classList.remove('is-loading', 'is-delayed');
   });
 
-  window.openDemoModal = function openDemoModal() {
+  window.openDemoModal = function openDemoModal(parameters = {}) {
     if (window.matchMedia('(max-width: 767px)').matches && !useFullscreenDemo) {
       openProductWhatsApp(mobileMessage, demoTitle);
       return;
     }
 
     window.clearTimeout(demoLoadTimer);
-    const cacheBuster = demoUrl.includes('?') ? '&_t=' + Date.now() : '?_t=' + Date.now();
-    const currentDemoUrl = demoUrl + cacheBuster;
+    const destination = new URL(demoUrl, document.baseURI);
+    Object.entries(parameters).forEach(([key, value]) => destination.searchParams.set(key, String(value)));
+    destination.searchParams.set('_t', String(Date.now()));
+    const currentDemoUrl = destination.href;
     if (directLink) directLink.href = currentDemoUrl;
     modal.classList.add('is-loading');
     modal.classList.remove('is-delayed');

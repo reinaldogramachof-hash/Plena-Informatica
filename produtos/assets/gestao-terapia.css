@@ -1,0 +1,354 @@
+/* Identidade de consultório: estilos restritos ao Gestão Terapia. */
+.therapy-product-page {
+  --therapy-navy: #183c34;
+  --therapy-blue: #326956;
+  --therapy-ink: #203d34;
+  --therapy-muted: #59675d;
+  --therapy-line: #dcded0;
+  background: #f8f6ef;
+  color: var(--therapy-ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.therapy-product-page .container { width: 100%; max-width: 1248px; padding-inline: 24px; }
+.therapy-product-page main { padding-top: 80px; }
+.therapy-product-page section[id], .therapy-product-page .therapy-feature[id], .therapy-product-page #conteudo { scroll-margin-top: 104px; }
+.therapy-product-page :focus-visible { outline: 3px solid #8f7948; outline-offset: 5px; }
+.therapy-product-page button, .therapy-product-page a { -webkit-tap-highlight-color: transparent; }
+.therapy-product-page button { font-family: inherit; }
+.therapy-product-page svg { flex-shrink: 0; }
+.therapy-product-page .header { height: 80px; background: #f7f5eef5; border-bottom: 1px solid #203d3415; animation: none; box-shadow: none; }
+.therapy-product-page .nav { max-width: 1248px; height: 80px; padding: 0 24px; }
+.therapy-product-page .nav-links { gap: 24px; font-size: 13px; color: #4d6154; }
+.therapy-product-page .nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
+.therapy-product-page .nav-links a:hover { color: #183c34; }
+.therapy-product-page .assistencia-nav-brand__copy small { color: #69756a; letter-spacing: .07em; font-size: 10px; }
+.therapy-product-page .assistencia-nav-brand__copy strong { font-size: 16px; color: #203d34; }
+.therapy-product-page .btn { min-height: 48px; padding: 12px 18px; border-radius: 5px; font-size: 14px; font-weight: 600; line-height: 1.4; gap: 9px; transition: background .18s ease, border-color .18s ease; }
+.therapy-product-page .btn:hover { transform: none; }
+.therapy-product-page .btn.primary { background: #326956; border-color: #326956; color: #fff; box-shadow: none; }
+.therapy-product-page .btn.primary:hover { background: #244c3d; border-color: #244c3d; }
+.therapy-product-page .btn.light { background: #fff; border-color: #d3d8cb; color: #203d34; }
+.therapy-product-page .btn.light:hover { background: #edf0e5; border-color: #819b85; }
+.therapy-product-page .nav .btn { min-height: 44px !important; }
+.therapy-product-page .nav .assistencia-nav-whatsapp { width: 44px; height: 44px; padding: 0; }
+.therapy-product-page .nav-mobile-actions { gap: 8px; }
+.therapy-product-page .mobile-menu-toggle { width: 44px; height: 44px; }
+.therapy-product-page .therapy-skip { position: fixed; left: 20px; top: -100px; z-index: 10001; padding: 12px 20px; background: #fff; color: #183c34; border-radius: 8px; }
+.therapy-product-page .therapy-skip:focus { top: 12px; }
+.therapy-product-page .therapy-kicker { display: block; color: #326956; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; }
+.therapy-product-page .therapy-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.therapy-product-page .therapy-closing .therapy-kicker { color: #c2d4bd; }
+.therapy-product-page .therapy-text-link, .therapy-product-page .therapy-footer button { display: inline-flex; align-items: center; justify-content: flex-start; gap: 7px; background: none; border: none; padding: 8px 0; min-height: 44px; color: #326956; font-size: 13px; font-weight: 650; cursor: pointer; }
+.therapy-product-page .therapy-block { padding: 80px 0; }
+.therapy-product-page .therapy-section-heading { max-width: 620px; margin-bottom: 40px; }
+.therapy-product-page .therapy-section-heading h2, .therapy-product-page .therapy-closing h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.2vw, 46px); line-height: 1.12; font-weight: 400; letter-spacing: -.02em; color: #203d34; margin: 0 0 22px; }
+.therapy-product-page .therapy-section-heading p { font-size: 16px; color: #657168; line-height: 1.7; margin: 0; }
+.therapy-product-page .therapy-section-heading--center { margin-inline: auto; text-align: center; max-width: 700px; }
+.therapy-product-page .therapy-plan ul { padding: 0; margin: 0; list-style: none; display: grid; gap: 12px; }
+.therapy-product-page .therapy-plan li { position: relative; padding-left: 19px; font-size: 14px; line-height: 1.55; color: #59675d; }
+.therapy-product-page .therapy-text-link svg { width: 16px; height: 16px; }
+.therapy-product-page .therapy-privacy-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 88px; }
+.therapy-product-page .therapy-privacy-grid .therapy-section-heading { margin: 0; }
+.therapy-product-page .therapy-text-link { margin-top: 20px; font-size: 14px; }
+.therapy-product-page .therapy-privacy-content > article { display: flex; align-items: flex-start; gap: 18px; padding-bottom: 26px; }
+.therapy-product-page .therapy-privacy-content > article > svg { width: 23px; height: 23px; color: #326956; margin-top: 3px; }
+.therapy-product-page .therapy-privacy-content h3 { font-size: 18px; line-height: 1.4; font-weight: 650; margin: 0 0 9px; }
+.therapy-product-page .therapy-privacy-content p { font-size: 14px; line-height: 1.75; color: #657168; margin: 0; }
+.therapy-product-page .therapy-professional-note { display: flex; gap: 14px; padding: 20px; background: #e9ece1; border-radius: 10px; }
+.therapy-product-page .therapy-professional-note svg { color: #657168; width: 20px; height: 20px; margin-top: 3px; }
+.therapy-product-page .therapy-professional-note strong { display: block; color: #203d34; margin-bottom: 4px; }
+.therapy-product-page .therapy-pricing { background: #f0eee6; border-block: 1px solid #e4e3d8; }
+.therapy-product-page .therapy-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding-top: 12px; }
+.therapy-product-page .therapy-plan { display: flex; flex-direction: column; position: relative; padding: 30px 26px 26px; border: 1px solid #dcded0; border-radius: 14px; background: #fff; }
+.therapy-product-page .therapy-plan--featured { border: 2px solid #326956; padding: 29px 25px 25px; box-shadow: 0 12px 32px #3269560a; }
+.therapy-product-page .therapy-plan-flag { position: absolute; top: -13px; left: 24px; background: #326956; color: #fff; border-radius: 5px; padding: 3px 10px; font-size: 11px; font-weight: 650; }
+.therapy-product-page .therapy-plan-type { color: #657168; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 7px; }
+.therapy-product-page .therapy-plan-type svg { width: 17px; height: 17px; color: #326956; }
+.therapy-product-page .therapy-plan-intro { min-height: 178px; }
+.therapy-product-page .therapy-plan h3 { font-size: 23px; font-weight: 650; line-height: 1.2; letter-spacing: -.03em; margin: 18px 0 12px; }
+.therapy-product-page .therapy-plan-intro > p { font-size: 14px; line-height: 1.65; margin: 0; color: #657168; }
+.therapy-product-page .therapy-plan-investment { min-height: 204px; padding: 20px 0 22px; border-bottom: 1px solid #e1e3d7; }
+.therapy-product-page .therapy-plan-price { display: block; font-size: clamp(28px, 2.65vw, 36px); font-weight: 650; line-height: 1.2; letter-spacing: -.04em; color: #203d34; }
+.therapy-product-page .therapy-plan-price > span { font-size: 16px; letter-spacing: -.01em; }
+.therapy-product-page .therapy-plan-period { display: block; font-size: 12px; color: #59675d; margin-top: 7px; }
+.therapy-product-page .therapy-plan-extra { display: block; font-size: 12px; color: #657168; margin-top: 9px; }
+.therapy-product-page .therapy-plan-recurring { display: block; color: #326956; font-weight: 650; font-size: 24px; letter-spacing: -.03em; margin-top: 12px; }
+.therapy-product-page .therapy-plan-recurring span { font-size: 14px; }
+.therapy-product-page .therapy-plan ul { padding-block: 26px; margin-bottom: auto; }
+.therapy-product-page .therapy-plan li::before { content: '✓'; position: absolute; left: 0; color: #326956; font-size: 13px; font-weight: 700; }
+.therapy-product-page .therapy-plan .btn { width: 100%; margin-top: 8px; font-size: 13px; padding-inline: 10px; }
+.therapy-product-page .therapy-comparison { overflow-x: auto; border: 1px solid #dcded0; background: #fff; border-radius: 12px; margin-top: 32px; }
+.therapy-product-page .therapy-comparison table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; line-height: 1.6; }
+.therapy-product-page .therapy-comparison caption { text-align: left; font-size: 16px; font-weight: 650; padding: 20px; color: #203d34; }
+.therapy-product-page .therapy-comparison th, .therapy-product-page .therapy-comparison td { padding: 14px 20px; border-top: 1px solid #e1e3d7; vertical-align: top; }
+.therapy-product-page .therapy-comparison thead th { background: #f8f6ef; font-size: 12px; color: #657168; font-weight: 600; }
+.therapy-product-page .therapy-comparison tbody th { font-weight: 600; color: #203d34; width: 25%; }
+.therapy-product-page .therapy-comparison td { color: #657168; }
+.therapy-product-page .therapy-implantation { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 24px 0 0; margin-top: 24px; border-top: 1px solid #dcded0; }
+.therapy-product-page .therapy-implantation strong { font-size: 16px; font-weight: 650; }
+.therapy-product-page .therapy-implantation p { font-size: 13px; color: #657168; margin: 6px 0 0; max-width: 660px; }
+.therapy-product-page .therapy-implantation .btn { flex-shrink: 0; font-size: 13px; }
+.therapy-product-page .therapy-pricing-note { font-size: 12px; color: #657168; margin: 22px 0 0; }
+.therapy-product-page .therapy-faq-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 88px; }
+.therapy-product-page .therapy-faq-grid .therapy-section-heading { margin: 0; }
+.therapy-product-page .therapy-faq-list details { border-bottom: 1px solid #dcded0; padding-block: 3px; }
+.therapy-product-page .therapy-faq-list details:first-child { border-top: 1px solid #dcded0; }
+.therapy-product-page .therapy-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 0; font-size: 15px; font-weight: 600; line-height: 1.5; cursor: pointer; list-style: none; }
+.therapy-product-page .therapy-faq-list summary::-webkit-details-marker { display: none; }
+.therapy-product-page .therapy-faq-list summary svg { width: 18px; height: 18px; color: #657168; transition: transform .2s ease; }
+.therapy-product-page .therapy-faq-list [open] summary svg { transform: rotate(45deg); }
+.therapy-product-page .therapy-faq-list details p { margin: 0; padding: 0 30px 22px 0; font-size: 14px; line-height: 1.75; color: #657168; }
+.therapy-product-page .therapy-closing { padding: 72px 0; background: #183c34; text-align: center; color: #f8f6ef; }
+.therapy-product-page .therapy-closing h2 { color: #f8f6ef; font-size: clamp(30px, 3.2vw, 44px); }
+.therapy-product-page .therapy-closing p { max-width: 530px; margin: 0 auto 28px; color: #c4d0c3; font-size: 16px; }
+.therapy-product-page .therapy-closing .therapy-actions { justify-content: center; }
+.therapy-product-page .therapy-footer { background: #183c34; color: #d3d8cb; border-top: 1px solid #d7dec42b; padding: 34px 0 28px; }
+.therapy-product-page .therapy-footer-top { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.therapy-product-page .therapy-footer-brand { font-size: 17px; font-weight: 650; line-height: 1.5; }
+.therapy-product-page .therapy-footer-brand span { display: block; color: #becabb; font-size: 12px; font-weight: 400; }
+.therapy-product-page .therapy-footer nav { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; font-size: 13px; }
+.therapy-product-page .therapy-footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.therapy-product-page .therapy-footer button { color: #d3d8cb; font-size: 13px; }
+.therapy-product-page .therapy-footer button svg { width: 14px; height: 14px; }
+.therapy-product-page .therapy-footer p { color: #becabb; font-size: 11px; margin: 26px 0 0; }
+.therapy-product-page #demo-modal.demo-modal--fullscreen .demo-frame-stage { height: 100dvh; }
+.therapy-product-page #demo-modal .demo-fullscreen-close { width: 44px; height: 44px; }
+.therapy-product-page .product-mobile-menu__panel { background: #183c34; color: #f8f6ef; }
+.therapy-product-page .product-mobile-menu__links a { color: #e1e3d7; }
+.therapy-product-page .product-mobile-menu__close { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #d7dec44d; border-radius: 8px; background: transparent; color: #f8f6ef; cursor: pointer; }
+
+@media (max-width: 1100px) {
+  .therapy-product-page .nav-links { gap: 16px; }
+  .therapy-product-page .therapy-privacy-grid, .therapy-product-page .therapy-faq-grid { gap: 40px; }
+  .therapy-product-page .therapy-plans { gap: 14px; }
+  .therapy-product-page .therapy-plan { padding-inline: 20px; }
+  .therapy-product-page .therapy-plan--featured { padding-inline: 19px; }
+  .therapy-product-page .therapy-plan-intro { min-height: 208px; }
+  .therapy-product-page .therapy-plan-investment { min-height: 204px; }
+}
+@media (max-width: 900px) {
+  .therapy-product-page .nav-links { display: none; }
+  .therapy-product-page .nav-mobile-actions { display: flex; }
+  .therapy-product-page .therapy-plans { grid-template-columns: 1fr; gap: 26px; max-width: 620px; margin-inline: auto; }
+  .therapy-product-page .therapy-plan-intro, .therapy-product-page .therapy-plan-investment { min-height: 0; }
+  .therapy-product-page .therapy-plan h3 br { display: none; }
+  .therapy-product-page .therapy-plan-price { font-size: 36px; }
+  .therapy-product-page .therapy-plan { padding: 30px; }
+  .therapy-product-page .therapy-plan--featured { padding: 29px; }
+  .therapy-product-page .therapy-implantation { align-items: flex-start; flex-direction: column; gap: 18px; }
+}
+@media (max-width: 600px) {
+  .therapy-product-page .container { padding-inline: 20px; }
+  .therapy-product-page .header, .therapy-product-page .nav { height: 72px; }
+  .therapy-product-page .nav { padding-inline: 16px; }
+  .therapy-product-page main { padding-top: 72px; }
+  .therapy-product-page .assistencia-nav-brand { gap: 8px; }
+  .therapy-product-page .assistencia-nav-brand__icon { width: 34px; height: 34px; border-radius: 9px; }
+  .therapy-product-page .assistencia-nav-brand__copy strong { font-size: 13px; }
+  .therapy-product-page .assistencia-nav-brand__copy small { font-size: 8px; letter-spacing: .04em; }
+  .therapy-product-page .nav-mobile-actions > .mobile-header-whatsapp { display: none; }
+  .therapy-product-page .nav-mobile-actions > .btn { padding-inline: 11px !important; }
+  .therapy-product-page .nav-mobile-actions > .btn svg { display: none; }
+  .therapy-product-page .therapy-actions { flex-direction: column; }
+  .therapy-product-page .therapy-actions .btn { width: 100%; }
+  .therapy-product-page .therapy-block { padding-block: 48px; }
+  .therapy-product-page .therapy-section-heading { margin-bottom: 28px; }
+  .therapy-product-page .therapy-section-heading h2 { font-size: 29px; }
+  .therapy-product-page .therapy-section-heading p { font-size: 15px; }
+  .therapy-product-page .therapy-privacy-grid, .therapy-product-page .therapy-faq-grid { grid-template-columns: 1fr; gap: 28px; }
+  .therapy-product-page .therapy-privacy-content > article { gap: 12px; }
+  .therapy-product-page .therapy-section-heading--center { text-align: left; }
+  .therapy-product-page .therapy-plan { padding: 28px 22px; }
+  .therapy-product-page .therapy-plan--featured { padding: 27px 21px; }
+  .therapy-product-page .therapy-plan h3 { font-size: 23px; }
+  .therapy-product-page .therapy-plan-price { font-size: 34px; }
+  .therapy-product-page .therapy-plan .btn { font-size: 13px; }
+  .therapy-product-page .therapy-comparison table, .therapy-product-page .therapy-comparison tbody, .therapy-product-page .therapy-comparison tr, .therapy-product-page .therapy-comparison td, .therapy-product-page .therapy-comparison th { display: block; width: 100%; }
+  .therapy-product-page .therapy-comparison thead { display: none; }
+  .therapy-product-page .therapy-comparison tbody th { width: 100%; padding-bottom: 8px; }
+  .therapy-product-page .therapy-comparison td { border-top: 0; padding-block: 4px; }
+  .therapy-product-page .therapy-comparison td:last-child { padding-bottom: 18px; }
+  .therapy-product-page .therapy-comparison td::before { content: attr(data-label) ': '; color: #203d34; font-weight: 600; }
+  .therapy-product-page .therapy-faq-list summary { font-size: 14px; }
+  .therapy-product-page .therapy-closing { padding-block: 48px; text-align: left; }
+  .therapy-product-page .therapy-closing p { font-size: 15px; }
+  .therapy-product-page .therapy-footer-top { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .therapy-product-page .therapy-footer nav { gap: 20px; }
+}
+/* A fotografia abre o ambiente; as capturas apresentam o produto real. */
+.therapy-product-page .assistencia-nav-brand { color: #203d34; }
+.therapy-product-page .assistencia-nav-brand__icon { background: #e7eade; border: 1px solid #d3dac9; color: #326956; box-shadow: none; }
+.therapy-product-page .mobile-menu-toggle { background: #e9ece1; border-color: #d3dac9; color: #203d34; }
+.therapy-product-page .nav .btn.light { background: transparent; }
+.therapy-product-page .therapy-opening { background: #f8f6ef; }
+.therapy-product-page .therapy-opening__grid { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr; min-height: max(650px, 42.424vw); }
+.therapy-product-page .therapy-opening__copy { position: relative; z-index: 2; width: 54%; max-width: 830px; display: flex; flex-direction: column; justify-content: center; padding: 64px 40px 64px max(24px, calc((100vw - 1200px) / 2)); }
+.therapy-product-page .therapy-opening .therapy-kicker { color: #526e59; font-size: 10px; letter-spacing: .13em; line-height: 1.7; max-width: 400px; margin: 0 0 24px; }
+.therapy-product-page .therapy-opening h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(44px, 4.5vw, 66px); font-weight: 400; line-height: 1.06; letter-spacing: -.025em; color: #203d34; margin: 0 0 26px; max-width: 530px; }
+.therapy-product-page .therapy-opening h1 em { color: #547659; font-weight: 400; }
+.therapy-product-page .therapy-opening__lead { font-size: 16px; line-height: 1.8; color: #59675d; max-width: 440px; margin: 0 0 30px; }
+.therapy-product-page .therapy-opening .therapy-actions { gap: 10px; }
+.therapy-product-page .therapy-opening .btn { font-size: 13px; }
+.therapy-product-page .therapy-opening .btn.light { background: transparent; border-color: #90a18c; }
+.therapy-product-page .therapy-opening__choice { color: #69756a; font-size: 12px; line-height: 1.75; margin: 22px 0 0; }
+.therapy-product-page .therapy-room { position: absolute; inset: 0; z-index: 0; margin: 0; min-width: 0; overflow: hidden; }
+.therapy-product-page .therapy-room img { display: block; position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; height: auto; object-fit: contain; object-position: center; -webkit-mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent); }
+.therapy-product-page .therapy-room::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #f8f6effa 0%, #f8f6eff0 23%, #f8f6efcf 37%, #f8f6ef66 52%, #f8f6ef0d 70%, transparent 85%); pointer-events: none; }
+.therapy-product-page .therapy-room figcaption { position: absolute; right: 36px; bottom: max(24px, calc(50% - 21.212vw + 24px)); z-index: 1; text-align: right; font-family: 'DM Serif Display', Georgia, serif; font-size: 27px; font-weight: 400; line-height: 1.2; color: #fffdf7; text-shadow: 0 1px 12px #000a; }
+.therapy-product-page .therapy-room figcaption span { font-style: italic; }
+.therapy-product-page .therapy-opening__signature { display: flex; align-items: center; gap: 10px; padding-block: 26px; border-bottom: 1px solid #dcded0; }
+.therapy-product-page .therapy-opening__signature > span { color: #203d34; font-family: 'DM Serif Display', Georgia, serif; font-size: 23px; }
+.therapy-product-page .therapy-opening__signature > p { color: #69756a; font-size: 13px; margin: 0; }
+.therapy-product-page .therapy-opening__signature > a { width: 44px; height: 44px; border: 1px solid #dcded0; margin-left: auto; display: grid; place-items: center; border-radius: 50%; color: #326956; }
+.therapy-product-page .therapy-opening__signature svg { width: 18px; height: 18px; }
+.therapy-product-page .therapy-introduction { display: grid; grid-template-columns: 1fr 1fr; column-gap: 100px; }
+.therapy-product-page .therapy-introduction .therapy-kicker { grid-column: 1 / -1; color: #657168; font-size: 10px; margin-bottom: 20px; }
+.therapy-product-page .therapy-introduction h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(34px, 3.4vw, 48px); font-weight: 400; line-height: 1.13; letter-spacing: -.02em; margin: 0; }
+.therapy-product-page .therapy-introduction__detail p { color: #657168; font-size: 15px; line-height: 1.8; margin: 0 0 14px; }
+.therapy-product-page .therapy-introduction__detail nav { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 6px; }
+.therapy-product-page .therapy-introduction__detail a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; min-height: 44px; color: #326956; border-bottom: 1px solid #bcc8b2; }
+.therapy-product-page .therapy-introduction__detail svg { width: 14px; height: 14px; }
+.therapy-product-page .therapy-editorial { display: grid; gap: 32px; padding: 12px clamp(16px, 3vw, 48px) 64px; }
+.therapy-product-page .therapy-feature { position: relative; isolation: isolate; overflow: hidden; padding: 0; min-height: 700px; background: #f8f6ef; border: 1px solid #dce1d4; border-radius: 18px; }
+.therapy-product-page .therapy-feature--sage { background: #e9ede3; }
+.therapy-product-page .therapy-chapter { display: flex; align-items: center; gap: 10px; color: #6b775f; font-size: 13px; font-weight: 500; margin-bottom: 24px; }
+.therapy-product-page .therapy-chapter > span { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: #657168; }
+.therapy-product-page .therapy-feature h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(38px, 3.4vw, 50px); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin: 0 0 20px; }
+.therapy-product-page .therapy-feature__copy > p { color: #465b50; font-size: 18px; line-height: 1.75; margin: 0 0 24px; }
+.therapy-product-page .therapy-feature ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.therapy-product-page .therapy-feature li { padding-left: 19px; position: relative; color: #3e574a; font-size: 16px; line-height: 1.65; }
+.therapy-product-page .therapy-feature li::before { content: ''; position: absolute; top: 10px; left: 0; width: 5px; height: 5px; border: 1px solid #839578; border-radius: 50%; }
+.therapy-product-page .therapy-feature__copy > .therapy-feature__note { font-size: 14px; margin: 18px 0 0; color: #657168; }
+.therapy-product-page .therapy-feature .therapy-text-link { font-size: 16px; margin-top: 18px; border-bottom: 1px solid #c7cdbb; }
+.therapy-product-page .therapy-privacy { background: #244236; color: #fffdf7; padding-block: 88px; }
+.therapy-product-page .therapy-privacy .therapy-kicker { color: #c5d0b9; font-size: 10px; }
+.therapy-product-page .therapy-privacy .therapy-section-heading h2 { color: #fffdf7; }
+.therapy-product-page .therapy-privacy .therapy-section-heading p, .therapy-product-page .therapy-privacy-content p { color: #d0d9ca; }
+.therapy-product-page .therapy-privacy .therapy-text-link { color: #f2e4ba; }
+.therapy-product-page .therapy-privacy-content > article > svg { color: #c5d0b9; }
+.therapy-product-page .therapy-privacy-content h3 { font-size: 16px; font-weight: 500; }
+.therapy-product-page .therapy-professional-note { background: #ffffff0b; border: 1px solid #ffffff1f; border-radius: 6px; }
+.therapy-product-page .therapy-professional-note strong, .therapy-product-page .therapy-professional-note svg { color: #f1ebd8; }
+.therapy-product-page .therapy-pricing { border: 0; padding-block: 88px; }
+.therapy-product-page .therapy-plan { border-radius: 8px; background: #fffdf8; box-shadow: none; }
+.therapy-product-page .therapy-plan--featured { box-shadow: none; }
+.therapy-product-page .therapy-plan-flag { border-radius: 3px; font-weight: 500; }
+.therapy-product-page .therapy-plan h3 { font-size: 21px; font-weight: 600; }
+.therapy-product-page .therapy-plan-price { letter-spacing: -.04em; }
+.therapy-product-page .therapy-comparison { border-radius: 6px; background: #fffdf8; }
+.therapy-product-page .therapy-faq { background: #f8f6ef; }
+.therapy-product-page .therapy-closing { background: #e4e8db; color: #203d34; padding-block: 80px; }
+.therapy-product-page .therapy-closing .therapy-kicker { color: #657168; font-size: 10px; }
+.therapy-product-page .therapy-closing h2 { color: #203d34; font-size: clamp(36px, 3.8vw, 52px); }
+.therapy-product-page .therapy-closing h2 em { color: #547659; }
+.therapy-product-page .therapy-closing p { color: #59675d; }
+.therapy-product-page .therapy-footer { background: #f8f6ef; border-color: #dcded0; color: #203d34; }
+.therapy-product-page .therapy-footer-brand { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; }
+.therapy-product-page .therapy-footer-brand span, .therapy-product-page .therapy-footer p { color: #69756a; font-family: Inter, sans-serif; }
+.therapy-product-page .therapy-footer button { color: #326956; }
+.therapy-product-page .product-mobile-menu__panel { background: #f8f6ef; color: #203d34; }
+.therapy-product-page .product-mobile-menu__links a { color: #203d34; background: transparent; border-color: #dcded0; }
+.therapy-product-page .product-mobile-menu__close { border-color: #bdc6b6; color: #203d34; }
+
+@media (min-width: 1600px) {
+  .therapy-product-page .therapy-opening__grid { min-height: max(720px, 42.424vw); }
+}
+@media (max-width: 1100px) {
+  .therapy-product-page .therapy-opening__copy { padding-right: 32px; }
+  .therapy-product-page .therapy-opening__grid { min-height: 620px; }
+  .therapy-product-page .therapy-opening h1 { font-size: 52px; }
+  .therapy-product-page .therapy-opening .therapy-actions { flex-direction: column; align-items: flex-start; }
+  .therapy-product-page .therapy-opening .therapy-actions .btn { min-width: 210px; }
+  .therapy-product-page .therapy-introduction { gap: 40px; }
+}
+@media (max-width: 900px) {
+  .therapy-product-page .therapy-opening__grid { grid-template-columns: 1fr; min-height: 610px; }
+  .therapy-product-page .therapy-opening__copy { width: 59%; padding: 48px 28px 48px 24px; }
+  .therapy-product-page .therapy-opening h1 { font-size: 44px; }
+  .therapy-product-page .therapy-opening__lead { font-size: 14px; }
+  .therapy-product-page .therapy-room figcaption { font-size: 21px; right: 24px; }
+  .therapy-product-page .therapy-opening__signature { gap: 6px; }
+  .therapy-product-page .therapy-opening__signature > span { font-size: 21px; }
+  .therapy-product-page .therapy-opening__signature > p { font-size: 12px; }
+  .therapy-product-page .therapy-feature__copy { max-width: 580px; }
+  .therapy-product-page .therapy-chapter { margin-bottom: 16px; }
+}
+@media (max-width: 600px) {
+  .therapy-product-page .therapy-opening__grid { display: flex; flex-direction: column; min-height: 0; }
+  .therapy-product-page .therapy-opening__copy { width: 100%; padding: 38px 20px 24px; }
+  .therapy-product-page .therapy-opening .therapy-kicker { font-size: 9px; margin-bottom: 20px; }
+  .therapy-product-page .therapy-opening h1 { font-size: 42px; line-height: 1.08; margin-bottom: 22px; }
+  .therapy-product-page .therapy-opening__lead { font-size: 15px; margin-bottom: 24px; }
+  .therapy-product-page .therapy-opening .therapy-actions { align-items: stretch; }
+  .therapy-product-page .therapy-opening .therapy-actions .btn { min-width: 0; }
+  .therapy-product-page .therapy-opening__choice { font-size: 11px; margin-top: 18px; }
+  .therapy-product-page .therapy-room { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 3168 / 1344; }
+  .therapy-product-page .therapy-room img { position: static; transform: none; height: auto; object-position: center; -webkit-mask-image: none; mask-image: none; }
+  .therapy-product-page .therapy-room::after { background: linear-gradient(180deg, #f8f6ef 0%, #f8f6ef55 18%, transparent 45%); }
+  .therapy-product-page .therapy-room figcaption { display: none; }
+  .therapy-product-page .therapy-opening__signature { display: grid; grid-template-columns: 1fr 44px; gap: 0 10px; padding-block: 20px; }
+  .therapy-product-page .therapy-opening__signature > span { font-size: 21px; }
+  .therapy-product-page .therapy-opening__signature > p { grid-column: 1; }
+  .therapy-product-page .therapy-opening__signature > a { grid-column: 2; grid-row: 1 / span 2; }
+  .therapy-product-page .therapy-introduction { grid-template-columns: 1fr; gap: 20px; }
+  .therapy-product-page .therapy-introduction .therapy-kicker { margin-bottom: 0; }
+  .therapy-product-page .therapy-introduction h2 { font-size: 34px; }
+  .therapy-product-page .therapy-introduction__detail p { font-size: 14px; }
+  .therapy-product-page .therapy-introduction__detail nav { gap: 14px; }
+  .therapy-product-page .therapy-introduction__detail a { font-size: 11px; }
+  .therapy-product-page .therapy-feature { padding: 0; }
+  .therapy-product-page .therapy-feature h2 { font-size: 36px; }
+  .therapy-product-page .therapy-feature__copy > p { font-size: 16px; }
+  .therapy-product-page .therapy-privacy, .therapy-product-page .therapy-pricing { padding-block: 48px; }
+  .therapy-product-page .therapy-section-heading h2 { font-size: 34px; }
+  .therapy-product-page .therapy-closing { padding-block: 48px; }
+}
+/* Fundos de interface em perspectiva; a borda distante do texto avança no espaço. */
+.therapy-product-page .therapy-feature::after { content: ''; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent 18%, #f8f6ef1a 35%, #f8f6ef6b 49%, #f8f6efa3 59%, #f8f6efbf 78%); }
+.therapy-product-page .therapy-feature--reverse::after { background: linear-gradient(270deg, transparent 18%, #e9ede31a 35%, #e9ede36b 49%, #e9ede3a3 59%, #e9ede3bf 78%); }
+.therapy-product-page .therapy-feature__grid { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; min-height: 700px; padding: 88px clamp(28px, 4vw, 64px); pointer-events: none; }
+.therapy-product-page .therapy-feature__copy { position: relative; isolation: isolate; width: 48%; max-width: 560px; padding: clamp(24px, 2.5vw, 36px); pointer-events: auto; }
+.therapy-product-page .therapy-feature__copy::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: 16px; background: #f8f6ef; pointer-events: none; }
+.therapy-product-page .therapy-feature--sage .therapy-feature__copy::before { background: #e9ede3; }
+.therapy-product-page .therapy-feature--reverse .therapy-feature__grid { justify-content: flex-start; }
+.therapy-product-page .therapy-screen { position: absolute; z-index: 0; left: 2.5%; top: 50%; width: 76%; margin: 0; padding: 0; border: 0; background: transparent; border-radius: 0; transform: translateY(-50%) perspective(1600px) rotateY(9deg) rotateZ(-.5deg); transform-origin: center; box-shadow: 0 24px 55px -30px #24423626; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent); pointer-events: none; }
+.therapy-product-page .therapy-screen img { display: block; width: 100%; height: auto; border: 0; border-radius: 3px; }
+.therapy-product-page .therapy-feature--reverse .therapy-screen { left: auto; right: 2.5%; transform: translateY(-50%) perspective(1600px) rotateY(-9deg) rotateZ(.5deg); }
+@media (min-width: 901px) {
+  .therapy-product-page .therapy-editorial { padding-inline: 24px; }
+  .therapy-product-page .therapy-feature__grid { max-width: 1200px; padding-inline: 0; }
+  .therapy-product-page .therapy-feature__copy { padding: 0; }
+  .therapy-product-page .therapy-feature__copy::before { inset: -24px; }
+  .therapy-product-page .therapy-feature:not(.therapy-feature--reverse) .therapy-feature__copy { text-align: right; }
+  .therapy-product-page .therapy-feature:not(.therapy-feature--reverse) .therapy-chapter { justify-content: flex-end; }
+  .therapy-product-page .therapy-feature:not(.therapy-feature--reverse) li { padding-left: 0; padding-right: 19px; }
+  .therapy-product-page .therapy-feature:not(.therapy-feature--reverse) li::before { left: auto; right: 0; }
+  .therapy-product-page .therapy-feature:not(.therapy-feature--reverse) .therapy-text-link { display: flex; width: fit-content; margin-left: auto; }
+}
+@media (max-width: 1100px) {
+  .therapy-product-page .therapy-feature, .therapy-product-page .therapy-feature__grid { min-height: 660px; }
+  .therapy-product-page .therapy-feature__copy { width: 50%; }
+  .therapy-product-page .therapy-screen { width: 78%; }
+}
+@media (max-width: 900px) {
+  .therapy-product-page .therapy-feature__grid, .therapy-product-page .therapy-feature--reverse .therapy-feature__grid { align-items: flex-start; justify-content: flex-start; min-height: 800px; padding: 48px 32px 360px; }
+  .therapy-product-page .therapy-feature__copy { width: 100%; max-width: 600px; }
+  .therapy-product-page .therapy-screen, .therapy-product-page .therapy-feature--reverse .therapy-screen { width: 94%; left: 3%; right: auto; top: auto; bottom: 18px; transform: perspective(1200px) rotateY(7deg) rotateX(4deg); }
+  .therapy-product-page .therapy-feature::after { background: linear-gradient(180deg, #f8f6ef 25%, #f8f6eff5 43%, #f8f6ef80 60%, transparent 82%); }
+  .therapy-product-page .therapy-feature--reverse::after { background: linear-gradient(180deg, #e9ede3 25%, #e9ede3f5 43%, #e9ede380 60%, transparent 82%); }
+}
+@media (max-width: 600px) {
+  .therapy-product-page .therapy-editorial { padding: 0 12px 40px; gap: 20px; }
+  .therapy-product-page .therapy-feature { border-radius: 12px; }
+  .therapy-product-page .therapy-feature__copy { padding: 24px 18px; }
+  .therapy-product-page .therapy-feature li { font-size: 15px; }
+  .therapy-product-page .therapy-feature .therapy-text-link { font-size: 15px; }
+  .therapy-product-page .therapy-feature__grid, .therapy-product-page .therapy-feature--reverse .therapy-feature__grid { min-height: 680px; padding: 24px 12px 235px; }
+  .therapy-product-page .therapy-screen, .therapy-product-page .therapy-feature--reverse .therapy-screen { width: 100%; left: 0; bottom: 22px; transform: perspective(800px) rotateY(7deg) rotateX(3deg); }
+  .therapy-product-page .therapy-feature::after { background: linear-gradient(180deg, #f8f6ef 30%, #f8f6eff5 51%, #f8f6ef4d 73%, transparent 90%); }
+  .therapy-product-page .therapy-feature--reverse::after { background: linear-gradient(180deg, #e9ede3 30%, #e9ede3f5 51%, #e9ede34d 73%, transparent 90%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .therapy-product-page *, .therapy-product-page *::before, .therapy-product-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

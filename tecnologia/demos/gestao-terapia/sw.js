@@ -1,4 +1,4 @@
-const CACHE_NAME='gestao-terapia-cache-v70';
+const CACHE_NAME='gestao-terapia-cache-v75';
 const ASSETS=[
   "./assets/js/document-rules.js?v=69",
   "./assets/js/document-files.js?v=69",
@@ -91,7 +91,10 @@ const ASSETS=[
   "./assets/js/sidebar.js?v=41",
   "./assets/js/orientations.js?v=59",
   "./assets/js/tailwind_config.js?v=3",
-  "./assets/js/theme.js?v=5",
+  "./assets/js/theme.js?v=6",
+  "./assets/js/demo-seed.js?v=2",
+  "./assets/js/demo-entry.js?v=1",
+  "./demo-bypass.js?v=6",
   "./assets/js/emergency.js?v=39",
   "./assets/js/ux.js?v=69",
   "./assets/js/vault.js?v=69",
