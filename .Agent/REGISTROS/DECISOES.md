@@ -41,3 +41,11 @@
 - Alternativa considerada: manter a direção navy/azul do primeiro piloto.
 - Motivo: aproximar a apresentação do contexto de trabalho do terapeuta, mantendo o sistema identificável e demonstrável.
 - Consequência: implementação isolada no Terapia; replicação para outros segmentos depende da aprovação e adaptação de cada identidade.
+
+## 2026-11-11 — Arquitetura comercial por intenção e segmento
+
+- Origem: responsável aprovou a avaliação de SEO e autorizou a adaptação do site.
+- Decisão: manter a home como portal institucional, o catálogo como distribuidor e as landing pages como destinos comerciais específicos. Serviços de sites, e-commerce e automações têm páginas comerciais próprias; modelos e demos permanecem referências navegáveis fora dos resultados de busca.
+- Motivo: reduzir escolhas intermediárias para quem procura uma solução de um segmento e diferenciar compra de sistema de contratação de desenvolvimento.
+- Consequência: preservar URLs dos produtos, links diretos na home e catálogo, metadados individuais, sitemap comercial e separação entre modelos e ofertas. Campanhas apontam para a página da intenção correspondente.
+- Implementação e mensuração: `docs/estrategia/ARQUITETURA-COMERCIAL-SEO-2026-11-11.md`. Configuração de Search Console/GA4 e publicação não foram realizadas nesta tarefa.

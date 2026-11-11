@@ -12,11 +12,11 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plena Informática | Sistemas de Gestão e Tecnologia em SJC</title>
+    <title>Sistemas de gestão por segmento e sites profissionais | Plena Informática</title>
 
     <!-- SEO -->
     <meta name="description"
-        content="Plena Informática: sistemas de gestão, desenvolvimento web e soluções digitais para empresas em São José dos Campos. Tecnologia para múltiplos nichos.">
+        content="Sistemas de gestão para psicólogos, clínicas, academias, restaurantes e outros negócios. Sites profissionais e automações, com atendimento da Plena em São José dos Campos e online.">
     <meta name="keywords"
         content="Plena Informática SJC, sistemas de gestão, desenvolvimento web São José dos Campos, software para empresas, sistemas web, ERP sob medida, CRM B2B, automação comercial, landing page, e-commerce, tecnologia São José dos Campos, informática SJC">
     <meta name="author" content="Plena Informática">
@@ -26,11 +26,10 @@
     <meta name="geo.placename" content="São José dos Campos">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Plena Informática | Sistemas de Gestão e Tecnologia em SJC">
-    <meta property="og:description"
-        content="Sistemas de gestão, sites, plataformas web e serviços digitais de apoio com atendimento humano em São José dos Campos.">
+    <meta property="og:title" content="Sistemas de gestão por segmento e sites profissionais | Plena Informática">
+    <meta property="og:description" content="Sistemas de gestão para psicólogos, clínicas, academias, restaurantes e outros negócios. Sites profissionais e automações, com atendimento da Plena em São José dos Campos e online.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://plenainformatica.com.br">
+    <meta property="og:url" content="https://plenainformatica.com.br/">
     <meta property="og:image" content="https://plenainformatica.com.br/assets/images/plena.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -41,9 +40,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Plena Informática | Sistemas de Gestão e Tecnologia em SJC">
-    <meta name="twitter:description"
-        content="Sistemas de gestão, desenvolvimento web e serviços digitais para empresas em SJC.">
+    <meta name="twitter:title" content="Sistemas de gestão por segmento e sites profissionais | Plena Informática">
+    <meta name="twitter:description" content="Sistemas de gestão para psicólogos, clínicas, academias, restaurantes e outros negócios. Sites profissionais e automações, com atendimento da Plena em São José dos Campos e online.">
     <meta name="twitter:image" content="https://plenainformatica.com.br/assets/images/plena.jpg">
 
     <!-- Favicon -->
@@ -58,7 +56,7 @@
     "name": "Plena Informática",
     "description": "Sistemas de gestão, desenvolvimento web e serviços digitais com 20 anos de experiência em São José dos Campos.",
     "url": "https://plenainformatica.com.br",
-    "logo": "https://plenainformatica.com.br/logo-plena.png",
+    "logo": "https://plenainformatica.com.br/assets/images/logoplena.svg",
     "image": "https://plenainformatica.com.br/assets/images/plena.jpg",
     "telephone": "+5512992191018",
     "email": "tecnologia@plenainformatica.com.br",
@@ -126,12 +124,14 @@
 
     <!-- Stylesheet customizado -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/plena-discovery.css">
+    <script defer src="assets/commercial-tracking.js"></script>
 
     <!-- Script customizado -->
     <script src="script.js" defer></script>
 </head>
 
-<body class="antialiased">
+<body class="plena-home-page antialiased">
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57SHPVLX"
@@ -153,6 +153,7 @@
 
                 <!-- Nav Desktop -->
                 <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-sm font-semibold text-gray-600 hover:text-brand-orange" data-plena-kind="service" data-plena-offer="solucoes">Soluções</a>
                     <a href="tecnologia/tecnologia.html"
                         class="text-sm font-semibold text-gray-600 hover:text-brand-orange transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-orange hover:after:w-full after:transition-all after:duration-300">Tecnologia</a>
                     <a href="#journey"
@@ -191,6 +192,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-xl">
             <div class="container mx-auto px-6 py-4 flex flex-col gap-1">
+<a class="mobile-link block py-3 px-4" href="#services">Soluções e segmentos</a>
                 <a href="tecnologia/tecnologia.html"
                     class="mobile-link block py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-brand-orange/10 hover:text-orange-600 transition-colors">Tecnologia</a>
                 <a href="#journey"
@@ -238,9 +240,9 @@
                 </h1>
 
                 <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="tecnologia/tecnologia.html"
+                    <a href="tecnologia/tecnologia.html#segmentos"
                         class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-[#d55b1a] text-white font-black px-7 py-3.5 rounded-xl text-sm shadow-lg shadow-brand-orange/30 hover:scale-105 transition-all duration-300">
-                        Ver catálogo de sistemas
+                        Encontrar meu sistema
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -272,70 +274,21 @@
         <!-- ══════════════════════════════════════════
          SERVICES
     ══════════════════════════════════════════ -->
-        <section id="services" class="pt-16 pb-20 bg-white">
-            <div class="container mx-auto px-6">
-
-                <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-                    <div class="inline-flex items-center gap-2.5 bg-orange-50 border border-orange-100/80 rounded-full px-6 py-2.5">
-                        <span class="w-2 h-2 rounded-full bg-brand-orange/80 animate-pulse"></span>
-                        <h2 class="text-brand-orange text-xs font-bold tracking-widest uppercase m-0">Tecnologia e sistemas</h2>
-                    </div>
-                </div>
-
-                <div class="max-w-2xl mx-auto">
-
-                    <!-- Tecnologia -->
-                    <a href="tecnologia/tecnologia.html" class="group block reveal">
-                        <div
-                            class="service-card service-card-gold h-full bg-white rounded-3xl p-8 border border-gray-100/80 hover:border-brand-gold/20 transition-all duration-300">
-                            <div class="flex items-center justify-between mb-6">
-                                <div
-                                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-gold to-[#b4862b] flex items-center justify-center shadow-lg shadow-brand-gold/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                    </svg>
-                                </div>
-                                <span class="text-[10px] font-extrabold text-white bg-gradient-to-r from-amber-500 to-yellow-500 px-3 py-1 rounded-full shadow-sm tracking-wide uppercase">Projetos sob Medida</span>
-                            </div>
-                            <span class="text-xs font-extrabold text-brand-gold uppercase tracking-wider bg-amber-50 border border-amber-100 px-3 py-1 rounded-full">Tecnologia e Sistemas</span>
-                            <h3
-                                class="font-accent font-black text-2xl text-gray-900 mt-4 mb-3 group-hover:text-brand-gold transition-colors">
-                                Sistemas de gestão para múltiplos nichos</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">Desenvolvemos sistemas web, plataformas corporativas, sites premium e soluções digitais que organizam a operação e impulsionam empresas.</p>
-                            <ul class="space-y-3 mb-8">
-                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
-                                    <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0 transition-transform"></span>
-                                    Sistemas para barbearias, beleza, gastronomia e assistência técnica
-                                </li>
-                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
-                                    <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0 transition-transform"></span>
-                                    E-commerce, Sites Premium e Landing Pages
-                                </li>
-                                <li class="flex items-center gap-2.5 text-sm text-gray-600">
-                                    <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0 transition-transform"></span>
-                                    ERP, CRM, dashboards e sistemas sob medida
-                                </li>
-                            </ul>
-                            <div class="pt-4 border-t border-gray-50">
-                                <span
-                                    class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-amber-50 text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all duration-300 font-bold text-sm border border-amber-100/50 shadow-sm group-hover:shadow-md">
-                                    Ver soluções web
-                                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Serviços Digitais removidos: a página de Serviços foi retirada da navegação em 2026-11-10. -->
-                </div>
-            </div>
-        </section>
+        <section id="services" class="plena-discovery" aria-labelledby="discovery-title"><div class="plena-discovery__shell"><span class="plena-discovery__eyebrow">Encontre a solução para o seu momento</span><h2 id="discovery-title">Tecnologia que começa pelo seu negócio.</h2><p class="plena-discovery__lead">Organize a operação, apresente seus serviços ou conecte suas ferramentas. Escolha a solução e siga direto para o que você precisa.</p><div class="plena-discovery__solutions">
+<a class="plena-discovery__solution" href="tecnologia/tecnologia.html#segmentos" data-plena-kind="service" data-plena-offer="sistemas"><span class="plena-discovery__number">01 / Organizar a operação</span><h3>Sistemas de gestão</h3><p>Encontre o sistema para o seu segmento. Conheça os recursos, as telas e as condições de cada solução.</p><span class="plena-discovery__link">Escolher meu segmento ↗</span></a>
+<a class="plena-discovery__solution" href="tecnologia/sites-premium/" data-plena-kind="service" data-plena-offer="sites"><span class="plena-discovery__number">02 / Apresentar seu negócio</span><h3>Sites e landing pages</h3><p>Apresente seus serviços, facilite o contato e construa uma presença profissional com conteúdo próprio.</p><span class="plena-discovery__link">Planejar meu site ↗</span></a>
+<a class="plena-discovery__solution" href="tecnologia/automacoes.html" data-plena-kind="service" data-plena-offer="automacoes"><span class="plena-discovery__number">03 / Conectar a rotina</span><h3>Automações e projetos</h3><p>Avalie integrações, atendimento e tarefas repetitivas a partir das necessidades da sua empresa.</p><span class="plena-discovery__link">Conhecer possibilidades ↗</span></a>
+</div><div class="plena-discovery__subhead"><h3>Sistemas para o seu segmento</h3><p>Recursos e apresentação próprios para cada atividade.</p></div><nav class="plena-discovery__segments" aria-label="Sistemas por segmento"><a class="plena-discovery__segment" href="produtos/gestao-terapia.html" data-plena-kind="segment" data-plena-offer="gestao-terapia" aria-label="Sistema para psicólogos e terapeutas"><span><strong>Psicólogos e terapeutas</strong><small>Agenda, prontuários e financeiro</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/gestao-odonto.html" data-plena-kind="segment" data-plena-offer="gestao-odonto" aria-label="Sistema para clínica odontológica"><span><strong>Clínicas odontológicas</strong><small>Gestão da rotina odontológica</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/gestao-fit.html" data-plena-kind="segment" data-plena-offer="gestao-fit" aria-label="Sistema para academias e estúdios"><span><strong>Academias e estúdios</strong><small>Organização da operação fitness</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/gestao-gastro.html" data-plena-kind="segment" data-plena-offer="gestao-gastro" aria-label="Sistema para restaurantes"><span><strong>Restaurantes e gastronomia</strong><small>Gestão da operação gastronômica</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/barbearia-premium.html" data-plena-kind="segment" data-plena-offer="barbearia-premium" aria-label="Sistema para barbearias"><span><strong>Barbearias</strong><small>Organização do atendimento</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/beleza-spa.html" data-plena-kind="segment" data-plena-offer="beleza-spa" aria-label="Sistema para salão de beleza e spa"><span><strong>Salões, beleza e spa</strong><small>Rotina dos serviços de beleza</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/assistencia-pro.html" data-plena-kind="segment" data-plena-offer="assistencia-pro" aria-label="Sistema para assistência técnica"><span><strong>Assistências técnicas</strong><small>Gestão de ordens de serviço</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/gestao-lavarapido.html" data-plena-kind="segment" data-plena-offer="gestao-lavarapido" aria-label="Sistema para lava-rápido"><span><strong>Lava-rápidos</strong><small>Organização dos serviços automotivos</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/gestao-sorveteria.html" data-plena-kind="segment" data-plena-offer="gestao-sorveteria" aria-label="Sistema para sorveteria e açaí"><span><strong>Sorveterias e açaí</strong><small>Operação e atendimento da loja</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/gestao-pdv.html" data-plena-kind="segment" data-plena-offer="gestao-pdv" aria-label="Sistema PDV para comércio e varejo"><span><strong>Comércio e varejo</strong><small>Gestão do ponto de venda</small></span><span aria-hidden="true">↗</span></a>
+<a class="plena-discovery__segment" href="produtos/gestao-salas.html" data-plena-kind="segment" data-plena-offer="gestao-salas" aria-label="Sistema para gestão e reserva de salas"><span><strong>Salas e espaços compartilhados</strong><small>Reservas e gestão dos espaços</small></span><span aria-hidden="true">↗</span></a></nav></div></section>
 
 
         <!-- ══════════════════════════════════════════

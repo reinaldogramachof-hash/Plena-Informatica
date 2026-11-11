@@ -34,6 +34,7 @@ RedirectMatch 301 ^/blog(/.*)?$ https://plenainformatica.com.br/
 
 # Páginas de portal aposentadas em 2026-11-10: o catálogo abre direto no modelo.
 # Os modelos individuais (lp-*.html, demos/*) continuam ativos.
-RedirectMatch 301 ^/tecnologia/landing-pages(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#landing-pages
-RedirectMatch 301 ^/tecnologia/ecommerce(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#ecommerce
+# Novas páginas comerciais: os aliases antigos conduzem à oferta, mantendo os modelos individuais.
+RedirectMatch 301 ^/tecnologia/landing-pages(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/sites-premium/
+RedirectMatch 301 ^/tecnologia/ecommerce(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/ecommerce.html
 RedirectMatch 301 ^/tecnologia/projetos-sob-consulta(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#projetos-consulta
