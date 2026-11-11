@@ -178,6 +178,10 @@
 }
 /* A fotografia abre o ambiente; as capturas apresentam o produto real. */
 .therapy-product-page .assistencia-nav-brand { color: #203d34; }
+.therapy-product-page .therapy-brand-logo { display: block; width: 64px; height: 64px; object-fit: contain; flex-shrink: 0; mix-blend-mode: multiply; }
+@media (max-width: 600px) {
+  .therapy-product-page .therapy-brand-logo { width: 44px; height: 44px; }
+}
 .therapy-product-page .assistencia-nav-brand__icon { background: #e7eade; border: 1px solid #d3dac9; color: #326956; box-shadow: none; }
 .therapy-product-page .mobile-menu-toggle { background: #e9ece1; border-color: #d3dac9; color: #203d34; }
 .therapy-product-page .nav .btn.light { background: transparent; }
