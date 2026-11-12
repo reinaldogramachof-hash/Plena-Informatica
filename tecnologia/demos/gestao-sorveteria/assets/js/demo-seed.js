@@ -148,7 +148,7 @@
         settings: {
             companyName: 'Sorveteria Aurora Gelato',
             setupComplete: true,
-            cnpj: '14.549.923/0001-35',
+            cnpj: '59.779.242/0001-78',
             phone: '(12) 99219-1018',
             address: 'Av. das Flores, 128 - Centro',
             stockAlerts: true,

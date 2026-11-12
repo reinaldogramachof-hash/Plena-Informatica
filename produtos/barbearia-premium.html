@@ -62,6 +62,8 @@
   <link rel="stylesheet" href="../assets/plena-discovery.css">
   <script defer src="../assets/commercial-tracking.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://plenainformatica.com.br/"},{"@type":"ListItem","position":2,"name":"Sistemas por segmento","item":"https://plenainformatica.com.br/tecnologia/tecnologia.html"},{"@type":"ListItem","position":3,"name":"Sistema para barbearias","item":"https://plenainformatica.com.br/produtos/barbearia-premium.html"}]}</script>
+  <link rel="stylesheet" href="../assets/catalog-navigation.css">
+  <script defer src="../assets/catalog-navigation.js"></script>
 </head>
 
 <body id="topo"
@@ -96,7 +98,7 @@
         <a href="#modulos">Módulos</a>
         <a href="#plano">Planos</a>
         <a href="#faq">FAQ</a>
-        <a href="../tecnologia/tecnologia.html">Tecnologia</a>
+        <a data-plena-return="compact" href="../tecnologia/tecnologia.html">Tecnologia</a>
         <button class="btn primary" type="button" style="min-height:38px; padding:8px 16px; font-size:13px;" onclick="openDemoModal()">
           <i data-lucide="monitor-up"></i>
           Testar Demo
@@ -137,7 +139,7 @@
         <a href="#operacao" onclick="toggleProductMobileMenu(false)">Benefícios para a Equipe</a>
         <a href="#plano" onclick="toggleProductMobileMenu(false)">Planos e Implantação</a>
         <a href="#faq" onclick="toggleProductMobileMenu(false)">Perguntas Frequentes</a>
-        <a href="../tecnologia/tecnologia.html">Tecnologia Plena</a>
+        <a data-plena-return="compact" href="../tecnologia/tecnologia.html">Tecnologia Plena</a>
       </div>
       <div class="product-mobile-menu__actions">
         <button class="btn primary" type="button" onclick="toggleProductMobileMenu(false); openDemoModal()">
@@ -458,7 +460,7 @@
       </div>
     </section>
 
-    <aside class="plena-discovery plena-discovery--related" aria-label="Outras soluções da Plena"><div class="plena-discovery__shell"><span class="plena-discovery__eyebrow">Encontre outras soluções</span><nav><a href="../tecnologia/tecnologia.html#segmentos" data-plena-kind="segment">Sistemas para outros segmentos</a><a href="../tecnologia/sites-premium/" data-plena-kind="service">Sites profissionais para seu negócio</a><a href="../tecnologia/automacoes.html" data-plena-kind="service">Automações e integrações</a></nav></div></aside>
+    <aside class="plena-discovery plena-discovery--related" aria-label="Outras soluções da Plena"><div class="plena-discovery__shell"><span class="plena-discovery__eyebrow">Encontre outras soluções</span><nav><a href="../tecnologia/tecnologia.html#segmentos" data-plena-kind="segment">Sistemas para outros segmentos</a><a href="/tecnologia/tecnologia.html#sites-premium" data-plena-kind="service">Sites profissionais para seu negócio</a><a href="../tecnologia/automacoes.html" data-plena-kind="service">Automações e integrações</a></nav></div></aside>
   </main>
 
   <!-- RODAPÉ -->
@@ -468,7 +470,7 @@
         <a href="../index.html" class="barber-footer-brand">Gestão Barbearia Pro <span>por Plena Informática</span></a>
         <nav aria-label="Navegação do rodapé">
           <a href="../index.html">Início</a>
-          <a href="../tecnologia/tecnologia.html">Catálogo Plena</a>
+          <a data-plena-return="compact" href="../tecnologia/tecnologia.html">Catálogo Plena</a>
           <button type="button" onclick="openProductWhatsApp('Olá! Tenho interesse no Barbearia Premium e vim pelo site. Gostaria de entender planos e implantação.', 'Barbearia Premium')">WhatsApp <i data-lucide="arrow-up-right"></i></button>
         </nav>
       </div>

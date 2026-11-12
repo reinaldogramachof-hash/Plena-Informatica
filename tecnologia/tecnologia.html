@@ -134,6 +134,8 @@
   <meta name="twitter:title" content="Sistemas de gestão por segmento | Catálogo Plena Informática">
   <meta name="twitter:description" content="Encontre sistemas para psicólogos, clínicas odontológicas, academias, restaurantes, barbearias e outros segmentos. Compare recursos, planos e demonstrações da Plena.">
   <meta name="twitter:image" content="https://plenainformatica.com.br/assets/images/plena.jpg">
+  <link rel="stylesheet" href="../assets/catalog-navigation.css">
+  <script defer src="../assets/catalog-navigation.js"></script>
 </head>
 
 <body class="antialiased selection:bg-[#F26A1B] selection:text-[#080809]">
@@ -229,22 +231,22 @@
           role="tablist" aria-label="Categorias de soluções">
           <button type="button" class="tab-btn active" data-target="tab-gestão" data-offer="sistemas-gestão"
             data-category="tabs" data-action="tab" id="tbtn-gestao" role="tab" aria-selected="true"
-            aria-controls="tab-gestão">Sistemas de Gestão</button>
+            aria-controls="tab-gestão"><span id="sistemas">Sistemas de Gestão</span></button>
           <button type="button" class="tab-btn" data-target="tab-premium" data-offer="sites-premium"
             data-category="tabs" data-action="tab" id="tbtn-premium" role="tab" aria-selected="false"
-            aria-controls="tab-premium" tabindex="-1">Sites Premium</button>
+            aria-controls="tab-premium" tabindex="-1"><span id="sites-premium">Sites Premium</span></button>
           <button type="button" class="tab-btn" data-target="tab-landing" data-offer="landing-pages"
             data-category="tabs" data-action="tab" id="tbtn-landing" role="tab" aria-selected="false"
-            aria-controls="tab-landing" tabindex="-1">Landing Pages</button>
+            aria-controls="tab-landing" tabindex="-1"><span id="landing-pages">Landing Pages</span></button>
           <button type="button" class="tab-btn" data-target="tab-ecom" data-offer="ecommerce" data-category="tabs"
             data-action="tab" id="tbtn-ecom" role="tab" aria-selected="false" aria-controls="tab-ecom"
-            tabindex="-1">E-commerce</button>
+            tabindex="-1"><span id="ecommerce">E-commerce</span></button>
           <button type="button" class="tab-btn" data-target="tab-automacao" data-offer="automacoes-ia"
             data-category="tabs" data-action="tab" id="tbtn-automacao" role="tab" aria-selected="false"
-            aria-controls="tab-automacao" tabindex="-1">Automações e IA</button>
+            aria-controls="tab-automacao" tabindex="-1"><span id="automacoes">Automações e IA</span></button>
           <button type="button" class="tab-btn" data-target="tab-sites" data-offer="projetos-consulta"
             data-category="tabs" data-action="tab" id="tbtn-sites" role="tab" aria-selected="false"
-            aria-controls="tab-sites" tabindex="-1">Projetos sob Consulta</button>
+            aria-controls="tab-sites" tabindex="-1"><span id="projetos-consulta">Projetos sob Consulta</span></button>
         </div>
 
         <div class="showcase-viewport w-full relative min-h-[500px]">
@@ -664,7 +666,7 @@
                   leads.</p>
               </div>
               <div class="system-card-actions">
-                <a href="modelos/landing-pages/captura-leads/index.html" target="_blank" rel="noopener noreferrer"
+                <a href="modelos/landing-pages/captura-leads/index.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="captura-leads" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="captura-leads" data-category="landing-pages"
@@ -686,7 +688,7 @@
                   contexto da oferta.</p>
               </div>
               <div class="system-card-actions">
-                <a href="modelos/landing-pages/diagnostico-whatsapp/index.html" target="_blank"
+                <a href="modelos/landing-pages/diagnostico-whatsapp/index.html"
                   rel="noopener noreferrer" class="premium-btn primary !mt-0" data-offer="captura-leads"
                   data-category="landing-pages" data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="captura-leads" data-category="landing-pages"
@@ -708,7 +710,7 @@
                   conversa antes da proposta.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-06-agendamento.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-06-agendamento.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="agendamento" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="agendamento" data-category="landing-pages"
@@ -730,7 +732,7 @@
                   assinatura.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-01-lancamento.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-01-lancamento.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="landing-infoproduto" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="landing-infoproduto"
@@ -752,7 +754,7 @@
                   pago.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-02-material-rico.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-02-material-rico.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="captura-leads" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="captura-leads" data-category="landing-pages"
@@ -774,7 +776,7 @@
                   corporativos.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-03-webinar.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-03-webinar.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="eventos-ingressos" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="eventos-ingressos"
@@ -796,7 +798,7 @@
                   concreta.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-04-case.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-04-case.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="case-sucesso" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="case-sucesso" data-category="landing-pages"
@@ -817,7 +819,7 @@
                 <p class="system-card-description">Ajuda o cliente a decidir quando pesquisa concorrentes diretos.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-05-comparativo.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-05-comparativo.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="comparativo" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="comparativo" data-category="landing-pages"
@@ -839,7 +841,7 @@
                   time.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-07-feature.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-07-feature.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="feature" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="feature" data-category="landing-pages"
@@ -861,7 +863,7 @@
                   serviços.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-08-waitlist.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-08-waitlist.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="waitlist" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="waitlist" data-category="landing-pages"
@@ -883,7 +885,7 @@
                   prazo.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-09-oferta.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-09-oferta.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="oferta" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="oferta" data-category="landing-pages"
@@ -905,7 +907,7 @@
                   WhatsApp.</p>
               </div>
               <div class="system-card-actions">
-                <a href="landing-pages/lp-10-bio.html" target="_blank" rel="noopener noreferrer"
+                <a href="landing-pages/lp-10-bio.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="link-bio" data-category="landing-pages"
                   data-action="demo"><span>Ver modelo</span></a>
                 <button type="button" class="premium-btn" data-offer="link-bio" data-category="landing-pages"
@@ -930,7 +932,7 @@
                   moda.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-moda.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-moda.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-moda" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-moda" data-category="ecommerce"
@@ -952,7 +954,7 @@
                   cross-sell.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-eletronicos.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-eletronicos.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-eletronicos" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-eletronicos" data-category="ecommerce"
@@ -974,7 +976,7 @@
                   frequentes.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-supermercado.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-supermercado.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-supermercado" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-supermercado" data-category="ecommerce"
@@ -996,7 +998,7 @@
                   pré-login.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-atacado-b2b.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-atacado-b2b.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-b2b" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-b2b" data-category="ecommerce"
@@ -1017,7 +1019,7 @@
                 <p class="system-card-description">Checkout em poucos passos para cursos e ofertas digitais.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-infoproduto.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-infoproduto.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-infoproduto" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-infoproduto" data-category="ecommerce"
@@ -1039,7 +1041,7 @@
                   tier.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-assinaturas.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-assinaturas.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-assinaturas" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-assinaturas" data-category="ecommerce"
@@ -1061,7 +1063,7 @@
                   cliente.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-autopecas.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-autopecas.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-autopecas" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-autopecas" data-category="ecommerce"
@@ -1083,7 +1085,7 @@
                   avaliadas por escopo.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-farmacia.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-farmacia.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-farmacia" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-farmacia" data-category="ecommerce"
@@ -1104,7 +1106,7 @@
                 <p class="system-card-description">Galeria em alta resolução e jornada visual por cômodo.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-moveis.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-moveis.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-moveis" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-moveis" data-category="ecommerce"
@@ -1126,7 +1128,7 @@
                   linha.</p>
               </div>
               <div class="system-card-actions">
-                <a href="demos/ecommerce/demo-cosmeticos.html" target="_blank" rel="noopener noreferrer"
+                <a href="demos/ecommerce/demo-cosmeticos.html" rel="noopener noreferrer"
                   class="premium-btn primary !mt-0" data-offer="ecom-cosmeticos" data-category="ecommerce"
                   data-action="demo"><span>Ver demo</span></a>
                 <button type="button" class="premium-btn" data-offer="ecom-cosmeticos" data-category="ecommerce"
@@ -1645,7 +1647,7 @@
         <div>
           <p class="text-xs italic text-gray-600 mb-1">"Tudo posso naquele que me fortalece."</p>
           <p class="text-xs text-gray-600">
-            &copy; 2026 Plena Informática. CNPJ: 14.549.923/0001-35. Todos os direitos reservados.
+            &copy; 2026 Plena Informática. CNPJ: 59.779.242/0001-78. Todos os direitos reservados.
           </p>
         </div>
         <div class="flex gap-6 text-xs text-gray-600">

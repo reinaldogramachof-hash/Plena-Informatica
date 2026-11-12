@@ -1,0 +1,21 @@
+/* Retorno no fluxo do rodapé, sem sobrepor a demonstração. */
+.plena-model-return { display: flex; justify-content: center; padding: 16px 20px; background: #fffdf8; border-top: 1px solid #c7d2cb; }
+.plena-model-return a { display: inline-flex; align-items: center; min-height: 44px; color: #183d32; font: 600 14px/1.5 Arial, sans-serif; text-decoration: underline; text-underline-offset: 4px; }
+.plena-model-return a:focus-visible { outline: 3px solid #d9560f; outline-offset: 4px; }
+.plena-model-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0; }
+.plena-model-filters a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid #aebdb3;
+  border-radius: 999px;
+  color: #183d32;
+  background: #fffdf8;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.plena-model-filters a:hover { background: #e8eee8; }
+.plena-model-filters a:focus-visible { outline: 3px solid #d9560f; outline-offset: 3px; }
+@media print { .plena-model-return { display: none; } }

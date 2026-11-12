@@ -132,7 +132,7 @@ document.querySelectorAll('button[data-action="whatsapp"][data-offer]').forEach(
 
 // Abas do catálogo
 
-function activateTab(btn) {
+function activateTab(btn, updateHash = true) {
   // Desativa todas as abas
   document.querySelectorAll('.tab-btn[role="tab"]').forEach(b => {
     b.classList.remove('active');
@@ -158,6 +158,10 @@ function activateTab(btn) {
 
   showNicheRow(btn.dataset.target);
   trackIntent('tab', btn.dataset.offer || btn.dataset.target, btn.dataset.category || 'tabs');
+  if (updateHash) {
+    const hash = Object.keys(DEEP_LINK_TABS).find(key => DEEP_LINK_TABS[key] === btn.dataset.target);
+    if (hash) window.history.replaceState(null, '', hash);
+  }
 }
 
 function activateTabByTarget(targetId) {
@@ -168,18 +172,25 @@ function activateTabByTarget(targetId) {
 // Deep links do catálogo: abre a aba certa e rola até o catálogo.
 // Usado pelos modelos premium, pelos 301 das páginas de portal aposentadas e por links de divulgação.
 const DEEP_LINK_TABS = {
+  '#sistemas': 'tab-gestão',
   '#sites-premium': 'tab-premium',
   '#landing-pages': 'tab-landing',
   '#ecommerce': 'tab-ecom',
   '#automacoes': 'tab-automacao',
   '#projetos-consulta': 'tab-sites',
+  '#segmentos': 'tab-gestão',
 };
 
-const deepLinkTab = DEEP_LINK_TABS[window.location.hash];
-if (deepLinkTab) {
-  activateTabByTarget(deepLinkTab);
-  document.getElementById('soluções')?.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+function syncCatalogHash() {
+  const target = DEEP_LINK_TABS[window.location.hash];
+  const btn = target && document.querySelector(`.tab-btn[data-target="${target}"]`);
+  if (!btn) return;
+  activateTab(btn, false);
+  document.getElementById('segmentos')?.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+  btn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'auto' });
 }
+syncCatalogHash();
+window.addEventListener('hashchange', syncCatalogHash);
 
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => activateTab(btn));

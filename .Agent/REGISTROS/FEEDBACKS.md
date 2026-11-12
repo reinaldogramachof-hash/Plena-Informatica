@@ -46,3 +46,11 @@
 - Orientação: construir a linguagem visual em torno do cenário do profissional que vai comprar, com ambiente harmonioso e apresentação dos módulos reais do sistema.
 - Ação adotada: fotografia na abertura, paleta marfim/verde, títulos serifados e blocos editoriais com capturas fictícias da agenda, acompanhamento e financeiro.
 - Áreas afetadas: landing do Gestão Terapia; futuras adaptações por segmento exigem avaliação própria.
+
+## 2026-11-12 — Evitar retorno flutuante sobre o conteúdo
+
+- Origem: responsável pelo projeto.
+- Contexto: revisão dos caminhos entre home, Tecnologia e modelos.
+- Orientação: retirar o novo botão de voltar à origem, para não atrapalhar a navegação; manter retornos corretos e remover portais intermediários antigos.
+- Ação adotada: retorno pelos links nativos ou rodapé, sem botão flutuante; portal premium aposentado com encaminhamento ao catálogo.
+- Áreas afetadas: navegação institucional, páginas de sistemas e modelos de Tecnologia.

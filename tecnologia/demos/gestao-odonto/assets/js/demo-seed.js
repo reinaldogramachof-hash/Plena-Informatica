@@ -9,7 +9,7 @@ window.ODONTO_DEMO_SEED = {
         clinicPhone: '(12) 99219-1018',
         clinicEmail: 'contato@odontoplena.com.br',
         clinicAddress: 'Av. Cassiano Ricardo, 601 - Aquarius, São José dos Campos - SP',
-        clinicCNPJ: '14.549.923/0001-35',
+        clinicCNPJ: '59.779.242/0001-78',
         appointmentDuration: 30,
         reminderHours: 24,
         openingHour: '08:00',

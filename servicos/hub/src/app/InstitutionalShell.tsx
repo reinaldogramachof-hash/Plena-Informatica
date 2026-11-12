@@ -11,12 +11,12 @@ type InstitutionalShellProps = {
 export function InstitutionalShell({ children }: InstitutionalShellProps) {
   return (
     <div className="institutional-page">
-      <header aria-label="NavegaÃ§Ã£o Plena" className="institutional-header">
+      <header aria-label="Navegação Plena" className="institutional-header">
         <a className="institutional-brand" href="../../index.html">
-          <img alt="Plena InformÃ¡tica" src={plenaLogo} />
+          <img alt="Plena Informática" src={plenaLogo} />
         </a>
-        <nav aria-label="NavegaÃ§Ã£o principal">
-          <a href="../../index.html">InÃ­cio</a>
+        <nav aria-label="Navegação principal">
+          <a href="../../index.html">Início</a>
           <a href={`${servicesPage}#ferramentas`}>Ferramentas</a>
           <a href={`${servicesPage}#como-funciona`}>Como funciona</a>
           <a href={`${servicesPage}#atendimento`}>Atendimento</a>
@@ -36,14 +36,14 @@ export function InstitutionalShell({ children }: InstitutionalShellProps) {
       <footer className="institutional-footer">
         <div>
           <strong>
-            PLENA <span>SERVIÃ‡OS</span>
+            PLENA <span>SERVIÇOS</span>
           </strong>
           <p>
-            Agilidade, seguranÃ§a e excelÃªncia em SÃ£o JosÃ© dos Campos.
+            Agilidade, segurança e excelência em São José dos Campos.
           </p>
         </div>
         <small>
-          &copy; 2026 Plena InformÃ¡tica. Todos os direitos reservados.
+          &copy; 2026 Plena Informática. Todos os direitos reservados.
         </small>
       </footer>
     </div>

@@ -13,7 +13,12 @@ RewriteRule ^tecnologia\.html$ https://plenainformatica.com.br/tecnologia/tecnol
 # Página de Serviços retirada da navegação em 2026-11-10. Os arquivos foram mantidos
 # em servicos/ para reverter com facilidade; o Hub de ferramentas segue ativo por URL direta.
 RedirectMatch 301 ^/servicos/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html
+RedirectMatch 301 ^/servicos\.html$ https://plenainformatica.com.br/tecnologia/tecnologia.html
 RedirectMatch 301 ^/servicos/servicos\.html$ https://plenainformatica.com.br/tecnologia/tecnologia.html
+# Hub e áreas antigas fora do pacote público por orientação de 12/11/2026.
+RedirectMatch 301 ^/servicos/(?:hub-app|ferramentas)(?:/.*)?$ https://plenainformatica.com.br/tecnologia/tecnologia.html
+RedirectMatch 301 ^/personalizados(?:/.*)?$ https://plenainformatica.com.br/tecnologia/tecnologia.html
+RedirectMatch 301 ^/Sistemas_Gest(?:ao|ão)(?:/.*)?$ https://plenainformatica.com.br/tecnologia/tecnologia.html
 RedirectMatch 301 ^/tecnologia/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html
 RedirectMatch 301 ^/produtos/assistencia-pro/?$ https://plenainformatica.com.br/produtos/assistencia-pro.html
 RedirectMatch 301 ^/produtos/barbearia-premium/?$ https://plenainformatica.com.br/produtos/barbearia-premium.html
@@ -34,7 +39,8 @@ RedirectMatch 301 ^/blog(/.*)?$ https://plenainformatica.com.br/
 
 # Páginas de portal aposentadas em 2026-11-10: o catálogo abre direto no modelo.
 # Os modelos individuais (lp-*.html, demos/*) continuam ativos.
-# Novas páginas comerciais: os aliases antigos conduzem à oferta, mantendo os modelos individuais.
-RedirectMatch 301 ^/tecnologia/landing-pages(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/sites-premium/
-RedirectMatch 301 ^/tecnologia/ecommerce(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/ecommerce.html
+# Portais intermediários aposentados: abrir a categoria diretamente, preservando os modelos individuais.
+RedirectMatch 301 ^/tecnologia/sites-premium(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#sites-premium
+RedirectMatch 301 ^/tecnologia/landing-pages(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#landing-pages
+RedirectMatch 301 ^/tecnologia/ecommerce(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#ecommerce
 RedirectMatch 301 ^/tecnologia/projetos-sob-consulta(?:/index\.html)?/?$ https://plenainformatica.com.br/tecnologia/tecnologia.html#projetos-consulta
