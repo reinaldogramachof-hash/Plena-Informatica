@@ -32,3 +32,17 @@
 - Novo staging isolado em `deploy_staging/2026-11-12-public/`; o staging anterior não será compactado.
 - `.htaccess` encaminha acessos antigos do Hub/ferramentas e demais áreas retiradas para Tecnologia.
 - Seleção final: 632 arquivos públicos, 96.511.573 bytes antes da compactação e zero referências locais ausentes. 45 testes do site e auditoria comercial repetidos com sucesso.
+
+## Entrega final
+
+- Código commitado em `52ccbe978fce0799868f33710a8447d3e7032d06` (`Organiza navegação e prepara deploy público sem Hub`) e enviado para `origin/main`. `git ls-remote` confirmou o mesmo hash no remoto antes da compactação.
+- Após o push, gerado `deploy/plena-site-completo-2026-11-12.zip`: 632 arquivos, 77.193.878 bytes compactados. `index.html` e `.htaccess` diretamente na raiz.
+- SHA-256: `1081b1b26664b89efe7a6a7d7f75cf7b57d290182d74f5b41b2a9df3c6e39e25`, também em `deploy/plena-site-completo-2026-11-12.sha256`.
+- Inventário: `deploy_staging/2026-11-12-public/manifest.json`, com hash de cada arquivo. Todas as entradas do ZIP reabertas e comparadas ao inventário com sucesso.
+- Inspeção independente confirmou ausência de Hub/`servicos/`, sistemas legados, `.env`, dependências, fontes TS/TSX, documentos, testes, mapas de fonte, backups ou ZIPs dentro do pacote.
+- Verificação de sintaxe: 410 JavaScript do staging preliminar aprovados (o pacote final é um subconjunto deles, sem Hub e sistemas legados).
+- Auditoria de acentuação do staging final: zero ocorrências de mojibake.
+- Instruções de instalação limpa, backup externo, preservação de `.well-known/`, verificação de aliases Apache e restauração em `docs/deploy/PUBLICACAO-COMPLETA-2026-11-12.md`.
+- O perfil `scratch_chrome_profile/` permanece local, não rastreado e excluído da entrega. ZIP e staging permanecem ignorados pelo Git.
+- Limites: validação visual automatizada limitada pela ferramenta de navegador; conferir responsividade e redirecionamentos Apache no roteiro final. Nenhum acesso de administração, upload, exclusão ou alteração na produção foi realizado.
+- Status: código enviado e pacote concluído; documentação final e checksum registrados em commit separado de rastreabilidade.
